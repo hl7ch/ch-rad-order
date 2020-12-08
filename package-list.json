@@ -1,8 +1,8 @@
 {
   "package-id": "ch.fhir.ig.ch-rad-order",
-  "title": "CH RAD Order (R4)",
+  "title": "CH RAD-Order (R4)",
   "canonical": "http://fhir.ch/ig/ch-rad-order",
-  "introduction": "Implementation Guide for CH RAD Order (R4)",
+  "introduction": "Implementation Guide for CH RAD-Order (R4)",
   "list": [
     {
       "version": "dev",

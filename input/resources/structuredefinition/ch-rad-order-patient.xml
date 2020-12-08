@@ -4,7 +4,7 @@
     <url value="http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-patient"/>
     <version value="0.1.0"/>
     <name value="ChRadOrderPatient"/>
-    <title value="CH RAD Order Patient Profile"/>
+    <title value="CH RAD-Order Patient Profile"/>
     <status value="draft"/>
     <date value="2020-12-03"/>
     <publisher value="eHealth Suisse"/>
@@ -15,7 +15,7 @@
             <value value="https://www.e-health-suisse.ch/startseite.html"/>
         </telecom>
     </contact>
-    <description value="Base definition for the Patient resource in the context of CH RAD Order."/>
+    <description value="Base definition for the Patient resource in the context of CH RAD-Order."/>
     <jurisdiction>
         <coding>
             <system value="urn:iso:std:iso:3166"/>
@@ -31,7 +31,7 @@
     <differential>
         <element id="Patient">
             <path value="Patient"/>
-            <short value="CH RAD Order Patient"/>
+            <short value="CH RAD-Order Patient"/>
         </element>
     </differential>
 </StructureDefinition>

@@ -5,13 +5,13 @@
   <text>
     <status value="additional"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
-      Implementation Guide for CH RAD Order (R4)
+      Implementation Guide for CH RAD-Order (R4)
     </div>
   </text>
   <url value="http://fhir.ch/ig/ch-rad-order/ImplementationGuide/ch.fhir.ig.ch-rad-order"/>
   <version value="0.1.0"/>
   <name value="CH_RAD_Order"/>
-  <title value="CH RAD Order (R4)"/>
+  <title value="CH RAD-Order (R4)"/>
   <status value="active"/>
   <experimental value="false"/>
   <date value="2020-12-03"/>
