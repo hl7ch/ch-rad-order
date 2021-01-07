@@ -1,0 +1,91 @@
+<Questionnaire xmlns="http://hl7.org/fhir">
+    <id value="RadiologyOrder" />
+    <meta>
+        <profile value="http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-questionnaire" />
+    </meta>
+    <extension url="http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-targetStructureMap">
+        <valueCanonical value="http://fhir.ch/ig/ch-orf/StructureMap/map-orf" />
+    </extension>
+    <url value="http://fhir.ch/ig/ch-rad-order/Questionnaire/RadiologyOrder"/>
+    <name value="ChRadOrderRadiologyOrder" />
+    <title value="RadiologyOrder" />
+    <status value="draft" />
+    <experimental value="true" />
+    <subjectType value="Patient" />
+    <date value="2021-01-05" />
+    <publisher value="eHealth Suisse"/>
+    
+    <item>
+        <linkId value="order" />
+        <text value="Auftrag" />
+        <type value="group" />
+        <item>
+            <linkId value="order.number" />
+            <text value="Auftrags-Nummer" />
+            <type value="string" />
+            <required value="true" />
+        </item>
+    </item>
+
+    <item>
+        <linkId value="patient" />
+        <definition value="http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-patient" />
+        <text value="Patient" />
+        <type value="group" />
+        <item>
+            <linkId value="patient.familyname" />
+            <!-- don't know how to go deeper (Patient name coud repeat and HumanName is a type should reference something like #Patient.name[use="offical"].family -->
+            <definition value="http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-patient#Patient.name" />
+            <code>
+                <system value="http://fhir.ch/ig/ch-orf/CodeSystem/minimaldataset" />
+                <code value="Patient.name.family" />
+            </code>
+            <text value="Name" />
+            <type value="string" />
+            <required value="true" />
+        </item>
+        <item>
+            <linkId value="patient.givenname" />
+            <definition value="http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-patient#Patient.name" />
+            <code>
+                <system value="http://fhir.ch/ig/ch-orf/CodeSystem/minimaldataset" />
+                <code value="Patient.name.given" />
+            </code>
+            <text value="Vorname" />
+            <type value="string" />
+            <required value="true" />
+        </item>
+        <item>
+            <linkId value="patient.birthdate" />
+            <text value="Geburtsdatum" />
+            <type value="date" />
+            <required value="true" />
+        </item>
+    </item>
+    
+    <item>
+        <linkId value="orderer" />
+        <text value="Auftraggeber" />
+        <type value="group" />
+        <item>
+            <linkId value="orderer.author" />
+            <text value="Verantwortlicher" />
+            <type value="group" />
+            <item>
+                <linkId value="orderer.author.organization" />
+                <text value="Organisation" />
+                <type value="string" />
+            </item>
+            <item>
+                <linkId value="orderer.author.familyname" />
+                <text value="Name" />
+                <type value="string" />
+            </item>
+            <item>
+                <linkId value="orderer.author.givenname" />
+                <text value="Vorname" />
+                <type value="string" />
+            </item>
+        </item>
+    </item>
+</Questionnaire>

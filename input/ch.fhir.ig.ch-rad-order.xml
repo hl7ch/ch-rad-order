@@ -14,7 +14,7 @@
   <title value="CH RAD-Order (R4)"/>
   <status value="active"/>
   <experimental value="false"/>
-  <date value="2020-12-03"/>
+  <date value="2021-01-05"/>
   <publisher value="eHealth Suisse"/>
   <contact>
     <name value="eHealth Suisse"/>
@@ -43,12 +43,54 @@
     <!-- References to examples -->
     <resource>
       <reference>
-        <reference value="Patient/FranzMuster"/>
+        <reference value="Bundle/RadiologyOrder"/>
       </reference>
-      <name value="Franz Muster"/>
-      <description value="Example for Patient"/>
-      <exampleCanonical value="http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-patient"/>
+      <name value="Bundle Radiology Order"/>
+      <description value="Example for Bundle"/>
     </resource>
+    <resource>
+      <reference>
+        <reference value="Composition/RadiologyOrder"/>
+      </reference>
+      <name value="Composition Radiology Order"/>
+      <description value="Example for Composition"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Questionnaire/RadiologyOrder"/>
+      </reference>
+      <name value="Questionnaire Radiology Order"/>
+      <description value="Example for Questionnaire"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="QuestionnaireResponse/RadiologyOrder"/>
+      </reference>
+      <name value="Questionnaire Response Radiology Order"/>
+      <description value="Example for Questionnaire Response"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="ServiceRequest/RadiologyOrder"/>
+      </reference>
+      <name value="Service Request Radiology Order"/>
+      <description value="Example for Service Request"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Practitioner/HansRoentgen"/>
+      </reference>
+      <name value="Hans Röntgen"/>
+      <description value="Example for Practitioner"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Patient/MartinaMuster"/>
+      </reference>
+      <name value="Martina Muster"/>
+      <description value="Example for Patient"/>
+    </resource>
+    
 
     <!-- References to structure definitions -->
     <resource>

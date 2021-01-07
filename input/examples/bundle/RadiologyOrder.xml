@@ -1,0 +1,304 @@
+<Bundle xmlns="http://hl7.org/fhir">
+    <id value="RadiologyOrder"/>
+    <meta>
+        <profile value="http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-document" />
+    </meta>
+    <identifier>
+        <system value="http://test.fhir.ch/id/uuid"/>
+        <value value="e5b0c58c-2eb2-4501-b1ee-7c29264c61ce"/>
+    </identifier>
+    <type value="document"/>
+    <timestamp value="2021-01-05T15:59:52+01:00"/>
+
+    <entry>
+        <fullUrl value="http://test.fhir.ch/r4/Composition/referral-min"/>
+        <resource>
+            <Composition xmlns="http://hl7.org/fhir">
+                <id value="RadiologyOrder"/>
+                <text>
+                    <status value="additional"/>
+                    <div xmlns="http://www.w3.org/1999/xhtml">
+                        Radiology Order
+                    </div>
+                </text>
+                <extension url="http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-visitnumber">
+                    <valueIdentifier>
+                        <value value="6789" />
+                    </valueIdentifier>
+                </extension>
+                <identifier>
+                    <system value="http://test.fhir.ch/id/uuid"/>
+                    <value value="c147e2bc-08d3-44f4-bd3e-0663609bfe3d"/>
+                </identifier>
+                <status value="final"/>
+                <type>
+                    <coding>
+                        <system value="urn:oid:2.16.756.5.30.1.127.3.4" />
+                        <code value="2161000195103"/>
+                        <display value="Imaging order (record articact)"/>
+                    </coding>
+                </type>
+                <category>
+                    <coding>
+                        <system value="http://snomed.info/sct" />
+                        <code value="721963009"/>
+                        <display value="Order (record artifact)"/>
+                    </coding>
+                </category>
+                <subject>
+                    <reference value="Patient/MartinaMuster"/>
+                </subject>
+                <date value="2021-01-05T15:59:52+01:00"/>
+                <author>
+                    <reference value="Practitioner/HansRoentgen"/>
+                </author>
+                <title value="Radiology Order"/>
+                <section>
+                    <title value="Radiology Order"/>
+                    <text>
+                        <status value="generated"/>
+                        <div xmlns="http://www.w3.org/1999/xhtml">
+                Radiology Order
+                        </div>
+                    </text>
+                    <entry>
+                        <reference value="Questionnaire/RadiologyOrder"/>
+                    </entry>
+                    <entry>
+                        <reference value="QuestionnaireResponse/RadiologyOrder"/>
+                    </entry>
+                    <entry>
+                        <reference value="ServiceRequest/RadiologyOrder"/>
+                    </entry>
+                </section>
+            </Composition>
+        </resource>
+    </entry>
+
+    <entry>
+        <fullUrl value="http://test.fhir.ch/r4/Patient/MartinaMuster"/>
+        <resource>
+            <Patient xmlns="http://hl7.org/fhir">
+                <id value="MartinaMuster"/>
+                <name>
+                    <family value="Muster"/>
+                    <given value="Martina"/>
+                </name>
+                <gender value="female"/>
+                <birthDate value="1995-01-27"/>
+            </Patient>
+        </resource>
+    </entry>
+
+    <entry>
+        <fullUrl value="http://test.fhir.ch/r4/Practitioner/HansRoentgen"/>
+        <resource>
+            <Practitioner xmlns="http://hl7.org/fhir">
+                <id value="HansRoentgen"/>
+                <name>
+                    <family value="Röntgen"/>
+                    <given value="Hans"/>
+                    <prefix value="Praxiszentrum Röntgenblick">
+                        <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier">
+                            <valueCode value="LS"/>
+                        </extension>
+                    </prefix>
+                </name>
+            </Practitioner>
+        </resource>
+    </entry>
+
+    <entry>
+        <fullUrl value="http://test.fhir.ch/r4/Questionnaire/RadiologyOrder"/>
+        <resource>
+            <Questionnaire xmlns="http://hl7.org/fhir">
+                <id value="RadiologyOrder" />
+                <meta>
+                    <profile value="http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-questionnaire" />
+                </meta>
+                <extension url="http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-targetStructureMap">
+                    <valueCanonical value="http://fhir.ch/ig/ch-orf/StructureMap/map-orf" />
+                </extension>
+                <url value="http://fhir.ch/ig/ch-rad-order/Questionnaire/RadiologyOrder"/>
+                <name value="ChRadOrderRadiologyOrder" />
+                <title value="RadiologyOrder" />
+                <status value="draft" />
+                <experimental value="true" />
+                <subjectType value="Patient" />
+                <date value="2021-01-05" />
+                <publisher value="eHealth Suisse"/>
+
+                <item>
+                    <linkId value="order" />
+                    <text value="Auftrag" />
+                    <type value="group" />
+                    <item>
+                        <linkId value="order.number" />
+                        <text value="Auftrags-Nummer" />
+                        <type value="string" />
+                        <required value="true" />
+                    </item>
+                </item>
+
+                <item>
+                    <linkId value="patient" />
+                    <definition value="http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-patient" />
+                    <text value="Patient" />
+                    <type value="group" />
+                    <item>
+                        <linkId value="patient.familyname" />
+                        <!-- don't know how to go deeper (Patient name coud repeat and HumanName is a type should reference something like #Patient.name[use="offical"].family -->
+                        <definition value="http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-patient#Patient.name" />
+                        <code>
+                            <system value="http://fhir.ch/ig/ch-orf/CodeSystem/minimaldataset" />
+                            <code value="Patient.name.family" />
+                        </code>
+                        <text value="Name" />
+                        <type value="string" />
+                        <required value="true" />
+                    </item>
+                    <item>
+                        <linkId value="patient.givenname" />
+                        <definition value="http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-patient#Patient.name" />
+                        <code>
+                            <system value="http://fhir.ch/ig/ch-orf/CodeSystem/minimaldataset" />
+                            <code value="Patient.name.given" />
+                        </code>
+                        <text value="Vorname" />
+                        <type value="string" />
+                        <required value="true" />
+                    </item>
+                    <item>
+                        <linkId value="patient.birthdate" />
+                        <text value="Geburtsdatum" />
+                        <type value="date" />
+                        <required value="true" />
+                    </item>
+                </item>
+
+                <item>
+                    <linkId value="orderer" />
+                    <text value="Auftraggeber" />
+                    <type value="group" />
+                    <item>
+                        <linkId value="orderer.author" />
+                        <text value="Verantwortlicher" />
+                        <type value="group" />
+                        <item>
+                            <linkId value="orderer.author.organization" />
+                            <text value="Organisation" />
+                            <type value="string" />
+                        </item>
+                        <item>
+                            <linkId value="orderer.author.familyname" />
+                            <text value="Name" />
+                            <type value="string" />
+                        </item>
+                        <item>
+                            <linkId value="orderer.author.givenname" />
+                            <text value="Vorname" />
+                            <type value="string" />
+                        </item>
+                    </item>
+                </item>
+            </Questionnaire>
+        </resource>
+    </entry>
+
+    <entry>
+        <fullUrl value="http://test.fhir.ch/r4/QuestionnaireResponse/RadiologyOrder"/>
+        <resource>
+            <QuestionnaireResponse xmlns="http://hl7.org/fhir">
+                <id value="RadiologyOrder"/>
+                <meta>
+                    <profile value="http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-questionnaireresponse"/>
+                </meta>
+                <questionnaire value="http://fhir.ch/ig/ch-rad-order/Questionnaire/RadiologyOrder"/>
+                <status value="completed"/>
+                <item>
+                    <linkId value="order"/>
+                    <text value="Auftrag"/>
+                    <item>
+                        <linkId value="order.number"/>
+                        <text value="Auftrags-Nummer"/>
+                        <answer>
+                            <valueString value="6789"/>
+                        </answer>
+                    </item>
+                </item>
+                <item>
+                    <linkId value="patient"/>
+                    <text value="Patient"/>
+                    <item>
+                        <linkId value="patient.familyname"/>
+                        <text value="Name"/>
+                        <answer>
+                            <valueString value="Muster"/>
+                        </answer>
+                    </item>
+                    <item>
+                        <linkId value="patient.givenname"/>
+                        <text value="Vorname"/>
+                        <answer>
+                            <valueString value="Martina"/>
+                        </answer>
+                    </item>
+                    <item>
+                        <linkId value="patient.birthdate"/>
+                        <text value="Geburtsdatum"/>
+                        <answer>
+                            <valueDate value="1960-10-26"/>
+                        </answer>
+                    </item>
+                </item>
+                <item>
+                    <linkId value="orderer"/>
+                    <text value="Auftraggeber"/>
+                    <item>
+                        <linkId value="orderer.author"/>
+                        <text value="Verantwortlicher"/>
+                        <item>
+                            <linkId value="orderer.author.organization"/>
+                            <text value="Organisation"/>
+                            <answer>
+                                <valueString value="Praxiszentrum Röntgenblick"/>
+                            </answer>
+                        </item>
+                        <item>
+                            <linkId value="orderer.author.familyname"/>
+                            <text value="Name"/>
+                            <answer>
+                                <valueString value="Röntgen"/>
+                            </answer>
+                        </item>
+                        <item>
+                            <linkId value="orderer.author.givenname"/>
+                            <text value="Vorname"/>
+                            <answer>
+                                <valueString value="Hans"/>
+                            </answer>
+                        </item>
+                    </item>
+                </item>
+            </QuestionnaireResponse>
+        </resource>
+    </entry>
+
+    <entry>
+        <fullUrl value="http://test.fhir.ch/r4/ServiceRequest/referral-min"/>
+        <resource>
+            <ServiceRequest xmlns="http://hl7.org/fhir">
+                <id value="RadiologyOrder"/>
+                <status value="active"/>
+                <intent value="original-order"/>
+                <subject>
+                    <reference value="Patient/MartinaMuster"/>
+                </subject>
+                <requester>
+                    <reference value="Practitioner/HansRoentgen"/>
+                </requester>
+            </ServiceRequest>
+        </resource>
+    </entry>
+
+</Bundle>
