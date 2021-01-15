@@ -6,6 +6,7 @@
     </meta>
     <questionnaire value="http://fhir.ch/ig/ch-rad-order/Questionnaire/RadiologyOrder"/>
     <status value="completed"/>
+    
     <item>
         <linkId value="order"/>
         <text value="Auftrag"/>
@@ -16,7 +17,15 @@
                 <valueString value="6789"/>
             </answer>
         </item>
+        <item>
+            <linkId value="order.datetime"/>
+            <text value="Auftrags-Zeitpunkt"/>
+            <answer>
+                <valueDateTime value="2021-01-05T15:59:52+01:00"/>
+            </answer>
+        </item>
     </item>
+
     <item>
         <linkId value="patient"/>
         <text value="Patient"/>
@@ -88,6 +97,7 @@
             </answer>
         </item>
     </item>
+
     <item>
         <linkId value="orderer"/>
         <text value="Auftraggeber"/>

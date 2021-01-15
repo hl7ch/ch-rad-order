@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <Questionnaire xmlns="http://hl7.org/fhir">
     <id value="RadiologyOrder" />
     <meta>
@@ -23,6 +24,12 @@
             <linkId value="order.number" />
             <text value="Auftrags-Nummer" />
             <type value="string" />
+            <required value="true" />
+        </item>
+        <item>
+            <linkId value="order.datetime" />
+            <text value="Auftrags-Zeitpunkt" />
+            <type value="dateTime" />
             <required value="true" />
         </item>
     </item>

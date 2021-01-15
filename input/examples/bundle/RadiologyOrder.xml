@@ -15,6 +15,9 @@
         <resource>
             <Composition xmlns="http://hl7.org/fhir">
                 <id value="RadiologyOrder"/>
+                <meta>
+                    <profile value="http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-composition"/>
+                </meta>
                 <text>
                     <status value="additional"/>
                     <div xmlns="http://www.w3.org/1999/xhtml">
@@ -154,6 +157,12 @@
                         <type value="string" />
                         <required value="true" />
                     </item>
+                    <item>
+                        <linkId value="order.datetime" />
+                        <text value="Auftrags-Zeitpunkt" />
+                        <type value="dateTime" />
+                        <required value="true" />
+                    </item>
                 </item>
 
                 <item>
@@ -185,9 +194,60 @@
                         <required value="true" />
                     </item>
                     <item>
+                        <linkId value="patient.phone" />
+                        <text value="Telefon" />
+                        <type value="string" />
+                        <required value="true" />
+                    </item>
+                    <item>
+                        <linkId value="patient.email" />
+                        <text value="E-Mail" />
+                        <type value="string" />
+                        <required value="true" />
+                    </item>
+                    <!--<item>
+                        <linkId value="patient.gender" />
+                        <text value="Geschlecht" />
+                        <type value="choice" />
+                        <required value="true" />
+                        <answerOption>
+                            <valueCoding>
+                                <system value="http://hl7.org/fhir/administrative-gender"/>
+                                <code value="female"/>
+                                <display value="Weiblich"/>
+                            </valueCoding>
+                            <initialSelected value="true"/>
+                        </answerOption>
+                        <answerOption>
+                            <valueCoding>
+                                <system value="http://hl7.org/fhir/administrative-gender"/>
+                                <code value="male"/>
+                                <display value="Männlich"/>
+                            </valueCoding>
+                        </answerOption>
+                    </item>-->
+                    <item>
                         <linkId value="patient.birthdate" />
                         <text value="Geburtsdatum" />
                         <type value="date" />
+                        <required value="true" />
+                    </item>
+                    <item>
+                        <linkId value="patient.street" />
+                        <text value="Strasse" />
+                        <type value="string" />
+                        <required value="true" />
+                    </item>
+                    <item>
+                        <linkId value="patient.postalcode" />
+                        <text value="PLZ" />
+                        <type value="string" />
+                        <required value="true" />
+                    </item>
+                    <item>
+                        <linkId value="patient.city" />
+                        <text value="Ort" />
+                        <type value="string" />
                         <required value="true" />
                     </item>
                 </item>
@@ -215,6 +275,11 @@
                             <text value="Vorname" />
                             <type value="string" />
                         </item>
+                        <item>
+                            <linkId value="orderer.author.email" />
+                            <text value="E-Mail" />
+                            <type value="string" />
+                        </item>
                     </item>
                 </item>
             </Questionnaire>
@@ -231,6 +296,7 @@
                 </meta>
                 <questionnaire value="http://fhir.ch/ig/ch-rad-order/Questionnaire/RadiologyOrder"/>
                 <status value="completed"/>
+
                 <item>
                     <linkId value="order"/>
                     <text value="Auftrag"/>
@@ -241,7 +307,15 @@
                             <valueString value="6789"/>
                         </answer>
                     </item>
+                    <item>
+                        <linkId value="order.datetime"/>
+                        <text value="Auftrags-Zeitpunkt"/>
+                        <answer>
+                            <valueDateTime value="2021-01-05T15:59:52+01:00"/>
+                        </answer>
+                    </item>
                 </item>
+
                 <item>
                     <linkId value="patient"/>
                     <text value="Patient"/>
@@ -260,13 +334,60 @@
                         </answer>
                     </item>
                     <item>
+                        <linkId value="patient.phone"/>
+                        <text value="Telefon"/>
+                        <answer>
+                            <valueString value="079 999 99 99"/>
+                        </answer>
+                    </item>
+                    <item>
+                        <linkId value="patient.email"/>
+                        <text value="E-Mail"/>
+                        <answer>
+                            <valueString value="martina.muster@example.com"/>
+                        </answer>
+                    </item>
+                    <!--<item>
+                        <linkId value="patient.gender"/>
+                        <text value="Geschlecht"/>
+                        <answer>
+                            <valueCoding>
+                                <system value="http://hl7.org/fhir/administrative-gender"/>
+                                <code value="female"/>
+                                <display value="Weiblich"/>
+                            </valueCoding>
+                        </answer>
+                    </item>-->
+                    <item>
                         <linkId value="patient.birthdate"/>
                         <text value="Geburtsdatum"/>
                         <answer>
                             <valueDate value="1960-10-26"/>
                         </answer>
                     </item>
+                    <item>
+                        <linkId value="patient.street"/>
+                        <text value="Strasse"/>
+                        <answer>
+                            <valueString value="Quartierweg 15a"/>
+                        </answer>
+                    </item>
+                    <item>
+                        <linkId value="patient.postalcode"/>
+                        <text value="PLZ"/>
+                        <answer>
+                            <valueString value="3000"/>
+                        </answer>
+                    </item>
+                    <item>
+                        <linkId value="patient.city"/>
+                        <text value="Ort"/>
+                        <answer>
+                            <valueString value="Bern"/>
+                        </answer>
+                    </item>
                 </item>
+
                 <item>
                     <linkId value="orderer"/>
                     <text value="Auftraggeber"/>
@@ -294,6 +415,13 @@
                                 <valueString value="Hans"/>
                             </answer>
                         </item>
+                        <item>
+                            <linkId value="orderer.author.email"/>
+                            <text value="E-Mail"/>
+                            <answer>
+                                <valueString value="roentgenblick@example.com"/>
+                            </answer>
+                        </item>
                     </item>
                 </item>
             </QuestionnaireResponse>
@@ -305,6 +433,9 @@
         <resource>
             <ServiceRequest xmlns="http://hl7.org/fhir">
                 <id value="RadiologyOrder"/>
+                <meta>
+                    <profile value="http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-servicerequest" />
+                </meta>
                 <status value="active"/>
                 <intent value="original-order"/>
                 <subject>
