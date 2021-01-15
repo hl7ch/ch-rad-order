@@ -14,7 +14,7 @@
     <subjectType value="Patient" />
     <date value="2021-01-05" />
     <publisher value="eHealth Suisse"/>
-    
+
     <item>
         <linkId value="order" />
         <text value="Auftrag" />
@@ -56,13 +56,64 @@
             <required value="true" />
         </item>
         <item>
+            <linkId value="patient.phone" />
+            <text value="Telefon" />
+            <type value="string" />
+            <required value="true" />
+        </item>
+        <item>
+            <linkId value="patient.email" />
+            <text value="E-Mail" />
+            <type value="string" />
+            <required value="true" />
+        </item>
+        <!--<item>
+            <linkId value="patient.gender" />
+            <text value="Geschlecht" />
+            <type value="choice" />
+            <required value="true" />
+            <answerOption>
+                <valueCoding>
+                    <system value="http://hl7.org/fhir/administrative-gender"/>
+                    <code value="female"/>
+                    <display value="Weiblich"/>
+                </valueCoding>
+                <initialSelected value="true"/>
+            </answerOption>
+            <answerOption>
+                <valueCoding>
+                    <system value="http://hl7.org/fhir/administrative-gender"/>
+                    <code value="male"/>
+                    <display value="Männlich"/>
+                </valueCoding>
+            </answerOption>
+        </item>-->
+        <item>
             <linkId value="patient.birthdate" />
             <text value="Geburtsdatum" />
             <type value="date" />
             <required value="true" />
         </item>
+        <item>
+            <linkId value="patient.street" />
+            <text value="Strasse" />
+            <type value="string" />
+            <required value="true" />
+        </item>
+        <item>
+            <linkId value="patient.postalcode" />
+            <text value="PLZ" />
+            <type value="string" />
+            <required value="true" />
+        </item>
+        <item>
+            <linkId value="patient.city" />
+            <text value="Ort" />
+            <type value="string" />
+            <required value="true" />
+        </item>
     </item>
-    
+
     <item>
         <linkId value="orderer" />
         <text value="Auftraggeber" />

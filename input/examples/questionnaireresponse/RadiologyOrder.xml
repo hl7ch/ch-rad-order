@@ -35,10 +35,56 @@
             </answer>
         </item>
         <item>
+            <linkId value="patient.phone"/>
+            <text value="Telefon"/>
+            <answer>
+                <valueString value="079 999 99 99"/>
+            </answer>
+        </item>
+        <item>
+            <linkId value="patient.email"/>
+            <text value="E-Mail"/>
+            <answer>
+                <valueString value="martina.muster@example.com"/>
+            </answer>
+        </item>
+        <!--<item>
+            <linkId value="patient.gender"/>
+            <text value="Geschlecht"/>
+            <answer>
+                <valueCoding>
+                    <system value="http://hl7.org/fhir/administrative-gender"/>
+                    <code value="female"/>
+                    <display value="Weiblich"/>
+                </valueCoding>
+            </answer>
+        </item>-->
+        <item>
             <linkId value="patient.birthdate"/>
             <text value="Geburtsdatum"/>
             <answer>
                 <valueDate value="1960-10-26"/>
+            </answer>
+        </item>
+        <item>
+            <linkId value="patient.street"/>
+            <text value="Strasse"/>
+            <answer>
+                <valueString value="Quartierweg 15a"/>
+            </answer>
+        </item>
+        <item>
+            <linkId value="patient.postalcode"/>
+            <text value="PLZ"/>
+            <answer>
+                <valueString value="3000"/>
+            </answer>
+        </item>
+        <item>
+            <linkId value="patient.city"/>
+            <text value="Ort"/>
+            <answer>
+                <valueString value="Bern"/>
             </answer>
         </item>
     </item>

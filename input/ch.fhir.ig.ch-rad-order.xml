@@ -89,6 +89,7 @@
       </reference>
       <name value="Martina Muster"/>
       <description value="Example for Patient"/>
+      <exampleCanonical value="http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-patient"/>
     </resource>
     
 

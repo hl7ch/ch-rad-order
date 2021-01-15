@@ -2,12 +2,25 @@
 <Patient xmlns="http://hl7.org/fhir">
   <id value="MartinaMuster"/>
   <meta>
-    <profile value="http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-patient"/>
+    <profile value="http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-patient"/>
   </meta>
   <name>
     <family value="Muster"/>
     <given value="Martina"/>
   </name>
-  <gender value="female"/>
+  <telecom>
+    <system value="phone"/>
+    <value value="079 999 99 99"/>
+  </telecom>
+  <telecom>
+    <system value="email"/>
+    <value value="martina.muster@example.com"/>
+  </telecom>
+  <!--<gender value="female"/>-->
   <birthDate value="1995-01-27"/>
+  <address>
+    <line value="Quartierweg 15a"/>
+    <city value="Bern"/>
+    <postalCode value="3000"/>
+  </address>
 </Patient>
