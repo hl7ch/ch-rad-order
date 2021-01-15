@@ -13,4 +13,8 @@
             </extension>
         </prefix>
     </name>
+    <telecom>
+        <system value="email"/>
+        <value value="roentgenblick@example.com"/>
+    </telecom>
 </Practitioner> 

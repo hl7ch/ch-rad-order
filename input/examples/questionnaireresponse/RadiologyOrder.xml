@@ -115,6 +115,13 @@
                     <valueString value="Hans"/>
                 </answer>
             </item>
+            <item>
+                <linkId value="orderer.author.email"/>
+                <text value="E-Mail"/>
+                <answer>
+                    <valueString value="roentgenblick@example.com"/>
+                </answer>
+            </item>
         </item>
     </item>
 </QuestionnaireResponse>

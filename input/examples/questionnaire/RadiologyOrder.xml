@@ -137,6 +137,11 @@
                 <text value="Vorname" />
                 <type value="string" />
             </item>
+            <item>
+                <linkId value="orderer.author.email" />
+                <text value="E-Mail" />
+                <type value="string" />
+            </item>
         </item>
     </item>
 </Questionnaire>
