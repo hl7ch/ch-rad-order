@@ -1,5 +1,5 @@
 Instance: MartinaMuster
-InstanceOf: ChRadOrderPatient
+InstanceOf: ChCorePatient
 Title: "Martina Muster"
 Description: "Example for CH RAD-Order Patient"
 * name.family = "Muster"
@@ -8,7 +8,7 @@ Description: "Example for CH RAD-Order Patient"
 * telecom[0].value = "079 999 99 99"
 * telecom[1].system = #email
 * telecom[1].value = "martina.muster@example.com"
-// * gender = #female 
+* gender = #female 
 * birthDate = "1995-01-27"
 * address.line = "Quartierweg 15a"
 * address.city = "Bern"
