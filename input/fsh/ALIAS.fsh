@@ -4,5 +4,8 @@ Alias:   SCT = http://snomed.info/sct
 Alias:   UCUM = http://unitsofmeasure.org
 
 
-// CH Core SC
+// CH Core SD
 Alias:   ChCorePatient = http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-patient
+
+// CH ORF SD
+Alias:   ChOrfServiceRequest = http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-servicerequest
