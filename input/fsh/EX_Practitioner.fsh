@@ -1,7 +1,7 @@
 Instance: HansRoentgen
 InstanceOf: ChCorePractitioner
-Title: "HansRoentgen"
-Description: "Example for CH RAD-Order Practitioner"
+Title: "Hans Roentgen"
+Description: "Example for Practitioner"
 * name.family = "Röntgen"
 * name.given = "Hans"
 * name.prefix = "Praxiszentrum Röntgenblick"

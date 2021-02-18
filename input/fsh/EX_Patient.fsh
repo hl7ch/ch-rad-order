@@ -1,7 +1,7 @@
 Instance: MartinaMuster
 InstanceOf: ChCorePatient
 Title: "Martina Muster"
-Description: "Example for CH RAD-Order Patient"
+Description: "Example for Patient"
 * name.family = "Muster"
 * name.given = "Martina"
 * telecom[0].system = #phone
