@@ -6,4 +6,4 @@ Description: "Example for ServiceRequest"
 * intent = #original-order
 * subject = Reference(ErikaMusterfrau)
 * requester = Reference(SabineMeierPraxisSeeblick)
-* performer = Reference(HansRoentgenKantonsspital)
+// * performer = Reference(HansRoentgenKantonsspital)

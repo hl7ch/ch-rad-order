@@ -11,7 +11,7 @@ Description: "Example for Composition"
 * category = SCT#721963009 "Order (record artifact)"
 * subject = Reference(ErikaMusterfrau)
 * date = "2021-01-05T15:59:52+01:00"
-* author = Reference(HansRoentgenKantonsspital)
+* author = Reference(SabineMeierPraxisSeeblick)
 * title = "Radiology Order"
 * section.title = "Radiology Order"
 * section.text.status = #additional

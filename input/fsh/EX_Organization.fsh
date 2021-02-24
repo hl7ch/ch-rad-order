@@ -3,12 +3,14 @@ InstanceOf: ChCoreOrganization
 Title: "Praxis Seeblick"
 Description: "Example for Organization"
 * name = "Praxis Seeblick"
+/*
 * address.use = #work
 * address.line[0] = "Seestrasse 133"
 * address.line[1] = "Haus C"
 * address.city = "Zürich"
 * address.postalCode = "8000"
-* address.country = "Schweiz"
+* address.country = "Schweiz" 
+*/
 
 
 Instance: Kantonsspital
