@@ -1,8 +1,8 @@
-Instance: RadiologyOrder
+Instance: QuestionnaireRadiologyOrder
 InstanceOf: ChOrfQuestionnaire
 Title: "Questionniaire Radiology Order"
 Description: "Example for Questionnaire"
-* url = "http://fhir.ch/ig/ch-rad-order/Questionnaire/RadiologyOrder"
+* url = "http://fhir.ch/ig/ch-rad-order/Questionnaire/QuestionnaireRadiologyOrder"
 * subjectType = #Patient
 * status = #active
 * item[0].linkId = "order"

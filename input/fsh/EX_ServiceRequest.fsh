@@ -1,7 +1,7 @@
-Instance: RadiologyOrder
+Instance: ServiceRequestRadiologyOrder
 InstanceOf: ChRadOrderServiceRequest
-Title: "Radiology Order"
-Description: "Example for CH RAD-Order ServiceRequest"
+Title: "ServiceRequest Radiology Order"
+Description: "Example for ServiceRequest"
 * status = #active
 * intent = #original-order
 * subject = Reference(MartinaMuster)
