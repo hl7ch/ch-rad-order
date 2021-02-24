@@ -1,6 +1,6 @@
 ValueSet: ChRadOrderVSExample
-Id: chradorder-vs-example
-Title: "CH RAD-Order ValueSet Example"
-Description: "CH RAD-Order ValueSet Example"
+Id: ch-rad-order-vs-example
+Title: "CH RAD-Order Example"
+Description: "ValueSet CH RAD-Order Example"
 * ChRadOrderCSExample#bsp "Beispiel"
 

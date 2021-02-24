@@ -1,6 +1,6 @@
 Instance: CompositionRadiologyOrder
 InstanceOf: ChOrfComposition
-Title: "Radiology Order"
+Title: "Composition Radiology Order"
 Description: "Example for Composition"
 * text.status = #additional
 * text.div = "<div xmlns='http://www.w3.org/1999/xhtml'><div>Radiology Order</div></div>"
