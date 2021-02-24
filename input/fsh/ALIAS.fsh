@@ -17,4 +17,5 @@ Alias:   ChOrfServiceRequest = http://fhir.ch/ig/ch-orf/StructureDefinition/ch-o
 Alias:   ChOrfQuestionnaire = http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-questionnaire
 Alias:   ChOrfQuestionnaireResponse = http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-questionnaireresponse
 Alias:   ChOrfComposition = http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-composition
+Alias:   ChOrfDocument = http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-document
 
