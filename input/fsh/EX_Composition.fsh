@@ -9,7 +9,7 @@ Description: "Example for Composition"
 * status = #final
 * type = SNOMEDCTSwissExtension#2161000195103 "Imaging order (record articact)"
 * category = SCT#721963009 "Order (record artifact)"
-* subject = Reference(MartinaMuster)
+* subject = Reference(ErikaMusterfrau)
 * date = "2021-01-05T15:59:52+01:00"
 * author = Reference(HansRoentgenKantonsspital)
 * title = "Radiology Order"
