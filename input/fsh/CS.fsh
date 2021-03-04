@@ -1,5 +1,5 @@
 CodeSystem: ChRadOrderCSExample
-Id: chradorder-cs-example
-Title: "CH RAD-Order CodeSystem Example"
-Description: "CH RAD-Order CodeSystem Example"
+Id: ch-rad-order-cs-example
+Title: "CH RAD-Order Example"
+Description: "CodeSystem CH RAD-Order Example"
 * #bsp "Beispiel"
