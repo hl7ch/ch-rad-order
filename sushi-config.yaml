@@ -13,12 +13,12 @@ fhirVersion: 4.0.1
 copyrightYear: 2021+
 releaseLabel: ci-build
 publisher:
-  name: eHealth Suisse
+  name: HL7 Switzerland
 contact:
-  name: eHealth Suisse
+  name: Juerg Bleuer
   telecom:
     system: url
-    value: https://www.e-health-suisse.ch/startseite.html
+    value: https://www.hl7.ch.html
 dependencies:
   ch.fhir.ig.ch-orf: current
   ch.fhir.ig.ch-core: current
