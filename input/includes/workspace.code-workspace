@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "../.."
+		},
+		{
+			"path": "../../../ch-etoc"
+		}
+	],
+	"settings": {
+		"githubPullRequests.remotes": []
+	}
+}
