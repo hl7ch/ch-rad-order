@@ -21,3 +21,4 @@ Alias:   ChOrfQuestionnaireResponse = http://fhir.ch/ig/ch-orf/StructureDefiniti
 Alias:   ChOrfDocument = http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-document
 
 Alias:   ChCoreOrganization = http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-organization
+Alias:   Appointmentres =  https://www.hl7.org/fhir/appointment.html
