@@ -19,8 +19,8 @@ Consequently one CH RAD-Order Document contains one CH RAD-Order ServiceRequest 
 equal one Filler Order equal one Imaging Service Request."
 
 * status and intent and doNotPerform and code and orderDetail MS
-* subject and occurrence[x] and authoredOn and requester and performer and locationCode and locationReference and insurance MS
-* replaces and priority and supportingInfo and bodySite and note and patientInstruction MS
+* subject and authoredOn and requester and performer and insurance MS
+* replaces and priority and supportingInfo and bodySite and note MS
 
 // * requisition MS
 // * requisition^short = ""
