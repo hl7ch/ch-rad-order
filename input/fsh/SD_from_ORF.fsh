@@ -57,8 +57,7 @@ An Order Filler accepts from an Order Placer a single Order that it equates to a
 Consequently one CH RAD-Order Document contains one CH RAD-Order ServiceRequest which depicts one Placer Order 
 equal one Filler Order equal one Imaging Service Request."
 
-// * entry[ChOrfServiceRequest]  only ChRadOrderServiceRequest
-
+* entry[ChOrfServiceRequest].resource only ChRadOrderServiceRequest
 
 Profile: ChRadOrderComposition
 Parent: ChOrfComposition
