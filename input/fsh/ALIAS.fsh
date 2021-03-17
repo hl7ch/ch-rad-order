@@ -1,5 +1,10 @@
 // External Code Systems
 Alias:   LNC = http://loinc.org
+
+//Alias:   PLAYBOOK_CORE = https://fhir.loinc.org/ValueSet/$expand?url=http://loinc.org/vs/loinc-rsna-radiology-playbook-core
+//Alias:   PLAYBOOK_Full = https://fhir.loinc.org/ValueSet/$expand?url=http://loinc.org/vs/loinc-rsna-radiology-playbook
+Alias:   RDLX = http://radlex.org/RID/RID1
+
 Alias:   SCT = http://snomed.info/sct
 Alias:   UCUM = http://unitsofmeasure.org
 
@@ -22,3 +27,5 @@ Alias:   ChOrfDocument = http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-doc
 
 Alias:   ChCoreOrganization = http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-organization
 Alias:   Appointmentres =  https://www.hl7.org/fhir/appointment.html
+Alias:   ChCoreLocation = http://hl7.org/fhir/ch-core/StructureDefinition/ch-core-location
+Alias:   Condition-Uv-Ips = http://hl7.org/fhir/uv/ips/StructureDefinition/Condition-uv-ips

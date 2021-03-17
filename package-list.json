@@ -7,9 +7,9 @@
     {
       "version": "current",
       "desc": "Continuous Integration Build (latest in version control)",
-      "path": "http://build.fhir.org/ig/ehealthsuisse/ch-rad-order",
+      "path": "http://build.fhir.org/ig/hl7ch/ch-rad-order",
       "status": "ci-build",
-      "current" : true
+      "current": true
     },
     {
       "version": "0.1.0",
@@ -17,7 +17,7 @@
       "desc": "DSTU 1",
       "path": "http://fhir.ch/ig/ch-rad-order/0.1.0",
       "status": "trial-use",
-      "sequence" : "DSTU 1",
+      "sequence": "DSTU 1",
       "fhirversion": "4.0.1"
     }
   ]
