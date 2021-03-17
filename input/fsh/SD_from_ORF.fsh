@@ -167,6 +167,7 @@ Consequently one CH RAD-Order Document contains one CH RAD-Order ServiceRequest 
 equal one Filler Order equal one Imaging Service Request."
 
 * entry[ChOrfServiceRequest].resource only ChRadOrderServiceRequest
+<<<<<<< HEAD
 * entry contains ChOrfAppointment 0..*
 * entry contains ChOrfImagingStudy 0..*
 * entry contains ChOrfCoverage 0..*
@@ -203,6 +204,8 @@ Rad.View.View Type
 
 
 
+=======
+>>>>>>> 4bb47fd29c38a082ddaf83a81a19ab866d159741
 
 Profile: ChRadOrderComposition
 Parent: ChOrfComposition
