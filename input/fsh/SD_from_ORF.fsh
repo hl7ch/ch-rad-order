@@ -24,7 +24,7 @@ equal one Filler Order equal one Imaging Service Request."
 * subject and authoredOn and requester and performer MS
 * replaces and priority and bodySite and  reasonCode and  locationReference and reasonReference and insurance and patientInstruction and note MS
 
-* code.coding from VsRadOrderModalityType
+//q* code.coding from VsRadOrderModalityType
 //* .code.text   = VsRadOrderModalityType.expansion.contanins.display
 
 
