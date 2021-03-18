@@ -24,9 +24,23 @@ equal one Filler Order equal one Imaging Service Request."
 * subject and authoredOn and requester and performer MS
 * replaces and priority and bodySite and  reasonCode and  locationReference and reasonReference and insurance and patientInstruction and note MS
 
-//q* code.coding from VsRadOrderModalityType
-//* .code.text   = VsRadOrderModalityType.expansion.contanins.display
 
+
+* code.coding ^slicing.discriminator.type = #pattern
+* code.coding ^slicing.discriminator.path = "code.coding.system"
+* code.coding ^slicing.rules = #open
+* code.coding ^slicing.ordered = true 
+* code.coding ^slicing.description = "Slice based on the component.code pattern"
+
+//* code from LNCPLAYBFULL
+//    RdlxModalityType 0..1
+
+// * code.coding from VsRadOrderModalityType 
+
+// * code.coding from LNCPLAYBFULL
+// * code.text  from VsRadOrderModalityType or LNCPLAYBFULL
+* code ^definition = "Use RSNA/LOINC Playbook (Full Version support) OR Codes from VsRadOrderModalityType but NOT both. In case of VsRadOrderModalityType
+specify Imaging Request Details by means of orderDetail."
 
 * orderDetail ^slicing.discriminator.type = #pattern
 * orderDetail ^slicing.discriminator.path = "code"
@@ -35,9 +49,10 @@ equal one Filler Order equal one Imaging Service Request."
 * orderDetail ^slicing.description = "Slice based on the component.code pattern"
 
 * orderDetail contains 
-    RadOrderImagingRegion 1..1 and 
+//    RadOrderModalityType 0..1 and
+    RadOrderImagingRegion 0..* and 
     RadOrderImagingFocus 0..* and   
-    RadOrderLaterality 1..1 and
+    RadOrderLaterality 0..1 and
     RadOrderViewType 0..*  and
     RadOrderManeuverType 0..* and
     RadOrderGuidanceForAction 0..* 
@@ -46,6 +61,8 @@ equal one Filler Order equal one Imaging Service Request."
 
 
 * locationReference = Reference(ChCoreLocation)
+
+
 
 * reasonReference ^slicing.discriminator.type = #pattern
 * reasonReference ^slicing.discriminator.path = "code"
@@ -56,7 +73,7 @@ equal one Filler Order equal one Imaging Service Request."
 * reasonReference contains
     adOrderReasonForExam 0..*
 
-// * reasonReference[diagnosticQuestion] = Reference(ConditionUvIps)
+
 
 * insurance ^slicing.discriminator.type = #pattern
 * insurance ^slicing.discriminator.path = "code"
@@ -73,20 +90,25 @@ equal one Filler Order equal one Imaging Service Request."
 * insurance = Reference(ChCoreCoverage)
 
 
+
+
 * supportingInfo ^slicing.discriminator.type = #pattern
 * supportingInfo ^slicing.discriminator.path = "code"
 * supportingInfo ^slicing.rules = #open
 * supportingInfo ^slicing.ordered = true 
 * supportingInfo ^slicing.description = "Slice based on the component.code pattern" 
 
- * supportingInfo contains
+* supportingInfo contains
     problemList 0..1 and 
     caveats 0..* and
     precedingImagingResults 0..* and
     patientConsent 0..1 
 
-* supportingInfo[problemList] = Reference(ConditionUvIps)
 
+* supportingInfo[caveats] only Reference(ChOrfCaveatCondition)
+
+
+/*
 * supportingInfo[caveats] ^slicing.discriminator.type = #pattern
 * supportingInfo[caveats] ^slicing.discriminator.path = "code"
 * supportingInfo[caveats] ^slicing.rules = #open
@@ -109,10 +131,13 @@ equal one Filler Order equal one Imaging Service Request."
     pregnancy 0..1 and
     additionalKnownIssues 0..*
 
+* supportingInfo[caveats] = Reference(Condition)
 
-* supportingInfo[caveats] = Reference(ChOrfObservation)
-* supportingInfo[precedingImagingResults] = Reference(ChOrfImagingStudy)
+* supportingInfo[caveats][claustrophobia].evidence.code = SCT#404858007
+*/
 /*
+* supportingInfo[precedingImagingResults] = Reference(ChOrfImagingStudy)
+
 * section[context].entry contains ChOrfCoverage 0..*
 * section[context].entry contains ChOrfAppointment 0..*
 
@@ -127,10 +152,11 @@ equal one Filler Order equal one Imaging Service Request."
 
 * section[clinicalContent].section contains
     reasonforReferral 1..1 and
-    natureofHealthProblem
+    natureofHealthProblem 1..1
+*/
 
 
-
+/*
 // * requisition MS
 // * requisition^short = ""
 // * requisition^definition = "A shared identifier common to all service requests that were authorized more or less simultaneously by a single author, 
@@ -145,7 +171,8 @@ Extension: RadAppointment
 Title: "Appointment"
 Id:  appointment
 Description: "Appoint"
-* value[x] only Reference(ChOrfAppointment) */
+* value[x] only Reference(ChOrfAppointment) 
+*/
 
 Profile: ChRadOrderQuestionnaireResponse
 Parent: ChOrfQuestionnaireResponse
@@ -167,7 +194,7 @@ Consequently one CH RAD-Order Document contains one CH RAD-Order ServiceRequest 
 equal one Filler Order equal one Imaging Service Request."
 
 * entry[ChOrfServiceRequest].resource only ChRadOrderServiceRequest
-<<<<<<< HEAD
+
 * entry contains ChOrfAppointment 0..*
 * entry contains ChOrfImagingStudy 0..*
 * entry contains ChOrfCoverage 0..*
@@ -193,19 +220,7 @@ Rad.Subject
 Rad.Timing
 Rad.View.Aggregation
 Rad.View.View Type
-
-
-
-
-
-
 */
-
-
-
-
-=======
->>>>>>> 4bb47fd29c38a082ddaf83a81a19ab866d159741
 
 Profile: ChRadOrderComposition
 Parent: ChOrfComposition

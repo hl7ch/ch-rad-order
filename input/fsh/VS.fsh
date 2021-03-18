@@ -1,13 +1,55 @@
+/*
 ValueSet: ChRadOrderVSExample
 Id: ch-rad-order-vs-example
 Title: "CH RAD-Order Example"
 Description: "ValueSet CH RAD-Order Example"
 * ChRadOrderCSExample#bsp "Beispiel"
+*/
+
+ValueSet: VsRadOrderCaveatCondition
+Id: ch-rad-vs-order-caveat-condition
+Title: "CH RAD-Order Caveat Condition"
+Description: "Definition for RAD-Order Reason for Exam Value Set in the context of RAD-Order."
+* ^expansion.contains.system = VsRadOrderCaveatCondition
+//* SCT#703398004  "Cardiac implant in situ (finding)"
+* SCT#64779008 "Blood coagulation disorder (disorder)"
+* SCT#723188008 "Renal insufficiency (disorder)"
+* SCT#19887002  "Claustrophobia (finding)"
+* SCT#879862001 "Body piercing (finding)"
+//* SCT#897711006  "Neurostimulator device in situ (finding)"
+* SCT#397578001  "Device in situ (finding)"
+* SCT#34486009  "Hyperthyroidism (disorder) "
+* SCT#73211009  "Diabetes mellitus (disorder)"
+* SCT#366321006  "Finding of gravida (finding) "
+* SCT#404684003  "Clinical finding (finding) "
+* SCT#293637006  "Allergy to contrast media (finding)"
+* SCT#182817000 "Drug prescription (situation)"
+
+* include codes from system SCT where concept is-a #397578001  "Device in situ (finding)"
+
+ValueSet: VsRadOrderCaveatSubstance
+Id: ch-rad-vs-order-caveat-substance
+Title: "CH RAD-Order Caveat Substance"
+Description: "Definition for RAD-Order Substance Value Set in the context of RAD-Order."
+* ^expansion.contains.system = VsRadOrderCaveatSubstance
+* SCT#372567009 "Metformin (substance)"
+
+ValueSet: VsRadOrderCaveatLabObservation
+Id: ch-rad-vs-order-caveat-lab-observation
+Title: "CH RAD-Order Lab Observation"
+Description: "Definition for RAD-Order Lab Observation Value Set in the context of RAD-Order."
+* ^expansion.contains.system = VsRadOrderCaveatLabObservation
+* LNC#77140-2 "Creatinine [Moles/volume] in Serum, Plasma or Blood"
+* LNC#33558-8 "Creatinine renal clearance in Urine and Serum or Plasma collected for unspecified duration"
+
+
+
 
 ValueSet: VsRadOrderReasonForExam
 Id: ch-rad-order-reason-for-exam
 Title: "CH RAD-Order Reason for Exam"
 Description: "Definition for RAD-Order Reason for Exam Value Set in the context of RAD-Order."
+* ^expansion.contains.system = CVsRadOrderReasonForExam
 * RDLX#RID28808 "CALCIUM SCORE"
 * RDLX#RID4843 "Fistula"
 * RDLX#RID35772 "PELVIMETRY"

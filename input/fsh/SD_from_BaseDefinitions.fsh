@@ -1,28 +1,36 @@
 //Temporary ORF Structure Defintions
-Profile: ChOrfDiagnosticQuestion
-Parent: Condition
-Id: ch-orf-diagnosticquestion
-Title: "CH ORF DiagnosticQuestion"
-Description: "Definition for the DiagnosticQuestion resource in the context of ORF."
-* . ^short = "CH ORF DiagnosticQuestion"
 
-Profile: ChOrfCaveat
+Profile: ChOrfCaveatCondition
 Parent: Condition
-Id: ch-orf-caveat
-Title: "CH ORF Caveat"
-Description: "Definition for the Caveat resource in the context of ORF."
-* . ^short = "CH ORF Caveat"
+Id: ch-orf-caveat-condition
+Title: "CH ORF Caveat Condition"
+Description: "Definition for the Caveat Condition resource in the context of ORF."
+* . ^short = "CH ORF Caveat Condition"
 
-Profile: ChOrfObservation
+
+* code 1..1 MS 
+* code from VsRadOrderCaveatCondition
+* category 1..1 MS
+* category.coding 1..1 MS
+* category.coding.code MS
+* category.coding = HL7VS#problem-list-item "Problem List Entry"
+* subject MS
+* subject only Reference(CHCorePatient)  
+* evidence.detail only Reference(ChOrfCaveatObservation)
+
+
+Profile: ChOrfCaveatObservation
 Parent: Observation
-Id: ch-orf-Observation
-Title: "CH ORF Caveat"
-Description: "Definition for the Observation resource in the context of CH ORF."
-* . ^short = "CH ORF Observation"
+Id: ch-orf-caveat-caveat-bservation
+Title: "CH ORF Lab Caveat Observation"
+Description: "Definition for the Lab Observation resource in the context of CH ORF Caveats."
+* . ^short = "CH ORF Caveat Observation"
 * effective[x] and value[x] and dataAbsentReason and interpretation and note MS
 * effective[x] only dateTime
 * value[x] only Quantity or boolean or Ratio
 
+// Medical report requested (finding)
+// SCTID: 310455000
 
 
 
