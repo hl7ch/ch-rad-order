@@ -1,5 +1,16 @@
 //Temporary ORF Structure Defintions
 
+
+// Probably better as CH Core??
+Profile: ChOrfConsent
+Parent: Consent
+//Id: ch-orf-caveat-condition
+Title: "CH ORF Consent"
+Description: "Definition for the Consent resource in the context of ORF."
+* . ^short = "CH ORF Consent"
+* scope MS
+* scope from ConsScopeVS (required)
+
 Profile: ChOrfCaveatCondition
 Parent: Condition
 Id: ch-orf-caveat-condition
@@ -19,6 +30,26 @@ Description: "Definition for the Caveat Condition resource in the context of ORF
 * evidence.detail only Reference(ChOrfCaveatObservation)
 
 
+Profile: ChOrfDiagnoseList
+Parent: Condition
+Id: ch-orf-diagnose-list
+Title: "CH ORF Diagnose List"
+Description: "Definition for the Diagnose List resource in the context of ORF."
+* . ^short = "CH ORF Diagnose List"
+
+
+* code 1..1 MS 
+* code from VsRadOrderCaveatCondition
+* category 1..1 MS
+* category.coding 1..1 MS
+* category.coding.code MS
+* category.coding = HL7VS#problem-list-item "Problem List Entry"
+* subject MS
+* subject only Reference(CHCorePatient)  
+* evidence.detail only Reference(ChOrfCaveatObservation)
+
+
+
 Profile: ChOrfCaveatObservation
 Parent: Observation
 Id: ch-orf-caveat-caveat-bservation
@@ -28,11 +59,6 @@ Description: "Definition for the Lab Observation resource in the context of CH O
 * effective[x] and value[x] and dataAbsentReason and interpretation and note MS
 * effective[x] only dateTime
 * value[x] only Quantity or boolean or Ratio
-
-// Medical report requested (finding)
-// SCTID: 310455000
-
-
 
 /*
 Profile: ChROrfCoverage

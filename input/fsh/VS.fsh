@@ -1,10 +1,12 @@
-/*
-ValueSet: ChRadOrderVSExample
-Id: ch-rad-order-vs-example
-Title: "CH RAD-Order Example"
-Description: "ValueSet CH RAD-Order Example"
-* ChRadOrderCSExample#bsp "Beispiel"
-*/
+
+ValueSet: ChRadOrderDocumentCategory
+// Id: ch-rad-order-vs-example
+Title: "CH RAD-Order Document Categroy VS"
+Description: "Definition for RAD-Order Document Category Value Set in the context of RAD-Order."
+* SCT#721963009 "Order (record artifact)"
+* SCT#310455000 "Medical report requested (finding)"
+
+
 
 ValueSet: VsRadOrderCaveatCondition
 Id: ch-rad-vs-order-caveat-condition
@@ -12,7 +14,7 @@ Title: "CH RAD-Order Caveat Condition"
 Description: "Definition for RAD-Order Reason for Exam Value Set in the context of RAD-Order."
 * ^expansion.contains.system = VsRadOrderCaveatCondition
 //* SCT#703398004  "Cardiac implant in situ (finding)"
-* SCT#64779008 "Blood coagulation disorder (disorder)"
+* SCT#64779008 "#Blood coagulation disorder (disorder)"
 * SCT#723188008 "Renal insufficiency (disorder)"
 * SCT#19887002  "Claustrophobia (finding)"
 * SCT#879862001 "Body piercing (finding)"

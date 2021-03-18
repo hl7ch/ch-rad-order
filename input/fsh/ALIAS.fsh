@@ -2,12 +2,13 @@
 Alias:   LNC = http://loinc.org
 
 //Alias:   LNCPLAYBCORE = https://fhir.loinc.org/ValueSet/$expand?url=http://loinc.org/vs/loinc-rsna-radiology-playbook-core
-Alias:   LNCPLAYBFULL = https://fhir.loinc.org/ValueSet/$expand?url=http://loinc.org/vs/loinc-rsna-radiology-playbook
+Alias:   LNCPLAYBFULL = http://loinc.org/vs/loinc-rsna-radiology-playbook
 Alias:   RDLX = http://radlex.org/RID/RID1
 
 Alias:   SCT = http://snomed.info/sct
 Alias:   UCUM = http://unitsofmeasure.org
 Alias:   HL7VS = http://hl7.org/fhir/ValueSet/
+Alias:   ConsScopeVS = http://hl7.org/fhir/ValueSet/consent-scope
 
 // CH EPR Term Code Systems
 Alias:   SNOMEDCTSwissExtension = urn:oid:2.16.756.5.30.1.127.3.4

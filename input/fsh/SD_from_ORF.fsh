@@ -22,9 +22,23 @@ equal one Filler Order equal one Imaging Service Request."
 
 * status and intent and code and orderDetail MS
 * subject and authoredOn and requester and performer MS
-* replaces and priority and bodySite and  reasonCode and  locationReference and reasonReference and insurance and patientInstruction and note MS
+* replaces and priority and bodySite and locationReference and reasonReference and insurance and patientInstruction and note MS
 
+* category 1..1 MS
+* category from ChRadOrderDocumentCategory // Equal to Category in Bundle
+* category ^short = "Equal to Category in Bundle"
+* category ^definition = "Equal to Category in Bundle"
 
+* reasonCode MS
+* reasonCode ^short = "Diagnostic Question in Freetext: Coding of all diagnostic questions not feasable."
+* reasonCode.coding 0..0
+
+/* 
+short und defintion gehen nicht so
+* reasonCode.coding.code ^short = "--"
+* reasonCode.coding.code ^definition = "--"
+*/
+* reasonCode.text MS
 
 * code.coding ^slicing.discriminator.type = #pattern
 * code.coding ^slicing.discriminator.path = "code.coding.system"
@@ -32,18 +46,21 @@ equal one Filler Order equal one Imaging Service Request."
 * code.coding ^slicing.ordered = true 
 * code.coding ^slicing.description = "Slice based on the component.code pattern"
 
-//* code from LNCPLAYBFULL
-//    RdlxModalityType 0..1
+* code.coding contains
+    LncPlbFull 0..1 and
+    RdlxModType 0..1
 
-// * code.coding from VsRadOrderModalityType 
+* code.coding[LncPlbFull] from LNCPLAYBFULL
+
+* code.coding[RdlxModType] from VsRadOrderModalityType 
 
 // * code.coding from LNCPLAYBFULL
 // * code.text  from VsRadOrderModalityType or LNCPLAYBFULL
-* code ^definition = "Use RSNA/LOINC Playbook (Full Version support) OR Codes from VsRadOrderModalityType but NOT both. In case of VsRadOrderModalityType
+* code ^short = "Use RSNA/LOINC Playbook (Full Version support) OR Codes from VsRadOrderModalityType but NOT both. In case of VsRadOrderModalityType
 specify Imaging Request Details by means of orderDetail."
 
 * orderDetail ^slicing.discriminator.type = #pattern
-* orderDetail ^slicing.discriminator.path = "code"
+* orderDetail ^slicing.discriminator.path = "code.coding.system"
 * orderDetail ^slicing.rules = #open
 * orderDetail ^slicing.ordered = true 
 * orderDetail ^slicing.description = "Slice based on the component.code pattern"
@@ -57,23 +74,27 @@ specify Imaging Request Details by means of orderDetail."
     RadOrderManeuverType 0..* and
     RadOrderGuidanceForAction 0..* 
 
+// Cardinality of Laterality to be discussed
+* orderDetail[RadOrderImagingRegion] MS
+* orderDetail[RadOrderImagingFocus] MS
+* orderDetail[RadOrderLaterality] MS
+* orderDetail[RadOrderViewType] MS
+* orderDetail[RadOrderManeuverType] MS
+* orderDetail[RadOrderGuidanceForAction] MS
 
+* orderDetail[RadOrderImagingRegion] from VsRadOrderImagingRegion
+* orderDetail[RadOrderImagingFocus] from VsRadOrderImagingFocus
+* orderDetail[RadOrderLaterality] from VsRadOrderLaterality
+* orderDetail[RadOrderViewType] from VsRadOrderViewType
+* orderDetail[RadOrderManeuverType] from VsRadOrderManeuverType
+* orderDetail[RadOrderGuidanceForAction] from VsRadOrderGuidanceForAction
 
 
 * locationReference = Reference(ChCoreLocation)
 
 
-
-* reasonReference ^slicing.discriminator.type = #pattern
-* reasonReference ^slicing.discriminator.path = "code"
-* reasonReference ^slicing.rules = #open
-* reasonReference ^slicing.ordered = true 
-* reasonReference ^slicing.description = "Slice based on the component.code pattern"
-
-* reasonReference contains
-    adOrderReasonForExam 0..*
-
-
+* reasonReference MS
+* reasonReference only Reference(ChOrfDiagnoseList) 
 
 * insurance ^slicing.discriminator.type = #pattern
 * insurance ^slicing.discriminator.path = "code"
@@ -88,24 +109,53 @@ specify Imaging Request Details by means of orderDetail."
     OtherInsurance 0..1
 
 * insurance = Reference(ChCoreCoverage)
-
-
-
+* supportingInfo MS
 
 * supportingInfo ^slicing.discriminator.type = #pattern
-* supportingInfo ^slicing.discriminator.path = "code"
+* supportingInfo ^slicing.discriminator.path = "Reference"
 * supportingInfo ^slicing.rules = #open
 * supportingInfo ^slicing.ordered = true 
 * supportingInfo ^slicing.description = "Slice based on the component.code pattern" 
 
 * supportingInfo contains
-    problemList 0..1 and 
+    diagnoseList 0..1 and 
     caveats 0..* and
     precedingImagingResults 0..* and
-    patientConsent 0..1 
+    patientConsent 0..4 
 
-
+* supportingInfo[diagnoseList] only Reference(ChOrfDiagnoseList)
 * supportingInfo[caveats] only Reference(ChOrfCaveatCondition)
+* supportingInfo[precedingImagingResults] only Reference(ImagingStudy)
+* supportingInfo[patientConsent] only Reference(Consent)
+
+* supportingInfo[diagnoseList] MS
+* supportingInfo[caveats] MS
+* supportingInfo[precedingImagingResults] MS
+* supportingInfo[patientConsent] MS
+
+* supportingInfo[patientConsent] ^slicing.discriminator.type = #pattern
+* supportingInfo[patientConsent] ^slicing.discriminator.path = "Reference"
+* supportingInfo[patientConsent] ^slicing.rules = #open
+* supportingInfo[patientConsent] ^slicing.ordered = true 
+* supportingInfo[patientConsent] ^slicing.description = "Slice based on the component.code pattern" 
+
+* supportingInfo[patientConsent] contains
+    PrivacyConsent 0..1 and
+    TreatmentConsent 0..1 and
+    RearchConsent 0..1 and
+    ADCD 0..1                                    //Advanced Care Directive  
+
+* supportingInfo[patientConsent][PrivacyConsent] only Reference(ChOrfConsent)
+* supportingInfo[patientConsent][TreatmentConsent] only Reference(ChOrfConsent)
+* supportingInfo[patientConsent][RearchConsent] only Reference(ChOrfConsent)
+* supportingInfo[patientConsent][ADCD] only Reference(ChOrfConsent)
+
+* supportingInfo[patientConsent][PrivacyConsent] MS
+* supportingInfo[patientConsent][TreatmentConsent] MS
+* supportingInfo[patientConsent][RearchConsent] MS
+* supportingInfo[patientConsent][ADCD] MS
+
+
 
 
 /*
@@ -176,7 +226,7 @@ Description: "Appoint"
 
 Profile: ChRadOrderQuestionnaireResponse
 Parent: ChOrfQuestionnaireResponse
-Id: order-quech-rad-stionnaireresponse // @Juerg: Typo?
+Id: order-quech-rad-stionnaireresponse
 Title: "CH RAD-Order QuestionnaireResponse"
 Description: "Definition for the QuestionnaireResponse resource in the context of CH RAD-Order."
 * . ^short = "CH RAD-Order QuestionnaireResponse"
@@ -192,6 +242,8 @@ An Order Filler accepts from an Order Placer a single Order that it equates to a
 (which is concept commonly used in HL7) or Imaging Service Request (Concept commonly used in DICOM). 
 Consequently one CH RAD-Order Document contains one CH RAD-Order ServiceRequest which depicts one Placer Order 
 equal one Filler Order equal one Imaging Service Request."
+
+ 	
 
 * entry[ChOrfServiceRequest].resource only ChRadOrderServiceRequest
 
@@ -228,6 +280,9 @@ Id: ch-rad-order-composition
 Title: "CH RAD-Order Composition"
 Description: "Definition for the Composition resource in the context of CH RAD-Order."
 * . ^short = "CH RAD-Order Composition"
+
+* category from ChRadOrderDocumentCategory
+* type = SCT#2161000195103 "Imaging order (record articact)" // Swiss Extension
 
 * section ^slicing.discriminator.type = #pattern
 * section ^slicing.discriminator.path = "code"
