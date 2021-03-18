@@ -19,13 +19,13 @@ Description: "Example for Questionnaire"
 * item[0].type = #group
 * item[0].required = true
 
-* item[0].item[0].linkId = "order.placerOrderId"
+* item[0].item[0].linkId = "order.placerOrderIdentifier"
 * item[0].item[0].text = "Auftragsnummer des Auftraggebers"
 * item[0].item[0].type = #string
 
 * item[0].item[1].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-hidden"
 * item[0].item[1].extension.valueBoolean = true
-* item[0].item[1].linkId = "order.placerOrderIdDomain"
+* item[0].item[1].linkId = "order.placerOrderIdentifierDomain"
 * item[0].item[1].text = "Identifier Domain der Auftragsnummer des Auftraggebers"
 * item[0].item[1].type = #string
 

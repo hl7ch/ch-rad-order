@@ -9,11 +9,11 @@ Description: "Example for QuestionnaireResponse"
 * item[0].linkId = "order"
 * item[0].text = "Auftrag"
 
-* item[0].item[0].linkId = "order.placerOrderId"
+* item[0].item[0].linkId = "order.placerOrderIdentifier"
 * item[0].item[0].text = "Auftragsnummer des Auftraggebers"
 * item[0].item[0].answer.valueString = "123"
 
-* item[0].item[1].linkId = "order.placerOrderIdDomain"
+* item[0].item[1].linkId = "order.placerOrderIdentifierDomain"
 * item[0].item[1].text = "Identifier Domain der Auftragsnummer des Auftraggebers"
 * item[0].item[1].answer.valueString = "urn:oid:1.3.4.5.6.7"
 
