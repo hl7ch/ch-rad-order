@@ -4,6 +4,7 @@ Alias:   LNC = http://loinc.org
 //Alias:   LNCPLAYBCORE = https://fhir.loinc.org/ValueSet/$expand?url=http://loinc.org/vs/loinc-rsna-radiology-playbook-core
 Alias:   LNCPLAYBFULL = http://loinc.org/vs/loinc-rsna-radiology-playbook
 Alias:   RDLX = http://radlex.org/RID/RID1
+Alias:   HL7CovType = http://hl7.org/fhir/ValueSet/coverage-type
 
 Alias:   SCT = http://snomed.info/sct
 Alias:   UCUM = http://unitsofmeasure.org

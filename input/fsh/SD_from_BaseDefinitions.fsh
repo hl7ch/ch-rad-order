@@ -10,6 +10,7 @@ Description: "Definition for the Consent resource in the context of ORF."
 * . ^short = "CH ORF Consent"
 * scope MS
 * scope from ConsScopeVS (required)
+//---------
 
 Profile: ChOrfCaveatCondition
 Parent: Condition
@@ -60,14 +61,16 @@ Description: "Definition for the Lab Observation resource in the context of CH O
 * effective[x] only dateTime
 * value[x] only Quantity or boolean or Ratio
 
-/*
+// Probably better as CH Core??
 Profile: ChROrfCoverage
 Parent: Coverage
-Id: ch-orf-Coverage
+//Id: ch-orf-Coverage
 Title: "CH ORF Coverage"
 Description: "Definition for the Coverage resource in the context of CH ORF."
 * . ^short = "CH ORF Coverage"
-*/
+* type.coding from ChOrfCoverageType
+//-----------
+
 
 Profile: ChOrfAppointment
 Parent: Appointment

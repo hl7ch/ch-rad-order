@@ -96,19 +96,27 @@ specify Imaging Request Details by means of orderDetail."
 * reasonReference MS
 * reasonReference only Reference(ChOrfDiagnoseList) 
 
+
+
 * insurance ^slicing.discriminator.type = #pattern
-* insurance ^slicing.discriminator.path = "code"
+* insurance ^slicing.discriminator.path = "type.coding.code"
 * insurance ^slicing.rules = #open
 * insurance ^slicing.ordered = true 
 * insurance ^slicing.description = "Slice based on the component.code pattern"
 
+// provisorisch
 * insurance contains
     accidentInsurance 0..1 and 
-    basicInsuranceKvg 0..1 and
+    basicInsurance 0..1 and
     supplementaryInsurance 0..1 and
-    OtherInsurance 0..1
+    otherInsurance 0..1
+//-----
 
-* insurance = Reference(ChCoreCoverage)
+* insurance[accidentInsurance] only Reference(ChROrfCoverage)
+* insurance[basicInsurance] only Reference(ChROrfCoverage)
+* insurance[supplementaryInsurance] only Reference(ChROrfCoverage)
+* insurance[otherInsurance] only Reference(ChROrfCoverage)
+
 * supportingInfo MS
 
 * supportingInfo ^slicing.discriminator.type = #pattern

@@ -1,3 +1,14 @@
+// Probably better Core
+ValueSet: ChOrfCoverageType
+// Id: ch-rad-order-vs-example
+Title: "CH RAD-Order Coverge Type VS"
+Description: "Definition for ORF Coverage Type Value Set in the context of ORF."
+* ChRORFInsuranceType#Accident "According UVG"
+* ChRORFInsuranceType#DisorderKVG "According to KVG"
+* ChRORFInsuranceType#DisorderVVG "According to VVG"
+* ChRORFInsuranceType#OtherVVG "Other acording to VVG"
+//--------
+
 
 ValueSet: ChRadOrderDocumentCategory
 // Id: ch-rad-order-vs-example
