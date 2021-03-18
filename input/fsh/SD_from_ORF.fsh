@@ -40,7 +40,7 @@ Description: "Appoint"
 
 Profile: ChRadOrderQuestionnaireResponse
 Parent: ChOrfQuestionnaireResponse
-Id: order-quech-rad-stionnaireresponse
+Id: order-quech-rad-stionnaireresponse // @Juerg: Typo?
 Title: "CH RAD-Order QuestionnaireResponse"
 Description: "Definition for the QuestionnaireResponse resource in the context of CH RAD-Order."
 * . ^short = "CH RAD-Order QuestionnaireResponse"
