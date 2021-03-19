@@ -8,3 +8,14 @@ Description: "Platzhalter: CodeSystem Insurance Type"
 * #DisorderVVG "According to VVG"
 * #OtherVVG "Other acording to VVG"
 //----------
+
+// Platzhalter
+CodeSystem: ChRORFRequestedService
+//Id: ch-rad-order-cs-example
+Title: "CH ORF Insurance Type"
+Description: "Platzhalter: CodeSystem Requested Service"
+* #RequestforPrecedentReport "Request for precedent Reports only"
+* #RequestforPrecedentReportandImages "Request for precedent Reports and Images "
+* #ImagingRequest "Imaging Request"
+* #SecondOpinion "Second Opinion"
+* #ImagingRequestandIntervention "Imaging Request with Intervention"

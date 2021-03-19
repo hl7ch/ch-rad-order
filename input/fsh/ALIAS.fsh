@@ -1,5 +1,6 @@
 // External Code Systems
 Alias:   LNC = http://loinc.org
+Alias:   NMU = http://hl7.org/fhir/name-use
 
 //Alias:   LNCPLAYBCORE = https://fhir.loinc.org/ValueSet/$expand?url=http://loinc.org/vs/loinc-rsna-radiology-playbook-core
 Alias:   LNCPLAYBFULL = http://loinc.org/vs/loinc-rsna-radiology-playbook

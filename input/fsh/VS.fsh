@@ -15,9 +15,7 @@ ValueSet: ChRadOrderDocumentCategory
 // Id: ch-rad-order-vs-example
 Title: "CH RAD-Order Document Categroy VS"
 Description: "Definition for RAD-Order Document Category Value Set in the context of RAD-Order."
-* SCT#721963009 "Order (record artifact)"
-* SCT#310455000 "Medical report requested (finding)"
-* ^expansion.contains.system = ChRadOrderDocumentCategory
+* include codes from system ChRORFRequestedService
 
 
 ValueSet: VsRadOrderCaveatCondition
