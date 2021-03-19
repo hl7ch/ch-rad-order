@@ -101,6 +101,7 @@ Description: "Example for QuestionnaireResponse"
 * item[2].item[0].item[1].item[0].linkId = "orderer.author.organization.name"
 * item[2].item[0].item[1].item[0].text = "Name der Organisation"
 * item[2].item[0].item[1].item[0].answer.valueString = "Praxis Happy Docotors"
+// noch nicht vollständig
 
 Instance: QuestionnaireRadiologyOrder
 InstanceOf: ChOrfQuestionnaire
