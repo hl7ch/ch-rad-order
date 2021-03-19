@@ -8,7 +8,7 @@ Alias:   HL7CovType = http://hl7.org/fhir/ValueSet/coverage-type
 
 Alias:   SCT = http://snomed.info/sct
 Alias:   UCUM = http://unitsofmeasure.org
-Alias:   HL7VS = http://hl7.org/fhir/ValueSet/
+Alias:   HL7CC = 		http://terminology.hl7.org/CodeSystem/condition-category
 Alias:   ConsScopeVS = http://hl7.org/fhir/ValueSet/consent-scope
 
 // CH EPR Term Code Systems

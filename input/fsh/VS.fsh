@@ -7,6 +7,7 @@ Description: "Definition for ORF Coverage Type Value Set in the context of ORF."
 * ChRORFInsuranceType#DisorderKVG "According to KVG"
 * ChRORFInsuranceType#DisorderVVG "According to VVG"
 * ChRORFInsuranceType#OtherVVG "Other acording to VVG"
+* ^expansion.contains.system = ChOrfCoverageType
 //--------
 
 
@@ -16,7 +17,7 @@ Title: "CH RAD-Order Document Categroy VS"
 Description: "Definition for RAD-Order Document Category Value Set in the context of RAD-Order."
 * SCT#721963009 "Order (record artifact)"
 * SCT#310455000 "Medical report requested (finding)"
-
+* ^expansion.contains.system = ChRadOrderDocumentCategory
 
 
 ValueSet: VsRadOrderCaveatCondition
@@ -25,20 +26,21 @@ Title: "CH RAD-Order Caveat Condition"
 Description: "Definition for RAD-Order Reason for Exam Value Set in the context of RAD-Order."
 * ^expansion.contains.system = VsRadOrderCaveatCondition
 //* SCT#703398004  "Cardiac implant in situ (finding)"
-* SCT#64779008 "#Blood coagulation disorder (disorder)"
+* SCT#64779008 "Blood coagulation disorder (disorder)"
 * SCT#723188008 "Renal insufficiency (disorder)"
 * SCT#19887002  "Claustrophobia (finding)"
 * SCT#879862001 "Body piercing (finding)"
 //* SCT#897711006  "Neurostimulator device in situ (finding)"
 * SCT#397578001  "Device in situ (finding)"
-* SCT#34486009  "Hyperthyroidism (disorder) "
+* SCT#34486009  "Hyperthyroidism (disorder)"
 * SCT#73211009  "Diabetes mellitus (disorder)"
-* SCT#366321006  "Finding of gravida (finding) "
-* SCT#404684003  "Clinical finding (finding) "
+* SCT#366321006  "Finding of gravida (finding)"
+* SCT#404684003  "Clinical finding (finding)"
 * SCT#293637006  "Allergy to contrast media (finding)"
 * SCT#182817000 "Drug prescription (situation)"
+* include codes from system SCT where concept is-a #397578001 "Device in situ (finding)"
+* ^expansion.contains.system = VsRadOrderCaveatCondition
 
-* include codes from system SCT where concept is-a #397578001  "Device in situ (finding)"
 
 ValueSet: VsRadOrderCaveatSubstance
 Id: ch-rad-vs-order-caveat-substance
@@ -171,6 +173,7 @@ ValueSet: VsRadOrderImagingFocus
 Id: ch-rad-order-imagingfocus
 Title: "CH RAD-Order Imagng Focus"
 Description: "Definition for RAD-Order Imaging Focus Value Set in the context of RAD-Order."
+* ^expansion.contains.system = VsRadOrderImagingFocus
 * RDLX#RID88 "adrenal gland"
 * RDLX#RID164 "Anus"
 * RDLX#RID905 "Abdominal aorta"
@@ -608,16 +611,19 @@ ValueSet: VsRadOrderLaterality
 Id: ch-rad-order-ilaterality
 Title: "CH RAD-Order Lateratility"
 Description: "Definition for RAD-Order Laterality Value Set in the context of RAD-Order."
+* ^expansion.contains.system = VsRadOrderLaterality 
 * RDLX#RID5771 "Bilateral"
 * RDLX#RID5824 "LEFT"
 * RDLX#RID5825 "RIGHT"
 * RDLX#RID49843 "Unspecified laterality"
 * RDLX#RID38593 "Unilateral"
 
+
 ValueSet: VsRadOrderManeuverType
 Id: ch-rad-order-maneuer-type
 Title: "CH RAD-Order Maneuver Type"
 Description: "Definition for RAD-Order Maneuver Type Value Set in the context of RAD-Order."
+* ^expansion.contains.system = sRadOrderManeuverType
 * RDLX#RID50075 "Extension maneuver"
 * RDLX#RID50069 "Flexion maneuver"
 * RDLX#RID10475 "Stress maneuver"
@@ -640,6 +646,7 @@ ValueSet: VsRadOrderGuidanceForAction
 Id: ch-rad-order-guidance-for-action
 Title: "CH RAD-Order Guidance for Action"
 Description: "Definition for RAD-Order Guidance for Action Value Set in the context of RAD-Order."
+* ^expansion.contains.system = VsRadOrderGuidanceForAction
 * RDLX#RID10397 "Ablation"
 * RDLX#RID10398 "Aspiration of bodily substance"
 * RDLX#RID12933 "Fine-needle aspiration"
@@ -722,6 +729,7 @@ ValueSet: VsRadOrderModalityType
 Id: ch-rad-order-modality-type
 Title: "CH RAD-Order Modality Type"
 Description: "Definition for RAD-Order Modality Type Value Set in the context of RAD-Order."
+* ^expansion.contains.system = VsRadOrderModalityType
 * RDLX#RID10321 "computed tomography"
 * RDLX#RID10312 "Magnetic resonance imaging"
 * RDLX#RID10326 "Ultrasound"
@@ -740,6 +748,7 @@ ValueSet: VsRadOrderViewType
 Id: ch-rad-order-view-type
 Title: "CH RAD-Order Modality Type"
 Description: "Definition for RAD-Order View Type Value Set in the context of RAD-Order."
+* ^expansion.contains.system = VsRadOrderViewType
 * RDLX#RID50104 "Endorectal view"
 * RDLX#RID50087 "10 degree caudal angle view"
 * RDLX#RID50090 "10 degree cephalic angle view"

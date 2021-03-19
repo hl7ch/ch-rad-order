@@ -4,7 +4,7 @@
 // Probably better as CH Core??
 Profile: ChOrfConsent
 Parent: Consent
-//Id: ch-orf-caveat-condition
+Id: ch-orf-consent
 Title: "CH ORF Consent"
 Description: "Definition for the Consent resource in the context of ORF."
 * . ^short = "CH ORF Consent"
@@ -25,7 +25,7 @@ Description: "Definition for the Caveat Condition resource in the context of ORF
 * category 1..1 MS
 * category.coding 1..1 MS
 * category.coding.code MS
-* category.coding = HL7VS#problem-list-item "Problem List Entry"
+* category.coding = HL7CC#problem-list-item "Problem List Entry"
 * subject MS
 * subject only Reference(CHCorePatient)  
 * evidence.detail only Reference(ChOrfCaveatObservation)
@@ -44,7 +44,7 @@ Description: "Definition for the Diagnose List resource in the context of ORF."
 * category 1..1 MS
 * category.coding 1..1 MS
 * category.coding.code MS
-* category.coding = HL7VS#problem-list-item "Problem List Entry"
+* category.coding = HL7CC#problem-list-item "Problem List Entry"
 * subject MS
 * subject only Reference(CHCorePatient)  
 * evidence.detail only Reference(ChOrfCaveatObservation)
@@ -64,7 +64,7 @@ Description: "Definition for the Lab Observation resource in the context of CH O
 // Probably better as CH Core??
 Profile: ChROrfCoverage
 Parent: Coverage
-//Id: ch-orf-Coverage
+Id: ch-orf-Coverage
 Title: "CH ORF Coverage"
 Description: "Definition for the Coverage resource in the context of CH ORF."
 * . ^short = "CH ORF Coverage"
