@@ -270,6 +270,19 @@ Was wird gewünscht (nur 1 Wert):
 * item[4].text = "Gegenstand der Anfrage"
 * item[4].type = #string
 /*
+/*------------------------------------------------------------------------
+Fragestellung (mehrere Werte)
+*/
+
+* item[5].linkId = "reason"
+* item[5].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-rad-order-servicerequest"
+* item[5].text = "Klinische Fragestellung"
+* item[5].type = #group
+
+* item[5].item[0].linkId = "reason"
+* item[5].item[0].text = "Klinische Fragestellung"
+* item[5].item[0].type = #string
+* item[5].item[0].repeats = true
 /*-----------------------------------------------------------------------
 Angabe der Untersuchung (nur 1 Wert):
         * RDLX#RID10321 "computed tomography"
@@ -286,33 +299,20 @@ Angabe der Untersuchung (nur 1 Wert):
         * RDLX#RID10311 "imaging modality"
 */
 
-* item[5].linkId = "imgagingservicetype"
-* item[5].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-rad-order-servicerequest"
-* item[5].text = "Art der Bildgebung"
-* item[5].type = #string
+* item[6].linkId = "imgagingservicetype"
+* item[6].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-rad-order-servicerequest"
+* item[6].text = "Art der Bildgebung"
+* item[6].type = #string
 
 /*----------------------------------------------------------------------
 Art der Intervention (mehrere Werte)
 */
 
-* item[6].linkId = "interventiontype"
-* item[6].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-rad-order-servicerequest"
-* item[6].text = "Art der Intervention"
-* item[6].type = #string
-
-/*------------------------------------------------------------------------
-Fragestellung (mehrere Werte)
-*/
-
-* item[7].linkId = "reason"
+* item[7].linkId = "interventiontype"
 * item[7].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-rad-order-servicerequest"
-* item[7].text = "Klinische Fragestellung"
-* item[7].type = #group
+* item[7].text = "Art der Intervention"
+* item[7].type = #string
 
-* item[7].item[0].linkId = "reason"
-* item[7].item[0].text = "Klinische Fragestellung"
-* item[7].item[0].type = #string
-* item[7].item[0].repeats = true
 
 /*----------------------------------------------------------------------*-- 
 Darstellung der Order Details
