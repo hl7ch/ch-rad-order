@@ -277,12 +277,8 @@ Fragestellung (mehrere Werte)
 * item[5].linkId = "reason"
 * item[5].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-rad-order-servicerequest"
 * item[5].text = "Klinische Fragestellung"
-* item[5].type = #group
+* item[5].type = #string
 
-* item[5].item[0].linkId = "reason"
-* item[5].item[0].text = "Klinische Fragestellung"
-* item[5].item[0].type = #string
-* item[5].item[0].repeats = true
 /*-----------------------------------------------------------------------
 Angabe der Untersuchung (nur 1 Wert):
         * RDLX#RID10321 "computed tomography"
