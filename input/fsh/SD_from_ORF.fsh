@@ -21,7 +21,7 @@ Consequently one CH RAD-Order Document contains one CH RAD-Order ServiceRequest 
 equal one Filler Order equal one Imaging Service Request."
 
 * status and intent and code and orderDetail MS
-* subject and authoredOn and requester and performer MS
+* subject and authoredOn and requester and performer and language MS
 * replaces and priority and bodySite and locationReference and reasonReference and insurance and patientInstruction and note MS
 
 * category 1..1 MS
@@ -50,6 +50,10 @@ short und defintion gehen nicht so
     LncPlbFull 0..1 and
     RdlxModType 0..1
 
+/* !!!!!!!!!!CH Rad-Order UNTERSTUETZT LOINC/RSNA PLAYBOOK WIE FOLGT: ANSELLE DER ITEMS [4] - [7] WIRD IN
+                servicerequest.code DER PLABOOK CODE ANGEGBEN. VOM QUESTIONNAIRE WIRD DAS NICHT UNTERSTÜTZT, DA NUR RELEVANT, WENN
+                ZWISCHEN SENDER UND EMPFÄNGER VEREINBART.
+*/
 * code.coding[LncPlbFull] from LNCPLAYBFULL
 
 * code.coding[RdlxModType] from VsRadOrderModalityType 
@@ -112,10 +116,10 @@ specify Imaging Request Details by means of orderDetail."
     otherInsurance 0..1
 //-----
 
-* insurance[accidentInsurance] only Reference(ChROrfCoverage)
-* insurance[basicInsurance] only Reference(ChROrfCoverage)
-* insurance[supplementaryInsurance] only Reference(ChROrfCoverage)
-* insurance[otherInsurance] only Reference(ChROrfCoverage)
+* insurance[accidentInsurance] only Reference(ChOrfCoverage)
+* insurance[basicInsurance] only Reference(ChOrfCoverage)
+* insurance[supplementaryInsurance] only Reference(ChOrfCoverage)
+* insurance[otherInsurance] only Reference(ChOrfCoverage)
 
 * supportingInfo MS
 
@@ -163,74 +167,13 @@ specify Imaging Request Details by means of orderDetail."
 * supportingInfo[patientConsent][RearchConsent] MS
 * supportingInfo[patientConsent][ADCD] MS
 
-
-
-
-/*
-* supportingInfo[caveats] ^slicing.discriminator.type = #pattern
-* supportingInfo[caveats] ^slicing.discriminator.path = "code"
-* supportingInfo[caveats] ^slicing.rules = #open
-* supportingInfo[caveats] ^slicing.ordered = true 
-* supportingInfo[caveats] ^slicing.description = "Slice based on the component.code pattern" 
-    
-* supportingInfo[caveats] contains
-    renalFunction 0..1 and
-    coagulation 0..1 and
-    pacemaker 0..1 and
-    metal 0..1 and 
-    piercings 0..1 and
-    neuralStimulator 0..1 and
-    insulinPump 0..1 and
-    patientControlledAnalgesia 0..1 and
-    cochleaImplant 0..1 and
-    hypertherosis 0..1 and
-    diabetes 0..1 and // Metformin
-    claustrophobia 0..1 and
-    pregnancy 0..1 and
-    additionalKnownIssues 0..*
-
-* supportingInfo[caveats] = Reference(Condition)
-
-* supportingInfo[caveats][claustrophobia].evidence.code = SCT#404858007
-*/
-/*
-* supportingInfo[precedingImagingResults] = Reference(ChOrfImagingStudy)
-
-* section[context].entry contains ChOrfCoverage 0..*
-* section[context].entry contains ChOrfAppointment 0..*
-
-* section[clinicalContent].entry contains ChOrfImagingStudy 0..*
-* section[clinicalContent].entry contains ChRadOrderServiceRequest 1..1
-
-* section[clinicalContent].section ^slicing.discriminator.type = #pattern
-* section[clinicalContent].section ^slicing.discriminator.path = "code"
-* section[clinicalContent].section ^slicing.rules = #open
-* section[clinicalContent].section ^slicing.ordered = true 
-* section[clinicalContent].section ^slicing.description = "Slice based on the component.code pattern"
-
-* section[clinicalContent].section contains
-    reasonforReferral 1..1 and
-    natureofHealthProblem 1..1
-*/
-
-
-/*
-// * requisition MS
-// * requisition^short = ""
-// * requisition^definition = "A shared identifier common to all service requests that were authorized more or less simultaneously by a single author, 
-// representing the composite or group identifier.This refers to the Acquisition Number in the DICOM world. It is considered as a good practice to equal 
-// Order Filler with the Acquisition Number and to populate requisition with it"
-
-// * occurrence[x] only dateTime or Period
-
-/* extension contains RadAppointment named radApp 0..1 MS
-/*
 Extension: RadAppointment
 Title: "Appointment"
 Id:  appointment
 Description: "Appoint"
+* . ^short = "Time and Location for Servicerequest Fullfillment"
 * value[x] only Reference(ChOrfAppointment) 
-*/
+
 
 Profile: ChRadOrderQuestionnaireResponse
 Parent: ChOrfQuestionnaireResponse
@@ -251,36 +194,19 @@ An Order Filler accepts from an Order Placer a single Order that it equates to a
 Consequently one CH RAD-Order Document contains one CH RAD-Order ServiceRequest which depicts one Placer Order 
 equal one Filler Order equal one Imaging Service Request."
 
- 	
-
-* entry[ChOrfServiceRequest].resource only ChRadOrderServiceRequest
 
 * entry contains ChOrfAppointment 0..*
 * entry contains ChOrfImagingStudy 0..*
 * entry contains ChOrfCoverage 0..*
-* entry contains ChOrfObservation 0..*
+* entry contains ChOrfCaveatObservation 0..* 
+* entry contains ChOrfConsent 0..* 
 
-// LoincRsnaPlaxbookParts
-/*
-Rad.Anatomic Location.Imaging Focus
-Rad.Anatomic Location.Laterality
-Rad.Anatomic Location.Laterality.Presence
-Rad.Anatomic Location.Region Imaged
-Rad.Guidance for.Action
-Rad.Guidance for.Approach
-Rad.Guidance for.Object
-Rad.Guidance for.Presence
-Rad.Maneuver.Maneuver Type
-Rad.Modality.Modality Subtype
-Rad.Modality.Modality Type
-Rad.Pharmaceutical.Route
-Rad.Pharmaceutical.Substance Given
-Rad.Reason for Exam
-Rad.Subject
-Rad.Timing
-Rad.View.Aggregation
-Rad.View.View Type
-*/
+* entry[ChOrfServiceRequest].resource only ChRadOrderServiceRequest
+* entry[ChOrfAppointment].resource only ChOrfAppointment
+* entry[ChOrfImagingStudy].resource only ChOrfImagingStudy
+* entry[ChOrfCoverage].resource only ChOrfCoverage
+* entry[ChOrfCaveatObservation].resource only ChOrfCaveatObservation
+* entry[ChOrfConsent].resource only ChOrfConsent
 
 Profile: ChRadOrderComposition
 Parent: ChOrfComposition
@@ -292,12 +218,24 @@ Description: "Definition for the Composition resource in the context of CH RAD-O
 * category from ChRadOrderDocumentCategory
 * type = SCT#2161000195103 "Imaging order (record articact)" // Swiss Extension
 
-* section ^slicing.discriminator.type = #pattern
-* section ^slicing.discriminator.path = "code"
-* section ^slicing.rules = #open
-* section ^slicing.ordered = true 
-* section ^slicing.description = "Slice based on the component.code pattern"
+/* Slicing Fehlermeldung
+* section.entry ^slicing.discriminator.type = #pattern
+* section.entry ^slicing.discriminator.path = "Composition.section.entry.extension"
+* section.entry ^slicing.rules = #open
+* section.entry ^slicing.ordered = true 
+* section.entry ^slicing.description = "Composition.section.entry.extension"
 
-* section  contains ChOrfAppointment 0..*
+* section.entry contains ChOrfAppointment 1..*
+* section.entry contains ChOrfImagingStudy 0..*
+* section.entry contains ChOrfCoverage 0..*
+* section.entry contains ChOrfObservation 0..* 
+* section.entry contains ChOrfConsent 0..* 
 
+* section.entry[ChOrfServiceRequest] only Reference(ChRadOrderServiceRequest)
+* section.entry[ChOrfAppointment] only Reference(ChOrfAppointment)
+* section.entry[ChOrfImagingStudy] only Reference(ChOrfImagingStudy)
+* section.entry[ChOrfCoverage] only Reference(ChOrfCoverage)
+* section.entry[ChOrfObservation] only Reference(ChOrfCaveatObservation)
+* section.entry[ChOrfConsent] only Reference(ChOrfConsent)
+*/
 

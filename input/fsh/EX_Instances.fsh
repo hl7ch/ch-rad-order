@@ -9,7 +9,7 @@ Description: "Example for ServiceRequest"
 * category = #721963009
 // * performer = Reference(OttoRderfillerHappyHospital)
 
-Instance: QuestionnaireResponseRadiologyOrder
+Instance: QuestionnaireResponseRadiologyOrder  // noch nicht fertig
 InstanceOf: ChOrfQuestionnaireResponse
 Title: "QuestionniaireResponse Radiology Order"
 Description: "Example for QuestionnaireResponse"
@@ -37,38 +37,38 @@ Description: "Example for QuestionnaireResponse"
 * item[1].item[0].text = "Name"
 * item[1].item[0].answer.valueString = "Ufferer"
 
-* item[1].item[1].linkId = "patient.maidenName"   // NEU, anschliessend neu numeriert
-* item[1].item[1].text = "Lediger Name"
-* item[1].item[1].answer.valueString = "Leider"
+* item[1].item[1].linkId = "patient.maidenName"
+* item[1].item[1].text = "Name"
+* item[1].item[1].answer.valueString = "Leidend"
 
-* item[1].item[1].linkId = "patient.givenName"
-* item[1].item[1].text = "Vorname"
-* item[1].item[1].answer.valueString = "Susanna"
+* item[1].item[2].linkId = "patient.givenName"
+* item[1].item[2].text = "Vorname"
+* item[1].item[2].answer.valueString = "Susanna"
 
-* item[1].item[2].linkId = "patient.birthDate"
-* item[1].item[2].text = "Geburtsdatum"
-* item[1].item[2].answer.valueDate = "1970-03-14"
+* item[1].item[3].linkId = "patient.birthDate"
+* item[1].item[3].text = "Geburtsdatum"
+* item[1].item[3].answer.valueDate = "1970-03-14"
 
-* item[1].item[3].linkId = "patient.phone"
-* item[1].item[3].text = "Telefon"
-* item[1].item[3].answer.valueString = "+41 79 979 79 79"
+* item[1].item[4].linkId = "patient.phone"
+* item[1].item[4].text = "Telefon"
+* item[1].item[4].answer.valueString = "+41 79 979 79 79"
 
-* item[1].item[4].linkId = "patient.email"
-* item[1].item[4].text = "E-Mail"
-* item[1].item[4].answer.valueString = "Susanna@Ufferer.ch"
+* item[1].item[5].linkId = "patient.email"
+* item[1].item[5].text = "E-Mail"
+* item[1].item[5].answer.valueString = "susanna@ufferer"
 
-* item[1].item[5].linkId = "patient.streetAddressLine"
-* item[1].item[5].text = "Strasse, Hausnummer, Postfach etc."
-* item[1].item[5].answer[0].valueString = "Musterweg"
-* item[1].item[5].answer[1].valueString = "6a"
+* item[1].item[6].linkId = "patient.streetAddressLine"
+* item[1].item[6].text = "Strasse, Hausnummer, Postfach etc."
+* item[1].item[6].answer[0].valueString = "Musterweg"
+* item[1].item[6].answer[1].valueString = "6a"
 
-* item[1].item[6].linkId = "patient.postalCode"
-* item[1].item[6].text = "PLZ"
-* item[1].item[6].answer.valueString = "8000"
+* item[1].item[7].linkId = "patient.postalCode"
+* item[1].item[7].text = "PLZ"
+* item[1].item[7].answer.valueString = "8000"
 
-* item[1].item[7].linkId = "patient.city"
-* item[1].item[7].text = "Ort"
-* item[1].item[7].answer.valueString = "Zürich"
+* item[1].item[8].linkId = "patient.city"
+* item[1].item[8].text = "Ort"
+* item[1].item[8].answer.valueString = "Zürich"
 
 // orderer (Auftraggeber)
 * item[2].linkId = "orderer"
@@ -77,288 +77,32 @@ Description: "Example for QuestionnaireResponse"
 
 * item[2].item[0].linkId = "orderer.author"
 * item[2].item[0].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitionerrole"
-* item[2].item[0].text = "Verantwortlicher"
+* item[2].item[0].text = "Verantwortliche Person"
 
 * item[2].item[0].item[0].linkId = "orderer.author.practitioner"
 * item[2].item[0].item[0].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitioner"
-* item[2].item[0].item[0].text = "Verantwortliche Person"
+* item[2].item[0].item[0].text = "Verantwortliche Person-Rolle"
 
 * item[2].item[0].item[0].item[0].linkId = "orderer.author.practitioner.familyName"
 * item[2].item[0].item[0].item[0].text = "Name"
-* item[2].item[0].item[0].item[0].answer.valueString = "Ataenterer"
+* item[2].item[0].item[0].item[0].answer.valueString = "Rderplacer"
 
 * item[2].item[0].item[0].item[1].linkId = "orderer.author.practitioner.givenName"
 * item[2].item[0].item[0].item[1].text = "Vorname"
-* item[2].item[0].item[0].item[1].answer.valueString = "Otilie"
+* item[2].item[0].item[0].item[1].answer.valueString = "Otile"
 
 * item[2].item[0].item[0].item[2].linkId = "orderer.author.practitioner.email"
-* item[2].item[0].item[0].item[2].text = "E-Mail"
+* item[2].item[0].item[0].item[2].text = "o.rderplacer@happydoctors.ch"
 
 * item[2].item[0].item[1].linkId = "orderer.author.organization"
 * item[2].item[0].item[1].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-organization"
-* item[2].item[0].item[1].text = "Verantwortliche Organisation"
+* item[2].item[0].item[1].text = "Sender Organisation"
 
 * item[2].item[0].item[1].item[0].linkId = "orderer.author.organization.name"
 * item[2].item[0].item[1].item[0].text = "Name der Organisation"
-* item[2].item[0].item[1].item[0].answer.valueString = "Praxis Happy Docotors"
-// noch nicht vollständig
-
-Instance: QuestionnaireRadiologyOrder
-InstanceOf: ChOrfQuestionnaire
-Title: "Questionniaire Radiology Order"
-Description: "Example for Questionnaire"
-* meta.profile[0] = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-questionnaire"
-* meta.profile[1] = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire"
-* meta.profile[2] = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-extract"
-* extension.url = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-targetStructureMap"
-* extension.valueCanonical = "http://fhir.ch/ig/ch-orf/StructureMap/OrfQrToBundle"
-* url = "http://fhir.ch/ig/ch-rad-order/Questionnaire/QuestionnaireRadiologyOrder"
-* name = "QuestionnaireRadiologyOrder"
-* subjectType = #Patient
-* status = #active
-* date = "2021-02-24"
-
-// order (Auftrag)
-* item[0].linkId = "order"
-* item[0].text = "Auftrag"
-* item[0].type = #group
-* item[0].required = true
-
-* item[0].item[0].linkId = "order.placerOrderIdentifier"
-* item[0].item[0].text = "Auftragsnummer des Auftraggebers"
-* item[0].item[0].type = #string
-
-* item[0].item[1].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-hidden"
-* item[0].item[1].extension.valueBoolean = true
-* item[0].item[1].linkId = "order.placerOrderIdentifierDomain"
-* item[0].item[1].text = "Identifier Domain der Auftragsnummer des Auftraggebers"
-* item[0].item[1].type = #string
-
-// patient (Patient)
-* item[1].linkId = "patient"
-* item[1].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-patient"
-* item[1].text = "Patient"
-* item[1].type = #group
-
-* item[1].item[0].linkId = "patient.familyName"
-* item[1].item[0].text = "Name"
-* item[1].item[0].type = #string
-
-* item[1].item[1].linkId = "patient.maidenName"   // NEU, anschliessend neu numeriert
-* item[1].item[1].text = "Lediger Name"
-* item[1].item[1].type = #string
-
-* item[1].item[2].linkId = "patient.givenName"
-* item[1].item[2].text = "Vorname"
-* item[1].item[2].type = #string
-
-* item[1].item[3].linkId = "patient.birthDate"
-* item[1].item[3].text = "Geburtsdatum"
-* item[1].item[3].type = #date
-
-* item[1].item[4].linkId = "patient.gender"
-* item[1].item[4].text = "Geschlecht"
-* item[1].item[4].type = #string
-
-* item[1].item[5].linkId = "patient.phone"
-* item[1].item[5].text = "Telefon"
-* item[1].item[5].type = #string
-
-* item[1].item[4].linkId = "patient.email"
-* item[1].item[4].text = "E-Mail"
-* item[1].item[4].type = #string
-
-* item[1].item[5].linkId = "patient.streetAddressLine"
-* item[1].item[5].text = "Strasse, Hausnummer, Postfach etc."
-* item[1].item[5].type = #string
-* item[1].item[5].repeats = true
-
-* item[1].item[6].linkId = "patient.postalCode"
-* item[1].item[6].text = "PLZ"
-* item[1].item[6].type = #string
-
-* item[1].item[7].linkId = "patient.city"
-* item[1].item[7].text = "Ort"
-* item[1].item[7].type = #string
-
-// orderer (Auftraggeber-Institution)
-* item[2].linkId = "orderer"
-* item[2].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitionerrole"
-* item[2].text = "Auftraggeber"
-* item[2].type = #group
-* item[2].required = true
-
-// orderer (Auftraggeber-Autor)
-* item[2].item[0].linkId = "orderer.author"
-* item[2].item[0].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitionerrole"
-* item[2].item[0].text = "Verantwortlicher"
-* item[2].item[0].type = #group
-* item[2].item[0].required = true
-
-* item[2].item[0].item[0].linkId = "orderer.author.practitioner"
-* item[2].item[0].item[0].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitioner"
-* item[2].item[0].item[0].text = "Verantwortliche Person"
-* item[2].item[0].item[0].type = #group
-
-* item[2].item[0].item[0].item[0].linkId = "orderer.author.practitioner.familyName"
-* item[2].item[0].item[0].item[0].text = "Name"
-* item[2].item[0].item[0].item[0].type = #string
-
-* item[2].item[0].item[0].item[1].linkId = "orderer.author.practitioner.givenName"
-* item[2].item[0].item[0].item[1].text = "Vorname"
-* item[2].item[0].item[0].item[1].type = #string
-
-* item[2].item[0].item[0].item[2].linkId = "orderer.author.practitioner.email"
-* item[2].item[0].item[0].item[2].text = "E-Mail"
-* item[2].item[0].item[0].item[2].type = #string
-
-* item[2].item[0].item[1].linkId = "orderer.author.organization"
-* item[2].item[0].item[1].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-organization"
-* item[2].item[0].item[1].text = "Verantwortliche Organisation"
-* item[2].item[0].item[1].type = #group
+* item[2].item[0].item[1].item[0].answer.valueString = "Praxis Happy Doctors"
 
 
-// orderer (Auftragnehmer-Institution)
-* item[2].linkId = "orderer"
-* item[2].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitionerrole"
-* item[2].text = "Auftragnehmer"
-* item[2].type = #group
-* item[2].required = true
-
-// orderer (Auftraggeber-Autor)
-* item[2].item[0].linkId = "orderer.author"
-* item[2].item[0].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitionerrole"
-* item[2].item[0].text = "Verantwortlicher"
-* item[2].item[0].type = #group
-* item[2].item[0].required = true
-
-* item[2].item[0].item[0].linkId = "orderer.author.practitioner"
-* item[2].item[0].item[0].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitioner"
-* item[2].item[0].item[0].text = "Verantwortliche Person"
-* item[2].item[0].item[0].type = #group
-
-* item[2].item[0].item[0].item[0].linkId = "orderer.author.practitioner.familyName"
-* item[2].item[0].item[0].item[0].text = "Name"
-* item[2].item[0].item[0].item[0].type = #string
-
-* item[2].item[0].item[0].item[1].linkId = "orderer.author.practitioner.givenName"
-* item[2].item[0].item[0].item[1].text = "Vorname"
-* item[2].item[0].item[0].item[1].type = #string
-
-* item[2].item[0].item[0].item[2].linkId = "orderer.author.practitioner.email"
-* item[2].item[0].item[0].item[2].text = "E-Mail"
-* item[2].item[0].item[0].item[2].type = #string
-
-* item[2].item[0].item[1].linkId = "orderer.author.organization"
-* item[2].item[0].item[1].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-organization"
-* item[2].item[0].item[1].text = "Verantwortliche Organisation"
-* item[2].item[0].item[1].type = #group
-
-// orderer (Auftraggeber-Dataenterer)           NEU
-
-* item[2].item[0].linkId = "orderer.author"
-* item[2].item[0].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitionerrole"
-* item[2].item[0].text = "Verantwortlicher"
-* item[2].item[0].type = #group
-* item[2].item[0].required = true
-
-* item[2].item[0].item[0].linkId = "orderer.author.practitioner"
-* item[2].item[0].item[0].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitioner"
-* item[2].item[0].item[0].text = "Verantwortliche Person"
-* item[2].item[0].item[0].type = #group
-
-* item[2].item[0].item[0].item[0].linkId = "orderer.author.practitioner.familyName"
-* item[2].item[0].item[0].item[0].text = "Name"
-* item[2].item[0].item[0].item[0].type = #string
-
-* item[2].item[0].item[0].item[1].linkId = "orderer.author.practitioner.givenName"
-* item[2].item[0].item[0].item[1].text = "Vorname"
-* item[2].item[0].item[0].item[1].type = #string
-
-* item[2].item[0].item[0].item[2].linkId = "orderer.author.practitioner.email"
-* item[2].item[0].item[0].item[2].text = "E-Mail"
-* item[2].item[0].item[0].item[2].type = #string
-
-* item[2].item[0].item[1].linkId = "orderer.author.organization"
-* item[2].item[0].item[1].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-organization"
-* item[2].item[0].item[1].text = "Verantwortliche Organisation"
-* item[2].item[0].item[1].type = #group
-
-
-* item[2].item[0].item[1].item[0].linkId = "orderer.author.organization.name"
-* item[2].item[0].item[1].item[0].text = "Name der Organisation"
-* item[2].item[0].item[1].item[0].type = #string
-
-
-/* ----- Beschreibung des Kerninhaltes der Rad-Order ----------------------
-
--- 1 ----------------------------------------------------------------------
-Auswahl von (nur 1 Wert):
-1.1: * #RequestforPrecedentReport "Request for precedent Reports only"                  
-1.2: * #RequestforPrecedentReportandImages "Request for precedent Reports and Images"  
-1.3: * #SecondOpinion "Second Opinion"                                                  
-1.4: * #ImagingRequest "Imaging Request"                                                
-1.5: * #ImagingRequestandIntervention "Imaging Request with Intervention"               
-
-
--- 2 ----------------------------------------------------------------------
-2.1: Angabe der Untersuchung (nur 1 Wert):
-        * RDLX#RID10321 "computed tomography"
-        * RDLX#RID10312 "Magnetic resonance imaging"
-        * RDLX#RID10326 "Ultrasound"
-        * RDLX#RID10363 "dual energy xray absorptiometry"
-        * RDLX#RID10357 "mammography"
-        * RDLX#RID10341 "Pet-ct"
-        * RDLX#RID10330 "nuclear medicine imaging"
-        * RDLX#RID10337 "Positron emission tomography"
-        * RDLX#RID10345 "projection radiography"
-        * RDLX#RID10361 "Fluoroscopy"
-        * RDLX#RID49583 "SPECT-CT"
-        * RDLX#RID10311 "imaging modality"
-
-2.2: Bei 1.1 und 1.2: Datum oder Zeitspanne
-                      Noch offen wie genau gemappt auf ServiceRequest etc.
-
-
-2.3: Darstellung der Order Details
-                * orderDetail[RadOrderImagingRegion] from VsRadOrderImagingRegion           ---> mehrere Werte
-                * orderDetail[RadOrderImagingFocus] from VsRadOrderImagingFocus             ---> mehrere Werte
-                * orderDetail[RadOrderLaterality] from VsRadOrderLaterality                 ---> 1 Werte
-                * orderDetail[RadOrderViewType] from VsRadOrderViewType                     ---> mehrere Werte
-                * orderDetail[RadOrderManeuverType] from VsRadOrderManeuverType             ---> mehrere Werte
-
-2.4: Bei 1.5:   * orderDetail[RadOrderGuidanceForAction] from VsRadOrderGuidanceForAction   ---> mehrere Werte (nur bei )
-
-2.4: Fragestellung als Freitext ---> Mapping auf ServiceRequest.reasonCode
-
-2.5: Darstellung von supportingInfo[diagnoseList]                                  ---> mehrere Werte
-
-2.6: Darstellung von supportingInfo[caveats]                                       ---> mehrere Werte; 
-                                                                                         für Niereninsuffizienz zsätzlich:
-                                                                                            Creatinin mit Datum der Bestimmung
-                                                                                            oder 
-                                                                                            Creatininclearnace mit Datum der Bestimmung
-
---- 3 -----------------------------------------------------------------------
-
-3.1: Darstellung der 4 Consents:
-        [PrivacyConsent] only Reference(ChOrfConsent)
-        TreatmentConsent] only Reference(ChOrfConsent)
-        [RearchConsent] only Reference(ChOrfConsent)
-        [ADCD]: Advanced directive
-
----- 4 -----------------------------------------------------------------------
-4.1: Darstellung der 4 Arten von Kostentägern  (Noch offen: Wie efrassen; )
-        * ChRORFInsuranceType#Accident "According UVG"
-        * ChRORFInsuranceType#DisorderKVG "According to KVG"
-        * ChRORFInsuranceType#DisorderVVG "According to VVG"
-        * ChRORFInsuranceType#OtherVVG "Other acording to VVG"
-
----- 5 -----------------------------------------------------------------------
-5.1: Bei 1.3 - 1.5:   Angaben zu Bilder bzw. allfällige Vorbilder und Reports, die mitgegeben werden 
-                      mittels CH ORF ImagingStudy Resource.
-
-*/
 
 Instance: CompositionRadiologyOrder  // Noch nicht vollständig
 InstanceOf: ChOrfComposition
@@ -524,7 +268,7 @@ Description: "Example for Patient"
 * telecom[0].value = "+41 79 979 79 79"
 // * telecom[0].use = #mobile
 * telecom[1].system = #email
-* telecom[1].value = "Susanna@Ufferer.ch"
+* telecom[1].value = "susanna@ufferer.ch"
 * gender = #female 
 * birthDate = "1970-03-14"
 * address.use = #home
