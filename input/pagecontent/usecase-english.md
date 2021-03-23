@@ -20,6 +20,10 @@ Dr. O. Rderplacer ordered a ct scan of the hip. The images show an impression fr
 
 <i>The second opinion as described above has to be distinguished from real-time remote reporting and case presentation such as provided by various teleradiology solutions. The latter requires however a technical infrastructure which is beyond what is necessary for direc-tional communication such as discussed here. <i>
 
+### Externe Befundung
+- Todo
+
+
 ### Request for Results from earlier
 The players are:
 

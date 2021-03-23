@@ -41,7 +41,6 @@ Title: "CH ORF Caveat Condition"
 Description: "Definition for the Caveat Condition resource in the context of ORF."
 * . ^short = "CH ORF Caveat Condition"
 
-
 * code 1..1 MS 
 * code from VsRadOrderCaveatCondition
 * category 1..1 MS
@@ -75,8 +74,8 @@ Description: "Definition for the Diagnose List resource in the context of ORF."
 
 Profile: ChOrfCaveatObservation
 Parent: Observation
-Id: ch-orf-caveat-caveat-observation
-Title: "CH ORF Lab Caveat Observation"
+Id: ch-orf-caveat-observation
+Title: "CH ORF Caveat Observation"
 Description: "Definition for the Lab Observation resource in the context of CH ORF Caveats."
 * . ^short = "CH ORF Caveat Observation"
 * effective[x] and value[x] and dataAbsentReason and interpretation and note MS

@@ -145,6 +145,52 @@ specify Imaging Request Details by means of orderDetail."
 * supportingInfo[precedingImagingResults] MS
 * supportingInfo[patientConsent] MS
 
+* supportingInfo[caveats] ^slicing.discriminator.type = #pattern
+* supportingInfo[caveats] ^slicing.discriminator.path = "Reference"
+* supportingInfo[caveats] ^slicing.rules = #open
+* supportingInfo[caveats] ^slicing.ordered = true 
+* supportingInfo[caveats] ^slicing.description = "Slice based on the component.code pattern" 
+
+* supportingInfo[caveats] contains
+    BloodCoag 0..1 and
+    RenalInsuff 0..1 and
+    Claustrophobia 0..1 and
+    BodyPierc 0.. and
+    Device 0..* and
+    Hyperthyr 0..1 and
+    Diabetes 0..1 and
+    Gravida 0..1 and  
+    ContrastAllerg 0..1 and   
+    DrugPrescr 0..*                       
+
+* supportingInfo[caveats][BloodCoag] only Reference(ChOrfCaveatCondition)
+* supportingInfo[caveats][RenalInsuff] only Reference(ChOrfCaveatCondition)
+* supportingInfo[caveats][Claustrophobia] only Reference(ChOrfCaveatCondition)
+* supportingInfo[caveats][BodyPierc] only Reference(ChOrfCaveatCondition)
+* supportingInfo[caveats][Device] only Reference(ChOrfCaveatCondition)
+* supportingInfo[caveats][Hyperthyr] only Reference(ChOrfCaveatCondition)
+* supportingInfo[caveats][Diabetes] only Reference(ChOrfCaveatCondition)
+* supportingInfo[caveats][Gravida] only Reference(ChOrfCaveatCondition)
+* supportingInfo[caveats][ContrastAllerg] only Reference(ChOrfCaveatCondition)
+* supportingInfo[caveats][DrugPrescr] only Reference(ChOrfCaveatCondition)
+
+
+
+
+/*
+64779008	Blood coagulation disorder (disorder)
+723188008	Renal insufficiency (disorder)
+19887002	Claustrophobia (finding)
+879862001	Body piercing (finding)
+397578001	Device in situ (finding)
+34486009	Hyperthyroidism (disorder)
+73211009	Diabetes mellitus (disorder)
+366321006	Finding of gravida (finding)
+404684003	Clinical finding (finding)
+293637006	Allergy to contrast media (finding)
+182817000	Drug prescription (situation)
+*/
+
 * supportingInfo[patientConsent] ^slicing.discriminator.type = #pattern
 * supportingInfo[patientConsent] ^slicing.discriminator.path = "Reference"
 * supportingInfo[patientConsent] ^slicing.rules = #open

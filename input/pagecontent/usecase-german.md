@@ -9,7 +9,7 @@ Akteure:
 
 Patientin S. Ufferer hat einen Termin bei Dr. O. Rderplacer in der Gemeinschaftspraxis "Happy Docotors": Dr. O. Rderplacer vereinbart mit dem Patienten, dass ein Thorax-Röntgen die in der Röntgenabteilung des "Happy Hospital" gemacht wird. Dr. O. Rderplacer schreibt einen Röntgenauftrag, der alle notwendigen Informationen enthält und schickt ihn an die Röntgenabteilung des "Happy Hospital". Zum Vergleich legt Dr. O. Rderplacer Bilder und Berichte vom früher bei. Außerdem bittet er darum, dem Patienten eine Kopie des Berichts zukommen zu lassen.
 
-### Radiologie-Auftrag
+### Zweitmeinung
 Akteure:
 
 * Auftrag erteilt durch: Dr. O. Rderplacer, Hausarzt in der Gemeinschaftspraxis "Happy Doctors"
@@ -19,6 +19,11 @@ Akteure:
 Dr. O. Rderplacer ordnete eine CT-Untersuchung der Hüfte an. Die Bilder zeigen eine Impressionsfraktur des rechten Oberschenkelknochens. Laut dem radiologischen Bericht scheint die Impressionsfraktur stabil zu sein. In Anbetracht des Alters des Patienten scheint ein chirurgischer Eingriff nicht notwendig zu sein. Dr. O. Rderplacer ist sich jedoch nicht sicher, ob diese Entscheidung richtig ist und schickt Bilder und Bericht an einen Orthopäden für eine Zweitmeinung.
 
 <i>Die oben beschriebene Zweitmeinung ist zu unterscheiden von der Echtzeit-Fernbefundung und Falldarstellung, wie sie von verschiedenen Teleradiologie-Lösungen angeboten wird. Letztere erfordert jedoch eine technische Infrastruktur, die über das hinausgeht, was für eine direkte Kommunikation, wie sie hier diskutiert wird, notwendig ist. <i>
+
+### Externe Befundung
+- Todo
+
+
 
 ### Anfrage nach Ergebnissen von früher
 Akteure:

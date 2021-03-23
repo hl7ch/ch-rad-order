@@ -17,7 +17,7 @@ Description: "Example for Questionnaire"
 * item[0].linkId = "order"
 * item[0].text = "Auftrag"
 * item[0].type = #group
-* item[0].required = true
+//* item[0].required = true
 
 * item[0].item[0].linkId = "order.placerOrderIdentifier"
 * item[0].item[0].text = "Auftragsnummer des Auftraggebers"
@@ -85,111 +85,120 @@ Description: "Example for Questionnaire"
 * item[2].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitionerrole"
 * item[2].text = "Auftraggeber"
 * item[2].type = #group
-* item[2].required = true
+//* item[2].required = true
 
-* item[2].item[0].linkId = "sender.author.practionerrole"
+/* item[2].item[0].linkId = "sender.author.practionerrole"
 * item[2].item[0].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitionerrole"
-* item[2].item[0].text = "Verantwortliche Person-Rolle"
+* item[2].item[0].text = ""
 * item[2].item[0].type = #group
-* item[2].item[0].required = true
+//* item[2].item[0].required = true
+*/
+* item[2].item[0].linkId = "sender.author.practitioner"
+* item[2].item[0].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitioner"
+* item[2].item[0].text = "Verantwortliche Person"
+* item[2].item[0].type = #group
 
-* item[2].item[0].item[0].linkId = "sender.author.practitioner"
-* item[2].item[0].item[0].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitioner"
-* item[2].item[0].item[0].text = "Verantwortliche Person"
-* item[2].item[0].item[0].type = #group
+* item[2].item[0].item[0].linkId = "sender.author.practitioner.familyName"
+* item[2].item[0].item[0].text = "Name"
+* item[2].item[0].item[0].type = #string
 
-* item[2].item[0].item[0].item[0].linkId = "sender.author.practitioner.familyName"
-* item[2].item[0].item[0].item[0].text = "Name"
-* item[2].item[0].item[0].item[0].type = #string
+* item[2].item[0].item[1].linkId = "sender.author.practitioner.givenName"
+* item[2].item[0].item[1].text = "Vorname"
+* item[2].item[0].item[1].type = #string
 
-* item[2].item[0].item[0].item[1].linkId = "sender.author.practitioner.givenName"
-* item[2].item[0].item[0].item[1].text = "Vorname"
-* item[2].item[0].item[0].item[1].type = #string
-
-* item[2].item[0].item[0].item[2].linkId = "sender.author.practitioner.email"
-* item[2].item[0].item[0].item[2].text = "E-Mail"
-* item[2].item[0].item[0].item[2].type = #string
+* item[2].item[0].item[2].linkId = "sender.author.practitioner.email"
+* item[2].item[0].item[2].text = "E-Mail"
+* item[2].item[0].item[2].type = #string
 
 // sender (Auftraggeber-Dataenterer)
+/*
 * item[2].item[1].linkId = "sender.dataenterer.practionerrole"
 * item[2].item[1].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitionerrole"
 * item[2].item[1].text = "Sekretariat-Rolle"
 * item[2].item[1].type = #group
-* item[2].item[1].required = true
+*/
+* item[2].item[1].linkId = "sender.dataenterer.practitioner"
+* item[2].item[1].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitioner"
+* item[2].item[1].text = "Sekretariat"
+* item[2].item[1].type = #group
 
-* item[2].item[1].item[0].linkId = "sender.dataenterer.practitioner"
-* item[2].item[1].item[0].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitioner"
-* item[2].item[1].item[0].text = "Sekretariat"
-* item[2].item[1].item[0].type = #group
+* item[2].item[1].item[0].linkId = "sender.dataenterer.practitioner.familyName"
+* item[2].item[1].item[0].text = "Name"
+* item[2].item[1].item[0].type = #string
 
-* item[2].item[1].item[0].item[0].linkId = "sender.dataenterer.practitioner.familyName"
-* item[2].item[1].item[0].item[0].text = "Name"
-* item[2].item[1].item[0].item[0].type = #string
+* item[2].item[1].item[1].linkId = "sender.dataenterer.practitioner.givenName"
+* item[2].item[1].item[1].text = "Vorname"
+* item[2].item[1].item[1].type = #string
 
-* item[2].item[1].item[0].item[1].linkId = "sender.dataenterer.practitioner.givenName"
-* item[2].item[1].item[0].item[1].text = "Vorname"
-* item[2].item[1].item[0].item[1].type = #string
-
-* item[2].item[1].item[0].item[2].linkId = "sender.dataenterer.practitioner.email"
-* item[2].item[1].item[0].item[2].text = "E-Mail"
-* item[2].item[1].item[0].item[2].type = #string
+* item[2].item[1].item[2].linkId = "sender.dataenterer.practitioner.email"
+* item[2].item[1].item[2].text = "E-Mail"
+* item[2].item[1].item[2].type = #string
 
 // sender (Auftraggeber-SofortInfo bei Antwort)
 
-* item[2].item[2].linkId = "urgentnoficationcontact.fortheresponsetothisdocument "
+/* item[2].item[2].linkId = "urgentforresponse"
 * item[2].item[2].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-composition"
 * item[2].item[2].text = "Bei Eintreffen der Antwort sofort benachtichtigen"
 * item[2].item[2].type = #group
+*/
+* item[2].item[2].linkId = "urgentforresponse.practitioner"
+* item[2].item[2].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitioner"
+* item[2].item[2].text = "Bei Eintreffen der Antwort sofort benachtichtigen"
+* item[2].item[2].type = #group
 
-* item[2].item[2].item[0].linkId = "urgent.person.practitioner"
-* item[2].item[2].item[0].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitioner"
-* item[2].item[2].item[0].text = "Verantwortliche Person"
-* item[2].item[2].item[0].type = #group
+* item[2].item[2].item[0].linkId = "urgent.person.practitioner.familyName"
+* item[2].item[2].item[0].text = "Name"
+* item[2].item[2].item[0].type = #string
 
-* item[2].item[2].item[0].item[0].linkId = "urgent.person.practitioner.familyName"
-* item[2].item[2].item[0].item[0].text = "Name"
-* item[2].item[2].item[0].item[0].type = #string
-
-* item[2].item[2].item[0].item[1].linkId = "urgent.person.practitioner.givenName"
-* item[2].item[2].item[0].item[1].text = "Vorname"
-* item[2].item[2].item[0].item[1].type = #string
+* item[2].item[2].item[1].linkId = "urgent.person.practitioner.givenName"
+* item[2].item[2].item[1].text = "Vorname"
+* item[2].item[2].item[1].type = #string
 
 // sender (Auftraggeber-Institution)
-* item[2].item[3].linkId = "sender"
+/* item[2].item[3].linkId = "sender"
 * item[2].item[3].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitionerrole"
-* item[2].item[3].text = "Auftragnehmer"
+* item[2].item[3].text = "Auftraggemer"
 * item[2].item[3].type = #group
 * item[2].item[3].required = true
+*/
+* item[2].item[3].linkId = "urgentforresponse.practitioner"
+* item[2].item[3].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-organization"
+* item[2].item[3].text = "Organization"
+* item[2].item[3].type = #group
 
-* item[2].item[3].item[0].linkId = "sender.organiszation.streetAddressLine"
-* item[2].item[3].item[0].text = "Strasse, Hausnummer, Postfach etc."
+* item[2].item[3].item[0].linkId = "sender.organiszation.name"
+* item[2].item[3].item[0].text = "Name"
 * item[2].item[3].item[0].type = #string
-* item[2].item[3].item[0].repeats = true
 
-* item[2].item[3].item[1].linkId = "sender.organiszation.postalCode"
-* item[2].item[3].item[1].text = "PLZ"
+* item[2].item[3].item[1].linkId = "sender.organiszation.streetAddressLine"
+* item[2].item[3].item[1].text = "Strasse, Hausnummer, Postfach etc."
 * item[2].item[3].item[1].type = #string
+* item[2].item[3].item[1].repeats = true
 
-* item[2].item[3].item[2].linkId = "sender.organiszation.city"
-* item[2].item[3].item[2].text = "Ort"
+* item[2].item[3].item[2].linkId = "sender.organiszation.postalCode"
+* item[2].item[3].item[2].text = "PLZ"
 * item[2].item[3].item[2].type = #string
 
-* item[2].item[3].item[3].linkId = "sender.country"
-* item[2].item[3].item[3].text = "Land"
+* item[2].item[3].item[3].linkId = "sender.organiszation.city"
+* item[2].item[3].item[3].text = "Ort"
 * item[2].item[3].item[3].type = #string
+
+* item[2].item[3].item[4].linkId = "sender.organiszation.country"
+* item[2].item[3].item[4].text = "Land"
+* item[2].item[3].item[4].type = #string
 
 // receiver (Empfänger)------------------------------
 * item[3].linkId = "receiver"
 * item[3].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitionerrole"
 * item[3].text = "Empfänger"
 * item[3].type = #group
-* item[3].required = true
+//* item[3].required = true
 
 * item[3].item[0].linkId = "receiver.person.practionerrole"
 * item[3].item[0].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitionerrole"
-* item[3].item[0].text = "Verantwortliche Person-Rolle"
+* item[3].item[0].text = ""
 * item[3].item[0].type = #group
-* item[3].item[0].required = true
+//* item[3].item[0].required = true
 
 * item[3].item[0].item[0].linkId = "receiver.person.practitioner"
 * item[3].item[0].item[0].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitioner"
@@ -233,24 +242,28 @@ Description: "Example for Questionnaire"
 * item[3].item[2].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitionerrole"
 * item[3].item[2].text = "Auftragnehmer"
 * item[3].item[2].type = #group
-* item[3].item[2].required = true
+//* item[3].item[2].required = true
 
-* item[3].item[2].item[0].linkId = "receiver.organiszation.streetAddressLine"
-* item[3].item[2].item[0].text = "Strasse, Hausnummer, Postfach etc."
+* item[3].item[2].item[0].linkId = "receiver.organiszation.name"
+* item[3].item[2].item[0].text = "Name"
 * item[3].item[2].item[0].type = #string
-* item[3].item[2].item[0].repeats = true
 
-* item[3].item[2].item[1].linkId = "receiver.rganiszation.postalCode"
-* item[3].item[2].item[1].text = "PLZ"
+* item[3].item[2].item[1].linkId = "receiver.organiszation.streetAddressLine"
+* item[3].item[2].item[1].text = "Strasse, Hausnummer, Postfach etc."
 * item[3].item[2].item[1].type = #string
+* item[3].item[2].item[1].repeats = true
 
-* item[3].item[2].item[2].linkId = "receiver.organiszation.city"
-* item[3].item[2].item[2].text = "Ort"
+* item[3].item[2].item[2].linkId = "receiver.rganiszation.postalCode"
+* item[3].item[2].item[2].text = "PLZ"
 * item[3].item[2].item[2].type = #string
 
-* item[3].item[2].item[3].linkId = "receiver.country"
-* item[3].item[2].item[3].text = "Land"
+* item[3].item[2].item[3].linkId = "receiver.organiszation.city"
+* item[3].item[2].item[3].text = "Ort"
 * item[3].item[2].item[3].type = #string
+
+* item[3].item[2].item[4].linkId = "receiver.country"
+* item[3].item[2].item[4].text = "Land"
+* item[3].item[2].item[4].type = #string
 
 /* ----- Beschreibung des Kerninhaltes der Rad-Order ----------------------
 CH Rad-Order UNTERSTUETZT LOINC/RSNA PLAYBOOK WIE FOLGT: ANSELLE DER ITEMS [4] - [7] WIRD IN
@@ -267,9 +280,15 @@ Was wird gewünscht (nur 1 Wert):
 
 * item[4].linkId = "whatservice"
 * item[4].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-rad-order-servicerequest"
-* item[4].text = "Gegenstand der Anfrage"
-* item[4].type = #string
-/*
+* item[4].text = "Auftrag"
+* item[4].type = #group
+
+* item[4].item[0].linkId = "whatservice"
+* item[4].item[0].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-rad-order-servicerequest"
+* item[4].item[0].text = "Untersuchung / Intervention / Bestehende Untersuchungsresultae (Bildr und Befunde) /
+                  nur Befunde / Zweitmeinung / Befundung"                 
+* item[4].item[0].type = #string
+
 /*------------------------------------------------------------------------
 Fragestellung (mehrere Werte)
 */
@@ -277,7 +296,13 @@ Fragestellung (mehrere Werte)
 * item[5].linkId = "reason"
 * item[5].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-rad-order-servicerequest"
 * item[5].text = "Klinische Fragestellung"
-* item[5].type = #string
+* item[5].type = #group
+
+* item[5].item[0].linkId = "ireason"
+* item[5].item[0].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-rad-order-servicerequest"
+* item[5].item[0].text = "Freitext:"                
+* item[5].item[0].type = #string
+* item[5].item[0].repeats = true
 
 /*-----------------------------------------------------------------------
 Angabe der Untersuchung (nur 1 Wert):
@@ -298,16 +323,44 @@ Angabe der Untersuchung (nur 1 Wert):
 * item[6].linkId = "imgagingservicetype"
 * item[6].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-rad-order-servicerequest"
 * item[6].text = "Art der Bildgebung"
-* item[6].type = #string
+* item[6].type = #group
+
+* item[6].item[0].linkId = "imgagingservicetype"
+* item[6].item[0].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-rad-order-servicerequest"
+* item[6].item[0].text = "CT / MRI / US / dual energy absorptiomety, Mammografie, PET-CT /
+                  Nuklearmed. Bildgung / Positron emiss. Tomographie / Konventinelles RX, Fluoroskopie / SPECT-CT / Andere"                 
+* item[6].item[0].type = #string
+
+
+/*----------------------------------------------------------------------
+Gewünschter Radiologe: Noch offen, wie die Auswahlliste gemacht werden soll
+*/
+* item[7].linkId = "desiredradilologist"
+* item[7].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-rad-order-servicerequest"
+* item[7].text = "Gewünschter Radiologe für die Befundung / für die Intervention"
+* item[7].type = #group
+
+* item[7].item[0].linkId = "desiredradilologist.familyName"
+* item[7].item[0].text = "Name"
+* item[7].item[0].type = #string
+
+* item[7].item[1].linkId = "desiredradilologist.givenName"
+* item[7].item[1].text = "Vorname"
+* item[7].item[1].type = #string
 
 /*----------------------------------------------------------------------
 Art der Intervention (mehrere Werte)
 */
 
-* item[7].linkId = "interventiontype"
-* item[7].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-rad-order-servicerequest"
-* item[7].text = "Art der Intervention"
-* item[7].type = #string
+* item[8].linkId = "interventiontype"
+* item[8].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-rad-order-servicerequest"
+* item[8].text = "Intervention"
+* item[8].type = #string
+
+* item[8].item[0].linkId = "interventiontype"
+* item[8].item[0].text = "Art"
+* item[8].item[0].type = #string
+* item[8].item[0].repeats = true
 
 
 /*----------------------------------------------------------------------*-- 
@@ -319,77 +372,143 @@ Darstellung der Order Details
                 * orderDetail[RadOrderManeuverType] from VsRadOrderManeuverType             
 */
 
-* item[8].linkId = "orderdetails"
-* item[8].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-rad-order-servicerequest"
-* item[8].text = "Weitere Angaben zur Bildgebung"
-* item[8].type = #group
+* item[9].linkId = "orderdetails"
+* item[9].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-rad-order-servicerequest"
+* item[9].text = "Weitere Angaben zur Bildgebung"
+* item[9].type = #group
 
-* item[8].item[0].linkId = "orderdetails.region"      // n Einträge
-* item[8].item[0].text = "Region"
-* item[8].item[0].type = #string
-* item[8].item[0].repeats = true
+* item[9].item[0].linkId = "orderdetails.region"      // n Einträge
+* item[9].item[0].text = "Region"
+* item[9].item[0].type = #string
+* item[9].item[0].repeats = true
 
-* item[8].item[0].linkId = "orderdetails.region"      // n Einträge
-* item[8].item[0].text = "Fokus"
-* item[8].item[0].type = #string
-* item[8].item[0].repeats = true
+* item[9].item[0].linkId = "orderdetails.region"      // n Einträge
+* item[9].item[0].text = "Fokus"
+* item[9].item[0].type = #string
+* item[9].item[0].repeats = true
 
-* item[8].item[1].linkId = "orderdetails.laterality" // 1 Eintrag
-* item[8].item[1].text = "Seitenangabe"
-* item[8].item[1].type = #string
+* item[9].item[1].linkId = "orderdetails.laterality" // 1 Eintrag
+* item[9].item[1].text = "Seitenangabe"
+* item[9].item[1].type = #string
 
-* item[8].item[2].linkId = "orderdetails.manoever"   // n Einträge
-* item[8].item[2].text = "Maneuver"
-* item[8].item[2].type = #string
-* item[8].item[2].repeats = true
+* item[9].item[2].linkId = "orderdetails.manoever"   // n Einträge
+* item[9].item[2].text = "Maneuver"
+* item[9].item[2].type = #string
+* item[9].item[2].repeats = true
 
 /*----------------------------------------------------------------------
 Darstellung der Problemliste
 */
 
-* item[9].linkId = "supplementaryinfo"
-* item[9].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-rad-order-servicerequest"
-* item[9].text = "Problemliste"
-* item[9].type = #group
-
-* item[9].item[0].linkId = "supplementaryinfo"  
-* item[9].item[0].text = "Problem"
-* item[9].item[0].type = #string
-* item[9].item[0].repeats = true
-
-
-/*----------------------------------------------------------------------
-Darstellung Caveats                                  
- */
-
-* item[10].linkId = "caveats"  
+* item[10].linkId = "supplementaryinfo"
 * item[10].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-rad-order-servicerequest"
-* item[10].text = "Warnungen"
+* item[10].text = "Problem- / Diagnoseliste"
 * item[10].type = #group
 
-* item[10].item[0].linkId = "alert"     
-* item[10].item[0].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-rad-order-servicerequest"
-* item[10].item[0].text = "Warnung"   // n Eintraege
+* item[10].item[0].linkId = "supplementaryinfo"  
+* item[10].item[0].text = "Problem / Diagnose"
 * item[10].item[0].type = #string
 * item[10].item[0].repeats = true
 
-* item[10].item[0].item[0].linkId = "alert.renalinsuff"     
-* item[10].item[0].item[0].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-orf-caveat-caveat-observation"
-* item[10].item[0].item[0].text = "Bei Niereninsuffinzients entweder Creatininclearance oder Creatinin; fuer beides Datum"
-* item[10].item[0].item[0].type = #group
-/*
-* item[10].item[0].item[0].item[0].linkId = "alert.renalinsuff.creatclearance"  
-* item[10].item[0].item[0].item[0].text = "Creatinin Clearance"
-* item[10].item[0].item[0].item[0].type= #string
 
-* item[10].item[0].item[0].item[0].linkId = "alert.renalinsuff.creat"  
-* item[10].item[0].item[0].item[0].text = "Creatinin"
-* item[10].item[0].item[0].item[0].type= #string
+/*----------------------------------------------------------------------
+Darstellung Caveats   
+    BloodCoag 0..1 and
+    RenalInsuff 0..1 and
+    Claustrophobia 0..1 and
+    BodyPierc 0.. and
+    Device 0..* and
+    Hyperthyr 0..1 and
+    Diabetes 0..1 and
+    Gravida 0..1 and  
+    ContrastAllerg 0..1 and   
+    DrugPrescr 0..*   
 
-* item[10].item[0].item[0].item[0].item[0].linkId = "supplementaryinfo.problemlist.renalinsuff.creatclearance"  
-* item[10].item[0].item[0].item[0].item[0].text = "Datum der Bestimmung"
-* item[10].item[0].item[0].item[0].item[0].type= #datetime
-*/
+ */
+
+* item[11].linkId = "caveats"  
+* item[11].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-rad-order-servicerequest"
+* item[11].text = "Caveats"
+* item[11].type = #group
+
+* item[11].item[0].linkId = "caveat.bloodCoag"     
+* item[11].item[0].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-rad-order-servicerequest"
+* item[11].item[0].text = "Beinträchtigre Blutgerinnung"   
+* item[11].item[0].type = #boolean
+
+* item[11].item[1].linkId = "caveat.renalInsuff"     
+* item[11].item[1].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-rad-order-servicerequest"
+* item[11].item[1].text = "Niereninsuffizienz"   
+* item[11].item[1].type = #boolean
+* item[11].item[1].repeats = true
+
+* item[11].item[1].item[0].linkId = "caveat.renalinsuff"     
+* item[11].item[1].item[0].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-orf-caveat-observation"
+* item[11].item[1].item[0].text = "Bei Niereninsuffizienz entweder Creatininclearance oder Creatinin"
+* item[11].item[1].item[0].type = #group
+
+* item[11].item[1].item[0].item[0].linkId = "caveat.renalinsuff.creatclearance"  
+* item[11].item[1].item[0].item[0].text = "Niereninsuffizienz"
+* item[11].item[1].item[0].item[0].type = #boolean
+
+* item[11].item[1].item[0].item[1].linkId = "caveat.renalinsuff.creatclearance"  
+* item[11].item[1].item[0].item[1].text = "Creatinin Clearance"
+* item[11].item[1].item[0].item[1].type = #quantity
+
+* item[11].item[1].item[0].item[1].item[0].linkId = "caveat.renalinsuff.creatclearance.date"  
+* item[11].item[1].item[0].item[1].item[0].text = "Datum der Bestimmung"
+* item[11].item[1].item[0].item[1].item[0].type = #dateTime
+
+* item[11].item[1].item[0].item[2].linkId = "caveat.renalinsuff.creat"  
+* item[11].item[1].item[0].item[2].text = "Creatinin"
+* item[11].item[1].item[0].item[2].type = #quantity
+
+* item[11].item[1].item[0].item[2].item[0].linkId = "scaveat.renalinsuff.creat.date"  
+* item[11].item[1].item[0].item[2].item[0].text = "Datum der Bestimmung"
+* item[11].item[1].item[0].item[2].item[0].type = #dateTime
+
+* item[11].item[2].linkId = "caveat.claustrophobia"     
+* item[11].item[2].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-rad-order-servicerequest"
+* item[11].item[2].text = "Klaustrophobie"   
+* item[11].item[2].type = #boolean
+
+* item[11].item[3].linkId = "caveat.bodypierc"     
+* item[11].item[3].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-rad-order-servicerequest"
+* item[11].item[3].text = "Bodypiercing"   
+* item[11].item[3].type = #boolean
+
+* item[11].item[4].linkId = "caveat.device"     
+* item[11].item[4].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-rad-order-servicerequest"
+* item[11].item[4].text = "Device (Herzschrittmacher, Herzklappenersatz, Insulinpumpe etc.)"   
+* item[11].item[4].type = #string
+* item[11].item[4].repeats = true
+
+* item[11].item[5].linkId = "caveat"     
+* item[11].item[5].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-rad-order-servicerequest"
+* item[11].item[5].text = "Hyperthyreose"   
+* item[11].item[5].type = #boolean
+
+* item[11].item[6].linkId = "caveat.diabetes"     
+* item[11].item[6].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-rad-order-servicerequest"
+* item[11].item[6].text = "Diabetes"   
+* item[11].item[6].type = #boolean
+
+* item[11].item[7].linkId = "caveat.gravida"     
+* item[11].item[7].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-rad-order-servicerequest"
+* item[11].item[7].text = "Schwangerschaft"   
+* item[11].item[7].type = #boolean
+
+* item[11].item[8].linkId = "caveat.contrastallerg"     
+* item[11].item[8].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-rad-order-servicerequest"
+* item[11].item[8].text = "Kontrastmittelallergie"   
+* item[11].item[8].type = #boolean
+
+* item[11].item[9].linkId = "caveat.drugprescr"     
+* item[11].item[9].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-rad-order-servicerequest"
+* item[11].item[9].text = "Relevante Medikamente, z. B. Metformin"   
+* item[11].item[9].type = #string              // noch nicht definiert wie zu machen
+* item[11].item[9].repeats = true
+
 /*-------------------------------------------------------------------------
 Darstellung der 4 Consents:
         [PrivacyConsent] only Reference(ChOrfConsent)
@@ -398,26 +517,26 @@ Darstellung der 4 Consents:
         [ADCD]: Advanced directive
 */
 
-* item[11].linkId = "consents"  
-* item[11].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-rad-order-servicerequest"
-* item[11].text = "Einverständniserklärungen"
-* item[11].type = #group
+* item[12].linkId = "consents"  
+* item[12].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-rad-order-servicerequest"
+* item[12].text = "Einverständniserklärungen"
+* item[12].type = #group
 
-* item[11].item[0].linkId = "consents.treatmentconsent"      
-* item[11].item[0].text = "Einverständnis des Patienten zur Behandlung"
-* item[11].item[0].type = #string
+* item[12].item[0].linkId = "consents.treatmentconsent"      
+* item[12].item[0].text = "Einverständnis des Patienten zur Behandlung"
+* item[12].item[0].type = #string
 
-* item[11].item[1].linkId = "consents.privacyconsent"      
-* item[11].item[1].text = "Einverständnis des Patienten zum Datenschutz"
-* item[11].item[1].type = #string
+* item[12].item[1].linkId = "consents.privacyconsent"      
+* item[12].item[1].text = "Einverständnis des Patienten zum Datenschutz"
+* item[12].item[1].type = #string
 
-* item[11].item[2].linkId = "consents.researchconsent"      
-* item[11].item[2].text = "Einverständnis des Patienten zur Forschung"
-* item[11].item[2].type = #string
+* item[12].item[2].linkId = "consents.researchconsent"      
+* item[12].item[2].text = "Einverständnis des Patienten zur Forschung"
+* item[12].item[2].type = #string
 
-* item[11].item[3].linkId = "consents.researchconsent"     
-* item[11].item[3].text = "Patientenverfügung"
-* item[11].item[3].type = #string
+* item[12].item[3].linkId = "consents.researchconsent"     
+* item[12].item[3].text = "Patientenverfügung"
+* item[12].item[3].type = #string
 
 /*------------------------------------------------------------------------
 Darstellung der 4 Arten von Kostentägern  (Noch offen: Wie efrassen; )
@@ -433,11 +552,11 @@ Darstellung der 4 Arten von Kostentägern  (Noch offen: Wie efrassen; )
 * item[12].type = #group
 
 * item[12].item[0].linkId = "insurance.uvg"
-* item[12].item[0].text = "Unfall"
+* item[12].item[0].text = "Unfallversicherung"
 * item[12].item[0].type = #string
 
 * item[12].item[1].linkId = "insurance.kvg"
-* item[12].item[1].text = "Grundversicherung"
+* item[12].item[1].text = "Grundversicherung (KVG)"
 * item[12].item[1].type = #string
 
 * item[12].item[2].linkId = "insurance.vvg"

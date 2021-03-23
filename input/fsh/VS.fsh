@@ -1,7 +1,7 @@
 // Probably better Core
 ValueSet: ChOrfCoverageType
 // Id: ch-rad-order-vs-example
-Title: "CH RAD-Order Coverge Type VS"
+Title: "CH RAD-Order Coverage Type"
 Description: "Definition for ORF Coverage Type Value Set in the context of ORF."
 * ChRORFInsuranceType#Accident "According UVG"
 * ChRORFInsuranceType#DisorderKVG "According to KVG"
@@ -13,7 +13,7 @@ Description: "Definition for ORF Coverage Type Value Set in the context of ORF."
 
 ValueSet: ChRadOrderDocumentCategory
 // Id: ch-rad-order-vs-example
-Title: "CH RAD-Order Document Categroy VS"
+Title: "CH RAD-Order Document Categroy"
 Description: "Definition for RAD-Order Document Category Value Set in the context of RAD-Order."
 * include codes from system ChRORFRequestedService
 
@@ -54,9 +54,6 @@ Description: "Definition for RAD-Order Lab Observation Value Set in the context 
 * ^expansion.contains.system = VsRadOrderCaveatLabObservation
 * LNC#77140-2 "Creatinine [Moles/volume] in Serum, Plasma or Blood"
 * LNC#33558-8 "Creatinine renal clearance in Urine and Serum or Plasma collected for unspecified duration"
-
-
-
 
 ValueSet: VsRadOrderReasonForExam
 Id: ch-rad-order-reason-for-exam
