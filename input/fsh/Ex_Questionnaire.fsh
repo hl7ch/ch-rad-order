@@ -98,15 +98,15 @@ Description: "Example for Questionnaire"
 * item[2].item[0].text = "Verantwortliche Person"
 * item[2].item[0].type = #group
 
-* item[2].item[0].item[0].linkId = "sender.author.practitioner.familyName"
+* item[2].item[0].item[0].linkId = "sender.author.familyName"
 * item[2].item[0].item[0].text = "Name"
 * item[2].item[0].item[0].type = #string
 
-* item[2].item[0].item[1].linkId = "sender.author.practitioner.givenName"
+* item[2].item[0].item[1].linkId = "sender.author.givenName"
 * item[2].item[0].item[1].text = "Vorname"
 * item[2].item[0].item[1].type = #string
 
-* item[2].item[0].item[2].linkId = "sender.author.practitioner.email"
+* item[2].item[0].item[2].linkId = "sender.author.email"
 * item[2].item[0].item[2].text = "E-Mail"
 * item[2].item[0].item[2].type = #string
 
@@ -122,15 +122,15 @@ Description: "Example for Questionnaire"
 * item[2].item[1].text = "Sekretariat"
 * item[2].item[1].type = #group
 
-* item[2].item[1].item[0].linkId = "sender.dataenterer.practitioner.familyName"
+* item[2].item[1].item[0].linkId = "sender.dataenterer.familyName"
 * item[2].item[1].item[0].text = "Name"
 * item[2].item[1].item[0].type = #string
 
-* item[2].item[1].item[1].linkId = "sender.dataenterer.practitioner.givenName"
+* item[2].item[1].item[1].linkId = "sender.dataenterer.givenName"
 * item[2].item[1].item[1].text = "Vorname"
 * item[2].item[1].item[1].type = #string
 
-* item[2].item[1].item[2].linkId = "sender.dataenterer.practitioner.email"
+* item[2].item[1].item[2].linkId = "sender.dataenterer.email"
 * item[2].item[1].item[2].text = "E-Mail"
 * item[2].item[1].item[2].type = #string
 
@@ -146,11 +146,11 @@ Description: "Example for Questionnaire"
 * item[2].item[2].text = "Bei Eintreffen der Antwort sofort benachtichtigen"
 * item[2].item[2].type = #group
 
-* item[2].item[2].item[0].linkId = "urgent.person.practitioner.familyName"
+* item[2].item[2].item[0].linkId = "rgentforresponse.person.familyName"
 * item[2].item[2].item[0].text = "Name"
 * item[2].item[2].item[0].type = #string
 
-* item[2].item[2].item[1].linkId = "urgent.person.practitioner.givenName"
+* item[2].item[2].item[1].linkId = "rgentforresponse.person.givenName"
 * item[2].item[2].item[1].text = "Vorname"
 * item[2].item[2].item[1].type = #string
 
@@ -161,7 +161,7 @@ Description: "Example for Questionnaire"
 * item[2].item[3].type = #group
 * item[2].item[3].required = true
 */
-* item[2].item[3].linkId = "urgentforresponse.practitioner"
+* item[2].item[3].linkId = "sender.organization"
 * item[2].item[3].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-organization"
 * item[2].item[3].text = "Organization"
 * item[2].item[3].type = #group
@@ -194,53 +194,48 @@ Description: "Example for Questionnaire"
 * item[3].type = #group
 //* item[3].required = true
 
-* item[3].item[0].linkId = "receiver.person.practionerrole"
+/* item[3].item[0].linkId = "receiver.person.practionerrole"
 * item[3].item[0].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitionerrole"
 * item[3].item[0].text = ""
 * item[3].item[0].type = #group
-//* item[3].item[0].required = true
+* item[3].item[0].required = true
+*/
+* item[3].item[0].linkId = "receiver.person.practitioner"
+* item[3].item[0].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitioner"
+* item[3].item[0].text = "Verantwortliche Person"
+* item[3].item[0].type = #group
 
-* item[3].item[0].item[0].linkId = "receiver.person.practitioner"
-* item[3].item[0].item[0].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitioner"
-* item[3].item[0].item[0].text = "Verantwortliche Person"
-* item[3].item[0].item[0].type = #group
+* item[3].item[0].item[0].linkId = "receiver.person.familyName"
+* item[3].item[0].item[0].text = "Name"
+* item[3].item[0].item[0].type = #string
 
-* item[3].item[0].item[0].item[0].linkId = "receiver.person.practitioner.familyName"
-* item[3].item[0].item[0].item[0].text = "Name"
-* item[3].item[0].item[0].item[0].type = #string
+* item[3].item[0].item[1].linkId = "receiver.person.givenName"
+* item[3].item[0].item[1].text = "Vorname"
+* item[3].item[0].item[1].type = #string
 
-* item[3].item[0].item[0].item[1].linkId = "receiver.person.practitioner.givenName"
-* item[3].item[0].item[0].item[1].text = "Vorname"
-* item[3].item[0].item[0].item[1].type = #string
-
-* item[3].item[0].item[0].item[2].linkId = "receiver.person.practitioner.email"
-* item[3].item[0].item[0].item[2].text = "E-Mail"
-* item[3].item[0].item[0].item[2].type = #string
+* item[3].item[0].item[2].linkId = "receiver.person.email"
+* item[3].item[0].item[2].text = "E-Mail"
+* item[3].item[0].item[2].type = #string
 
 // receiver (Auftragnehmer-SofortInfo bei Einftreffen des Auftrages)
 
-* item[3].item[1].linkId = "urgentnoficationcontact.forthisdocument"
-* item[3].item[1].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-organization"
+* item[3].item[1].linkId = "urgentforthisdoc.practioner"
+* item[3].item[1].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practioner"
 * item[3].item[1].text = "Bei Eintreffen des Auftrages sofort benachtichtigen"
 * item[3].item[1].type = #group
 
-* item[3].item[1].item[0].linkId = "urgent.person.practitioner"
-* item[3].item[1].item[0].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitioner"
-* item[3].item[1].item[0].text = "Verantwortliche Person"
-* item[3].item[1].item[0].type = #group
+* item[3].item[1].item[0].linkId = "rgentforthisdoc.person.familyName"
+* item[3].item[1].item[0].text = "Name"
+* item[3].item[1].item[0].type = #string
 
-* item[3].item[1].item[0].item[0].linkId = "urgent.person.practitioner.familyName"
-* item[3].item[1].item[0].item[0].text = "Name"
-* item[3].item[1].item[0].item[0].type = #string
-
-* item[3].item[1].item[0].item[1].linkId = "urgent.person.practitioner.givenName"
-* item[3].item[1].item[0].item[1].text = "Vorname"
-* item[3].item[1].item[0].item[1].type = #string
+* item[3].item[1].item[1].linkId = "rgentforthisdoc.person.givenName"
+* item[3].item[1].item[1].text = "Vorname"
+* item[3].item[1].item[1].type = #string
 
 //receiver  (Auftragnehmer-Institution)
 * item[3].item[2].linkId = "receiver.organization"
 * item[3].item[2].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitionerrole"
-* item[3].item[2].text = "Auftragnehmer"
+* item[3].item[2].text = "Organizationr"
 * item[3].item[2].type = #group
 //* item[3].item[2].required = true
 
@@ -261,7 +256,7 @@ Description: "Example for Questionnaire"
 * item[3].item[2].item[3].text = "Ort"
 * item[3].item[2].item[3].type = #string
 
-* item[3].item[2].item[4].linkId = "receiver.country"
+* item[3].item[2].item[4].linkId = "receiver.organization.country"
 * item[3].item[2].item[4].text = "Land"
 * item[3].item[2].item[4].type = #string
 
@@ -298,7 +293,7 @@ Fragestellung (mehrere Werte)
 * item[5].text = "Klinische Fragestellung"
 * item[5].type = #group
 
-* item[5].item[0].linkId = "ireason"
+* item[5].item[0].linkId = "reason"
 * item[5].item[0].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-rad-order-servicerequest"
 * item[5].item[0].text = "Freitext:"                
 * item[5].item[0].type = #string
@@ -431,12 +426,12 @@ Darstellung Caveats
 * item[11].text = "Caveats"
 * item[11].type = #group
 
-* item[11].item[0].linkId = "caveat.bloodCoag"     
+* item[11].item[0].linkId = "caveat.bloodcoag"     
 * item[11].item[0].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-rad-order-servicerequest"
 * item[11].item[0].text = "Beinträchtigre Blutgerinnung"   
 * item[11].item[0].type = #boolean
 
-* item[11].item[1].linkId = "caveat.renalInsuff"     
+* item[11].item[1].linkId = "caveat.renalinsuff"     
 * item[11].item[1].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-rad-order-servicerequest"
 * item[11].item[1].text = "Niereninsuffizienz"   
 * item[11].item[1].type = #boolean
@@ -483,7 +478,7 @@ Darstellung Caveats
 * item[11].item[4].type = #string
 * item[11].item[4].repeats = true
 
-* item[11].item[5].linkId = "caveat"     
+* item[11].item[5].linkId = "caveat.hyperthyr"     
 * item[11].item[5].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-rad-order-servicerequest"
 * item[11].item[5].text = "Hyperthyreose"   
 * item[11].item[5].type = #boolean
