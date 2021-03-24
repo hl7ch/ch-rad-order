@@ -99,16 +99,24 @@ Description: "Example for Questionnaire"
 * item[2].item[0].type = #group
 
 * item[2].item[0].item[0].linkId = "sender.author.familyName"
-* item[2].item[0].item[0].text = "Name"
+* item[2].item[0].item[0].text = "Titel"
 * item[2].item[0].item[0].type = #string
 
-* item[2].item[0].item[1].linkId = "sender.author.givenName"
-* item[2].item[0].item[1].text = "Vorname"
+* item[2].item[0].item[1].linkId = "sender.author.familyName"
+* item[2].item[0].item[1].text = "Name"
 * item[2].item[0].item[1].type = #string
 
-* item[2].item[0].item[2].linkId = "sender.author.email"
-* item[2].item[0].item[2].text = "E-Mail"
+* item[2].item[0].item[2].linkId = "sender.author.givenName"
+* item[2].item[0].item[2].text = "Vorname"
 * item[2].item[0].item[2].type = #string
+
+* item[2].item[0].item[3].linkId = "sender.author.email"
+* item[2].item[0].item[3].text = "E-Mail"
+* item[2].item[0].item[3].type = #string
+
+* item[2].item[0].item[4].linkId = "sender.author.email"
+* item[2].item[0].item[4].text = "Phone"
+* item[2].item[0].item[4].type = #string
 
 // sender (Auftraggeber-Dataenterer)
 /*
@@ -134,6 +142,10 @@ Description: "Example for Questionnaire"
 * item[2].item[1].item[2].text = "E-Mail"
 * item[2].item[1].item[2].type = #string
 
+* item[2].item[1].item[3].linkId = "sender.dataenterer.email"
+* item[2].item[1].item[3].text = "Phone"
+* item[2].item[1].item[3].type = #string
+
 // sender (Auftraggeber-SofortInfo bei Antwort)
 
 /* item[2].item[2].linkId = "urgentforresponse"
@@ -147,12 +159,16 @@ Description: "Example for Questionnaire"
 * item[2].item[2].type = #group
 
 * item[2].item[2].item[0].linkId = "rgentforresponse.person.familyName"
-* item[2].item[2].item[0].text = "Name"
+* item[2].item[2].item[0].text = "Titel"
 * item[2].item[2].item[0].type = #string
 
-* item[2].item[2].item[1].linkId = "rgentforresponse.person.givenName"
-* item[2].item[2].item[1].text = "Vorname"
+* item[2].item[2].item[1].linkId = "rgentforresponse.person.familyName"
+* item[2].item[2].item[1].text = "Name"
 * item[2].item[2].item[1].type = #string
+
+* item[2].item[2].item[2].linkId = "rgentforresponse.person.givenName"
+* item[2].item[2].item[2].text = "Vorname"
+* item[2].item[2].item[2].type = #string
 
 // sender (Auftraggeber-Institution)
 /* item[2].item[3].linkId = "sender"
@@ -206,16 +222,25 @@ Description: "Example for Questionnaire"
 * item[3].item[0].type = #group
 
 * item[3].item[0].item[0].linkId = "receiver.person.familyName"
-* item[3].item[0].item[0].text = "Name"
+* item[3].item[0].item[0].text = "Titel"
 * item[3].item[0].item[0].type = #string
 
-* item[3].item[0].item[1].linkId = "receiver.person.givenName"
-* item[3].item[0].item[1].text = "Vorname"
+* item[3].item[0].item[1].linkId = "receiver.person.familyName"
+* item[3].item[0].item[1].text = "Name"
 * item[3].item[0].item[1].type = #string
 
-* item[3].item[0].item[2].linkId = "receiver.person.email"
-* item[3].item[0].item[2].text = "E-Mail"
+* item[3].item[0].item[2].linkId = "receiver.person.givenName"
+* item[3].item[0].item[2].text = "Vorname"
 * item[3].item[0].item[2].type = #string
+
+* item[3].item[0].item[3].linkId = "receiver.person.email"
+* item[3].item[0].item[3].text = "E-Mail"
+* item[3].item[0].item[3].type = #string
+
+* item[3].item[0].item[4].linkId = "receiver.person.email"
+* item[3].item[0].item[4].text = "Phone"
+* item[3].item[0].item[4].type = #string
+
 
 // receiver (Auftragnehmer-SofortInfo bei Einftreffen des Auftrages)
 
