@@ -163,7 +163,7 @@ Description: "Example for Questionnaire"
 */
 * item[2].item[3].linkId = "sender.organization"
 * item[2].item[3].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-organization"
-* item[2].item[3].text = "Organization"
+* item[2].item[3].text = "Institution"
 * item[2].item[3].type = #group
 
 * item[2].item[3].item[0].linkId = "sender.organiszation.name"
@@ -235,7 +235,7 @@ Description: "Example for Questionnaire"
 //receiver  (Auftragnehmer-Institution)
 * item[3].item[2].linkId = "receiver.organization"
 * item[3].item[2].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitionerrole"
-* item[3].item[2].text = "Organizationr"
+* item[3].item[2].text = "Institution"
 * item[3].item[2].type = #group
 //* item[3].item[2].required = true
 
@@ -377,19 +377,19 @@ Darstellung der Order Details
 * item[9].item[0].type = #string
 * item[9].item[0].repeats = true
 
-* item[9].item[0].linkId = "orderdetails.region"      // n Einträge
-* item[9].item[0].text = "Fokus"
-* item[9].item[0].type = #string
-* item[9].item[0].repeats = true
-
-* item[9].item[1].linkId = "orderdetails.laterality" // 1 Eintrag
-* item[9].item[1].text = "Seitenangabe"
+* item[9].item[1].linkId = "orderdetails.region"      // n Einträge
+* item[9].item[1].text = "Fokus"
 * item[9].item[1].type = #string
+* item[9].item[1].repeats = true
 
-* item[9].item[2].linkId = "orderdetails.manoever"   // n Einträge
-* item[9].item[2].text = "Maneuver"
+* item[9].item[2].linkId = "orderdetails.laterality" // 1 Eintrag
+* item[9].item[2].text = "Seitenangabe"
 * item[9].item[2].type = #string
-* item[9].item[2].repeats = true
+
+* item[9].item[3].linkId = "orderdetails.manoever"   // n Einträge
+* item[9].item[3].text = "Maneuver"
+* item[9].item[3].type = #string
+* item[9].item[3].repeats = true
 
 /*----------------------------------------------------------------------
 Darstellung der Problemliste
