@@ -305,7 +305,7 @@ Was wird gewünscht (nur 1 Wert):
 
 * item[4].item[0].linkId = "whatservice"
 * item[4].item[0].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-rad-order-servicerequest"
-* item[4].item[0].text = "Untersuchung / Intervention / Bestehende Untersuchungsresultae (Bildr und Befunde) /
+* item[4].item[0].text = "Untersuchung / Intervention / Bestehende Untersuchungsresultae (Bilder und Befunde) /
                   nur Befunde / Zweitmeinung / Befundung"                 
 * item[4].item[0].type = #string
 
