@@ -741,7 +741,7 @@ Description: "Definition for RAD-Order Modality Type Value Set in the context of
 
 ValueSet: VsRadOrderViewType
 Id: ch-rad-order-view-type
-Title: "CH RAD-Order Modality Type"
+Title: "CH RAD-Order View Type"
 Description: "Definition for RAD-Order View Type Value Set in the context of RAD-Order."
 * ^expansion.contains.system = VsRadOrderViewType
 * RDLX#RID50104 "Endorectal view"

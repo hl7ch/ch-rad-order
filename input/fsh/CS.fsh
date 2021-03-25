@@ -12,7 +12,7 @@ Description: "Platzhalter: CodeSystem Insurance Type"
 // Platzhalter
 CodeSystem: ChRORFRequestedService
 //Id: ch-rad-order-cs-example
-Title: "CH ORF Insurance Type"
+Title: "CH ORF Requested Service"
 Description: "Platzhalter: CodeSystem Requested Service"
 * #RequestforPrecedentReport "Request for precedent Reports only"
 * #RequestforPrecedentReportandImages "Request for precedent Reports and Images "
