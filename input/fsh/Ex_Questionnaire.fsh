@@ -2,6 +2,14 @@ Instance: QuestionnaireRadiologyOrder
 InstanceOf: ChOrfQuestionnaire
 Title: "Questionniaire Radiology Order"
 Description: "Example for Questionnaire"
+
+/* -------------------------------------------------------------------------------------------------------
+Nur absolute "Required" sind markiert; es wird dann noch relative Required geben
+Bsp: Fragestellung ist required ausser bei Bestllung alter Bider
+   -------------------------------------------------------------------------------------------------------*/
+
+
+
 * meta.profile[0] = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-questionnaire"
 * meta.profile[1] = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire"
 * meta.profile[2] = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-extract"
@@ -17,19 +25,22 @@ Description: "Example for Questionnaire"
 * item[0].linkId = "order"
 * item[0].text = "Auftrag"
 * item[0].type = #group
-//* item[0].required = true
+* item[0].required = true
 
 * item[0].item[0].linkId = "order.placerOrderIdentifier"
 * item[0].item[0].text = "Auftragsnummer des Auftraggebers"
 * item[0].item[0].type = #string
+* item[0].item[0].required = true
 
 * item[0].item[1].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-hidden"
 * item[0].item[1].extension.valueBoolean = true
 * item[0].item[1].linkId = "order.placerOrderIdentifierDomain"
 * item[0].item[1].text = "Identifier Domain der Auftragsnummer des Auftraggebers"
 * item[0].item[1].type = #string
+* item[0].item[1].required = true
 
 // patient (Patient) ----------------------------
+// patient is not required because patient may not be known e.g. anonymized in case of research or name unknown in emergency
 * item[1].linkId = "patient"
 * item[1].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-patient"
 * item[1].text = "Patient"
@@ -85,38 +96,44 @@ Description: "Example for Questionnaire"
 * item[2].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitionerrole"
 * item[2].text = "Auftraggeber"
 * item[2].type = #group
-//* item[2].required = true
+* item[2].required = true
 
 /* item[2].item[0].linkId = "sender.author.practionerrole"
 * item[2].item[0].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitionerrole"
 * item[2].item[0].text = ""
 * item[2].item[0].type = #group
-//* item[2].item[0].required = true
+* item[2].item[0].required = true
 */
 * item[2].item[0].linkId = "sender.author.practitioner"
 * item[2].item[0].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitioner"
 * item[2].item[0].text = "Verantwortliche Person"
 * item[2].item[0].type = #group
+* item[2].item[0].required = true
 
-* item[2].item[0].item[0].linkId = "sender.author.familyName"
+* item[2].item[0].item[0].linkId = "sender.author.title"
 * item[2].item[0].item[0].text = "Titel"
 * item[2].item[0].item[0].type = #string
+
 
 * item[2].item[0].item[1].linkId = "sender.author.familyName"
 * item[2].item[0].item[1].text = "Name"
 * item[2].item[0].item[1].type = #string
+* item[2].item[0].item[1].required = true
 
 * item[2].item[0].item[2].linkId = "sender.author.givenName"
 * item[2].item[0].item[2].text = "Vorname"
 * item[2].item[0].item[2].type = #string
+* item[2].item[0].item[2].required = true
 
 * item[2].item[0].item[3].linkId = "sender.author.email"
 * item[2].item[0].item[3].text = "E-Mail"
 * item[2].item[0].item[3].type = #string
+* item[2].item[0].item[3].required = true
 
 * item[2].item[0].item[4].linkId = "sender.author.email"
 * item[2].item[0].item[4].text = "Phone"
 * item[2].item[0].item[4].type = #string
+* item[2].item[0].item[4].required = true
 
 // sender (Auftraggeber-Dataenterer)
 /*
@@ -181,10 +198,12 @@ Description: "Example for Questionnaire"
 * item[2].item[3].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-organization"
 * item[2].item[3].text = "Institution"
 * item[2].item[3].type = #group
+* item[2].item[3].required = true
 
 * item[2].item[3].item[0].linkId = "sender.organiszation.name"
 * item[2].item[3].item[0].text = "Name"
 * item[2].item[3].item[0].type = #string
+* item[2].item[3].item[0].required = true
 
 * item[2].item[3].item[1].linkId = "sender.organiszation.streetAddressLine"
 * item[2].item[3].item[1].text = "Strasse, Hausnummer, Postfach etc."
@@ -302,13 +321,14 @@ Was wird gewünscht (nur 1 Wert):
 * item[4].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-rad-order-servicerequest"
 * item[4].text = "Auftrag"
 * item[4].type = #group
+* item[4].required = true
 
 * item[4].item[0].linkId = "whatservice"
 * item[4].item[0].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-rad-order-servicerequest"
 * item[4].item[0].text = "Untersuchung / Intervention / Bestehende Untersuchungsresultae (Bilder und Befunde) /
                   nur Befunde / Zweitmeinung / Befundung"                 
 * item[4].item[0].type = #string
-
+* item[4].item[0].required = true
 /*------------------------------------------------------------------------
 Fragestellung (mehrere Werte)
 */
