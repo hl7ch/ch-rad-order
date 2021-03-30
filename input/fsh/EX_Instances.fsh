@@ -2,6 +2,7 @@ Instance: ServiceRequestRadiologyOrder
 InstanceOf: ChRadOrderServiceRequest
 Title: "ServiceRequest Radiology Order"
 Description: "Example for ServiceRequest"
+* identifier[placerOrderIdentifier].value = "12345"
 * status = #active
 * intent = #original-order
 * subject = Reference(SUfferer)

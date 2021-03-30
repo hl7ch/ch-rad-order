@@ -247,12 +247,12 @@ equal one Filler Order equal one Imaging Service Request."
 * entry contains ChOrfCaveatObservation 0..* 
 * entry contains ChOrfConsent 0..* 
 
-* entry[ChOrfServiceRequest].resource only ChRadOrderServiceRequest
-* entry[ChOrfAppointment].resource only ChOrfAppointment
-* entry[ChOrfImagingStudy].resource only ChOrfImagingStudy
-* entry[ChOrfCoverage].resource only ChOrfCoverage
-* entry[ChOrfCaveatObservation].resource only ChOrfCaveatObservation
-* entry[ChOrfConsent].resource only ChOrfConsent
+* entry[ChOrfServiceRequest].resource ^type.profile = Canonical(ChRadOrderServiceRequest)
+* entry[ChOrfAppointment].resource ^type.profile = Canonical(ChOrfAppointment)
+* entry[ChOrfImagingStudy].resource ^type.profile = Canonical(ChOrfImagingStudy)
+* entry[ChOrfCoverage].resource ^type.profile = Canonical(ChOrfCoverage)
+* entry[ChOrfCaveatObservation].resource ^type.profile = Canonical(ChOrfCaveatObservation)
+* entry[ChOrfConsent].resource ^type.profile = Canonical(ChOrfConsent)
 
 Profile: ChRadOrderComposition
 Parent: ChOrfComposition
