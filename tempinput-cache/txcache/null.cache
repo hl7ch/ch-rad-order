@@ -1,0 +1,19 @@
+-------------------------------------------------------------------------------------
+{"code" : {
+  "coding" : [{
+    "code" : "721963009"
+  }]
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://fhir.ch/ig/ch-rad-order/CodeSystem/ChRORFRequestedService"
+    }]
+  }
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"CHECK_MEMERSHIP_ONLY"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"\" is not known (encountered paired with code = \"721963009\"); The code provided (#721963009) is not valid in the value set 'ChRadOrderDocumentCategory' (from http://tx.fhir.org/r4)"
+}
+-------------------------------------------------------------------------------------

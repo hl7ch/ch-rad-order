@@ -1,0 +1,1095 @@
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "code" : "721963009",
+  "display" : "Order (record artifact)"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "Order (record artifact)",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "code" : "721963009"
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://snomed.info/sct",
+      "concept" : [{
+        "code" : "371531000",
+        "display" : "Report of clinical encounter (record artifact)",
+        "designation" : [{
+          "language" : "de-CH",
+          "value" : "Bericht aufgrund einer Konsultation"
+        },
+        {
+          "language" : "fr-CH",
+          "value" : "Rapport suite à une consultation"
+        },
+        {
+          "language" : "it-CH",
+          "value" : "Rapporto di visita medica"
+        },
+        {
+          "language" : "rm-CH",
+          "value" : "Rapport sin basa d'ina consultaziun"
+        },
+        {
+          "language" : "en-US",
+          "value" : "Report of clinical encounter"
+        }]
+      },
+      {
+        "code" : "721927009",
+        "display" : "Referral note (record artifact)",
+        "designation" : [{
+          "language" : "de-CH",
+          "value" : "Zuweisungsschreiben"
+        },
+        {
+          "language" : "fr-CH",
+          "value" : "Lettre de référence"
+        },
+        {
+          "language" : "it-CH",
+          "value" : "Lettera d'invio"
+        },
+        {
+          "language" : "rm-CH",
+          "value" : "Brev d'assegnaziun"
+        },
+        {
+          "language" : "en-US",
+          "value" : "Referral note"
+        }]
+      },
+      {
+        "code" : "721963009",
+        "display" : "Order (record artifact)",
+        "designation" : [{
+          "language" : "de-CH",
+          "value" : "Untersuchungsauftrag"
+        },
+        {
+          "language" : "fr-CH",
+          "value" : "Mandat d’analyse"
+        },
+        {
+          "language" : "it-CH",
+          "value" : "Prescrizione di analisi"
+        },
+        {
+          "language" : "rm-CH",
+          "value" : "Incumbensa da consultaziun"
+        },
+        {
+          "language" : "en-US",
+          "value" : "Order"
+        }]
+      },
+      {
+        "code" : "422735006",
+        "display" : "Summary clinical document (record artifact)",
+        "designation" : [{
+          "language" : "de-CH",
+          "value" : "Zusammenfassender Bericht"
+        },
+        {
+          "language" : "fr-CH",
+          "value" : "Rapport de synthèse"
+        },
+        {
+          "language" : "it-CH",
+          "value" : "Rapporto riassuntivo"
+        },
+        {
+          "language" : "rm-CH",
+          "value" : "Rapport medicinal resumà"
+        },
+        {
+          "language" : "en-US",
+          "value" : "Summary clinical document"
+        }]
+      },
+      {
+        "code" : "371525003",
+        "display" : "Clinical procedure report (record artifact)",
+        "designation" : [{
+          "language" : "de-CH",
+          "value" : "Interventionsbericht / Untersuchungsresultat"
+        },
+        {
+          "language" : "fr-CH",
+          "value" : "Rapport d’intervention / résultat de l’analyse"
+        },
+        {
+          "language" : "it-CH",
+          "value" : "Rapporto operatorio / Referto di analisi"
+        },
+        {
+          "language" : "rm-CH",
+          "value" : "Rapport d'intervenziun / resultat da la consultaziun"
+        },
+        {
+          "language" : "en-US",
+          "value" : "Clinical procedure report"
+        }]
+      },
+      {
+        "code" : "734163000",
+        "display" : "Care plan (record artifact)",
+        "designation" : [{
+          "language" : "de-CH",
+          "value" : "Behandlungsplan"
+        },
+        {
+          "language" : "fr-CH",
+          "value" : "Plan de traitement"
+        },
+        {
+          "language" : "it-CH",
+          "value" : "Piano di trattamento"
+        },
+        {
+          "language" : "rm-CH",
+          "value" : "Plan da tractament"
+        },
+        {
+          "language" : "en-US",
+          "value" : "Care plan"
+        }]
+      },
+      {
+        "code" : "440545006",
+        "display" : "Prescription record (record artifact)",
+        "designation" : [{
+          "language" : "de-CH",
+          "value" : "Verschreibung / Rezept"
+        },
+        {
+          "language" : "fr-CH",
+          "value" : "Prescription / ordonnance"
+        },
+        {
+          "language" : "it-CH",
+          "value" : "Prescrizione medica"
+        },
+        {
+          "language" : "rm-CH",
+          "value" : "Prescripziun / recept"
+        },
+        {
+          "language" : "en-US",
+          "value" : "Prescription record"
+        }]
+      },
+      {
+        "code" : "184216000",
+        "display" : "Patient record type (record artifact)",
+        "designation" : [{
+          "language" : "de-CH",
+          "value" : "Langzeitdokumentation"
+        },
+        {
+          "language" : "fr-CH",
+          "value" : "Documentation à long terme"
+        },
+        {
+          "language" : "it-CH",
+          "value" : "Documentazione a lungo termine"
+        },
+        {
+          "language" : "rm-CH",
+          "value" : "Documentaziun da lunga durada"
+        },
+        {
+          "language" : "en-US",
+          "value" : "Patient record type"
+        }]
+      },
+      {
+        "code" : "371537001",
+        "display" : "Consent report (record artifact)",
+        "designation" : [{
+          "language" : "de-CH",
+          "value" : "Einwilligung zur Behandlung"
+        },
+        {
+          "language" : "fr-CH",
+          "value" : "Consentement au traitement"
+        },
+        {
+          "language" : "it-CH",
+          "value" : "Consenso al trattamento"
+        },
+        {
+          "language" : "rm-CH",
+          "value" : "Consentiment al tractament"
+        },
+        {
+          "language" : "en-US",
+          "value" : "Consent report"
+        }]
+      },
+      {
+        "code" : "371538006",
+        "display" : "Advance directive report (record artifact)",
+        "designation" : [{
+          "language" : "de-CH",
+          "value" : "Patientenverfügung"
+        },
+        {
+          "language" : "fr-CH",
+          "value" : "Directives anticipées"
+        },
+        {
+          "language" : "it-CH",
+          "value" : "Direttive del paziente"
+        },
+        {
+          "language" : "rm-CH",
+          "value" : "Disposiziun dal pazient"
+        },
+        {
+          "language" : "en-US",
+          "value" : "Advance directive report"
+        }]
+      },
+      {
+        "code" : "722160009",
+        "display" : "Audit trail report (record artifact)",
+        "designation" : [{
+          "language" : "de-CH",
+          "value" : "Rückverfolgung der EPD Zugriffe"
+        },
+        {
+          "language" : "fr-CH",
+          "value" : "Traçabilité des accès aux DEP"
+        },
+        {
+          "language" : "it-CH",
+          "value" : "Cronologia degli accessi alla CIP"
+        },
+        {
+          "language" : "rm-CH",
+          "value" : "Repersequitabladad da l'access al DEP"
+        },
+        {
+          "language" : "en-US",
+          "value" : "Audit trail report"
+        }]
+      },
+      {
+        "code" : "722216001",
+        "display" : "Emergency medical identification record (record artifact)",
+        "designation" : [{
+          "language" : "de-CH",
+          "value" : "Notfall-ID / Ausweis"
+        },
+        {
+          "language" : "fr-CH",
+          "value" : "ID d’urgence / carte d’urgence"
+        },
+        {
+          "language" : "it-CH",
+          "value" : "Identificativo d'emergenza / scheda d'emergenza"
+        },
+        {
+          "language" : "rm-CH",
+          "value" : "Carta d'identitad per cas d'urgenza / document d'identitad"
+        },
+        {
+          "language" : "en-US",
+          "value" : "Emergency medical identification record"
+        }]
+      },
+      {
+        "code" : "772790007",
+        "display" : "Organ donor card (record artifact)",
+        "designation" : [{
+          "language" : "de-CH",
+          "value" : "Organspendeausweis"
+        },
+        {
+          "language" : "fr-CH",
+          "value" : "Carte de donneur d’organes"
+        },
+        {
+          "language" : "it-CH",
+          "value" : "Tessera di donatore di organi"
+        },
+        {
+          "language" : "rm-CH",
+          "value" : "Attest da donatur d'organs"
+        },
+        {
+          "language" : "en-US",
+          "value" : "Organ donor card"
+        }]
+      },
+      {
+        "code" : "405624007",
+        "display" : "Administrative documentation (record artifact)",
+        "designation" : [{
+          "language" : "de-CH",
+          "value" : "Administratives Dokument"
+        },
+        {
+          "language" : "fr-CH",
+          "value" : "Document administratif"
+        },
+        {
+          "language" : "it-CH",
+          "value" : "Documento amministrativo"
+        },
+        {
+          "language" : "rm-CH",
+          "value" : "Document administrativ"
+        },
+        {
+          "language" : "en-US",
+          "value" : "Administrative documentation"
+        }]
+      },
+      {
+        "code" : "417319006",
+        "display" : "Record of health event (record artifact)",
+        "designation" : [{
+          "language" : "de-CH",
+          "value" : "Dokument zu gesundheitsrelevantem Ereignis"
+        },
+        {
+          "language" : "fr-CH",
+          "value" : "Document sur l’événement sanitaire"
+        },
+        {
+          "language" : "it-CH",
+          "value" : "Documento concernente un evento rilevante per la salute"
+        },
+        {
+          "language" : "rm-CH",
+          "value" : "Document concernent  in eveniment relevant per la sanadad"
+        },
+        {
+          "language" : "en-US",
+          "value" : "Record of health event"
+        }]
+      },
+      {
+        "code" : "419891008",
+        "display" : "Record artifact (record artifact)",
+        "designation" : [{
+          "language" : "de-CH",
+          "value" : "Nicht näher bezeichnetes Dokument"
+        },
+        {
+          "language" : "fr-CH",
+          "value" : "Document non précisé"
+        },
+        {
+          "language" : "it-CH",
+          "value" : "Documento non meglio specificato"
+        },
+        {
+          "language" : "rm-CH",
+          "value" : "Document betg designà pli precis"
+        },
+        {
+          "language" : "en-US",
+          "value" : "Record artifact"
+        }]
+      }]
+    }]
+  }
+}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "Order (record artifact)",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "code" : "721963009",
+  "display" : "Order (record artifact)"
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://snomed.info/sct",
+      "concept" : [{
+        "code" : "371531000",
+        "display" : "Report of clinical encounter (record artifact)",
+        "designation" : [{
+          "language" : "de-CH",
+          "value" : "Bericht aufgrund einer Konsultation"
+        },
+        {
+          "language" : "fr-CH",
+          "value" : "Rapport suite à une consultation"
+        },
+        {
+          "language" : "it-CH",
+          "value" : "Rapporto di visita medica"
+        },
+        {
+          "language" : "rm-CH",
+          "value" : "Rapport sin basa d'ina consultaziun"
+        },
+        {
+          "language" : "en-US",
+          "value" : "Report of clinical encounter"
+        }]
+      },
+      {
+        "code" : "721927009",
+        "display" : "Referral note (record artifact)",
+        "designation" : [{
+          "language" : "de-CH",
+          "value" : "Zuweisungsschreiben"
+        },
+        {
+          "language" : "fr-CH",
+          "value" : "Lettre de référence"
+        },
+        {
+          "language" : "it-CH",
+          "value" : "Lettera d'invio"
+        },
+        {
+          "language" : "rm-CH",
+          "value" : "Brev d'assegnaziun"
+        },
+        {
+          "language" : "en-US",
+          "value" : "Referral note"
+        }]
+      },
+      {
+        "code" : "721963009",
+        "display" : "Order (record artifact)",
+        "designation" : [{
+          "language" : "de-CH",
+          "value" : "Untersuchungsauftrag"
+        },
+        {
+          "language" : "fr-CH",
+          "value" : "Mandat d’analyse"
+        },
+        {
+          "language" : "it-CH",
+          "value" : "Prescrizione di analisi"
+        },
+        {
+          "language" : "rm-CH",
+          "value" : "Incumbensa da consultaziun"
+        },
+        {
+          "language" : "en-US",
+          "value" : "Order"
+        }]
+      },
+      {
+        "code" : "422735006",
+        "display" : "Summary clinical document (record artifact)",
+        "designation" : [{
+          "language" : "de-CH",
+          "value" : "Zusammenfassender Bericht"
+        },
+        {
+          "language" : "fr-CH",
+          "value" : "Rapport de synthèse"
+        },
+        {
+          "language" : "it-CH",
+          "value" : "Rapporto riassuntivo"
+        },
+        {
+          "language" : "rm-CH",
+          "value" : "Rapport medicinal resumà"
+        },
+        {
+          "language" : "en-US",
+          "value" : "Summary clinical document"
+        }]
+      },
+      {
+        "code" : "371525003",
+        "display" : "Clinical procedure report (record artifact)",
+        "designation" : [{
+          "language" : "de-CH",
+          "value" : "Interventionsbericht / Untersuchungsresultat"
+        },
+        {
+          "language" : "fr-CH",
+          "value" : "Rapport d’intervention / résultat de l’analyse"
+        },
+        {
+          "language" : "it-CH",
+          "value" : "Rapporto operatorio / Referto di analisi"
+        },
+        {
+          "language" : "rm-CH",
+          "value" : "Rapport d'intervenziun / resultat da la consultaziun"
+        },
+        {
+          "language" : "en-US",
+          "value" : "Clinical procedure report"
+        }]
+      },
+      {
+        "code" : "734163000",
+        "display" : "Care plan (record artifact)",
+        "designation" : [{
+          "language" : "de-CH",
+          "value" : "Behandlungsplan"
+        },
+        {
+          "language" : "fr-CH",
+          "value" : "Plan de traitement"
+        },
+        {
+          "language" : "it-CH",
+          "value" : "Piano di trattamento"
+        },
+        {
+          "language" : "rm-CH",
+          "value" : "Plan da tractament"
+        },
+        {
+          "language" : "en-US",
+          "value" : "Care plan"
+        }]
+      },
+      {
+        "code" : "440545006",
+        "display" : "Prescription record (record artifact)",
+        "designation" : [{
+          "language" : "de-CH",
+          "value" : "Verschreibung / Rezept"
+        },
+        {
+          "language" : "fr-CH",
+          "value" : "Prescription / ordonnance"
+        },
+        {
+          "language" : "it-CH",
+          "value" : "Prescrizione medica"
+        },
+        {
+          "language" : "rm-CH",
+          "value" : "Prescripziun / recept"
+        },
+        {
+          "language" : "en-US",
+          "value" : "Prescription record"
+        }]
+      },
+      {
+        "code" : "184216000",
+        "display" : "Patient record type (record artifact)",
+        "designation" : [{
+          "language" : "de-CH",
+          "value" : "Langzeitdokumentation"
+        },
+        {
+          "language" : "fr-CH",
+          "value" : "Documentation à long terme"
+        },
+        {
+          "language" : "it-CH",
+          "value" : "Documentazione a lungo termine"
+        },
+        {
+          "language" : "rm-CH",
+          "value" : "Documentaziun da lunga durada"
+        },
+        {
+          "language" : "en-US",
+          "value" : "Patient record type"
+        }]
+      },
+      {
+        "code" : "371537001",
+        "display" : "Consent report (record artifact)",
+        "designation" : [{
+          "language" : "de-CH",
+          "value" : "Einwilligung zur Behandlung"
+        },
+        {
+          "language" : "fr-CH",
+          "value" : "Consentement au traitement"
+        },
+        {
+          "language" : "it-CH",
+          "value" : "Consenso al trattamento"
+        },
+        {
+          "language" : "rm-CH",
+          "value" : "Consentiment al tractament"
+        },
+        {
+          "language" : "en-US",
+          "value" : "Consent report"
+        }]
+      },
+      {
+        "code" : "371538006",
+        "display" : "Advance directive report (record artifact)",
+        "designation" : [{
+          "language" : "de-CH",
+          "value" : "Patientenverfügung"
+        },
+        {
+          "language" : "fr-CH",
+          "value" : "Directives anticipées"
+        },
+        {
+          "language" : "it-CH",
+          "value" : "Direttive del paziente"
+        },
+        {
+          "language" : "rm-CH",
+          "value" : "Disposiziun dal pazient"
+        },
+        {
+          "language" : "en-US",
+          "value" : "Advance directive report"
+        }]
+      },
+      {
+        "code" : "722160009",
+        "display" : "Audit trail report (record artifact)",
+        "designation" : [{
+          "language" : "de-CH",
+          "value" : "Rückverfolgung der EPD Zugriffe"
+        },
+        {
+          "language" : "fr-CH",
+          "value" : "Traçabilité des accès aux DEP"
+        },
+        {
+          "language" : "it-CH",
+          "value" : "Cronologia degli accessi alla CIP"
+        },
+        {
+          "language" : "rm-CH",
+          "value" : "Repersequitabladad da l'access al DEP"
+        },
+        {
+          "language" : "en-US",
+          "value" : "Audit trail report"
+        }]
+      },
+      {
+        "code" : "722216001",
+        "display" : "Emergency medical identification record (record artifact)",
+        "designation" : [{
+          "language" : "de-CH",
+          "value" : "Notfall-ID / Ausweis"
+        },
+        {
+          "language" : "fr-CH",
+          "value" : "ID d’urgence / carte d’urgence"
+        },
+        {
+          "language" : "it-CH",
+          "value" : "Identificativo d'emergenza / scheda d'emergenza"
+        },
+        {
+          "language" : "rm-CH",
+          "value" : "Carta d'identitad per cas d'urgenza / document d'identitad"
+        },
+        {
+          "language" : "en-US",
+          "value" : "Emergency medical identification record"
+        }]
+      },
+      {
+        "code" : "772790007",
+        "display" : "Organ donor card (record artifact)",
+        "designation" : [{
+          "language" : "de-CH",
+          "value" : "Organspendeausweis"
+        },
+        {
+          "language" : "fr-CH",
+          "value" : "Carte de donneur d’organes"
+        },
+        {
+          "language" : "it-CH",
+          "value" : "Tessera di donatore di organi"
+        },
+        {
+          "language" : "rm-CH",
+          "value" : "Attest da donatur d'organs"
+        },
+        {
+          "language" : "en-US",
+          "value" : "Organ donor card"
+        }]
+      },
+      {
+        "code" : "405624007",
+        "display" : "Administrative documentation (record artifact)",
+        "designation" : [{
+          "language" : "de-CH",
+          "value" : "Administratives Dokument"
+        },
+        {
+          "language" : "fr-CH",
+          "value" : "Document administratif"
+        },
+        {
+          "language" : "it-CH",
+          "value" : "Documento amministrativo"
+        },
+        {
+          "language" : "rm-CH",
+          "value" : "Document administrativ"
+        },
+        {
+          "language" : "en-US",
+          "value" : "Administrative documentation"
+        }]
+      },
+      {
+        "code" : "417319006",
+        "display" : "Record of health event (record artifact)",
+        "designation" : [{
+          "language" : "de-CH",
+          "value" : "Dokument zu gesundheitsrelevantem Ereignis"
+        },
+        {
+          "language" : "fr-CH",
+          "value" : "Document sur l’événement sanitaire"
+        },
+        {
+          "language" : "it-CH",
+          "value" : "Documento concernente un evento rilevante per la salute"
+        },
+        {
+          "language" : "rm-CH",
+          "value" : "Document concernent  in eveniment relevant per la sanadad"
+        },
+        {
+          "language" : "en-US",
+          "value" : "Record of health event"
+        }]
+      },
+      {
+        "code" : "419891008",
+        "display" : "Record artifact (record artifact)",
+        "designation" : [{
+          "language" : "de-CH",
+          "value" : "Nicht näher bezeichnetes Dokument"
+        },
+        {
+          "language" : "fr-CH",
+          "value" : "Document non précisé"
+        },
+        {
+          "language" : "it-CH",
+          "value" : "Documento non meglio specificato"
+        },
+        {
+          "language" : "rm-CH",
+          "value" : "Document betg designà pli precis"
+        },
+        {
+          "language" : "en-US",
+          "value" : "Record artifact"
+        }]
+      }]
+    },
+    {
+      "system" : "urn:oid:2.16.756.5.30.1.127.3.4",
+      "concept" : [{
+        "code" : "2171000195109",
+        "display" : "Obstetrical record (record artifact)",
+        "designation" : [{
+          "language" : "de-CH",
+          "value" : "Schwangerschafts-/ Geburtsbericht"
+        },
+        {
+          "language" : "fr-CH",
+          "value" : "Rapport de grossesse / de naissance"
+        },
+        {
+          "language" : "it-CH",
+          "value" : "Referto della gravidanza / del parto"
+        },
+        {
+          "language" : "rm-CH",
+          "value" : "Rapport da gravidanza / da naschientscha"
+        },
+        {
+          "language" : "en-US",
+          "value" : "Obstetrical Record"
+        }]
+      }]
+    }]
+  }
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK"}####
+v: {
+  "display" : "Order (record artifact)",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "code" : "721963009"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "Order (record artifact)",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "code" : "879862001"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "Body piercing (finding)",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "code" : "64779008"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "Blood coagulation disorder",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "code" : "723188008"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "Renal insufficiency (disorder)",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "code" : "19887002"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "Claustrophobia",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "code" : "397578001"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "Device in situ (finding)",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "code" : "34486009"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "Hyperthyroidism",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "code" : "73211009"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "Diabetes mellitus",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "code" : "366321006"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "Gravida - finding",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "code" : "404684003"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "Clinical finding (finding)",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "code" : "293637006"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "Contrast media allergy",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "code" : "182817000"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "Drug prescription",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "code" : "372567009"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "Metformin (substance)",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "code" : "721963009"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "Order (record artifact)",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "code" : "310455000"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "Medical report requested",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "code" : "2161000195103",
+  "display" : "Imaging order (record articact)"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to find code 2161000195103 in http://snomed.info/sct (version http://snomed.info/sct/900000000000207008/version/20210131); The code \"2161000195103\" is not valid in the system http://snomed.info/sct; The code provided (http://snomed.info/sct#2161000195103) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : true, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://snomed.info/sct",
+      "concept" : [{
+        "code" : "721963009",
+        "display" : "Order (record artifact)"
+      },
+      {
+        "code" : "310455000",
+        "display" : "SCTMedical report requested (finding)"
+      }]
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:724dba96-e8d0-4763-beca-8deec32d7810",
+    "timestamp" : "2021-03-18T17:49:16.474Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "version",
+      "valueString" : "http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20210131"
+    }],
+    "contains" : [{
+      "system" : "http://snomed.info/sct",
+      "code" : "721963009",
+      "display" : "Order (record artifact)"
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "code" : "310455000",
+      "display" : "SCTMedical report requested (finding)"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : true, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://snomed.info/sct",
+      "concept" : [{
+        "code" : "721963009",
+        "display" : "Order (record artifact)"
+      },
+      {
+        "code" : "310455000",
+        "display" : "Medical report requested (finding)"
+      }]
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:16d2ae29-b508-4da4-9d9a-10c5953ac19e",
+    "timestamp" : "2021-03-18T18:54:44.094Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "version",
+      "valueString" : "http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20210131"
+    }],
+    "contains" : [{
+      "system" : "http://snomed.info/sct",
+      "code" : "721963009",
+      "display" : "Order (record artifact)"
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "code" : "310455000",
+      "display" : "Medical report requested (finding)"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------

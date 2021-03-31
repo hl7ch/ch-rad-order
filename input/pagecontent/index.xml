@@ -31,7 +31,7 @@
         <a href="http://build.fhir.org/ig/hl7ch/ch-core/index.html">CH Core</a>
     </p>
 
-    <p>Applications claiming for conformance with the eTOC Implementation Guide shall:
+    <p>Applications claiming for conformance with the CH-RAD-Order Implementation Guide shall:
     </p>
         <ul>
             <li>Render (and in case of the Questionnaire filler allow for data entry) all MUST SUPORT elements of a questionnaire in the

@@ -9,12 +9,12 @@
     </div>
   </text>
   <url value="http://fhir.ch/ig/ch-rad-order/ImplementationGuide/ch.fhir.ig.ch-rad-order"/>
-  <version value="0.0.1"/>
-  <name value="CH_eTOC"/>
+  <version value="0.1.0"/>
+  <name value="CH-RAD-Order"/>
   <title value="CH RAD-Order (R4)"/>
   <status value="active"/>
   <experimental value="false"/>
-  <date value="2021-03-02"/>
+  <date value="2021-03-29"/>
   <publisher value="HL7 Switzerland"/>
   <contact>
     <name value="HL7 Switzerland"/>
@@ -30,7 +30,7 @@
       <value value="bleuer@healthevidence.ch"/>
     </telecom>
   </contact>
-  <description value="Implementation Guide for CH eTOC"/>
+  <description value="Implementation Guide for CH RAD-Order"/>
   <jurisdiction>
     <coding>
       <system value="urn:iso:std:iso:3166"/>
@@ -38,7 +38,7 @@
     </coding>
   </jurisdiction>
   <copyright value="CC-BY-SA-4.0"/>
-  <packageId value="ch.fhir.ig.ch-etoc"/>
+  <packageId value="ch.fhir.ig.ch-rad-order"/>
   <license value="CC-BY-SA-4.0"/>
   <fhirVersion value="4.0.1"/>
   <dependsOn id="chcore">
@@ -63,7 +63,7 @@
   </dependsOn>
   <definition>
     <grouping>
-      <name value="CH eTOC"/>
+      <name value="CH RAD-Order"/>
     </grouping>
 
     <!-- Resource Profiles -->
