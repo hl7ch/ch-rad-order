@@ -6,9 +6,10 @@ Description: "Example for ServiceRequest"
 * status = #active
 * intent = #original-order
 * subject = Reference(SUfferer)
-* requester = Reference(DAtaentererHappyDoctors)
+* requester = Reference(ORderplacerHappyDoctors)
 * category = #721963009
-// * performer = Reference(OttoRderfillerHappyHospital)
+* performer = Reference(ORderfillerHappyHospital)
+
 
 Instance: QuestionnaireResponseRadiologyOrder  // noch nicht fertig
 InstanceOf: ChOrfQuestionnaireResponse
@@ -56,7 +57,7 @@ Description: "Example for QuestionnaireResponse"
 
 * item[1].item[5].linkId = "patient.email"
 * item[1].item[5].text = "E-Mail"
-* item[1].item[5].answer.valueString = "susanna@ufferer"
+* item[1].item[5].answer.valueString = "susanna@ufferer.ch"
 
 * item[1].item[6].linkId = "patient.streetAddressLine"
 * item[1].item[6].text = "Strasse, Hausnummer, Postfach etc."
@@ -90,7 +91,7 @@ Description: "Example for QuestionnaireResponse"
 
 * item[2].item[0].item[0].item[1].linkId = "orderer.author.practitioner.givenName"
 * item[2].item[0].item[0].item[1].text = "Vorname"
-* item[2].item[0].item[0].item[1].answer.valueString = "Otile"
+* item[2].item[0].item[0].item[1].answer.valueString = "Ottilie"
 
 * item[2].item[0].item[0].item[2].linkId = "orderer.author.practitioner.email"
 * item[2].item[0].item[0].item[2].text = "o.rderplacer@happydoctors.ch"
@@ -116,7 +117,7 @@ Description: "Example for Composition"
 * category = SCT#721963009 "Order (record artifact)"
 * subject = Reference(SUfferer)
 * date = "2019-04-01T20:18:41.341+00:00"
-* author = Reference(DAtaentererHappyDoctors)
+* author = Reference(ORderplacerHappyDoctors)
 * title = "Radiology Order"
 * section.title = "Radiology Order"
 * section.text.status = #additional
@@ -125,6 +126,7 @@ Description: "Example for Composition"
 * section.entry[1] = Reference(QuestionnaireResponseRadiologyOrder)
 * section.entry[2] = Reference(ServiceRequestRadiologyOrder)
 // etc.
+
 
 Instance: DocumentRadiologyOrder // Noch nicht vollständig
 InstanceOf: ChOrfDocument
@@ -157,62 +159,55 @@ Description: "Example for Bundle"
 
 Instance: ORderplacer
 InstanceOf: ChCorePractitioner
-Title: "Ottilie Rderfiller"
-Description: "Example for Author-Person"
+Title: "Ottilie Rderplacer"
+Description: "Example for Practitioner"
 * identifier.system = "urn:oid:2.51.1.3"
 * identifier.value = "7601000034321"
 * name.use = #official
-* name.family = "Ataentererr"
-* name.given = "Doris"
+* name.family = "Rderplacer"
+* name.given = "Ottilie"
 * name.prefix = "Dr. med."
 * name.prefix.extension.url = "http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier"
 * name.prefix.extension.valueCode = #AC
 * telecom[0].system = #phone
 * telecom[0].value = "+41 44 333 22 11"
-* telecom[0].use = #work
 * telecom[1].system = #email
-* telecom[1].value = "D.Ataenterer@HappyDoctors.ch"
-* telecom[1].use = #work
+* telecom[1].value = "o.rderplacer@happydoctors.ch"
+
 
 Instance: ORderplacerHappyDoctors
 InstanceOf: ChCorePractitionerRole
-Title: "Otile Rderplacer at Praxis Happy Doctors"
-Description: "Example for Author-PractionerRole"
-* practitioner = Reference(DAtaenterer)
+Title: "Ottilie Rderplacer @ Happy Doctors"
+Description: "Example for PractionerRole"
+* practitioner = Reference(ORderplacer)
 * organization = Reference(HappyDoctors)
+
 
 Instance: DAtaenterer
 InstanceOf: ChCorePractitioner
-Title: "Ottilie Rderfiller"
-Description: "Example for Dataenterer-Person"
-// * identifier.system = "urn:oid:2.51.1.3"
-// * identifier.value = "7601000034321"
-* name.use = #official
-* name.family = "Ataentererr"
+Title: "Doris Ataenterer"
+Description: "Example for Practitioner"
+* name.family = "Ataenterer"
 * name.given = "Doris"
-// * name.prefix = "Dr. med."
-// * name.prefix.extension.url = "http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier"
-// * name.prefix.extension.valueCode = #AC
 * telecom[0].system = #phone
 * telecom[0].value = "+41 44 333 22 11"
-* telecom[0].use = #work
 * telecom[1].system = #email
-* telecom[1].value = "D.Ataenterer@HappyDoctors.ch"
-* telecom[1].use = #work
+* telecom[1].value = "d.ataenterer@happydoctors.ch"
+
 
 Instance: DAtaentererHappyDoctors
 InstanceOf: ChCorePractitionerRole
-Title: "Doris Ataenterer at Praxis Happy Doctors"
-Description: "Example for Dataenterer-PractionerRole"
+Title: "Doris Ataenterer @ Happy Doctors"
+Description: "Example for PractionerRole"
 * practitioner = Reference(DAtaenterer)
 * organization = Reference(HappyDoctors)
+
 
 Instance: HappyDoctors
 InstanceOf: ChCoreOrganization
 Title: "Praxis Happy Doctors"
-Description: "Example for Orderplacer-Organization"
+Description: "Example for Organization"
 * name = "Praxis Happy Docotors"
-* address.use = #work
 * address.line[0] = "Kantonsstrasse 14"
 * address.line[1] = "Postfach 14"
 * address.city = "Zürich"
@@ -223,7 +218,7 @@ Description: "Example for Orderplacer-Organization"
 Instance: ORderfiller
 InstanceOf: ChCorePractitioner
 Title: "Otto Rderfiller"
-Description: "Example for Orderfiller-Person"
+Description: "Example for Practitioner"
 * identifier.system = "urn:oid:2.51.1.3"
 * identifier.value = "7601000066878"
 * name.use = #official
@@ -234,29 +229,29 @@ Description: "Example for Orderfiller-Person"
 * name.prefix.extension.valueCode = #AC
 * telecom[0].system = #phone
 * telecom[0].value = "+41 44 412 00 99"
-* telecom[0].use = #work
 * telecom[1].system = #email
-* telecom[1].value = "O.Rderfiller@HappyHospital.ch"
-* telecom[1].use = #work
+* telecom[1].value = "o.rderfiller@happyhospital.ch"
+
 
 Instance: ORderfillerHappyHospital
 InstanceOf: ChCorePractitionerRole
-Title: "Otto Rderfiller at Klinik Happy Hospital"
-Description: "Example for OrderFiller-PractionerRole"
-* practitioner = Reference(OttoRderfiller)
+Title: "Otto Rderfiller @ Happy Hospital"
+Description: "Example for PractionerRole"
+* practitioner = Reference(ORderfiller)
 * organization = Reference(HappyHospital)
+
 
 Instance: HappyHospital
 InstanceOf: ChCoreOrganization
 Title: "Klinik Happy Hospital"
-Description: "Example for OrderFiller-Organization"
+Description: "Example for Organization"
 * name = "Klinik Happy Hospital"
-* address.use = #work
 * address.line[0] = "Seestrasse 133"
 * address.line[1] = "Haus C"
 * address.city = "Zürich"
 * address.postalCode = "8000"
 * address.country = "Schweiz" 
+
 
 Instance: SUfferer
 InstanceOf: ChOrfPatient
@@ -267,7 +262,6 @@ Description: "Example for Patient"
 * name[0].given = "Susanna"
 * telecom[0].system = #phone
 * telecom[0].value = "+41 79 979 79 79"
-// * telecom[0].use = #mobile
 * telecom[1].system = #email
 * telecom[1].value = "susanna@ufferer.ch"
 * gender = #female 
