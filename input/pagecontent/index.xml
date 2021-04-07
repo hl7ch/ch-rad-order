@@ -18,6 +18,13 @@
     <p>CH RAD-Order is intended for use in directional communiation as well as for the use in the SWISS EPR.
     </p>  
 
+    <p>
+        <b>Download:</b>
+        You can download this Implementation Guide in 
+        <a href="https://confluence.hl7.org/display/FHIR/NPM+Package+Specification">NPM format</a> from 
+        <a href="package.tgz">here</a>.
+    </p>
+
   <a name="volume1"></a><h3>Foundation</h3>
     
     <p>This Implementation Guide uses FHIR defined resources. For details on HL7 FHIR R4 see <a href="http://hl7.org/fhir/r4">http://hl7.org/fhir/r4</a>.
