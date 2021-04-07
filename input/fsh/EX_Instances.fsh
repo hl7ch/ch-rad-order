@@ -39,7 +39,7 @@ Description: "Example for QuestionnaireResponse"
 * item[1].item[0].answer.valueString = "Ufferer"
 
 * item[1].item[1].linkId = "patient.maidenName"
-* item[1].item[1].text = "Name"
+* item[1].item[1].text = "Ledigname"
 * item[1].item[1].answer.valueString = "Leidend"
 
 * item[1].item[2].linkId = "patient.givenName"

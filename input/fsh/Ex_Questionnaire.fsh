@@ -51,7 +51,7 @@ Bsp: Fragestellung ist required ausser bei Bestllung alter Bider
 * item[1].item[0].type = #string
 
 * item[1].item[1].linkId = "patient.maidenName"   // NEU, anschliessend neu numeriert
-* item[1].item[1].text = "Lediger Name"
+* item[1].item[1].text = "Ledigname"
 * item[1].item[1].type = #string
 
 * item[1].item[2].linkId = "patient.givenName"
