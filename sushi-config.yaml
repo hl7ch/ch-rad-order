@@ -1,8 +1,11 @@
+# Example/Documentation for this file
+# https://fshschool.org/docs/sushi/configuration/#exhaustive-example
+
 id: ch.fhir.ig.ch-rad-order
 canonical: http://fhir.ch/ig/ch-rad-order
 name: CH_RAD_Order
 title: "CH RAD-Order (R4)"
-description: Implementation guide for dental data from Straumann
+description: Implementation guide CH RAD-Order (R4)
 status: draft
 license: CC-BY-SA-4.0
 copyright: CC-BY-SA-4.0
@@ -22,4 +25,20 @@ contact:
 dependencies:
   ch.fhir.ig.ch-orf: current
   ch.fhir.ig.ch-core: current
+  ch.fhir.ig.ch-epr-term: 2.0.4
 
+pages:
+  index.html:
+    title: Home
+  usecase-english.md:
+    title: Use Cases
+  usecase-german.md:
+    title: Anwendungsfälle
+  usecase-french.md:
+    title: Cas d'application
+  profiles.html:
+    title: Profiles
+  extensions.html:
+    title: Extensions
+  terminology.html:
+    title: Terminology
