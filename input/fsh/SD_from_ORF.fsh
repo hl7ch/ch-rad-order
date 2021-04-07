@@ -233,7 +233,7 @@ Parent: ChOrfDocument
 Id: ch-rad-order-document
 Title: "CH RAD-Order Document"
 Description: "Definition for the Document resource in the context of CH RAD-Order."
-* . ^short = "CCH RAD-Order Document"
+* . ^short = "CH RAD-Order Document"
 * . ^definition = "This IG follows the IHE Scheduled Workflow (SWF) Profile: 
 An Order Filler accepts from an Order Placer a single Order that it equates to a Filler Order 
 (which is concept commonly used in HL7) or Imaging Service Request (Concept commonly used in DICOM). 

@@ -119,7 +119,7 @@ Parent: Condition-uv-ips
 Title: "CH RAD-Order Condition"
 Id: ch-rad-order-Condition
 Description: "Definition for the ImagingStudy resource in the context of CH RAD-Order."
-* . ^short = "CCH RAD-Order Condition"
+* . ^short = "CH RAD-Order Condition"
 */
 
 Profile: ChRadOrderCondition
@@ -127,5 +127,5 @@ Parent: Condition
 Id: ch-rad-order-condition
 Title: "CH RAD-Order Condition"
 Description: "Definition for the Condition resource in the context of RAD-Order."
-* . ^short = "H RAD-Order Condition"
+* . ^short = "CH RAD-Order Condition"
 

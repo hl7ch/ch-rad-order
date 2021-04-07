@@ -2,36 +2,36 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas-r5/fhir-single.xsd">
 
     
-     <a name="volume1"></a><h4>Purpose</h4>
+     <a name="volume1"></a><h3>Purpose</h3>
 
-    <p>The CH-RAD-Order (CH-RAD-Order) Implementation Guide defines the content of a radiolgy order and covers the follwing use cases:
+    <p>The CH RAD-Order Implementation Guide defines the content of a radiolgy order and covers the follwing use cases:
     </p>
    
     <ul>
-        <li> - Referral for imaging</li>
-        <li> - Referral for radiological intervention</li>
-        <li> - Request for second opinion</li>
-        <li> - Request for remote reporting</li>
-        <li> - Request for precedent imaging results</li>
+        <li>Referral for imaging</li>
+        <li>Referral for radiological intervention</li>
+        <li>Request for second opinion</li>
+        <li>Request for remote reporting</li>
+        <li>Request for precedent imaging results</li>
     </ul>
 
-    <p>CH-RAD-Order is intended for use in directional communiation as well as for the use in the SWISS EPR.
+    <p>CH RAD-Order is intended for use in directional communiation as well as for the use in the SWISS EPR.
     </p>  
 
-  <a name="volume1"></a><h4>Foundation</h4>
+  <a name="volume1"></a><h3>Foundation</h3>
     
-    <p>This Implementation Guide uses FHIR defined resources. For details on HL7 FHIR R4 see <a href="http://hl7.org/fhir/r4">http://hl7.org/fhir/r4</a>
+    <p>This Implementation Guide uses FHIR defined resources. For details on HL7 FHIR R4 see <a href="http://hl7.org/fhir/r4">http://hl7.org/fhir/r4</a>.
     </p>
     <p>Because the Implementation Guide relies heavily on the FHIR Resources Questionnaire and QuestionnaireResponse, forms are addressed here as Questionnaires.
     </p>
     
     <p>This Implementation Guide is derived from the Order &amp; Referral by Form (ORF) Implementation Guide  
-        <a href="http://build.fhir.org/ig/hl7ch/ch-orf/index.html">CH-ORF</a> which relies on HL7 Structured Data Capture Implementation Guide, see
+        <a href="http://build.fhir.org/ig/hl7ch/ch-orf/index.html">CH ORF</a> which relies on HL7 Structured Data Capture Implementation Guide, see
         <a href="http://build.fhir.org/ig/HL7/sdc/">SDC IG</a> and uses the Swiss Core Profiles, see 
-        <a href="http://build.fhir.org/ig/hl7ch/ch-core/index.html">CH Core</a>
+        <a href="http://build.fhir.org/ig/hl7ch/ch-core/index.html">CH Core</a>.
     </p>
 
-    <p>Applications claiming for conformance with the CH-RAD-Order Implementation Guide shall:
+    <p>Applications claiming for conformance with the CH RAD-Order Implementation Guide shall:
     </p>
         <ul>
             <li>Render (and in case of the Questionnaire filler allow for data entry) all MUST SUPORT elements of a questionnaire in the
@@ -44,15 +44,15 @@
     interfaces to other applications (such as HIS and PACS) for all MUST SUPPORT items.
     </p>
     <p> Actors, transcations and security considerations are covered in the corresponding sections of 
-        <a href="http://build.fhir.org/ig/hl7ch/ch-orf/index.html">CH-ORF</a>
+        <a href="http://build.fhir.org/ig/hl7ch/ch-orf/index.html">CH ORF</a>.
     </p>
 
-    <a name="volume3"></a><h4>Terminology</h4>
+    <a name="volume3"></a><h3>Terminology</h3>
 
-    <p>CH RAD-Order allows coding of the requested imagingservice by means of <a href="https://loinc.org/collaboration/rsna/">LOINC/RSNA RADIOL0GY PLAYBOOK</a>
+    <p>CH RAD-Order allows coding of the requested imaging service by means of <a href="https://loinc.org/collaboration/rsna/">LOINC/RSNA RADIOL0GY PLAYBOOK</a>.
     </p>
-    <p>Systems such as PIS and KIS may not yet support RADIOLGY PLAYBOOK. For this reason, CH RAD-order allows Coding of the relevant dimensions 
-    by means of <a href= "https://www.rsna.org/practice-tools/data-tools-and-standards/radlex-radiology-lexicon">RADLEX</a>
+    <p>Systems such as PIS and KIS may not yet support RADIOLGY PLAYBOOK. For this reason, CH RAD-Order allows coding of the relevant dimensions 
+    by means of <a href= "https://www.rsna.org/practice-tools/data-tools-and-standards/radlex-radiology-lexicon">RADLEX</a>.
      </p>
 
     <p>The relevant dimensions are defined by PLAYBOOK such as:
@@ -66,7 +66,7 @@
         <li>Guidance for action (used for interventions)</li>    
     </ul>
   
-    <p> Coding of these dimensions is done by <a href= "https://www.rsna.org/practice-tools/data-tools-and-standards/radlex-radiology-lexicon">RADLEX terms</a>
+    <p> Coding of these dimensions is done by <a href= "https://www.rsna.org/practice-tools/data-tools-and-standards/radlex-radiology-lexicon">RADLEX terms</a>.
     </p> 
 
 </div>
