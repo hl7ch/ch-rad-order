@@ -1,21 +1,8 @@
-// Probably better Core
-ValueSet: ChOrfCoverageType
-// Id: ch-rad-order-vs-example
-Title: "CH RAD-Order Coverage Type"
-Description: "Definition for ORF Coverage Type Value Set in the context of ORF."
-* ChRORFInsuranceType#Accident "According UVG"
-* ChRORFInsuranceType#DisorderKVG "According to KVG"
-* ChRORFInsuranceType#DisorderVVG "According to VVG"
-* ChRORFInsuranceType#OtherVVG "Other acording to VVG"
-* ^expansion.contains.system = ChOrfCoverageType
-//--------
-
-
 ValueSet: ChRadOrderDocumentCategory
-// Id: ch-rad-order-vs-example
-Title: "CH RAD-Order Document Categroy"
-Description: "Definition for RAD-Order Document Category Value Set in the context of RAD-Order."
-* include codes from system ChRORFRequestedService
+Id: ch-rad-order-vs-documentcategory
+Title: "Document Category"
+Description: "CH RAD-Order Value Set for Document Category"
+* include codes from system ChRadOrderRequestedService
 
 
 ValueSet: VsRadOrderCaveatCondition

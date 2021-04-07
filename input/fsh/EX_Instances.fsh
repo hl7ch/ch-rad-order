@@ -7,7 +7,7 @@ Description: "Example for ServiceRequest"
 * intent = #original-order
 * subject = Reference(SUfferer)
 * requester = Reference(ORderplacerHappyDoctors)
-* category = #721963009
+* category = ChRadOrderRequestedService#ImagingRequest
 * performer = Reference(ORderfillerHappyHospital)
 
 
@@ -19,7 +19,7 @@ Description: "Example for Composition"
 * text.div = "<div xmlns='http://www.w3.org/1999/xhtml'><div>Radiology Order</div></div>"
 * status = #final
 * type = SNOMEDCTSwissExtension#2161000195103 "Imaging order (record articact)"
-* category = SCT#721963009 "Order (record artifact)"
+* category = SCT#721963009 "Order (record artifact)" // TBD: VS ChRadOrderDocumentCategory?
 * subject = Reference(SUfferer)
 * date = "2019-04-01T20:18:41.341+00:00"
 * author = Reference(ORderplacerHappyDoctors)

@@ -25,9 +25,9 @@ equal one Filler Order equal one Imaging Service Request."
 * replaces and priority and bodySite and locationReference and reasonReference and insurance and patientInstruction and note MS
 
 * category 1..1 MS
-* category from ChRadOrderDocumentCategory // Equal to Category in Bundle
-* category ^short = "Equal to Category in Bundle"
-* category ^definition = "Equal to Category in Bundle"
+* category from ChRadOrderDocumentCategory
+* category ^short = "Equal to Category in Composition"
+* category ^definition = "Equal to Category in Composition"
 
 * reasonCode MS
 * reasonCode ^short = "Diagnostic Question in Freetext: Coding of all diagnostic questions not feasable."
@@ -116,10 +116,12 @@ specify Imaging Request Details by means of orderDetail."
     otherInsurance 0..1
 //-----
 
+/* TBD MZ: Workaround
 * insurance[accidentInsurance] only Reference(ChOrfCoverage)
 * insurance[basicInsurance] only Reference(ChOrfCoverage)
 * insurance[supplementaryInsurance] only Reference(ChOrfCoverage)
 * insurance[otherInsurance] only Reference(ChOrfCoverage)
+*/
 
 * supportingInfo MS
 
@@ -243,14 +245,14 @@ equal one Filler Order equal one Imaging Service Request."
 
 * entry contains ChOrfAppointment 0..*
 * entry contains ChOrfImagingStudy 0..*
-* entry contains ChOrfCoverage 0..*
+// TBD MZ Workaround: * entry contains ChOrfCoverage 0..*
 * entry contains ChOrfCaveatObservation 0..* 
 * entry contains ChOrfConsent 0..* 
 
 * entry[ChOrfServiceRequest].resource ^type.profile = Canonical(ChRadOrderServiceRequest)
 * entry[ChOrfAppointment].resource ^type.profile = Canonical(ChOrfAppointment)
 * entry[ChOrfImagingStudy].resource ^type.profile = Canonical(ChOrfImagingStudy)
-* entry[ChOrfCoverage].resource ^type.profile = Canonical(ChOrfCoverage)
+// TBD MZ Workaround: * entry[ChOrfCoverage].resource ^type.profile = Canonical(ChOrfCoverage)
 * entry[ChOrfCaveatObservation].resource ^type.profile = Canonical(ChOrfCaveatObservation)
 * entry[ChOrfConsent].resource ^type.profile = Canonical(ChOrfConsent)
 

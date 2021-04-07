@@ -1,23 +1,12 @@
 // Platzhalter
-CodeSystem: ChRORFInsuranceType
-//Id: ch-rad-order-cs-example
-Title: "CH ORF Insurance Type"
-Description: "Platzhalter: CodeSystem Insurance Type"
-* #Accident "According UVG"
-* #DisorderKVG "According to KVG"
-* #DisorderVVG "According to VVG"
-* #OtherVVG "Other acording to VVG"
-//----------
-
-// Platzhalter
-CodeSystem: ChRORFRequestedService
-//Id: ch-rad-order-cs-example
-Title: "CH ORF Requested Service"
-Description: "Platzhalter: CodeSystem Requested Service"
-* #RequestforPrecedentReport "Request for precedent Reports only"
-* #RequestforPrecedentReportandImages "Request for precedent Reports and Images "
+CodeSystem: ChRadOrderRequestedService
+Id: ch-rad-order-cs-requestedservice
+Title: "Requested Service"
+Description: "Platzhalter: CH RAD-Order Code System for Requested Service"
+* #RequestForPrecedentReport "Request for precedent Reports only"
+* #RequestForPrecedentReportAndImages "Request for precedent Reports and Images"
 * #ImagingRequest "Imaging Request"
-* #RadIntervention "Interventionelle Radiologie"
+* #RadIntervention "Interventional radiology"
 * #SecondOpinion "Second Opinion"
-* #ImagingRequestandIntervention "Imaging Request with Intervention"
-* #RemoteREporting "Fernbefundung"
+* #ImagingRequestWithIntervention "Imaging Request with Intervention"
+* #RemoteReporting "Remote Reporting"
