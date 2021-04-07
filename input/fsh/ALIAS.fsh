@@ -20,6 +20,7 @@ Alias:   ChCorePatient = http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-p
 Alias:   ChCorePractitioner = http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitioner
 Alias:   ChCorePractitionerRole = http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitionerrole
 Alias:   ChCoreOrganization = http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-organization
+Alias:   ChCoreLocation = http://hl7.org/fhir/ch-core/StructureDefinition/ch-core-location
 
 // CH ORF SD
 Alias:   ChOrfServiceRequest = http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-servicerequest
@@ -28,8 +29,8 @@ Alias:   ChOrfQuestionnaireResponse = http://fhir.ch/ig/ch-orf/StructureDefiniti
 Alias:   ChOrfComposition = http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-composition
 Alias:   ChOrfQuestionnaireResponse = http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-questionnaireresponse
 Alias:   ChOrfDocument = http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-document
+Alias:   ChOrfConsent = http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-consent
 
-Alias:   ChCoreOrganization = http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-organization
 Alias:   Appointmentres =  https://www.hl7.org/fhir/appointment.html
-Alias:   ChCoreLocation = http://hl7.org/fhir/ch-core/StructureDefinition/ch-core-location
+
 Alias:   Condition-Uv-Ips = http://hl7.org/fhir/uv/ips/StructureDefinition/Condition-uv-ips

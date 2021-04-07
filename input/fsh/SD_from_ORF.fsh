@@ -1,5 +1,4 @@
-
-// CH Rad Order Structure Defintions derived from ORF
+// CH RAD-Order Structure Defintions derived from CH ORF
 
 Profile: ChRadOrderQuestionnaire
 Parent: ChOrfQuestionnaire
@@ -116,12 +115,10 @@ specify Imaging Request Details by means of orderDetail."
     otherInsurance 0..1
 //-----
 
-/* TBD MZ: Workaround
 * insurance[accidentInsurance] only Reference(ChOrfCoverage)
 * insurance[basicInsurance] only Reference(ChOrfCoverage)
 * insurance[supplementaryInsurance] only Reference(ChOrfCoverage)
 * insurance[otherInsurance] only Reference(ChOrfCoverage)
-*/
 
 * supportingInfo MS
 
@@ -205,10 +202,10 @@ specify Imaging Request Details by means of orderDetail."
     RearchConsent 0..1 and
     ADCD 0..1                                    //Advanced Care Directive  
 
-* supportingInfo[patientConsent][PrivacyConsent] only Reference(ChOrfConsent)
-* supportingInfo[patientConsent][TreatmentConsent] only Reference(ChOrfConsent)
-* supportingInfo[patientConsent][RearchConsent] only Reference(ChOrfConsent)
-* supportingInfo[patientConsent][ADCD] only Reference(ChOrfConsent)
+// TBD * supportingInfo[patientConsent][PrivacyConsent] only Reference(ChOrfConsent)
+// TBD * supportingInfo[patientConsent][TreatmentConsent] only Reference(ChOrfConsent)
+// TBD * supportingInfo[patientConsent][RearchConsent] only Reference(ChOrfConsent)
+// TBD * supportingInfo[patientConsent][ADCD] only Reference(ChOrfConsent)
 
 * supportingInfo[patientConsent][PrivacyConsent] MS
 * supportingInfo[patientConsent][TreatmentConsent] MS
@@ -245,16 +242,16 @@ equal one Filler Order equal one Imaging Service Request."
 
 * entry contains ChOrfAppointment 0..*
 * entry contains ChOrfImagingStudy 0..*
-// TBD MZ Workaround: * entry contains ChOrfCoverage 0..*
+* entry contains ChOrfCoverage 0..*
 * entry contains ChOrfCaveatObservation 0..* 
-* entry contains ChOrfConsent 0..* 
+// TBD * entry contains ChOrfConsent 0..* 
 
 * entry[ChOrfServiceRequest].resource ^type.profile = Canonical(ChRadOrderServiceRequest)
 * entry[ChOrfAppointment].resource ^type.profile = Canonical(ChOrfAppointment)
 * entry[ChOrfImagingStudy].resource ^type.profile = Canonical(ChOrfImagingStudy)
-// TBD MZ Workaround: * entry[ChOrfCoverage].resource ^type.profile = Canonical(ChOrfCoverage)
+* entry[ChOrfCoverage].resource ^type.profile = Canonical(ChOrfCoverage)
 * entry[ChOrfCaveatObservation].resource ^type.profile = Canonical(ChOrfCaveatObservation)
-* entry[ChOrfConsent].resource ^type.profile = Canonical(ChOrfConsent)
+// TBD * entry[ChOrfConsent].resource ^type.profile = Canonical(ChOrfConsent)
 
 Profile: ChRadOrderComposition
 Parent: ChOrfComposition
