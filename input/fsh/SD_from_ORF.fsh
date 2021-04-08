@@ -7,6 +7,7 @@ Id: ch-rad-order-questionnaire
 Description: "Definition for the Questionnaire resource in the context of CH RAD-Order."
 * . ^short = "CH RAD-Order Questionnaire"
 
+
 Profile: ChRadOrderServiceRequest
 Parent: ChOrfServiceRequest
 Id: ch-rad-order-servicerequest
@@ -24,9 +25,7 @@ equal one Filler Order equal one Imaging Service Request."
 * replaces and priority and bodySite and locationReference and reasonReference and insurance and patientInstruction and note MS
 
 * category 1..1 MS
-* category from ChRadOrderDocumentCategory
-* category ^short = "Equal to Category in Composition"
-* category ^definition = "Equal to Category in Composition"
+* category from ChRadOrderRequestedService
 
 * reasonCode MS
 * reasonCode ^short = "Diagnostic Question in Freetext: Coding of all diagnostic questions not feasable."
@@ -55,11 +54,11 @@ short und defintion gehen nicht so
 */
 * code.coding[LncPlbFull] from LNCPLAYBFULL
 
-* code.coding[RdlxModType] from VsRadOrderModalityType 
+* code.coding[RdlxModType] from ChRadOrderModalityType 
 
 // * code.coding from LNCPLAYBFULL
-// * code.text  from VsRadOrderModalityType or LNCPLAYBFULL
-* code ^short = "Use RSNA/LOINC Playbook (Full Version support) OR Codes from VsRadOrderModalityType but NOT both. In case of VsRadOrderModalityType
+// * code.text  from ChRadOrderModalityType or LNCPLAYBFULL
+* code ^short = "Use RSNA/LOINC Playbook (Full Version support) OR Codes from ChRadOrderModalityType but NOT both. In case of ChRadOrderModalityType
 specify Imaging Request Details by means of orderDetail."
 
 * orderDetail ^slicing.discriminator.type = #pattern
@@ -85,12 +84,12 @@ specify Imaging Request Details by means of orderDetail."
 * orderDetail[RadOrderManeuverType] MS
 * orderDetail[RadOrderGuidanceForAction] MS
 
-* orderDetail[RadOrderImagingRegion] from VsRadOrderImagingRegion
-* orderDetail[RadOrderImagingFocus] from VsRadOrderImagingFocus
-* orderDetail[RadOrderLaterality] from VsRadOrderLaterality
-* orderDetail[RadOrderViewType] from VsRadOrderViewType
-* orderDetail[RadOrderManeuverType] from VsRadOrderManeuverType
-* orderDetail[RadOrderGuidanceForAction] from VsRadOrderGuidanceForAction
+* orderDetail[RadOrderImagingRegion] from ChRadOrderImagingRegion
+* orderDetail[RadOrderImagingFocus] from ChRadOrderImagingFocus
+* orderDetail[RadOrderLaterality] from ChRadOrderLaterality
+* orderDetail[RadOrderViewType] from ChRadOrderViewType
+* orderDetail[RadOrderManeuverType] from ChRadOrderManeuverType
+* orderDetail[RadOrderGuidanceForAction] from ChRadOrderGuidanceForAction
 
 
 * locationReference = Reference(ChCoreLocation)
@@ -253,15 +252,13 @@ equal one Filler Order equal one Imaging Service Request."
 * entry[ChOrfCaveatObservation].resource ^type.profile = Canonical(ChOrfCaveatObservation)
 // TBD * entry[ChOrfConsent].resource ^type.profile = Canonical(ChOrfConsent)
 
+
 Profile: ChRadOrderComposition
 Parent: ChOrfComposition
 Id: ch-rad-order-composition
 Title: "CH RAD-Order Composition"
 Description: "Definition for the Composition resource in the context of CH RAD-Order."
 * . ^short = "CH RAD-Order Composition"
-
-* category from ChRadOrderDocumentCategory
-* type = SCT#2161000195103 "Imaging order (record articact)" // Swiss Extension
 
 /* Slicing Fehlermeldung
 * section.entry ^slicing.discriminator.type = #pattern

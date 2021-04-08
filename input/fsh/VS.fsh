@@ -1,15 +1,14 @@
-ValueSet: ChRadOrderDocumentCategory
-Id: ch-rad-order-vs-documentcategory
-Title: "Document Category"
-Description: "CH RAD-Order Value Set for Document Category"
+ValueSet: ChRadOrderRequestedService
+Id: ch-rad-order-requested-service
+Title: "Requested Service"
+Description: "Definition for Requested Service Value Set in the context of CH RAD-Order."
 * include codes from system ChRadOrderRequestedService
 
 
-ValueSet: VsRadOrderCaveatCondition
-Id: ch-rad-vs-order-caveat-condition
-Title: "CH RAD-Order Caveat Condition"
-Description: "Definition for RAD-Order Reason for Exam Value Set in the context of RAD-Order."
-* ^expansion.contains.system = VsRadOrderCaveatCondition
+ValueSet: ChRadOrderCaveatCondition
+Id: ch-rad-order-caveat-condition
+Title: "Caveat Condition"
+Description: "Definition for Caveat Condition Value Set in the context of CH RAD-Order."
 //* SCT#703398004  "Cardiac implant in situ (finding)"
 * SCT#64779008 "Blood coagulation disorder (disorder)"
 * SCT#723188008 "Renal insufficiency (disorder)"
@@ -24,29 +23,28 @@ Description: "Definition for RAD-Order Reason for Exam Value Set in the context 
 * SCT#293637006  "Allergy to contrast media (finding)"
 * SCT#182817000 "Drug prescription (situation)"
 * include codes from system SCT where concept is-a #397578001 "Device in situ (finding)"
-* ^expansion.contains.system = VsRadOrderCaveatCondition
 
 
-ValueSet: VsRadOrderCaveatSubstance
-Id: ch-rad-vs-order-caveat-substance
-Title: "CH RAD-Order Caveat Substance"
-Description: "Definition for RAD-Order Substance Value Set in the context of RAD-Order."
-* ^expansion.contains.system = VsRadOrderCaveatSubstance
+
+ValueSet: ChRadOrderCaveatSubstance
+Id: ch-rad-order-caveat-substance
+Title: "Caveat Substance"
+Description: "Definition for Caveat Substance Value Set in the context of CH RAD-Order."
 * SCT#372567009 "Metformin (substance)"
 
-ValueSet: VsRadOrderCaveatLabObservation
-Id: ch-rad-vs-order-caveat-lab-observation
-Title: "CH RAD-Order Lab Observation"
-Description: "Definition for RAD-Order Lab Observation Value Set in the context of RAD-Order."
-* ^expansion.contains.system = VsRadOrderCaveatLabObservation
+
+ValueSet: ChRadOrderCaveatLabObservation
+Id: ch-rad-order-caveat-lab-observation
+Title: "Lab Observation"
+Description: "Definition for Lab Observation Value Set in the context of CH RAD-Order."
 * LNC#77140-2 "Creatinine [Moles/volume] in Serum, Plasma or Blood"
 * LNC#33558-8 "Creatinine renal clearance in Urine and Serum or Plasma collected for unspecified duration"
 
-ValueSet: VsRadOrderReasonForExam
+
+ValueSet: ChRadOrderReasonForExam
 Id: ch-rad-order-reason-for-exam
-Title: "CH RAD-Order Reason for Exam"
-Description: "Definition for RAD-Order Reason for Exam Value Set in the context of RAD-Order."
-* ^expansion.contains.system = CVsRadOrderReasonForExam
+Title: "Reason for Exam"
+Description: "Definition for Reason for Exam Value Set in the context of CH RAD-Order."
 * RDLX#RID28808 "CALCIUM SCORE"
 * RDLX#RID4843 "Fistula"
 * RDLX#RID35772 "PELVIMETRY"
@@ -151,11 +149,11 @@ Description: "Definition for RAD-Order Reason for Exam Value Set in the context 
 * RDLX#RID50632 "Flow velocity"
 * RDLX#RID50633 "Radiopharmaceutical clearance"
 
-ValueSet: VsRadOrderImagingFocus
-Id: ch-rad-order-imagingfocus
-Title: "CH RAD-Order Imagng Focus"
-Description: "Definition for RAD-Order Imaging Focus Value Set in the context of RAD-Order."
-* ^expansion.contains.system = VsRadOrderImagingFocus
+
+ValueSet: ChRadOrderImagingFocus
+Id: ch-rad-order-imaging-focus
+Title: "Imaging Focus"
+Description: "Definition for Imaging Focus Value Set in the context of CH RAD-Order."
 * RDLX#RID88 "adrenal gland"
 * RDLX#RID164 "Anus"
 * RDLX#RID905 "Abdominal aorta"
@@ -569,10 +567,11 @@ Description: "Definition for RAD-Order Imaging Focus Value Set in the context of
 * RDLX#RID50528 "Sacral segment of spinal epidural space"
 * RDLX#RID20050 "Cervical segment of spinal epidural space"
 
-ValueSet: VsRadOrderImagingRegion
+
+ValueSet: ChRadOrderImagingRegion
 Id: ch-rad-order-imaging-region
-Title: "CH RAD-Order Imaging Region"
-Description: "Definition for RAD-Order Imaging Order Value Set in the context of RAD-Order."
+Title: "Imaging Region"
+Description: "Definition for Imaging Region Value Set in the context of CH RAD-Order."
 * RDLX#RID56 "Abdomen"
 * RDLX#RID28749 "breast"
 * RDLX#RID1243 "Thorax"
@@ -589,11 +588,11 @@ Description: "Definition for RAD-Order Imaging Order Value Set in the context of
 * RDLX#RID665 "middle cerebral artery"
 * RDLX#RID6062 "Body region"
 
-ValueSet: VsRadOrderLaterality
-Id: ch-rad-order-ilaterality
-Title: "CH RAD-Order Lateratility"
-Description: "Definition for RAD-Order Laterality Value Set in the context of RAD-Order."
-* ^expansion.contains.system = VsRadOrderLaterality 
+
+ValueSet: ChRadOrderLaterality
+Id: ch-rad-order-laterality
+Title: "Laterality"
+Description: "Definition for Laterality Value Set in the context of CH RAD-Order."
 * RDLX#RID5771 "Bilateral"
 * RDLX#RID5824 "LEFT"
 * RDLX#RID5825 "RIGHT"
@@ -601,11 +600,10 @@ Description: "Definition for RAD-Order Laterality Value Set in the context of RA
 * RDLX#RID38593 "Unilateral"
 
 
-ValueSet: VsRadOrderManeuverType
-Id: ch-rad-order-maneuer-type
-Title: "CH RAD-Order Maneuver Type"
-Description: "Definition for RAD-Order Maneuver Type Value Set in the context of RAD-Order."
-* ^expansion.contains.system = sRadOrderManeuverType
+ValueSet: ChRadOrderManeuverType
+Id: ch-rad-order-maneuver-type
+Title: "Maneuver Type"
+Description: "Definition for Maneuver Type Value Set in the context of CH RAD-Order."
 * RDLX#RID50075 "Extension maneuver"
 * RDLX#RID50069 "Flexion maneuver"
 * RDLX#RID10475 "Stress maneuver"
@@ -624,11 +622,11 @@ Description: "Definition for RAD-Order Maneuver Type Value Set in the context of
 * RDLX#RID50078 "forced dorsiflexion maneuver"
 * RDLX#RID48090 "voiding"
 
-ValueSet: VsRadOrderGuidanceForAction
+
+ValueSet: ChRadOrderGuidanceForAction
 Id: ch-rad-order-guidance-for-action
-Title: "CH RAD-Order Guidance for Action"
-Description: "Definition for RAD-Order Guidance for Action Value Set in the context of RAD-Order."
-* ^expansion.contains.system = VsRadOrderGuidanceForAction
+Title: "Guidance for Action"
+Description: "Definition for Guidance for Action Value Set in the context of CH RAD-Order."
 * RDLX#RID10397 "Ablation"
 * RDLX#RID10398 "Aspiration of bodily substance"
 * RDLX#RID12933 "Fine-needle aspiration"
@@ -707,11 +705,10 @@ Description: "Definition for RAD-Order Guidance for Action Value Set in the cont
 * RDLX#RID50524 "Excisional biopsy"
 * RDLX#RID49632 "check tube"
 
-ValueSet: VsRadOrderModalityType
+ValueSet: ChRadOrderModalityType
 Id: ch-rad-order-modality-type
-Title: "CH RAD-Order Modality Type"
-Description: "Definition for RAD-Order Modality Type Value Set in the context of RAD-Order."
-* ^expansion.contains.system = VsRadOrderModalityType
+Title: "Modality Type"
+Description: "Definition for Modality Type Value Set in the context of CH RAD-Order."
 * RDLX#RID10321 "computed tomography"
 * RDLX#RID10312 "Magnetic resonance imaging"
 * RDLX#RID10326 "Ultrasound"
@@ -726,11 +723,10 @@ Description: "Definition for RAD-Order Modality Type Value Set in the context of
 * RDLX#RID10311 "imaging modality"
 
 
-ValueSet: VsRadOrderViewType
+ValueSet: ChRadOrderViewType
 Id: ch-rad-order-view-type
-Title: "CH RAD-Order View Type"
-Description: "Definition for RAD-Order View Type Value Set in the context of RAD-Order."
-* ^expansion.contains.system = VsRadOrderViewType
+Title: "View Type"
+Description: "Definition for View Type Value Set in the context of CH RAD-Order."
 * RDLX#RID50104 "Endorectal view"
 * RDLX#RID50087 "10 degree caudal angle view"
 * RDLX#RID50090 "10 degree cephalic angle view"

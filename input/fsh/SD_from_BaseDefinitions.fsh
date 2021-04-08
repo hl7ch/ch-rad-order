@@ -42,7 +42,7 @@ Description: "Definition for the Caveat Condition resource in the context of ORF
 * . ^short = "CH ORF Caveat Condition"
 
 * code 1..1 MS 
-* code from VsRadOrderCaveatCondition
+* code from ChRadOrderCaveatCondition
 * category 1..1 MS
 * category.coding 1..1 MS
 * category.coding.code MS
@@ -61,7 +61,7 @@ Description: "Definition for the Diagnose List resource in the context of ORF."
 
 
 * code 1..1 MS 
-* code from VsRadOrderCaveatCondition
+* code from ChRadOrderCaveatCondition
 * category 1..1 MS
 * category.coding 1..1 MS
 * category.coding.code MS

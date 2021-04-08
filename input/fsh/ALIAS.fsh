@@ -1,10 +1,14 @@
-// External Code Systems
+// External Code Systems/ Value Sets
 Alias:   LNC = http://loinc.org
 Alias:   NMU = http://hl7.org/fhir/name-use
 
 //Alias:   LNCPLAYBCORE = https://fhir.loinc.org/ValueSet/$expand?url=http://loinc.org/vs/loinc-rsna-radiology-playbook-core
 Alias:   LNCPLAYBFULL = http://loinc.org/vs/loinc-rsna-radiology-playbook
-Alias:   RDLX = http://radlex.org/RID/RID1
+
+//Alias:   RDLX = http://radlex.org/RID/RID1
+Alias:   RDLX = http://www.radlex.org
+// see https://www.hl7.org/fhir/terminologies-systems.html -> External CS
+
 Alias:   HL7CovType = http://hl7.org/fhir/ValueSet/coverage-type
 
 Alias:   SCT = http://snomed.info/sct

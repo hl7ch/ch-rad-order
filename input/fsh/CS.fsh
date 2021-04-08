@@ -1,8 +1,8 @@
 // Platzhalter
 CodeSystem: ChRadOrderRequestedService
-Id: ch-rad-order-cs-requestedservice
+Id: ch-rad-order-requested-service
 Title: "Requested Service"
-Description: "Platzhalter: CH RAD-Order Code System for Requested Service"
+Description: "Definition for Requested Service Code System in the context of CH RAD-Order."
 * #RequestForPrecedentReport "Request for precedent Reports only"
 * #RequestForPrecedentReportAndImages "Request for precedent Reports and Images"
 * #ImagingRequest "Imaging Request"
