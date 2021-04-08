@@ -9,15 +9,13 @@ Alias:   LNCPLAYBFULL = http://loinc.org/vs/loinc-rsna-radiology-playbook
 Alias:   RDLX =         http://www.radlex.org
 // see https://www.hl7.org/fhir/terminologies-systems.html -> External CS
 
-Alias:   HL7CovType =   http://hl7.org/fhir/ValueSet/coverage-type
 
-Alias:   SCT =          http://snomed.info/sct
-Alias:   UCUM =         http://unitsofmeasure.org
-Alias:   HL7CC =        http://terminology.hl7.org/CodeSystem/condition-category
-Alias:   ConsScopeVS =  http://hl7.org/fhir/ValueSet/consent-scope
+Alias:   SCT =                          http://snomed.info/sct
+Alias:   UCUM =                         http://unitsofmeasure.org
+Alias:   ConditionCategory =            http://terminology.hl7.org/CodeSystem/condition-category
 
 // CH EPR Term Code Systems
-Alias:   SNOMEDCTSwissExtension = urn:oid:2.16.756.5.30.1.127.3.4
+Alias:   SNOMEDCTSwissExtension =       urn:oid:2.16.756.5.30.1.127.3.4
 
 // CH Core SD
 Alias:   ChCorePatient =                http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-patient
