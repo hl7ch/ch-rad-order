@@ -108,7 +108,7 @@ specify Imaging Request Details by means of orderDetail."
 
 
 * reasonReference MS
-* reasonReference only Reference(ChOrfDiagnoseList) 
+* reasonReference only Reference(ChRadOrderDiagnoseList) 
 
 
 
@@ -145,8 +145,8 @@ specify Imaging Request Details by means of orderDetail."
     precedingImagingResults 0..* and
     patientConsent 0..4 
 
-* supportingInfo[diagnoseList] only Reference(ChOrfDiagnoseList)
-* supportingInfo[caveats] only Reference(ChOrfCaveatCondition)
+* supportingInfo[diagnoseList] only Reference(ChRadOrderDiagnoseList)
+* supportingInfo[caveats] only Reference(ChRadOrderCaveatCondition)
 * supportingInfo[precedingImagingResults] only Reference(ImagingStudy)
 * supportingInfo[patientConsent] only Reference(Consent)
 
@@ -173,16 +173,16 @@ specify Imaging Request Details by means of orderDetail."
     ContrastAllerg 0..1 and   
     DrugPrescr 0..*                       
 
-* supportingInfo[caveats][BloodCoag] only Reference(ChOrfCaveatCondition)
-* supportingInfo[caveats][RenalInsuff] only Reference(ChOrfCaveatCondition)
-* supportingInfo[caveats][Claustrophobia] only Reference(ChOrfCaveatCondition)
-* supportingInfo[caveats][BodyPierc] only Reference(ChOrfCaveatCondition)
-* supportingInfo[caveats][Device] only Reference(ChOrfCaveatCondition)
-* supportingInfo[caveats][Hyperthyr] only Reference(ChOrfCaveatCondition)
-* supportingInfo[caveats][Diabetes] only Reference(ChOrfCaveatCondition)
-* supportingInfo[caveats][Gravida] only Reference(ChOrfCaveatCondition)
-* supportingInfo[caveats][ContrastAllerg] only Reference(ChOrfCaveatCondition)
-* supportingInfo[caveats][DrugPrescr] only Reference(ChOrfCaveatCondition)
+* supportingInfo[caveats][BloodCoag] only Reference(ChRadOrderCaveatCondition)
+* supportingInfo[caveats][RenalInsuff] only Reference(ChRadOrderCaveatCondition)
+* supportingInfo[caveats][Claustrophobia] only Reference(ChRadOrderCaveatCondition)
+* supportingInfo[caveats][BodyPierc] only Reference(ChRadOrderCaveatCondition)
+* supportingInfo[caveats][Device] only Reference(ChRadOrderCaveatCondition)
+* supportingInfo[caveats][Hyperthyr] only Reference(ChRadOrderCaveatCondition)
+* supportingInfo[caveats][Diabetes] only Reference(ChRadOrderCaveatCondition)
+* supportingInfo[caveats][Gravida] only Reference(ChRadOrderCaveatCondition)
+* supportingInfo[caveats][ContrastAllerg] only Reference(ChRadOrderCaveatCondition)
+* supportingInfo[caveats][DrugPrescr] only Reference(ChRadOrderCaveatCondition)
 
 
 

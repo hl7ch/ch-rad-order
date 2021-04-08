@@ -1,34 +1,28 @@
-//Temporary ORF Structure Defintions
-
-
-
-
-Profile: ChOrfCaveatCondition
+// Leave in CH RAD-Order, as details (code, evidence) specific to RAD-Order
+Profile: ChRadOrderCaveatCondition
 Parent: Condition
-Id: ch-orf-caveat-condition
-Title: "CH ORF Caveat Condition"
-Description: "Definition for the Caveat Condition resource in the context of ORF."
-* . ^short = "CH ORF Caveat Condition"
-
-* code 1..1 MS 
-* code from ChRadOrderCaveatCondition
+Id: ch-rad-order-caveat-condition
+Title: "CH RAD-Order Caveat Condition"
+Description: "Definition for the Caveat Condition resource in the context of CH RAD-Order."
+* . ^short = "CH RAD-Order Caveat Condition"
 * category 1..1 MS
-* category.coding 1..1 MS
-* category.coding.code MS
-* category.coding = ConditionCategory#problem-list-item "Problem List Entry"
+* category = ConditionCategory#problem-list-item "Problem List Entry"
+* category ^short = "Problem List Entry"
+* code 1.. MS 
+* code from ChRadOrderCaveatCondition
 * subject MS
 * subject only Reference(CHCorePatient)  
+* evidence MS
+* evidence.detail MS
 * evidence.detail only Reference(ChOrfCaveatObservation)
 
 
-Profile: ChOrfDiagnoseList
+Profile: ChRadOrderDiagnoseList
 Parent: Condition
-Id: ch-orf-diagnose-list
-Title: "CH ORF Diagnose List"
+Id: ch-rad-order-diagnose-list
+Title: "CH RAD-Order Diagnose List"
 Description: "Definition for the Diagnose List resource in the context of ORF."
 * . ^short = "CH ORF Diagnose List"
-
-
 * code 1..1 MS 
 * code from ChRadOrderCaveatCondition
 * category 1..1 MS
@@ -38,7 +32,6 @@ Description: "Definition for the Diagnose List resource in the context of ORF."
 * subject MS
 * subject only Reference(CHCorePatient)  
 * evidence.detail only Reference(ChOrfCaveatObservation)
-
 
 
 Profile: ChOrfCaveatObservation
@@ -52,10 +45,6 @@ Description: "Definition for the Lab Observation resource in the context of CH O
 * value[x] only Quantity or boolean or Ratio
 
 
-
-
-
-
 Profile: ChOrfImagingStudy
 Parent: ImagingStudy
 Title: "CH ORF ImagingStudy"
@@ -64,20 +53,12 @@ Description: "Definition for the ImagingStudy resource in the context of CH ORF.
 * . ^short = "CH ORF ImagingStudy"
 * status and subject and series.uid and series.modality and series.performer.actor and series.instance.uid and series.instance.sopClass MS
 
-// CH Rad Order Strucuture Definitions deived from Base Definitions
 
-/* Profile: ChRadOrderCondition
+/* 
+Profile: ChRadOrderCondition
 Parent: Condition-uv-ips
 Title: "CH RAD-Order Condition"
 Id: ch-rad-order-Condition
 Description: "Definition for the ImagingStudy resource in the context of CH RAD-Order."
 * . ^short = "CH RAD-Order Condition"
 */
-
-Profile: ChRadOrderCondition
-Parent: Condition
-Id: ch-rad-order-condition
-Title: "CH RAD-Order Condition"
-Description: "Definition for the Condition resource in the context of RAD-Order."
-* . ^short = "CH RAD-Order Condition"
-
