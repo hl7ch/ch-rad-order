@@ -85,16 +85,7 @@ Description: "Definition for the Lab Observation resource in the context of CH O
 
 
 
-Profile: ChOrfAppointment
-Parent: Appointment
-Title: "CH ORF Appointment"
-Id: ch-orf-Appointment
-Description: "Definition for the Apointment resource in the context of CH ORF."
-* . ^short = "CCH ORF Appointment"
-* status and participant MS
-* identifier 1..1 MS 
-* requestedPeriod 0..1 MS
-* patientInstruction and participant.actor MS
+
 
 Profile: ChOrfImagingStudy
 Parent: ImagingStudy

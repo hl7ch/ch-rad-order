@@ -1,40 +1,40 @@
 // External Code Systems/ Value Sets
-Alias:   LNC = http://loinc.org
-Alias:   NMU = http://hl7.org/fhir/name-use
+Alias:   LNC =          http://loinc.org
+Alias:   NMU =          http://hl7.org/fhir/name-use
 
 //Alias:   LNCPLAYBCORE = https://fhir.loinc.org/ValueSet/$expand?url=http://loinc.org/vs/loinc-rsna-radiology-playbook-core
 Alias:   LNCPLAYBFULL = http://loinc.org/vs/loinc-rsna-radiology-playbook
 
 //Alias:   RDLX = http://radlex.org/RID/RID1
-Alias:   RDLX = http://www.radlex.org
+Alias:   RDLX =         http://www.radlex.org
 // see https://www.hl7.org/fhir/terminologies-systems.html -> External CS
 
-Alias:   HL7CovType = http://hl7.org/fhir/ValueSet/coverage-type
+Alias:   HL7CovType =   http://hl7.org/fhir/ValueSet/coverage-type
 
-Alias:   SCT = http://snomed.info/sct
-Alias:   UCUM = http://unitsofmeasure.org
-Alias:   HL7CC = http://terminology.hl7.org/CodeSystem/condition-category
-Alias:   ConsScopeVS = http://hl7.org/fhir/ValueSet/consent-scope
+Alias:   SCT =          http://snomed.info/sct
+Alias:   UCUM =         http://unitsofmeasure.org
+Alias:   HL7CC =        http://terminology.hl7.org/CodeSystem/condition-category
+Alias:   ConsScopeVS =  http://hl7.org/fhir/ValueSet/consent-scope
 
 // CH EPR Term Code Systems
 Alias:   SNOMEDCTSwissExtension = urn:oid:2.16.756.5.30.1.127.3.4
 
 // CH Core SD
-Alias:   ChCorePatient = http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-patient
-Alias:   ChCorePractitioner = http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitioner
-Alias:   ChCorePractitionerRole = http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitionerrole
-Alias:   ChCoreOrganization = http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-organization
-Alias:   ChCoreLocation = http://hl7.org/fhir/ch-core/StructureDefinition/ch-core-location
+Alias:   ChCorePatient =                http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-patient
+Alias:   ChCorePractitioner =           http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitioner
+Alias:   ChCorePractitionerRole =       http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitionerrole
+Alias:   ChCoreOrganization =           http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-organization
+Alias:   ChCoreLocation =               http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-location
 
 // CH ORF SD
-Alias:   ChOrfServiceRequest = http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-servicerequest
-Alias:   ChOrfQuestionnaire = http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-questionnaire
-Alias:   ChOrfQuestionnaireResponse = http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-questionnaireresponse
-Alias:   ChOrfComposition = http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-composition
-Alias:   ChOrfQuestionnaireResponse = http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-questionnaireresponse
-Alias:   ChOrfDocument = http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-document
-Alias:   ChOrfConsent = http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-consent
+Alias:   ChOrfServiceRequest =          http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-servicerequest
+Alias:   ChOrfQuestionnaire =           http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-questionnaire
+Alias:   ChOrfQuestionnaireResponse =   http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-questionnaireresponse
+Alias:   ChOrfComposition =             http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-composition
+Alias:   ChOrfQuestionnaireResponse =   http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-questionnaireresponse
+Alias:   ChOrfDocument =                http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-document
+Alias:   ChOrfConsent =                 http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-consent
+Alias:   ChOrfAppointment =             http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-appointment
 
-Alias:   Appointmentres =  https://www.hl7.org/fhir/appointment.html
-
+// IPS SD
 Alias:   Condition-Uv-Ips = http://hl7.org/fhir/uv/ips/StructureDefinition/Condition-uv-ips

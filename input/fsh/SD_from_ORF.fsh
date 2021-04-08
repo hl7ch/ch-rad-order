@@ -228,9 +228,9 @@ Extension: ChRadOrderAppointment
 Id: ch-rad-order-appointment
 Title: "CH RAD-Order Appointment"
 Description: "Extension to define Time and Location of ServiceRequest Fulfillment in context of CH RAD-Order."
-* valueReference 1..1
-* valueReference only Reference(ChOrfAppointment) 
-* valueReference ^short = "Time and Location for ServiceRequest Fulfillment"
+* value[x] 1..1
+* value[x] only Reference(ChOrfAppointment) 
+* value[x] ^short = "Time and Location for ServiceRequest Fulfillment"
 
 
 Profile: ChRadOrderDocument
