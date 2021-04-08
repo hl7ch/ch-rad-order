@@ -1,17 +1,5 @@
 //Temporary ORF Structure Defintions
 
-
-// Probably better as CH Core??
-Profile: ChOrfConsent
-Parent: Consent
-Id: ch-orf-consent
-Title: "CH ORF Consent"
-Description: "Definition for the Consent resource in the context of ORF."
-* . ^short = "CH ORF Consent"
-* scope MS
-* scope from ConsScopeVS (required)
-//---------
-
 Profile: ChOrfPatient
 Parent: ChCorePatient
 Id: ch-orf-patient
@@ -46,7 +34,7 @@ Description: "Definition for the Caveat Condition resource in the context of ORF
 * category 1..1 MS
 * category.coding 1..1 MS
 * category.coding.code MS
-* category.coding = HL7CC#problem-list-item "Problem List Entry"
+* category.coding = ConditionCategory#problem-list-item "Problem List Entry"
 * subject MS
 * subject only Reference(CHCorePatient)  
 * evidence.detail only Reference(ChOrfCaveatObservation)
@@ -65,7 +53,7 @@ Description: "Definition for the Diagnose List resource in the context of ORF."
 * category 1..1 MS
 * category.coding 1..1 MS
 * category.coding.code MS
-* category.coding = HL7CC#problem-list-item "Problem List Entry"
+* category.coding = ConditionCategory#problem-list-item "Problem List Entry"
 * subject MS
 * subject only Reference(CHCorePatient)  
 * evidence.detail only Reference(ChOrfCaveatObservation)
