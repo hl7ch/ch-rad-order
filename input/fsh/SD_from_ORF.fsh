@@ -238,26 +238,14 @@ Parent: ChOrfDocument
 Id: ch-rad-order-document
 Title: "CH RAD-Order Document"
 Description: "Definition for the Bundle (document) resource in the context of CH RAD-Order."
-* . ^short = "CH RAD-Order Document"
+* . ^short = "CH RAD-Order Bundle (document)"
 * . ^definition = "This IG follows the IHE Scheduled Workflow (SWF) Profile: 
 An Order Filler accepts from an Order Placer a single Order that it equates to a Filler Order 
 (which is concept commonly used in HL7) or Imaging Service Request (Concept commonly used in DICOM). 
 Consequently one CH RAD-Order Document contains one CH RAD-Order ServiceRequest which depicts one Placer Order 
 equal one Filler Order equal one Imaging Service Request."
-
-
-* entry contains ChOrfAppointment 0..*
-* entry contains ChOrfImagingStudy 0..*
-* entry contains ChOrfCoverage 0..*
-* entry contains ChOrfCaveatObservation 0..* 
-// TBD * entry contains ChOrfConsent 0..* 
-
-* entry[ChOrfServiceRequest].resource ^type.profile = Canonical(ChRadOrderServiceRequest)
-* entry[ChOrfAppointment].resource ^type.profile = Canonical(ChOrfAppointment)
-* entry[ChOrfImagingStudy].resource ^type.profile = Canonical(ChOrfImagingStudy)
-* entry[ChOrfCoverage].resource ^type.profile = Canonical(ChOrfCoverage)
-* entry[ChOrfCaveatObservation].resource ^type.profile = Canonical(ChOrfCaveatObservation)
-// TBD * entry[ChOrfConsent].resource ^type.profile = Canonical(ChOrfConsent)
+// ---------- Bundle.entry:Composition ----------
+* entry[Composition].resource ^type.profile = Canonical(ChRadOrderComposition)
 
 
 Profile: ChRadOrderComposition
@@ -266,25 +254,30 @@ Id: ch-rad-order-composition
 Title: "CH RAD-Order Composition"
 Description: "Definition for the Composition resource in the context of CH RAD-Order."
 * . ^short = "CH RAD-Order Composition"
-
-/* Slicing Fehlermeldung
-* section.entry ^slicing.discriminator.type = #pattern
-* section.entry ^slicing.discriminator.path = "Composition.section.entry.extension"
-* section.entry ^slicing.rules = #open
-* section.entry ^slicing.ordered = true 
-* section.entry ^slicing.description = "Composition.section.entry.extension"
-
-* section.entry contains ChOrfAppointment 1..*
-* section.entry contains ChOrfImagingStudy 0..*
-* section.entry contains ChOrfCoverage 0..*
-* section.entry contains ChOrfObservation 0..* 
-* section.entry contains ChOrfConsent 0..* 
-
-* section.entry[ChOrfServiceRequest] only Reference(ChRadOrderServiceRequest)
-* section.entry[ChOrfAppointment] only Reference(ChOrfAppointment)
-* section.entry[ChOrfImagingStudy] only Reference(ChOrfImagingStudy)
-* section.entry[ChOrfCoverage] only Reference(ChOrfCoverage)
-* section.entry[ChOrfObservation] only Reference(ChOrfCaveatObservation)
-* section.entry[ChOrfConsent] only Reference(ChOrfConsent)
-*/
-
+// ---------- Composition.section.entry:ServiceRequest ----------
+//* section.entry[ServiceRequest] only Reference(ChRadOrderServiceRequest)
+// ---------- Composition.section.entry:DocumentReference ----------
+* section.entry contains Appointment 0..* MS
+* section.entry[Appointment] only Reference(ChOrfAppointment)
+* section.entry[Appointment] ^short = "Appointment"
+* section.entry[Appointment].reference 1.. MS
+// ---------- Composition.section.entry:ImagingStudy ----------
+* section.entry contains ImagingStudy 0..* MS
+* section.entry[ImagingStudy] only Reference(ChRadOrderImagingStudy)
+* section.entry[ImagingStudy] ^short = "Imaging Study"
+* section.entry[ImagingStudy].reference 1.. MS
+// ---------- Composition.section.entry:Coverage ----------
+* section.entry contains Coverage 0..* MS
+* section.entry[Coverage] only Reference(ChOrfCoverage)
+* section.entry[Coverage] ^short = "Coverage"
+* section.entry[Coverage].reference 1.. MS
+// ---------- Composition.section.entry:Consent ----------
+* section.entry contains Consent 0..* MS
+* section.entry[Consent] only Reference(ChOrfConsent)
+* section.entry[Consent] ^short = "Consent"
+* section.entry[Consent].reference 1.. MS
+// ---------- Composition.section.entry:Observation ----------
+* section.entry contains Observation 0..* MS
+* section.entry[Observation] only Reference(ChRadOrderCaveatObservation)
+* section.entry[Observation] ^short = "Caveat Observation"
+* section.entry[Observation].reference 1.. MS
