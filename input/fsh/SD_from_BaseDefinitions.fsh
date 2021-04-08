@@ -1,25 +1,6 @@
 //Temporary ORF Structure Defintions
 
-Profile: ChOrfPatient
-Parent: ChCorePatient
-Id: ch-orf-patient
-Title: "CH ORF Patient"
-Description: "Definition for the Patient resource in the context of ORF."
-* . ^short = "CH ORF Patient"
 
-* name ^slicing.discriminator.type = #pattern
-* name ^slicing.discriminator.path = "use"
-* name ^slicing.rules = #open
-* name ^slicing.ordered = true 
-* name ^slicing.description = "Slice based on the component.code pattern"
-
-* name contains 
-
-    familyN 0..1 and
-    maidenN 0..1   
-
-* name[familyN].use = NMU#usual
-* name[maidenN].use = NMU#maiden
 
 
 Profile: ChOrfCaveatCondition
