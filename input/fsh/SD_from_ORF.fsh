@@ -1,18 +1,30 @@
 // CH RAD-Order Structure Defintions derived from CH ORF
 
+
+/*
 Profile: ChRadOrderQuestionnaire
 Parent: ChOrfQuestionnaire
 Title: "CH RAD-Order Questionnaire"
 Id: ch-rad-order-questionnaire
 Description: "Definition for the Questionnaire resource in the context of CH RAD-Order."
 * . ^short = "CH RAD-Order Questionnaire"
+*/
 
+
+/*
+Profile: ChRadOrderQuestionnaireResponse
+Parent: ChOrfQuestionnaireResponse
+Id: ch-rad-order-questionnaireresponse
+Title: "CH RAD-Order QuestionnaireResponse"
+Description: "Definition for the QuestionnaireResponse resource in the context of CH RAD-Order."
+* . ^short = "CH RAD-Order QuestionnaireResponse"
+*/
 
 Profile: ChRadOrderServiceRequest
 Parent: ChOrfServiceRequest
 Id: ch-rad-order-servicerequest
 Title: "CH RAD-Order ServiceRequest"
-Description: "Base definition for the ServiceRequest resource in the context of CH RAD-Order."
+Description: "Definition for the ServiceRequest resource in the context of CH RAD-Order."
 * . ^short = "CH RAD-Order ServiceRequest"
 * . ^definition = "This IG follows the IHE Scheduled Workflow (SWF) Profile: 
 An Order Filler accepts from an Order Placer a single Order that it equates to a Filler Order 
@@ -211,26 +223,21 @@ specify Imaging Request Details by means of orderDetail."
 * supportingInfo[patientConsent][RearchConsent] MS
 * supportingInfo[patientConsent][ADCD] MS
 
-Extension: RadAppointment
-Title: "Appointment"
-Id:  appointment
-Description: "Appoint"
-* . ^short = "Time and Location for Servicerequest Fullfillment"
-* value[x] only Reference(ChOrfAppointment) 
 
+Extension: ChRadOrderAppointment
+Id: ch-rad-order-appointment
+Title: "CH RAD-Order Appointment"
+Description: "Extension to define Time and Location of ServiceRequest Fulfillment in context of CH RAD-Order."
+* valueReference 1..1
+* valueReference only Reference(ChOrfAppointment) 
+* valueReference ^short = "Time and Location for ServiceRequest Fulfillment"
 
-Profile: ChRadOrderQuestionnaireResponse
-Parent: ChOrfQuestionnaireResponse
-Id: order-quech-rad-stionnaireresponse
-Title: "CH RAD-Order QuestionnaireResponse"
-Description: "Definition for the QuestionnaireResponse resource in the context of CH RAD-Order."
-* . ^short = "CH RAD-Order QuestionnaireResponse"
 
 Profile: ChRadOrderDocument
 Parent: ChOrfDocument
 Id: ch-rad-order-document
 Title: "CH RAD-Order Document"
-Description: "Definition for the Document resource in the context of CH RAD-Order."
+Description: "Definition for the Bundle (document) resource in the context of CH RAD-Order."
 * . ^short = "CH RAD-Order Document"
 * . ^definition = "This IG follows the IHE Scheduled Workflow (SWF) Profile: 
 An Order Filler accepts from an Order Placer a single Order that it equates to a Filler Order 
