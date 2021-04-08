@@ -159,12 +159,23 @@ Description: "Example for Organization"
 
 
 Instance: SUfferer
-InstanceOf: ChOrfPatient
+InstanceOf: ChCorePatient
 Title: "Susanna Ufferer"
 Description: "Example for Patient"
-* name[0].family = "Ufferer"
-* name[1].family = "Leidend"
-* name[0].given = "Susanna"
+* name[+].use = #official
+* name[=].family[+].value = "Ufferer"
+* name[=].family[=].extension[ech11name].url = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-ext-ech-11-name"
+* name[=].family[=].extension[ech11name].valueCode = #officialName
+
+* name[=].given[+].value = "Susanna"
+* name[=].given[=].extension[ech11firstname].url = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-ext-ech-11-firstname"
+* name[=].given[=].extension[ech11firstname].valueCode = #officialFirstName
+
+* name[+].use = #maiden
+* name[=].family[+].value = "Leidend"
+* name[=].family[=].extension[ech11name].url = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-ext-ech-11-name"
+* name[=].family[=].extension[ech11name].valueCode = #originalName
+
 * telecom[0].system = #phone
 * telecom[0].value = "+41 79 979 79 79"
 * telecom[1].system = #email
