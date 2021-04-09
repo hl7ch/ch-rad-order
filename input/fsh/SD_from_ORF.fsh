@@ -255,7 +255,9 @@ Title: "CH RAD-Order Composition"
 Description: "Definition for the Composition resource in the context of CH RAD-Order."
 * . ^short = "CH RAD-Order Composition"
 // ---------- Composition.section.entry:ServiceRequest ----------
-//* section.entry[ServiceRequest] only Reference(ChRadOrderServiceRequest)
+* section.entry[ServiceRequest] ^type.targetProfile = Canonical(ChRadOrderServiceRequest)
+
+/* referenced from ServiceRequest
 // ---------- Composition.section.entry:DocumentReference ----------
 * section.entry contains Appointment 0..* MS
 * section.entry[Appointment] only Reference(ChOrfAppointment)
@@ -281,3 +283,4 @@ Description: "Definition for the Composition resource in the context of CH RAD-O
 * section.entry[Observation] only Reference(ChRadOrderCaveatObservation)
 * section.entry[Observation] ^short = "Caveat Observation"
 * section.entry[Observation].reference 1.. MS
+*/
