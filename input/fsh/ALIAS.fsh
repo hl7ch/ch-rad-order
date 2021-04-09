@@ -4,6 +4,7 @@ Alias:   NMU =          http://hl7.org/fhir/name-use
 
 //Alias:   LNCPLAYBCORE = https://fhir.loinc.org/ValueSet/$expand?url=http://loinc.org/vs/loinc-rsna-radiology-playbook-core
 Alias:   LNCPLAYBFULL = http://loinc.org/vs/loinc-rsna-radiology-playbook
+// see https://chat.fhir.org/#narrow/stream/179202-terminology/topic/radlex
 
 //Alias:   RDLX = http://radlex.org/RID/RID1
 Alias:   RDLX =         http://www.radlex.org

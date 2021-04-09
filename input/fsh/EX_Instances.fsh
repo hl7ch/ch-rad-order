@@ -5,60 +5,80 @@ Description: "Example for ServiceRequest"
 * identifier[placerOrderIdentifier].value = "12345"
 * status = #active
 * intent = #original-order
+* priority = #routine
+* category = ChRadOrderRequestedService#ImagingRequest "Imaging Request"
 * subject = Reference(SUfferer)
 * requester = Reference(ORderplacerHappyDoctors)
-* category = ChRadOrderRequestedService#ImagingRequest
 * performer = Reference(ORderfillerHappyHospital)
 
 
-Instance: CompositionRadiologyOrder  // Noch nicht vollständig
-InstanceOf: ChOrfComposition
+Instance: CompositionRadiologyOrder
+InstanceOf: ChRadOrderComposition
 Title: "Composition Radiology Order"
 Description: "Example for Composition"
 * text.status = #additional
 * text.div = "<div xmlns='http://www.w3.org/1999/xhtml'><div>Radiology Order</div></div>"
+* extension[dataEnterer].url = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-ext-epr-dataenterer"
+* extension[dataEnterer].extension[enterer].url = "enterer"
+* extension[dataEnterer].extension[enterer].valueReference = Reference(DAtaentererHappyDoctors)
+* extension[copyReceiver].url = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-copyreceiver"
+* extension[copyReceiver].valueReference = Reference(SUffererCopyReceiver)
 * status = #final
 * type = SNOMEDCTSwissExtension#2161000195103 "Imaging order (record articact)"
-* category = SCT#721963009 "Order (record artifact)" // TBD: VS ChRadOrderDocumentCategory?
+* category = SCT#721963009 "Order (record artifact)"
 * subject = Reference(SUfferer)
 * date = "2019-04-01T20:18:41.341+00:00"
 * author = Reference(ORderplacerHappyDoctors)
 * title = "Radiology Order"
-* section.title = "Radiology Order"
-* section.text.status = #additional
-* section.text.div = "<div xmlns='http://www.w3.org/1999/xhtml'><div>Radiology Order</div></div>"
-* section.entry[0] = Reference(QuestionnaireRadiologyOrder)
-* section.entry[1] = Reference(QuestionnaireResponseRadiologyOrder)
-* section.entry[2] = Reference(ServiceRequestRadiologyOrder)
-// etc.
+* section.entry[Questionnaire] = Reference(QuestionnaireRadiologyOrder)
+* section.entry[QuestionnaireResponse] = Reference(QuestionnaireResponseRadiologyOrder)
+* section.entry[ServiceRequest] = Reference(ServiceRequestRadiologyOrder)
 
 
 Instance: DocumentRadiologyOrder // Noch nicht vollständig
-InstanceOf: ChOrfDocument
+InstanceOf: ChRadOrderDocument
 Title: "Bundle Radiology Order"
 Description: "Example for Bundle"
-* type = #document
 * identifier.system = "urn:ietf:rfc:3986"
-* identifier.value = "26d3dff7-ab05-4737-a49c-5eccd33595f7"
+* identifier.value = "urn:uuid:26d3dff7-ab05-4737-a49c-5eccd33595f7"
+* type = #document
 * timestamp = "2019-04-01T20:18:41.341+00:00"
-* entry[0].fullUrl = "http://example.com/fhir/Composition/CompositionRadiologyOrder"
-* entry[0].resource = CompositionRadiologyOrder
-* entry[1].fullUrl = "http://example.com/fhir/Questionnaire/QuestionnaireRadiologyOrder"
-* entry[1].resource = QuestionnaireRadiologyOrder
-* entry[2].fullUrl = "http://example.com/fhir/QuestionnaireResponse/QuestionnaireResponseRadiologyOrder"
-* entry[2].resource = QuestionnaireResponseRadiologyOrder
-* entry[3].fullUrl = "http://example.com/fhir/ServiceRequest/ServiceRequestRadiologyOrder"
-* entry[3].resource = ServiceRequestRadiologyOrder
-* entry[4].fullUrl = "http://example.com/fhir/Patient/SUfferer"
-* entry[4].resource = SUfferer
-* entry[5].fullUrl = "http://example.com/fhir/PractitionerRole/DAtaentererHappyDoctors"
-* entry[5].resource = DAtaentererHappyDoctors
-* entry[6].fullUrl = "http://example.com/fhir/Practitioner/DAtaenterer"
-* entry[6].resource = DAtaenterer
-* entry[7].fullUrl = "http://example.com/fhir/Organization/HappyDoctors"
-* entry[7].resource = HappyDoctors
-// * entry[8].fullUrl = "http://example.com/fhir/Organization/Consent"
-// * entry[8].resource = Consent
+* entry[+].fullUrl = "http://example.com/fhir/Composition/CompositionRadiologyOrder"
+* entry[=].resource = CompositionRadiologyOrder
+* entry[+].fullUrl = "http://example.com/fhir/Questionnaire/QuestionnaireRadiologyOrder"
+* entry[=].resource = QuestionnaireRadiologyOrder
+* entry[+].fullUrl = "http://example.com/fhir/QuestionnaireResponse/QuestionnaireResponseRadiologyOrder"
+* entry[=].resource = QuestionnaireResponseRadiologyOrder
+* entry[+].fullUrl = "http://example.com/fhir/ServiceRequest/ServiceRequestRadiologyOrder"
+* entry[=].resource = ServiceRequestRadiologyOrder
+//------------- Patient and Copy Receiver -------------
+* entry[+].fullUrl = "http://example.com/fhir/Patient/SUfferer"
+* entry[=].resource = SUfferer
+* entry[+].fullUrl = "http://example.com/fhir/Patient/SUffererCopyReceiver"
+* entry[=].resource = SUffererCopyReceiver
+//------------- Data Enterer -------------
+* entry[+].fullUrl = "http://example.com/fhir/PractitionerRole/DAtaentererHappyDoctors"
+* entry[=].resource = DAtaentererHappyDoctors
+* entry[+].fullUrl = "http://example.com/fhir/Practitioner/DAtaenterer"
+* entry[=].resource = DAtaenterer
+//------------- Author -------------
+* entry[+].fullUrl = "http://example.com/fhir/PractitionerRole/ORderplacerHappyDoctors"
+* entry[=].resource = ORderplacerHappyDoctors
+* entry[+].fullUrl = "http://example.com/fhir/Practitioner/ORderplacer"
+* entry[=].resource = ORderplacer
+//------------- Receiver -------------
+* entry[+].fullUrl = "http://example.com/fhir/PractitionerRole/ORderfillerHappyHospital"
+* entry[=].resource = ORderfillerHappyHospital
+* entry[+].fullUrl = "http://example.com/fhir/Practitioner/ORderfiller"
+* entry[=].resource = ORderfiller
+//------------- Organizations -------------
+* entry[+].fullUrl = "http://example.com/fhir/Organization/HappyDoctors"
+* entry[=].resource = HappyDoctors
+* entry[+].fullUrl = "http://example.com/fhir/Organization/HappyHospital"
+* entry[=].resource = HappyHospital
+
+// * entry[+].fullUrl = "http://example.com/fhir/Organization/Consent"
+// * entry[=].resource = Consent
 // etc.
 
 
@@ -185,6 +205,23 @@ Description: "Example for Patient"
 * address.use = #home
 * address.line[0] = "Musterweg"
 * address.line[1] = "6a"
+* address.city = "Zürich"
+* address.postalCode = "8000"
+* address.country = "Schweiz"
+
+
+Instance: SUffererCopyReceiver
+InstanceOf: ChCorePatient
+Title: "Susanna Ufferer Copy Receiver"
+Description: "Example for Patient"
+* name.family = "Ufferer"
+* name.given = "Susanna"
+* telecom[0].system = #phone
+* telecom[0].value = "+41 79 979 79 79"
+* telecom[1].system = #email
+* telecom[1].value = "susanna@ufferer.ch"
+* address.use = #home
+* address.line = "Musterweg 6a"
 * address.city = "Zürich"
 * address.postalCode = "8000"
 * address.country = "Schweiz"
