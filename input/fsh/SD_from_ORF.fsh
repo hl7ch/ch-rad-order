@@ -41,24 +41,24 @@ In case of 'ChRadOrderModalityType' specify Imaging Request Details by means of 
 * orderDetail ^slicing.discriminator.path = "$this"
 * orderDetail ^slicing.rules = #open
 * orderDetail contains 
-    ImagingRegion 0..* and 
-    ImagingFocus 0..* and   
-    Laterality 0..1 and // Cardinality of Laterality to be discussed
-    ViewType 0..*  and
-    ManeuverType 0..* and
-    GuidanceForAction 0..* 
-* orderDetail[ImagingRegion] MS
-* orderDetail[ImagingRegion] from ChRadOrderImagingRegion
-* orderDetail[ImagingFocus] MS
-* orderDetail[ImagingFocus] from ChRadOrderImagingFocus
-* orderDetail[Laterality] MS
-* orderDetail[Laterality] from ChRadOrderLaterality
-* orderDetail[ViewType] MS
-* orderDetail[ViewType] from ChRadOrderViewType
-* orderDetail[ManeuverType] MS
-* orderDetail[ManeuverType] from ChRadOrderManeuverType
-* orderDetail[GuidanceForAction] MS
-* orderDetail[GuidanceForAction] from ChRadOrderGuidanceForAction
+    imagingRegion 0..* and 
+    imagingFocus 0..* and   
+    laterality 0..1 and // Cardinality of Laterality to be discussed
+    viewType 0..*  and
+    maneuverType 0..* and
+    guidanceForAction 0..* 
+* orderDetail[imagingRegion] MS
+* orderDetail[imagingRegion] from ChRadOrderImagingRegion
+* orderDetail[imagingFocus] MS
+* orderDetail[imagingFocus] from ChRadOrderImagingFocus
+* orderDetail[laterality] MS
+* orderDetail[laterality] from ChRadOrderLaterality
+* orderDetail[viewType] MS
+* orderDetail[viewType] from ChRadOrderViewType
+* orderDetail[maneuverType] MS
+* orderDetail[maneuverType] from ChRadOrderManeuverType
+* orderDetail[guidanceForAction] MS
+* orderDetail[guidanceForAction] from ChRadOrderGuidanceForAction
 //------- authoredOn -------
 * authoredOn MS
 //------- locationReference -------
