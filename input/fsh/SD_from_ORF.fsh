@@ -1,25 +1,5 @@
 // CH RAD-Order Structure Defintions derived from CH ORF
 
-
-/*
-Profile: ChRadOrderQuestionnaire
-Parent: ChOrfQuestionnaire
-Title: "CH RAD-Order Questionnaire"
-Id: ch-rad-order-questionnaire
-Description: "Definition for the Questionnaire resource in the context of CH RAD-Order."
-* . ^short = "CH RAD-Order Questionnaire"
-*/
-
-
-/*
-Profile: ChRadOrderQuestionnaireResponse
-Parent: ChOrfQuestionnaireResponse
-Id: ch-rad-order-questionnaireresponse
-Title: "CH RAD-Order QuestionnaireResponse"
-Description: "Definition for the QuestionnaireResponse resource in the context of CH RAD-Order."
-* . ^short = "CH RAD-Order QuestionnaireResponse"
-*/
-
 Profile: ChRadOrderServiceRequest
 Parent: ChOrfServiceRequest
 Id: ch-rad-order-servicerequest
@@ -31,13 +11,39 @@ An Order Filler accepts from an Order Placer a single Order that it equates to a
 (which is concept commonly used in HL7) or Imaging Service Request (Concept commonly used in DICOM). 
 Consequently one CH RAD-Order Document contains one CH RAD-Order ServiceRequest which depicts one Placer Order 
 equal one Filler Order equal one Imaging Service Request."
-
-* status and intent and code and orderDetail MS
-* subject and authoredOn and requester and performer and language MS
-* replaces and priority and bodySite and locationReference and reasonReference and insurance and patientInstruction and note MS
-
+* language MS
+* replaces MS
+* replaces only Reference(ChRadOrderServiceRequest)
+* intent MS
+//------- category -------
 * category 1..1 MS
 * category from ChRadOrderRequestedService
+//------- code -------
+/* !!!!!!!!!! CH RAD-Order UNTERSTUETZT LOINC/RSNA PLAYBOOK WIE FOLGT: ANSELLE DER ITEMS [4] - [7] WIRD IN
+              ServiceRequest.code DER PLAYBOOK CODE ANGEGBEN. VOM QUESTIONNAIRE WIRD DAS NICHT UNTERSTÜTZT, DA NUR RELEVANT, WENN
+              ZWISCHEN SENDER UND EMPFÄNGER VEREINBART.*/
+* code MS
+* code ^short = "Use 'RSNA/LOINC Playbook (Full Version support)' OR Codes from 'ChRadOrderModalityType' but NOT both. 
+In case of 'ChRadOrderModalityType' specify Imaging Request Details by means of orderDetail."
+* code.coding MS
+* code.coding ^slicing.discriminator.type = #value
+* code.coding ^slicing.discriminator.path = "system"
+* code.coding ^slicing.rules = #open
+* code.coding contains LncPlbFull 0..1 and RdlxModType 0..1
+* code.coding[LncPlbFull] from LNCPLAYBFULL
+* code.coding[LncPlbFull].system ^fixedUri = "http://loinc.org"
+* code.coding[RdlxModType] from ChRadOrderModalityType 
+* code.coding[RdlxModType].system ^fixedUri = "http://www.radlex.org"
+
+
+
+// hier
+
+* orderDetail MS
+
+* subject and authoredOn and requester and performer MS
+* priority and bodySite and locationReference and reasonReference and insurance and patientInstruction and note MS
+
 
 * reasonCode MS
 * reasonCode ^short = "Diagnostic Question in Freetext: Coding of all diagnostic questions not feasable."
@@ -50,28 +56,7 @@ short und defintion gehen nicht so
 */
 * reasonCode.text MS
 
-* code.coding ^slicing.discriminator.type = #pattern
-* code.coding ^slicing.discriminator.path = "code.coding.system"
-* code.coding ^slicing.rules = #open
-* code.coding ^slicing.ordered = true 
-* code.coding ^slicing.description = "Slice based on the component.code pattern"
 
-* code.coding contains
-    LncPlbFull 0..1 and
-    RdlxModType 0..1
-
-/* !!!!!!!!!!CH Rad-Order UNTERSTUETZT LOINC/RSNA PLAYBOOK WIE FOLGT: ANSELLE DER ITEMS [4] - [7] WIRD IN
-                servicerequest.code DER PLABOOK CODE ANGEGBEN. VOM QUESTIONNAIRE WIRD DAS NICHT UNTERSTÜTZT, DA NUR RELEVANT, WENN
-                ZWISCHEN SENDER UND EMPFÄNGER VEREINBART.
-*/
-* code.coding[LncPlbFull] from LNCPLAYBFULL
-
-* code.coding[RdlxModType] from ChRadOrderModalityType 
-
-// * code.coding from LNCPLAYBFULL
-// * code.text  from ChRadOrderModalityType or LNCPLAYBFULL
-* code ^short = "Use RSNA/LOINC Playbook (Full Version support) OR Codes from ChRadOrderModalityType but NOT both. In case of ChRadOrderModalityType
-specify Imaging Request Details by means of orderDetail."
 
 * orderDetail ^slicing.discriminator.type = #pattern
 * orderDetail ^slicing.discriminator.path = "code.coding.system"
@@ -283,4 +268,24 @@ Description: "Definition for the Composition resource in the context of CH RAD-O
 * section.entry[Observation] only Reference(ChRadOrderCaveatObservation)
 * section.entry[Observation] ^short = "Caveat Observation"
 * section.entry[Observation].reference 1.. MS
+*/
+
+
+/* No differences to CH ORF
+Profile: ChRadOrderQuestionnaire
+Parent: ChOrfQuestionnaire
+Title: "CH RAD-Order Questionnaire"
+Id: ch-rad-order-questionnaire
+Description: "Definition for the Questionnaire resource in the context of CH RAD-Order."
+* . ^short = "CH RAD-Order Questionnaire"
+*/
+
+
+/* No differences to CH ORF
+Profile: ChRadOrderQuestionnaireResponse
+Parent: ChOrfQuestionnaireResponse
+Id: ch-rad-order-questionnaireresponse
+Title: "CH RAD-Order QuestionnaireResponse"
+Description: "Definition for the QuestionnaireResponse resource in the context of CH RAD-Order."
+* . ^short = "CH RAD-Order QuestionnaireResponse"
 */

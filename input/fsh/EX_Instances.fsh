@@ -7,6 +7,7 @@ Description: "Example for ServiceRequest"
 * intent = #original-order
 * priority = #routine
 * category = ChRadOrderRequestedService#ImagingRequest "Imaging Request"
+* code.coding[RdlxModType] = RDLX#RID10311 "imaging modality"
 * subject = Reference(SUfferer)
 * requester = Reference(ORderplacerHappyDoctors)
 * performer = Reference(ORderfillerHappyHospital)
