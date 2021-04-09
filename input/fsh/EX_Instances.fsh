@@ -15,6 +15,7 @@ Description: "Example for ServiceRequest"
 * requester = Reference(ORderplacerHappyDoctors)
 * performer = Reference(ORderfillerHappyHospital)
 * locationReference = Reference(RadiologyDepartment)
+* reasonCode.text = "Diagnostic Question"
 
 
 Instance: CompositionRadiologyOrder

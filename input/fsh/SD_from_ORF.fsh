@@ -68,6 +68,12 @@ In case of 'ChRadOrderModalityType' specify Imaging Request Details by means of 
 * locationReference MS
 * locationReference only Reference(ChCoreLocation)
 
+//------- reasonCode -------
+* reasonCode MS
+* reasonCode ^short = "Diagnostic Question in free text: Coding of all diagnostic questions not feasable."
+* reasonCode.coding 0..0
+* reasonCode.text 1..
+
 
 // hier
 
@@ -75,22 +81,8 @@ In case of 'ChRadOrderModalityType' specify Imaging Request Details by means of 
 * bodySite and reasonReference and insurance and patientInstruction and note MS
 
 
-* reasonCode MS
-* reasonCode ^short = "Diagnostic Question in Freetext: Coding of all diagnostic questions not feasable."
-* reasonCode.coding 0..0
-
-/* 
-short und defintion gehen nicht so
-* reasonCode.coding.code ^short = "--"
-* reasonCode.coding.code ^definition = "--"
-*/
-* reasonCode.text MS
-
-
-
 * reasonReference MS
 * reasonReference only Reference(ChRadOrderDiagnoseList) 
-
 
 
 * insurance ^slicing.discriminator.type = #pattern
