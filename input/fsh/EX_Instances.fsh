@@ -8,6 +8,8 @@ Description: "Example for ServiceRequest"
 * priority = #routine
 * category = ChRadOrderRequestedService#ImagingRequest "Imaging Request"
 * code.coding[RdlxModType] = RDLX#RID10311 "imaging modality"
+* orderDetail[ImagingRegion] = RDLX#RID1243 "Thorax"
+* orderDetail[ImagingFocus] = RDLX#RID2468 "Chest wall"
 * subject = Reference(SUfferer)
 * requester = Reference(ORderplacerHappyDoctors)
 * performer = Reference(ORderfillerHappyHospital)

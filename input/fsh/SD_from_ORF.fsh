@@ -15,9 +15,11 @@ equal one Filler Order equal one Imaging Service Request."
 * replaces MS
 * replaces only Reference(ChRadOrderServiceRequest)
 * intent MS
+
 //------- category -------
 * category 1..1 MS
 * category from ChRadOrderRequestedService
+
 //------- code -------
 /* !!!!!!!!!! CH RAD-Order UNTERSTUETZT LOINC/RSNA PLAYBOOK WIE FOLGT: ANSELLE DER ITEMS [4] - [7] WIRD IN
               ServiceRequest.code DER PLAYBOOK CODE ANGEGBEN. VOM QUESTIONNAIRE WIRD DAS NICHT UNTERSTÜTZT, DA NUR RELEVANT, WENN
@@ -25,21 +27,45 @@ equal one Filler Order equal one Imaging Service Request."
 * code MS
 * code ^short = "Use 'RSNA/LOINC Playbook (Full Version support)' OR Codes from 'ChRadOrderModalityType' but NOT both. 
 In case of 'ChRadOrderModalityType' specify Imaging Request Details by means of orderDetail."
-* code.coding MS
-* code.coding ^slicing.discriminator.type = #value
-* code.coding ^slicing.discriminator.path = "system"
+* code.coding ^slicing.discriminator.type = #pattern
+* code.coding ^slicing.discriminator.path = "$this"
 * code.coding ^slicing.rules = #open
-* code.coding contains LncPlbFull 0..1 and RdlxModType 0..1
+* code.coding contains 
+    LncPlbFull 0..1 and 
+    RdlxModType 0..1
+* code.coding[LncPlbFull] MS
 * code.coding[LncPlbFull] from LNCPLAYBFULL
-* code.coding[LncPlbFull].system ^fixedUri = "http://loinc.org"
+* code.coding[RdlxModType] MS
 * code.coding[RdlxModType] from ChRadOrderModalityType 
-* code.coding[RdlxModType].system ^fixedUri = "http://www.radlex.org"
 
+
+//------- orderDetail -------
+* orderDetail MS
+* orderDetail ^slicing.discriminator.type = #pattern
+* orderDetail ^slicing.discriminator.path = "$this"
+* orderDetail ^slicing.rules = #open
+* orderDetail contains 
+    ImagingRegion 0..* and 
+    ImagingFocus 0..* and   
+    Laterality 0..1 and // Cardinality of Laterality to be discussed
+    ViewType 0..*  and
+    ManeuverType 0..* and
+    GuidanceForAction 0..* 
+* orderDetail[ImagingRegion] MS
+* orderDetail[ImagingRegion] from ChRadOrderImagingRegion
+* orderDetail[ImagingFocus] MS
+* orderDetail[ImagingFocus] from ChRadOrderImagingFocus
+* orderDetail[Laterality] MS
+* orderDetail[Laterality] from ChRadOrderLaterality
+* orderDetail[ViewType] MS
+* orderDetail[ViewType] from ChRadOrderViewType
+* orderDetail[ManeuverType] MS
+* orderDetail[ManeuverType] from ChRadOrderManeuverType
+* orderDetail[GuidanceForAction] MS
+* orderDetail[GuidanceForAction] from ChRadOrderGuidanceForAction
 
 
 // hier
-
-* orderDetail MS
 
 * subject and authoredOn and requester and performer MS
 * priority and bodySite and locationReference and reasonReference and insurance and patientInstruction and note MS
@@ -58,35 +84,6 @@ short und defintion gehen nicht so
 
 
 
-* orderDetail ^slicing.discriminator.type = #pattern
-* orderDetail ^slicing.discriminator.path = "code.coding.system"
-* orderDetail ^slicing.rules = #open
-* orderDetail ^slicing.ordered = true 
-* orderDetail ^slicing.description = "Slice based on the component.code pattern"
-
-* orderDetail contains 
-//    RadOrderModalityType 0..1 and
-    RadOrderImagingRegion 0..* and 
-    RadOrderImagingFocus 0..* and   
-    RadOrderLaterality 0..1 and
-    RadOrderViewType 0..*  and
-    RadOrderManeuverType 0..* and
-    RadOrderGuidanceForAction 0..* 
-
-// Cardinality of Laterality to be discussed
-* orderDetail[RadOrderImagingRegion] MS
-* orderDetail[RadOrderImagingFocus] MS
-* orderDetail[RadOrderLaterality] MS
-* orderDetail[RadOrderViewType] MS
-* orderDetail[RadOrderManeuverType] MS
-* orderDetail[RadOrderGuidanceForAction] MS
-
-* orderDetail[RadOrderImagingRegion] from ChRadOrderImagingRegion
-* orderDetail[RadOrderImagingFocus] from ChRadOrderImagingFocus
-* orderDetail[RadOrderLaterality] from ChRadOrderLaterality
-* orderDetail[RadOrderViewType] from ChRadOrderViewType
-* orderDetail[RadOrderManeuverType] from ChRadOrderManeuverType
-* orderDetail[RadOrderGuidanceForAction] from ChRadOrderGuidanceForAction
 
 
 * locationReference = Reference(ChCoreLocation)
