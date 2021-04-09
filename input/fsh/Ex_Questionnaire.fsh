@@ -1,6 +1,6 @@
 Instance: QuestionnaireRadiologyOrder
 InstanceOf: ChOrfQuestionnaire
-Title: "Questionniaire Radiology Order"
+Title: "Questionnaire Radiology Order"
 Description: "Example for Questionnaire"
 
 /* -------------------------------------------------------------------------------------------------------
@@ -8,18 +8,22 @@ Nur absolute "Required" sind markiert; es wird dann noch relative Required geben
 Bsp: Fragestellung ist required ausser bei Bestllung alter Bider
    -------------------------------------------------------------------------------------------------------*/
 
+* meta.profile[+] = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-questionnaire"
+* meta.profile[+] = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire"
+* meta.profile[+] = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-extract"
+
+* extension[targetStructureMap].url = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-targetStructureMap"
+* extension[targetStructureMap].valueCanonical = "http://fhir.ch/ig/ch-orf/StructureMap/OrfQrToBundle"
+// TBD * extension[targetStructureMap].valueCanonical = "http://fhir.ch/ig/ch-rad-order/StructureMap/RadOrderQrToBundle"
 
 
-* meta.profile[0] = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-questionnaire"
-* meta.profile[1] = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire"
-* meta.profile[2] = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-extract"
-* extension.url = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-targetStructureMap"
-* extension.valueCanonical = "http://fhir.ch/ig/ch-rad-order/StructureMap/OrfQrToBundle"
 * url = "http://fhir.ch/ig/ch-rad-order/Questionnaire/QuestionnaireRadiologyOrder"
 * name = "QuestionnaireRadiologyOrder"
-* subjectType = #Patient
+* title = "Questionnaire Radiology Order"
 * status = #active
+* subjectType = #Patient
 * date = "2021-02-24"
+* publisher = "HL7 Switzerland"
 
 // order (Auftrag)
 * item[0].linkId = "order"

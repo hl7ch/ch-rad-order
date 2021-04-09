@@ -36,6 +36,8 @@ pages:
     title: Anwendungsfälle
   usecase-french.md:
     title: Cas d'application
+  questionnaire.html:
+    title: Questionnaire
   profiles.html:
     title: Profiles
   extensions.html:
