@@ -10,11 +10,11 @@ Description: "Example for ServiceRequest"
 * code.coding[RdlxModType] = RDLX#RID10311 "imaging modality"
 * orderDetail[ImagingRegion] = RDLX#RID1243 "Thorax"
 * orderDetail[ImagingFocus] = RDLX#RID2468 "Chest wall"
-* authoredOn = "2019-04-01T20:18:41.341+00:00"
-
 * subject = Reference(SUfferer)
+* authoredOn = "2019-04-01T20:18:41.341+00:00"
 * requester = Reference(ORderplacerHappyDoctors)
 * performer = Reference(ORderfillerHappyHospital)
+* locationReference = Reference(RadiologyDepartment)
 
 
 Instance: CompositionRadiologyOrder
@@ -81,9 +81,9 @@ Description: "Example for Bundle"
 * entry[=].resource = HappyDoctors
 * entry[+].fullUrl = "http://example.com/fhir/Organization/HappyHospital"
 * entry[=].resource = HappyHospital
-
-// * entry[+].fullUrl = "http://example.com/fhir/Organization/Consent"
-// * entry[=].resource = Consent
+//------------- more -------------
+* entry[+].fullUrl = "http://example.com/fhir/Location/RadiologyDepartment"
+* entry[=].resource = RadiologyDepartment
 // etc.
 
 
@@ -230,3 +230,11 @@ Description: "Example for Patient"
 * address.city = "Zürich"
 * address.postalCode = "8000"
 * address.country = "Schweiz"
+
+
+Instance: RadiologyDepartment
+InstanceOf: ChCoreLocation
+Title: "Radiology Department of Happy Hospital"
+Description: "Example for Location"
+* name = "Radiology Department of Happy Hospital"
+* managingOrganization = Reference(HappyHospital)

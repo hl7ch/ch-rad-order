@@ -64,10 +64,15 @@ In case of 'ChRadOrderModalityType' specify Imaging Request Details by means of 
 * orderDetail[GuidanceForAction] from ChRadOrderGuidanceForAction
 
 * authoredOn MS
+
+* locationReference MS
+* locationReference only Reference(ChCoreLocation)
+
+
 // hier
 
 
-* priority and bodySite and locationReference and reasonReference and insurance and patientInstruction and note MS
+* bodySite and reasonReference and insurance and patientInstruction and note MS
 
 
 * reasonCode MS
@@ -81,11 +86,6 @@ short und defintion gehen nicht so
 */
 * reasonCode.text MS
 
-
-
-
-
-* locationReference = Reference(ChCoreLocation)
 
 
 * reasonReference MS
