@@ -12,7 +12,7 @@ Description: "Definition for the Caveat Condition resource in the context of CH 
 * code 1.. MS 
 * code from ChRadOrderCaveatCondition
 * subject MS
-* subject only Reference(CHCorePatient)  
+* subject only Reference(ChCorePatient)  
 * evidence MS
 * evidence.detail MS
 * evidence.detail only Reference(ChRadOrderCaveatObservation)
@@ -31,7 +31,7 @@ Description: "Definition for the Diagnose List resource in the context of ORF."
 * category.coding.code MS
 * category.coding = ConditionCategory#problem-list-item "Problem List Entry"
 * subject MS
-* subject only Reference(CHCorePatient)  
+* subject only Reference(ChCorePatient)  
 * evidence.detail only Reference(ChRadOrderCaveatObservation)
 
 
@@ -52,7 +52,18 @@ Id: ch-rad-order-imagingstudy
 Title: "CH RAD-Order ImagingStudy"
 Description: "Definition for the ImagingStudy resource in the context of CH RAD-Order."
 * . ^short = "CH RAD-Order ImagingStudy"
-* status and subject and series.uid and series.modality and series.performer.actor and series.instance.uid and series.instance.sopClass MS
+* status MS
+* subject MS
+* subject only Reference(ChCorePatient or Device or Group)
+* series MS
+* series.uid MS
+* series.modality MS
+* series.performer MS
+* series.performer.actor MS
+* series.performer.actor only Reference(ChCorePractitioner or ChCorePractitionerRole or ChCoreOrganization or CareTeam or ChCorePatient or Device or RelatedPerson)
+* series.instance MS
+* series.instance.uid MS
+* series.instance.sopClass MS
 
 
 /* 
