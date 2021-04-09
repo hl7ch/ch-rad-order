@@ -74,15 +74,15 @@ In case of 'ChRadOrderModalityType' specify Imaging Request Details by means of 
 * reasonCode.coding 0..0
 * reasonCode.text 1..
 
+//------- reasonReference -------
+* reasonReference MS
+* reasonReference only Reference(ChRadOrderDiagnosisCondition) 
+
 
 // hier
 
 
 * bodySite and reasonReference and insurance and patientInstruction and note MS
-
-
-* reasonReference MS
-* reasonReference only Reference(ChRadOrderDiagnoseList) 
 
 
 * insurance ^slicing.discriminator.type = #pattern
@@ -118,7 +118,7 @@ In case of 'ChRadOrderModalityType' specify Imaging Request Details by means of 
     precedingImagingResults 0..* and
     patientConsent 0..4 
 
-* supportingInfo[diagnoseList] only Reference(ChRadOrderDiagnoseList)
+* supportingInfo[diagnoseList] only Reference(ChRadOrderDiagnosisCondition)
 * supportingInfo[caveats] only Reference(ChRadOrderCaveatCondition)
 * supportingInfo[precedingImagingResults] only Reference(ImagingStudy)
 * supportingInfo[patientConsent] only Reference(Consent)

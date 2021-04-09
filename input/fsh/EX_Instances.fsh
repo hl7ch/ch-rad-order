@@ -16,6 +16,8 @@ Description: "Example for ServiceRequest"
 * performer = Reference(ORderfillerHappyHospital)
 * locationReference = Reference(RadiologyDepartment)
 * reasonCode.text = "Diagnostic Question"
+* reasonReference[+] = Reference(Diagnosis1)
+* reasonReference[+] = Reference(Diagnosis2)
 
 
 Instance: CompositionRadiologyOrder
@@ -85,6 +87,10 @@ Description: "Example for Bundle"
 //------------- more -------------
 * entry[+].fullUrl = "http://example.com/fhir/Location/RadiologyDepartment"
 * entry[=].resource = RadiologyDepartment
+* entry[+].fullUrl = "http://example.com/fhir/Condition/Diagnosis1"
+* entry[=].resource = Diagnosis1
+* entry[+].fullUrl = "http://example.com/fhir/Condition/Diagnosis2"
+* entry[=].resource = Diagnosis2
 // etc.
 
 
@@ -239,3 +245,21 @@ Title: "Radiology Department of Happy Hospital"
 Description: "Example for Location"
 * name = "Radiology Department of Happy Hospital"
 * managingOrganization = Reference(HappyHospital)
+
+
+Instance: Diagnosis1
+InstanceOf: ChRadOrderDiagnosisCondition
+Title: "Diagnosis 1"
+Description: "Example for Diagnosis Condition"
+* category = ConditionCategory#problem-list-item "Problem List Item"
+* code.text = "Diagnosis 1"
+* subject = Reference(SUfferer)
+
+
+Instance: Diagnosis2
+InstanceOf: ChRadOrderDiagnosisCondition
+Title: "Diagnosis 2"
+Description: "Example for Diagnosis Condition"
+* category = ConditionCategory#problem-list-item "Problem List Item"
+* code.text = "Diagnosis 2"
+* subject = Reference(SUfferer)

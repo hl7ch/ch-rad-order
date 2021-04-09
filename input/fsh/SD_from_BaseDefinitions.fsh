@@ -18,21 +18,18 @@ Description: "Definition for the Caveat Condition resource in the context of CH 
 * evidence.detail only Reference(ChRadOrderCaveatObservation)
 
 
-Profile: ChRadOrderDiagnoseList
+Profile: ChRadOrderDiagnosisCondition
 Parent: Condition
-Id: ch-rad-order-diagnose-list
-Title: "CH RAD-Order Diagnose List"
-Description: "Definition for the Diagnose List resource in the context of ORF."
-* . ^short = "CH ORF Diagnose List"
-* code 1..1 MS 
-* code from ChRadOrderCaveatCondition
+Id: ch-rad-order-diagnosis-condition
+Title: "CH RAD-Order Diagnosis Condition"
+Description: "Definition for the Diagnosis Condition resource in the context of CH RAD-Order."
+* . ^short = "CH RAD-Order Diagnosis Condition"
 * category 1..1 MS
-* category.coding 1..1 MS
-* category.coding.code MS
-* category.coding = ConditionCategory#problem-list-item "Problem List Item"
+* category = ConditionCategory#problem-list-item
+* category ^short = "Problem List Item"
+* code 1.. MS 
 * subject MS
 * subject only Reference(ChCorePatient)  
-* evidence.detail only Reference(ChRadOrderCaveatObservation)
 
 
 Profile: ChRadOrderCaveatObservation
