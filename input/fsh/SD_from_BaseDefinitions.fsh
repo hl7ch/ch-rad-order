@@ -7,8 +7,8 @@ Title: "CH RAD-Order Caveat Condition"
 Description: "Definition for the Caveat Condition resource in the context of CH RAD-Order."
 * . ^short = "CH RAD-Order Caveat Condition"
 * category 1..1 MS
-* category = ConditionCategory#problem-list-item "Problem List Entry"
-* category ^short = "Problem List Entry"
+* category = ConditionCategory#problem-list-item
+* category ^short = "Problem List Item"
 * code 1.. MS 
 * code from ChRadOrderCaveatCondition
 * subject MS
@@ -29,7 +29,7 @@ Description: "Definition for the Diagnose List resource in the context of ORF."
 * category 1..1 MS
 * category.coding 1..1 MS
 * category.coding.code MS
-* category.coding = ConditionCategory#problem-list-item "Problem List Entry"
+* category.coding = ConditionCategory#problem-list-item "Problem List Item"
 * subject MS
 * subject only Reference(ChCorePatient)  
 * evidence.detail only Reference(ChRadOrderCaveatObservation)
