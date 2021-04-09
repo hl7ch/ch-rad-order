@@ -186,16 +186,16 @@ InstanceOf: ChCorePatient
 Title: "Susanna Ufferer"
 Description: "Example for Patient"
 * name[+].use = #official
-* name[=].family[+].value = "Ufferer"
+* name[=].family[+] = "Ufferer"
 * name[=].family[=].extension[ech11name].url = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-ext-ech-11-name"
 * name[=].family[=].extension[ech11name].valueCode = #officialName
 
-* name[=].given[+].value = "Susanna"
+* name[=].given[+] = "Susanna"
 * name[=].given[=].extension[ech11firstname].url = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-ext-ech-11-firstname"
 * name[=].given[=].extension[ech11firstname].valueCode = #officialFirstName
 
 * name[+].use = #maiden
-* name[=].family[+].value = "Leidend"
+* name[=].family[+] = "Leidend"
 * name[=].family[=].extension[ech11name].url = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-ext-ech-11-name"
 * name[=].family[=].extension[ech11name].valueCode = #originalName
 
