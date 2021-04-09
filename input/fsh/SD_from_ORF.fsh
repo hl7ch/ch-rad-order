@@ -80,7 +80,7 @@ In case of 'ChRadOrderModalityType' specify Imaging Request Details by means of 
 // hier
 
 
-* bodySite and patientInstruction and note MS
+
 
 
 * supportingInfo MS
@@ -137,8 +137,6 @@ In case of 'ChRadOrderModalityType' specify Imaging Request Details by means of 
 * supportingInfo[caveats][DrugPrescr] only Reference(ChRadOrderCaveatCondition)
 
 
-
-
 /*
 64779008	Blood coagulation disorder (disorder)
 723188008	Renal insufficiency (disorder)
@@ -174,6 +172,11 @@ In case of 'ChRadOrderModalityType' specify Imaging Request Details by means of 
 * supportingInfo[patientConsent][TreatmentConsent] MS
 * supportingInfo[patientConsent][RearchConsent] MS
 * supportingInfo[patientConsent][ADCD] MS
+
+
+* bodySite MS
+* note MS
+* patientInstruction MS
 
 
 Extension: ChRadOrderAppointment

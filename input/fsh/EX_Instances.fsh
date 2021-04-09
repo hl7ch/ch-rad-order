@@ -19,6 +19,9 @@ Description: "Example for ServiceRequest"
 * reasonReference[+] = Reference(Diagnosis1)
 * reasonReference[+] = Reference(Diagnosis2)
 * insurance = Reference(CoverageKVG)
+* bodySite = SCT#51185008 "Thoracic structure (body structure)"
+* note.text = "Note/Comments"
+* patientInstruction = "Patient instructions"
 
 
 Instance: CompositionRadiologyOrder
