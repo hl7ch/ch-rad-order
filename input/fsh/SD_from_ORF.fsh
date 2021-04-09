@@ -38,7 +38,6 @@ In case of 'ChRadOrderModalityType' specify Imaging Request Details by means of 
 * code.coding[RdlxModType] MS
 * code.coding[RdlxModType] from ChRadOrderModalityType 
 
-
 //------- orderDetail -------
 * orderDetail MS
 * orderDetail ^slicing.discriminator.type = #pattern
@@ -64,10 +63,10 @@ In case of 'ChRadOrderModalityType' specify Imaging Request Details by means of 
 * orderDetail[GuidanceForAction] MS
 * orderDetail[GuidanceForAction] from ChRadOrderGuidanceForAction
 
-
+* authoredOn MS
 // hier
 
-* subject and authoredOn and requester and performer MS
+
 * priority and bodySite and locationReference and reasonReference and insurance and patientInstruction and note MS
 
 

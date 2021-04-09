@@ -10,6 +10,8 @@ Description: "Example for ServiceRequest"
 * code.coding[RdlxModType] = RDLX#RID10311 "imaging modality"
 * orderDetail[ImagingRegion] = RDLX#RID1243 "Thorax"
 * orderDetail[ImagingFocus] = RDLX#RID2468 "Chest wall"
+* authoredOn = "2019-04-01T20:18:41.341+00:00"
+
 * subject = Reference(SUfferer)
 * requester = Reference(ORderplacerHappyDoctors)
 * performer = Reference(ORderfillerHappyHospital)
