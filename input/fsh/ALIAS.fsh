@@ -33,6 +33,7 @@ Alias:   ChOrfComposition =             http://fhir.ch/ig/ch-orf/StructureDefini
 Alias:   ChOrfDocument =                http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-document
 Alias:   ChOrfConsent =                 http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-consent
 Alias:   ChOrfAppointment =             http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-appointment
+Alias:   CSCoverageType =                 http://fhir.ch/ig/ch-orf/CodeSystem/ch-orf-cs-coveragetype
 
 // IPS SD
 Alias:   Condition-Uv-Ips = http://hl7.org/fhir/uv/ips/StructureDefinition/Condition-uv-ips

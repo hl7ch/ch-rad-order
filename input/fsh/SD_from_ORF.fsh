@@ -15,11 +15,9 @@ equal one Filler Order equal one Imaging Service Request."
 * replaces MS
 * replaces only Reference(ChRadOrderServiceRequest)
 * intent MS
-
 //------- category -------
 * category 1..1 MS
 * category from ChRadOrderRequestedService
-
 //------- code -------
 /* !!!!!!!!!! CH RAD-Order UNTERSTUETZT LOINC/RSNA PLAYBOOK WIE FOLGT: ANSELLE DER ITEMS [4] - [7] WIRD IN
               ServiceRequest.code DER PLAYBOOK CODE ANGEGBEN. VOM QUESTIONNAIRE WIRD DAS NICHT UNTERSTÜTZT, DA NUR RELEVANT, WENN
@@ -37,7 +35,6 @@ In case of 'ChRadOrderModalityType' specify Imaging Request Details by means of 
 * code.coding[LncPlbFull] from LNCPLAYBFULL
 * code.coding[RdlxModType] MS
 * code.coding[RdlxModType] from ChRadOrderModalityType 
-
 //------- orderDetail -------
 * orderDetail MS
 * orderDetail ^slicing.discriminator.type = #pattern
@@ -62,47 +59,29 @@ In case of 'ChRadOrderModalityType' specify Imaging Request Details by means of 
 * orderDetail[ManeuverType] from ChRadOrderManeuverType
 * orderDetail[GuidanceForAction] MS
 * orderDetail[GuidanceForAction] from ChRadOrderGuidanceForAction
-
+//------- authoredOn -------
 * authoredOn MS
-
+//------- locationReference -------
 * locationReference MS
 * locationReference only Reference(ChCoreLocation)
-
 //------- reasonCode -------
 * reasonCode MS
 * reasonCode ^short = "Diagnostic Question in free text: Coding of all diagnostic questions not feasable."
 * reasonCode.coding 0..0
 * reasonCode.text 1..
-
 //------- reasonReference -------
 * reasonReference MS
 * reasonReference only Reference(ChRadOrderDiagnosisCondition) 
+//------- insurance -------
+* insurance MS
+* insurance only Reference(ChOrfCoverage)
 
 
 // hier
 
 
-* bodySite and reasonReference and insurance and patientInstruction and note MS
+* bodySite and patientInstruction and note MS
 
-
-* insurance ^slicing.discriminator.type = #pattern
-* insurance ^slicing.discriminator.path = "type.coding.code"
-* insurance ^slicing.rules = #open
-* insurance ^slicing.ordered = true 
-* insurance ^slicing.description = "Slice based on the component.code pattern"
-
-// provisorisch
-* insurance contains
-    accidentInsurance 0..1 and 
-    basicInsurance 0..1 and
-    supplementaryInsurance 0..1 and
-    otherInsurance 0..1
-//-----
-
-* insurance[accidentInsurance] only Reference(ChOrfCoverage)
-* insurance[basicInsurance] only Reference(ChOrfCoverage)
-* insurance[supplementaryInsurance] only Reference(ChOrfCoverage)
-* insurance[otherInsurance] only Reference(ChOrfCoverage)
 
 * supportingInfo MS
 

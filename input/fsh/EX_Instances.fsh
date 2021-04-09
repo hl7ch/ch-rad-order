@@ -18,6 +18,7 @@ Description: "Example for ServiceRequest"
 * reasonCode.text = "Diagnostic Question"
 * reasonReference[+] = Reference(Diagnosis1)
 * reasonReference[+] = Reference(Diagnosis2)
+* insurance = Reference(CoverageKVG)
 
 
 Instance: CompositionRadiologyOrder
@@ -91,6 +92,8 @@ Description: "Example for Bundle"
 * entry[=].resource = Diagnosis1
 * entry[+].fullUrl = "http://example.com/fhir/Condition/Diagnosis2"
 * entry[=].resource = Diagnosis2
+* entry[+].fullUrl = "http://example.com/fhir/Coverage/CoverageKVG"
+* entry[=].resource = CoverageKVG
 // etc.
 
 
@@ -263,3 +266,21 @@ Description: "Example for Diagnosis Condition"
 * category = ConditionCategory#problem-list-item "Problem List Item"
 * code.text = "Diagnosis 2"
 * subject = Reference(SUfferer)
+
+
+Instance: CoverageKVG
+InstanceOf: ChOrfCoverage
+Title: "Coverage KVG"
+Description: "Example for Coverage"
+* contained[+] = Sanitas
+* status = #active
+* type = CSCoverageType#DisorderKVG "According to KVG"
+* beneficiary = Reference(SUfferer)
+* payor = Reference(Sanitas)
+
+Instance: Sanitas
+InstanceOf: ChCoreOrganization
+Title: "Sanitas"
+Description: "Example for Organization"
+Usage: #inline
+* name = "Sanitas"
