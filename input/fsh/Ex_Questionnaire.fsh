@@ -59,6 +59,37 @@ Bsp: Fragestellung ist required ausser bei Bestllung alter Bider
 * item[=].item[=].text = "Identifier des Vorgängerdokuments"
 * item[=].item[=].type = #string
 
+// ---------- Urgent Notification Contact for the Response to this document ----------
+* item[=].item[+].linkId = "order.notificationContactDocumentResponse"
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitionerrole"
+* item[=].item[=].text = "Dringender Benachrichtigungskontakt für die Antwort auf dieses Dokument"
+* item[=].item[=].type = #group
+
+* item[=].item[=].item[+].linkId = "order.notificationContactDocumentResponse.practitioner"
+* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitioner"
+* item[=].item[=].item[=].text = "Zu benachrichtigende Person"
+* item[=].item[=].item[=].type = #group
+
+* item[=].item[=].item[=].item[+].linkId = "order.notificationContactDocumentResponse.practitioner.title"
+* item[=].item[=].item[=].item[=].text = "Titel"
+* item[=].item[=].item[=].item[=].type = #string
+
+* item[=].item[=].item[=].item[+].linkId = "order.notificationContactDocumentResponse.practitioner.familyName"
+* item[=].item[=].item[=].item[=].text = "Name"
+* item[=].item[=].item[=].item[=].type = #string
+
+* item[=].item[=].item[=].item[+].linkId = "order.notificationContactDocumentResponse.practitioner.givenName"
+* item[=].item[=].item[=].item[=].text = "Vorname"
+* item[=].item[=].item[=].item[=].type = #string
+
+* item[=].item[=].item[=].item[+].linkId = "order.notificationContactDocumentResponse.practitioner.phone"
+* item[=].item[=].item[=].item[=].text = "Telefon"
+* item[=].item[=].item[=].item[=].type = #string
+
+* item[=].item[=].item[=].item[+].linkId = "order.notificationContactDocumentResponse.practitioner.email"
+* item[=].item[=].item[=].item[=].text = "E-Mail"
+* item[=].item[=].item[=].item[=].type = #string
+
 // ---------- Patient: The principle target of a particular Form Content is one patient ----------
 // patient is not required because patient may not be known e.g. anonymized in case of research or name unknown in emergency
 * item[+].linkId = "patient"
@@ -119,136 +150,105 @@ Bsp: Fragestellung ist required ausser bei Bestllung alter Bider
 * item[=].item[=].text = "Land"
 * item[=].item[=].type = #string
 
-// sender (Auftraggeber)------------------------------
-* item[2].linkId = "sender"
-* item[2].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitionerrole"
-* item[2].text = "Auftraggeber"
-* item[2].type = #group
-* item[2].required = true
+// ---------- orderer (Auftraggeber) ----------
+* item[+].linkId = "orderer"
+* item[=].text = "Auftraggeber"
+* item[=].type = #group
+* item[=].required = true
 
-/* item[2].item[0].linkId = "sender.author.practionerrole"
-* item[2].item[0].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitionerrole"
-* item[2].item[0].text = ""
-* item[2].item[0].type = #group
-* item[2].item[0].required = true
-*/
-* item[2].item[0].linkId = "sender.author.practitioner"
-* item[2].item[0].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitioner"
-* item[2].item[0].text = "Verantwortliche Person"
-* item[2].item[0].type = #group
-* item[2].item[0].required = true
+// ---------- Author: The person/organization responsible for Form Content ----------
+* item[=].item[+].linkId = "orderer.author"
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitionerrole"
+* item[=].item[=].text = "Verantwortlicher"
+* item[=].item[=].type = #group
+* item[=].item[=].required = true
 
-* item[2].item[0].item[0].linkId = "sender.author.title"
-* item[2].item[0].item[0].text = "Titel"
-* item[2].item[0].item[0].type = #string
+* item[=].item[=].item[+].linkId = "orderer.author.practitioner"
+* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitioner"
+* item[=].item[=].item[=].text = "Verantwortliche Person"
+* item[=].item[=].item[=].type = #group
+* item[=].item[=].item[=].required = true
 
+* item[=].item[=].item[=].item[+].linkId = "orderer.author.practitioner.title"
+* item[=].item[=].item[=].item[=].text = "Titel"
+* item[=].item[=].item[=].item[=].type = #string
 
-* item[2].item[0].item[1].linkId = "sender.author.familyName"
-* item[2].item[0].item[1].text = "Name"
-* item[2].item[0].item[1].type = #string
-* item[2].item[0].item[1].required = true
+* item[=].item[=].item[=].item[+].linkId = "orderer.author.practitioner.familyName"
+* item[=].item[=].item[=].item[=].text = "Name"
+* item[=].item[=].item[=].item[=].type = #string
+* item[=].item[=].item[=].item[=].required = true
 
-* item[2].item[0].item[2].linkId = "sender.author.givenName"
-* item[2].item[0].item[2].text = "Vorname"
-* item[2].item[0].item[2].type = #string
-* item[2].item[0].item[2].required = true
+* item[=].item[=].item[=].item[+].linkId = "orderer.author.practitioner.givenName"
+* item[=].item[=].item[=].item[=].text = "Vorname"
+* item[=].item[=].item[=].item[=].type = #string
+* item[=].item[=].item[=].item[=].required = true
 
-* item[2].item[0].item[3].linkId = "sender.author.email"
-* item[2].item[0].item[3].text = "E-Mail"
-* item[2].item[0].item[3].type = #string
-* item[2].item[0].item[3].required = true
+* item[=].item[=].item[=].item[+].linkId = "orderer.author.practitioner.gln"
+* item[=].item[=].item[=].item[=].text = "GLN"
+* item[=].item[=].item[=].item[=].type = #string
 
-* item[2].item[0].item[4].linkId = "sender.author.email"
-* item[2].item[0].item[4].text = "Phone"
-* item[2].item[0].item[4].type = #string
-* item[2].item[0].item[4].required = true
+* item[=].item[=].item[=].item[+].linkId = "orderer.author.practitioner.phone"
+* item[=].item[=].item[=].item[=].text = "Telefon"
+* item[=].item[=].item[=].item[=].type = #string
 
-// sender (Auftraggeber-Dataenterer)
-/*
-* item[2].item[1].linkId = "sender.dataenterer.practionerrole"
-* item[2].item[1].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitionerrole"
-* item[2].item[1].text = "Sekretariat-Rolle"
-* item[2].item[1].type = #group
-*/
-* item[2].item[1].linkId = "sender.dataenterer.practitioner"
-* item[2].item[1].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitioner"
-* item[2].item[1].text = "Sekretariat"
-* item[2].item[1].type = #group
+* item[=].item[=].item[=].item[+].linkId = "orderer.author.practitioner.email"
+* item[=].item[=].item[=].item[=].text = "E-Mail"
+* item[=].item[=].item[=].item[=].type = #string
 
-* item[2].item[1].item[0].linkId = "sender.dataenterer.familyName"
-* item[2].item[1].item[0].text = "Name"
-* item[2].item[1].item[0].type = #string
+* item[=].item[=].item[+].linkId = "orderer.author.organization"
+* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-organization"
+* item[=].item[=].item[=].text = "Verantwortliche Organisation"
+* item[=].item[=].item[=].type = #group
+* item[=].item[=].item[=].required = true
 
-* item[2].item[1].item[1].linkId = "sender.dataenterer.givenName"
-* item[2].item[1].item[1].text = "Vorname"
-* item[2].item[1].item[1].type = #string
+* item[=].item[=].item[=].item[+].linkId = "orderer.author.organization.name"
+* item[=].item[=].item[=].item[=].text = "Name der Organisation"
+* item[=].item[=].item[=].item[=].type = #string
+* item[=].item[=].item[=].item[=].required = true
 
-* item[2].item[1].item[2].linkId = "sender.dataenterer.email"
-* item[2].item[1].item[2].text = "E-Mail"
-* item[2].item[1].item[2].type = #string
+* item[=].item[=].item[=].item[+].linkId = "orderer.author.organization.streetAddressLine"
+* item[=].item[=].item[=].item[=].text = "Strasse, Hausnummer, Postfach etc."
+* item[=].item[=].item[=].item[=].type = #string
+* item[=].item[=].item[=].item[=].repeats = true
 
-* item[2].item[1].item[3].linkId = "sender.dataenterer.email"
-* item[2].item[1].item[3].text = "Phone"
-* item[2].item[1].item[3].type = #string
+* item[=].item[=].item[=].item[+].linkId = "orderer.author.organization.postalCode"
+* item[=].item[=].item[=].item[=].text = "PLZ"
+* item[=].item[=].item[=].item[=].type = #string
 
-// sender (Auftraggeber-SofortInfo bei Antwort)
+* item[=].item[=].item[=].item[+].linkId = "orderer.author.organization.city"
+* item[=].item[=].item[=].item[=].text = "Ort"
+* item[=].item[=].item[=].item[=].type = #string
 
-/* item[2].item[2].linkId = "urgentforresponse"
-* item[2].item[2].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-composition"
-* item[2].item[2].text = "Bei Eintreffen der Antwort sofort benachtichtigen"
-* item[2].item[2].type = #group
-*/
-* item[2].item[2].linkId = "urgentforresponse.practitioner"
-* item[2].item[2].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitioner"
-* item[2].item[2].text = "Bei Eintreffen der Antwort sofort benachtichtigen"
-* item[2].item[2].type = #group
+* item[=].item[=].item[=].item[+].linkId = "orderer.author.organization.country"
+* item[=].item[=].item[=].item[=].text = "Land"
+* item[=].item[=].item[=].item[=].type = #string
 
-* item[2].item[2].item[0].linkId = "rgentforresponse.person.familyName"
-* item[2].item[2].item[0].text = "Titel"
-* item[2].item[2].item[0].type = #string
+// ---------- Data Entry Person: The person who has typed/filled in the Form Content. ----------
+* item[=].item[+].linkId = "orderer.dataenterer"
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitionerrole"
+* item[=].item[=].text = "Erfasser"
+* item[=].item[=].type = #group
 
-* item[2].item[2].item[1].linkId = "rgentforresponse.person.familyName"
-* item[2].item[2].item[1].text = "Name"
-* item[2].item[2].item[1].type = #string
+* item[=].item[=].item[+].linkId = "orderer.dataenterer.practitioner"
+* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitioner"
+* item[=].item[=].item[=].text = "Erfassende Person"
+* item[=].item[=].item[=].type = #group
 
-* item[2].item[2].item[2].linkId = "rgentforresponse.person.givenName"
-* item[2].item[2].item[2].text = "Vorname"
-* item[2].item[2].item[2].type = #string
+* item[=].item[=].item[=].item[+].linkId = "orderer.dataenterer.practitioner.familyName"
+* item[=].item[=].item[=].item[=].text = "Name"
+* item[=].item[=].item[=].item[=].type = #string
 
-// sender (Auftraggeber-Institution)
-/* item[2].item[3].linkId = "sender"
-* item[2].item[3].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitionerrole"
-* item[2].item[3].text = "Auftraggemer"
-* item[2].item[3].type = #group
-* item[2].item[3].required = true
-*/
-* item[2].item[3].linkId = "sender.organization"
-* item[2].item[3].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-organization"
-* item[2].item[3].text = "Institution"
-* item[2].item[3].type = #group
-* item[2].item[3].required = true
+* item[=].item[=].item[=].item[+].linkId = "orderer.dataenterer.practitioner.givenName"
+* item[=].item[=].item[=].item[=].text = "Vorname"
+* item[=].item[=].item[=].item[=].type = #string
 
-* item[2].item[3].item[0].linkId = "sender.organiszation.name"
-* item[2].item[3].item[0].text = "Name"
-* item[2].item[3].item[0].type = #string
-* item[2].item[3].item[0].required = true
+* item[=].item[=].item[=].item[+].linkId = "orderer.dataenterer.practitioner.phone"
+* item[=].item[=].item[=].item[=].text = "Telefon"
+* item[=].item[=].item[=].item[=].type = #string
 
-* item[2].item[3].item[1].linkId = "sender.organiszation.streetAddressLine"
-* item[2].item[3].item[1].text = "Strasse, Hausnummer, Postfach etc."
-* item[2].item[3].item[1].type = #string
-* item[2].item[3].item[1].repeats = true
-
-* item[2].item[3].item[2].linkId = "sender.organiszation.postalCode"
-* item[2].item[3].item[2].text = "PLZ"
-* item[2].item[3].item[2].type = #string
-
-* item[2].item[3].item[3].linkId = "sender.organiszation.city"
-* item[2].item[3].item[3].text = "Ort"
-* item[2].item[3].item[3].type = #string
-
-* item[2].item[3].item[4].linkId = "sender.organiszation.country"
-* item[2].item[3].item[4].text = "Land"
-* item[2].item[3].item[4].type = #string
+* item[=].item[=].item[=].item[+].linkId = "orderer.dataenterer.practitioner.email"
+* item[=].item[=].item[=].item[=].text = "E-Mail"
+* item[=].item[=].item[=].item[=].type = #string
 
 // receiver (Empfänger)------------------------------
 * item[3].linkId = "receiver"
