@@ -352,7 +352,56 @@ Bsp: Fragestellung ist required ausser bei Bestllung alter Bider
 * item[=].item[=].item[=].text = "Land"
 * item[=].item[=].item[=].type = #string
 
+// ---------- Copy Receiver ----------
+* item[+].linkId = "receiverCopies"
+* item[=].text = "Kopieempfänger"
+* item[=].type = #group
 
+* item[=].item[+].linkId = "receiverCopy"
+* item[=].item[=].text = "Kopieempfangende Organisation oder Person"
+* item[=].item[=].type = #group
+* item[=].item[=].repeats = true
+
+* item[=].item[=].item[+].linkId = "receiverCopy.organization.name"
+* item[=].item[=].item[=].text = "Name der Organisation"
+* item[=].item[=].item[=].type = #string
+
+* item[=].item[=].item[+].linkId = "receiverCopy.title"
+* item[=].item[=].item[=].text = "Titel"
+* item[=].item[=].item[=].type = #string
+
+* item[=].item[=].item[+].linkId = "receiverCopy.familyName"
+* item[=].item[=].item[=].text = "Name"
+* item[=].item[=].item[=].type = #string
+
+* item[=].item[=].item[+].linkId = "receiverCopy.givenName"
+* item[=].item[=].item[=].text = "Vorname"
+* item[=].item[=].item[=].type = #string
+
+* item[=].item[=].item[+].linkId = "receiverCopy.phone"
+* item[=].item[=].item[=].text = "Telefon"
+* item[=].item[=].item[=].type = #string
+
+* item[=].item[=].item[+].linkId = "receiverCopy.email"
+* item[=].item[=].item[=].text = "E-Mail"
+* item[=].item[=].item[=].type = #string
+
+* item[=].item[=].item[+].linkId = "receiverCopy.streetAddressLine"
+* item[=].item[=].item[=].text = "Strasse, Hausnummer, Postfach etc."
+* item[=].item[=].item[=].type = #string
+* item[=].item[=].item[=].repeats = true
+
+* item[=].item[=].item[+].linkId = "receiverCopy.postalCode"
+* item[=].item[=].item[=].text = "PLZ"
+* item[=].item[=].item[=].type = #string
+
+* item[=].item[=].item[+].linkId = "receiverCopy.city"
+* item[=].item[=].item[=].text = "Ort"
+* item[=].item[=].item[=].type = #string
+
+* item[=].item[=].item[+].linkId = "receiverCopy.country"
+* item[=].item[=].item[=].text = "Land"
+* item[=].item[=].item[=].type = #string
 
 /* ----- Beschreibung des Kerninhaltes der Rad-Order ----------------------
 CH RAD-Order UNTERSTUETZT LOINC/RSNA PLAYBOOK WIE FOLGT: ANSELLE DER ITEMS [4] - [7] WIRD IN
