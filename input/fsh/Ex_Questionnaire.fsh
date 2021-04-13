@@ -121,6 +121,16 @@ Bsp: Fragestellung ist required ausser bei Bestllung alter Bider
 * item[=].item[=].item[=].item[=].text = "E-Mail"
 * item[=].item[=].item[=].item[=].type = #string
 
+// ---------- Order Priority ----------
+* item[=].item[+].linkId = "order.priority"
+* item[=].item[=].text = "Auftragspriorität"
+* item[=].item[=].type = #choice
+* item[=].item[=].answerOption[+].valueCoding = RequestPriority#routine "Die Anfrage hat normale Priorität."
+* item[=].item[=].answerOption[=].initialSelected = true
+* item[=].item[=].answerOption[+].valueCoding = RequestPriority#urgent "Die Anfrage sollte dringend bearbeitet werden - höhere Priorität als normal."
+* item[=].item[=].answerOption[+].valueCoding = RequestPriority#asap "Die Anfrage sollte so schnell wie möglich bearbeitet werden - höhere Priorität als dringend."
+* item[=].item[=].answerOption[+].valueCoding = RequestPriority#stat "Die Anfrage sollte sofort bearbeitet werden - höchstmögliche Priorität. Z.B. bei einem Notfall."
+
 // ---------- Patient: The principle target of a particular Form Content is one patient ----------
 // patient is not required because patient may not be known e.g. anonymized in case of research or name unknown in emergency
 * item[+].linkId = "patient"
