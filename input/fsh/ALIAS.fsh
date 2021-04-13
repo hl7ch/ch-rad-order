@@ -14,6 +14,7 @@ Alias:   RDLX =         http://www.radlex.org
 Alias:   SCT =                          http://snomed.info/sct
 Alias:   UCUM =                         http://unitsofmeasure.org
 Alias:   ConditionCategory =            http://terminology.hl7.org/CodeSystem/condition-category
+Alias:  AdministrativeGender =          http://hl7.org/fhir/administrative-gender
 
 // CH EPR Term Code Systems
 Alias:   SNOMEDCTSwissExtension =       urn:oid:2.16.756.5.30.1.127.3.4

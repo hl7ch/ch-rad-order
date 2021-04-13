@@ -25,75 +25,99 @@ Bsp: Fragestellung ist required ausser bei Bestllung alter Bider
 * date = "2021-02-24"
 * publisher = "HL7 Switzerland"
 
-// order (Auftrag)
-* item[0].linkId = "order"
-* item[0].text = "Auftrag"
-* item[0].type = #group
-* item[0].required = true
+// ---------- order (Auftrag) ----------
+* item[+].linkId = "order"
+* item[=].text = "Auftrag"
+* item[=].type = #group
+* item[=].required = true
 
-* item[0].item[0].linkId = "order.placerOrderIdentifier"
-* item[0].item[0].text = "Auftragsnummer des Auftraggebers"
-* item[0].item[0].type = #string
-* item[0].item[0].required = true
+* item[=].item[+].linkId = "order.placerOrderIdentifier"
+* item[=].item[=].text = "Auftragsnummer des Auftraggebers"
+* item[=].item[=].type = #string
+* item[=].item[=].required = true
 
-* item[0].item[1].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-hidden"
-* item[0].item[1].extension.valueBoolean = true
-* item[0].item[1].linkId = "order.placerOrderIdentifierDomain"
-* item[0].item[1].text = "Identifier Domain der Auftragsnummer des Auftraggebers"
-* item[0].item[1].type = #string
-* item[0].item[1].required = true
+* item[=].item[+].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-hidden"
+* item[=].item[=].extension.valueBoolean = true
+* item[=].item[=].linkId = "order.placerOrderIdentifierDomain"
+* item[=].item[=].text = "Identifier Domain der Auftragsnummer des Auftraggebers"
+* item[=].item[=].type = #string
+* item[=].item[=].required = true
 
-// patient (Patient) ----------------------------
+* item[=].item[+].linkId = "order.fillerOrderIdentifier"
+* item[=].item[=].text = "Auftragsnummer des Auftragsempfängers"
+* item[=].item[=].type = #string
+
+* item[=].item[+].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-hidden"
+* item[=].item[=].extension.valueBoolean = true
+* item[=].item[=].linkId = "order.fillerOrderIdentifierDomain"
+* item[=].item[=].text = "Identifier Domain der Auftragsnummer des Auftragsempfängers"
+* item[=].item[=].type = #string
+
+* item[=].item[+].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-hidden"
+* item[=].item[=].extension.valueBoolean = true
+* item[=].item[=].linkId = "order.precedentDocumentIdentifier"
+* item[=].item[=].text = "Identifier des Vorgängerdokuments"
+* item[=].item[=].type = #string
+
+// ---------- Patient: The principle target of a particular Form Content is one patient ----------
 // patient is not required because patient may not be known e.g. anonymized in case of research or name unknown in emergency
-* item[1].linkId = "patient"
-* item[1].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-patient"
-* item[1].text = "Patient"
-* item[1].type = #group
+* item[+].linkId = "patient"
+* item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-patient"
+* item[=].text = "Patient"
+* item[=].type = #group
 
-* item[1].item[0].linkId = "patient.familyName"
-* item[1].item[0].text = "Name"
-* item[1].item[0].type = #string
+* item[=].item[+].linkId = "patient.familyName"
+* item[=].item[=].text = "Name"
+* item[=].item[=].type = #string
 
-* item[1].item[1].linkId = "patient.maidenName"   // NEU, anschliessend neu numeriert
-* item[1].item[1].text = "Ledigname"
-* item[1].item[1].type = #string
+* item[=].item[+].linkId = "patient.maidenName"
+* item[=].item[=].text = "Ledigname"
+* item[=].item[=].type = #string
 
-* item[1].item[2].linkId = "patient.givenName"
-* item[1].item[2].text = "Vorname"
-* item[1].item[2].type = #string
+* item[=].item[+].linkId = "patient.givenName"
+* item[=].item[=].text = "Vorname"
+* item[=].item[=].type = #string
 
-* item[1].item[3].linkId = "patient.birthDate"
-* item[1].item[3].text = "Geburtsdatum"
-* item[1].item[3].type = #date
+* item[=].item[+].linkId = "patient.localPid"
+* item[=].item[=].text = "Lokale Patienten-ID"
+* item[=].item[=].type = #string
 
-* item[1].item[4].linkId = "patient.gender"
-* item[1].item[4].text = "Geschlecht"
-* item[1].item[4].type = #string
+* item[=].item[+].linkId = "patient.birthDate"
+* item[=].item[=].text = "Geburtsdatum"
+* item[=].item[=].type = #date
 
-* item[1].item[5].linkId = "patient.phone"
-* item[1].item[5].text = "Telefon"
-* item[1].item[5].type = #string
+* item[=].item[+].linkId = "patient.gender"
+* item[=].item[=].text = "Geschlecht"
+* item[=].item[=].type = #choice
+* item[=].item[=].answerOption[+].valueCoding = AdministrativeGender#male "Männlich"
+* item[=].item[=].answerOption[=].initialSelected = true
+* item[=].item[=].answerOption[+].valueCoding = AdministrativeGender#female "Weiblich"
+* item[=].item[=].answerOption[+].valueCoding = AdministrativeGender#other "Anderes"
 
-* item[1].item[4].linkId = "patient.email"
-* item[1].item[4].text = "E-Mail"
-* item[1].item[4].type = #string
+* item[=].item[+].linkId = "patient.phone"
+* item[=].item[=].text = "Telefon"
+* item[=].item[=].type = #string
 
-* item[1].item[5].linkId = "patient.streetAddressLine"
-* item[1].item[5].text = "Strasse, Hausnummer, Postfach etc."
-* item[1].item[5].type = #string
-* item[1].item[5].repeats = true
+* item[=].item[+].linkId = "patient.email"
+* item[=].item[=].text = "E-Mail"
+* item[=].item[=].type = #string
 
-* item[1].item[6].linkId = "patient.postalCode"
-* item[1].item[6].text = "PLZ"
-* item[1].item[6].type = #string
+* item[=].item[+].linkId = "patient.streetAddressLine"
+* item[=].item[=].text = "Strasse, Hausnummer, Postfach etc."
+* item[=].item[=].type = #string
+* item[=].item[=].repeats = true
 
-* item[1].item[7].linkId = "patient.city"
-* item[1].item[7].text = "Ort"
-* item[1].item[7].type = #string
+* item[=].item[+].linkId = "patient.postalCode"
+* item[=].item[=].text = "PLZ"
+* item[=].item[=].type = #string
 
-* item[1].item[8].linkId = "patient.country"
-* item[1].item[8].text = "Land"
-* item[1].item[8].type = #string
+* item[=].item[+].linkId = "patient.city"
+* item[=].item[=].text = "Ort"
+* item[=].item[=].type = #string
+
+* item[=].item[+].linkId = "patient.country"
+* item[=].item[=].text = "Land"
+* item[=].item[=].type = #string
 
 // sender (Auftraggeber)------------------------------
 * item[2].linkId = "sender"
