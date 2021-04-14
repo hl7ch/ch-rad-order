@@ -548,15 +548,15 @@ Order Detail
 
 
 /*----------------------------------------------------------------------
-Darstellung der Problemliste
+Darstellung der Problem- / Diagnoseliste
 */
-
-* item[+].linkId = "supplementaryinfo"
-* item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-rad-order-servicerequest"
+* item[+].linkId = "diagnosisList"
+* item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest"
 * item[=].text = "Problem- / Diagnoseliste"
 * item[=].type = #group
 
-* item[=].item[+].linkId = "supplementaryinfo"  
+* item[=].item[+].linkId = "diagnosisList.diagnosis"  
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.supportingInfo:diagnosis"
 * item[=].item[=].text = "Problem / Diagnose"
 * item[=].item[=].type = #string
 * item[=].item[=].repeats = true

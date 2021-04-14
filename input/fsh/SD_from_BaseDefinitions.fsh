@@ -28,6 +28,7 @@ Description: "Definition for the Diagnosis Condition resource in the context of 
 * category = ConditionCategory#problem-list-item
 * category ^short = "Problem List Item"
 * code 1.. MS 
+* code.text 1.. MS
 * subject MS
 * subject only Reference(ChCorePatient)  
 
