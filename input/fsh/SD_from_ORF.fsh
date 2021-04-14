@@ -37,6 +37,7 @@ In case of 'ChRadOrderModalityType' specify Imaging Request Details by means of 
 * code.coding[RdlxModType] from ChRadOrderModalityType 
 //------- orderDetail -------
 * orderDetail MS
+* orderDetail.extension contains ChRadOrderOrderDetailType named orderDetailType 1..1 MS
 * orderDetail ^slicing.discriminator.type = #pattern
 * orderDetail ^slicing.discriminator.path = "$this"
 * orderDetail ^slicing.rules = #open
@@ -108,6 +109,16 @@ Description: "Extension to define Time and Location of ServiceRequest Fulfillmen
 * value[x] 1..1
 * value[x] only Reference(ChOrfAppointment) 
 * value[x] ^short = "Time and Location for ServiceRequest Fulfillment"
+
+
+Extension: ChRadOrderOrderDetailType
+Id: ch-rad-order-order-detail-type
+Title: "CH RAD-Order Order Detail Type"
+Description: "Extension to define the Type of Order Detail in context of CH RAD-Order."
+* value[x] 1..1
+* value[x] only Coding
+* value[x] ^short = "Type of Order Detail"
+* value[x] from ChRadOrderOrderDetailType
 
 
 Profile: ChRadOrderDocument

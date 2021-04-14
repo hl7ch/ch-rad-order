@@ -9,7 +9,9 @@ Description: "Example for ServiceRequest"
 * category = ChRadOrderRequestedService#ImagingRequest "Imaging Request"
 * code.coding[RdlxModType] = RDLX#RID10345 "projection radiography"
 * orderDetail[imagingRegion] = RDLX#RID1243 "Thorax"
+* orderDetail[imagingRegion].extension[orderDetailType].valueCoding = ChRadOrderOrderDetailType#imagingRegion
 * orderDetail[imagingFocus] = RDLX#RID2468 "Chest wall"
+* orderDetail[imagingFocus].extension[orderDetailType].valueCoding = ChRadOrderOrderDetailType#imagingFocus
 * subject = Reference(SUfferer)
 * authoredOn = "2019-04-01T20:18:41.341+00:00"
 * requester = Reference(ORderplacerHappyDoctors)

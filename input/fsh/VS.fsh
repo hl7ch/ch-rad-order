@@ -5,6 +5,13 @@ Description: "Definition for Requested Service Value Set in the context of CH RA
 * include codes from system ChRadOrderRequestedService
 
 
+ValueSet: ChRadOrderOrderDetailType
+Id: ch-rad-order-order-detail-type
+Title: "Type of Order Detail"
+Description: "Definition for Type of Order Detail Value Set in the context of CH RAD-Order."
+* include codes from system ChRadOrderOrderDetailType
+
+
 ValueSet: ChRadOrderCaveatCondition
 Id: ch-rad-order-caveat-condition
 Title: "Caveat Condition"
