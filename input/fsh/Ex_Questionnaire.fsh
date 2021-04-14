@@ -563,7 +563,7 @@ Darstellung der Problem- / Diagnoseliste
 
 
 /*----------------------------------------------------------------------
-Darstellung Caveats   
+Caveats   
     BloodCoag 0..1 and
     RenalInsuff 0..1 and
     Claustrophobia 0..1 and
@@ -574,21 +574,19 @@ Darstellung Caveats
     Gravida 0..1 and  
     ContrastAllerg 0..1 and   
     DrugPrescr 0..*   
-
  */
-
-* item[+].linkId = "caveats"  
-* item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-rad-order-servicerequest"
+* item[+].linkId = "caveat"  
+* item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest"
 * item[=].text = "Caveats"
 * item[=].type = #group
 
-* item[=].item[+].linkId = "caveat.bloodcoag"     
-* item[=].item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-rad-order-servicerequest"
-* item[=].item[=].text = "Beinträchtigre Blutgerinnung"   
+* item[=].item[+].linkId = "caveat.bloodCoagulation"     
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.supportingInfo:caveats"
+* item[=].item[=].text = "Beinträchtigte Blutgerinnung"   
 * item[=].item[=].type = #boolean
 
 * item[=].item[+].linkId = "caveat.renalinsuff"     
-* item[=].item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-rad-order-servicerequest"
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest"
 * item[=].item[=].text = "Niereninsuffizienz"   
 * item[=].item[=].type = #boolean
 * item[=].item[=].repeats = true

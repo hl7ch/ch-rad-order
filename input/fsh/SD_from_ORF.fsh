@@ -89,7 +89,7 @@ In case of 'ChRadOrderModalityType' specify Imaging Request Details by means of 
 * supportingInfo[diagnosis] MS
 * supportingInfo[diagnosis] only Reference(ChRadOrderDiagnosisCondition)
 * supportingInfo[caveats] MS
-* supportingInfo[caveats] only Reference(ChRadOrderCaveatCondition)
+* supportingInfo[caveats] only Reference(ChRadOrderCaveatConditionBloodCoagulation)
 * supportingInfo[precedingImagingResults] MS
 * supportingInfo[precedingImagingResults] only Reference(ChRadOrderImagingStudy)
 * supportingInfo[patientConsents] MS

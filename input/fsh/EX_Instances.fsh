@@ -23,7 +23,8 @@ Description: "Example for ServiceRequest"
 * insurance = Reference(CoverageKVG)
 * supportingInfo[diagnosis][+] = Reference(Diagnosis1)
 * supportingInfo[diagnosis][+] = Reference(Diagnosis2)
-* supportingInfo[caveats][+] = Reference(CaveatPiercingSternum)
+* supportingInfo[caveats][+] = Reference(CaveatBloodCoagulation)
+//* supportingInfo[caveats][+] = Reference(CaveatPiercingSternum)
 //* supportingInfo[precedingImagingResults]
 //* supportingInfo[patientConsents]
 * bodySite = SCT#51185008 "Thoracic structure (body structure)"
@@ -104,8 +105,10 @@ Description: "Example for Bundle"
 * entry[=].resource = Diagnosis2
 * entry[+].fullUrl = "http://example.com/fhir/Coverage/CoverageKVG"
 * entry[=].resource = CoverageKVG
-* entry[+].fullUrl = "http://example.com/fhir/Condition/CaveatPiercingSternum"
-* entry[=].resource = CaveatPiercingSternum
+* entry[+].fullUrl = "http://example.com/fhir/Condition/CaveatBloodCoagulation"
+* entry[=].resource = CaveatBloodCoagulation
+//* entry[+].fullUrl = "http://example.com/fhir/Condition/CaveatPiercingSternum"
+//* entry[=].resource = CaveatPiercingSternum
 // etc.
 
 
@@ -298,6 +301,16 @@ Usage: #inline
 * name = "Sanitas"
 
 
+Instance: CaveatBloodCoagulation
+InstanceOf: ChRadOrderCaveatConditionBloodCoagulation
+Title: "Caveat Blood Coagulation"
+Description: "Example for Caveat Condition"
+* category = ConditionCategory#problem-list-item "Problem List Item"
+* code = SCT#64779008 "Blood coagulation disorder (disorder)"
+* subject = Reference(SUfferer)
+
+
+/*
 Instance: CaveatPiercingSternum
 InstanceOf: ChRadOrderCaveatCondition
 Title: "Caveat Piercing Sternum"
@@ -305,3 +318,4 @@ Description: "Example for Caveat Condition"
 * category = ConditionCategory#problem-list-item "Problem List Item"
 * code = SCT#879862001 "Body piercing (finding)"
 * subject = Reference(SUfferer)
+*/
