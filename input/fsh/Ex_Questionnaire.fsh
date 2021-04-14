@@ -424,7 +424,7 @@ Kommentar: stimmt nicht mehr mit den Werten im ValueSet überein
 * item[=].required = true
 
 * item[=].item[+].linkId = "requestedService.service"
-* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-requested-service"
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.category"
 * item[=].item[=].text = "Leistung"                 
 * item[=].item[=].required = true
 * item[=].item[=].type = #choice
@@ -447,6 +447,7 @@ Fragestellung (mehrere Werte)
 * item[=].type = #group
 
 * item[=].item[+].linkId = "reason.question"
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.reasonCode.text"
 * item[=].item[=].text = "Fragestellung"                
 * item[=].item[=].type = #string
 * item[=].item[=].repeats = true
@@ -461,10 +462,12 @@ Gewünschter Radiologe: Noch offen, wie die Auswahlliste gemacht werden soll
 * item[=].type = #group
 
 * item[=].item[+].linkId = "desiredRadilologist.familyName"
+// * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.???"
 * item[=].item[=].text = "Name"
 * item[=].item[=].type = #string
 
 * item[=].item[+].linkId = "desiredRadilologist.givenName"
+// * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.???"
 * item[=].item[=].text = "Vorname"
 * item[=].item[=].type = #string
 
@@ -493,6 +496,7 @@ Angabe der Untersuchung (nur 1 Wert):
 * item[=].type = #group
 
 * item[=].item[+].linkId = "imgagingService.type"
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.code.coding:RdlxModType"
 * item[=].item[=].text = "Art"                 
 * item[=].item[=].type = #choice
 // TBD: VS auf Vollständigkeit überprüfen
@@ -520,6 +524,7 @@ Art der Intervention (mehrere Werte)
 * item[=].type = #group
 
 * item[=].item[+].linkId = "intervention.type"
+// * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.???"
 * item[=].item[=].text = "Art"
 * item[=].item[=].type = #string
 * item[=].item[=].repeats = true
