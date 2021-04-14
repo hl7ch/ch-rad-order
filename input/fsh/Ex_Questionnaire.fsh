@@ -529,38 +529,55 @@ Art der Intervention (mehrere Werte)
 * item[=].item[=].type = #string
 * item[=].item[=].repeats = true
 
-/*----------------------------------------------------------------------*-- 
-Darstellung der Order Details
-                * orderDetail[RadOrderImagingRegion] from VsRadOrderImagingRegion       
-                * orderDetail[RadOrderImagingFocus] from VsRadOrderImagingFocus         
-                * orderDetail[RadOrderLaterality] from VsRadOrderLaterality                 
-                * orderDetail[RadOrderViewType] from VsRadOrderViewType                    
-                * orderDetail[RadOrderManeuverType] from VsRadOrderManeuverType             
+/*------------------------------------------------------------------------ 
+Order Detail
 */
 
-* item[+].linkId = "orderdetails"
-* item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-rad-order-servicerequest"
+* item[+].linkId = "orderDetail"
+* item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest"
 * item[=].text = "Weitere Angaben zur Bildgebung"
 * item[=].type = #group
 
-* item[=].item[+].linkId = "orderdetails.region"      // n Einträge
+* item[=].item[+].linkId = "orderDetail.imagingRegion"
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.orderDetail:imagingRegion"
 * item[=].item[=].text = "Region"
-* item[=].item[=].type = #string
+* item[=].item[=].type = #choice
 * item[=].item[=].repeats = true
+* item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-imaging-region"
 
-* item[=].item[+].linkId = "orderdetails.region"      // n Einträge
+* item[=].item[+].linkId = "orderDetail.imagingFocus"
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.orderDetail:imagingFocus"
 * item[=].item[=].text = "Fokus"
-* item[=].item[=].type = #string
+* item[=].item[=].type = #choice
 * item[=].item[=].repeats = true
+* item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-imaging-focus"
 
-* item[=].item[+].linkId = "orderdetails.laterality" // 1 Eintrag
+* item[=].item[+].linkId = "orderDetail.laterality"
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.orderDetail:laterality"
 * item[=].item[=].text = "Seitenangabe"
-* item[=].item[=].type = #string
+* item[=].item[=].type = #choice
+* item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-laterality"
 
-* item[=].item[+].linkId = "orderdetails.manoever"   // n Einträge
-* item[=].item[=].text = "Maneuver"
-* item[=].item[=].type = #string
+* item[=].item[+].linkId = "orderDetail.viewType"
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.orderDetail:viewType"
+* item[=].item[=].text = "Ansicht"
+* item[=].item[=].type = #choice
 * item[=].item[=].repeats = true
+* item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-view-type"
+
+* item[=].item[+].linkId = "orderDetail.maneuverType"
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.orderDetail:maneuverType"
+* item[=].item[=].text = "Manöver"
+* item[=].item[=].type = #choice
+* item[=].item[=].repeats = true
+* item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-maneuver-type"
+
+* item[=].item[+].linkId = "orderDetail.guidanceForAction"
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.orderDetail:guidanceForAction"
+* item[=].item[=].text = "Handlungsanleitung"
+* item[=].item[=].type = #choice
+* item[=].item[=].repeats = true
+* item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-guidance-for-action"
 
 /*----------------------------------------------------------------------
 Darstellung der Problemliste
