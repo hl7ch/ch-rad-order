@@ -431,7 +431,6 @@ Kommentar: stimmt nicht mehr mit den Werten im ValueSet überein
 // TBD: VS auf Vollständigkeit überprüfen
 // TBD: Übersetzungen im Questionnaire überprüfen
 * item[=].item[=].answerOption[+].valueCoding = ChRadOrderRequestedService#RequestForPrecedentReport "Anforderung von früheren Berichten"
-* item[=].item[=].answerOption[=].initialSelected = true
 * item[=].item[=].answerOption[+].valueCoding = ChRadOrderRequestedService#RequestForPrecedentReportAndImages "Anfrage von früheren Berichten und Bildern"
 * item[=].item[=].answerOption[+].valueCoding = ChRadOrderRequestedService#ImagingRequest "Bildgebungsanforderung"
 * item[=].item[=].answerOption[+].valueCoding = ChRadOrderRequestedService#RadIntervention "Interventionelle Radiologie"
@@ -466,19 +465,33 @@ Angabe der Untersuchung (nur 1 Wert):
         * RDLX#RID10361 "Fluoroscopy"
         * RDLX#RID49583 "SPECT-CT"
         * RDLX#RID10311 "imaging modality"
+
+        CT / MRI / US / dual energy absorptiomety, Mammografie, PET-CT /
+        Nuklearmed. Bildgung / Positron emiss. Tomographie / Konventinelles RX, Fluoroskopie / SPECT-CT / Andere
 */
 
-* item[+].linkId = "imgagingservicetype"
-* item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-rad-order-servicerequest"
-* item[=].text = "Art der Bildgebung"
+* item[+].linkId = "imgagingService"
+* item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest"
+* item[=].text = "Bildgebendes Verfahren"
 * item[=].type = #group
 
-* item[=].item[+].linkId = "imgagingservicetype"
-* item[=].item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-rad-order-servicerequest"
-* item[=].item[=].text = "CT / MRI / US / dual energy absorptiomety, Mammografie, PET-CT /
-                  Nuklearmed. Bildgung / Positron emiss. Tomographie / Konventinelles RX, Fluoroskopie / SPECT-CT / Andere"                 
-* item[=].item[=].type = #string
-
+* item[=].item[+].linkId = "imgagingService.type"
+* item[=].item[=].text = "Art"                 
+* item[=].item[=].type = #choice
+// TBD: VS auf Vollständigkeit überprüfen
+// TBD: Übersetzungen im Questionnaire überprüfen
+* item[=].item[=].answerOption[+].valueCoding = RDLX#RID10321 "CT"
+* item[=].item[=].answerOption[+].valueCoding = RDLX#RID10312 "MRI"
+* item[=].item[=].answerOption[+].valueCoding = RDLX#RID10326 "US"
+* item[=].item[=].answerOption[+].valueCoding = RDLX#RID10363 "dual energy absorptiomety"
+* item[=].item[=].answerOption[+].valueCoding = RDLX#RID10357 "Mammografie"
+* item[=].item[=].answerOption[+].valueCoding = RDLX#RID10341 "PET-CT"
+* item[=].item[=].answerOption[+].valueCoding = RDLX#RID10330 "Nuklearmed. Bildgebung"
+* item[=].item[=].answerOption[+].valueCoding = RDLX#RID10337 "Positron emiss. Tomographie"
+* item[=].item[=].answerOption[+].valueCoding = RDLX#RID10345 "Konventinelles RX"
+* item[=].item[=].answerOption[+].valueCoding = RDLX#RID10361 "Fluoroskopie"
+* item[=].item[=].answerOption[+].valueCoding = RDLX#RID49583 "SPECT-CT"
+* item[=].item[=].answerOption[+].valueCoding = RDLX#RID10311 "Andere"
 
 /*----------------------------------------------------------------------
 Gewünschter Radiologe: Noch offen, wie die Auswahlliste gemacht werden soll
