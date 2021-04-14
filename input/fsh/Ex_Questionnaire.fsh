@@ -510,22 +510,19 @@ Angabe der Untersuchung (nur 1 Wert):
 * item[=].item[=].answerOption[+].valueCoding = RDLX#RID49583 "SPECT-CT"
 * item[=].item[=].answerOption[+].valueCoding = RDLX#RID10311 "Andere"
 
-
-
 /*----------------------------------------------------------------------
 Art der Intervention (mehrere Werte)
 */
-
-* item[+].linkId = "interventiontype"
-* item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-rad-order-servicerequest"
+// TBD: Abbildung im ServiceRequest?
+* item[+].linkId = "intervention"
+* item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest"
 * item[=].text = "Intervention"
-* item[=].type = #string
+* item[=].type = #group
 
-* item[=].item[+].linkId = "interventiontype"
+* item[=].item[+].linkId = "intervention.type"
 * item[=].item[=].text = "Art"
 * item[=].item[=].type = #string
 * item[=].item[=].repeats = true
-
 
 /*----------------------------------------------------------------------*-- 
 Darstellung der Order Details
