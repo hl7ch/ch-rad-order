@@ -413,21 +413,31 @@ Was wird gewünscht (nur 1 Wert):
 1.2: * #RequestforPrecedentReportandImages "Request for precedent Reports and Images"  
 1.3: * #SecondOpinion "Second Opinion"                                                  
 1.4: * #ImagingRequest "Imaging Request"                                                
-1.5: * #ImagingRequestandIntervention "Imaging Request with Intervention"               
+1.5: * #ImagingRequestandIntervention "Imaging Request with Intervention" 
+Kommentar: stimmt nicht mehr mit den Werten im ValueSet überein              
 */
 
-* item[+].linkId = "whatservice"
-* item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-rad-order-servicerequest"
-* item[=].text = "Auftrag"
+* item[+].linkId = "requestedService"
+* item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest"
+* item[=].text = "Angeforderte Leistung"
 * item[=].type = #group
 * item[=].required = true
 
-* item[=].item[+].linkId = "whatservice"
-* item[=].item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-rad-order-servicerequest"
-* item[=].item[=].text = "Untersuchung / Intervention / Bestehende Untersuchungsresultae (Bilder und Befunde) /
-                  nur Befunde / Zweitmeinung / Befundung"                 
-* item[=].item[=].type = #string
+* item[=].item[+].linkId = "requestedService.service"
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-requested-service"
+* item[=].item[=].text = "Leistung"                 
 * item[=].item[=].required = true
+* item[=].item[=].type = #choice
+// TBD: VS auf Vollständigkeit überprüfen
+// TBD: Übersetzungen im Questionnaire überprüfen
+* item[=].item[=].answerOption[+].valueCoding = ChRadOrderRequestedService#RequestForPrecedentReport "Anforderung von früheren Berichten"
+* item[=].item[=].answerOption[=].initialSelected = true
+* item[=].item[=].answerOption[+].valueCoding = ChRadOrderRequestedService#RequestForPrecedentReportAndImages "Anfrage von früheren Berichten und Bildern"
+* item[=].item[=].answerOption[+].valueCoding = ChRadOrderRequestedService#ImagingRequest "Bildgebungsanforderung"
+* item[=].item[=].answerOption[+].valueCoding = ChRadOrderRequestedService#RadIntervention "Interventionelle Radiologie"
+* item[=].item[=].answerOption[+].valueCoding = ChRadOrderRequestedService#SecondOpinion "Zweitmeinung"
+* item[=].item[=].answerOption[+].valueCoding = ChRadOrderRequestedService#ImagingRequestWithIntervention "Bildgebungsanforderung mit Intervention"
+* item[=].item[=].answerOption[+].valueCoding = ChRadOrderRequestedService#RemoteReporting "Fernbefundung"
 
 /*------------------------------------------------------------------------
 Fragestellung (mehrere Werte)
