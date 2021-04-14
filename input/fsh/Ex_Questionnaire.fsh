@@ -452,87 +452,64 @@ Fragestellung (mehrere Werte)
 * item[=].item[=].type = #string
 * item[=].item[=].repeats = true
 
+
 /*----------------------------------------------------------------------
 Gewünschter Radiologe: Noch offen, wie die Auswahlliste gemacht werden soll
 */
-// TBD: Abbildung im ServiceRequest? 
 * item[+].linkId = "desiredRadilologist"
 * item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest"
 * item[=].text = "Gewünschter Radiologe für die Befundung / für die Intervention"
 * item[=].type = #group
 
 * item[=].item[+].linkId = "desiredRadilologist.familyName"
+// TBD: Abbildung im ServiceRequest? 
 // * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.???"
 * item[=].item[=].text = "Name"
 * item[=].item[=].type = #string
 
 * item[=].item[+].linkId = "desiredRadilologist.givenName"
+// TBD: Abbildung im ServiceRequest? 
 // * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.???"
 * item[=].item[=].text = "Vorname"
 * item[=].item[=].type = #string
 
+
 /*-----------------------------------------------------------------------
 Angabe der Untersuchung (nur 1 Wert):
-        * RDLX#RID10321 "computed tomography"
-        * RDLX#RID10312 "Magnetic resonance imaging"
-        * RDLX#RID10326 "Ultrasound"
-        * RDLX#RID10363 "dual energy xray absorptiometry"
-        * RDLX#RID10357 "mammography"
-        * RDLX#RID10341 "Pet-ct"
-        * RDLX#RID10330 "nuclear medicine imaging"
-        * RDLX#RID10337 "Positron emission tomography"
-        * RDLX#RID10345 "projection radiography"
-        * RDLX#RID10361 "Fluoroscopy"
-        * RDLX#RID49583 "SPECT-CT"
-        * RDLX#RID10311 "imaging modality"
-
-        CT / MRI / US / dual energy absorptiomety, Mammografie, PET-CT /
-        Nuklearmed. Bildgung / Positron emiss. Tomographie / Konventinelles RX, Fluoroskopie / SPECT-CT / Andere
+    CT / MRI / US / dual energy absorptiomety / Mammografie, PET-CT /
+    Nuklearmed. Bildgung / Positron emiss. Tomographie / Konventinelles RX / Fluoroskopie / SPECT-CT / Andere
 */
-
-* item[+].linkId = "imgagingService"
+* item[+].linkId = "imagingService"
 * item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest"
 * item[=].text = "Bildgebendes Verfahren"
 * item[=].type = #group
 
-* item[=].item[+].linkId = "imgagingService.type"
+* item[=].item[+].linkId = "imagingService.type"
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.code.coding:RdlxModType"
 * item[=].item[=].text = "Art"                 
 * item[=].item[=].type = #choice
-// TBD: VS auf Vollständigkeit überprüfen
-// TBD: Übersetzungen im Questionnaire überprüfen
-* item[=].item[=].answerOption[+].valueCoding = RDLX#RID10321 "CT"
-* item[=].item[=].answerOption[+].valueCoding = RDLX#RID10312 "MRI"
-* item[=].item[=].answerOption[+].valueCoding = RDLX#RID10326 "US"
-* item[=].item[=].answerOption[+].valueCoding = RDLX#RID10363 "dual energy absorptiomety"
-* item[=].item[=].answerOption[+].valueCoding = RDLX#RID10357 "Mammografie"
-* item[=].item[=].answerOption[+].valueCoding = RDLX#RID10341 "PET-CT"
-* item[=].item[=].answerOption[+].valueCoding = RDLX#RID10330 "Nuklearmed. Bildgebung"
-* item[=].item[=].answerOption[+].valueCoding = RDLX#RID10337 "Positron emiss. Tomographie"
-* item[=].item[=].answerOption[+].valueCoding = RDLX#RID10345 "Konventinelles RX"
-* item[=].item[=].answerOption[+].valueCoding = RDLX#RID10361 "Fluoroskopie"
-* item[=].item[=].answerOption[+].valueCoding = RDLX#RID49583 "SPECT-CT"
-* item[=].item[=].answerOption[+].valueCoding = RDLX#RID10311 "Andere"
+* item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-modality-type"
+
 
 /*----------------------------------------------------------------------
 Art der Intervention (mehrere Werte)
 */
-// TBD: Abbildung im ServiceRequest?
 * item[+].linkId = "intervention"
 * item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest"
 * item[=].text = "Intervention"
 * item[=].type = #group
 
 * item[=].item[+].linkId = "intervention.type"
+// TBD: Abbildung im ServiceRequest?
 // * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.???"
 * item[=].item[=].text = "Art"
 * item[=].item[=].type = #string
 * item[=].item[=].repeats = true
 
+
 /*------------------------------------------------------------------------ 
 Order Detail
 */
-
 * item[+].linkId = "orderDetail"
 * item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest"
 * item[=].text = "Weitere Angaben zur Bildgebung"
@@ -578,6 +555,7 @@ Order Detail
 * item[=].item[=].type = #choice
 * item[=].item[=].repeats = true
 * item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-guidance-for-action"
+
 
 /*----------------------------------------------------------------------
 Darstellung der Problemliste
