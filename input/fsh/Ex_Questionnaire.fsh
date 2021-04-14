@@ -403,20 +403,17 @@ Bsp: Fragestellung ist required ausser bei Bestllung alter Bider
 * item[=].item[=].item[=].text = "Land"
 * item[=].item[=].item[=].type = #string
 
+
 /* ----- Beschreibung des Kerninhaltes der Rad-Order ----------------------
 CH RAD-Order UNTERSTUETZT LOINC/RSNA PLAYBOOK WIE FOLGT: ANSELLE DER ITEMS [4] - [7] WIRD IN
 servicerequest.code DER PLABOOK CODE ANGEGBEN. VOM QUESTIONNAIRE WIRD DAS NICHT UNTERSTÜTZT, DA NUR RELEVANT, WENN
 ZWISCHEN SENDER UND EMPFÄNGER VEREINBART.
-
-Was wird gewünscht (nur 1 Wert):
-1.1: * #RequestforPrecedentReport "Request for precedent Reports only"                  
-1.2: * #RequestforPrecedentReportandImages "Request for precedent Reports and Images"  
-1.3: * #SecondOpinion "Second Opinion"                                                  
-1.4: * #ImagingRequest "Imaging Request"                                                
-1.5: * #ImagingRequestandIntervention "Imaging Request with Intervention" 
-Kommentar: stimmt nicht mehr mit den Werten im ValueSet überein              
 */
 
+
+/*------------------------------------------------------------------------
+Was wird gewünscht (nur 1 Wert)             
+*/
 * item[+].linkId = "requestedService"
 * item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest"
 * item[=].text = "Angeforderte Leistung"
@@ -428,15 +425,8 @@ Kommentar: stimmt nicht mehr mit den Werten im ValueSet überein
 * item[=].item[=].text = "Leistung"                 
 * item[=].item[=].required = true
 * item[=].item[=].type = #choice
-// TBD: VS auf Vollständigkeit überprüfen
-// TBD: Übersetzungen im Questionnaire überprüfen
-* item[=].item[=].answerOption[+].valueCoding = ChRadOrderRequestedService#RequestForPrecedentReport "Anforderung von früheren Berichten"
-* item[=].item[=].answerOption[+].valueCoding = ChRadOrderRequestedService#RequestForPrecedentReportAndImages "Anfrage von früheren Berichten und Bildern"
-* item[=].item[=].answerOption[+].valueCoding = ChRadOrderRequestedService#ImagingRequest "Bildgebungsanforderung"
-* item[=].item[=].answerOption[+].valueCoding = ChRadOrderRequestedService#RadIntervention "Interventionelle Radiologie"
-* item[=].item[=].answerOption[+].valueCoding = ChRadOrderRequestedService#SecondOpinion "Zweitmeinung"
-* item[=].item[=].answerOption[+].valueCoding = ChRadOrderRequestedService#ImagingRequestWithIntervention "Bildgebungsanforderung mit Intervention"
-* item[=].item[=].answerOption[+].valueCoding = ChRadOrderRequestedService#RemoteReporting "Fernbefundung"
+* item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-requested-service"
+
 
 /*------------------------------------------------------------------------
 Fragestellung (mehrere Werte)
