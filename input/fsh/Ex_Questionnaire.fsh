@@ -443,13 +443,12 @@ Kommentar: stimmt nicht mehr mit den Werten im ValueSet überein
 Fragestellung (mehrere Werte)
 */
 * item[+].linkId = "reason"
-* item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-rad-order-servicerequest"
+* item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest"
 * item[=].text = "Klinische Fragestellung"
 * item[=].type = #group
 
-* item[=].item[+].linkId = "reason"
-* item[=].item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-rad-order-servicerequest"
-* item[=].item[=].text = "Freitext:"                
+* item[=].item[+].linkId = "reason.question"
+* item[=].item[=].text = "Fragestellung"                
 * item[=].item[=].type = #string
 * item[=].item[=].repeats = true
 
