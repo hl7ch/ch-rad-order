@@ -451,6 +451,23 @@ Fragestellung (mehrere Werte)
 * item[=].item[=].type = #string
 * item[=].item[=].repeats = true
 
+/*----------------------------------------------------------------------
+Gewünschter Radiologe: Noch offen, wie die Auswahlliste gemacht werden soll
+*/
+// TBD: Abbildung im ServiceRequest? 
+* item[+].linkId = "desiredRadilologist"
+* item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest"
+* item[=].text = "Gewünschter Radiologe für die Befundung / für die Intervention"
+* item[=].type = #group
+
+* item[=].item[+].linkId = "desiredRadilologist.familyName"
+* item[=].item[=].text = "Name"
+* item[=].item[=].type = #string
+
+* item[=].item[+].linkId = "desiredRadilologist.givenName"
+* item[=].item[=].text = "Vorname"
+* item[=].item[=].type = #string
+
 /*-----------------------------------------------------------------------
 Angabe der Untersuchung (nur 1 Wert):
         * RDLX#RID10321 "computed tomography"
@@ -493,21 +510,7 @@ Angabe der Untersuchung (nur 1 Wert):
 * item[=].item[=].answerOption[+].valueCoding = RDLX#RID49583 "SPECT-CT"
 * item[=].item[=].answerOption[+].valueCoding = RDLX#RID10311 "Andere"
 
-/*----------------------------------------------------------------------
-Gewünschter Radiologe: Noch offen, wie die Auswahlliste gemacht werden soll
-*/
-* item[+].linkId = "desiredradilologist"
-* item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-rad-order-servicerequest"
-* item[=].text = "Gewünschter Radiologe für die Befundung / für die Intervention"
-* item[=].type = #group
 
-* item[=].item[+].linkId = "desiredradilologist.familyName"
-* item[=].item[=].text = "Name"
-* item[=].item[=].type = #string
-
-* item[=].item[+].linkId = "desiredradilologist.givenName"
-* item[=].item[=].text = "Vorname"
-* item[=].item[=].type = #string
 
 /*----------------------------------------------------------------------
 Art der Intervention (mehrere Werte)
