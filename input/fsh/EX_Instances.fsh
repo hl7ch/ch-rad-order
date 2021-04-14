@@ -24,7 +24,7 @@ Description: "Example for ServiceRequest"
 * supportingInfo[diagnosis][+] = Reference(Diagnosis1)
 * supportingInfo[diagnosis][+] = Reference(Diagnosis2)
 * supportingInfo[caveats][+] = Reference(CaveatBloodCoagulation)
-//* supportingInfo[caveats][+] = Reference(CaveatPiercingSternum)
+* supportingInfo[caveats][+] = Reference(CaveatBodyPiercing)
 //* supportingInfo[precedingImagingResults]
 //* supportingInfo[patientConsents]
 * bodySite = SCT#51185008 "Thoracic structure (body structure)"
@@ -302,7 +302,7 @@ Usage: #inline
 
 
 Instance: CaveatBloodCoagulation
-InstanceOf: ChRadOrderCaveatConditionBloodCoagulation
+InstanceOf: ChRadOrderCaveatCondition
 Title: "Caveat Blood Coagulation"
 Description: "Example for Caveat Condition"
 * category = ConditionCategory#problem-list-item "Problem List Item"
@@ -310,12 +310,10 @@ Description: "Example for Caveat Condition"
 * subject = Reference(SUfferer)
 
 
-/*
-Instance: CaveatPiercingSternum
+Instance: CaveatBodyPiercing
 InstanceOf: ChRadOrderCaveatCondition
-Title: "Caveat Piercing Sternum"
+Title: "Caveat Body Piercing"
 Description: "Example for Caveat Condition"
 * category = ConditionCategory#problem-list-item "Problem List Item"
 * code = SCT#879862001 "Body piercing (finding)"
 * subject = Reference(SUfferer)
-*/

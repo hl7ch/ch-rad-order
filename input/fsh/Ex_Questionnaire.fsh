@@ -564,16 +564,18 @@ Darstellung der Problem- / Diagnoseliste
 
 /*----------------------------------------------------------------------
 Caveats   
-    BloodCoag 0..1 and
-    RenalInsuff 0..1 and
-    Claustrophobia 0..1 and
-    BodyPierc 0.. and
+    
     Device 0..* and
-    Hyperthyr 0..1 and
-    Diabetes 0..1 and
-    Gravida 0..1 and  
-    ContrastAllerg 0..1 and   
+
     DrugPrescr 0..*   
+
+* SCT#397578001  "Device in situ (finding)"
+
+* SCT#404684003  "Clinical finding (finding)"
+
+* SCT#182817000 "Drug prescription (situation)"
+
+
  */
 * item[+].linkId = "caveat"  
 * item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest"
@@ -585,45 +587,53 @@ Caveats
 * item[=].item[=].text = "Beinträchtigte Blutgerinnung"   
 * item[=].item[=].type = #boolean
 
-* item[=].item[+].linkId = "caveat.renalinsuff"     
-* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest"
+* item[=].item[+].linkId = "caveat.renalInsufficiency"     
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.supportingInfo:caveats"
 * item[=].item[=].text = "Niereninsuffizienz"   
 * item[=].item[=].type = #boolean
-* item[=].item[=].repeats = true
 
-* item[=].item[=].item[+].linkId = "caveat.renalinsuff"     
-* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-orf-caveat-observation"
-* item[=].item[=].item[=].text = "Bei Niereninsuffizienz entweder Creatininclearance oder Creatinin"
+* item[=].item[=].item[+].linkId = "caveat.renalInsufficiency.creatininClearance"     
+//* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.supportingInfo:caveats"
+* item[=].item[=].item[=].text = "Kreatinin-Clearance"   
 * item[=].item[=].item[=].type = #group
+* item[=].item[=].item[=].enableWhen[+].question = "caveat.renalInsufficiency"
+* item[=].item[=].item[=].enableWhen[=].operator = #=
+* item[=].item[=].item[=].enableWhen[=].answerBoolean = true
 
-* item[=].item[=].item[=].item[+].linkId = "caveat.renalinsuff.creatclearance"  
-* item[=].item[=].item[=].item[=].text = "Niereninsuffizienz"
-* item[=].item[=].item[=].item[=].type = #boolean
-
-* item[=].item[=].item[=].item[+].linkId = "caveat.renalinsuff.creatclearance"  
-* item[=].item[=].item[=].item[=].text = "Creatinin Clearance"
+* item[=].item[=].item[=].item[+].linkId = "caveat.renalInsufficiency.creatininClearance.quantity"     
+* item[=].item[=].item[=].item[=].text = "Wert (ml/min)"   
 * item[=].item[=].item[=].item[=].type = #quantity
 
-* item[=].item[=].item[=].item[=].item[+].linkId = "caveat.renalinsuff.creatclearance.date"  
-* item[=].item[=].item[=].item[=].item[=].text = "Datum der Bestimmung"
-* item[=].item[=].item[=].item[=].item[=].type = #dateTime
+* item[=].item[=].item[=].item[+].linkId = "caveat.renalInsufficiency.creatininClearance.dateTime"     
+* item[=].item[=].item[=].item[=].text = "Zeitpunkt der Bestimmung"   
+* item[=].item[=].item[=].item[=].type = #dateTime
 
-* item[=].item[=].item[=].item[+].linkId = "caveat.renalinsuff.creat"  
-* item[=].item[=].item[=].item[=].text = "Creatinin"
+
+* item[=].item[=].item[+].linkId = "caveat.renalInsufficiency.creatinin"    
+// observation 
+//* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.supportingInfo:caveats"
+* item[=].item[=].item[=].text = "Kreatinin"   
+* item[=].item[=].item[=].type = #group
+* item[=].item[=].item[=].enableWhen[+].question = "caveat.renalInsufficiency"
+* item[=].item[=].item[=].enableWhen[=].operator = #=
+* item[=].item[=].item[=].enableWhen[=].answerBoolean = true
+
+* item[=].item[=].item[=].item[+].linkId = "caveat.renalInsufficiency.creatinin.quantity"     
+* item[=].item[=].item[=].item[=].text = "Wert (µmol/l)"   
 * item[=].item[=].item[=].item[=].type = #quantity
 
-* item[=].item[=].item[=].item[=].item[+].linkId = "scaveat.renalinsuff.creat.date"  
-* item[=].item[=].item[=].item[=].item[=].text = "Datum der Bestimmung"
-* item[=].item[=].item[=].item[=].item[=].type = #dateTime
+* item[=].item[=].item[=].item[+].linkId = "caveat.renalInsufficiency.creatinin.dateTime"     
+* item[=].item[=].item[=].item[=].text = "Zeitpunkt der Bestimmung"   
+* item[=].item[=].item[=].item[=].type = #dateTime
 
 * item[=].item[+].linkId = "caveat.claustrophobia"     
-* item[=].item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-rad-order-servicerequest"
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.supportingInfo:caveats"
 * item[=].item[=].text = "Klaustrophobie"   
 * item[=].item[=].type = #boolean
 
-* item[=].item[+].linkId = "caveat.bodypierc"     
-* item[=].item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-rad-order-servicerequest"
-* item[=].item[=].text = "Bodypiercing"   
+* item[=].item[+].linkId = "caveat.bodyPiercing"     
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.supportingInfo:caveats"
+* item[=].item[=].text = "Körperpiercing"   
 * item[=].item[=].type = #boolean
 
 * item[=].item[+].linkId = "caveat.device"     
@@ -632,23 +642,23 @@ Caveats
 * item[=].item[=].type = #string
 * item[=].item[=].repeats = true
 
-* item[=].item[+].linkId = "caveat.hyperthyr"     
-* item[=].item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-rad-order-servicerequest"
+* item[=].item[+].linkId = "caveat.hyperthyroidism"     
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.supportingInfo:caveats"
 * item[=].item[=].text = "Hyperthyreose"   
 * item[=].item[=].type = #boolean
 
 * item[=].item[+].linkId = "caveat.diabetes"     
-* item[=].item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-rad-order-servicerequest"
-* item[=].item[=].text = "Diabetes"   
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.supportingInfo:caveats"
+* item[=].item[=].text = "Diabetes mellitus"   
 * item[=].item[=].type = #boolean
 
 * item[=].item[+].linkId = "caveat.gravida"     
-* item[=].item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-rad-order-servicerequest"
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.supportingInfo:caveats"
 * item[=].item[=].text = "Schwangerschaft"   
 * item[=].item[=].type = #boolean
 
-* item[=].item[+].linkId = "caveat.contrastallerg"     
-* item[=].item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-rad-order-servicerequest"
+* item[=].item[+].linkId = "caveat.contrastMediaAllergy"     
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.supportingInfo:caveats"
 * item[=].item[=].text = "Kontrastmittelallergie"   
 * item[=].item[=].type = #boolean
 
@@ -657,6 +667,7 @@ Caveats
 * item[=].item[=].text = "Relevante Medikamente, z. B. Metformin"   
 * item[=].item[=].type = #string              // noch nicht definiert wie zu machen
 * item[=].item[=].repeats = true
+
 
 /*-------------------------------------------------------------------------
 Darstellung der 4 Consents:
