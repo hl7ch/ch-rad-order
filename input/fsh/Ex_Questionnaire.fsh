@@ -580,42 +580,35 @@ Caveats
 * item[=].item[=].text = "Niereninsuffizienz"   
 * item[=].item[=].type = #boolean
 
-* item[=].item[=].item[+].linkId = "caveat.renalInsufficiency.true"     
-* item[=].item[=].item[=].text = "Bei Niereninsuffizienz entweder Kreatinin-Clearance oder Kreatinin angeben"   
+* item[=].item[=].item[+].linkId = "caveat.renalInsufficiency.creatinineClearance"     
+* item[=].item[=].item[=].text = "Kreatinin-Clearance"   
 * item[=].item[=].item[=].type = #group
 * item[=].item[=].item[=].enableWhen[+].question = "caveat.renalInsufficiency"
 * item[=].item[=].item[=].enableWhen[=].operator = #=
 * item[=].item[=].item[=].enableWhen[=].answerBoolean = true
 
-* item[=].item[=].item[=].item[+].linkId = "caveat.renalInsufficiency.true.creatinineClearance"     
-* item[=].item[=].item[=].item[=].text = "Kreatinin-Clearance"   
-* item[=].item[=].item[=].item[=].type = #group
-* item[=].item[=].item[=].item[=].enableWhen[+].question = "caveat.renalInsufficiency"
-* item[=].item[=].item[=].item[=].enableWhen[=].operator = #=
-* item[=].item[=].item[=].item[=].enableWhen[=].answerBoolean = true
+* item[=].item[=].item[=].item[+].linkId = "caveat.renalInsufficiency.creatinineClearance.quantity"     
+* item[=].item[=].item[=].item[=].text = "Wert (ml/min)"   
+* item[=].item[=].item[=].item[=].type = #quantity
 
-* item[=].item[=].item[=].item[=].item[+].linkId = "caveat.renalInsufficiency.true.creatinineClearance.quantity"     
-* item[=].item[=].item[=].item[=].item[=].text = "Wert (ml/min)"   
-* item[=].item[=].item[=].item[=].item[=].type = #quantity
+* item[=].item[=].item[=].item[+].linkId = "caveat.renalInsufficiency.creatinineClearance.dateTime"     
+* item[=].item[=].item[=].item[=].text = "Zeitpunkt der Bestimmung"   
+* item[=].item[=].item[=].item[=].type = #dateTime
 
-* item[=].item[=].item[=].item[=].item[+].linkId = "caveat.renalInsufficiency.true.creatinineClearance.dateTime"     
-* item[=].item[=].item[=].item[=].item[=].text = "Zeitpunkt der Bestimmung"   
-* item[=].item[=].item[=].item[=].item[=].type = #dateTime
+* item[=].item[=].item[+].linkId = "caveat.renalInsufficiency.creatinine"    
+* item[=].item[=].item[=].text = "Kreatinin"   
+* item[=].item[=].item[=].type = #group
+* item[=].item[=].item[=].enableWhen[+].question = "caveat.renalInsufficiency"
+* item[=].item[=].item[=].enableWhen[=].operator = #=
+* item[=].item[=].item[=].enableWhen[=].answerBoolean = true
 
-* item[=].item[=].item[=].item[+].linkId = "caveat.renalInsufficiency.true.creatinine"    
-* item[=].item[=].item[=].item[=].text = "Kreatinin"   
-* item[=].item[=].item[=].item[=].type = #group
-* item[=].item[=].item[=].item[=].enableWhen[+].question = "caveat.renalInsufficiency"
-* item[=].item[=].item[=].item[=].enableWhen[=].operator = #=
-* item[=].item[=].item[=].item[=].enableWhen[=].answerBoolean = true
+* item[=].item[=].item[=].item[+].linkId = "caveat.renalInsufficiency.creatinine.quantity"     
+* item[=].item[=].item[=].item[=].text = "Wert (µmol/l)"   
+* item[=].item[=].item[=].item[=].type = #quantity
 
-* item[=].item[=].item[=].item[=].item[+].linkId = "caveat.renalInsufficiency.true.creatinine.quantity"     
-* item[=].item[=].item[=].item[=].item[=].text = "Wert (µmol/l)"   
-* item[=].item[=].item[=].item[=].item[=].type = #quantity
-
-* item[=].item[=].item[=].item[=].item[+].linkId = "caveat.renalInsufficiency.true.creatinine.dateTime"     
-* item[=].item[=].item[=].item[=].item[=].text = "Zeitpunkt der Bestimmung"   
-* item[=].item[=].item[=].item[=].item[=].type = #dateTime
+* item[=].item[=].item[=].item[+].linkId = "caveat.renalInsufficiency.creatinine.dateTime"     
+* item[=].item[=].item[=].item[=].text = "Zeitpunkt der Bestimmung"   
+* item[=].item[=].item[=].item[=].type = #dateTime
 
 * item[=].item[+].linkId = "caveat.claustrophobia"     
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.supportingInfo"
