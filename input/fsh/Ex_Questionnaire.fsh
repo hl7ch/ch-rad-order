@@ -666,7 +666,7 @@ Caveats
 4 Consents
 */
 * item[+].linkId = "consent"  
-* item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.supportingInfo:caveats"
+* item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.supportingInfo:patientConsents"
 * item[=].text = "Einverständniserklärung"
 * item[=].type = #group
 

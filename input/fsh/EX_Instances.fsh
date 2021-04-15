@@ -28,7 +28,8 @@ Description: "Example for ServiceRequest"
 * supportingInfo[caveats][+] = Reference(CaveatDrugPrescriptionOther)
 * supportingInfo[caveats][+] = Reference(CaveatDeviceCardiacPacemaker)
 // * supportingInfo[precedingImagingResults]
-// * supportingInfo[patientConsents]
+* supportingInfo[patientConsents][+] = Reference(ConsentTreatment)
+* supportingInfo[patientConsents][+] = Reference(ConsentPatientPrivacy)
 // * bodySite = SCT#51185008 "Thoracic structure (body structure)"
 // * note.text = "Note/Comments"
 // * patientInstruction = "Patient instructions"
@@ -121,6 +122,10 @@ Description: "Example for Bundle"
 * entry[=].resource = CaveatDrugPrescriptionOther
 * entry[+].fullUrl = "http://example.com/fhir/Condition/CaveatDeviceCardiacPacemaker"
 * entry[=].resource = CaveatDeviceCardiacPacemaker
+* entry[+].fullUrl = "http://example.com/fhir/Consent/ConsentTreatment"
+* entry[=].resource = ConsentTreatment
+* entry[+].fullUrl = "http://example.com/fhir/Consent/ConsentPatientPrivacy"
+* entry[=].resource = ConsentPatientPrivacy
 // etc.
 
 
@@ -380,3 +385,25 @@ Description: "Example for Caveat Condition"
 * code = SCT#397578001  "Device in situ (finding)"
 * subject = Reference(SUfferer)
 * note.text = "Herzschrittmacher"
+
+
+Instance: ConsentTreatment
+InstanceOf: ChOrfConsent
+Title: "Consent Treatment"
+Description: "Example for Consent"
+* status = #active
+* scope = ConsentScope#treatment "Treatment"
+* category = LNC#59284-0 "Consent"
+* patient = Reference(SUfferer)
+* policyRule = v3ActCode#OPTIN      // this is opt-in - e.g. everything approved unless otherwise stated
+
+
+Instance: ConsentPatientPrivacy
+InstanceOf: ChOrfConsent
+Title: "Consent Patient Privacy"
+Description: "Example for Consent"
+* status = #active
+* scope = ConsentScope#patient-privacy "Privacy Consent"
+* category = LNC#59284-0 "Consent"
+* patient = Reference(SUfferer)
+* policyRule = v3ActCode#OPTIN      // this is opt-in - e.g. everything approved unless otherwise stated

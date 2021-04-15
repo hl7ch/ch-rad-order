@@ -16,6 +16,8 @@ Alias:   UCUM =                         http://unitsofmeasure.org
 Alias:   ConditionCategory =            http://terminology.hl7.org/CodeSystem/condition-category
 Alias:   AdministrativeGender =         http://hl7.org/fhir/administrative-gender
 Alias:   RequestPriority =              http://hl7.org/fhir/request-priority
+Alias:   ConsentScope =                 http://terminology.hl7.org/CodeSystem/consentscope
+Alias:   v3ActCode =                    http://terminology.hl7.org/CodeSystem/v3-ActCode
 
 // CH EPR Term Code Systems
 Alias:   SNOMEDCTSwissExtension =       urn:oid:2.16.756.5.30.1.127.3.4
@@ -35,7 +37,7 @@ Alias:   ChOrfComposition =             http://fhir.ch/ig/ch-orf/StructureDefini
 Alias:   ChOrfDocument =                http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-document
 Alias:   ChOrfConsent =                 http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-consent
 Alias:   ChOrfAppointment =             http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-appointment
-Alias:   CSCoverageType =                 http://fhir.ch/ig/ch-orf/CodeSystem/ch-orf-cs-coveragetype
+Alias:   CSCoverageType =               http://fhir.ch/ig/ch-orf/CodeSystem/ch-orf-cs-coveragetype
 
 // IPS SD
 Alias:   Condition-Uv-Ips = http://hl7.org/fhir/uv/ips/StructureDefinition/Condition-uv-ips
