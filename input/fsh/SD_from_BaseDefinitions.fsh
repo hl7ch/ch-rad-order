@@ -31,6 +31,8 @@ Description: "Definition for the Caveat Condition resource in the context of CH 
 * evidence MS
 * evidence.detail MS
 * evidence.detail only Reference(ChRadOrderCaveatObservation)
+* note MS
+* note.text MS
 
 
 Profile: ChRadOrderCaveatObservation
@@ -42,6 +44,10 @@ Description: "Definition for the Caveat Observation resource in the context of C
 * effective[x] and value[x] and dataAbsentReason and interpretation and note MS
 * effective[x] only dateTime
 * value[x] only Quantity or boolean or Ratio
+* subject only Reference(ChCorePatient) 
+* subject MS 
+* code MS
+* status MS
 
 
 Profile: ChRadOrderImagingStudy

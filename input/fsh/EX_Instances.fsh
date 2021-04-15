@@ -13,23 +13,25 @@ Description: "Example for ServiceRequest"
 * orderDetail[imagingFocus] = RDLX#RID2468 "Chest wall"
 * orderDetail[imagingFocus].extension[orderDetailType].valueCoding = ChRadOrderOrderDetailType#imagingFocus
 * subject = Reference(SUfferer)
-* authoredOn = "2019-04-01T20:18:41.341+00:00"
+//* authoredOn = "2019-04-01T20:18:41.341+00:00"
 * requester = Reference(ORderplacerHappyDoctors)
 * performer = Reference(ORderfillerHappyHospital)
-* locationReference = Reference(RadiologyDepartment)
+// * locationReference = Reference(RadiologyDepartment)
 * reasonCode.text = "Diagnostic Question"
-* reasonReference[+] = Reference(Diagnosis1)
-* reasonReference[+] = Reference(Diagnosis2)
-* insurance = Reference(CoverageKVG)
+// * insurance = Reference(CoverageKVG)
 * supportingInfo[diagnosis][+] = Reference(Diagnosis1)
 * supportingInfo[diagnosis][+] = Reference(Diagnosis2)
 * supportingInfo[caveats][+] = Reference(CaveatBloodCoagulation)
 * supportingInfo[caveats][+] = Reference(CaveatBodyPiercing)
-//* supportingInfo[precedingImagingResults]
-//* supportingInfo[patientConsents]
-* bodySite = SCT#51185008 "Thoracic structure (body structure)"
-* note.text = "Note/Comments"
-* patientInstruction = "Patient instructions"
+* supportingInfo[caveats][+] = Reference(CaveatRenalInsufficiency)
+* supportingInfo[caveats][+] = Reference(CaveatDrugPrescriptionMetformin)
+* supportingInfo[caveats][+] = Reference(CaveatDrugPrescriptionOther)
+* supportingInfo[caveats][+] = Reference(CaveatDeviceCardiacPacemaker)
+// * supportingInfo[precedingImagingResults]
+// * supportingInfo[patientConsents]
+// * bodySite = SCT#51185008 "Thoracic structure (body structure)"
+// * note.text = "Note/Comments"
+// * patientInstruction = "Patient instructions"
 
 
 Instance: CompositionRadiologyOrder
@@ -97,18 +99,28 @@ Description: "Example for Bundle"
 * entry[+].fullUrl = "http://example.com/fhir/Organization/HappyHospital"
 * entry[=].resource = HappyHospital
 //------------- more -------------
-* entry[+].fullUrl = "http://example.com/fhir/Location/RadiologyDepartment"
-* entry[=].resource = RadiologyDepartment
+//* entry[+].fullUrl = "http://example.com/fhir/Location/RadiologyDepartment"
+//* entry[=].resource = RadiologyDepartment
 * entry[+].fullUrl = "http://example.com/fhir/Condition/Diagnosis1"
 * entry[=].resource = Diagnosis1
 * entry[+].fullUrl = "http://example.com/fhir/Condition/Diagnosis2"
 * entry[=].resource = Diagnosis2
-* entry[+].fullUrl = "http://example.com/fhir/Coverage/CoverageKVG"
-* entry[=].resource = CoverageKVG
+//* entry[+].fullUrl = "http://example.com/fhir/Coverage/CoverageKVG"
+//* entry[=].resource = CoverageKVG
 * entry[+].fullUrl = "http://example.com/fhir/Condition/CaveatBloodCoagulation"
 * entry[=].resource = CaveatBloodCoagulation
-//* entry[+].fullUrl = "http://example.com/fhir/Condition/CaveatPiercingSternum"
-//* entry[=].resource = CaveatPiercingSternum
+* entry[+].fullUrl = "http://example.com/fhir/Condition/CaveatBodyPiercing"
+* entry[=].resource = CaveatBodyPiercing
+* entry[+].fullUrl = "http://example.com/fhir/Condition/CaveatRenalInsufficiency"
+* entry[=].resource = CaveatRenalInsufficiency
+* entry[+].fullUrl = "http://example.com/fhir/Observation/CaveatRenalInsufficiencyCreatinine"
+* entry[=].resource = CaveatRenalInsufficiencyCreatinine
+* entry[+].fullUrl = "http://example.com/fhir/Condition/CaveatDrugPrescriptionMetformin"
+* entry[=].resource = CaveatDrugPrescriptionMetformin
+* entry[+].fullUrl = "http://example.com/fhir/Condition/CaveatDrugPrescriptionOther"
+* entry[=].resource = CaveatDrugPrescriptionOther
+* entry[+].fullUrl = "http://example.com/fhir/Condition/CaveatDeviceCardiacPacemaker"
+* entry[=].resource = CaveatDeviceCardiacPacemaker
 // etc.
 
 
@@ -317,3 +329,54 @@ Description: "Example for Caveat Condition"
 * category = ConditionCategory#problem-list-item "Problem List Item"
 * code = SCT#879862001 "Body piercing (finding)"
 * subject = Reference(SUfferer)
+
+
+Instance: CaveatRenalInsufficiency
+InstanceOf: ChRadOrderCaveatCondition
+Title: "Caveat Renal Insufficiency"
+Description: "Example for Caveat Condition"
+* category = ConditionCategory#problem-list-item "Problem List Item"
+* code = SCT#723188008 "Renal insufficiency (disorder)"
+* subject = Reference(SUfferer)
+* evidence.detail = Reference(CaveatRenalInsufficiencyCreatinine)
+
+
+Instance: CaveatRenalInsufficiencyCreatinine
+InstanceOf: ChRadOrderCaveatObservation
+Title: "Caveat Renal Insufficiency Creatinine"
+Description: "Example for Caveat Observation"
+* status = #final
+* code = SCT#723188008 "Renal insufficiency (disorder)" // TBD: Codes für Kreatinin- & Kreatinin-Clearance-Observation
+* subject = Reference(SUfferer)
+* effectiveDateTime = "2019-04-01T10:10:00.000+00:00"
+* valueQuantity = 122 'umol/L'
+
+
+Instance: CaveatDrugPrescriptionMetformin
+InstanceOf: ChRadOrderCaveatCondition
+Title: "Caveat Drug Prescription Metformin"
+Description: "Example for Caveat Condition"
+* category = ConditionCategory#problem-list-item "Problem List Item"
+* code = SCT#182817000 "Drug prescription (situation)"
+* subject = Reference(SUfferer)
+* note.text = "Metformin"
+
+
+Instance: CaveatDrugPrescriptionOther
+InstanceOf: ChRadOrderCaveatCondition
+Title: "Caveat Drug Prescription Other"
+Description: "Example for Caveat Condition"
+* category = ConditionCategory#problem-list-item "Problem List Item"
+* code = SCT#182817000 "Drug prescription (situation)"
+* subject = Reference(SUfferer)
+* note.text = "Anderes Medikament"
+
+
+Instance: CaveatDeviceCardiacPacemaker
+InstanceOf: ChRadOrderCaveatCondition
+Title: "Caveat Device Cardiac Pacemaker"
+Description: "Example for Caveat Condition"
+* category = ConditionCategory#problem-list-item "Problem List Item"
+* code = SCT#397578001  "Device in situ (finding)"
+* subject = Reference(SUfferer)
+* note.text = "Herzschrittmacher"

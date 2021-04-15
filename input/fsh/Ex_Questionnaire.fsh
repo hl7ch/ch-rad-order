@@ -564,18 +564,6 @@ Darstellung der Problem- / Diagnoseliste
 
 /*----------------------------------------------------------------------
 Caveats   
-    
-    Device 0..* and
-
-    DrugPrescr 0..*   
-
-* SCT#397578001  "Device in situ (finding)"
-
-* SCT#404684003  "Clinical finding (finding)"
-
-* SCT#182817000 "Drug prescription (situation)"
-
-
  */
 * item[+].linkId = "caveat"  
 * item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest"
@@ -592,39 +580,44 @@ Caveats
 * item[=].item[=].text = "Niereninsuffizienz"   
 * item[=].item[=].type = #boolean
 
-* item[=].item[=].item[+].linkId = "caveat.renalInsufficiency.creatininClearance"     
-//* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.supportingInfo:caveats"
-* item[=].item[=].item[=].text = "Kreatinin-Clearance"   
+* item[=].item[=].item[+].linkId = "caveat.renalInsufficiency.true"     
+* item[=].item[=].item[=].text = "Bei Niereninsuffizienz entweder Kreatinin-Clearance oder Kreatinin angeben"   
 * item[=].item[=].item[=].type = #group
 * item[=].item[=].item[=].enableWhen[+].question = "caveat.renalInsufficiency"
 * item[=].item[=].item[=].enableWhen[=].operator = #=
 * item[=].item[=].item[=].enableWhen[=].answerBoolean = true
 
-* item[=].item[=].item[=].item[+].linkId = "caveat.renalInsufficiency.creatininClearance.quantity"     
-* item[=].item[=].item[=].item[=].text = "Wert (ml/min)"   
-* item[=].item[=].item[=].item[=].type = #quantity
+* item[=].item[=].item[=].item[+].linkId = "caveat.renalInsufficiency.true.creatinineClearance"     
+* item[=].item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.evidence.detail"
+* item[=].item[=].item[=].item[=].text = "Kreatinin-Clearance"   
+* item[=].item[=].item[=].item[=].type = #group
+* item[=].item[=].item[=].item[=].enableWhen[+].question = "caveat.renalInsufficiency"
+* item[=].item[=].item[=].item[=].enableWhen[=].operator = #=
+* item[=].item[=].item[=].item[=].enableWhen[=].answerBoolean = true
 
-* item[=].item[=].item[=].item[+].linkId = "caveat.renalInsufficiency.creatininClearance.dateTime"     
-* item[=].item[=].item[=].item[=].text = "Zeitpunkt der Bestimmung"   
-* item[=].item[=].item[=].item[=].type = #dateTime
+* item[=].item[=].item[=].item[=].item[+].linkId = "caveat.renalInsufficiency.true.creatinineClearance.quantity"     
+* item[=].item[=].item[=].item[=].item[=].text = "Wert (ml/min)"   
+* item[=].item[=].item[=].item[=].item[=].type = #quantity
 
+* item[=].item[=].item[=].item[=].item[+].linkId = "caveat.renalInsufficiency.true.creatinineClearance.dateTime"     
+* item[=].item[=].item[=].item[=].item[=].text = "Zeitpunkt der Bestimmung"   
+* item[=].item[=].item[=].item[=].item[=].type = #dateTime
 
-* item[=].item[=].item[+].linkId = "caveat.renalInsufficiency.creatinin"    
-// observation 
-//* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.supportingInfo:caveats"
-* item[=].item[=].item[=].text = "Kreatinin"   
-* item[=].item[=].item[=].type = #group
-* item[=].item[=].item[=].enableWhen[+].question = "caveat.renalInsufficiency"
-* item[=].item[=].item[=].enableWhen[=].operator = #=
-* item[=].item[=].item[=].enableWhen[=].answerBoolean = true
+* item[=].item[=].item[=].item[+].linkId = "caveat.renalInsufficiency.true.creatinine"    
+* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.evidence.detail"
+* item[=].item[=].item[=].item[=].text = "Kreatinin"   
+* item[=].item[=].item[=].item[=].type = #group
+* item[=].item[=].item[=].item[=].enableWhen[+].question = "caveat.renalInsufficiency"
+* item[=].item[=].item[=].item[=].enableWhen[=].operator = #=
+* item[=].item[=].item[=].item[=].enableWhen[=].answerBoolean = true
 
-* item[=].item[=].item[=].item[+].linkId = "caveat.renalInsufficiency.creatinin.quantity"     
-* item[=].item[=].item[=].item[=].text = "Wert (µmol/l)"   
-* item[=].item[=].item[=].item[=].type = #quantity
+* item[=].item[=].item[=].item[=].item[+].linkId = "caveat.renalInsufficiency.true.creatinine.quantity"     
+* item[=].item[=].item[=].item[=].item[=].text = "Wert (µmol/l)"   
+* item[=].item[=].item[=].item[=].item[=].type = #quantity
 
-* item[=].item[=].item[=].item[+].linkId = "caveat.renalInsufficiency.creatinin.dateTime"     
-* item[=].item[=].item[=].item[=].text = "Zeitpunkt der Bestimmung"   
-* item[=].item[=].item[=].item[=].type = #dateTime
+* item[=].item[=].item[=].item[=].item[+].linkId = "caveat.renalInsufficiency.true.creatinine.dateTime"     
+* item[=].item[=].item[=].item[=].item[=].text = "Zeitpunkt der Bestimmung"   
+* item[=].item[=].item[=].item[=].item[=].type = #dateTime
 
 * item[=].item[+].linkId = "caveat.claustrophobia"     
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.supportingInfo:caveats"
@@ -637,7 +630,7 @@ Caveats
 * item[=].item[=].type = #boolean
 
 * item[=].item[+].linkId = "caveat.device"     
-* item[=].item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-rad-order-servicerequest"
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.supportingInfo:caveats"
 * item[=].item[=].text = "Device (Herzschrittmacher, Herzklappenersatz, Insulinpumpe etc.)"   
 * item[=].item[=].type = #string
 * item[=].item[=].repeats = true
@@ -662,41 +655,37 @@ Caveats
 * item[=].item[=].text = "Kontrastmittelallergie"   
 * item[=].item[=].type = #boolean
 
-* item[=].item[+].linkId = "caveat.drugprescr"     
-* item[=].item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-rad-order-servicerequest"
-* item[=].item[=].text = "Relevante Medikamente, z. B. Metformin"   
+* item[=].item[+].linkId = "caveat.drugPrescription"     
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.supportingInfo:caveats"
+* item[=].item[=].text = "Relevante Medikamente, z.B. Metformin"   
 * item[=].item[=].type = #string              // noch nicht definiert wie zu machen
 * item[=].item[=].repeats = true
 
 
 /*-------------------------------------------------------------------------
-Darstellung der 4 Consents:
-        [PrivacyConsent] only Reference(ChOrfConsent)
-        TreatmentConsent] only Reference(ChOrfConsent)
-        [RearchConsent] only Reference(ChOrfConsent)
-        [ADCD]: Advanced directive
+4 Consents
 */
-
-* item[+].linkId = "consents"  
-* item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-rad-order-servicerequest"
-* item[=].text = "Einverständniserklärungen"
+* item[+].linkId = "consent"  
+* item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.supportingInfo:caveats"
+* item[=].text = "Einverständniserklärung"
 * item[=].type = #group
 
-* item[=].item[+].linkId = "consents.treatmentconsent"      
+* item[=].item[+].linkId = "consent.treatment"      
 * item[=].item[=].text = "Einverständnis des Patienten zur Behandlung"
 * item[=].item[=].type = #string
 
-* item[=].item[+].linkId = "consents.privacyconsent"      
+* item[=].item[+].linkId = "consent.patientPrivacy"      
 * item[=].item[=].text = "Einverständnis des Patienten zum Datenschutz"
 * item[=].item[=].type = #string
 
-* item[=].item[+].linkId = "consents.researchconsent"      
+* item[=].item[+].linkId = "consent.research"      
 * item[=].item[=].text = "Einverständnis des Patienten zur Forschung"
 * item[=].item[=].type = #string
 
-* item[=].item[+].linkId = "consents.researchconsent"     
+* item[=].item[+].linkId = "consent.advancedCareDirective"     
 * item[=].item[=].text = "Patientenverfügung"
 * item[=].item[=].type = #string
+
 
 /*------------------------------------------------------------------------
 Darstellung der 4 Arten von Kostentägern  (Noch offen: Wie efrassen; )
