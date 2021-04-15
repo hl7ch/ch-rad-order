@@ -588,7 +588,6 @@ Caveats
 * item[=].item[=].item[=].enableWhen[=].answerBoolean = true
 
 * item[=].item[=].item[=].item[+].linkId = "caveat.renalInsufficiency.true.creatinineClearance"     
-* item[=].item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.evidence.detail"
 * item[=].item[=].item[=].item[=].text = "Kreatinin-Clearance"   
 * item[=].item[=].item[=].item[=].type = #group
 * item[=].item[=].item[=].item[=].enableWhen[+].question = "caveat.renalInsufficiency"
@@ -604,7 +603,6 @@ Caveats
 * item[=].item[=].item[=].item[=].item[=].type = #dateTime
 
 * item[=].item[=].item[=].item[+].linkId = "caveat.renalInsufficiency.true.creatinine"    
-* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.evidence.detail"
 * item[=].item[=].item[=].item[=].text = "Kreatinin"   
 * item[=].item[=].item[=].item[=].type = #group
 * item[=].item[=].item[=].item[=].enableWhen[+].question = "caveat.renalInsufficiency"
@@ -688,33 +686,29 @@ Caveats
 
 
 /*------------------------------------------------------------------------
-Darstellung der 4 Arten von Kostentägern  (Noch offen: Wie efrassen; )
-        * ChRORFInsuranceType#Accident "According UVG"
-        * ChRORFInsuranceType#DisorderKVG "According to KVG"
-        * ChRORFInsuranceType#DisorderVVG "According to VVG"
-        * ChRORFInsuranceType#OtherVVG "Other acording to VVG"
+4 Arten von Kostentägern  (Noch offen: Wie efrassen)
 */
-
 * item[+].linkId = "coverage"
-* item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-rad-order-coverage"
+* item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.insurance"
 * item[=].text = "Kostenträger"
 * item[=].type = #group
 
 * item[=].item[+].linkId = "insurance.uvg"
-* item[=].item[=].text = "Unfallversicherung"
+* item[=].item[=].text = "Unfallversicherung (nach UVG)"
 * item[=].item[=].type = #string
 
 * item[=].item[+].linkId = "insurance.kvg"
-* item[=].item[=].text = "Grundversicherung (KVG)"
+* item[=].item[=].text = "Grundversicherung (nach KVG)"
 * item[=].item[=].type = #string
 
 * item[=].item[+].linkId = "insurance.vvg"
-* item[=].item[=].text = "Zusatzversicherung"
+* item[=].item[=].text = "Zusatzversicherung (nach VVG)"
 * item[=].item[=].type = #string
 
-* item[=].item[+].linkId = "insurance.vvgother"
-* item[=].item[=].text = "Andere"
+* item[=].item[+].linkId = "insurance.vvgOther"
+* item[=].item[=].text = "Andere (nach VVG)"
 * item[=].item[=].type = #string
+
 
 /*
 ---- 5 -----------------------------------------------------------------------

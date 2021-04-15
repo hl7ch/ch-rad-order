@@ -4,7 +4,7 @@ Title: "ServiceRequest Radiology Order"
 Description: "Example for ServiceRequest"
 * identifier[placerOrderIdentifier].value = "12345"
 * status = #active
-* intent = #original-order
+* intent = #original-order // TBD: Wird noch nicht im Questionnaire abgebildet
 * priority = #routine
 * category = ChRadOrderRequestedService#ImagingRequest "Imaging Request"
 * code.coding[RdlxModType] = RDLX#RID10345 "projection radiography"
@@ -18,7 +18,7 @@ Description: "Example for ServiceRequest"
 * performer = Reference(ORderfillerHappyHospital)
 // * locationReference = Reference(RadiologyDepartment)
 * reasonCode.text = "Diagnostic Question"
-// * insurance = Reference(CoverageKVG)
+* insurance = Reference(CoverageKVG)
 * supportingInfo[diagnosis][+] = Reference(Diagnosis1)
 * supportingInfo[diagnosis][+] = Reference(Diagnosis2)
 * supportingInfo[caveats][+] = Reference(CaveatBloodCoagulation)
@@ -106,8 +106,8 @@ Description: "Example for Bundle"
 * entry[=].resource = Diagnosis1
 * entry[+].fullUrl = "http://example.com/fhir/Condition/Diagnosis2"
 * entry[=].resource = Diagnosis2
-//* entry[+].fullUrl = "http://example.com/fhir/Coverage/CoverageKVG"
-//* entry[=].resource = CoverageKVG
+* entry[+].fullUrl = "http://example.com/fhir/Coverage/CoverageKVG"
+* entry[=].resource = CoverageKVG
 * entry[+].fullUrl = "http://example.com/fhir/Condition/CaveatBloodCoagulation"
 * entry[=].resource = CaveatBloodCoagulation
 * entry[+].fullUrl = "http://example.com/fhir/Condition/CaveatBodyPiercing"
