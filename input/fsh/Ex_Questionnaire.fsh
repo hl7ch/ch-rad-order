@@ -693,19 +693,19 @@ Caveats
 * item[=].text = "Kostenträger"
 * item[=].type = #group
 
-* item[=].item[+].linkId = "insurance.uvg"
+* item[=].item[+].linkId = "coverage.uvg"
 * item[=].item[=].text = "Unfallversicherung (nach UVG)"
 * item[=].item[=].type = #string
 
-* item[=].item[+].linkId = "insurance.kvg"
+* item[=].item[+].linkId = "coverage.kvg"
 * item[=].item[=].text = "Grundversicherung (nach KVG)"
 * item[=].item[=].type = #string
 
-* item[=].item[+].linkId = "insurance.vvg"
+* item[=].item[+].linkId = "coverage.vvg"
 * item[=].item[=].text = "Zusatzversicherung (nach VVG)"
 * item[=].item[=].type = #string
 
-* item[=].item[+].linkId = "insurance.vvgOther"
+* item[=].item[+].linkId = "coverage.vvgOther"
 * item[=].item[=].text = "Andere (nach VVG)"
 * item[=].item[=].type = #string
 
