@@ -100,8 +100,6 @@ Description: "Example for Bundle"
 * entry[+].fullUrl = "http://example.com/fhir/Organization/HappyHospital"
 * entry[=].resource = HappyHospital
 //------------- more -------------
-//* entry[+].fullUrl = "http://example.com/fhir/Location/RadiologyDepartment"
-//* entry[=].resource = RadiologyDepartment
 * entry[+].fullUrl = "http://example.com/fhir/Condition/Diagnosis1"
 * entry[=].resource = Diagnosis1
 * entry[+].fullUrl = "http://example.com/fhir/Condition/Diagnosis2"
@@ -128,7 +126,8 @@ Description: "Example for Bundle"
 * entry[=].resource = ConsentPatientPrivacy
 * entry[+].fullUrl = "http://example.com/fhir/ImagingStudy/ImagingStudyRx"
 * entry[=].resource = ImagingStudyRx
-// etc.
+//* entry[+].fullUrl = "http://example.com/fhir/Location/RadiologyDepartment"
+//* entry[=].resource = RadiologyDepartment
 
 
 Instance: ORderplacer
@@ -276,14 +275,6 @@ Description: "Example for Patient"
 * address.country = "Schweiz"
 
 
-Instance: RadiologyDepartment
-InstanceOf: ChCoreLocation
-Title: "Radiology Department of Happy Hospital"
-Description: "Example for Location"
-* name = "Radiology Department of Happy Hospital"
-* managingOrganization = Reference(HappyHospital)
-
-
 Instance: Diagnosis1
 InstanceOf: ChRadOrderDiagnosisCondition
 Title: "Diagnosis 1"
@@ -423,4 +414,14 @@ Description: "Example for Imaging Study"
 * series.performer.actor =
 * series.instance.uid =
 * series.instance.sopClass
+*/
+
+
+/*
+Instance: RadiologyDepartment
+InstanceOf: ChCoreLocation
+Title: "Radiology Department of Happy Hospital"
+Description: "Example for Location"
+* name = "Radiology Department of Happy Hospital"
+* managingOrganization = Reference(HappyHospital)
 */
