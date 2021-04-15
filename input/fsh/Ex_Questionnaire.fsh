@@ -415,7 +415,7 @@ ZWISCHEN SENDER UND EMPFÄNGER VEREINBART.
 Was wird gewünscht (nur 1 Wert)             
 */
 * item[+].linkId = "requestedService"
-* item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest"
+* item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest"
 * item[=].text = "Angeforderte Leistung"
 * item[=].type = #group
 * item[=].required = true
@@ -432,7 +432,7 @@ Was wird gewünscht (nur 1 Wert)
 Fragestellung (mehrere Werte)
 */
 * item[+].linkId = "reason"
-* item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest"
+* item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest"
 * item[=].text = "Klinische Fragestellung"
 * item[=].type = #group
 
@@ -447,7 +447,7 @@ Fragestellung (mehrere Werte)
 Gewünschter Radiologe: Noch offen, wie die Auswahlliste gemacht werden soll
 */
 * item[+].linkId = "desiredRadilologist"
-* item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest"
+* item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest"
 * item[=].text = "Gewünschter Radiologe für die Befundung / für die Intervention"
 * item[=].type = #group
 
@@ -470,12 +470,12 @@ Angabe der Untersuchung (nur 1 Wert):
     Nuklearmed. Bildgung / Positron emiss. Tomographie / Konventinelles RX / Fluoroskopie / SPECT-CT / Andere
 */
 * item[+].linkId = "imagingService"
-* item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest"
+* item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest"
 * item[=].text = "Bildgebendes Verfahren"
 * item[=].type = #group
 
 * item[=].item[+].linkId = "imagingService.type"
-* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.code.coding:RdlxModType"
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.code.coding"
 * item[=].item[=].text = "Art"                 
 * item[=].item[=].type = #choice
 * item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-modality-type"
@@ -485,7 +485,7 @@ Angabe der Untersuchung (nur 1 Wert):
 Art der Intervention (mehrere Werte)
 */
 * item[+].linkId = "intervention"
-* item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest"
+* item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest"
 * item[=].text = "Intervention"
 * item[=].type = #group
 
@@ -501,46 +501,46 @@ Art der Intervention (mehrere Werte)
 Order Detail
 */
 * item[+].linkId = "orderDetail"
-* item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest"
+* item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest"
 * item[=].text = "Weitere Angaben zur Bildgebung"
 * item[=].type = #group
 
 * item[=].item[+].linkId = "orderDetail.imagingRegion"
-* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.orderDetail:imagingRegion"
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.orderDetail"
 * item[=].item[=].text = "Region"
 * item[=].item[=].type = #choice
 * item[=].item[=].repeats = true
 * item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-imaging-region"
 
 * item[=].item[+].linkId = "orderDetail.imagingFocus"
-* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.orderDetail:imagingFocus"
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.orderDetail"
 * item[=].item[=].text = "Fokus"
 * item[=].item[=].type = #choice
 * item[=].item[=].repeats = true
 * item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-imaging-focus"
 
 * item[=].item[+].linkId = "orderDetail.laterality"
-* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.orderDetail:laterality"
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.orderDetail"
 * item[=].item[=].text = "Seitenangabe"
 * item[=].item[=].type = #choice
 * item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-laterality"
 
 * item[=].item[+].linkId = "orderDetail.viewType"
-* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.orderDetail:viewType"
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.orderDetail"
 * item[=].item[=].text = "Ansicht"
 * item[=].item[=].type = #choice
 * item[=].item[=].repeats = true
 * item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-view-type"
 
 * item[=].item[+].linkId = "orderDetail.maneuverType"
-* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.orderDetail:maneuverType"
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.orderDetail"
 * item[=].item[=].text = "Manöver"
 * item[=].item[=].type = #choice
 * item[=].item[=].repeats = true
 * item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-maneuver-type"
 
 * item[=].item[+].linkId = "orderDetail.guidanceForAction"
-* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.orderDetail:guidanceForAction"
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.orderDetail"
 * item[=].item[=].text = "Handlungsanleitung"
 * item[=].item[=].type = #choice
 * item[=].item[=].repeats = true
@@ -551,12 +551,12 @@ Order Detail
 Darstellung der Problem- / Diagnoseliste
 */
 * item[+].linkId = "diagnosisList"
-* item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest"
+* item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest"
 * item[=].text = "Problem- / Diagnoseliste"
 * item[=].type = #group
 
 * item[=].item[+].linkId = "diagnosisList.diagnosis"  
-* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.supportingInfo:diagnosis"
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.supportingInfo"
 * item[=].item[=].text = "Problem / Diagnose"
 * item[=].item[=].type = #string
 * item[=].item[=].repeats = true
@@ -566,17 +566,17 @@ Darstellung der Problem- / Diagnoseliste
 Caveats   
  */
 * item[+].linkId = "caveat"  
-* item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest"
+* item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest"
 * item[=].text = "Caveats"
 * item[=].type = #group
 
 * item[=].item[+].linkId = "caveat.bloodCoagulation"     
-* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.supportingInfo:caveats"
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.supportingInfo"
 * item[=].item[=].text = "Beinträchtigte Blutgerinnung"   
 * item[=].item[=].type = #boolean
 
 * item[=].item[+].linkId = "caveat.renalInsufficiency"     
-* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.supportingInfo:caveats"
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.supportingInfo"
 * item[=].item[=].text = "Niereninsuffizienz"   
 * item[=].item[=].type = #boolean
 
@@ -618,43 +618,43 @@ Caveats
 * item[=].item[=].item[=].item[=].item[=].type = #dateTime
 
 * item[=].item[+].linkId = "caveat.claustrophobia"     
-* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.supportingInfo:caveats"
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.supportingInfo"
 * item[=].item[=].text = "Klaustrophobie"   
 * item[=].item[=].type = #boolean
 
 * item[=].item[+].linkId = "caveat.bodyPiercing"     
-* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.supportingInfo:caveats"
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.supportingInfo"
 * item[=].item[=].text = "Körperpiercing"   
 * item[=].item[=].type = #boolean
 
 * item[=].item[+].linkId = "caveat.device"     
-* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.supportingInfo:caveats"
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.supportingInfo"
 * item[=].item[=].text = "Device (Herzschrittmacher, Herzklappenersatz, Insulinpumpe etc.)"   
 * item[=].item[=].type = #string
 * item[=].item[=].repeats = true
 
 * item[=].item[+].linkId = "caveat.hyperthyroidism"     
-* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.supportingInfo:caveats"
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.supportingInfo"
 * item[=].item[=].text = "Hyperthyreose"   
 * item[=].item[=].type = #boolean
 
 * item[=].item[+].linkId = "caveat.diabetes"     
-* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.supportingInfo:caveats"
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.supportingInfo"
 * item[=].item[=].text = "Diabetes mellitus"   
 * item[=].item[=].type = #boolean
 
 * item[=].item[+].linkId = "caveat.gravida"     
-* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.supportingInfo:caveats"
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.supportingInfo"
 * item[=].item[=].text = "Schwangerschaft"   
 * item[=].item[=].type = #boolean
 
 * item[=].item[+].linkId = "caveat.contrastMediaAllergy"     
-* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.supportingInfo:caveats"
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.supportingInfo"
 * item[=].item[=].text = "Kontrastmittelallergie"   
 * item[=].item[=].type = #boolean
 
 * item[=].item[+].linkId = "caveat.drugPrescription"     
-* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.supportingInfo:caveats"
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.supportingInfo"
 * item[=].item[=].text = "Relevante Medikamente, z.B. Metformin"   
 * item[=].item[=].type = #string              // noch nicht definiert wie zu machen
 * item[=].item[=].repeats = true
@@ -664,7 +664,7 @@ Caveats
 4 Consents
 */
 * item[+].linkId = "consent"  
-* item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.supportingInfo:patientConsents"
+* item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.supportingInfo"
 * item[=].text = "Einverständniserklärung"
 * item[=].type = #group
 
@@ -710,18 +710,17 @@ Caveats
 * item[=].item[=].type = #string
 
 
-/*
----- 5 -----------------------------------------------------------------------
+/* ---------------------------------------------------------------------------
+Vorheriges Untersuchungsresultat:
 Angaben zu Bilder bzw. allfällige Vorbilder und Reports, die mitgegeben werden 
-mittels CH ORF ImagingStudy Resource.
+mittels ImagingStudy Resource.
 */
-
-* item[+].linkId = "precedentresults"
-* item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-rad-order-servicerequest"
-* item[=].text = "Vorherige Untersuchungsresultate"
+* item[+].linkId = "previousResult"
+* item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.supportingInfo"
+* item[=].text = "Vorheriges Untersuchungsresultat"
 * item[=].type = #group
 
-* item[=].item[+].linkId = "precedent.resultID"                     // n Einträge
-* item[=].item[=].text = "Vorheriges Untersuchungsresultat"          // (Abbildung und Anzeige noch nicht definiert)
+* item[=].item[+].linkId = "previousResult.result"
+* item[=].item[=].text = "Untersuchungsresultat"    // (Abbildung und Anzeige noch nicht definiert)
 * item[=].item[=].type = #string
 * item[=].item[=].repeats = true

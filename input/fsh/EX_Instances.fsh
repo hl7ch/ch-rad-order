@@ -27,7 +27,7 @@ Description: "Example for ServiceRequest"
 * supportingInfo[caveats][+] = Reference(CaveatDrugPrescriptionMetformin)
 * supportingInfo[caveats][+] = Reference(CaveatDrugPrescriptionOther)
 * supportingInfo[caveats][+] = Reference(CaveatDeviceCardiacPacemaker)
-// * supportingInfo[precedingImagingResults]
+* supportingInfo[previousImagingResults][+] = Reference(ImagingStudyRx)
 * supportingInfo[patientConsents][+] = Reference(ConsentTreatment)
 * supportingInfo[patientConsents][+] = Reference(ConsentPatientPrivacy)
 // * bodySite = SCT#51185008 "Thoracic structure (body structure)"
@@ -126,6 +126,8 @@ Description: "Example for Bundle"
 * entry[=].resource = ConsentTreatment
 * entry[+].fullUrl = "http://example.com/fhir/Consent/ConsentPatientPrivacy"
 * entry[=].resource = ConsentPatientPrivacy
+* entry[+].fullUrl = "http://example.com/fhir/ImagingStudy/ImagingStudyRx"
+* entry[=].resource = ImagingStudyRx
 // etc.
 
 
@@ -407,3 +409,18 @@ Description: "Example for Consent"
 * category = LNC#59284-0 "Consent"
 * patient = Reference(SUfferer)
 * policyRule = v3ActCode#OPTIN      // this is opt-in - e.g. everything approved unless otherwise stated
+
+
+Instance: ImagingStudyRx
+InstanceOf: ChRadOrderImagingStudy
+Title: "ImagingStudy Previous Rx"
+Description: "Example for Imaging Study"
+* status = #available
+* subject = Reference(SUfferer)
+/* TBD (MS elements)
+* series.uid = 
+* series.modality = 
+* series.performer.actor =
+* series.instance.uid =
+* series.instance.sopClass
+*/

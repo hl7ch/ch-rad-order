@@ -84,14 +84,14 @@ In case of 'ChRadOrderModalityType' specify Imaging Request Details by means of 
 * supportingInfo contains
     diagnosis 0..* and 
     caveats 0..* and
-    precedingImagingResults 0..* and
+    previousImagingResults 0..* and
     patientConsents 0..4 
 * supportingInfo[diagnosis] MS
 * supportingInfo[diagnosis] only Reference(ChRadOrderDiagnosisCondition)
 * supportingInfo[caveats] MS
 * supportingInfo[caveats] only Reference(ChRadOrderCaveatCondition)
-* supportingInfo[precedingImagingResults] MS
-* supportingInfo[precedingImagingResults] only Reference(ChRadOrderImagingStudy)
+* supportingInfo[previousImagingResults] MS
+* supportingInfo[previousImagingResults] only Reference(ChRadOrderImagingStudy)
 * supportingInfo[patientConsents] MS
 * supportingInfo[patientConsents] only Reference(ChOrfConsent)
 //------- bodySite -------
