@@ -5,7 +5,7 @@ Description: "Example for ServiceRequest"
 * identifier[placerOrderIdentifier].system = "urn:oid:1.3.4.5.6.7"
 * identifier[placerOrderIdentifier].value = "12345"
 * status = #active
-* intent = #original-order // TBD: Wird noch nicht im Questionnaire abgebildet
+* intent = #order
 * priority = #routine
 * category = ChRadOrderRequestedService#ImagingRequest "Imaging Request"
 * code.coding[RdlxModType] = RDLX#RID10345 "projection radiography"
