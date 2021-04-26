@@ -24,8 +24,7 @@ contact:
     value: https://www.hl7.ch
 dependencies:
   ch.fhir.ig.ch-orf: current
-  ch.fhir.ig.ch-core: current
-  ch.fhir.ig.ch-epr-term: 2.0.4
+  ch.fhir.ig.ch-core: 2.0.0
 
 pages:
   index.html:
