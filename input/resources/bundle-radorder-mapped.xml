@@ -4,24 +4,24 @@
   <id value="bundle-radorder-mapped" />
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:uuid:ff0d5568-8671-4d0e-a58e-e2b7df0edb3a"/>
+    <value value="urn:uuid:731a7599-48ed-42e8-8237-992ad0bc27c6"/>
   </identifier>
   <type value="document"/>
-  <timestamp value="2021-05-03T17:44:17+02:00"/>
+  <timestamp value="2021-05-04T10:43:36+02:00"/>
   <entry>
-    <fullUrl value="urn:uuid:263be7bf-d3a7-409c-8cee-868334ebf16d"/>
+    <fullUrl value="urn:uuid:3b5d85c3-2f63-4970-b71c-177ec3dcfbe1"/>
     <resource>
       <Composition>
         <extension url="http://fhir.ch/ig/ch-core/StructureDefinition/ch-ext-epr-dataenterer">
           <extension url="enterer">
             <valueReference>
-              <reference value="urn:uuid:fb8943d6-b9c8-47c7-90b0-be517d9f84fb"/>
+              <reference value="urn:uuid:70c4ff60-559a-451a-b63d-dc895eed44f0"/>
             </valueReference>
           </extension>
         </extension>
         <extension url="http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-copyreceiver">
           <valueReference>
-            <reference value="urn:uuid:918c88e8-4a06-43a2-8e3e-736457621c26"/>
+            <reference value="urn:uuid:1052353d-7241-4edc-8b71-375a10e9d292"/>
           </valueReference>
         </extension>
         <status value="final"/>
@@ -38,26 +38,26 @@
           </coding>
         </category>
         <subject>
-          <reference value="urn:uuid:61925869-0b59-4035-9b43-4c9f3ff15a3d"/>
+          <reference value="urn:uuid:484be3b3-4fe7-411e-a154-87ab1c2aa47a"/>
         </subject>
-        <date value="2021-05-03T17:44:17+02:00"/>
+        <date value="2021-05-04T10:43:36+02:00"/>
         <author>
-          <reference value="urn:uuid:7aae045d-b70e-42d8-92fa-b20e503a4170"/>
+          <reference value="urn:uuid:3ea9bff4-1a71-407b-a5e3-cdd566a70565"/>
         </author>
         <title value="Anmeldung Radiologie"/>
         <section>
           <entry>
-            <reference value="urn:uuid:b91415fd-c65b-4dd5-a801-4e9b08e05db3"/>
+            <reference value="urn:uuid:bef5b102-a3c1-4b61-b3f5-68d0f490fcce"/>
           </entry>
           <entry>
-            <reference value="urn:uuid:1bd400a9-360f-41a5-be85-a482d13e7c87"/>
+            <reference value="urn:uuid:2558f3a0-9b10-4752-a711-3f3836793b31"/>
           </entry>
         </section>
       </Composition>
     </resource>
   </entry>
   <entry>
-    <fullUrl value="urn:uuid:61925869-0b59-4035-9b43-4c9f3ff15a3d"/>
+    <fullUrl value="urn:uuid:484be3b3-4fe7-411e-a154-87ab1c2aa47a"/>
     <resource>
       <Patient>
         <name>
@@ -89,7 +89,7 @@
     </resource>
   </entry>
   <entry>
-    <fullUrl value="urn:uuid:b91415fd-c65b-4dd5-a801-4e9b08e05db3"/>
+    <fullUrl value="urn:uuid:bef5b102-a3c1-4b61-b3f5-68d0f490fcce"/>
     <resource>
       <QuestionnaireResponse>
         <meta>
@@ -749,7 +749,7 @@
     </resource>
   </entry>
   <entry>
-    <fullUrl value="urn:uuid:1bd400a9-360f-41a5-be85-a482d13e7c87"/>
+    <fullUrl value="urn:uuid:2558f3a0-9b10-4752-a711-3f3836793b31"/>
     <resource>
       <ServiceRequest>
         <identifier>
@@ -780,8 +780,11 @@
           </coding>
         </code>
         <orderDetail>
-          <extension url="http://fhir.ch/ig/ch-rad-order/CodeSystem/ch-rad-order-order-detail-type">
-            <valueString value="imagingRegion"/>
+          <extension url="http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-order-detail-type">
+            <valueCoding>
+              <system value="http://fhir.ch/ig/ch-rad-order/CodeSystem/ch-rad-order-order-detail-type"/>
+              <code value="imagingRegion"/>
+            </valueCoding>
           </extension>
           <coding>
             <system value="http://www.radlex.org"/>
@@ -790,8 +793,11 @@
           </coding>
         </orderDetail>
         <orderDetail>
-          <extension url="http://fhir.ch/ig/ch-rad-order/CodeSystem/ch-rad-order-order-detail-type">
-            <valueString value="imagingFocus"/>
+          <extension url="http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-order-detail-type">
+            <valueCoding>
+              <system value="http://fhir.ch/ig/ch-rad-order/CodeSystem/ch-rad-order-order-detail-type"/>
+              <code value="imagingFocus"/>
+            </valueCoding>
           </extension>
           <coding>
             <system value="http://www.radlex.org"/>
@@ -800,40 +806,40 @@
           </coding>
         </orderDetail>
         <subject>
-          <reference value="urn:uuid:61925869-0b59-4035-9b43-4c9f3ff15a3d"/>
+          <reference value="urn:uuid:484be3b3-4fe7-411e-a154-87ab1c2aa47a"/>
         </subject>
         <requester>
-          <reference value="urn:uuid:7aae045d-b70e-42d8-92fa-b20e503a4170"/>
+          <reference value="urn:uuid:3ea9bff4-1a71-407b-a5e3-cdd566a70565"/>
         </requester>
         <performer>
-          <reference value="urn:uuid:86fafc81-f2a7-4105-aec7-f3e6cac33469"/>
+          <reference value="urn:uuid:2a8c59e7-9f17-42e3-b9c6-32c911df094a"/>
         </performer>
         <reasonCode>
           <text value="Diagnostic Question"/>
         </reasonCode>
         <supportingInfo>
-          <reference value="urn:uuid:cef17a9f-499d-4fa6-a98f-4e138e2f5d87"/>
+          <reference value="urn:uuid:7a642d7c-f2b6-425b-a9cd-88b6b7a1d8d4"/>
         </supportingInfo>
         <supportingInfo>
-          <reference value="urn:uuid:b6345b83-6a7e-49c2-85fb-a1a6e48c53d8"/>
+          <reference value="urn:uuid:36b0d1f5-5109-4218-ac23-b63ea759b1c8"/>
         </supportingInfo>
         <supportingInfo>
-          <reference value="urn:uuid:7997104c-1829-4682-9638-0db47a6d8c13"/>
+          <reference value="urn:uuid:b969ff49-57dc-4e0b-9fb5-e23a68a590ef"/>
         </supportingInfo>
         <supportingInfo>
-          <reference value="urn:uuid:ac053425-97a5-4402-9158-16ab60855e47"/>
+          <reference value="urn:uuid:4c32810d-0a1e-4899-9a83-d891e9478f73"/>
         </supportingInfo>
         <supportingInfo>
-          <reference value="urn:uuid:7055c4a2-a01d-4470-aa2d-e8207e533ac1"/>
+          <reference value="urn:uuid:63df833a-c95a-4b07-b3ff-9cca2033fed1"/>
         </supportingInfo>
         <supportingInfo>
-          <reference value="urn:uuid:96804b9d-1b6b-40c7-8b03-594a500eabfb"/>
+          <reference value="urn:uuid:5e4bd1c5-d72b-43af-8f2d-a19ab3aef604"/>
         </supportingInfo>
         <supportingInfo>
-          <reference value="urn:uuid:7239ac52-df87-4ed3-8d6a-c962e6187ae4"/>
+          <reference value="urn:uuid:287814cb-d00a-43de-9736-410f89901008"/>
         </supportingInfo>
         <supportingInfo>
-          <reference value="urn:uuid:51e2fd52-1c22-406c-9481-aa6fac210aa2"/>
+          <reference value="urn:uuid:dbffe49a-3abf-4f0a-b1c3-83717b867242"/>
         </supportingInfo>
       </ServiceRequest>
     </resource>
@@ -1636,20 +1642,20 @@
     </resource>
   </entry>
   <entry>
-    <fullUrl value="urn:uuid:86fafc81-f2a7-4105-aec7-f3e6cac33469"/>
+    <fullUrl value="urn:uuid:2a8c59e7-9f17-42e3-b9c6-32c911df094a"/>
     <resource>
       <PractitionerRole>
         <practitioner>
-          <reference value="urn:uuid:20035aa2-b56b-4cf3-b293-a46a85d30a91"/>
+          <reference value="urn:uuid:a1eb7447-761d-408d-85fe-09e6daa503a9"/>
         </practitioner>
         <organization>
-          <reference value="urn:uuid:a238e76d-15c9-4c57-b7ab-af8fcab536e0"/>
+          <reference value="urn:uuid:b7c5d91d-2972-4281-9bba-95c554fedd81"/>
         </organization>
       </PractitionerRole>
     </resource>
   </entry>
   <entry>
-    <fullUrl value="urn:uuid:20035aa2-b56b-4cf3-b293-a46a85d30a91"/>
+    <fullUrl value="urn:uuid:a1eb7447-761d-408d-85fe-09e6daa503a9"/>
     <resource>
       <Practitioner>
         <identifier>
@@ -1677,7 +1683,7 @@
     </resource>
   </entry>
   <entry>
-    <fullUrl value="urn:uuid:a238e76d-15c9-4c57-b7ab-af8fcab536e0"/>
+    <fullUrl value="urn:uuid:b7c5d91d-2972-4281-9bba-95c554fedd81"/>
     <resource>
       <Organization>
         <name value="Klinik Happy Hospital"/>
@@ -1692,20 +1698,20 @@
     </resource>
   </entry>
   <entry>
-    <fullUrl value="urn:uuid:7aae045d-b70e-42d8-92fa-b20e503a4170"/>
+    <fullUrl value="urn:uuid:3ea9bff4-1a71-407b-a5e3-cdd566a70565"/>
     <resource>
       <PractitionerRole>
         <practitioner>
-          <reference value="urn:uuid:3feb4471-3bbf-4a51-870b-bff697237800"/>
+          <reference value="urn:uuid:19171605-9c0e-4053-96e4-18d67c0ad772"/>
         </practitioner>
         <organization>
-          <reference value="urn:uuid:0a0c68c0-4374-4948-97c8-606726664b03"/>
+          <reference value="urn:uuid:de5a02c6-2c05-44e7-9605-67583031db5a"/>
         </organization>
       </PractitionerRole>
     </resource>
   </entry>
   <entry>
-    <fullUrl value="urn:uuid:3feb4471-3bbf-4a51-870b-bff697237800"/>
+    <fullUrl value="urn:uuid:19171605-9c0e-4053-96e4-18d67c0ad772"/>
     <resource>
       <Practitioner>
         <identifier>
@@ -1733,7 +1739,7 @@
     </resource>
   </entry>
   <entry>
-    <fullUrl value="urn:uuid:0a0c68c0-4374-4948-97c8-606726664b03"/>
+    <fullUrl value="urn:uuid:de5a02c6-2c05-44e7-9605-67583031db5a"/>
     <resource>
       <Organization>
         <name value="Praxis Happy Doctors"/>
@@ -1748,20 +1754,20 @@
     </resource>
   </entry>
   <entry>
-    <fullUrl value="urn:uuid:fb8943d6-b9c8-47c7-90b0-be517d9f84fb"/>
+    <fullUrl value="urn:uuid:70c4ff60-559a-451a-b63d-dc895eed44f0"/>
     <resource>
       <PractitionerRole>
         <practitioner>
-          <reference value="urn:uuid:0ef40239-c7f4-4892-b22a-db249b5ed619"/>
+          <reference value="urn:uuid:91ba21a2-6fe5-4d63-bfab-97adb2e9f124"/>
         </practitioner>
         <organization>
-          <reference value="urn:uuid:0a0c68c0-4374-4948-97c8-606726664b03"/>
+          <reference value="urn:uuid:de5a02c6-2c05-44e7-9605-67583031db5a"/>
         </organization>
       </PractitionerRole>
     </resource>
   </entry>
   <entry>
-    <fullUrl value="urn:uuid:0ef40239-c7f4-4892-b22a-db249b5ed619"/>
+    <fullUrl value="urn:uuid:91ba21a2-6fe5-4d63-bfab-97adb2e9f124"/>
     <resource>
       <Practitioner>
         <name>
@@ -1780,7 +1786,7 @@
     </resource>
   </entry>
   <entry>
-    <fullUrl value="urn:uuid:918c88e8-4a06-43a2-8e3e-736457621c26"/>
+    <fullUrl value="urn:uuid:1052353d-7241-4edc-8b71-375a10e9d292"/>
     <resource>
       <Patient>
         <name>
@@ -1806,7 +1812,7 @@
     </resource>
   </entry>
   <entry>
-    <fullUrl value="urn:uuid:cef17a9f-499d-4fa6-a98f-4e138e2f5d87"/>
+    <fullUrl value="urn:uuid:7a642d7c-f2b6-425b-a9cd-88b6b7a1d8d4"/>
     <resource>
       <Condition>
         <category>
@@ -1820,13 +1826,13 @@
           <text value="Diagnosis 1"/>
         </code>
         <subject>
-          <reference value="urn:uuid:61925869-0b59-4035-9b43-4c9f3ff15a3d"/>
+          <reference value="urn:uuid:484be3b3-4fe7-411e-a154-87ab1c2aa47a"/>
         </subject>
       </Condition>
     </resource>
   </entry>
   <entry>
-    <fullUrl value="urn:uuid:b6345b83-6a7e-49c2-85fb-a1a6e48c53d8"/>
+    <fullUrl value="urn:uuid:36b0d1f5-5109-4218-ac23-b63ea759b1c8"/>
     <resource>
       <Condition>
         <category>
@@ -1840,13 +1846,13 @@
           <text value="Diagnosis 2"/>
         </code>
         <subject>
-          <reference value="urn:uuid:61925869-0b59-4035-9b43-4c9f3ff15a3d"/>
+          <reference value="urn:uuid:484be3b3-4fe7-411e-a154-87ab1c2aa47a"/>
         </subject>
       </Condition>
     </resource>
   </entry>
   <entry>
-    <fullUrl value="urn:uuid:7997104c-1829-4682-9638-0db47a6d8c13"/>
+    <fullUrl value="urn:uuid:b969ff49-57dc-4e0b-9fb5-e23a68a590ef"/>
     <resource>
       <Condition>
         <category>
@@ -1864,13 +1870,13 @@
           </coding>
         </code>
         <subject>
-          <reference value="urn:uuid:61925869-0b59-4035-9b43-4c9f3ff15a3d"/>
+          <reference value="urn:uuid:484be3b3-4fe7-411e-a154-87ab1c2aa47a"/>
         </subject>
       </Condition>
     </resource>
   </entry>
   <entry>
-    <fullUrl value="urn:uuid:ac053425-97a5-4402-9158-16ab60855e47"/>
+    <fullUrl value="urn:uuid:4c32810d-0a1e-4899-9a83-d891e9478f73"/>
     <resource>
       <Condition>
         <category>
@@ -1888,18 +1894,18 @@
           </coding>
         </code>
         <subject>
-          <reference value="urn:uuid:61925869-0b59-4035-9b43-4c9f3ff15a3d"/>
+          <reference value="urn:uuid:484be3b3-4fe7-411e-a154-87ab1c2aa47a"/>
         </subject>
         <evidence>
           <detail>
-            <reference value="urn:uuid:3944a2f7-1867-4cc4-9e67-ec4d3643685a"/>
+            <reference value="urn:uuid:7cb55964-1f7f-4dc3-98b7-4f75d6ea566a"/>
           </detail>
         </evidence>
       </Condition>
     </resource>
   </entry>
   <entry>
-    <fullUrl value="urn:uuid:3944a2f7-1867-4cc4-9e67-ec4d3643685a"/>
+    <fullUrl value="urn:uuid:7cb55964-1f7f-4dc3-98b7-4f75d6ea566a"/>
     <resource>
       <Observation>
         <status value="final"/>
@@ -1911,7 +1917,7 @@
           </coding>
         </code>
         <subject>
-          <reference value="urn:uuid:61925869-0b59-4035-9b43-4c9f3ff15a3d"/>
+          <reference value="urn:uuid:484be3b3-4fe7-411e-a154-87ab1c2aa47a"/>
         </subject>
         <effectiveDateTime value="2019-04-01T10:10:00.000+00:00"/>
         <valueQuantity>
@@ -1923,7 +1929,7 @@
     </resource>
   </entry>
   <entry>
-    <fullUrl value="urn:uuid:7055c4a2-a01d-4470-aa2d-e8207e533ac1"/>
+    <fullUrl value="urn:uuid:63df833a-c95a-4b07-b3ff-9cca2033fed1"/>
     <resource>
       <Condition>
         <category>
@@ -1941,13 +1947,13 @@
           </coding>
         </code>
         <subject>
-          <reference value="urn:uuid:61925869-0b59-4035-9b43-4c9f3ff15a3d"/>
+          <reference value="urn:uuid:484be3b3-4fe7-411e-a154-87ab1c2aa47a"/>
         </subject>
       </Condition>
     </resource>
   </entry>
   <entry>
-    <fullUrl value="urn:uuid:96804b9d-1b6b-40c7-8b03-594a500eabfb"/>
+    <fullUrl value="urn:uuid:5e4bd1c5-d72b-43af-8f2d-a19ab3aef604"/>
     <resource>
       <Condition>
         <category>
@@ -1965,7 +1971,7 @@
           </coding>
         </code>
         <subject>
-          <reference value="urn:uuid:61925869-0b59-4035-9b43-4c9f3ff15a3d"/>
+          <reference value="urn:uuid:484be3b3-4fe7-411e-a154-87ab1c2aa47a"/>
         </subject>
         <note>
           <text value="Herzschrittmacher"/>
@@ -1974,7 +1980,7 @@
     </resource>
   </entry>
   <entry>
-    <fullUrl value="urn:uuid:7239ac52-df87-4ed3-8d6a-c962e6187ae4"/>
+    <fullUrl value="urn:uuid:287814cb-d00a-43de-9736-410f89901008"/>
     <resource>
       <Condition>
         <category>
@@ -1992,7 +1998,7 @@
           </coding>
         </code>
         <subject>
-          <reference value="urn:uuid:61925869-0b59-4035-9b43-4c9f3ff15a3d"/>
+          <reference value="urn:uuid:484be3b3-4fe7-411e-a154-87ab1c2aa47a"/>
         </subject>
         <note>
           <text value="Metformin"/>
@@ -2001,7 +2007,7 @@
     </resource>
   </entry>
   <entry>
-    <fullUrl value="urn:uuid:51e2fd52-1c22-406c-9481-aa6fac210aa2"/>
+    <fullUrl value="urn:uuid:dbffe49a-3abf-4f0a-b1c3-83717b867242"/>
     <resource>
       <Condition>
         <category>
@@ -2019,7 +2025,7 @@
           </coding>
         </code>
         <subject>
-          <reference value="urn:uuid:61925869-0b59-4035-9b43-4c9f3ff15a3d"/>
+          <reference value="urn:uuid:484be3b3-4fe7-411e-a154-87ab1c2aa47a"/>
         </subject>
         <note>
           <text value="Anderes Medikament"/>

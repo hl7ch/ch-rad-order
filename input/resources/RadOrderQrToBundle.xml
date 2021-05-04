@@ -63,32 +63,32 @@ group ImagingServiceItems(source src : BackboneElement, target serviceRequest : 
 group OrderDetailServiceItems(source src : BackboneElement, target serviceRequest : ServiceRequest) {
   src.item as item where ((linkId.value = 'orderDetail.imagingRegion') and answer.exists()) then {
     item.answer as answer then {
-      answer.value : Coding as coding -&gt;  serviceRequest.orderDetail as cc,  cc.extension as ext,  ext.url = 'http://fhir.ch/ig/ch-rad-order/CodeSystem/ch-rad-order-order-detail-type',  ext.value = 'imagingRegion',  cc.coding = coding "imagingRegion";
+      answer.value : Coding as coding -&gt;  serviceRequest.orderDetail as cc,  cc.extension as ext,  ext.url = 'http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-order-detail-type',  ext.value = create('Coding') as coding,  coding.system = 'http://fhir.ch/ig/ch-rad-order/CodeSystem/ch-rad-order-order-detail-type',  coding.code = 'imagingRegion',  cc.coding = coding "imagingRegion";
     } "valueCoding";
   } "answer";
   src.item as item where ((linkId.value = 'orderDetail.imagingFocus') and answer.exists()) then {
     item.answer as answer then {
-      answer.value : Coding as coding -&gt;  serviceRequest.orderDetail as cc,  cc.extension as ext,  ext.url = 'http://fhir.ch/ig/ch-rad-order/CodeSystem/ch-rad-order-order-detail-type',  ext.value = 'imagingFocus',  cc.coding = coding "imagingFocus";
+      answer.value : Coding as coding -&gt;  serviceRequest.orderDetail as cc,  cc.extension as ext,  ext.url = 'http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-order-detail-type',  ext.value = create('Coding') as coding,  coding.system = 'http://fhir.ch/ig/ch-rad-order/CodeSystem/ch-rad-order-order-detail-type',  coding.code = 'imagingFocus',  cc.coding = coding "imagingFocus";
     } "valueCoding";
   } "answer";
   src.item as item where ((linkId.value = 'orderDetail.laterality') and answer.exists()) then {
     item.answer as answer then {
-      answer.value : Coding as coding -&gt;  serviceRequest.orderDetail as cc,  cc.extension as ext,  ext.url = 'http://fhir.ch/ig/ch-rad-order/CodeSystem/ch-rad-order-order-detail-type',  ext.value = 'laterality',  cc.coding = coding "laterality";
+      answer.value : Coding as coding -&gt;  serviceRequest.orderDetail as cc,  cc.extension as ext,  ext.url = 'http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-order-detail-type',  ext.value = create('Coding') as coding,  coding.system = 'http://fhir.ch/ig/ch-rad-order/CodeSystem/ch-rad-order-order-detail-type',  coding.code = 'laterality',  cc.coding = coding "laterality";
     } "valueCoding";
   } "answer";
   src.item as item where ((linkId.value = 'orderDetail.viewType') and answer.exists()) then {
     item.answer as answer then {
-      answer.value : Coding as coding -&gt;  serviceRequest.orderDetail as cc,  cc.extension as ext,  ext.url = 'http://fhir.ch/ig/ch-rad-order/CodeSystem/ch-rad-order-order-detail-type',  ext.value = 'viewType',  cc.coding = coding "viewType";
+      answer.value : Coding as coding -&gt;  serviceRequest.orderDetail as cc,  cc.extension as ext,  ext.url = 'http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-order-detail-type',  ext.value = create('Coding') as coding,  coding.system = 'http://fhir.ch/ig/ch-rad-order/CodeSystem/ch-rad-order-order-detail-type',  coding.code = 'viewType',  cc.coding = coding "viewType";
     } "valueCoding";
   } "answer";
   src.item as item where ((linkId.value = 'orderDetail.maneuverType') and answer.exists()) then {
     item.answer as answer then {
-      answer.value : Coding as coding -&gt;  serviceRequest.orderDetail as cc,  cc.extension as ext,  ext.url = 'http://fhir.ch/ig/ch-rad-order/CodeSystem/ch-rad-order-order-detail-type',  ext.value = 'maneuverType',  cc.coding = coding "maneuverType";
+      answer.value : Coding as coding -&gt;  serviceRequest.orderDetail as cc,  cc.extension as ext,  ext.url = 'http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-order-detail-type',  ext.value = create('Coding') as coding,  coding.system = 'http://fhir.ch/ig/ch-rad-order/CodeSystem/ch-rad-order-order-detail-type',  coding.code = 'maneuverType',  cc.coding = coding "maneuverType";
     } "valueCoding";
   } "answer";
   src.item as item where ((linkId.value = 'orderDetail.guidanceForAction') and answer.exists()) then {
     item.answer as answer then {
-      answer.value : Coding as coding -&gt;  serviceRequest.orderDetail as cc,  cc.extension as ext,  ext.url = 'http://fhir.ch/ig/ch-rad-order/CodeSystem/ch-rad-order-order-detail-type',  ext.value = 'guidanceForAction',  cc.coding = coding "guidanceForAction";
+      answer.value : Coding as coding -&gt;  serviceRequest.orderDetail as cc,  cc.extension as ext,  ext.url = 'http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-order-detail-type',  ext.value = create('Coding') as coding,  coding.system = 'http://fhir.ch/ig/ch-rad-order/CodeSystem/ch-rad-order-order-detail-type',  coding.code = 'guidanceForAction',  cc.coding = coding "guidanceForAction";
     } "valueCoding";
   } "answer";
 }
@@ -818,13 +818,32 @@ group RenalInsufficiencyCreatinineServiceItems(source src : BackboneElement, tar
                   <element value="url"></element>
                   <transform value="copy"></transform>
                   <parameter>
-                     <valueString value="http://fhir.ch/ig/ch-rad-order/CodeSystem/ch-rad-order-order-detail-type"></valueString>
+                     <valueString value="http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-order-detail-type"></valueString>
                   </parameter>
                </target>
                <target>
                   <context value="ext"></context>
                   <contextType value="variable"></contextType>
                   <element value="value"></element>
+                  <variable value="coding"></variable>
+                  <transform value="create"></transform>
+                  <parameter>
+                     <valueString value="Coding"></valueString>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="coding"></context>
+                  <contextType value="variable"></contextType>
+                  <element value="system"></element>
+                  <transform value="copy"></transform>
+                  <parameter>
+                     <valueString value="http://fhir.ch/ig/ch-rad-order/CodeSystem/ch-rad-order-order-detail-type"></valueString>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="coding"></context>
+                  <contextType value="variable"></contextType>
+                  <element value="code"></element>
                   <transform value="copy"></transform>
                   <parameter>
                      <valueString value="imagingRegion"></valueString>
@@ -883,13 +902,32 @@ group RenalInsufficiencyCreatinineServiceItems(source src : BackboneElement, tar
                   <element value="url"></element>
                   <transform value="copy"></transform>
                   <parameter>
-                     <valueString value="http://fhir.ch/ig/ch-rad-order/CodeSystem/ch-rad-order-order-detail-type"></valueString>
+                     <valueString value="http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-order-detail-type"></valueString>
                   </parameter>
                </target>
                <target>
                   <context value="ext"></context>
                   <contextType value="variable"></contextType>
                   <element value="value"></element>
+                  <variable value="coding"></variable>
+                  <transform value="create"></transform>
+                  <parameter>
+                     <valueString value="Coding"></valueString>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="coding"></context>
+                  <contextType value="variable"></contextType>
+                  <element value="system"></element>
+                  <transform value="copy"></transform>
+                  <parameter>
+                     <valueString value="http://fhir.ch/ig/ch-rad-order/CodeSystem/ch-rad-order-order-detail-type"></valueString>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="coding"></context>
+                  <contextType value="variable"></contextType>
+                  <element value="code"></element>
                   <transform value="copy"></transform>
                   <parameter>
                      <valueString value="imagingFocus"></valueString>
@@ -948,13 +986,32 @@ group RenalInsufficiencyCreatinineServiceItems(source src : BackboneElement, tar
                   <element value="url"></element>
                   <transform value="copy"></transform>
                   <parameter>
-                     <valueString value="http://fhir.ch/ig/ch-rad-order/CodeSystem/ch-rad-order-order-detail-type"></valueString>
+                     <valueString value="http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-order-detail-type"></valueString>
                   </parameter>
                </target>
                <target>
                   <context value="ext"></context>
                   <contextType value="variable"></contextType>
                   <element value="value"></element>
+                  <variable value="coding"></variable>
+                  <transform value="create"></transform>
+                  <parameter>
+                     <valueString value="Coding"></valueString>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="coding"></context>
+                  <contextType value="variable"></contextType>
+                  <element value="system"></element>
+                  <transform value="copy"></transform>
+                  <parameter>
+                     <valueString value="http://fhir.ch/ig/ch-rad-order/CodeSystem/ch-rad-order-order-detail-type"></valueString>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="coding"></context>
+                  <contextType value="variable"></contextType>
+                  <element value="code"></element>
                   <transform value="copy"></transform>
                   <parameter>
                      <valueString value="laterality"></valueString>
@@ -1013,13 +1070,32 @@ group RenalInsufficiencyCreatinineServiceItems(source src : BackboneElement, tar
                   <element value="url"></element>
                   <transform value="copy"></transform>
                   <parameter>
-                     <valueString value="http://fhir.ch/ig/ch-rad-order/CodeSystem/ch-rad-order-order-detail-type"></valueString>
+                     <valueString value="http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-order-detail-type"></valueString>
                   </parameter>
                </target>
                <target>
                   <context value="ext"></context>
                   <contextType value="variable"></contextType>
                   <element value="value"></element>
+                  <variable value="coding"></variable>
+                  <transform value="create"></transform>
+                  <parameter>
+                     <valueString value="Coding"></valueString>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="coding"></context>
+                  <contextType value="variable"></contextType>
+                  <element value="system"></element>
+                  <transform value="copy"></transform>
+                  <parameter>
+                     <valueString value="http://fhir.ch/ig/ch-rad-order/CodeSystem/ch-rad-order-order-detail-type"></valueString>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="coding"></context>
+                  <contextType value="variable"></contextType>
+                  <element value="code"></element>
                   <transform value="copy"></transform>
                   <parameter>
                      <valueString value="viewType"></valueString>
@@ -1078,13 +1154,32 @@ group RenalInsufficiencyCreatinineServiceItems(source src : BackboneElement, tar
                   <element value="url"></element>
                   <transform value="copy"></transform>
                   <parameter>
-                     <valueString value="http://fhir.ch/ig/ch-rad-order/CodeSystem/ch-rad-order-order-detail-type"></valueString>
+                     <valueString value="http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-order-detail-type"></valueString>
                   </parameter>
                </target>
                <target>
                   <context value="ext"></context>
                   <contextType value="variable"></contextType>
                   <element value="value"></element>
+                  <variable value="coding"></variable>
+                  <transform value="create"></transform>
+                  <parameter>
+                     <valueString value="Coding"></valueString>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="coding"></context>
+                  <contextType value="variable"></contextType>
+                  <element value="system"></element>
+                  <transform value="copy"></transform>
+                  <parameter>
+                     <valueString value="http://fhir.ch/ig/ch-rad-order/CodeSystem/ch-rad-order-order-detail-type"></valueString>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="coding"></context>
+                  <contextType value="variable"></contextType>
+                  <element value="code"></element>
                   <transform value="copy"></transform>
                   <parameter>
                      <valueString value="maneuverType"></valueString>
@@ -1143,13 +1238,32 @@ group RenalInsufficiencyCreatinineServiceItems(source src : BackboneElement, tar
                   <element value="url"></element>
                   <transform value="copy"></transform>
                   <parameter>
-                     <valueString value="http://fhir.ch/ig/ch-rad-order/CodeSystem/ch-rad-order-order-detail-type"></valueString>
+                     <valueString value="http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-order-detail-type"></valueString>
                   </parameter>
                </target>
                <target>
                   <context value="ext"></context>
                   <contextType value="variable"></contextType>
                   <element value="value"></element>
+                  <variable value="coding"></variable>
+                  <transform value="create"></transform>
+                  <parameter>
+                     <valueString value="Coding"></valueString>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="coding"></context>
+                  <contextType value="variable"></contextType>
+                  <element value="system"></element>
+                  <transform value="copy"></transform>
+                  <parameter>
+                     <valueString value="http://fhir.ch/ig/ch-rad-order/CodeSystem/ch-rad-order-order-detail-type"></valueString>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="coding"></context>
+                  <contextType value="variable"></contextType>
+                  <element value="code"></element>
                   <transform value="copy"></transform>
                   <parameter>
                      <valueString value="guidanceForAction"></valueString>

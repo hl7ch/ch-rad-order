@@ -77,8 +77,10 @@ group OrderDetailServiceItems(source src : BackboneElement, target serviceReques
     item.answer as answer then {
       answer.value: Coding as coding -> serviceRequest.orderDetail as cc, 
                                           cc.extension as ext, 
-                                             ext.url='http://fhir.ch/ig/ch-rad-order/CodeSystem/ch-rad-order-order-detail-type', 
-                                             ext.value='imagingRegion', 
+                                             ext.url='http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-order-detail-type', 
+                                             ext.value = create('Coding') as coding,
+                                             coding.system = 'http://fhir.ch/ig/ch-rad-order/CodeSystem/ch-rad-order-order-detail-type',
+                                             coding.code = 'imagingRegion', 
                                           cc.coding = coding "orderDetail.imagingRegion";
     } "answer.valueCoding";
   } "item.answer";
@@ -86,8 +88,10 @@ group OrderDetailServiceItems(source src : BackboneElement, target serviceReques
     item.answer as answer then {
       answer.value: Coding as coding -> serviceRequest.orderDetail as cc, 
                                           cc.extension as ext, 
-                                             ext.url='http://fhir.ch/ig/ch-rad-order/CodeSystem/ch-rad-order-order-detail-type', 
-                                             ext.value='imagingFocus', 
+                                          ext.url='http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-order-detail-type', 
+                                          ext.value = create('Coding') as coding,
+                                          coding.system = 'http://fhir.ch/ig/ch-rad-order/CodeSystem/ch-rad-order-order-detail-type',
+                                          coding.code = 'imagingFocus', 
                                           cc.coding = coding "orderDetail.imagingFocus";
     } "answer.valueCoding";
   } "item.answer";
@@ -95,8 +99,10 @@ group OrderDetailServiceItems(source src : BackboneElement, target serviceReques
     item.answer as answer then {
       answer.value: Coding as coding -> serviceRequest.orderDetail as cc, 
                                           cc.extension as ext, 
-                                             ext.url='http://fhir.ch/ig/ch-rad-order/CodeSystem/ch-rad-order-order-detail-type', 
-                                             ext.value='laterality', 
+                                          ext.url='http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-order-detail-type', 
+                                          ext.value = create('Coding') as coding,
+                                          coding.system = 'http://fhir.ch/ig/ch-rad-order/CodeSystem/ch-rad-order-order-detail-type',
+                                          coding.code = 'laterality', 
                                           cc.coding = coding "orderDetail.laterality";
     } "answer.valueCoding";
   } "item.answer";
@@ -104,8 +110,10 @@ group OrderDetailServiceItems(source src : BackboneElement, target serviceReques
     item.answer as answer then {
       answer.value: Coding as coding -> serviceRequest.orderDetail as cc, 
                                           cc.extension as ext, 
-                                             ext.url='http://fhir.ch/ig/ch-rad-order/CodeSystem/ch-rad-order-order-detail-type', 
-                                             ext.value='viewType', 
+                                          ext.url='http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-order-detail-type', 
+                                          ext.value = create('Coding') as coding,
+                                          coding.system = 'http://fhir.ch/ig/ch-rad-order/CodeSystem/ch-rad-order-order-detail-type',
+                                          coding.code = 'viewType', 
                                           cc.coding = coding "orderDetail.viewType";
     } "answer.valueCoding";
   } "item.answer";
@@ -113,8 +121,10 @@ group OrderDetailServiceItems(source src : BackboneElement, target serviceReques
     item.answer as answer then {
       answer.value: Coding as coding -> serviceRequest.orderDetail as cc, 
                                           cc.extension as ext, 
-                                             ext.url='http://fhir.ch/ig/ch-rad-order/CodeSystem/ch-rad-order-order-detail-type', 
-                                             ext.value='maneuverType', 
+                                          ext.url='http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-order-detail-type', 
+                                          ext.value = create('Coding') as coding,
+                                          coding.system = 'http://fhir.ch/ig/ch-rad-order/CodeSystem/ch-rad-order-order-detail-type',
+                                          coding.code = 'maneuverType', 
                                           cc.coding = coding "orderDetail.maneuverType";
     } "answer.valueCoding";
   } "item.answer";
@@ -122,8 +132,10 @@ group OrderDetailServiceItems(source src : BackboneElement, target serviceReques
     item.answer as answer then {
       answer.value: Coding as coding -> serviceRequest.orderDetail as cc, 
                                           cc.extension as ext, 
-                                             ext.url='http://fhir.ch/ig/ch-rad-order/CodeSystem/ch-rad-order-order-detail-type', 
-                                             ext.value='guidanceForAction', 
+                                          ext.url='http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-order-detail-type', 
+                                          ext.value = create('Coding') as coding,
+                                          coding.system = 'http://fhir.ch/ig/ch-rad-order/CodeSystem/ch-rad-order-order-detail-type',
+                                          coding.code = 'guidanceForAction', 
                                           cc.coding = coding "orderDetail.guidanceForAction";
     } "answer.valueCoding";
   } "item.answer";
