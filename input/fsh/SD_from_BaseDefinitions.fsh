@@ -41,7 +41,7 @@ Id: ch-rad-order-caveat-observation
 Title: "CH RAD-Order Caveat Observation"
 Description: "Definition for the Caveat Observation resource in the context of CH RAD-Order."
 * . ^short = "CH ORF Caveat Observation"
-* effective[x] and value[x] and dataAbsentReason and note MS
+* effective[x] and value[x] and dataAbsentReason MS
 * effective[x] only dateTime
 * value[x] only Quantity or boolean or Ratio
 * subject only Reference(ChCorePatient) 
