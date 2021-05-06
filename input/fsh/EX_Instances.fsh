@@ -16,7 +16,6 @@ Description: "Example for ServiceRequest"
 * subject = Reference(SUfferer)
 * requester = Reference(ORderplacerHappyDoctors)
 * performer = Reference(ORderfillerHappyHospital)
-// * locationReference = Reference(RadiologyDepartment)
 * reasonCode.text = "Diagnostic Question"
 * insurance = Reference(CoverageKVG)
 * supportingInfo[diagnosis][+] = Reference(Diagnosis1)
@@ -126,8 +125,6 @@ Description: "Example for Bundle"
 * entry[=].resource = ConsentPatientPrivacy
 * entry[+].fullUrl = "http://example.com/fhir/ImagingStudy/ImagingStudyRx"
 * entry[=].resource = ImagingStudyRx
-//* entry[+].fullUrl = "http://example.com/fhir/Location/RadiologyDepartment"
-//* entry[=].resource = RadiologyDepartment
 
 
 Instance: ORderplacer
@@ -414,14 +411,4 @@ Description: "Example for Imaging Study"
 * series.performer.actor =
 * series.instance.uid =
 * series.instance.sopClass
-*/
-
-
-/*
-Instance: RadiologyDepartment
-InstanceOf: ChCoreLocation
-Title: "Radiology Department of Happy Hospital"
-Description: "Example for Location"
-* name = "Radiology Department of Happy Hospital"
-* managingOrganization = Reference(HappyHospital)
 */

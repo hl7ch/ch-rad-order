@@ -57,9 +57,6 @@ In case of 'ChRadOrderModalityType' specify Imaging Request Details by means of 
 * orderDetail[maneuverType] from ChRadOrderManeuverType
 * orderDetail[guidanceForAction] MS
 * orderDetail[guidanceForAction] from ChRadOrderGuidanceForAction
-//------- locationReference -------
-* locationReference MS
-* locationReference only Reference(ChCoreLocation)
 //------- reasonCode -------
 * reasonCode MS
 * reasonCode ^short = "Diagnostic Question in free text: Coding of all diagnostic questions not feasable."
