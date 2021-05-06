@@ -57,8 +57,6 @@ In case of 'ChRadOrderModalityType' specify Imaging Request Details by means of 
 * orderDetail[maneuverType] from ChRadOrderManeuverType
 * orderDetail[guidanceForAction] MS
 * orderDetail[guidanceForAction] from ChRadOrderGuidanceForAction
-//------- authoredOn -------
-* authoredOn MS
 //------- locationReference -------
 * locationReference MS
 * locationReference only Reference(ChCoreLocation)

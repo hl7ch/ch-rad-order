@@ -14,7 +14,6 @@ Description: "Example for ServiceRequest"
 * orderDetail[imagingFocus] = RDLX#RID2468 "Chest wall"
 * orderDetail[imagingFocus].extension[orderDetailType].valueCoding = ChRadOrderOrderDetailType#imagingFocus
 * subject = Reference(SUfferer)
-//* authoredOn = "2019-04-01T20:18:41.341+00:00"
 * requester = Reference(ORderplacerHappyDoctors)
 * performer = Reference(ORderfillerHappyHospital)
 // * locationReference = Reference(RadiologyDepartment)
