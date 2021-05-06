@@ -11,8 +11,6 @@ An Order Filler accepts from an Order Placer a single Order that it equates to a
 (which is concept commonly used in HL7) or Imaging Service Request (Concept commonly used in DICOM). 
 Consequently one CH RAD-Order Document contains one CH RAD-Order ServiceRequest which depicts one Placer Order 
 equal one Filler Order equal one Imaging Service Request."
-* replaces MS
-* replaces only Reference(ChRadOrderServiceRequest)
 * intent MS
 //------- category -------
 * category 1..1 MS
