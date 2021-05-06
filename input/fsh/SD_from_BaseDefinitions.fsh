@@ -29,25 +29,45 @@ Description: "Definition for the Caveat Condition resource in the context of CH 
 * subject MS
 * subject only Reference(ChCorePatient)  
 * evidence MS
-* evidence.detail MS
-* evidence.detail only Reference(ChRadOrderCaveatObservation)
+* evidence.detail 1..1 MS
+* evidence.detail ^short = "Supporting information (creatinine clearance, creatinine) for renal insufficiency condition"
+* evidence.detail only Reference(ChRadOrderCreatinineClearanceObservation or ChRadOrderCreatinineObservation)
 * note MS
 * note.text MS
 
 
-Profile: ChRadOrderCaveatObservation
+Profile: ChRadOrderCreatinineClearanceObservation
 Parent: Observation
-Id: ch-rad-order-caveat-observation
-Title: "CH RAD-Order Caveat Observation"
-Description: "Definition for the Caveat Observation resource in the context of CH RAD-Order."
-* . ^short = "CH ORF Caveat Observation"
-* effective[x] and value[x] and dataAbsentReason MS
-* effective[x] only dateTime
-* value[x] only Quantity or boolean or Ratio
-* subject only Reference(ChCorePatient) 
-* subject MS 
-* code MS
+Id: ch-rad-order-creatinineclearance-observation
+Title: "CH RAD-Order Creatinine Clearance Observation"
+Description: "Definition for the Creatinine Clearance Observation resource in the context of CH RAD-Order."
+* . ^short = "CH ORF Creatinine Clearance Observation"
 * status MS
+* code MS
+// * code = 
+// * code ^short = ""
+* subject MS 
+* subject only Reference(ChCorePatient) 
+* effectiveDateTime MS
+* valueQuantity MS
+// TBD: Einheit fixieren
+
+
+Profile: ChRadOrderCreatinineObservation
+Parent: Observation
+Id: ch-rad-order-creatinine-observation
+Title: "CH RAD-Order Creatinine Observation"
+Description: "Definition for the Creatinine Observation resource in the context of CH RAD-Order."
+* . ^short = "CH ORF Creatinine Observation"
+* status MS
+* code MS
+// * code = 
+// * code ^short = ""
+* subject MS 
+* subject only Reference(ChCorePatient) 
+* effectiveDateTime MS
+* valueQuantity MS
+// TBD: Einheit fixieren
 
 
 Profile: ChRadOrderImagingStudy

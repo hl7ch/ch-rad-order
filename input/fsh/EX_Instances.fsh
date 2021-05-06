@@ -111,6 +111,8 @@ Description: "Example for Bundle"
 * entry[=].resource = CaveatBodyPiercing
 * entry[+].fullUrl = "http://example.com/fhir/Condition/CaveatRenalInsufficiency"
 * entry[=].resource = CaveatRenalInsufficiency
+* entry[+].fullUrl = "http://example.com/fhir/Observation/CaveatRenalInsufficiencyCreatinineClearance"
+* entry[=].resource = CaveatRenalInsufficiencyCreatinineClearance
 * entry[+].fullUrl = "http://example.com/fhir/Observation/CaveatRenalInsufficiencyCreatinine"
 * entry[=].resource = CaveatRenalInsufficiencyCreatinine
 * entry[+].fullUrl = "http://example.com/fhir/Condition/CaveatDrugPrescriptionMetformin"
@@ -333,15 +335,27 @@ Description: "Example for Caveat Condition"
 * category = ConditionCategory#problem-list-item "Problem List Item"
 * code = SCT#723188008 "Renal insufficiency (disorder)"
 * subject = Reference(SUfferer)
-* evidence.detail = Reference(CaveatRenalInsufficiencyCreatinine)
+* evidence[+].detail = Reference(CaveatRenalInsufficiencyCreatinineClearance)
+* evidence[+].detail = Reference(CaveatRenalInsufficiencyCreatinine)
+
+
+Instance: CaveatRenalInsufficiencyCreatinineClearance
+InstanceOf: ChRadOrderCreatinineClearanceObservation
+Title: "Caveat Renal Insufficiency Creatinine Clearance"
+Description: "Example for CreatinineClearance Observation"
+* status = #final
+* code = SCT#723188008 "Renal insufficiency (disorder)" // TBD: Codes für Kreatinin-Clearance-Observation
+* subject = Reference(SUfferer)
+* effectiveDateTime = "2019-04-01T10:10:00.000+00:00"
+* valueQuantity = 122 'mL/min'
 
 
 Instance: CaveatRenalInsufficiencyCreatinine
-InstanceOf: ChRadOrderCaveatObservation
+InstanceOf: ChRadOrderCreatinineObservation
 Title: "Caveat Renal Insufficiency Creatinine"
-Description: "Example for Caveat Observation"
+Description: "Example for Creatinine Observation"
 * status = #final
-* code = SCT#723188008 "Renal insufficiency (disorder)" // TBD: Codes für Kreatinin- & Kreatinin-Clearance-Observation
+* code = SCT#723188008 "Renal insufficiency (disorder)" // TBD: Codes für Kreatinin-Observation
 * subject = Reference(SUfferer)
 * effectiveDateTime = "2019-04-01T10:10:00.000+00:00"
 * valueQuantity = 122 'umol/L'
