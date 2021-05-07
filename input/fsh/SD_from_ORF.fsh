@@ -11,6 +11,9 @@ An Order Filler accepts from an Order Placer a single Order that it equates to a
 (which is concept commonly used in HL7) or Imaging Service Request (Concept commonly used in DICOM). 
 Consequently one CH RAD-Order Document contains one CH RAD-Order ServiceRequest which depicts one Placer Order 
 equal one Filler Order equal one Imaging Service Request."
+
+* extension contains ChRadOrderAppointment named appointment 0..* MS
+
 * intent MS
 //------- category -------
 * category 1..1 MS
@@ -101,7 +104,6 @@ In case of 'ChRadOrderModalityType' specify Imaging Request Details by means of 
 * patientInstruction MS
 
 
-// TBD
 Extension: ChRadOrderAppointment
 Id: ch-rad-order-appointment
 Title: "CH RAD-Order Appointment"

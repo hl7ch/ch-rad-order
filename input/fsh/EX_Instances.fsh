@@ -2,6 +2,8 @@ Instance: ServiceRequestRadiologyOrder
 InstanceOf: ChRadOrderServiceRequest
 Title: "ServiceRequest Radiology Order"
 Description: "Example for ServiceRequest"
+* extension[appointment].valueReference = Reference(AppointmentRadiography)
+
 * identifier[placerOrderIdentifier].system = "urn:oid:1.3.4.5.6.7"
 * identifier[placerOrderIdentifier].value = "12345"
 * status = #active
@@ -144,6 +146,8 @@ Description: "Example for Bundle"
 * entry[=].resource = ConsentPatientPrivacy
 * entry[+].fullUrl = "http://example.com/fhir/ImagingStudy/ImagingStudyRx"
 * entry[=].resource = ImagingStudyRx
+* entry[+].fullUrl = "http://example.com/fhir/Appointment/AppointmentRadiography"
+* entry[=].resource = AppointmentRadiography
 
 
 
@@ -454,3 +458,19 @@ Description: "Example for Imaging Study"
 * series.instance.uid =
 * series.instance.sopClass
 */
+
+
+Instance: AppointmentRadiography
+InstanceOf: ChOrfAppointment
+Title: "Appointment Radiography"
+Description: "Example for Appointment"
+* identifier.system = "http://example.com/identifierdomain"
+* identifier.value = "384209.38"
+* status = #proposed
+* patientInstruction = "Wunschtermin der Patientin"
+* participant[+].actor = Reference(SUfferer)
+* participant[=].status = #accepted
+* participant[+].actor = Reference(ORderfillerHappyHospital)
+* participant[=].status = #needs-action
+* requestedPeriod[+].start = "2019-04-01T15:00:00.000+00:00"
+* requestedPeriod[=].end = "2019-04-01T15:30:00.000+00:00"
