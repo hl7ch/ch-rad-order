@@ -621,14 +621,14 @@
           <definition value="http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest"/>
           <text value="Problem- / Diagnoseliste"/>
           <item>
-            <linkId value="diagnosisList.diagnosis"/>
+            <linkId value="diagnosisList.secondaryDiagnosis"/>
             <definition value="http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.supportingInfo"/>
-            <text value="Problem / Diagnose"/>
+            <text value="Weiteres Problem / Nebendiagnose"/>
             <answer>
-              <valueString value="Diagnosis 1"/>
+              <valueString value="Secondary Diagnosis 1"/>
             </answer>
             <answer>
-              <valueString value="Diagnosis 2"/>
+              <valueString value="Secondary Diagnosis 2"/>
             </answer>
           </item>
         </item>
@@ -1474,8 +1474,8 @@
           <text value="Problem- / Diagnoseliste"/>
           <type value="group"/>
           <item>
-            <linkId value="diagnosisList.diagnosis"/>
-            <text value="Problem / Diagnose"/>
+            <linkId value="diagnosisList.secondaryDiagnosis"/>
+            <text value="Weiteres Problem / Nebendiagnose"/>
             <type value="string"/>
             <repeats value="true"/>
           </item>
@@ -1823,7 +1823,7 @@
           </coding>
         </category>
         <code>
-          <text value="Diagnosis 1"/>
+          <text value="Secondary Diagnosis 1"/>
         </code>
         <subject>
           <reference value="urn:uuid:484be3b3-4fe7-411e-a154-87ab1c2aa47a"/>
@@ -1843,7 +1843,7 @@
           </coding>
         </category>
         <code>
-          <text value="Diagnosis 2"/>
+          <text value="Secondary Diagnosis 2"/>
         </code>
         <subject>
           <reference value="urn:uuid:484be3b3-4fe7-411e-a154-87ab1c2aa47a"/>

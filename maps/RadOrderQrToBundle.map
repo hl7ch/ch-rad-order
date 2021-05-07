@@ -142,7 +142,7 @@ group OrderDetailServiceItems(source src : BackboneElement, target serviceReques
 }
 
 group DiagnosisListServiceItems(source src : BackboneElement, target patient : Patient, target bundle : Bundle, target serviceRequest: ServiceRequest) {
-  src.item as item where (linkId.value = 'diagnosisList.diagnosis' and answer.exists()) then {
+  src.item as item where (linkId.value = 'diagnosisList.secondaryDiagnosis' and answer.exists()) then {
     item.answer as answer then {
       answer.value: string as value -> 
         bundle.entry as e, 
@@ -160,7 +160,7 @@ group DiagnosisListServiceItems(source src : BackboneElement, target patient : P
           code.text = value,
         condition.subject as subject,
           subject.reference = ('urn:uuid:'+patient.id)
-              "diagnosisList.diagnosis";
+              "diagnosisList.secondaryDiagnosis";
     } "answer.valueString";
   } "item.answer";
 }

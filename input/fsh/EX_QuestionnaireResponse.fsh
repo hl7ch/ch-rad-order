@@ -305,10 +305,14 @@ Darstellung der Problem- / Diagnoseliste
 * item[+].linkId = "diagnosisList"
 * item[=].text = "Problem- / Diagnoseliste"
 
-* item[=].item[+].linkId = "diagnosisList.diagnosis"
-* item[=].item[=].text = "Problem / Diagnose"
-* item[=].item[=].answer[+].valueString = "Diagnosis 1"
-* item[=].item[=].answer[+].valueString = "Diagnosis 2"
+* item[=].item[+].linkId = "diagnosisList.primaryDiagnosis"  
+* item[=].item[=].text = "Grund für die Zuweisung (Hauptdiagnose)"
+* item[=].item[=].answer[+].valueString = "Primary Diagnosis"
+
+* item[=].item[+].linkId = "diagnosisList.secondaryDiagnosis"
+* item[=].item[=].text = "Weiteres Problem / Nebendiagnose"
+* item[=].item[=].answer[+].valueString = "Secondary Diagnosis 1"
+* item[=].item[=].answer[+].valueString = "Secondary Diagnosis 2"
 
 /*----------------------------------------------------------------------
 Caveats   

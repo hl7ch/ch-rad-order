@@ -17,9 +17,10 @@ Description: "Example for ServiceRequest"
 * requester = Reference(ORderplacerHappyDoctors)
 * performer = Reference(ORderfillerHappyHospital) // desiredRadiologist
 * reasonCode.text = "Diagnostic Question"
+* reasonReference[+] = Reference(PrimaryDiagnosis)
 * insurance = Reference(CoverageKVG)
-* supportingInfo[diagnosis][+] = Reference(Diagnosis1)
-* supportingInfo[diagnosis][+] = Reference(Diagnosis2)
+* supportingInfo[diagnosis][+] = Reference(SecondaryDiagnosis1)
+* supportingInfo[diagnosis][+] = Reference(SecondaryDiagnosis2)
 * supportingInfo[caveats][+] = Reference(CaveatBloodCoagulation)
 * supportingInfo[caveats][+] = Reference(CaveatBodyPiercing)
 * supportingInfo[caveats][+] = Reference(CaveatRenalInsufficiency)
@@ -104,10 +105,12 @@ Description: "Example for Bundle"
 * entry[+].fullUrl = "http://example.com/fhir/Practitioner/ORderfiller"
 * entry[=].resource = ORderfiller
 //------------- more -------------
-* entry[+].fullUrl = "http://example.com/fhir/Condition/Diagnosis1"
-* entry[=].resource = Diagnosis1
-* entry[+].fullUrl = "http://example.com/fhir/Condition/Diagnosis2"
-* entry[=].resource = Diagnosis2
+* entry[+].fullUrl = "http://example.com/fhir/Condition/PrimaryDiagnosis"
+* entry[=].resource = PrimaryDiagnosis
+* entry[+].fullUrl = "http://example.com/fhir/Condition/SecondaryDiagnosis1"
+* entry[=].resource = SecondaryDiagnosis1
+* entry[+].fullUrl = "http://example.com/fhir/Condition/SecondaryDiagnosis2"
+* entry[=].resource = SecondaryDiagnosis2
 * entry[+].fullUrl = "http://example.com/fhir/Coverage/CoverageKVG"
 * entry[=].resource = CoverageKVG
 * entry[+].fullUrl = "http://example.com/fhir/Condition/CaveatBloodCoagulation"
@@ -293,21 +296,30 @@ Description: "Example for Practitioner"
 
 
 //------------- more -------------
-Instance: Diagnosis1
+Instance: PrimaryDiagnosis
 InstanceOf: ChRadOrderDiagnosisCondition
-Title: "Diagnosis 1"
+Title: "Primary Diagnosis"
 Description: "Example for Diagnosis Condition"
 * category = ConditionCategory#problem-list-item "Problem List Item"
-* code.text = "Diagnosis 1"
+* code.text = "Primary Diagnosis"
 * subject = Reference(SUfferer)
 
 
-Instance: Diagnosis2
+Instance: SecondaryDiagnosis1
 InstanceOf: ChRadOrderDiagnosisCondition
-Title: "Diagnosis 2"
+Title: "Secondary Diagnosis 1"
 Description: "Example for Diagnosis Condition"
 * category = ConditionCategory#problem-list-item "Problem List Item"
-* code.text = "Diagnosis 2"
+* code.text = "Secondary Diagnosis 1"
+* subject = Reference(SUfferer)
+
+
+Instance: SecondaryDiagnosis2
+InstanceOf: ChRadOrderDiagnosisCondition
+Title: "Secondary Diagnosis 2"
+Description: "Example for Diagnosis Condition"
+* category = ConditionCategory#problem-list-item "Problem List Item"
+* code.text = "Secondary Diagnosis 2"
 * subject = Reference(SUfferer)
 
 

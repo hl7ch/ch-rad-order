@@ -534,8 +534,13 @@ Darstellung der Problem- / Diagnoseliste
 * item[=].text = "Problem- / Diagnoseliste"
 * item[=].type = #group
 
-* item[=].item[+].linkId = "diagnosisList.diagnosis"  
-* item[=].item[=].text = "Problem / Diagnose"
+* item[=].item[+].linkId = "diagnosisList.primaryDiagnosis"  
+* item[=].item[=].text = "Grund für die Zuweisung (Hauptdiagnose)"
+* item[=].item[=].type = #string
+* item[=].item[=].repeats = true
+
+* item[=].item[+].linkId = "diagnosisList.secondaryDiagnosis"  
+* item[=].item[=].text = "Weiteres Problem / Nebendiagnose"
 * item[=].item[=].type = #string
 * item[=].item[=].repeats = true
 

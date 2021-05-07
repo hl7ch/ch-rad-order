@@ -68,6 +68,7 @@ In case of 'ChRadOrderModalityType' specify Imaging Request Details by means of 
 * reasonCode.text 1..
 //------- reasonReference -------
 * reasonReference MS
+* reasonReference ^short = "Reason for the referral (primary diagnosis)"
 * reasonReference only Reference(ChRadOrderDiagnosisCondition) 
 //------- insurance -------
 * insurance MS
@@ -84,6 +85,7 @@ In case of 'ChRadOrderModalityType' specify Imaging Request Details by means of 
     patientConsents 0..4 
 * supportingInfo[diagnosis] MS
 * supportingInfo[diagnosis] only Reference(ChRadOrderDiagnosisCondition)
+* supportingInfo[diagnosis] ^short = "Additional problem / secondary diagnosis"
 * supportingInfo[caveats] MS
 * supportingInfo[caveats] only Reference(ChRadOrderCaveatCondition)
 * supportingInfo[previousImagingResults] MS

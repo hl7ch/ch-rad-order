@@ -94,7 +94,7 @@ group OrderDetailServiceItems(source src : BackboneElement, target serviceReques
 }
 
 group DiagnosisListServiceItems(source src : BackboneElement, target patient : Patient, target bundle : Bundle, target serviceRequest : ServiceRequest) {
-  src.item as item where ((linkId.value = 'diagnosisList.diagnosis') and answer.exists()) then {
+  src.item as item where ((linkId.value = 'diagnosisList.secondaryDiagnosis') and answer.exists()) then {
     item.answer as answer then {
       answer.value : string as value -&gt;  bundle.entry as e,  e.resource = create('Condition') as condition,  condition.id = uuid() as uuid,  e.fullUrl = ('urn:uuid:' + uuid),  serviceRequest.supportingInfo as supportingInfo,  supportingInfo.reference = ('urn:uuid:' + uuid),  condition.category as category,  category.coding as coding,  coding.code = 'problem-list-item',  coding.system = 'http://terminology.hl7.org/CodeSystem/condition-category',  coding.display = 'Problem List Item',  condition.code as code,  code.text = value,  condition.subject as subject,  subject.reference = ('urn:uuid:' + patient.id) "diagnosis";
     } "valueString";
@@ -1311,7 +1311,7 @@ group RenalInsufficiencyCreatinineServiceItems(source src : BackboneElement, tar
             <context value="src"></context>
             <element value="item"></element>
             <variable value="item"></variable>
-            <condition value="((linkId.value = 'diagnosisList.diagnosis') and answer.exists())"></condition>
+            <condition value="((linkId.value = 'diagnosisList.secondaryDiagnosis') and answer.exists())"></condition>
          </source>
          <rule>
             <name value="answer.valueString"></name>
@@ -1321,7 +1321,7 @@ group RenalInsufficiencyCreatinineServiceItems(source src : BackboneElement, tar
                <variable value="answer"></variable>
             </source>
             <rule>
-               <name value="diagnosisList.diagnosis"></name>
+               <name value="diagnosisList.secondaryDiagnosis"></name>
                <source>
                   <context value="answer"></context>
                   <type value="string"></type>
