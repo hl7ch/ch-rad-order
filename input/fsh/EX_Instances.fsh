@@ -9,26 +9,38 @@ Description: "Example for ServiceRequest"
 * priority = #routine
 * category = ChRadOrderRequestedService#ImagingRequest "Imaging Request"
 * code.coding[RdlxModType] = RDLX#RID10345 "projection radiography"
+
 * orderDetail[imagingRegion] = RDLX#RID1243 "Thorax"
 * orderDetail[imagingRegion].extension[orderDetailType].valueCoding = ChRadOrderOrderDetailType#imagingRegion
 * orderDetail[imagingFocus] = RDLX#RID2468 "Chest wall"
 * orderDetail[imagingFocus].extension[orderDetailType].valueCoding = ChRadOrderOrderDetailType#imagingFocus
+
 * subject = Reference(SUfferer)
 * requester = Reference(ORderplacerHappyDoctors)
 * performer = Reference(ORderfillerHappyHospital) // desiredRadiologist
 * reasonCode.text = "Diagnostic Question"
 * reasonReference[+] = Reference(PrimaryDiagnosis)
 * insurance = Reference(CoverageKVG)
+
 * supportingInfo[diagnosis][+] = Reference(SecondaryDiagnosis1)
 * supportingInfo[diagnosis][+] = Reference(SecondaryDiagnosis2)
-* supportingInfo[caveats][+] = Reference(CaveatBloodCoagulation)
-* supportingInfo[caveats][+] = Reference(CaveatRenalInsufficiency)
-* supportingInfo[caveats][+] = Reference(CaveatBodyPiercing)
-* supportingInfo[caveats][+] = Reference(CaveatDeviceCardiacPacemaker)
-* supportingInfo[caveats][+] = Reference(CaveatDrugPrescriptionMetformin)
+
+* supportingInfo[caveats][0] = Reference(CaveatBloodCoagulation)
+* supportingInfo[caveats][0].extension[caveatType].valueCoding = SCT#64779008 "Blood coagulation disorder (disorder)"
+* supportingInfo[caveats][1] = Reference(CaveatRenalInsufficiency)
+* supportingInfo[caveats][1].extension[caveatType].valueCoding = SCT#723188008 "Renal insufficiency (disorder)"
+* supportingInfo[caveats][2] = Reference(CaveatBodyPiercing)
+* supportingInfo[caveats][2].extension[caveatType].valueCoding = SCT#879862001 "Body piercing (finding)"
+* supportingInfo[caveats][3] = Reference(CaveatDeviceCardiacPacemaker)
+* supportingInfo[caveats][3].extension[caveatType].valueCoding = SCT#397578001 "Device in situ (finding)"
+* supportingInfo[caveats][4] = Reference(CaveatDrugPrescriptionMetformin)
+* supportingInfo[caveats][4].extension[caveatType].valueCoding = SCT#182817000 "Drug prescription (situation)"
+
 * supportingInfo[previousImagingResults][+] = Reference(ImagingStudyRx)
+
 * supportingInfo[patientConsents][+] = Reference(ConsentTreatment)
 * supportingInfo[patientConsents][+] = Reference(ConsentPatientPrivacy)
+
 // * bodySite = SCT#51185008 "Thoracic structure (body structure)"
 // * note.text = "Note/Comments"
 // * patientInstruction = "Patient instructions"

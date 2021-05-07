@@ -14,6 +14,23 @@ Description: "Definition for Type of Order Detail Value Set in the context of CH
 * include codes from system ChRadOrderOrderDetailType
 
 
+// ServiceRequest.supportingInfo:caveats.ch-rad-order-caveat-type
+ValueSet: ChRadOrderCaveatType
+Id: ch-rad-order-caveat-type
+Title: "Type of Caveat"
+Description: "Definition for Type of Caveat Value Set in the context of CH RAD-Order."
+* SCT#64779008 "Blood coagulation disorder (disorder)"
+* SCT#723188008 "Renal insufficiency (disorder)"
+* SCT#19887002 "Claustrophobia (finding)"
+* SCT#879862001 "Body piercing (finding)"
+* SCT#397578001 "Device in situ (finding)"
+* SCT#34486009 "Hyperthyroidism (disorder)"
+* SCT#73211009 "Diabetes mellitus (disorder)"
+* SCT#366321006 "Finding of gravida (finding)"
+* SCT#293637006 "Allergy to contrast media (finding)"
+* SCT#182817000 "Drug prescription (situation)"
+
+
 // Condition.code
 ValueSet: ChRadOrderCaveatCondition
 Id: ch-rad-order-caveat-condition
@@ -21,13 +38,13 @@ Title: "Caveat Condition"
 Description: "Definition for Caveat Condition Value Set in the context of CH RAD-Order."
 * SCT#64779008 "Blood coagulation disorder (disorder)"
 * SCT#723188008 "Renal insufficiency (disorder)"
-* SCT#19887002  "Claustrophobia (finding)"
+* SCT#19887002 "Claustrophobia (finding)"
 * SCT#879862001 "Body piercing (finding)"
-// * SCT#397578001  "Device in situ (finding)"
-* SCT#34486009  "Hyperthyroidism (disorder)"
-* SCT#73211009  "Diabetes mellitus (disorder)"
-* SCT#366321006  "Finding of gravida (finding)"
-* SCT#293637006  "Allergy to contrast media (finding)"
+// * SCT#397578001 "Device in situ (finding)"
+* SCT#34486009 "Hyperthyroidism (disorder)"
+* SCT#73211009 "Diabetes mellitus (disorder)"
+* SCT#366321006 "Finding of gravida (finding)"
+* SCT#293637006 "Allergy to contrast media (finding)"
 // * SCT#182817000 "Drug prescription (situation)"
 * include codes from valueset http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-caveat-device
 * include codes from valueset http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-caveat-substance

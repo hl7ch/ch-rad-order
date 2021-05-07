@@ -87,6 +87,7 @@ In case of 'ChRadOrderModalityType' specify Imaging Request Details by means of 
 * supportingInfo[diagnosis] only Reference(ChRadOrderDiagnosisCondition)
 * supportingInfo[diagnosis] ^short = "Additional problem / secondary diagnosis"
 * supportingInfo[caveats] MS
+* supportingInfo[caveats].extension contains ChRadOrderCaveatType named caveatType 1..1 MS
 * supportingInfo[caveats] only Reference(ChRadOrderCaveatCondition)
 * supportingInfo[previousImagingResults] MS
 * supportingInfo[previousImagingResults] only Reference(ChRadOrderImagingStudy)
@@ -100,6 +101,7 @@ In case of 'ChRadOrderModalityType' specify Imaging Request Details by means of 
 * patientInstruction MS
 
 
+// TBD
 Extension: ChRadOrderAppointment
 Id: ch-rad-order-appointment
 Title: "CH RAD-Order Appointment"
@@ -117,6 +119,16 @@ Description: "Extension to define the Type of Order Detail in context of CH RAD-
 * value[x] only Coding
 * value[x] ^short = "Type of Order Detail"
 * value[x] from ChRadOrderOrderDetailType
+
+
+Extension: ChRadOrderCaveatType
+Id: ch-rad-order-caveat-type
+Title: "CH RAD-Order Caveat Type"
+Description: "Extension to define the Type of Caveat in context of CH RAD-Order."
+* value[x] 1..1
+* value[x] only Coding
+* value[x] ^short = "Type of Caveat"
+* value[x] from ChRadOrderCaveatType
 
 
 Profile: ChRadOrderDocument
