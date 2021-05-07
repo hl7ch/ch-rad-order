@@ -1,4 +1,4 @@
-// Platzhalter
+// ServiceRequest.category
 CodeSystem: ChRadOrderRequestedService
 Id: ch-rad-order-requested-service
 Title: "Requested Service"
@@ -12,6 +12,7 @@ Description: "Definition for Requested Service Code System in the context of CH 
 * #RemoteReporting "Remote Reporting"
 
 
+// ServiceRequest.orderDetail.ch-rad-order-order-detail-type
 CodeSystem: ChRadOrderOrderDetailType
 Id: ch-rad-order-order-detail-type
 Title: "Type of Order Detail"

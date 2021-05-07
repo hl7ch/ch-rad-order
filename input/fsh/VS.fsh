@@ -1,3 +1,4 @@
+// ServiceRequest.category (Q: requestedService.service)
 ValueSet: ChRadOrderRequestedService
 Id: ch-rad-order-requested-service
 Title: "Requested Service"
@@ -5,6 +6,7 @@ Description: "Definition for Requested Service Value Set in the context of CH RA
 * include codes from system ChRadOrderRequestedService
 
 
+// ServiceRequest.orderDetail.ch-rad-order-order-detail-type
 ValueSet: ChRadOrderOrderDetailType
 Id: ch-rad-order-order-detail-type
 Title: "Type of Order Detail"
@@ -12,6 +14,7 @@ Description: "Definition for Type of Order Detail Value Set in the context of CH
 * include codes from system ChRadOrderOrderDetailType
 
 
+// Condition.code
 ValueSet: ChRadOrderCaveatCondition
 Id: ch-rad-order-caveat-condition
 Title: "Caveat Condition"
@@ -30,6 +33,7 @@ Description: "Definition for Caveat Condition Value Set in the context of CH RAD
 * include codes from valueset http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-caveat-substance
 
 
+// (Q: caveat.device)
 ValueSet: ChRadOrderCaveatDevice
 Id: ch-rad-order-caveat-device
 Title: "Caveat Device"
@@ -37,6 +41,7 @@ Description: "Definition for Caveat Device Value Set in the context of CH RAD-Or
 * include codes from system SCT where concept is-a #397578001 "Device in situ (finding)"
 
 
+// (Q: caveat.drugPrescription)
 ValueSet: ChRadOrderCaveatSubstance
 Id: ch-rad-order-caveat-substance
 Title: "Caveat Substance"
@@ -44,7 +49,7 @@ Description: "Definition for Caveat Substance Value Set in the context of CH RAD
 * SCT#372567009 "Metformin (substance)"
 
 
-// TBD
+// TBD: Fall es gebraucht wird, noch einbinden
 ValueSet: ChRadOrderCaveatLabObservation
 Id: ch-rad-order-caveat-lab-observation
 Title: "Lab Observation"
@@ -53,6 +58,7 @@ Description: "Definition for Lab Observation Value Set in the context of CH RAD-
 * LNC#33558-8 "Creatinine renal clearance in Urine and Serum or Plasma collected for unspecified duration"
 
 
+// TBD: Wo wird das gebraucht?
 ValueSet: ChRadOrderReasonForExam
 Id: ch-rad-order-reason-for-exam
 Title: "Reason for Exam"
@@ -162,6 +168,7 @@ Description: "Definition for Reason for Exam Value Set in the context of CH RAD-
 * RDLX#RID50633 "Radiopharmaceutical clearance"
 
 
+// ServiceRequest.orderDetail:imagingFocus (Q: orderDetail.imagingFocus)
 ValueSet: ChRadOrderImagingFocus
 Id: ch-rad-order-imaging-focus
 Title: "Imaging Focus"
@@ -580,6 +587,7 @@ Description: "Definition for Imaging Focus Value Set in the context of CH RAD-Or
 * RDLX#RID20050 "Cervical segment of spinal epidural space"
 
 
+// ServiceRequest.orderDetail:imagingRegion (Q: orderDetail.imagingRegion)
 ValueSet: ChRadOrderImagingRegion
 Id: ch-rad-order-imaging-region
 Title: "Imaging Region"
@@ -601,6 +609,7 @@ Description: "Definition for Imaging Region Value Set in the context of CH RAD-O
 * RDLX#RID6062 "Body region"
 
 
+// ServiceRequest.orderDetail:laterality (Q: orderDetail.laterality)
 ValueSet: ChRadOrderLaterality
 Id: ch-rad-order-laterality
 Title: "Laterality"
@@ -612,6 +621,7 @@ Description: "Definition for Laterality Value Set in the context of CH RAD-Order
 * RDLX#RID38593 "Unilateral"
 
 
+// ServiceRequest.orderDetail:maneuverType (Q: orderDetail.maneuverType)
 ValueSet: ChRadOrderManeuverType
 Id: ch-rad-order-maneuver-type
 Title: "Maneuver Type"
@@ -635,6 +645,7 @@ Description: "Definition for Maneuver Type Value Set in the context of CH RAD-Or
 * RDLX#RID48090 "voiding"
 
 
+// ServiceRequest.orderDetail:guidanceForAction (Q: orderDetail.guidanceForAction)
 ValueSet: ChRadOrderGuidanceForAction
 Id: ch-rad-order-guidance-for-action
 Title: "Guidance for Action"
@@ -717,6 +728,8 @@ Description: "Definition for Guidance for Action Value Set in the context of CH 
 * RDLX#RID50524 "Excisional biopsy"
 * RDLX#RID49632 "check tube"
 
+
+// ServiceRequest.code.coding:RdlxModType (Q: imagingService.type)
 ValueSet: ChRadOrderModalityType
 Id: ch-rad-order-modality-type
 Title: "Modality Type"
@@ -735,6 +748,7 @@ Description: "Definition for Modality Type Value Set in the context of CH RAD-Or
 * RDLX#RID10311 "imaging modality"
 
 
+// ServiceRequest.orderDetail:viewType (Q: orderDetail.viewType)
 ValueSet: ChRadOrderViewType
 Id: ch-rad-order-view-type
 Title: "View Type"
