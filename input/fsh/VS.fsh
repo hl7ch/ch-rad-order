@@ -16,21 +16,25 @@ ValueSet: ChRadOrderCaveatCondition
 Id: ch-rad-order-caveat-condition
 Title: "Caveat Condition"
 Description: "Definition for Caveat Condition Value Set in the context of CH RAD-Order."
-//* SCT#703398004  "Cardiac implant in situ (finding)"
 * SCT#64779008 "Blood coagulation disorder (disorder)"
 * SCT#723188008 "Renal insufficiency (disorder)"
 * SCT#19887002  "Claustrophobia (finding)"
 * SCT#879862001 "Body piercing (finding)"
-//* SCT#897711006  "Neurostimulator device in situ (finding)"
-* SCT#397578001  "Device in situ (finding)"
+// * SCT#397578001  "Device in situ (finding)"
 * SCT#34486009  "Hyperthyroidism (disorder)"
 * SCT#73211009  "Diabetes mellitus (disorder)"
 * SCT#366321006  "Finding of gravida (finding)"
-// * SCT#404684003  "Clinical finding (finding)"
 * SCT#293637006  "Allergy to contrast media (finding)"
-* SCT#182817000 "Drug prescription (situation)"
-* include codes from system SCT where concept is-a #397578001 "Device in situ (finding)"
+// * SCT#182817000 "Drug prescription (situation)"
+* include codes from valueset http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-caveat-device
+* include codes from valueset http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-caveat-substance
 
+
+ValueSet: ChRadOrderCaveatDevice
+Id: ch-rad-order-caveat-device
+Title: "Caveat Device"
+Description: "Definition for Caveat Device Value Set in the context of CH RAD-Order."
+* include codes from system SCT where concept is-a #397578001 "Device in situ (finding)"
 
 
 ValueSet: ChRadOrderCaveatSubstance
@@ -40,6 +44,7 @@ Description: "Definition for Caveat Substance Value Set in the context of CH RAD
 * SCT#372567009 "Metformin (substance)"
 
 
+// TBD
 ValueSet: ChRadOrderCaveatLabObservation
 Id: ch-rad-order-caveat-lab-observation
 Title: "Lab Observation"

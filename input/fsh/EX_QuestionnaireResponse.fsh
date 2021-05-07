@@ -346,13 +346,12 @@ Caveats
 * item[=].item[=].answer.valueBoolean = true
 
 * item[=].item[+].linkId = "caveat.device"
-* item[=].item[=].text = "Device (Herzschrittmacher, Herzklappenersatz, Insulinpumpe etc.)"   
-* item[=].item[=].answer.valueString = "Herzschrittmacher"
+* item[=].item[=].text = "Device (Herzschrittmacher, Herzklappenersatz, Insulinpumpe etc.)" 
+* item[=].item[=].answer.valueCoding = SCT#441509002 "Cardiac pacemaker in situ"
 
 * item[=].item[+].linkId = "caveat.drugPrescription"
-* item[=].item[=].text = "Relevante Medikamente, z.B. Metformin"   
-* item[=].item[=].answer[+].valueString = "Metformin"
-* item[=].item[=].answer[+].valueString = "Anderes Medikament"
+* item[=].item[=].text = "Relevante Medikamente, z.B. Metformin"
+* item[=].item[=].answer.valueCoding = SCT#372567009 "Metformin (substance)"
 
 /*-------------------------------------------------------------------------
 4 Consents

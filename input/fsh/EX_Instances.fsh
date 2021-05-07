@@ -22,11 +22,10 @@ Description: "Example for ServiceRequest"
 * supportingInfo[diagnosis][+] = Reference(SecondaryDiagnosis1)
 * supportingInfo[diagnosis][+] = Reference(SecondaryDiagnosis2)
 * supportingInfo[caveats][+] = Reference(CaveatBloodCoagulation)
-* supportingInfo[caveats][+] = Reference(CaveatBodyPiercing)
 * supportingInfo[caveats][+] = Reference(CaveatRenalInsufficiency)
-* supportingInfo[caveats][+] = Reference(CaveatDrugPrescriptionMetformin)
-* supportingInfo[caveats][+] = Reference(CaveatDrugPrescriptionOther)
+* supportingInfo[caveats][+] = Reference(CaveatBodyPiercing)
 * supportingInfo[caveats][+] = Reference(CaveatDeviceCardiacPacemaker)
+* supportingInfo[caveats][+] = Reference(CaveatDrugPrescriptionMetformin)
 * supportingInfo[previousImagingResults][+] = Reference(ImagingStudyRx)
 * supportingInfo[patientConsents][+] = Reference(ConsentTreatment)
 * supportingInfo[patientConsents][+] = Reference(ConsentPatientPrivacy)
@@ -125,8 +124,6 @@ Description: "Example for Bundle"
 * entry[=].resource = CaveatRenalInsufficiencyCreatinine
 * entry[+].fullUrl = "http://example.com/fhir/Condition/CaveatDrugPrescriptionMetformin"
 * entry[=].resource = CaveatDrugPrescriptionMetformin
-* entry[+].fullUrl = "http://example.com/fhir/Condition/CaveatDrugPrescriptionOther"
-* entry[=].resource = CaveatDrugPrescriptionOther
 * entry[+].fullUrl = "http://example.com/fhir/Condition/CaveatDeviceCardiacPacemaker"
 * entry[=].resource = CaveatDeviceCardiacPacemaker
 * entry[+].fullUrl = "http://example.com/fhir/Consent/ConsentTreatment"
@@ -397,19 +394,8 @@ InstanceOf: ChRadOrderCaveatCondition
 Title: "Caveat Drug Prescription Metformin"
 Description: "Example for Caveat Condition"
 * category = ConditionCategory#problem-list-item "Problem List Item"
-* code = SCT#182817000 "Drug prescription (situation)"
+* code = SCT#372567009 "Metformin (substance)"
 * subject = Reference(SUfferer)
-* note.text = "Metformin"
-
-
-Instance: CaveatDrugPrescriptionOther
-InstanceOf: ChRadOrderCaveatCondition
-Title: "Caveat Drug Prescription Other"
-Description: "Example for Caveat Condition"
-* category = ConditionCategory#problem-list-item "Problem List Item"
-* code = SCT#182817000 "Drug prescription (situation)"
-* subject = Reference(SUfferer)
-* note.text = "Anderes Medikament"
 
 
 Instance: CaveatDeviceCardiacPacemaker
@@ -417,9 +403,8 @@ InstanceOf: ChRadOrderCaveatCondition
 Title: "Caveat Device Cardiac Pacemaker"
 Description: "Example for Caveat Condition"
 * category = ConditionCategory#problem-list-item "Problem List Item"
-* code = SCT#397578001  "Device in situ (finding)"
+* code = SCT#441509002 "Cardiac pacemaker in situ"
 * subject = Reference(SUfferer)
-* note.text = "Herzschrittmacher"
 
 
 Instance: ConsentTreatment

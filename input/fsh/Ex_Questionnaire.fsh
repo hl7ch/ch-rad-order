@@ -600,7 +600,8 @@ Caveats
 
 * item[=].item[+].linkId = "caveat.device"     
 * item[=].item[=].text = "Device (Herzschrittmacher, Herzklappenersatz, Insulinpumpe etc.)"   
-* item[=].item[=].type = #string
+* item[=].item[=].type = #choice
+* item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-caveat-device"
 * item[=].item[=].repeats = true
 
 * item[=].item[+].linkId = "caveat.hyperthyroidism"     
@@ -615,14 +616,14 @@ Caveats
 * item[=].item[=].text = "Schwangerschaft"   
 * item[=].item[=].type = #boolean
 
-* item[=].item[+].linkId = "caveat.contrastMediaAllergy"     
-
+* item[=].item[+].linkId = "caveat.contrastMediaAllergy"
 * item[=].item[=].text = "Kontrastmittelallergie"   
 * item[=].item[=].type = #boolean
 
 * item[=].item[+].linkId = "caveat.drugPrescription"     
 * item[=].item[=].text = "Relevante Medikamente, z.B. Metformin"   
-* item[=].item[=].type = #string              // noch nicht definiert wie zu machen
+* item[=].item[=].type = #choice
+* item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-caveat-substance"
 * item[=].item[=].repeats = true
 
 

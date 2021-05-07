@@ -32,8 +32,6 @@ Description: "Definition for the Caveat Condition resource in the context of CH 
 * evidence.detail 1..1 MS
 * evidence.detail ^short = "Supporting information (creatinine clearance, creatinine) for renal insufficiency condition"
 * evidence.detail only Reference(ChRadOrderCreatinineClearanceObservation or ChRadOrderCreatinineObservation)
-* note MS
-* note.text MS
 
 
 Profile: ChRadOrderCreatinineClearanceObservation
