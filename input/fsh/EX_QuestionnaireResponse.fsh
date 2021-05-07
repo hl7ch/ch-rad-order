@@ -180,34 +180,6 @@ Description: "Example for QuestionnaireResponse"
 * item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitionerrole"
 * item[=].text = "Empfänger"
 
-* item[=].item[+].linkId = "receiver.practitioner"
-* item[=].item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitioner"
-* item[=].item[=].text = "Empfangende Person"
-
-* item[=].item[=].item[+].linkId = "receiver.practitioner.title"
-* item[=].item[=].item[=].text = "Titel"
-* item[=].item[=].item[=].answer.valueString = "Dr. med."
-
-* item[=].item[=].item[+].linkId = "receiver.practitioner.familyName"
-* item[=].item[=].item[=].text = "Name"
-* item[=].item[=].item[=].answer.valueString = "Rderfiller"
-
-* item[=].item[=].item[+].linkId = "receiver.practitioner.givenName"
-* item[=].item[=].item[=].text = "Vorname"
-* item[=].item[=].item[=].answer.valueString = "Otto"
-
-* item[=].item[=].item[+].linkId = "receiver.practitioner.gln"
-* item[=].item[=].item[=].text = "GLN"
-* item[=].item[=].item[=].answer.valueString = "7601000066878"
-
-* item[=].item[=].item[+].linkId = "receiver.practitioner.phone"
-* item[=].item[=].item[=].text = "Telefon"
-* item[=].item[=].item[=].answer.valueString = "+41 44 412 00 99"
-
-* item[=].item[=].item[+].linkId = "receiver.practitioner.email"
-* item[=].item[=].item[=].text = "E-Mail"
-* item[=].item[=].item[=].answer.valueString = "o.rderfiller@happyhospital.ch"
-
 * item[=].item[+].linkId = "receiver.organization"
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-organization"
 * item[=].item[=].text = "Empfangende Organisation"

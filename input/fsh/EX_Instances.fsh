@@ -15,7 +15,7 @@ Description: "Example for ServiceRequest"
 * orderDetail[imagingFocus].extension[orderDetailType].valueCoding = ChRadOrderOrderDetailType#imagingFocus
 * subject = Reference(SUfferer)
 * requester = Reference(ORderplacerHappyDoctors)
-* performer = Reference(ORderfillerHappyHospital)
+// desiredRadilologist * performer = Reference(ORderfillerHappyHospital)
 * reasonCode.text = "Diagnostic Question"
 * insurance = Reference(CoverageKVG)
 * supportingInfo[diagnosis][+] = Reference(Diagnosis1)
@@ -43,6 +43,8 @@ Description: "Example for Composition"
 * extension[dataEnterer].url = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-ext-epr-dataenterer"
 * extension[dataEnterer].extension[enterer].url = "enterer"
 * extension[dataEnterer].extension[enterer].valueReference = Reference(DAtaentererHappyDoctors)
+* extension[receiver].url = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-receiver"
+* extension[receiver].valueReference = Reference(RadiologyDepartmentHappyHospital)
 * extension[copyReceiver].url = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-copyreceiver"
 * extension[copyReceiver].valueReference = Reference(SUffererCopyReceiver)
 * status = #final
@@ -89,15 +91,16 @@ Description: "Example for Bundle"
 * entry[+].fullUrl = "http://example.com/fhir/Practitioner/ORderplacer"
 * entry[=].resource = ORderplacer
 //------------- Receiver -------------
-* entry[+].fullUrl = "http://example.com/fhir/PractitionerRole/ORderfillerHappyHospital"
-* entry[=].resource = ORderfillerHappyHospital
-* entry[+].fullUrl = "http://example.com/fhir/Practitioner/ORderfiller"
-* entry[=].resource = ORderfiller
+* entry[+].fullUrl = "http://example.com/fhir/PractitionerRole/RadiologyDepartmentHappyHospital"
+* entry[=].resource = RadiologyDepartmentHappyHospital
 //------------- Organizations -------------
 * entry[+].fullUrl = "http://example.com/fhir/Organization/HappyDoctors"
 * entry[=].resource = HappyDoctors
 * entry[+].fullUrl = "http://example.com/fhir/Organization/HappyHospital"
 * entry[=].resource = HappyHospital
+//------------- desiredRadiologist -------------
+// * entry[+].fullUrl = "http://example.com/fhir/Practitioner/ORderfiller"
+// * entry[=].resource = ORderfiller
 //------------- more -------------
 * entry[+].fullUrl = "http://example.com/fhir/Condition/Diagnosis1"
 * entry[=].resource = Diagnosis1
@@ -210,6 +213,13 @@ InstanceOf: ChCorePractitionerRole
 Title: "Otto Rderfiller @ Happy Hospital"
 Description: "Example for PractionerRole"
 * practitioner = Reference(ORderfiller)
+* organization = Reference(HappyHospital)
+
+
+Instance: RadiologyDepartmentHappyHospital
+InstanceOf: ChCorePractitionerRole
+Title: "RadiologyDepartment @ Happy Hospital"
+Description: "Example for PractionerRole"
 * organization = Reference(HappyHospital)
 
 
