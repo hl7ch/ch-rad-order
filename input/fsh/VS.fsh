@@ -26,7 +26,7 @@ Description: "Definition for Caveat Condition Value Set in the context of CH RAD
 * SCT#34486009  "Hyperthyroidism (disorder)"
 * SCT#73211009  "Diabetes mellitus (disorder)"
 * SCT#366321006  "Finding of gravida (finding)"
-* SCT#404684003  "Clinical finding (finding)"   // TBD: Wo wird dieser Code gebraucht?
+// * SCT#404684003  "Clinical finding (finding)"
 * SCT#293637006  "Allergy to contrast media (finding)"
 * SCT#182817000 "Drug prescription (situation)"
 * include codes from system SCT where concept is-a #397578001 "Device in situ (finding)"
