@@ -447,12 +447,10 @@ Gewünschter Radiologe: Noch offen, wie die Auswahlliste gemacht werden soll
 * item[=].type = #group
 
 * item[=].item[+].linkId = "desiredRadiologist.familyName"
-// TBD: Abbildung im ServiceRequest? 
 * item[=].item[=].text = "Name"
 * item[=].item[=].type = #string
 
 * item[=].item[+].linkId = "desiredRadiologist.givenName"
-// TBD: Abbildung im ServiceRequest? 
 * item[=].item[=].text = "Vorname"
 * item[=].item[=].type = #string
 

@@ -15,7 +15,7 @@ Description: "Example for ServiceRequest"
 * orderDetail[imagingFocus].extension[orderDetailType].valueCoding = ChRadOrderOrderDetailType#imagingFocus
 * subject = Reference(SUfferer)
 * requester = Reference(ORderplacerHappyDoctors)
-// desiredRadilologist * performer = Reference(ORderfillerHappyHospital)
+* performer = Reference(ORderfillerHappyHospital) // desiredRadiologist
 * reasonCode.text = "Diagnostic Question"
 * insurance = Reference(CoverageKVG)
 * supportingInfo[diagnosis][+] = Reference(Diagnosis1)
@@ -99,8 +99,10 @@ Description: "Example for Bundle"
 * entry[+].fullUrl = "http://example.com/fhir/Organization/HappyHospital"
 * entry[=].resource = HappyHospital
 //------------- desiredRadiologist -------------
-// * entry[+].fullUrl = "http://example.com/fhir/Practitioner/ORderfiller"
-// * entry[=].resource = ORderfiller
+* entry[+].fullUrl = "http://example.com/fhir/PractitionerRole/ORderfillerHappyHospital"
+* entry[=].resource = ORderfillerHappyHospital
+* entry[+].fullUrl = "http://example.com/fhir/Practitioner/ORderfiller"
+* entry[=].resource = ORderfiller
 //------------- more -------------
 * entry[+].fullUrl = "http://example.com/fhir/Condition/Diagnosis1"
 * entry[=].resource = Diagnosis1
@@ -132,109 +134,8 @@ Description: "Example for Bundle"
 * entry[=].resource = ImagingStudyRx
 
 
-Instance: ORderplacer
-InstanceOf: ChCorePractitioner
-Title: "Ottilie Rderplacer"
-Description: "Example for Practitioner"
-* identifier.system = "urn:oid:2.51.1.3"
-* identifier.value = "7601000034321"
-* name.use = #official
-* name.family = "Rderplacer"
-* name.given = "Ottilie"
-* name.prefix = "Dr. med."
-* name.prefix.extension.url = "http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier"
-* name.prefix.extension.valueCode = #AC
-* telecom[0].system = #phone
-* telecom[0].value = "+41 44 333 22 11"
-* telecom[1].system = #email
-* telecom[1].value = "o.rderplacer@happydoctors.ch"
 
-
-Instance: ORderplacerHappyDoctors
-InstanceOf: ChCorePractitionerRole
-Title: "Ottilie Rderplacer @ Happy Doctors"
-Description: "Example for PractionerRole"
-* practitioner = Reference(ORderplacer)
-* organization = Reference(HappyDoctors)
-
-
-Instance: DAtaenterer
-InstanceOf: ChCorePractitioner
-Title: "Doris Ataenterer"
-Description: "Example for Practitioner"
-* name.family = "Ataenterer"
-* name.given = "Doris"
-* telecom[0].system = #phone
-* telecom[0].value = "+41 44 333 22 11"
-* telecom[1].system = #email
-* telecom[1].value = "d.ataenterer@happydoctors.ch"
-
-
-Instance: DAtaentererHappyDoctors
-InstanceOf: ChCorePractitionerRole
-Title: "Doris Ataenterer @ Happy Doctors"
-Description: "Example for PractionerRole"
-* practitioner = Reference(DAtaenterer)
-* organization = Reference(HappyDoctors)
-
-
-Instance: HappyDoctors
-InstanceOf: ChCoreOrganization
-Title: "Praxis Happy Doctors"
-Description: "Example for Organization"
-* name = "Praxis Happy Docotors"
-* address.line[0] = "Kantonsstrasse 14"
-* address.line[1] = "Postfach 14"
-* address.city = "Zürich"
-* address.postalCode = "8000"
-* address.country = "Schweiz"
-
-
-Instance: ORderfiller
-InstanceOf: ChCorePractitioner
-Title: "Otto Rderfiller"
-Description: "Example for Practitioner"
-* identifier.system = "urn:oid:2.51.1.3"
-* identifier.value = "7601000066878"
-* name.use = #official
-* name.family = "Rderfiller"
-* name.given = "Otto"
-* name.prefix = "Dr. med."
-* name.prefix.extension.url = "http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier"
-* name.prefix.extension.valueCode = #AC
-* telecom[0].system = #phone
-* telecom[0].value = "+41 44 412 00 99"
-* telecom[1].system = #email
-* telecom[1].value = "o.rderfiller@happyhospital.ch"
-
-
-Instance: ORderfillerHappyHospital
-InstanceOf: ChCorePractitionerRole
-Title: "Otto Rderfiller @ Happy Hospital"
-Description: "Example for PractionerRole"
-* practitioner = Reference(ORderfiller)
-* organization = Reference(HappyHospital)
-
-
-Instance: RadiologyDepartmentHappyHospital
-InstanceOf: ChCorePractitionerRole
-Title: "RadiologyDepartment @ Happy Hospital"
-Description: "Example for PractionerRole"
-* organization = Reference(HappyHospital)
-
-
-Instance: HappyHospital
-InstanceOf: ChCoreOrganization
-Title: "Klinik Happy Hospital"
-Description: "Example for Organization"
-* name = "Klinik Happy Hospital"
-* address.line[0] = "Seestrasse 133"
-* address.line[1] = "Haus C"
-* address.city = "Zürich"
-* address.postalCode = "8000"
-* address.country = "Schweiz" 
-
-
+//------------- Patient -------------
 Instance: SUfferer
 InstanceOf: ChCorePatient
 Title: "Susanna Ufferer"
@@ -267,6 +168,7 @@ Description: "Example for Patient"
 * address.country = "Schweiz"
 
 
+//------------- Copy Receiver -------------
 Instance: SUffererCopyReceiver
 InstanceOf: ChCorePatient
 Title: "Susanna Ufferer Copy Receiver"
@@ -284,6 +186,113 @@ Description: "Example for Patient"
 * address.country = "Schweiz"
 
 
+//------------- Data Enterer -------------
+Instance: DAtaentererHappyDoctors
+InstanceOf: ChCorePractitionerRole
+Title: "Doris Ataenterer @ Happy Doctors"
+Description: "Example for PractionerRole"
+* practitioner = Reference(DAtaenterer)
+* organization = Reference(HappyDoctors)
+
+
+Instance: DAtaenterer
+InstanceOf: ChCorePractitioner
+Title: "Doris Ataenterer"
+Description: "Example for Practitioner"
+* name.family = "Ataenterer"
+* name.given = "Doris"
+* telecom[0].system = #phone
+* telecom[0].value = "+41 44 333 22 11"
+* telecom[1].system = #email
+* telecom[1].value = "d.ataenterer@happydoctors.ch"
+
+
+//------------- Author -------------
+Instance: ORderplacerHappyDoctors
+InstanceOf: ChCorePractitionerRole
+Title: "Ottilie Rderplacer @ Happy Doctors"
+Description: "Example for PractionerRole"
+* practitioner = Reference(ORderplacer)
+* organization = Reference(HappyDoctors)
+
+
+Instance: ORderplacer
+InstanceOf: ChCorePractitioner
+Title: "Ottilie Rderplacer"
+Description: "Example for Practitioner"
+* identifier.system = "urn:oid:2.51.1.3"
+* identifier.value = "7601000034321"
+* name.use = #official
+* name.family = "Rderplacer"
+* name.given = "Ottilie"
+* name.prefix = "Dr. med."
+* name.prefix.extension.url = "http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier"
+* name.prefix.extension.valueCode = #AC
+* telecom[0].system = #phone
+* telecom[0].value = "+41 44 333 22 11"
+* telecom[1].system = #email
+* telecom[1].value = "o.rderplacer@happydoctors.ch"
+
+
+//------------- Receiver -------------
+Instance: RadiologyDepartmentHappyHospital
+InstanceOf: ChCorePractitionerRole
+Title: "RadiologyDepartment @ Happy Hospital"
+Description: "Example for PractionerRole"
+* organization = Reference(HappyHospital)
+
+
+//------------- Organizations -------------
+Instance: HappyDoctors
+InstanceOf: ChCoreOrganization
+Title: "Praxis Happy Doctors"
+Description: "Example for Organization"
+* name = "Praxis Happy Docotors"
+* address.line[0] = "Kantonsstrasse 14"
+* address.line[1] = "Postfach 14"
+* address.city = "Zürich"
+* address.postalCode = "8000"
+* address.country = "Schweiz"
+
+
+Instance: HappyHospital
+InstanceOf: ChCoreOrganization
+Title: "Klinik Happy Hospital"
+Description: "Example for Organization"
+* name = "Klinik Happy Hospital"
+* address.line[0] = "Seestrasse 133"
+* address.line[1] = "Haus C"
+* address.city = "Zürich"
+* address.postalCode = "8000"
+* address.country = "Schweiz" 
+
+
+//------------- desiredRadiologist -------------
+Instance: ORderfillerHappyHospital
+InstanceOf: ChCorePractitionerRole
+Title: "Otto Rderfiller @ Happy Hospital"
+Description: "Example for PractionerRole"
+* practitioner = Reference(ORderfiller)
+
+Instance: ORderfiller
+InstanceOf: ChCorePractitioner
+Title: "Otto Rderfiller"
+Description: "Example for Practitioner"
+// * identifier.system = "urn:oid:2.51.1.3"
+// * identifier.value = "7601000066878"
+* name.use = #official
+* name.family = "Rderfiller"
+* name.given = "Otto"
+// * name.prefix = "Dr. med."
+// * name.prefix.extension.url = "http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier"
+// * name.prefix.extension.valueCode = #AC
+// * telecom[0].system = #phone
+// * telecom[0].value = "+41 44 412 00 99"
+// * telecom[1].system = #email
+// * telecom[1].value = "o.rderfiller@happyhospital.ch"
+
+
+//------------- more -------------
 Instance: Diagnosis1
 InstanceOf: ChRadOrderDiagnosisCondition
 Title: "Diagnosis 1"

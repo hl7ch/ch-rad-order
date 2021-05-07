@@ -272,6 +272,16 @@ Fragestellung (mehrere Werte)
 /*----------------------------------------------------------------------
 Gewünschter Radiologe: Noch offen, wie die Auswahlliste gemacht werden soll
 */
+* item[+].linkId = "desiredRadiologist"
+* item[=].text = "Gewünschter Radiologe für die Befundung / für die Intervention"
+
+* item[=].item[+].linkId = "desiredRadiologist.familyName"
+* item[=].item[=].text = "Name"
+* item[=].item[=].answer.valueString = "Rderfiller"
+
+* item[=].item[+].linkId = "desiredRadiologist.givenName"
+* item[=].item[=].text = "Vorname"
+* item[=].item[=].answer.valueString = "Otto"
 
 /*-----------------------------------------------------------------------
 Angabe der Untersuchung (nur 1 Wert):

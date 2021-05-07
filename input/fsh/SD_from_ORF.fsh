@@ -57,6 +57,10 @@ In case of 'ChRadOrderModalityType' specify Imaging Request Details by means of 
 * orderDetail[maneuverType] from ChRadOrderManeuverType
 * orderDetail[guidanceForAction] MS
 * orderDetail[guidanceForAction] from ChRadOrderGuidanceForAction
+//------- performer (desiredRadiologist) -------
+* performer ..1 MS
+* performer ^short = "Desired radiologist for diagnostic / for intervention"
+* performer only Reference(ChCorePractitionerRole) 
 //------- reasonCode -------
 * reasonCode MS
 * reasonCode ^short = "Diagnostic Question in free text: Coding of all diagnostic questions not feasable."
