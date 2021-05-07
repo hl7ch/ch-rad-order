@@ -27,16 +27,11 @@ Description: "Example for ServiceRequest"
 * supportingInfo[diagnosis][+] = Reference(SecondaryDiagnosis1)
 * supportingInfo[diagnosis][+] = Reference(SecondaryDiagnosis2)
 
-* supportingInfo[caveats][0] = Reference(CaveatBloodCoagulation)
-* supportingInfo[caveats][0].extension[caveatType].valueCoding = SCT#64779008 "Blood coagulation disorder (disorder)"
-* supportingInfo[caveats][1] = Reference(CaveatRenalInsufficiency)
-* supportingInfo[caveats][1].extension[caveatType].valueCoding = SCT#723188008 "Renal insufficiency (disorder)"
-* supportingInfo[caveats][2] = Reference(CaveatBodyPiercing)
-* supportingInfo[caveats][2].extension[caveatType].valueCoding = SCT#879862001 "Body piercing (finding)"
-* supportingInfo[caveats][3] = Reference(CaveatDeviceCardiacPacemaker)
-* supportingInfo[caveats][3].extension[caveatType].valueCoding = SCT#397578001 "Device in situ (finding)"
-* supportingInfo[caveats][4] = Reference(CaveatDrugPrescriptionMetformin)
-* supportingInfo[caveats][4].extension[caveatType].valueCoding = SCT#182817000 "Drug prescription (situation)"
+* supportingInfo[caveats][+] = Reference(CaveatBloodCoagulation)
+* supportingInfo[caveats][+] = Reference(CaveatRenalInsufficiency)
+* supportingInfo[caveats][+] = Reference(CaveatBodyPiercing)
+* supportingInfo[caveats][+] = Reference(CaveatDeviceCardiacPacemaker)
+* supportingInfo[caveats][+] = Reference(CaveatDrugPrescriptionMetformin)
 
 * supportingInfo[previousImagingResults][+] = Reference(ImagingStudyRx)
 
@@ -358,6 +353,7 @@ Instance: CaveatBloodCoagulation
 InstanceOf: ChRadOrderCaveatCondition
 Title: "Caveat Blood Coagulation"
 Description: "Example for Caveat Condition"
+* extension[caveatType].valueCoding = SCT#64779008 "Blood coagulation disorder (disorder)"
 * category = ConditionCategory#problem-list-item "Problem List Item"
 * code = SCT#64779008 "Blood coagulation disorder (disorder)"
 * subject = Reference(SUfferer)
@@ -367,6 +363,7 @@ Instance: CaveatBodyPiercing
 InstanceOf: ChRadOrderCaveatCondition
 Title: "Caveat Body Piercing"
 Description: "Example for Caveat Condition"
+* extension[caveatType].valueCoding = SCT#879862001 "Body piercing (finding)"
 * category = ConditionCategory#problem-list-item "Problem List Item"
 * code = SCT#879862001 "Body piercing (finding)"
 * subject = Reference(SUfferer)
@@ -376,6 +373,7 @@ Instance: CaveatRenalInsufficiency
 InstanceOf: ChRadOrderCaveatCondition
 Title: "Caveat Renal Insufficiency"
 Description: "Example for Caveat Condition"
+* extension[caveatType].valueCoding = SCT#723188008 "Renal insufficiency (disorder)"
 * category = ConditionCategory#problem-list-item "Problem List Item"
 * code = SCT#723188008 "Renal insufficiency (disorder)"
 * subject = Reference(SUfferer)
@@ -409,6 +407,7 @@ Instance: CaveatDrugPrescriptionMetformin
 InstanceOf: ChRadOrderCaveatCondition
 Title: "Caveat Drug Prescription Metformin"
 Description: "Example for Caveat Condition"
+* extension[caveatType].valueCoding = SCT#182817000 "Drug prescription (situation)"
 * category = ConditionCategory#problem-list-item "Problem List Item"
 * code = SCT#372567009 "Metformin (substance)"
 * subject = Reference(SUfferer)
@@ -418,6 +417,7 @@ Instance: CaveatDeviceCardiacPacemaker
 InstanceOf: ChRadOrderCaveatCondition
 Title: "Caveat Device Cardiac Pacemaker"
 Description: "Example for Caveat Condition"
+* extension[caveatType].valueCoding = SCT#397578001 "Device in situ (finding)"
 * category = ConditionCategory#problem-list-item "Problem List Item"
 * code = SCT#441509002 "Cardiac pacemaker in situ"
 * subject = Reference(SUfferer)

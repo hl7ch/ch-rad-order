@@ -90,7 +90,6 @@ In case of 'ChRadOrderModalityType' specify Imaging Request Details by means of 
 * supportingInfo[diagnosis] only Reference(ChRadOrderDiagnosisCondition)
 * supportingInfo[diagnosis] ^short = "Additional problem / secondary diagnosis"
 * supportingInfo[caveats] MS
-* supportingInfo[caveats].extension contains ChRadOrderCaveatType named caveatType 1..1 MS
 * supportingInfo[caveats] only Reference(ChRadOrderCaveatCondition)
 * supportingInfo[previousImagingResults] MS
 * supportingInfo[previousImagingResults] only Reference(ChRadOrderImagingStudy)
