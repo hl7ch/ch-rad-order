@@ -652,7 +652,7 @@
               <valueBoolean value="true"/>
               <item>
                 <linkId value="caveat.renalInsufficiency.creatinine"/>
-                <text value="Kreatinin"/>
+                <text value="Creatinin"/>
                 <item>
                   <linkId value="caveat.renalInsufficiency.creatinine.quantity"/>
                   <text value="Wert (µmol/l)"/>
@@ -1476,7 +1476,7 @@
             <type value="boolean"/>
             <item>
               <linkId value="caveat.renalInsufficiency.creatinineClearance"/>
-              <text value="Kreatinin-Clearance"/>
+              <text value="Creatinin-Clearance"/>
               <type value="group"/>
               <enableWhen>
                 <question value="caveat.renalInsufficiency"/>
@@ -1496,7 +1496,7 @@
             </item>
             <item>
               <linkId value="caveat.renalInsufficiency.creatinine"/>
-              <text value="Kreatinin"/>
+              <text value="Creatinin"/>
               <type value="group"/>
               <enableWhen>
                 <question value="caveat.renalInsufficiency"/>

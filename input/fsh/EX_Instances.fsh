@@ -379,10 +379,10 @@ InstanceOf: ChRadOrderCreatinineClearanceObservation
 Title: "Caveat Renal Insufficiency Creatinine Clearance"
 Description: "Example for CreatinineClearance Observation"
 * status = #final
-* code = SCT#723188008 "Renal insufficiency (disorder)" // TBD: Codes für Kreatinin-Clearance-Observation
+* code = LNC#33558-8 "Creatinine renal clearance in Urine and Serum or Plasma collected for unspecified duration"
 * subject = Reference(SUfferer)
 * effectiveDateTime = "2019-04-01T10:10:00.000+00:00"
-* valueQuantity = 122 'mL/min'
+* valueQuantity = 55 'mL/min' "ml/min"
 
 
 Instance: CaveatRenalInsufficiencyCreatinine
@@ -390,10 +390,10 @@ InstanceOf: ChRadOrderCreatinineObservation
 Title: "Caveat Renal Insufficiency Creatinine"
 Description: "Example for Creatinine Observation"
 * status = #final
-* code = SCT#723188008 "Renal insufficiency (disorder)" // TBD: Codes für Kreatinin-Observation
+* code = LNC#77140-2 "Creatinine [Moles/volume] in Serum, Plasma or Blood"
 * subject = Reference(SUfferer)
 * effectiveDateTime = "2019-04-01T10:10:00.000+00:00"
-* valueQuantity = 122 'umol/L'
+* valueQuantity = 90 'umol/L' "µmol/l"
 
 
 Instance: CaveatDrugPrescriptionMetformin

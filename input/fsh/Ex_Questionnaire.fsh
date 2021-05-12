@@ -561,7 +561,7 @@ Caveats
 * item[=].item[=].type = #boolean
 
 * item[=].item[=].item[+].linkId = "caveat.renalInsufficiency.creatinineClearance"     
-* item[=].item[=].item[=].text = "Kreatinin-Clearance"   
+* item[=].item[=].item[=].text = "Creatinin-Clearance"   
 * item[=].item[=].item[=].type = #group
 * item[=].item[=].item[=].enableWhen[+].question = "caveat.renalInsufficiency"
 * item[=].item[=].item[=].enableWhen[=].operator = #=
@@ -576,7 +576,7 @@ Caveats
 * item[=].item[=].item[=].item[=].type = #dateTime
 
 * item[=].item[=].item[+].linkId = "caveat.renalInsufficiency.creatinine"    
-* item[=].item[=].item[=].text = "Kreatinin"   
+* item[=].item[=].item[=].text = "Creatinin"   
 * item[=].item[=].item[=].type = #group
 * item[=].item[=].item[=].enableWhen[+].question = "caveat.renalInsufficiency"
 * item[=].item[=].item[=].enableWhen[=].operator = #=

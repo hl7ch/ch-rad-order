@@ -66,15 +66,6 @@ Description: "Definition for Caveat Substance Value Set in the context of CH RAD
 * SCT#372567009 "Metformin (substance)"
 
 
-// TBD: Fall es gebraucht wird, noch einbinden
-ValueSet: ChRadOrderCaveatLabObservation
-Id: ch-rad-order-caveat-lab-observation
-Title: "Lab Observation"
-Description: "Definition for Lab Observation Value Set in the context of CH RAD-Order."
-* LNC#77140-2 "Creatinine [Moles/volume] in Serum, Plasma or Blood"
-* LNC#33558-8 "Creatinine renal clearance in Urine and Serum or Plasma collected for unspecified duration"
-
-
 // TBD: Wo wird das gebraucht?
 ValueSet: ChRadOrderReasonForExam
 Id: ch-rad-order-reason-for-exam

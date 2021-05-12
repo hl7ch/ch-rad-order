@@ -328,13 +328,24 @@ Caveats
 * item[=].item[+].linkId = "caveat.renalInsufficiency"
 * item[=].item[=].text = "Niereninsuffizienz"   
 * item[=].item[=].answer.valueBoolean = true
+// Creatinin-Clearance
+* item[=].item[=].answer.item[+].linkId = "caveat.renalInsufficiency.creatinineClearance"    
+* item[=].item[=].answer.item[=].text = "Creatinin-Clearance"
 
+* item[=].item[=].answer.item[=].item[+].linkId = "caveat.renalInsufficiency.creatinineClearance.quantity"     
+* item[=].item[=].answer.item[=].item[=].text = "Wert (ml/min)"   
+* item[=].item[=].answer.item[=].item[=].answer.valueQuantity = 55 'mL/min'
+
+* item[=].item[=].answer.item[=].item[+].linkId = "caveat.renalInsufficiency.creatinineClearance.dateTime"     
+* item[=].item[=].answer.item[=].item[=].text = "Zeitpunkt der Bestimmung"   
+* item[=].item[=].answer.item[=].item[=].answer.valueDateTime = "2019-04-01T10:10:00.000+00:00"
+// Creatinin
 * item[=].item[=].answer.item[+].linkId = "caveat.renalInsufficiency.creatinine"    
-* item[=].item[=].answer.item[=].text = "Kreatinin"
+* item[=].item[=].answer.item[=].text = "Creatinin"
 
 * item[=].item[=].answer.item[=].item[+].linkId = "caveat.renalInsufficiency.creatinine.quantity"     
 * item[=].item[=].answer.item[=].item[=].text = "Wert (µmol/l)"   
-* item[=].item[=].answer.item[=].item[=].answer.valueQuantity = 122 'umol/L'
+* item[=].item[=].answer.item[=].item[=].answer.valueQuantity = 90 'umol/L'
 
 * item[=].item[=].answer.item[=].item[+].linkId = "caveat.renalInsufficiency.creatinine.dateTime"     
 * item[=].item[=].answer.item[=].item[=].text = "Zeitpunkt der Bestimmung"   

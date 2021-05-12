@@ -43,13 +43,20 @@ Description: "Definition for the Creatinine Clearance Observation resource in th
 * . ^short = "CH ORF Creatinine Clearance Observation"
 * status MS
 * code MS
-// * code = 
-// * code ^short = ""
+* code = LNC#33558-8
+* code ^short = "Creatinine renal clearance in Urine and Serum or Plasma collected for unspecified duration"
 * subject MS 
 * subject only Reference(ChCorePatient) 
 * effectiveDateTime MS
 * valueQuantity MS
-// TBD: Einheit fixieren
+* valueQuantity.value 1.. MS
+* valueQuantity.unit 1.. MS
+* valueQuantity.unit ^fixedString = "ml/min"
+* valueQuantity.system 1.. MS
+* valueQuantity.system ^fixedUri = "http://unitsofmeasure.org"
+* valueQuantity.code 1.. MS
+* valueQuantity.code ^fixedCode = #mL/min
+* dataAbsentReason MS
 
 
 Profile: ChRadOrderCreatinineObservation
@@ -60,13 +67,20 @@ Description: "Definition for the Creatinine Observation resource in the context 
 * . ^short = "CH ORF Creatinine Observation"
 * status MS
 * code MS
-// * code = 
-// * code ^short = ""
+* code = LNC#77140-2
+* code ^short = "Creatinine [Moles/volume] in Serum, Plasma or Blood"
 * subject MS 
 * subject only Reference(ChCorePatient) 
 * effectiveDateTime MS
 * valueQuantity MS
-// TBD: Einheit fixieren
+* valueQuantity.value 1.. MS
+* valueQuantity.unit 1.. MS
+* valueQuantity.unit ^fixedString = "µmol/l"
+* valueQuantity.system 1.. MS
+* valueQuantity.system ^fixedUri = "http://unitsofmeasure.org"
+* valueQuantity.code 1.. MS
+* valueQuantity.code ^fixedCode = #umol/L
+* dataAbsentReason MS
 
 
 Profile: ChRadOrderImagingStudy
