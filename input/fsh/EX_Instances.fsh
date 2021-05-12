@@ -35,9 +35,6 @@ Description: "Example for ServiceRequest"
 
 * supportingInfo[previousImagingResults][+] = Reference(ImagingStudyRx)
 
-* supportingInfo[patientConsents][+] = Reference(ConsentTreatment)
-* supportingInfo[patientConsents][+] = Reference(ConsentPatientPrivacy)
-
 // * bodySite = SCT#51185008 "Thoracic structure (body structure)"
 // * note.text = "Note/Comments"
 // * patientInstruction = "Patient instructions"
@@ -135,10 +132,6 @@ Description: "Example for Bundle"
 * entry[=].resource = CaveatDrugPrescriptionMetformin
 * entry[+].fullUrl = "http://example.com/fhir/Condition/CaveatDeviceCardiacPacemaker"
 * entry[=].resource = CaveatDeviceCardiacPacemaker
-* entry[+].fullUrl = "http://example.com/fhir/Consent/ConsentTreatment"
-* entry[=].resource = ConsentTreatment
-* entry[+].fullUrl = "http://example.com/fhir/Consent/ConsentPatientPrivacy"
-* entry[=].resource = ConsentPatientPrivacy
 * entry[+].fullUrl = "http://example.com/fhir/ImagingStudy/ImagingStudyRx"
 * entry[=].resource = ImagingStudyRx
 * entry[+].fullUrl = "http://example.com/fhir/Appointment/AppointmentRadiography"
@@ -421,28 +414,6 @@ Description: "Example for Caveat Condition"
 * category = ConditionCategory#problem-list-item "Problem List Item"
 * code = SCT#441509002 "Cardiac pacemaker in situ"
 * subject = Reference(SUfferer)
-
-
-Instance: ConsentTreatment
-InstanceOf: ChOrfConsent
-Title: "Consent Treatment"
-Description: "Example for Consent"
-* status = #active
-* scope = ConsentScope#treatment "Treatment"
-* category = LNC#59284-0 "Consent"
-* patient = Reference(SUfferer)
-* policyRule = v3ActCode#OPTIN      // this is opt-in - e.g. everything approved unless otherwise stated
-
-
-Instance: ConsentPatientPrivacy
-InstanceOf: ChOrfConsent
-Title: "Consent Patient Privacy"
-Description: "Example for Consent"
-* status = #active
-* scope = ConsentScope#patient-privacy "Privacy Consent"
-* category = LNC#59284-0 "Consent"
-* patient = Reference(SUfferer)
-* policyRule = v3ActCode#OPTIN      // this is opt-in - e.g. everything approved unless otherwise stated
 
 
 Instance: ImagingStudyRx

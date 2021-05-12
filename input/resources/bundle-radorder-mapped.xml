@@ -703,25 +703,6 @@
           </item>
         </item>
         <item>
-          <linkId value="consent"/>
-          <definition value="http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.supportingInfo"/>
-          <text value="Einverständniserklärung"/>
-          <item>
-            <linkId value="consent.treatment"/>
-            <text value="Einverständnis des Patienten zur Behandlung"/>
-            <answer>
-              <valueString value="TBD"/>
-            </answer>
-          </item>
-          <item>
-            <linkId value="consent.patientPrivacy"/>
-            <text value="Einverständnis des Patienten zum Datenschutz"/>
-            <answer>
-              <valueString value="TBD"/>
-            </answer>
-          </item>
-        </item>
-        <item>
           <linkId value="coverage"/>
           <definition value="http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.insurance"/>
           <text value="Kostenträger"/>
@@ -1575,31 +1556,6 @@
             <text value="Relevante Medikamente, z.B. Metformin"/>
             <type value="string"/>
             <repeats value="true"/>
-          </item>
-        </item>
-        <item>
-          <linkId value="consent"/>
-          <text value="Einverständniserklärung"/>
-          <type value="group"/>
-          <item>
-            <linkId value="consent.treatment"/>
-            <text value="Einverständnis des Patienten zur Behandlung"/>
-            <type value="string"/>
-          </item>
-          <item>
-            <linkId value="consent.patientPrivacy"/>
-            <text value="Einverständnis des Patienten zum Datenschutz"/>
-            <type value="string"/>
-          </item>
-          <item>
-            <linkId value="consent.research"/>
-            <text value="Einverständnis des Patienten zur Forschung"/>
-            <type value="string"/>
-          </item>
-          <item>
-            <linkId value="consent.advancedCareDirective"/>
-            <text value="Patientenverfügung"/>
-            <type value="string"/>
           </item>
         </item>
         <item>

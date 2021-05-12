@@ -627,30 +627,6 @@ Caveats
 * item[=].item[=].repeats = true
 
 
-/*-------------------------------------------------------------------------
-4 Consents
-*/
-* item[+].linkId = "consent"  
-* item[=].text = "Einverständniserklärung"
-* item[=].type = #group
-
-* item[=].item[+].linkId = "consent.treatment"      
-* item[=].item[=].text = "Einverständnis des Patienten zur Behandlung"
-* item[=].item[=].type = #string
-
-* item[=].item[+].linkId = "consent.patientPrivacy"      
-* item[=].item[=].text = "Einverständnis des Patienten zum Datenschutz"
-* item[=].item[=].type = #string
-
-* item[=].item[+].linkId = "consent.research"      
-* item[=].item[=].text = "Einverständnis des Patienten zur Forschung"
-* item[=].item[=].type = #string
-
-* item[=].item[+].linkId = "consent.advancedCareDirective"     
-* item[=].item[=].text = "Patientenverfügung"
-* item[=].item[=].type = #string
-
-
 /*------------------------------------------------------------------------
 4 Arten von Kostentägern  (Noch offen: Wie efrassen)
 */

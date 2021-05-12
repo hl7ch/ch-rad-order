@@ -353,19 +353,6 @@ Caveats
 * item[=].item[=].text = "Relevante Medikamente, z.B. Metformin"
 * item[=].item[=].answer.valueCoding = SCT#372567009 "Metformin (substance)"
 
-/*-------------------------------------------------------------------------
-4 Consents
-*/
-* item[+].linkId = "consent"
-* item[=].text = "Einverständniserklärung"
-
-* item[=].item[+].linkId = "consent.treatment"      
-* item[=].item[=].text = "Einverständnis des Patienten zur Behandlung"
-* item[=].item[=].answer.valueString = "TBD"
-
-* item[=].item[+].linkId = "consent.patientPrivacy"      
-* item[=].item[=].text = "Einverständnis des Patienten zum Datenschutz"
-* item[=].item[=].answer.valueString = "TBD"
 
 /*------------------------------------------------------------------------
 4 Arten von Kostentägern  (Noch offen: Wie efrassen)
