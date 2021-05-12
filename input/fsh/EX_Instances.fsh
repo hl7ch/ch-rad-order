@@ -59,7 +59,7 @@ Description: "Example for Composition"
 * subject = Reference(SUfferer)
 * date = "2019-04-01T20:18:41.341+00:00"
 * author = Reference(ORderplacerHappyDoctors)
-* title = "Radiology Order"
+* title = "Anmeldung Radiologie"
 * section.entry[Questionnaire] = Reference(QuestionnaireRadiologyOrder)
 * section.entry[QuestionnaireResponse] = Reference(QuestionnaireResponseRadiologyOrder)
 * section.entry[ServiceRequest] = Reference(ServiceRequestRadiologyOrder)
@@ -296,7 +296,7 @@ Description: "Example for Practitioner"
 // * telecom[1].value = "o.rderfiller@happyhospital.ch"
 
 
-//------------- more -------------
+//------------- diagnosisList -------------
 Instance: PrimaryDiagnosis
 InstanceOf: ChRadOrderDiagnosisCondition
 Title: "Primary Diagnosis"
@@ -324,6 +324,7 @@ Description: "Example for Diagnosis Condition"
 * subject = Reference(SUfferer)
 
 
+//------------- coverage -------------
 Instance: CoverageKVG
 InstanceOf: ChOrfCoverage
 Title: "Coverage KVG"
@@ -342,6 +343,7 @@ Usage: #inline
 * name = "Sanitas"
 
 
+//------------- caveats -------------
 Instance: CaveatBloodCoagulation
 InstanceOf: ChRadOrderCaveatCondition
 Title: "Caveat Blood Coagulation"
@@ -416,6 +418,7 @@ Description: "Example for Caveat Condition"
 * subject = Reference(SUfferer)
 
 
+//------------- previousResult -------------
 Instance: ImagingStudyRx
 InstanceOf: ChRadOrderImagingStudy
 Title: "ImagingStudy Previous Rx"
@@ -431,6 +434,7 @@ Description: "Example for Imaging Study"
 */
 
 
+//------------- appointment -------------
 Instance: AppointmentRadiography
 InstanceOf: ChOrfAppointment
 Title: "Appointment Radiography"
