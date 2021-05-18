@@ -2,7 +2,7 @@ Instance: ServiceRequestRadiologyOrder
 InstanceOf: ChRadOrderServiceRequest
 Title: "ServiceRequest Radiology Order"
 Description: "Example for ServiceRequest"
-* extension[appointment].valueReference = Reference(AppointmentRadiography)
+* extension[timeAndLocation].valueReference = Reference(AppointmentRadiography)
 
 * identifier[placerOrderIdentifier].system = "urn:oid:1.3.4.5.6.7"
 * identifier[placerOrderIdentifier].value = "12345"
@@ -138,6 +138,8 @@ Description: "Example for Bundle"
 * entry[=].resource = ImagingStudyRx
 * entry[+].fullUrl = "http://example.com/fhir/Appointment/AppointmentRadiography"
 * entry[=].resource = AppointmentRadiography
+* entry[+].fullUrl = "http://example.com/fhir/Location/LocationRadiography"
+* entry[=].resource = LocationRadiography
 
 
 
@@ -436,7 +438,7 @@ Description: "Example for Imaging Study"
 */
 
 
-//------------- appointment -------------
+//-------------  Time and Location -------------
 Instance: AppointmentRadiography
 InstanceOf: ChOrfAppointment
 Title: "Appointment Radiography"
@@ -445,9 +447,21 @@ Description: "Example for Appointment"
 * identifier.value = "384209.38"
 * status = #proposed
 * patientInstruction = "Wunschtermin der Patientin"
-* participant[+].actor = Reference(SUfferer)
-* participant[=].status = #accepted
-* participant[+].actor = Reference(ORderfillerHappyHospital)
-* participant[=].status = #needs-action
+* participant[+].actor = Reference(LocationRadiography)
+* participant[=].status = #tentative
 * requestedPeriod[+].start = "2019-04-01T15:00:00.000+00:00"
 * requestedPeriod[=].end = "2019-04-01T15:30:00.000+00:00"
+
+
+Instance: LocationRadiography
+InstanceOf: ChOrfLocation
+Title: "Location Radiography"
+Description: "Example for Location"
+* name = "Name of the location"
+* telecom[0].system = #phone
+* telecom[0].value = "+41 44 412 65 56"
+* address.line[0] = "Seestrasse 133"
+* address.line[1] = "Röntgen"
+* address.city = "Zürich"
+* address.postalCode = "8000"
+* address.country = "Schweiz"

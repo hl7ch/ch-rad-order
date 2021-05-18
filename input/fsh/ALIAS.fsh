@@ -27,7 +27,6 @@ Alias:   ChCorePatient =                http://fhir.ch/ig/ch-core/StructureDefin
 Alias:   ChCorePractitioner =           http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitioner
 Alias:   ChCorePractitionerRole =       http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitionerrole
 Alias:   ChCoreOrganization =           http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-organization
-Alias:   ChCoreLocation =               http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-location
 
 // CH ORF SD
 Alias:   ChOrfServiceRequest =          http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-servicerequest
@@ -36,6 +35,7 @@ Alias:   ChOrfQuestionnaireResponse =   http://fhir.ch/ig/ch-orf/StructureDefini
 Alias:   ChOrfComposition =             http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-composition
 Alias:   ChOrfDocument =                http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-document
 Alias:   ChOrfAppointment =             http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-appointment
+Alias:   ChOrfLocation =                http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-location
 Alias:   CSCoverageType =               http://fhir.ch/ig/ch-orf/CodeSystem/ch-orf-cs-coveragetype
 
 // IPS SD
