@@ -14,8 +14,6 @@ Description: "Example for ServiceRequest"
 
 * orderDetail[imagingRegion] = RDLX#RID1243 "Thorax"
 * orderDetail[imagingRegion].extension[orderDetailType].valueCoding = ChRadOrderOrderDetailType#imagingRegion
-* orderDetail[imagingFocus] = RDLX#RID2468 "Chest wall"
-* orderDetail[imagingFocus].extension[orderDetailType].valueCoding = ChRadOrderOrderDetailType#imagingFocus
 
 * subject = Reference(SUfferer)
 * requester = Reference(ORderplacerHappyDoctors)
@@ -35,9 +33,8 @@ Description: "Example for ServiceRequest"
 
 * supportingInfo[previousImagingResults][+] = Reference(ImagingStudyRx)
 
-// * bodySite = SCT#51185008 "Thoracic structure (body structure)"
-// * note.text = "Note/Comments"
-// * patientInstruction = "Patient instructions"
+* bodySite = RDLX#RID2468 "Chest wall" // imagingFocus
+* note.text = "Bemerkung/Kommentar"
 
 
 Instance: CompositionRadiologyOrder

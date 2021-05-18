@@ -39,16 +39,13 @@ In case of 'ChRadOrderModalityType' specify Imaging Request Details by means of 
 * orderDetail ^slicing.discriminator.path = "$this"
 * orderDetail ^slicing.rules = #open
 * orderDetail contains 
-    imagingRegion 0..* and 
-    imagingFocus 0..* and   
+    imagingRegion 0..* and    
     laterality 0..1 and // Cardinality of Laterality to be discussed
     viewType 0..*  and
     maneuverType 0..* and
     guidanceForAction 0..* 
 * orderDetail[imagingRegion] MS
 * orderDetail[imagingRegion] from ChRadOrderImagingRegion
-* orderDetail[imagingFocus] MS
-* orderDetail[imagingFocus] from ChRadOrderImagingFocus
 * orderDetail[laterality] MS
 * orderDetail[laterality] from ChRadOrderLaterality
 * orderDetail[viewType] MS
@@ -91,10 +88,10 @@ In case of 'ChRadOrderModalityType' specify Imaging Request Details by means of 
 * supportingInfo[previousImagingResults] only Reference(ChRadOrderImagingStudy)
 //------- bodySite -------
 * bodySite MS
+* bodySite from ChRadOrderImagingFocus
 //------- note -------
 * note MS
-//------- patientInstructions -------
-* patientInstruction MS
+* note.text MS
 
 
 Extension: ChRadOrderOrderDetailType

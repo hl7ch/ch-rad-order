@@ -238,7 +238,7 @@ Description: "Example for QuestionnaireResponse"
 * item[=].item[=].item[=].answer.valueString = "Schweiz"
 
 /*------------------------------------------------------------------------
-Was wird gewünscht (nur 1 Wert)             
+1. Was wird gewünscht (nur 1 Wert)             
 */
 * item[+].linkId = "requestedService"
 * item[=].text = "Angeforderte Leistung"
@@ -248,7 +248,7 @@ Was wird gewünscht (nur 1 Wert)
 * item[=].item[=].answer.valueCoding = ChRadOrderRequestedService#ImagingRequest "Imaging Request"
 
 /*------------------------------------------------------------------------
-Fragestellung (mehrere Werte)
+2. Fragestellung (mehrere Werte)
 */
 * item[+].linkId = "reason"
 * item[=].text = "Klinische Fragestellung"
@@ -256,6 +256,31 @@ Fragestellung (mehrere Werte)
 * item[=].item[+].linkId = "reason.question"
 * item[=].item[=].text = "Fragestellung"                
 * item[=].item[=].answer.valueString = "Diagnostic Question"
+
+/*-----------------------------------------------------------------------
+3. Angabe der Untersuchung (nur 1 Wert):
+*/
+* item[+].linkId = "imagingService"
+* item[=].text = "Bildgebendes Verfahren"
+
+* item[=].item[+].linkId = "imagingService.type"
+* item[=].item[=].text = "Art"                 
+* item[=].item[=].answer.valueCoding = RDLX#RID10345 "projection radiography"
+
+
+/*------------------------------------------------------------------------ 
+4. Order Detail
+*/
+* item[+].linkId = "orderDetail"
+* item[=].text = "Weitere Angaben zur Bildgebung"
+
+* item[=].item[+].linkId = "orderDetail.imagingRegion"
+* item[=].item[=].text = "Region"
+* item[=].item[=].answer.valueCoding = RDLX#RID1243 "Thorax"
+
+* item[=].item[+].linkId = "orderDetail.imagingFocus"
+* item[=].item[=].text = "Fokus"
+* item[=].item[=].answer.valueCoding = RDLX#RID2468 "Chest wall"
 
 /*----------------------------------------------------------------------
 Gewünschter Radiologe: Noch offen, wie die Auswahlliste gemacht werden soll
@@ -271,33 +296,65 @@ Gewünschter Radiologe: Noch offen, wie die Auswahlliste gemacht werden soll
 * item[=].item[=].text = "Vorname"
 * item[=].item[=].answer.valueString = "Otto"
 
-/*-----------------------------------------------------------------------
-Angabe der Untersuchung (nur 1 Wert):
-*/
-* item[+].linkId = "imagingService"
-* item[=].text = "Bildgebendes Verfahren"
-
-* item[=].item[+].linkId = "imagingService.type"
-* item[=].item[=].text = "Art"                 
-* item[=].item[=].answer.valueCoding = RDLX#RID10345 "projection radiography"
-
 /*----------------------------------------------------------------------
-Art der Intervention (mehrere Werte)
+time and location 
 */
+* item[+].linkId = "timeAndLocation"
+* item[=].text = "Zeit und Ort der Durchführung der angeforderten Leistung"
 
-/*------------------------------------------------------------------------ 
-Order Detail
-*/
-* item[+].linkId = "orderDetail"
-* item[=].text = "Weitere Angaben zur Bildgebung"
+* item[=].item[+].linkId = "timeAndLocation.appointment"
+* item[=].item[=].text = "Termin für die Durchführung"
 
-* item[=].item[+].linkId = "orderDetail.imagingRegion"
-* item[=].item[=].text = "Region"
-* item[=].item[=].answer.valueCoding = RDLX#RID1243 "Thorax"
+* item[=].item[=].item[+].linkId = "timeAndLocation.appointment.identifier"
+* item[=].item[=].item[=].text = "Identifier des Termins"
+* item[=].item[=].item[=].answer.valueString = "384209.38"
 
-* item[=].item[+].linkId = "orderDetail.imagingFocus"
-* item[=].item[=].text = "Fokus"
-* item[=].item[=].answer.valueCoding = RDLX#RID2468 "Chest wall"
+* item[=].item[=].item[+].linkId = "timeAndLocation.appointment.identifierDomain"
+* item[=].item[=].item[=].text = "Domain des Identifiers des Termins"
+* item[=].item[=].item[=].answer.valueString = "http://example.com/identifierdomain"
+
+* item[=].item[=].item[+].linkId = "timeAndLocation.appointment.requestedPeriod"
+* item[=].item[=].item[=].text = "Zeit der Durchführung"
+
+* item[=].item[=].item[=].item[+].linkId = "timeAndLocation.appointment.requestedPeriod.start"
+* item[=].item[=].item[=].item[=].text = "Beginn der Durchführung"
+* item[=].item[=].item[=].item[=].answer.valueDateTime = "2019-04-01T15:00:00.000+00:00"
+
+* item[=].item[=].item[=].item[+].linkId = "timeAndLocation.appointment.requestedPeriod.end"
+* item[=].item[=].item[=].item[=].text = "Ende der Durchführung"
+* item[=].item[=].item[=].item[=].answer.valueDateTime = "2019-04-01T15:30:00.000+00:00"
+
+* item[=].item[=].item[+].linkId = "timeAndLocation.appointment.patientInstruction"
+* item[=].item[=].item[=].text = "Hinweis für den Patient"
+* item[=].item[=].item[=].answer.valueString = "Wunschtermin der Patientin"
+
+* item[=].item[=].item[+].linkId = "timeAndLocation.appointment.location"
+* item[=].item[=].item[=].text = "Ort der Durchführung"
+
+* item[=].item[=].item[=].item[+].linkId = "timeAndLocation.appointment.location.name"
+* item[=].item[=].item[=].item[=].text = "Name"
+* item[=].item[=].item[=].item[=].answer.valueString = "Name of the location"
+
+* item[=].item[=].item[=].item[+].linkId = "timeAndLocation.appointment.location.phone"
+* item[=].item[=].item[=].item[=].text = "Telefon"
+* item[=].item[=].item[=].item[=].answer.valueString = "+41 44 412 65 56"
+
+* item[=].item[=].item[=].item[+].linkId = "timeAndLocation.appointment.location.streetAddressLine"
+* item[=].item[=].item[=].item[=].text = "Strasse, Hausnummer, Postfach etc."
+* item[=].item[=].item[=].item[=].answer[+].valueString = "Seestrasse 133"
+* item[=].item[=].item[=].item[=].answer[+].valueString = "Röntgen"
+
+* item[=].item[=].item[=].item[+].linkId = "timeAndLocation.appointment.location.postalCode"
+* item[=].item[=].item[=].item[=].text = "PLZ"
+* item[=].item[=].item[=].item[=].answer.valueString = "8000"
+
+* item[=].item[=].item[=].item[+].linkId = "timeAndLocation.appointment.location.city"
+* item[=].item[=].item[=].item[=].text = "Ort"
+* item[=].item[=].item[=].item[=].answer.valueString = "Zürich"
+
+* item[=].item[=].item[=].item[+].linkId = "timeAndLocation.appointment.location.country"
+* item[=].item[=].item[=].item[=].text = "Land"
+* item[=].item[=].item[=].item[=].answer.valueString = "Schweiz"
 
 /*----------------------------------------------------------------------
 Darstellung der Problem- / Diagnoseliste
@@ -384,3 +441,13 @@ Vorheriges Untersuchungsresultat:
 * item[=].item[+].linkId = "previousResult.result"
 * item[=].item[=].text = "Untersuchungsresultat"
 * item[=].item[=].answer.valueString = "TBD"
+
+/*------------------------------------------------------------------------
+Bemerkung
+*/
+* item[+].linkId = "note"
+* item[=].text = "Bemerkung"
+
+* item[=].item[+].linkId = "note.text"
+* item[=].item[=].text = "Kommentar" 
+* item[=].item[=].answer.valueString = "Bemerkung/Kommentar"
