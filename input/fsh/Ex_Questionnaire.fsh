@@ -727,21 +727,21 @@ time and location
 
 
 /*----------------------------------------------------------------------
-Darstellung der Problem- / Diagnoseliste
+Darstellung der Diagnosen und Befunde
 */
 * item[+].linkId = "diagnosisList"
-* item[=].text = "Problem- / Diagnoseliste"
+* item[=].text = "Diagnosen und Befunde"
 * item[=].type = #group
 
 * item[=].item[+].linkId = "diagnosisList.primaryDiagnosis"  
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.reasonReference"
-* item[=].item[=].text = "Grund für die Zuweisung (Hauptdiagnose)"
+* item[=].item[=].text = "Hauptdiagnosen"
 * item[=].item[=].type = #string
 * item[=].item[=].repeats = true
 
 * item[=].item[+].linkId = "diagnosisList.secondaryDiagnosis"  
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.supportingInfo:diagnosis"
-* item[=].item[=].text = "Weiteres Problem / Nebendiagnose"
+* item[=].item[=].text = "Nebendiagnosen"
 * item[=].item[=].type = #string
 * item[=].item[=].repeats = true
 
@@ -779,12 +779,12 @@ Caveats
 * item[=].item[=].item[=].enableWhen[=].answerBoolean = true
 
 * item[=].item[=].item[=].item[+].linkId = "caveat.bloodCoagulation.INR.quantity"
-* item[=].item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-creatinineclearance-observation#Observation.valueQuantity"
+* item[=].item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-INR-observation#Observation.valueQuantity"
 * item[=].item[=].item[=].item[=].text = "Wert (INR)"   
 * item[=].item[=].item[=].item[=].type = #quantity
 
 * item[=].item[=].item[=].item[+].linkId = "caveat.bloodCoagulation.INR.dateTime"
-* item[=].item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-creatinineclearance-observation#Observation.effectiveDateTime"
+* item[=].item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-INR-observation#Observation.effectiveDateTime"
 * item[=].item[=].item[=].item[=].text = "Zeitpunkt der Bestimmung"   
 * item[=].item[=].item[=].item[=].type = #dateTime
 

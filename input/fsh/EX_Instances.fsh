@@ -378,6 +378,25 @@ Description: "Example for Caveat Condition"
 * category = ConditionCategory#problem-list-item "Problem List Item"
 * code = SCT#64779008 "Blood coagulation disorder (disorder)"
 * subject = Reference(SUfferer)
+* evidence[+].detail = Reference(CaveatBloodCoagulationINR)
+* evidence[+].detail = Reference(CaveatBloodCoagulationPlatelets)
+
+
+/* extension[caveatType].valueCoding = SCT#64779008 "Blood coagulation disorder (disorder)"
+* category = ConditionCategory#problem-list-item "Problem List Item"
+* code = SCT#64779008 "Blood coagulation disorder (disorder)"
+* subject = Reference(SUfferer)
+*/
+
+Instance: CaveatBloodCoagulationINR
+InstanceOf: ChRadOrderINRObservation
+Title: "Caveat Blood Coagulation INR"
+Description: "Example for INR Observation"
+* status = #final
+* code = LNC#34714-6 "INR [INR]"
+* subject = Reference(SUfferer)
+* effectiveDateTime = "2019-04-01T10:10:00.000+00:00"
+* valueQuantity = 2.3 'INR' "INR"
 
 
 Instance: CaveatBodyPiercing
@@ -402,17 +421,6 @@ Description: "Example for Caveat Condition"
 * evidence[+].detail = Reference(CaveatRenalInsufficiencyCreatinine)
 
 
-Instance: CaveatRenalInsufficiencyCreatinineClearance
-InstanceOf: ChRadOrderCreatinineClearanceObservation
-Title: "Caveat Renal Insufficiency Creatinine Clearance"
-Description: "Example for CreatinineClearance Observation"
-* status = #final
-* code = LNC#33558-8 "Creatinine renal clearance in Urine and Serum or Plasma collected for unspecified duration"
-* subject = Reference(SUfferer)
-* effectiveDateTime = "2019-04-01T10:10:00.000+00:00"
-* valueQuantity = 55 'mL/min' "ml/min"
-
-
 Instance: CaveatRenalInsufficiencyCreatinine
 InstanceOf: ChRadOrderCreatinineObservation
 Title: "Caveat Renal Insufficiency Creatinine"
@@ -422,6 +430,18 @@ Description: "Example for Creatinine Observation"
 * subject = Reference(SUfferer)
 * effectiveDateTime = "2019-04-01T10:10:00.000+00:00"
 * valueQuantity = 90 'umol/L' "µmol/l"
+
+
+
+Instance: CaveatRenalInsufficiencyCreatinineClearance
+InstanceOf: ChRadOrderCreatinineClearanceObservation
+Title: "Caveat Renal Insufficiency Creatinine Clearance"
+Description: "Example for CreatinineClearance Observation"
+* status = #final
+* code = LNC#33558-8 "Creatinine renal clearance in Urine and Serum or Plasma collected for unspecified duration"
+* subject = Reference(SUfferer)
+* effectiveDateTime = "2019-04-01T10:10:00.000+00:00"
+* valueQuantity = 55 'mL/min' "ml/min"
 
 
 Instance: CaveatDrugPrescriptionMetformin

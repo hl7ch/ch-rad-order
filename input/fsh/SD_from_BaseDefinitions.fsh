@@ -108,7 +108,7 @@ Description: "Definition for the INR Observation resource in the context of CH R
 
 Profile: ChRadOrderPlateletsObservation
 Parent: Observation
-Id: ch-rad-order-Platelets-observation
+Id: ch-rad-order-platelets-observation
 Title: "CH RAD-Order Platelets Observation"
 Description: "Definition for the Platelets Observation resource in the context of CH RAD-Order."
 * . ^short = "CH ORF Platelets Observation"
@@ -193,13 +193,3 @@ Description: "Definition for the ImagingStudy resource in the context of CH RAD-
 * series.instance MS
 * series.instance.uid MS
 * series.instance.sopClass MS
-
-
-/* 
-Profile: ChRadOrderCondition
-Parent: Condition-uv-ips
-Title: "CH RAD-Order Condition"
-Id: ch-rad-order-Condition
-Description: "Definition for the ImagingStudy resource in the context of CH RAD-Order."
-* . ^short = "CH RAD-Order Condition"
-*/

@@ -357,17 +357,17 @@ time and location
 * item[=].item[=].item[=].item[=].answer.valueString = "Schweiz"
 
 /*----------------------------------------------------------------------
-Darstellung der Problem- / Diagnoseliste
+Darstellung der Diagnosen und Befunde
 */
 * item[+].linkId = "diagnosisList"
-* item[=].text = "Problem- / Diagnoseliste"
+* item[=].text = "Diagnosen und Befunde"
 
 * item[=].item[+].linkId = "diagnosisList.primaryDiagnosis"  
-* item[=].item[=].text = "Grund für die Zuweisung (Hauptdiagnose)"
+* item[=].item[=].text = "Hauptdiagnosen"
 * item[=].item[=].answer[+].valueString = "Primary Diagnosis"
 
 * item[=].item[+].linkId = "diagnosisList.secondaryDiagnosis"
-* item[=].item[=].text = "Weiteres Problem / Nebendiagnose"
+* item[=].item[=].text = "Nebendiagnosen"
 * item[=].item[=].answer[+].valueString = "Secondary Diagnosis 1"
 * item[=].item[=].answer[+].valueString = "Secondary Diagnosis 2"
 

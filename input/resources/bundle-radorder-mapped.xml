@@ -619,11 +619,11 @@
         <item>
           <linkId value="diagnosisList"/>
           <definition value="http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest"/>
-          <text value="Problem- / Diagnoseliste"/>
+          <text value="Diagnosen und Befunde"/>
           <item>
             <linkId value="diagnosisList.secondaryDiagnosis"/>
             <definition value="http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.supportingInfo"/>
-            <text value="Weiteres Problem / Nebendiagnose"/>
+            <text value="Nebendiagnosen"/>
             <answer>
               <valueString value="Secondary Diagnosis 1"/>
             </answer>
@@ -1452,11 +1452,11 @@
         </item>
         <item>
           <linkId value="diagnosisList"/>
-          <text value="Problem- / Diagnoseliste"/>
+          <text value="Diagnosen und Befunde"/>
           <type value="group"/>
           <item>
             <linkId value="diagnosisList.secondaryDiagnosis"/>
-            <text value="Weiteres Problem / Nebendiagnose"/>
+            <text value="Nebendiagnosen"/>
             <type value="string"/>
             <repeats value="true"/>
           </item>
