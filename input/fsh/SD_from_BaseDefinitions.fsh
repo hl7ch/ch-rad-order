@@ -31,9 +31,10 @@ Description: "Definition for the Caveat Condition resource in the context of CH 
 * subject only Reference(ChCorePatient)  
 * evidence MS
 * evidence.detail 1..1 MS
-* evidence.detail ^short = "Supporting information (creatinine clearance, creatinine) for renal insufficiency condition"
-* evidence.detail only Reference(ChRadOrderCreatinineClearanceObservation or ChRadOrderCreatinineObservation)
-
+* evidence.detail ^short = "Supporting information (for renal insufficiency condition: creatinine clearance, creatinine) 
+                                                    for coagulopathy: INR, Platelets"
+* evidence.detail only Reference(ChRadOrderCreatinineClearanceObservation or ChRadOrderCreatinineObservation or
+                                  ChRadOrderINRObservation or ChRadOrderPlateletsObservation)
 
 Profile: ChRadOrderCreatinineClearanceObservation
 Parent: Observation
@@ -82,6 +83,97 @@ Description: "Definition for the Creatinine Observation resource in the context 
 * valueQuantity.code ^fixedCode = #umol/L
 * dataAbsentReason MS
 
+Profile: ChRadOrderINRObservation
+Parent: Observation
+Id: ch-rad-order-INR-observation
+Title: "CH RAD-Order INR Observation"
+Description: "Definition for the INR Observation resource in the context of CH RAD-Order."
+* . ^short = "CH ORF INR Observation"
+* status MS
+* code MS
+* code = LNC#34714-6
+* code ^short = "INR in Blood by Coagulation assay"
+* subject MS 
+* subject only Reference(ChCorePatient) 
+* effectiveDateTime MS
+* valueQuantity MS
+* valueQuantity.value 1.. MS
+* valueQuantity.unit 1.. MS
+* valueQuantity.unit ^fixedString = "INR"
+* valueQuantity.system 1.. MS
+* valueQuantity.system ^fixedUri = "http://unitsofmeasure.org"
+* valueQuantity.code 1.. MS
+* valueQuantity.code ^fixedCode = #INR
+* dataAbsentReason MS
+
+Profile: ChRadOrderPlateletsObservation
+Parent: Observation
+Id: ch-rad-order-Platelets-observation
+Title: "CH RAD-Order Platelets Observation"
+Description: "Definition for the Platelets Observation resource in the context of CH RAD-Order."
+* . ^short = "CH ORF Platelets Observation"
+* status MS
+* code MS
+* code = LNC#26515-7
+* code ^short = "Platelets [#/volume] in Blood"
+* subject MS 
+* subject only Reference(ChCorePatient) 
+* effectiveDateTime MS
+* valueQuantity MS
+* valueQuantity.value 1.. MS
+* valueQuantity.unit 1.. MS
+* valueQuantity.unit ^fixedString = "10^3/μl"
+* valueQuantity.system 1.. MS
+* valueQuantity.system ^fixedUri = "http://unitsofmeasure.org"
+* valueQuantity.code 1.. MS
+* valueQuantity.code ^fixedCode = #10^3/μl
+* dataAbsentReason MS
+
+Profile: ChRadOrderBodyHeight
+Parent: Observation
+Id: ch-rad-order-bodyheight-observation
+Title: "CH RAD-Order Body Height"
+Description: "Definition for the Body Height Observation resource in the context of CH RAD-Order."
+* . ^short = "CH ORF Body Height Observation"
+* status MS
+* code MS
+* code = LNC#8302-2
+* code ^short = "Body Height, method unspecified"
+* subject MS 
+* subject only Reference(ChCorePatient) 
+* effectiveDateTime MS
+* valueQuantity MS
+* valueQuantity.value 1.. MS
+* valueQuantity.unit 1.. MS
+* valueQuantity.unit ^fixedString = "cm"
+* valueQuantity.system 1.. MS
+* valueQuantity.system ^fixedUri = "http://unitsofmeasure.org"
+* valueQuantity.code 1.. MS
+* valueQuantity.code ^fixedCode = #cm
+* dataAbsentReason MS
+
+Profile: ChRadOrderBodyWeight
+Parent: Observation
+Id: ch-rad-order-bodyweight-observation
+Title: "CH RAD-Order Body Weight"
+Description: "Definition for the Body Weight Observation resource in the context of CH RAD-Order."
+* . ^short = "CH ORF Body Weight Observation"
+* status MS
+* code MS
+* code = LNC#29463-7
+* code ^short = "Body Weight, method unspecified"
+* subject MS 
+* subject only Reference(ChCorePatient) 
+* effectiveDateTime MS
+* valueQuantity MS
+* valueQuantity.value 1.. MS
+* valueQuantity.unit 1.. MS
+* valueQuantity.unit ^fixedString = "kg"
+* valueQuantity.system 1.. MS
+* valueQuantity.system ^fixedUri = "http://unitsofmeasure.org"
+* valueQuantity.code 1.. MS
+* valueQuantity.code ^fixedCode = #kg
+* dataAbsentReason MS
 
 Profile: ChRadOrderImagingStudy
 Parent: ImagingStudy

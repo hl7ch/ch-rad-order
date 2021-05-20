@@ -12,8 +12,19 @@ Bsp: Fragestellung ist required ausser bei Bestllung alter Bider
 * meta.profile[+] = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire"
 * meta.profile[+] = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-extract"
 
-* extension[targetStructureMap].url = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-targetStructureMap"
-* extension[targetStructureMap].valueCanonical = "http://fhir.ch/ig/ch-rad-order/StructureMap/RadOrderQrToBundle"
+* extension[0].url = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-targetStructureMap"
+* extension[0].valueCanonical = "http://fhir.ch/ig/ch-rad-order/StructureMap/RadOrderQrToBundle"
+
+* extension[1].url = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-sourceStructureMap"
+* extension[1].valueCanonical = "http://fhir.ch/ig/ch-orf/StructureMap/OrfPrepopBundleToQr"
+
+* extension[2].url = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-launchContext"
+* extension[2].extension[0].url = "name"
+* extension[2].extension[0].valueId = "Bundle"
+* extension[2].extension[1].url = "type"
+* extension[2].extension[1].valueCode = #Bundle
+* extension[2].extension[2].url = "description"
+* extension[2].extension[2].valueString = "The Bundle that is to be used to pre-populate the form"
 
 * url = "http://fhir.ch/ig/ch-rad-order/Questionnaire/QuestionnaireRadiologyOrder"
 * name = "QuestionnaireRadiologyOrder"
@@ -734,6 +745,17 @@ Darstellung der Problem- / Diagnoseliste
 * item[=].item[=].type = #string
 * item[=].item[=].repeats = true
 
+* item[=].item[+].linkId = "diagnosisList.bodyHeight"
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-bodyheight-observation#Observation.valueQuantity"
+* item[=].item[=].text = "Grösse (cm)"   
+* item[=].item[=].type = #quantity
+* item[=].item[=].repeats = false
+
+* item[=].item[+].linkId = "diagnosisList.bodyWeight"
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-bodyweight-observation#Observation.valueQuantity"
+* item[=].item[=].text = "Gewicht (kg)"   
+* item[=].item[=].type = #quantity
+* item[=].item[=].repeats = false
 
 /*----------------------------------------------------------------------
 Caveats   
@@ -747,6 +769,42 @@ Caveats
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.code"  
 * item[=].item[=].text = "Beinträchtigte Blutgerinnung"   
 * item[=].item[=].type = #boolean
+
+* item[=].item[=].item[+].linkId = "caveat.bloodCoagulation.INR" 
+* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.evidence.detail"
+* item[=].item[=].item[=].text = "INR"   
+* item[=].item[=].item[=].type = #group
+* item[=].item[=].item[=].enableWhen[+].question = "caveat.bloodCoagulation"
+* item[=].item[=].item[=].enableWhen[=].operator = #=
+* item[=].item[=].item[=].enableWhen[=].answerBoolean = true
+
+* item[=].item[=].item[=].item[+].linkId = "caveat.bloodCoagulation.INR.quantity"
+* item[=].item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-creatinineclearance-observation#Observation.valueQuantity"
+* item[=].item[=].item[=].item[=].text = "Wert (INR)"   
+* item[=].item[=].item[=].item[=].type = #quantity
+
+* item[=].item[=].item[=].item[+].linkId = "caveat.bloodCoagulation.INR.dateTime"
+* item[=].item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-creatinineclearance-observation#Observation.effectiveDateTime"
+* item[=].item[=].item[=].item[=].text = "Zeitpunkt der Bestimmung"   
+* item[=].item[=].item[=].item[=].type = #dateTime
+
+* item[=].item[=].item[+].linkId = "caveat.bloodCoagulation.platelets"    
+* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.evidence.detail"    
+* item[=].item[=].item[=].text = "Thrombozyten"   
+* item[=].item[=].item[=].type = #group
+* item[=].item[=].item[=].enableWhen[+].question = "caveat.bloodCoagulation"
+* item[=].item[=].item[=].enableWhen[=].operator = #=
+* item[=].item[=].item[=].enableWhen[=].answerBoolean = true
+
+* item[=].item[=].item[=].item[+].linkId = "caveat.bloodCoagulation.platelets.quantity"
+* item[=].item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-platelets-observation#Observation.valueQuantity"
+* item[=].item[=].item[=].item[=].text = "Wert (10^3/µl)"   
+* item[=].item[=].item[=].item[=].type = #quantity
+
+* item[=].item[=].item[=].item[+].linkId = "caveat.bloodCoagulation.platelets.dateTime"
+* item[=].item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-platelets-observation#Observation.effectiveDateTime"
+* item[=].item[=].item[=].item[=].text = "Zeitpunkt der Bestimmung"   
+* item[=].item[=].item[=].item[=].type = #dateTime
 
 * item[=].item[+].linkId = "caveat.renalInsufficiency"    
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.code"   

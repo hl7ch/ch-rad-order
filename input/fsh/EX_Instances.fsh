@@ -22,6 +22,8 @@ Description: "Example for ServiceRequest"
 * reasonReference[+] = Reference(PrimaryDiagnosis)
 * insurance = Reference(CoverageKVG)
 
+* supportingInfo[bodyheight][+] = Reference(BodyHeight)
+* supportingInfo[bodyweight][+] = Reference(BodyWeight)
 * supportingInfo[diagnosis][+] = Reference(SecondaryDiagnosis1)
 * supportingInfo[diagnosis][+] = Reference(SecondaryDiagnosis2)
 
@@ -111,6 +113,10 @@ Description: "Example for Bundle"
 //------------- more -------------
 * entry[+].fullUrl = "http://example.com/fhir/Condition/PrimaryDiagnosis"
 * entry[=].resource = PrimaryDiagnosis
+* entry[+].fullUrl = "http://example.com/fhir/Condition/BodyHeight_176kg"
+* entry[=].resource = BodyHeight
+* entry[+].fullUrl = "http://example.com/fhir/Condition/BodyWeight"
+* entry[=].resource = BodyWeight
 * entry[+].fullUrl = "http://example.com/fhir/Condition/SecondaryDiagnosis1"
 * entry[=].resource = SecondaryDiagnosis1
 * entry[+].fullUrl = "http://example.com/fhir/Condition/SecondaryDiagnosis2"
@@ -306,6 +312,25 @@ Description: "Example for Diagnosis Condition"
 * code.text = "Primary Diagnosis"
 * subject = Reference(SUfferer)
 
+Instance: BodyHeight
+InstanceOf: ChRadOrderBodyHeight
+Title: "BodyHeight 176 cm"
+Description: "Example for Body Height"
+* status = #final
+* code = LNC#8302-2 "Body Height, method unspecified"
+* subject = Reference(SUfferer)
+* effectiveDateTime = "2019-04-01T10:10:00.000+00:00"
+* valueQuantity = 176 'cm' "cm"
+
+Instance: BodyWeight
+InstanceOf: ChRadOrderBodyWeight
+Title: "BodyWeight_99 kg"
+Description: "Example for Body Weight"
+* status = #final
+* code = LNC#29463-7 "Body Weight, method unspecified"
+* subject = Reference(SUfferer)
+* effectiveDateTime = "2019-04-01T10:10:00.000+00:00"
+* valueQuantity = 99 'kg' "kg"
 
 Instance: SecondaryDiagnosis1
 InstanceOf: ChRadOrderDiagnosisCondition

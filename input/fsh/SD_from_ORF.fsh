@@ -76,9 +76,15 @@ In case of 'ChRadOrderModalityType' specify Imaging Request Details by means of 
 * supportingInfo ^slicing.discriminator.path = "resolve()"
 * supportingInfo ^slicing.rules = #open
 * supportingInfo contains
+    bodyheight 0..1 and
+    bodyweight 0..1 and
     diagnosis 0..* and 
     caveats 0..* and
     previousImagingResults 0..* 
+* supportingInfo[bodyheight] MS
+* supportingInfo[bodyheight] only Reference(ChRadOrderBodyHeight)
+* supportingInfo[bodyweight] MS
+* supportingInfo[bodyweight] only Reference(ChRadOrderBodyWeight)
 * supportingInfo[diagnosis] MS
 * supportingInfo[diagnosis] only Reference(ChRadOrderDiagnosisCondition)
 * supportingInfo[diagnosis] ^short = "Additional problem / secondary diagnosis"
