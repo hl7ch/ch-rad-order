@@ -193,3 +193,21 @@ Description: "Definition for the ImagingStudy resource in the context of CH RAD-
 * series.instance MS
 * series.instance.uid MS
 * series.instance.sopClass MS
+
+Profile: ChRadOrderMedia
+Parent: Media 
+Id: ch-rad-order-media
+Title: "CH RAD-Order Media"
+Description: "Definition for the Media resource in the context of CH RAD-Order."
+* . ^short = "CH RAD-Order"
+* content MS
+* content only ChRadOrderAttachment
+
+Profile: ChRadOrderAttachment
+Parent: Attachment
+Id: ch-rad-order-ChRadOrderAttachment
+Title: "CH RAD-Order Attachment"
+Description: "Definition for the Attachment data type t in the context of CH RAD-Order."
+* data MS
+* title MS
+* title ^short = "Provide filename and extension (e.g. \"shoulder_re_F_Muster_12021988.pdf\")"

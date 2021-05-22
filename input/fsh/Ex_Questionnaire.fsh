@@ -899,7 +899,7 @@ Caveats
 
 
 /*------------------------------------------------------------------------
-4 Arten von Kostentägern  (Noch offen: Wie efrassen)
+4 Arten von Kostentägern  (Noch offen: Wie erfrassen)
 */
 * item[+].linkId = "coverage"
 * item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.insurance"
@@ -928,20 +928,29 @@ Caveats
 
 
 /* ---------------------------------------------------------------------------
-Vorheriges Untersuchungsresultat:
-Angaben zu Bilder bzw. allfällige Vorbilder und Reports, die mitgegeben werden 
-mittels ImagingStudy Resource.
+Vorherige Untersuchungsresultat:
+Angaben zu Bildern bzw. allfällige Vorbildern und Reports, auf die verwiesen wird  
+mittels ImagingStudy Resource (DICOM WADO) oder die mitgegeben werden in der Media Resource.
 */
-* item[+].linkId = "previousResult"
+* item[+].linkId = "previousResults"
 * item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.supportingInfo:previousImagingResults"
-* item[=].text = "Vorheriges Untersuchungsresultat"
+* item[=].text = "Vorherige Untersuchungsresultate"
 * item[=].type = #group
 
-* item[=].item[+].linkId = "previousResult.result"
-* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy#ImagingStudy.series"
-* item[=].item[=].text = "Untersuchungsresultat"    // (Abbildung und Anzeige noch nicht definiert)
-* item[=].item[=].type = #string
-* item[=].item[=].repeats = true
+* item[=].item[+].linkId = "previousResults.available"
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.supportingInfo:previousImagingResults"
+* item[=].item[=].text = "Verfügbar"
+* item[=].item[=].type = #choice
+* item[=].item[=].answerOption[+].valueCoding = ChOrfDescriptorQualifierValue#373066001 "Ja"
+* item[=].item[=].answerOption[=].initialSelected = true
+* item[=].item[=].answerOption[+].valueCoding = ChOrfDescriptorQualifierValue#373067005 "Nein"
+
+* item[=].item[=].item[+].linkId = "Attachments"  
+* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.supportingInfo.previousImagingResults.Media.Attachment.title"
+* item[=].item[=].item[=].text = "Filename and extension of attched file (e.g. \"shoulder_re_F_Muster_12021988.pdf\") = Attatchment.title"
+* item[=].item[=].item[=].type = #string
+* item[=].item[=].item[=].repeats = true
+
 
 
 /*------------------------------------------------------------------------

@@ -464,7 +464,7 @@ Description: "Example for Caveat Condition"
 * subject = Reference(SUfferer)
 
 
-//------------- previousResult -------------
+//------------- previousResults -------------
 Instance: ImagingStudyRx
 InstanceOf: ChRadOrderImagingStudy
 Title: "ImagingStudy Previous Rx"

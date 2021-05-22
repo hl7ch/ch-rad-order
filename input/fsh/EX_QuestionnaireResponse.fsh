@@ -433,12 +433,12 @@ Caveats
 * item[=].item[=].answer.valueString = "Sanitas"
 
 /* ---------------------------------------------------------------------------
-Vorheriges Untersuchungsresultat:
+Vorherige Untersuchungsresultate:
 */
-* item[+].linkId = "previousResult"
-* item[=].text = "Vorheriges Untersuchungsresultat"
+* item[+].linkId = "previousResults"
+* item[=].text = "Vorherige Untersuchungsresultate"
 
-* item[=].item[+].linkId = "previousResult.result"
+* item[=].item[+].linkId = "previousResults.available"
 * item[=].item[=].text = "Untersuchungsresultat"
 * item[=].item[=].answer.valueString = "TBD"
 

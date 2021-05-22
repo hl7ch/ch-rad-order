@@ -12,12 +12,15 @@ Alias:   RDLX =         http://www.radlex.org
 // see https://www.hl7.org/fhir/terminologies-systems.html -> External CS
 
 
-Alias:   SCT =                          http://snomed.info/sct
-Alias:   UCUM =                         http://unitsofmeasure.org
-Alias:   ConditionCategory =            http://terminology.hl7.org/CodeSystem/condition-category
-Alias:   AdministrativeGender =         http://hl7.org/fhir/administrative-gender
-Alias:   RequestPriority =              http://hl7.org/fhir/request-priority
-Alias:   v3ActCode =                    http://terminology.hl7.org/CodeSystem/v3-ActCode
+Alias:   SCT =                              http://snomed.info/sct
+Alias:   UCUM =                             http://unitsofmeasure.org
+Alias:   ConditionCategory =                http://terminology.hl7.org/CodeSystem/condition-category
+Alias:   AdministrativeGender =             http://hl7.org/fhir/administrative-gender
+Alias:   RequestPriority =                  http://hl7.org/fhir/request-priority
+Alias:   v3ActCode =                        http://terminology.hl7.org/CodeSystem/v3-ActCode
+
+// Code Systems/ Value Sets from ORF
+Alias:   ChOrfDescriptorQualifierValue =  http://fhir.ch/ig/ch-orf/ch-orf-vs-descriptorqualifiervalue
 
 // CH EPR Term Code Systems
 Alias:   SNOMEDCTSwissExtension =       urn:oid:2.16.756.5.30.1.127.3.4
@@ -39,4 +42,4 @@ Alias:   ChOrfLocation =                http://fhir.ch/ig/ch-orf/StructureDefini
 Alias:   CSCoverageType =               http://fhir.ch/ig/ch-orf/CodeSystem/ch-orf-cs-coveragetype
 
 // IPS SD
-Alias:   Condition-Uv-Ips = http://hl7.org/fhir/uv/ips/StructureDefinition/Condition-uv-ips
+// Alias:   Condition-Uv-Ips = http://hl7.org/fhir/uv/ips/StructureDefinition/Condition-uv-ips

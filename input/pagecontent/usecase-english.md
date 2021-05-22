@@ -34,3 +34,13 @@ The players are:
 * Patient: Mrs. S. Ufferer who had a radiological exam (following the order of his former family docotor) six months ago.
 
 Patient S. Ufferer has an appointment with his new family doctor Dr. O. Rderplacer in group practice "Happy Docotors": Dr. O. Rderplacer asks he patient if he had once a chest x-rax. Patient S. Ufferer tells, that one had been made six months ago at the x-ray department of “Happy Hospital”. Dr. O. Rderplacer writes a request for the results of this exam and sends it to the radiology department of “Happy Hospital”. He furhter aks for a copy of the report to be sent to the patient.
+
+
+### Providing in an Order Results from earlier
+Results from earlier can be provided be means of attachments or - in case of DICOM - based on WADO. FHIR supports this with the ImagingStudy Resource which does not store DICOM instances and requires the use of a DICOM WADO-RS server or other storage mechanism.
+
+CH RAD-Order supports this mechanism by allowing to include ImagingStudy Resources in the CH RAD-Order Document. The implementation of DICOM WADO-RS however requires prerequisites in terms of infrastructure and policies (e.g. access rights) which are not to be expected available by most stakeholders. 
+
+For this reason, medical images can also be represented in a Media resource which allow a robust transfer of images across boundaries by means of attached inline data (base64ed). The Media resource is able to contain medical images in a DICOM format. 
+
+CH RAD-Order does not give guidance about a DICOM WADO-RS setting neither is WADO-RS depicted in the questionnaire. 

@@ -91,7 +91,9 @@ In case of 'ChRadOrderModalityType' specify Imaging Request Details by means of 
 * supportingInfo[caveats] MS
 * supportingInfo[caveats] only Reference(ChRadOrderCaveatCondition)
 * supportingInfo[previousImagingResults] MS
-* supportingInfo[previousImagingResults] only Reference(ChRadOrderImagingStudy)
+* supportingInfo[previousImagingResults] ^short = "Supports DICOM WADO-RS and formats defined elsewhere (e.g. DICOM, JPEG ..)"
+* supportingInfo[previousImagingResults] only Reference(ChRadOrderImagingStudy or ChRadOrderMedia)
+
 //------- bodySite -------
 * bodySite MS
 * bodySite from ChRadOrderImagingFocus

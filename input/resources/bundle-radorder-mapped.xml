@@ -715,11 +715,11 @@
           </item>
         </item>
         <item>
-          <linkId value="previousResult"/>
+          <linkId value="previousResults"/>
           <definition value="http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.supportingInfo"/>
-          <text value="Vorheriges Untersuchungsresultat"/>
+          <text value="Vorherige Untersuchungsresultate"/>
           <item>
-            <linkId value="previousResult.result"/>
+            <linkId value="previousResults.available"/>
             <text value="Untersuchungsresultat"/>
             <answer>
               <valueString value="TBD"/>
@@ -1584,11 +1584,11 @@
           </item>
         </item>
         <item>
-          <linkId value="previousResult"/>
-          <text value="Vorheriges Untersuchungsresultat"/>
+          <linkId value="previousResults"/>
+          <text value="Vorherige Untersuchungsresultate"/>
           <type value="group"/>
           <item>
-            <linkId value="previousResult.result"/>
+            <linkId value="previousResults.available"/>
             <text value="Untersuchungsresultat"/>
             <type value="string"/>
             <repeats value="true"/>
