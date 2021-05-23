@@ -898,35 +898,6 @@ Caveats
 * item[=].item[=].repeats = true
 
 
-/*------------------------------------------------------------------------
-4 Arten von Kostentägern  (Noch offen: Wie erfrassen)
-*/
-* item[+].linkId = "coverage"
-* item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.insurance"
-* item[=].text = "Kostenträger"
-* item[=].type = #group
-
-* item[=].item[+].linkId = "coverage.uvg"
-* item[=].item[=].definition = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-coverage#Coverage.payor"
-* item[=].item[=].text = "Unfallversicherung (nach UVG)"
-* item[=].item[=].type = #string
-
-* item[=].item[+].linkId = "coverage.kvg"
-* item[=].item[=].definition = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-coverage#Coverage.payor"
-* item[=].item[=].text = "Grundversicherung (nach KVG)"
-* item[=].item[=].type = #string
-
-* item[=].item[+].linkId = "coverage.vvg"
-* item[=].item[=].definition = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-coverage#Coverage.payor"
-* item[=].item[=].text = "Zusatzversicherung (nach VVG)"
-* item[=].item[=].type = #string
-
-* item[=].item[+].linkId = "coverage.vvgOther"
-* item[=].item[=].definition = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-coverage#Coverage.payor"
-* item[=].item[=].text = "Andere (nach VVG)"
-* item[=].item[=].type = #string
-
-
 /* ---------------------------------------------------------------------------
 Vorherige Untersuchungsresultat:
 Angaben zu Bildern bzw. allfällige Vorbildern und Reports, auf die verwiesen wird  
