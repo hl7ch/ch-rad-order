@@ -20,7 +20,7 @@ Alias:   RequestPriority =                  http://hl7.org/fhir/request-priority
 Alias:   v3ActCode =                        http://terminology.hl7.org/CodeSystem/v3-ActCode
 
 // Code Systems/ Value Sets from ORF
-Alias:   ChOrfDescriptorQualifierValue =  http://fhir.ch/ig/ch-orf/ch-orf-vs-descriptorqualifiervalue
+Alias:   ChOrfYesNo =  http://fhir.ch/ig/ch-orf/ch-orf-vs-YesNo
 
 // CH EPR Term Code Systems
 Alias:   SNOMEDCTSwissExtension =       urn:oid:2.16.756.5.30.1.127.3.4

@@ -941,9 +941,9 @@ mittels ImagingStudy Resource (DICOM WADO) oder die mitgegeben werden in der Med
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.supportingInfo:previousImagingResults"
 * item[=].item[=].text = "Verfügbar"
 * item[=].item[=].type = #choice
-* item[=].item[=].answerOption[+].valueCoding = ChOrfDescriptorQualifierValue#373066001 "Ja"
+* item[=].item[=].answerOption[+].valueCoding = ChOrfYesNo#373066001 "Ja"
 * item[=].item[=].answerOption[=].initialSelected = true
-* item[=].item[=].answerOption[+].valueCoding = ChOrfDescriptorQualifierValue#373067005 "Nein"
+* item[=].item[=].answerOption[+].valueCoding = ChOrfYesNo#373067005 "Nein"
 
 * item[=].item[=].item[+].linkId = "Attachments"  
 * item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.supportingInfo.previousImagingResults.Media.Attachment.title"
