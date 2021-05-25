@@ -127,18 +127,20 @@ Description: "Example for Bundle"
 * entry[+].fullUrl = "http://example.com/fhir/Condition/CaveatBloodCoagulation"
 * entry[=].resource = CaveatBloodCoagulation
 * entry[+].fullUrl = "http://example.com/fhir/Observation/CaveatBloodCoagulationINR"
-* entry[=].resource = CaveatBloodCoagulation
+* entry[=].resource = CaveatBloodCoagulationINR
 * entry[+].fullUrl = "http://example.com/fhir/Observation/CaveatBloodCoagulationPlatelets"
-* entry[=].resource = CaveatBloodCoagulation
+* entry[=].resource = CaveatBloodCoagulationPlatelets
 //
 * entry[+].fullUrl = "http://example.com/fhir/Condition/CaveatBodyPiercing"
 * entry[=].resource = CaveatBodyPiercing
+//
 * entry[+].fullUrl = "http://example.com/fhir/Condition/CaveatRenalInsufficiency"
 * entry[=].resource = CaveatRenalInsufficiency
 * entry[+].fullUrl = "http://example.com/fhir/Observation/CaveatRenalInsufficiencyCreatinineClearance"
 * entry[=].resource = CaveatRenalInsufficiencyCreatinineClearance
 * entry[+].fullUrl = "http://example.com/fhir/Observation/CaveatRenalInsufficiencyCreatinine"
 * entry[=].resource = CaveatRenalInsufficiencyCreatinine
+//
 * entry[+].fullUrl = "http://example.com/fhir/Condition/CaveatDrugPrescriptionMetformin"
 * entry[=].resource = CaveatDrugPrescriptionMetformin
 * entry[+].fullUrl = "http://example.com/fhir/Condition/CaveatDeviceCardiacPacemaker"
