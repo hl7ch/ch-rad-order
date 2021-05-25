@@ -123,8 +123,14 @@ Description: "Example for Bundle"
 * entry[=].resource = SecondaryDiagnosis2
 * entry[+].fullUrl = "http://example.com/fhir/Coverage/CoverageKVG"
 * entry[=].resource = CoverageKVG
+//
 * entry[+].fullUrl = "http://example.com/fhir/Condition/CaveatBloodCoagulation"
 * entry[=].resource = CaveatBloodCoagulation
+* entry[+].fullUrl = "http://example.com/fhir/Observation/CaveatBloodCoagulationINR"
+* entry[=].resource = CaveatBloodCoagulation
+* entry[+].fullUrl = "http://example.com/fhir/Observation/CaveatBloodCoagulationPlatelets"
+* entry[=].resource = CaveatBloodCoagulation
+//
 * entry[+].fullUrl = "http://example.com/fhir/Condition/CaveatBodyPiercing"
 * entry[=].resource = CaveatBodyPiercing
 * entry[+].fullUrl = "http://example.com/fhir/Condition/CaveatRenalInsufficiency"
@@ -384,21 +390,26 @@ Description: "Example for Caveat Condition"
 * evidence[+].detail = Reference(CaveatBloodCoagulationPlatelets)
 
 
-/* extension[caveatType].valueCoding = SCT#64779008 "Blood coagulation disorder (disorder)"
-* category = ConditionCategory#problem-list-item "Problem List Item"
-* code = SCT#64779008 "Blood coagulation disorder (disorder)"
-* subject = Reference(SUfferer)
-*/
-
 Instance: CaveatBloodCoagulationINR
 InstanceOf: ChRadOrderINRObservation
 Title: "Caveat Blood Coagulation INR"
 Description: "Example for INR Observation"
 * status = #final
-* code = LNC#34714-6 "INR [INR]"
+* code = LNC#34714-6 "INR in Blood by Coagulation assay"
 * subject = Reference(SUfferer)
 * effectiveDateTime = "2019-04-01T10:10:00.000+00:00"
-* valueQuantity = 2.3 'INR' "INR"
+* valueQuantity = 2.3 '{INR}' "INR"
+
+
+Instance: CaveatBloodCoagulationPlatelets
+InstanceOf: ChRadOrderPlateletsObservation
+Title: "Caveat Blood Coagulation Platelets"
+Description: "Example for Platelets Observation"
+* status = #final
+* code = LNC#26515-7 "Platelets [#/volume] in Blood"
+* subject = Reference(SUfferer)
+* effectiveDateTime = "2019-04-01T10:10:00.000+00:00"
+* valueQuantity = 150000 '10*3/uL' "10^3/μl"
 
 
 Instance: CaveatBodyPiercing

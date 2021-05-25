@@ -103,7 +103,7 @@ Description: "Definition for the INR Observation resource in the context of CH R
 * valueQuantity.system 1.. MS
 * valueQuantity.system ^fixedUri = "http://unitsofmeasure.org"
 * valueQuantity.code 1.. MS
-* valueQuantity.code ^fixedCode = #INR
+* valueQuantity.code ^fixedCode = #{INR}
 * dataAbsentReason MS
 
 Profile: ChRadOrderPlateletsObservation
@@ -126,7 +126,7 @@ Description: "Definition for the Platelets Observation resource in the context o
 * valueQuantity.system 1.. MS
 * valueQuantity.system ^fixedUri = "http://unitsofmeasure.org"
 * valueQuantity.code 1.. MS
-* valueQuantity.code ^fixedCode = #10^3/μl
+* valueQuantity.code ^fixedCode = #10*3/uL
 * dataAbsentReason MS
 
 Profile: ChRadOrderBodyHeightObservation
