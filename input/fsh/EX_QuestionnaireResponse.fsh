@@ -87,6 +87,23 @@ Description: "Example for QuestionnaireResponse"
 * item[=].item[=].text = "Land"
 * item[=].item[=].answer.valueString = "Schweiz"
 
+// ----------- TBD: add Coverage in Questionnaire ------------
+/*
+* item[+].linkId = "coverage"
+* item[=].text = "Kostenträger"
+
+* item[=].item[+].linkId = "coverage.kvg"
+* item[=].item[=].text = "Krankenkasse (nach KVG)"
+
+* item[=].item[=].item[+].linkId = "coverage.kvg.name"
+* item[=].item[=].item[=].text = "Name der Versicherung"
+* item[=].item[=].item[=].answer.valueString = "Sanitas"
+
+* item[=].item[=].item[+].linkId = "coverage.kvg.id"
+* item[=].item[=].item[=].text = "Kennnummer der Versichertenkarte"
+* item[=].item[=].item[=].answer.valueString = "80756015090002647590"
+*/
+
 // ---------- sender (Absender) ----------
 * item[+].linkId = "sender"
 * item[=].text = "Absender"
@@ -430,15 +447,7 @@ Caveats
 * item[=].item[=].answer.valueCoding = SCT#372567009 "Metformin (substance)"
 
 
-/*------------------------------------------------------------------------
-4 Arten von Kostentägern  (Noch offen: Wie efrassen)
-*/
-* item[+].linkId = "coverage"
-* item[=].text = "Kostenträger"
 
-* item[=].item[+].linkId = "coverage.kvg"
-* item[=].item[=].text = "Grundversicherung (nach KVG)"
-* item[=].item[=].answer.valueString = "Sanitas"
 
 /* ---------------------------------------------------------------------------
 Vorherige Untersuchungsresultate:

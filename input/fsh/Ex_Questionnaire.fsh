@@ -261,6 +261,8 @@ Bsp: Fragestellung ist required ausser bei Bestllung alter Bider
 * item[=].item[=].text = "Land"
 * item[=].item[=].type = #string
 
+// ---------- TBD: add Coverage ----------
+
 // ---------- sender (Absender) ----------
 * item[+].linkId = "sender"
 * item[=].text = "Absender"
