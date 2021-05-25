@@ -387,8 +387,6 @@ Caveats
 * item[=].item[=].answer.valueCoding = SCT#372567009 "Metformin (substance)"
 
 
-
-
 /* ---------------------------------------------------------------------------
 Vorherige Untersuchungsresultate:
 */
@@ -398,6 +396,9 @@ Vorherige Untersuchungsresultate:
 * item[=].item[+].linkId = "previousResults.available"
 * item[=].item[=].text = "Untersuchungsresultat"
 * item[=].item[=].answer.valueString = "TBD"
+
+
+// -------- TBD: add appointment ------
 
 
 // -------- Service Request Notes ------

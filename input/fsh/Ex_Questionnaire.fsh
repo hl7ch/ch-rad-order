@@ -831,6 +831,7 @@ mittels ImagingStudy Resource (DICOM WADO) oder die mitgegeben werden in der Med
 * item[=].item[=].item[=].type = #string
 * item[=].item[=].item[=].repeats = true
 
+// -------- TBD: add appointment ------
 
 // -------- Service Request Notes ------
 * item[+].linkId = "note"
