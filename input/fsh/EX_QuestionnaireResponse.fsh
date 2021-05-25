@@ -394,8 +394,10 @@ Vorherige Untersuchungsresultate:
 * item[=].text = "Vorherige Untersuchungsresultate"
 
 * item[=].item[+].linkId = "previousResults.available"
-* item[=].item[=].text = "Untersuchungsresultat"
-* item[=].item[=].answer.valueString = "TBD"
+* item[=].item[=].text = "Verfügbar"
+* item[=].item[=].answer.valueCoding = SCT#373066001 "Yes"
+
+// TBD: add item attachment
 
 
 // -------- TBD: add appointment ------
