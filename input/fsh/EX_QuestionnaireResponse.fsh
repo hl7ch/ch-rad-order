@@ -314,66 +314,6 @@ Gewünschter Radiologe: Noch offen, wie die Auswahlliste gemacht werden soll
 * item[=].item[=].answer.valueString = "Otto"
 
 /*----------------------------------------------------------------------
-time and location 
-*/
-* item[+].linkId = "timeAndLocation"
-* item[=].text = "Zeit und Ort der Durchführung der angeforderten Leistung"
-
-* item[=].item[+].linkId = "timeAndLocation.appointment"
-* item[=].item[=].text = "Termin für die Durchführung"
-
-* item[=].item[=].item[+].linkId = "timeAndLocation.appointment.identifier"
-* item[=].item[=].item[=].text = "Identifier des Termins"
-* item[=].item[=].item[=].answer.valueString = "384209.38"
-
-* item[=].item[=].item[+].linkId = "timeAndLocation.appointment.identifierDomain"
-* item[=].item[=].item[=].text = "Domain des Identifiers des Termins"
-* item[=].item[=].item[=].answer.valueString = "http://example.com/identifierdomain"
-
-* item[=].item[=].item[+].linkId = "timeAndLocation.appointment.requestedPeriod"
-* item[=].item[=].item[=].text = "Zeit der Durchführung"
-
-* item[=].item[=].item[=].item[+].linkId = "timeAndLocation.appointment.requestedPeriod.start"
-* item[=].item[=].item[=].item[=].text = "Beginn der Durchführung"
-* item[=].item[=].item[=].item[=].answer.valueDateTime = "2019-04-01T15:00:00.000+00:00"
-
-* item[=].item[=].item[=].item[+].linkId = "timeAndLocation.appointment.requestedPeriod.end"
-* item[=].item[=].item[=].item[=].text = "Ende der Durchführung"
-* item[=].item[=].item[=].item[=].answer.valueDateTime = "2019-04-01T15:30:00.000+00:00"
-
-* item[=].item[=].item[+].linkId = "timeAndLocation.appointment.patientInstruction"
-* item[=].item[=].item[=].text = "Hinweis für den Patient"
-* item[=].item[=].item[=].answer.valueString = "Wunschtermin der Patientin"
-
-* item[=].item[=].item[+].linkId = "timeAndLocation.appointment.location"
-* item[=].item[=].item[=].text = "Ort der Durchführung"
-
-* item[=].item[=].item[=].item[+].linkId = "timeAndLocation.appointment.location.name"
-* item[=].item[=].item[=].item[=].text = "Name"
-* item[=].item[=].item[=].item[=].answer.valueString = "Name of the location"
-
-* item[=].item[=].item[=].item[+].linkId = "timeAndLocation.appointment.location.phone"
-* item[=].item[=].item[=].item[=].text = "Telefon"
-* item[=].item[=].item[=].item[=].answer.valueString = "+41 44 412 65 56"
-
-* item[=].item[=].item[=].item[+].linkId = "timeAndLocation.appointment.location.streetAddressLine"
-* item[=].item[=].item[=].item[=].text = "Strasse, Hausnummer, Postfach etc."
-* item[=].item[=].item[=].item[=].answer[+].valueString = "Seestrasse 133"
-* item[=].item[=].item[=].item[=].answer[+].valueString = "Röntgen"
-
-* item[=].item[=].item[=].item[+].linkId = "timeAndLocation.appointment.location.postalCode"
-* item[=].item[=].item[=].item[=].text = "PLZ"
-* item[=].item[=].item[=].item[=].answer.valueString = "8000"
-
-* item[=].item[=].item[=].item[+].linkId = "timeAndLocation.appointment.location.city"
-* item[=].item[=].item[=].item[=].text = "Ort"
-* item[=].item[=].item[=].item[=].answer.valueString = "Zürich"
-
-* item[=].item[=].item[=].item[+].linkId = "timeAndLocation.appointment.location.country"
-* item[=].item[=].item[=].item[=].text = "Land"
-* item[=].item[=].item[=].item[=].answer.valueString = "Schweiz"
-
-/*----------------------------------------------------------------------
 Darstellung der Diagnosen und Befunde
 */
 * item[+].linkId = "diagnosisList"
@@ -459,11 +399,10 @@ Vorherige Untersuchungsresultate:
 * item[=].item[=].text = "Untersuchungsresultat"
 * item[=].item[=].answer.valueString = "TBD"
 
-/*------------------------------------------------------------------------
-Bemerkung
-*/
+
+// -------- Service Request Notes ------
 * item[+].linkId = "note"
-* item[=].text = "Bemerkung"
+* item[=].text = "Bemerkungen"
 
 * item[=].item[+].linkId = "note.text"
 * item[=].item[=].text = "Kommentar" 
