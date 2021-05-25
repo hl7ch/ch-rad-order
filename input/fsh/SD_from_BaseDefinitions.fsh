@@ -31,8 +31,7 @@ Description: "Definition for the Caveat Condition resource in the context of CH 
 * subject only Reference(ChCorePatient)  
 * evidence MS
 * evidence.detail 1..1 MS
-* evidence.detail ^short = "Supporting information (for renal insufficiency condition: creatinine clearance, creatinine) 
-                                                    for coagulopathy: INR, Platelets"
+* evidence.detail ^short = "Supporting information: for renal insufficiency (creatinine clearance, creatinine) and coagulopathy (INR, platelets)"
 * evidence.detail only Reference(ChRadOrderCreatinineClearanceObservation or ChRadOrderCreatinineObservation or
                                   ChRadOrderINRObservation or ChRadOrderPlateletsObservation)
 
