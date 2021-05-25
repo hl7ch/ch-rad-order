@@ -129,10 +129,10 @@ Description: "Definition for the Platelets Observation resource in the context o
 * valueQuantity.code ^fixedCode = #10^3/μl
 * dataAbsentReason MS
 
-Profile: ChRadOrderBodyHeight
+Profile: ChRadOrderBodyHeightObservation
 Parent: Observation
 Id: ch-rad-order-bodyheight-observation
-Title: "CH RAD-Order Body Height"
+Title: "CH RAD-Order Body Height Observation"
 Description: "Definition for the Body Height Observation resource in the context of CH RAD-Order."
 * . ^short = "CH ORF Body Height Observation"
 * status MS
@@ -152,10 +152,10 @@ Description: "Definition for the Body Height Observation resource in the context
 * valueQuantity.code ^fixedCode = #cm
 * dataAbsentReason MS
 
-Profile: ChRadOrderBodyWeight
+Profile: ChRadOrderBodyWeightObservation
 Parent: Observation
 Id: ch-rad-order-bodyweight-observation
-Title: "CH RAD-Order Body Weight"
+Title: "CH RAD-Order Body Weight Observation"
 Description: "Definition for the Body Weight Observation resource in the context of CH RAD-Order."
 * . ^short = "CH ORF Body Weight Observation"
 * status MS

@@ -22,8 +22,8 @@ Description: "Example for ServiceRequest"
 * reasonReference[+] = Reference(PrimaryDiagnosis)
 * insurance = Reference(CoverageKVG)
 
-* supportingInfo[bodyheight][+] = Reference(BodyHeight)
-* supportingInfo[bodyweight][+] = Reference(BodyWeight)
+* supportingInfo[bodyHeight][+] = Reference(BodyHeight)
+* supportingInfo[bodyWeight][+] = Reference(BodyWeight)
 * supportingInfo[diagnosis][+] = Reference(SecondaryDiagnosis1)
 * supportingInfo[diagnosis][+] = Reference(SecondaryDiagnosis2)
 
@@ -113,9 +113,9 @@ Description: "Example for Bundle"
 //------------- more -------------
 * entry[+].fullUrl = "http://example.com/fhir/Condition/PrimaryDiagnosis"
 * entry[=].resource = PrimaryDiagnosis
-* entry[+].fullUrl = "http://example.com/fhir/Condition/BodyHeight_176kg"
+* entry[+].fullUrl = "http://example.com/fhir/Observation/BodyHeight"
 * entry[=].resource = BodyHeight
-* entry[+].fullUrl = "http://example.com/fhir/Condition/BodyWeight"
+* entry[+].fullUrl = "http://example.com/fhir/Observation/BodyWeight"
 * entry[=].resource = BodyWeight
 * entry[+].fullUrl = "http://example.com/fhir/Condition/SecondaryDiagnosis1"
 * entry[=].resource = SecondaryDiagnosis1
@@ -313,21 +313,21 @@ Description: "Example for Diagnosis Condition"
 * subject = Reference(SUfferer)
 
 Instance: BodyHeight
-InstanceOf: ChRadOrderBodyHeight
-Title: "BodyHeight 176 cm"
-Description: "Example for Body Height"
+InstanceOf: ChRadOrderBodyHeightObservation
+Title: "Body Height 176 cm"
+Description: "Example for Body Height Observation"
 * status = #final
-* code = LNC#8302-2 "Body Height, method unspecified"
+* code = LNC#8302-2 "Body height" // "Body Height, method unspecified"
 * subject = Reference(SUfferer)
 * effectiveDateTime = "2019-04-01T10:10:00.000+00:00"
 * valueQuantity = 176 'cm' "cm"
 
 Instance: BodyWeight
-InstanceOf: ChRadOrderBodyWeight
-Title: "BodyWeight_99 kg"
-Description: "Example for Body Weight"
+InstanceOf: ChRadOrderBodyWeightObservation
+Title: "Body Weight 99 kg"
+Description: "Example for Body Weight Observation"
 * status = #final
-* code = LNC#29463-7 "Body Weight, method unspecified"
+* code = LNC#29463-7 "Body weight" // "Body Weight, method unspecified"
 * subject = Reference(SUfferer)
 * effectiveDateTime = "2019-04-01T10:10:00.000+00:00"
 * valueQuantity = 99 'kg' "kg"

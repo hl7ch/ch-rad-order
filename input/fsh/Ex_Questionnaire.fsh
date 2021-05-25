@@ -659,13 +659,13 @@ Darstellung der Diagnosen und Befunde
 * item[=].item[=].repeats = true
 
 * item[=].item[+].linkId = "diagnosisList.bodyHeight"
-* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-bodyheight-observation#Observation.valueQuantity"
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.supportingInfo:bodyHeight"
 * item[=].item[=].text = "Grösse (cm)"   
 * item[=].item[=].type = #quantity
 * item[=].item[=].repeats = false
 
 * item[=].item[+].linkId = "diagnosisList.bodyWeight"
-* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-bodyweight-observation#Observation.valueQuantity"
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.supportingInfo:bodyWeight"
 * item[=].item[=].text = "Gewicht (kg)"   
 * item[=].item[=].type = #quantity
 * item[=].item[=].repeats = false

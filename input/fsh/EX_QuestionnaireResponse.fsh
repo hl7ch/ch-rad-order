@@ -371,6 +371,14 @@ Darstellung der Diagnosen und Befunde
 * item[=].item[=].answer[+].valueString = "Secondary Diagnosis 1"
 * item[=].item[=].answer[+].valueString = "Secondary Diagnosis 2"
 
+* item[=].item[+].linkId = "diagnosisList.bodyHeight"
+* item[=].item[=].text = "Grösse (cm)"   
+* item[=].item[=].answer.valueQuantity = 176 'cm' "cm"
+
+* item[=].item[+].linkId = "diagnosisList.bodyWeight"
+* item[=].item[=].text = "Gewicht (kg)"   
+* item[=].item[=].answer.valueQuantity = 99 'kg' "kg"
+
 /*----------------------------------------------------------------------
 Caveats   
  */
