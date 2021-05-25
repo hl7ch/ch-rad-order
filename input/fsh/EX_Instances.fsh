@@ -357,7 +357,7 @@ Title: "Coverage KVG"
 Description: "Example for Coverage"
 * contained[+] = Sanitas
 * status = #active
-* type = CSCoverageType#DisorderKVG "According to KVG"
+* type = CSCoverageType#KVG "According to KVG"
 * beneficiary = Reference(SUfferer)
 * payor = Reference(Sanitas)
 
