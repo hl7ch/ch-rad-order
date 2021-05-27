@@ -61,9 +61,11 @@ Description: "Example for Composition"
 * date = "2019-04-01T20:18:41.341+00:00"
 * author = Reference(ORderplacerHappyDoctors)
 * title = "Anmeldung Radiologie"
-* section.entry[Questionnaire] = Reference(QuestionnaireRadiologyOrder)
-* section.entry[QuestionnaireResponse] = Reference(QuestionnaireResponseRadiologyOrder)
-* section.entry[ServiceRequest] = Reference(ServiceRequestRadiologyOrder)
+* section[orderReferral].title = "Order-Referral"
+* section[orderReferral].code = LNC#93037-0 "Portable medical order form"
+* section[orderReferral].entry[Questionnaire] = Reference(QuestionnaireRadiologyOrder)
+* section[orderReferral].entry[QuestionnaireResponse] = Reference(QuestionnaireResponseRadiologyOrder)
+* section[orderReferral].entry[ServiceRequest] = Reference(ServiceRequestRadiologyOrder)
 
 
 Instance: DocumentRadiologyOrder // Noch nicht vollständig

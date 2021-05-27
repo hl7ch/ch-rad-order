@@ -144,4 +144,4 @@ Title: "CH RAD-Order Composition"
 Description: "Definition for the Composition resource in the context of CH RAD-Order."
 * . ^short = "CH RAD-Order Composition"
 // ---------- Composition.section.entry:ServiceRequest ----------
-* section.entry[ServiceRequest] ^type.targetProfile = Canonical(ChRadOrderServiceRequest)
+* section[orderReferral].entry[ServiceRequest] ^type.targetProfile = Canonical(ChRadOrderServiceRequest)
