@@ -129,50 +129,38 @@ Description: "Definition for the Platelets Observation resource in the context o
 * dataAbsentReason MS
 
 Profile: ChRadOrderBodyHeightObservation
-Parent: Observation
+Parent: HL7BodyHeight
 Id: ch-rad-order-bodyheight-observation
 Title: "CH RAD-Order Body Height Observation"
 Description: "Definition for the Body Height Observation resource in the context of CH RAD-Order."
 * . ^short = "CH ORF Body Height Observation"
 * status MS
-* code MS
-* code = LNC#8302-2
-* code ^short = "Body Height, method unspecified"
+* code and code.coding[BodyHeightCode] and code.coding[BodyHeightCode].system and code.coding[BodyHeightCode].code MS
 * subject MS 
 * subject only Reference(ChCorePatient) 
 * effectiveDateTime MS
 * valueQuantity MS
-* valueQuantity.value 1.. MS
-* valueQuantity.unit 1.. MS
 * valueQuantity.unit ^fixedString = "cm"
-* valueQuantity.system 1.. MS
-* valueQuantity.system ^fixedUri = "http://unitsofmeasure.org"
-* valueQuantity.code 1.. MS
 * valueQuantity.code ^fixedCode = #cm
 * dataAbsentReason MS
+* component 0..0
 
 Profile: ChRadOrderBodyWeightObservation
-Parent: Observation
+Parent: HL7BodyWeight
 Id: ch-rad-order-bodyweight-observation
 Title: "CH RAD-Order Body Weight Observation"
 Description: "Definition for the Body Weight Observation resource in the context of CH RAD-Order."
 * . ^short = "CH ORF Body Weight Observation"
 * status MS
-* code MS
-* code = LNC#29463-7
-* code ^short = "Body Weight, method unspecified"
+* code and code.coding[BodyWeightCode] and code.coding[BodyWeightCode].system and code.coding[BodyWeightCode].code MS
 * subject MS 
 * subject only Reference(ChCorePatient) 
 * effectiveDateTime MS
 * valueQuantity MS
-* valueQuantity.value 1.. MS
-* valueQuantity.unit 1.. MS
 * valueQuantity.unit ^fixedString = "kg"
-* valueQuantity.system 1.. MS
-* valueQuantity.system ^fixedUri = "http://unitsofmeasure.org"
-* valueQuantity.code 1.. MS
 * valueQuantity.code ^fixedCode = #kg
 * dataAbsentReason MS
+* component 0..0
 
 Profile: ChRadOrderImagingStudy
 Parent: ImagingStudy

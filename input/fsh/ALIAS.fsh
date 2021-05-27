@@ -41,5 +41,7 @@ Alias:   ChOrfAppointment =             http://fhir.ch/ig/ch-orf/StructureDefini
 Alias:   ChOrfLocation =                http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-location
 Alias:   CSCoverageType =               http://fhir.ch/ig/ch-orf/CodeSystem/ch-orf-cs-coveragetype
 
-// IPS SD
-// Alias:   Condition-Uv-Ips = http://hl7.org/fhir/uv/ips/StructureDefinition/Condition-uv-ips
+
+Alias:   HL7BodyHeight =                http://hl7.org/fhir/StructureDefinition/bodyheight
+Alias:   HL7BodyWeight =                http://hl7.org/fhir/StructureDefinition/bodyweight
+Alias:   ObservationCategory =          http://terminology.hl7.org/CodeSystem/observation-category
