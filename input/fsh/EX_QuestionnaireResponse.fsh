@@ -88,7 +88,6 @@ Description: "Example for QuestionnaireResponse"
 * item[=].item[=].answer.valueString = "Schweiz"
 
 // ----------- TBD: add Coverage in Questionnaire ------------
-/*
 * item[+].linkId = "coverage"
 * item[=].text = "Kostenträger"
 
@@ -102,7 +101,6 @@ Description: "Example for QuestionnaireResponse"
 * item[=].item[=].item[+].linkId = "coverage.kvg.id"
 * item[=].item[=].item[=].text = "Kennnummer der Versichertenkarte"
 * item[=].item[=].item[=].answer.valueString = "80756015090002647590"
-*/
 
 // ---------- sender (Absender) ----------
 * item[+].linkId = "sender"
@@ -254,6 +252,58 @@ Description: "Example for QuestionnaireResponse"
 * item[=].item[=].item[=].text = "Land"
 * item[=].item[=].item[=].answer.valueString = "Schweiz"
 
+
+/*------ Appointment ------------------------------ */
+* item[+].linkId = "appointment"
+* item[=].text = "Ort und Zeit der Durchführung der angeforderten Leistung"
+
+* item[=].item[+].linkId = "appointment.location"
+* item[=].item[=].text = "Ort der Durchführung"
+
+* item[=].item[=].item[+].linkId = "appointment.location.name"
+* item[=].item[=].item[=].text = "Name"
+* item[=].item[=].item[=].answer.valueString = "Radiologie"
+
+* item[=].item[=].item[+].linkId = "appointment.location.phone"
+* item[=].item[=].item[=].text = "Telefon"
+* item[=].item[=].item[=].answer.valueString = "+41 44 412 65 56"
+
+* item[=].item[=].item[+].linkId = "appointment.location.streetAddressLine"
+* item[=].item[=].item[=].text = "Strasse, Hausnummer, Postfach etc."
+* item[=].item[=].item[=].answer[+].valueString = "Seestrasse 133"
+* item[=].item[=].item[=].answer[+].valueString = "Röntgen"
+
+* item[=].item[=].item[+].linkId = "appointment.location.postalCode"
+* item[=].item[=].item[=].text = "PLZ"
+* item[=].item[=].item[=].answer.valueString = "8000"
+
+* item[=].item[=].item[+].linkId = "appointment.location.city"
+* item[=].item[=].item[=].text = "Ort"
+* item[=].item[=].item[=].answer.valueString = "Zürich"
+
+* item[=].item[=].item[+].linkId = "appointment.location.country"
+* item[=].item[=].item[=].text = "Land"
+* item[=].item[=].item[=].answer.valueString = "Schweiz"
+
+* item[=].item[+].linkId = "appointment.requestedPeriod"
+* item[=].item[=].text = "Datum und Zeit, wann der Termin bevorzugt geplant werden soll"
+
+* item[=].item[=].item[+].linkId = "appointment.requestedPeriod.start"
+* item[=].item[=].item[=].text = "Von"
+* item[=].item[=].item[=].answer.valueDateTime = "2019-04-01T15:00:00.000+00:00"
+
+* item[=].item[=].item[+].linkId = "appointment.requestedPeriod.end"
+* item[=].item[=].item[=].text = "Bis"
+* item[=].item[=].item[=].answer.valueDateTime = "2019-04-01T15:30:00.000+00:00"
+
+* item[=].item[+].linkId = "appointment.status"
+* item[=].item[=].text = "Status"
+* item[=].item[=].answer.valueCoding = AppointmentStatus#proposed
+
+* item[=].item[+].linkId = "appointment.patientInstruction"
+* item[=].item[=].text = "Patienteninformation für diesen Termin"
+* item[=].item[=].answer.valueString = "Wunschtermin der Patientin"
+
 /*------------------------------------------------------------------------
 1. Was wird gewünscht (nur 1 Wert)             
 */
@@ -393,15 +443,12 @@ Vorherige Untersuchungsresultate:
 * item[+].linkId = "previousResults"
 * item[=].text = "Vorherige Untersuchungsresultate"
 
-* item[=].item[+].linkId = "previousResults.available"
-* item[=].item[=].text = "Verfügbar"
-* item[=].item[=].answer.valueCoding = SCT#373066001 "Yes"
+* item[=].item[+].linkId = "previousResults.attachment"
+* item[=].item[=].text = "Anhang"
 
-// TBD: add item attachment
-
-
-// -------- TBD: add appointment ------
-
+* item[=].item[=].item[+].linkId = "previousResults.attachtment.title"
+* item[=].item[=].item[=].text = "Dateiname und -endung der angehängten Datei (z.B. \"shoulder_re_F_Muster_12021988.pdf\")"
+* item[=].item[=].item[=].answer.valueString = "xray_chest_S_Ufferer_20190401.dcm"
 
 // -------- Service Request Notes ------
 * item[+].linkId = "note"

@@ -490,6 +490,8 @@ InstanceOf: ChRadOrderMedia
 Title: "Media Previous Rx"
 Description: "Example for Media"
 * status = #completed
+* content.contentType = #application/dicom
+* content.data = "RXhhbXBsZQ=="
 * content.title = "xray_chest_S_Ufferer_20190401.dcm"
 
 
@@ -499,8 +501,8 @@ Instance: AppointmentRadiography
 InstanceOf: ChOrfAppointment
 Title: "Appointment Radiography"
 Description: "Example for Appointment"
-* identifier.system = "http://example.com/identifierdomain"
-* identifier.value = "384209.38"
+// * identifier.system = "http://example.com/identifierdomain"
+// * identifier.value = "384209.38"
 * status = #proposed
 * patientInstruction = "Wunschtermin der Patientin"
 * participant[+].actor = Reference(LocationRadiography)
@@ -513,7 +515,7 @@ Instance: LocationRadiography
 InstanceOf: ChOrfLocation
 Title: "Location Radiography"
 Description: "Example for Location"
-* name = "Name of the location"
+* name = "Radiologie"
 * telecom[0].system = #phone
 * telecom[0].value = "+41 44 412 65 56"
 * address.line[0] = "Seestrasse 133"

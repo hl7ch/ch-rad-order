@@ -621,7 +621,7 @@ Bsp: Fragestellung ist required ausser bei Bestllung alter Bider
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-appointment#Appointment.participant.actor"
 * item[=].item[=].text = "Ort der Durchführung"
 * item[=].item[=].type = #group
-* item[=].item[=].repeats = true
+* item[=].item[=].required = true
 
 * item[=].item[=].item[+].linkId = "appointment.location.name"
 * item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-location#Location.name"
@@ -1016,14 +1016,10 @@ mittels ImagingStudy Resource (DICOM WADO) oder die mitgegeben werden in der Med
 * item[=].item[=].item[=].text = "Dateiname und -endung der angehängten Datei (z.B. \"shoulder_re_F_Muster_12021988.pdf\")"
 * item[=].item[=].item[=].type = #string
 
-* item[=].item[+].linkId = "previousResults.attachment.data"  
-* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-media#Media.content.data"
-* item[=].item[=].text = "Daten"
-* item[=].item[=].type = #string
-
-
-
-// -------- TBD: add appointment ------
+* item[=].item[=].item[+].linkId = "previousResults.attachment.data"  
+* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-media#Media.content.data"
+* item[=].item[=].item[=].text = "Daten"
+* item[=].item[=].item[=].type = #string
 
 
 // -------- Service Request Notes ------
