@@ -186,15 +186,21 @@ Parent: Media
 Id: ch-rad-order-media
 Title: "CH RAD-Order Media"
 Description: "Definition for the Media resource in the context of CH RAD-Order."
-* . ^short = "CH RAD-Order"
+* . ^short = "CH RAD-Order Media"
+* status MS
 * content MS
-* content only ChRadOrderAttachment
+* content.data MS
+* content.title MS
+* content.title ^short = "Provide filename and extension (e.g. \"shoulder_re_F_Muster_12021988.pdf\")"
+//* content only ChRadOrderAttachment
 
+/*
 Profile: ChRadOrderAttachment
 Parent: Attachment
 Id: ch-rad-order-ChRadOrderAttachment
 Title: "CH RAD-Order Attachment"
-Description: "Definition for the Attachment data type t in the context of CH RAD-Order."
+Description: "Definition for the Attachment data type in the context of CH RAD-Order."
 * data MS
 * title MS
 * title ^short = "Provide filename and extension (e.g. \"shoulder_re_F_Muster_12021988.pdf\")"
+*/

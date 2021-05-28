@@ -33,7 +33,7 @@ Description: "Example for ServiceRequest"
 * supportingInfo[caveats][+] = Reference(CaveatDeviceCardiacPacemaker)
 * supportingInfo[caveats][+] = Reference(CaveatDrugPrescriptionMetformin)
 
-* supportingInfo[previousImagingResults][+] = Reference(ImagingStudyRx)
+* supportingInfo[previousImagingResults][+] = Reference(MediaRx)
 
 * bodySite = RDLX#RID2468 "Chest wall" // imagingFocus
 * note.text = "Bemerkung/Kommentar"
@@ -147,8 +147,8 @@ Description: "Example for Bundle"
 * entry[=].resource = CaveatDrugPrescriptionMetformin
 * entry[+].fullUrl = "http://example.com/fhir/Condition/CaveatDeviceCardiacPacemaker"
 * entry[=].resource = CaveatDeviceCardiacPacemaker
-* entry[+].fullUrl = "http://example.com/fhir/ImagingStudy/ImagingStudyRx"
-* entry[=].resource = ImagingStudyRx
+* entry[+].fullUrl = "http://example.com/fhir/Media/MediaRx"
+* entry[=].resource = MediaRx
 * entry[+].fullUrl = "http://example.com/fhir/Appointment/AppointmentRadiography"
 * entry[=].resource = AppointmentRadiography
 * entry[+].fullUrl = "http://example.com/fhir/Location/LocationRadiography"
@@ -485,19 +485,13 @@ Description: "Example for Caveat Condition"
 
 
 //------------- previousResults -------------
-Instance: ImagingStudyRx
-InstanceOf: ChRadOrderImagingStudy
-Title: "ImagingStudy Previous Rx"
-Description: "Example for Imaging Study"
-* status = #available
-* subject = Reference(SUfferer)
-/* TBD (MS elements)
-* series.uid = 
-* series.modality = 
-* series.performer.actor =
-* series.instance.uid =
-* series.instance.sopClass
-*/
+Instance: MediaRx
+InstanceOf: ChRadOrderMedia
+Title: "Media Previous Rx"
+Description: "Example for Media"
+* status = #completed
+* content.title = "xray_chest_S_Ufferer_20190401.dcm"
+
 
 
 //-------------  Time and Location -------------
