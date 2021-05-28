@@ -30,5 +30,8 @@ Display Name for http://hl7.org/fhir/request-priority#asap should be one of 'ASA
 Display Name for http://hl7.org/fhir/request-priority#stat should be one of 'STAT' instead of 'Die Anfrage sollte sofort bearbeitet werden - höchstmögliche Priorität. Z.B. bei einem Notfall.' for 'http://hl7.org/fhir/request-priority#stat'
 The display "Ja" is not a valid display for the code {http://snomed.info/sct}373066001 - should be one of ["Yes (qualifier value)",Yes] (from http://tx.fhir.org/r4) for 'http://snomed.info/sct#373066001'
 The display "Nein" is not a valid display for the code {http://snomed.info/sct}373067005 - should be one of ["No (qualifier value)",No] (from http://tx.fhir.org/r4) for 'http://snomed.info/sct#373067005'
+Display Name for http://hl7.org/fhir/appointmentstatus#proposed should be one of 'Proposed' instead of 'Wunsch des Patienten (vorgeschlagen)' for 'http://hl7.org/fhir/appointmentstatus#proposed'
+Display Name for http://hl7.org/fhir/appointmentstatus#pending should be one of 'Pending' instead of 'Vom Patienten bestätigt, aber vom Leistungserbringer noch nicht (ausstehend)' for 'http://hl7.org/fhir/appointmentstatus#pending'
+Display Name for http://hl7.org/fhir/appointmentstatus#booked should be one of 'Booked' instead of 'Vom Patienten und Leistungserbringer bestätigt (gebucht)' for 'http://hl7.org/fhir/appointmentstatus#booked'
 
 The display "Clinical presentation" is not a valid display for the code {http://loinc.org}55108-5 - should be one of ["Clinical presentation Document","Clinical presentation Doc"] (from http://tx.fhir.org/r4) for 'http://loinc.org#55108-5'
