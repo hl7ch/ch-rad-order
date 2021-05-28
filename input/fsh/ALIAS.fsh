@@ -18,6 +18,7 @@ Alias:   ConditionCategory =                http://terminology.hl7.org/CodeSyste
 Alias:   AdministrativeGender =             http://hl7.org/fhir/administrative-gender
 Alias:   RequestPriority =                  http://hl7.org/fhir/request-priority
 Alias:   v3ActCode =                        http://terminology.hl7.org/CodeSystem/v3-ActCode
+Alias:   AppointmentStatus =                http://hl7.org/fhir/appointmentstatus
 
 // Code Systems/ Value Sets from ORF
 Alias:   ChOrfYesNo =  http://fhir.ch/ig/ch-orf/ch-orf-vs-YesNo
