@@ -8,7 +8,7 @@ Alias:   LNCPLAYBFULL = http://loinc.org/vs/loinc-rsna-radiology-playbook
 // see https://chat.fhir.org/#narrow/stream/179202-terminology/topic/radlex
 
 //Alias:   RDLX = http://radlex.org/RID/RID1
-Alias:   RDLX =         http://www.radlex.org
+Alias:   RDLX =         http://www.radlex.org/RID
 // see https://www.hl7.org/fhir/terminologies-systems.html -> External CS
 
 
@@ -17,7 +17,7 @@ Alias:   UCUM =                             http://unitsofmeasure.org
 Alias:   ConditionCategory =                http://terminology.hl7.org/CodeSystem/condition-category
 Alias:   AdministrativeGender =             http://hl7.org/fhir/administrative-gender
 Alias:   RequestPriority =                  http://hl7.org/fhir/request-priority
-Alias:   v3ActCode =                        http://terminology.hl7.org/CodeSystem/v3-ActCode
+Alias:   V3ActCode =                        http://terminology.hl7.org/CodeSystem/v3-ActCode
 Alias:   AppointmentStatus =                http://hl7.org/fhir/appointmentstatus
 
 // Code Systems/ Value Sets from ORF

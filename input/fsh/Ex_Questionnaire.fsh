@@ -262,6 +262,34 @@ Bsp: Fragestellung ist required ausser bei Bestllung alter Bider
 * item[=].item[=].type = #string
 
 
+// ---------- Encounter Class (Ambulant / Satinär / Notfall) ----------
+* item[+].linkId = "requestedencounterclass"
+* item[=].definition = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-servicerequest#ServiceRequest.extension:requestedEncounterClass"
+* item[=].text = "Patientenaufnahme"
+* item[=].type = #group
+
+* item[=].item[+].linkId = "encounter.class"
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-servicerequest#ServiceRequest.extension:encounter.class"
+* item[=].item[=].type = #choice
+* item[=].item[=].text = "Ambulant / Stationär / Notfall"
+* item[=].item[=].answerOption[+].valueCoding = V3ActCode#AMB "Ambulant"
+* item[=].item[=].answerOption[+].valueCoding = V3ActCode#IMP "Stationär"
+* item[=].item[=].answerOption[+].valueCoding = V3ActCode#EMER "Notfall"
+
+// ---------- Desired Accommodation (Zimmerkategorie) ----------
+* item[+].linkId = "desiredAccommodation"
+* item[=].definition = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-servicerequest#ServiceRequest.extension:desiredAccommodation"
+* item[=].text = "Zimmerkategorie"
+* item[=].type = #group
+
+* item[=].item[+].linkId = "encounter.desiredAccommodation"
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-servicerequest#ServiceRequest.extension:class"
+* item[=].item[=].text = "Einer- / Zweier- / Mehrbettzimmer"
+* item[=].item[=].type = #choice
+* item[=].item[=].answerOption[+].valueCoding = V3ActCode#P "Einerzimmer"
+* item[=].item[=].answerOption[+].valueCoding = V3ActCode#SP "Zweierzimmer"
+* item[=].item[=].answerOption[+].valueCoding = V3ActCode#W "Mehrbettzimmer"
+
 // ---------- Coverage (Kostenträger) ----------
 // Preliminary design: Answer of BAG still pending: 23.05.2021
 // 4 Arten von Kostentägern 
@@ -299,7 +327,7 @@ Bsp: Fragestellung ist required ausser bei Bestllung alter Bider
 
 * item[=].item[=].item[+].linkId = "coverage.uvg.id"
 * item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-coverage#Coverage.identifier:insurancecardnumber"
-* item[=].item[=].item[=].text = "Kennnummer der Versichertenkarte"
+* item[=].item[=].item[=].text = "Schadennummer"
 * item[=].item[=].item[=].type = #string
 
 // Zusatz
@@ -355,10 +383,14 @@ Bsp: Fragestellung ist required ausser bei Bestllung alter Bider
 * item[=].item[=].item[=].text = "Beliebige ID"
 * item[=].item[=].item[=].type = #string
 
+* item[=].item[=].item[+].linkId = "coverage.other.id.note"
+* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-coverage#Coverage.identifier.type.text"
+* item[=].item[=].item[=].text = "Bemerkung zur Nummer"
+* item[=].item[=].item[=].type = #string
+
 // The situation where a person and not a organization is an other payer is not depicted. 
 // Id's of insurances other than kvg are proprietary. Zusatzversicherung however may use the Kennnummer der Versichertenkarte (KVG).
 // Id's for other are not defined.
-
 
 // ---------- sender (Absender) ----------
 * item[+].linkId = "sender"
