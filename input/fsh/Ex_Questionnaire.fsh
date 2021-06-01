@@ -749,6 +749,7 @@ ZWISCHEN SENDER UND EMPFÄNGER VEREINBART.
 
 /*------------------------------------------------------------------------
 2. Fragestellung (mehrere Werte)
+Codierung vorderhand nicht vorgesehen)
 */
 * item[+].linkId = "reason"
 * item[=].text = "Klinische Fragestellung"

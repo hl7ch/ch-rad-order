@@ -60,7 +60,7 @@ In case of 'ChRadOrderModalityType' specify Imaging Request Details by means of 
 * performer only Reference(ChCorePractitionerRole) 
 //------- reasonCode -------
 * reasonCode MS
-* reasonCode ^short = "Diagnostic Question in free text: Coding of all diagnostic questions not feasable."
+* reasonCode ^short = "Diagnostic Question in free text: Coding of all diagnostic questions will be defined later."
 * reasonCode.coding 0..0
 * reasonCode.text 1..
 //------- reasonReference -------
@@ -91,7 +91,8 @@ In case of 'ChRadOrderModalityType' specify Imaging Request Details by means of 
 * supportingInfo[caveats] MS
 * supportingInfo[caveats] only Reference(ChRadOrderCaveatCondition)
 * supportingInfo[previousImagingResults] MS
-* supportingInfo[previousImagingResults] ^short = "Supports DICOM WADO-RS and formats defined elsewhere (e.g. DICOM, JPEG ..)"
+* supportingInfo[previousImagingResults] ^short = "The ImagingStudy Resource supports DICOM WADO-RS and formats defined 
+                                                  elsewhere (e.g. DICOM, JPEG ..)"
 * supportingInfo[previousImagingResults] only Reference(ChRadOrderImagingStudy or ChRadOrderMedia)
 
 //------- bodySite -------
