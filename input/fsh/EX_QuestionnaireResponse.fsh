@@ -87,10 +87,11 @@ Description: "Example for QuestionnaireResponse"
 * item[=].item[=].text = "Land"
 * item[=].item[=].answer.valueString = "Schweiz"
 
-// ----------- TBD: add Coverage in Questionnaire ------------
+// ---------- Coverage (Kostenträger) ----------
 * item[+].linkId = "coverage"
 * item[=].text = "Kostenträger"
 
+// KVG
 * item[=].item[+].linkId = "coverage.kvg"
 * item[=].item[=].text = "Krankenkasse (nach KVG)"
 
@@ -98,9 +99,10 @@ Description: "Example for QuestionnaireResponse"
 * item[=].item[=].item[=].text = "Name der Versicherung"
 * item[=].item[=].item[=].answer.valueString = "Sanitas"
 
-* item[=].item[=].item[+].linkId = "coverage.kvg.id"
+* item[=].item[=].item[+].linkId = "coverage.kvg.insuranceCardNumber"
 * item[=].item[=].item[=].text = "Kennnummer der Versichertenkarte"
 * item[=].item[=].item[=].answer.valueString = "80756015090002647590"
+
 
 // ---------- sender (Absender) ----------
 * item[+].linkId = "sender"

@@ -368,9 +368,8 @@ InstanceOf: ChOrfCoverage
 Title: "Coverage KVG"
 Description: "Example for Coverage"
 * contained[+] = Sanitas
-* identifier[insurancecardnumber].use = #usual
-* identifier[insurancecardnumber].system = "urn:oid:2.16.756.5.30.1.123.100.1.1.1"
-* identifier[insurancecardnumber].value = "80756015090002647590"
+* identifier[+].type = CSCoverageIdentifierType#Veka
+* identifier[=].value = "80756015090002647590"
 * status = #active
 * type = CSCoverageType#KVG "According to KVG"
 * beneficiary = Reference(SUfferer)
