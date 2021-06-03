@@ -66,7 +66,8 @@ Description: "Definition for Caveat Substance Value Set in the context of CH RAD
 * SCT#372567009 "Metformin (substance)"
 
 
-// TBD: Wo wird das gebraucht?
+// Diagnostic Question in free text: Coding of all diagnostic questions will be defined later.
+/*
 ValueSet: ChRadOrderReasonForExam
 Id: ch-rad-order-reason-for-exam
 Title: "Reason for Exam"
@@ -174,6 +175,7 @@ Description: "Definition for Reason for Exam Value Set in the context of CH RAD-
 * RDLX#RID50634 "Physiologic artery study"
 * RDLX#RID50632 "Flow velocity"
 * RDLX#RID50633 "Radiopharmaceutical clearance"
+*/
 
 
 // ServiceRequest.orderDetail:imagingFocus (Q: orderDetail.imagingFocus)
