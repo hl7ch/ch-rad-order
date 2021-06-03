@@ -62,7 +62,7 @@ In case of 'ChRadOrderModalityType' specify Imaging Request Details by means of 
 * reasonCode MS
 * reasonCode ^short = "Diagnostic Question in free text: Coding of all diagnostic questions will be defined later."
 * reasonCode.coding 0..0
-* reasonCode.text 1..
+* reasonCode.text 1.. MS
 //------- reasonReference -------
 * reasonReference MS
 * reasonReference ^short = "Reason for the referral (primary diagnosis)"
