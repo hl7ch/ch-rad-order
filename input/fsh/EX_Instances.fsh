@@ -368,7 +368,7 @@ InstanceOf: ChOrfCoverage
 Title: "Coverage KVG"
 Description: "Example for Coverage"
 * contained[+] = Sanitas
-* identifier[+].type = CSCoverageIdentifierType#Veka
+* identifier[+].type = CSCoverageIdentifierType#VeKa
 * identifier[=].value = "80756015090002647590"
 * status = #active
 * type = CSCoverageType#KVG "According to KVG"
