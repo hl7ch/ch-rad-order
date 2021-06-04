@@ -742,7 +742,7 @@ Bsp: Fragestellung ist required ausser bei Bestllung alter Bider
 * item[=].item[=].type = #string
 
 
-/* ----- Beschreibung des Kerninhaltes der Rad-Order ----------------------
+/* ============ Kerninhaltes der Rad-Order ==============================
 CH RAD-Order UNTERSTUETZT LOINC/RSNA PLAYBOOK WIE FOLGT: ANSELLE DER ITEMS [4] - [7] WIRD IN
 servicerequest.code DER PLABOOK CODE ANGEGBEN. VOM QUESTIONNAIRE WIRD DAS NICHT UNTERSTÜTZT, DA NUR RELEVANT, WENN
 ZWISCHEN SENDER UND EMPFÄNGER VEREINBART.

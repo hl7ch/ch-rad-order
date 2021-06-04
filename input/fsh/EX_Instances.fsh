@@ -155,7 +155,6 @@ Description: "Example for Bundle"
 * entry[=].resource = LocationRadiography
 
 
-
 //------------- Patient -------------
 Instance: SUfferer
 InstanceOf: ChCorePatient
@@ -322,6 +321,7 @@ Description: "Example for Diagnosis Condition"
 * code.text = "Primary Diagnosis"
 * subject = Reference(SUfferer)
 
+
 Instance: BodyHeight
 InstanceOf: ChRadOrderBodyHeightObservation
 Title: "Body Height 176 cm"
@@ -333,6 +333,7 @@ Description: "Example for Body Height Observation"
 * effectiveDateTime = "2019-04-01T10:10:00.000+00:00"
 * valueQuantity = 176 'cm' "cm"
 
+
 Instance: BodyWeight
 InstanceOf: ChRadOrderBodyWeightObservation
 Title: "Body Weight 99 kg"
@@ -343,6 +344,7 @@ Description: "Example for Body Weight Observation"
 * subject = Reference(SUfferer)
 * effectiveDateTime = "2019-04-01T10:10:00.000+00:00"
 * valueQuantity = 99 'kg' "kg"
+
 
 Instance: SecondaryDiagnosis1
 InstanceOf: ChRadOrderDiagnosisCondition
@@ -374,6 +376,7 @@ Description: "Example for Coverage"
 * type = CSCoverageType#KVG "According to KVG"
 * beneficiary = Reference(SUfferer)
 * payor = Reference(Sanitas)
+
 
 Instance: Sanitas
 InstanceOf: ChCoreOrganization
@@ -451,7 +454,6 @@ Description: "Example for Creatinine Observation"
 * valueQuantity = 90 'umol/L' "µmol/l"
 
 
-
 Instance: CaveatRenalInsufficiencyCreatinineClearance
 InstanceOf: ChRadOrderCreatinineClearanceObservation
 Title: "Caveat Renal Insufficiency Creatinine Clearance"
@@ -492,7 +494,6 @@ Description: "Example for Media"
 * content.contentType = #application/dicom
 * content.data = "RXhhbXBsZQ=="
 * content.title = "xray_chest_S_Ufferer_20190401.dcm"
-
 
 
 //-------------  Time and Location -------------

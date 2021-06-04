@@ -306,6 +306,9 @@ Description: "Example for QuestionnaireResponse"
 * item[=].item[=].text = "Patienteninformation für diesen Termin"
 * item[=].item[=].answer.valueString = "Wunschtermin der Patientin"
 
+/* ============ Kerninhaltes der Rad-Order ==============================
+*/
+
 /*------------------------------------------------------------------------
 1. Was wird gewünscht (nur 1 Wert)             
 */
@@ -452,7 +455,9 @@ Vorherige Untersuchungsresultate:
 * item[=].item[=].item[=].text = "Dateiname und -endung der angehängten Datei (z.B. \"shoulder_re_F_Muster_12021988.pdf\")"
 * item[=].item[=].item[=].answer.valueString = "xray_chest_S_Ufferer_20190401.dcm"
 
-// -------- Service Request Notes ------
+/* -----------------------------------------------------------------------------
+Service Request Notes 
+*/
 * item[+].linkId = "note"
 * item[=].text = "Bemerkungen"
 

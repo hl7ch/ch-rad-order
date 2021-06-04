@@ -40,7 +40,7 @@ In case of 'ChRadOrderModalityType' specify Imaging Request Details by means of 
 * orderDetail ^slicing.rules = #open
 * orderDetail contains 
     imagingRegion 0..* and    
-    laterality 0..1 and // Cardinality of Laterality to be discussed
+    laterality 0..1 and 
     viewType 0..*  and
     maneuverType 0..* and
     guidanceForAction 0..* 
@@ -94,7 +94,6 @@ In case of 'ChRadOrderModalityType' specify Imaging Request Details by means of 
 * supportingInfo[previousImagingResults] ^short = "The ImagingStudy Resource supports DICOM WADO-RS and formats defined 
                                                   elsewhere (e.g. DICOM, JPEG ..)"
 * supportingInfo[previousImagingResults] only Reference(ChRadOrderImagingStudy or ChRadOrderMedia)
-
 //------- bodySite -------
 * bodySite MS
 * bodySite from ChRadOrderImagingFocus

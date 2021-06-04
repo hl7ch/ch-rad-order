@@ -82,6 +82,7 @@ Description: "Definition for the Creatinine Observation resource in the context 
 * valueQuantity.code ^fixedCode = #umol/L
 * dataAbsentReason MS
 
+
 Profile: ChRadOrderINRObservation
 Parent: Observation
 Id: ch-rad-order-INR-observation
@@ -104,6 +105,7 @@ Description: "Definition for the INR Observation resource in the context of CH R
 * valueQuantity.code 1.. MS
 * valueQuantity.code ^fixedCode = #{INR}
 * dataAbsentReason MS
+
 
 Profile: ChRadOrderPlateletsObservation
 Parent: Observation
@@ -128,12 +130,13 @@ Description: "Definition for the Platelets Observation resource in the context o
 * valueQuantity.code ^fixedCode = #10*3/uL
 * dataAbsentReason MS
 
+
 Profile: ChRadOrderBodyHeightObservation
 Parent: HL7BodyHeight
 Id: ch-rad-order-bodyheight-observation
 Title: "CH RAD-Order Body Height Observation"
 Description: "Definition for the Body Height Observation resource in the context of CH RAD-Order."
-* . ^short = "CH ORF Body Height Observation"
+* . ^short = "CH RAD-Order Body Height Observation"
 * status MS
 * code and code.coding[BodyHeightCode] and code.coding[BodyHeightCode].system and code.coding[BodyHeightCode].code MS
 * subject MS 
@@ -143,14 +146,14 @@ Description: "Definition for the Body Height Observation resource in the context
 * valueQuantity.unit ^fixedString = "cm"
 * valueQuantity.code ^fixedCode = #cm
 * dataAbsentReason MS
-* component 0..0
+
 
 Profile: ChRadOrderBodyWeightObservation
 Parent: HL7BodyWeight
 Id: ch-rad-order-bodyweight-observation
 Title: "CH RAD-Order Body Weight Observation"
 Description: "Definition for the Body Weight Observation resource in the context of CH RAD-Order."
-* . ^short = "CH ORF Body Weight Observation"
+* . ^short = "CH RAD-Order Body Weight Observation"
 * status MS
 * code and code.coding[BodyWeightCode] and code.coding[BodyWeightCode].system and code.coding[BodyWeightCode].code MS
 * subject MS 
@@ -160,7 +163,7 @@ Description: "Definition for the Body Weight Observation resource in the context
 * valueQuantity.unit ^fixedString = "kg"
 * valueQuantity.code ^fixedCode = #kg
 * dataAbsentReason MS
-* component 0..0
+
 
 Profile: ChRadOrderImagingStudy
 Parent: ImagingStudy
@@ -181,6 +184,7 @@ Description: "Definition for the ImagingStudy resource in the context of CH RAD-
 * series.instance.uid MS
 * series.instance.sopClass MS
 
+
 Profile: ChRadOrderMedia
 Parent: Media 
 Id: ch-rad-order-media
@@ -193,15 +197,3 @@ Description: "Definition for the Media resource in the context of CH RAD-Order."
 * content.data MS
 * content.title MS
 * content.title ^short = "Provide filename and extension (e.g. \"shoulder_re_F_Muster_12021988.pdf\")"
-//* content only ChRadOrderAttachment
-
-/*
-Profile: ChRadOrderAttachment
-Parent: Attachment
-Id: ch-rad-order-ChRadOrderAttachment
-Title: "CH RAD-Order Attachment"
-Description: "Definition for the Attachment data type in the context of CH RAD-Order."
-* data MS
-* title MS
-* title ^short = "Provide filename and extension (e.g. \"shoulder_re_F_Muster_12021988.pdf\")"
-*/
