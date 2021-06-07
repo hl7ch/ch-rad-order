@@ -186,7 +186,7 @@ Description: "Definition for the ImagingStudy resource in the context of CH RAD-
 
 
 Profile: ChRadOrderMedia
-Parent: Media 
+Parent: Media
 Id: ch-rad-order-media
 Title: "CH RAD-Order Media"
 Description: "Definition for the Media resource in the context of CH RAD-Order."

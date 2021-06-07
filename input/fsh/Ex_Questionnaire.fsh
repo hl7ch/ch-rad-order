@@ -234,6 +234,7 @@ Bsp: Fragestellung ist required ausser bei Bestllung alter Bider
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-patient#Patient.telecom.value"
 * item[=].item[=].text = "Telefon"
 * item[=].item[=].type = #string
+* item[=].item[=].repeats = true
 
 * item[=].item[+].linkId = "patient.email"
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-patient#Patient.telecom.value"
@@ -265,14 +266,14 @@ Bsp: Fragestellung ist required ausser bei Bestllung alter Bider
 // ---------- Encounter Class (Ambulant / Satinär / Notfall) & Zimmerkategorie ----------
 * item[+].linkId = "requestedEncounter"
 * item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.extension:requestedencounterdetails"
-* item[=].text = "Gewünschter Aufenthalt"
+* item[=].text = "Patientenaufnahme"
 * item[=].type = #group
 
 * item[=].item[+].linkId = "requestedEncounter.class"
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-encounter#Encounter.class"
 * item[=].item[=].type = #choice
 * item[=].item[=].required = true
-* item[=].item[=].text = "Versicherungsklasse"
+* item[=].item[=].text = "Voraussichtlich: Ambulant / Stationär / Notfall"
 * item[=].item[=].answerOption[+].valueCoding = V3ActCode#AMB "Ambulant"
 * item[=].item[=].answerOption[+].valueCoding = V3ActCode#IMP "Stationär"
 * item[=].item[=].answerOption[+].valueCoding = V3ActCode#EMER "Notfall"
@@ -288,9 +289,9 @@ Bsp: Fragestellung ist required ausser bei Bestllung alter Bider
 
 // ---------- Coverage (Kostenträger) ----------
 // Preliminary design: Answer of BAG still pending: 23.05.2021
-// 4 Arten von Kostentägern 
+
 * item[+].linkId = "coverage"
-* item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.insurance"
+* item[=].definition = "http://fhir.ch/ig/ch-etoc/StructureDefinition/ch-etoc-servicerequest#ServiceRequest.insurance"
 * item[=].text = "Kostenträger"
 * item[=].type = #group
 
@@ -340,11 +341,6 @@ Bsp: Fragestellung ist required ausser bei Bestllung alter Bider
 * item[=].item[=].item[+].linkId = "coverage.vvg.insuranceCardNumber"
 * item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-coverage#Coverage.identifier"
 * item[=].item[=].item[=].text = "Kennnummer der Versichertenkarte"
-* item[=].item[=].item[=].type = #string
-
-* item[=].item[=].item[+].linkId = "coverage.vvg.ahvn13"
-* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-coverage#Coverage.identifier"
-* item[=].item[=].item[=].text = "Versichertennummer (AHV-Nr.)"
 * item[=].item[=].item[=].type = #string
 
 // IV
