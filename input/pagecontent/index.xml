@@ -41,15 +41,12 @@
     <p>Applications claiming for conformance with the CH RAD-Order Implementation Guide shall:
     </p>
         <ul>
-            <li>Render (and in case of the Questionnaire filler allow for data entry) all MUST SUPORT elements of a questionnaire in the
-            user interface (e.g. on screen, in print). Grouping of items and the order of items within shall be adequately
-            reproduced according to the Questionnaire.</li>
-            <li>Be able to process all MUST SUPPORT items.</li>
+            <li>Render (and in case of the Questionnaire filler allow for data entry) all elements of a questionnaire in the user interface
+            (e.g. on screen, in print).</li> 
+            
+            <li>For Clinical Information: Grouping of items and the order of items within shall be adequately reproduced according to the Questionnaire.</li>
         </ul>
 
-    <p>Vendors of applications with Questionnaire Filler/Questionnaire Receiver Actors are strongly recommended to implement
-    interfaces to other applications (such as HIS and PACS) for all MUST SUPPORT items.
-    </p>
     <p> Actors, transcations and security considerations are covered in the corresponding sections of 
         <a href="http://build.fhir.org/ig/hl7ch/ch-orf/index.html">CH ORF</a>.
     </p>
