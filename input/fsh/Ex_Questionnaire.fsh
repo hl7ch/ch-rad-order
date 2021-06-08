@@ -291,7 +291,7 @@ Bsp: Fragestellung ist required ausser bei Bestllung alter Bider
 // Preliminary design: Answer of BAG still pending: 23.05.2021
 
 * item[+].linkId = "coverage"
-* item[=].definition = "http://fhir.ch/ig/ch-etoc/StructureDefinition/ch-etoc-servicerequest#ServiceRequest.insurance"
+* item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.insurance"
 * item[=].text = "Kostenträger"
 * item[=].type = #group
 
