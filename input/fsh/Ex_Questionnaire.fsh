@@ -876,13 +876,13 @@ Darstellung der Diagnosen und Befunde
 
 * item[=].item[+].linkId = "diagnosisList.primaryDiagnosis"  
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.reasonReference"
-* item[=].item[=].text = "Hauptdiagnosen"
+* item[=].item[=].text = "Hauptdiagnose"
 * item[=].item[=].type = #string
 * item[=].item[=].repeats = true
 
 * item[=].item[+].linkId = "diagnosisList.secondaryDiagnosis"  
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.supportingInfo:diagnosis"
-* item[=].item[=].text = "Nebendiagnosen"
+* item[=].item[=].text = "Nebendiagnose"
 * item[=].item[=].type = #string
 * item[=].item[=].repeats = true
 
@@ -1042,16 +1042,6 @@ mittels ImagingStudy Resource (DICOM WADO) oder die mitgegeben werden in der Med
 * item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.supportingInfo:previousImagingResults"
 * item[=].text = "Vorherige Untersuchungsresultate"
 * item[=].type = #group
-
-/*
-* item[=].item[+].linkId = "previousResults.available"
-* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.supportingInfo:previousImagingResults"
-* item[=].item[=].text = "Verfügbar"
-* item[=].item[=].type = #choice
-* item[=].item[=].answerOption[+].valueCoding = SCT#373066001 "Ja"
-* item[=].item[=].answerOption[=].initialSelected = true
-* item[=].item[=].answerOption[+].valueCoding = SCT#373067005 "Nein"
-*/
 
 * item[=].item[+].linkId = "previousResults.attachment"
 * item[=].item[=].text = "Anhang"
