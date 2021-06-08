@@ -40,9 +40,10 @@ Alias:   ChOrfComposition =             http://fhir.ch/ig/ch-orf/StructureDefini
 Alias:   ChOrfDocument =                http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-document
 Alias:   ChOrfAppointment =             http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-appointment
 Alias:   ChOrfLocation =                http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-location
+
+// CH ORF CS
 Alias:   CSCoverageType =               http://fhir.ch/ig/ch-orf/CodeSystem/ch-orf-cs-coveragetype
 Alias:   CSCoverageIdentifierType =     http://fhir.ch/ig/ch-orf/CodeSystem/ch-orf-cs-coverageidentifiertype
-
 
 // HL7 / FHIR
 Alias:   HL7BodyHeight =                http://hl7.org/fhir/StructureDefinition/bodyheight
