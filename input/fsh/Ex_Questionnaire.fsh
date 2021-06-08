@@ -265,7 +265,7 @@ Bsp: Fragestellung ist required ausser bei Bestllung alter Bider
 
 // ---------- Encounter Class (Ambulant / Satinär / Notfall) & Zimmerkategorie ----------
 * item[+].linkId = "requestedEncounter"
-* item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.extension:requestedencounterdetails"
+* item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.extension:requestedEncounterDetails"
 * item[=].text = "Patientenaufnahme"
 * item[=].type = #group
 
@@ -280,7 +280,7 @@ Bsp: Fragestellung ist required ausser bei Bestllung alter Bider
 
 
 * item[=].item[+].linkId = "requestedEncounter.desiredAccommodation"
-* item[=].item[=].definition = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-encounter#Encounter.extension:desiredaccommodation"
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-encounter#Encounter.extension:desiredAccommodation"
 * item[=].item[=].text = "Zimmerkategorie"
 * item[=].item[=].type = #choice
 * item[=].item[=].answerOption[+].valueCoding = V3ActCode#P "Einerzimmer"
