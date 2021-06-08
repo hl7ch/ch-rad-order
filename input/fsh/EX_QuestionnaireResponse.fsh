@@ -375,11 +375,11 @@ Darstellung der Diagnosen und Befunde
 * item[=].text = "Diagnosen und Befunde"
 
 * item[=].item[+].linkId = "diagnosisList.primaryDiagnosis"  
-* item[=].item[=].text = "Hauptdiagnosen"
+* item[=].item[=].text = "Hauptdiagnose"
 * item[=].item[=].answer[+].valueString = "Primary Diagnosis"
 
 * item[=].item[+].linkId = "diagnosisList.secondaryDiagnosis"
-* item[=].item[=].text = "Nebendiagnosen"
+* item[=].item[=].text = "Nebendiagnose"
 * item[=].item[=].answer[+].valueString = "Secondary Diagnosis 1"
 * item[=].item[=].answer[+].valueString = "Secondary Diagnosis 2"
 
