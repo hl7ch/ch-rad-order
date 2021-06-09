@@ -288,12 +288,22 @@ Bsp: Fragestellung ist required ausser bei Bestllung alter Bider
 * item[=].item[=].answerOption[+].valueCoding = V3ActCode#W "Mehrbettzimmer"
 
 // ---------- Coverage (Kostenträger) ----------
-// Preliminary design: As agreed with eHealth Suisse and Cistec 09.06.2021
+// Design ass agreed with eHealth Suisse and Cistec 09.06.2021
 
 * item[+].linkId = "coverage"
 * item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.insurance"
 * item[=].text = "Kostenträger"
 * item[=].type = #group
+
+* item[=].item[+].linkId = "coverage.beneficiary"
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-coverage#Coverage.beneficiary"
+* item[=].item[=].text = "Begünstigter (Patient)"
+* item[=].item[=].type = #group
+
+* item[=].item[=].item[+].linkId = "coverage.beneficiary.ahvn13"
+* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-patient#Patient.identifier:AHVN13"
+* item[=].item[=].item[=].text = "AHV-Nr. des Patienten"
+* item[=].item[=].item[=].type = #string
 
 // KVG
 * item[=].item[+].linkId = "coverage.kvg"
@@ -349,9 +359,9 @@ Bsp: Fragestellung ist required ausser bei Bestllung alter Bider
 * item[=].item[=].text = "Invalidenversicherung (IV)"
 * item[=].item[=].type = #group
 
-* item[=].item[=].item[+].linkId = "coverage.iv.ahvn13"
+* item[=].item[=].item[+].linkId = "coverage.iv.verfuegungsnummer"
 * item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-coverage#Coverage.identifier"
-* item[=].item[=].item[=].text = "Versichertennummer (AHV-Nr.)"
+* item[=].item[=].item[=].text = "IV-Verfügungsnummer"
 * item[=].item[=].item[=].type = #string
 
 // MV
@@ -360,9 +370,9 @@ Bsp: Fragestellung ist required ausser bei Bestllung alter Bider
 * item[=].item[=].text = "Militärversicherung (MV)"
 * item[=].item[=].type = #group
 
-* item[=].item[=].item[+].linkId = "coverage.mv.ahvn13"
+* item[=].item[=].item[+].linkId = "coverage.mv.versichertennummer"
 * item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-coverage#Coverage.identifier"
-* item[=].item[=].item[=].text = "Versichertennummer (AHV-Nr.)"
+* item[=].item[=].item[=].text = "MV-Versichertennummer"
 * item[=].item[=].item[=].type = #string
 
 // Self
