@@ -1,6 +1,7 @@
 {
   "package-id": "ch.fhir.ig.ch-rad-order",
   "title": "CH RAD-Order (R4)",
+  "category": "National Base",
   "canonical": "http://fhir.ch/ig/ch-rad-order",
   "introduction": "Implementation Guide for CH RAD-Order (R4)",
   "list": [
@@ -13,12 +14,13 @@
     },
     {
       "version": "0.1.0",
-      "date": "2020-12-01",
-      "desc": "DSTU 1",
-      "path": "http://fhir.ch/ig/ch-rad-order/0.1.0",
+      "date": "2021-06-17",
+      "desc": "HL7 Switzerland STU 1 Ballot",
+      "path": "http://fhir.ch/ig/ch-rad-order",
       "status": "trial-use",
-      "sequence": "DSTU 1",
-      "fhirversion": "4.0.1"
+      "sequence": "STU 1",
+      "fhirversion": "4.0.1",
+      "current": true
     }
   ]
 }

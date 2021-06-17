@@ -6,15 +6,15 @@ canonical: http://fhir.ch/ig/ch-rad-order
 name: CH_RAD_Order
 title: "CH RAD-Order (R4)"
 description: Implementation guide CH RAD-Order (R4)
-status: draft
+status: active
 license: CC-BY-SA-4.0
 copyright: CC-BY-SA-4.0
 jurisdiction: urn:iso:std:iso:3166#CH
-date: 2021-01-14
+date: 2021-06-17
 version: 0.1.0
 fhirVersion: 4.0.1
 copyrightYear: 2021+
-releaseLabel: ci-build
+releaseLabel: STU 1 Ballot
 publisher:
   name: HL7 Switzerland
 contact:
