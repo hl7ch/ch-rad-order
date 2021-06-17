@@ -33,8 +33,7 @@ group RadOrderQrToBundle(source qr : QuestionnaireResponse, target bundle : Bund
              e5.resource = create('ServiceRequest') as servicerequest, 
              servicerequest.id = uuid() as uuid5,
              e5.fullUrl = ('urn:uuid:'+uuid5) then {
-               qr.questionnaire as can -> bundle.entry as e, e.fullUrl = can, e.resource = (can.resolve()) "questionnaire";
-               qr then QrToBundle(qr, patient, questionnaireresp, servicerequest, composition, bundle) "orfbundle";
+               qr.questionnaire as can -> bundle.entry as e6, e6.resource = (can.resolve()) as q, q.id = uuid() as uuid6, e6.fullUrl = append('urn:uuid:',uuid6) then QrToBundle(qr, q, patient, questionnaireresp, servicerequest, composition, bundle) "orfbundle";
                qr then RadOrderQrToServiceRequest(qr, patient, bundle, composition, servicerequest) "servicerequest";
              } "orfbundle";
 }
@@ -86,12 +85,7 @@ group OrderDetailServiceItems(source src : BackboneElement, target serviceReques
   } "item.answer";
   src.item as item where (linkId.value = 'orderDetail.imagingFocus' and answer.exists()) then {
     item.answer as answer then {
-      answer.value: Coding as coding -> serviceRequest.orderDetail as cc, 
-                                          cc.extension as ext, 
-                                          ext.url='http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-order-detail-type', 
-                                          ext.value = create('Coding') as coding,
-                                          coding.system = 'http://fhir.ch/ig/ch-rad-order/CodeSystem/ch-rad-order-order-detail-type',
-                                          coding.code = 'imagingFocus', 
+      answer.value: Coding as coding -> serviceRequest.bodySite as cc, 
                                           cc.coding = coding "orderDetail.imagingFocus";
     } "answer.valueCoding";
   } "item.answer";

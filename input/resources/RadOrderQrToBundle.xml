@@ -21,8 +21,7 @@ imports "http://fhir.ch/ig/ch-orf/StructureMap/OrfQrToBundle"
 group RadOrderQrToBundle(source qr : QuestionnaireResponse, target bundle : Bundle) {
   qr -&gt;  bundle.identifier as documentIdentifier,  documentIdentifier.system = 'urn:ietf:rfc:3986',  uuid() as uuidDoc,  documentIdentifier.value = ('urn:uuid:' + uuidDoc) "documentIdentifier";
   qr as qrcp -&gt;  bundle.entry as e,  e.resource = create('Composition') as composition,  composition.id = uuid() as uuid,  e.fullUrl = ('urn:uuid:' + uuid),  bundle.entry as e2,  bundle.timestamp = (now()) as timestamp,  composition.date = timestamp,  e2.resource = create('Patient') as patient,  patient.id = uuid() as uuid2,  e2.fullUrl = ('urn:uuid:' + uuid2),  bundle.entry as e4,  e4.resource = qrcp as questionnaireresp,  questionnaireresp.id = uuid() as uuid4,  e4.fullUrl = ('urn:uuid:' + uuid4),  bundle.entry as e5,  e5.resource = create('ServiceRequest') as servicerequest,  servicerequest.id = uuid() as uuid5,  e5.fullUrl = ('urn:uuid:' + uuid5) then {
-    qr.questionnaire as can -&gt;  bundle.entry as e,  e.fullUrl = can,  e.resource = (can.resolve());
-    qr then QrToBundle(qr, patient, questionnaireresp, servicerequest, composition, bundle) "orfbundle";
+    qr.questionnaire as can -&gt;  bundle.entry as e6,  e6.resource = (can.resolve()) as q,  q.id = uuid() as uuid6,  e6.fullUrl = append('urn:uuid:', uuid6) then QrToBundle(qr, q, patient, questionnaireresp, servicerequest, composition, bundle) "orfbundle";
     qr then RadOrderQrToServiceRequest(qr, patient, bundle, composition, servicerequest) "servicerequest";
   } "orfbundle";
 }
@@ -68,7 +67,7 @@ group OrderDetailServiceItems(source src : BackboneElement, target serviceReques
   } "answer";
   src.item as item where ((linkId.value = 'orderDetail.imagingFocus') and answer.exists()) then {
     item.answer as answer then {
-      answer.value : Coding as coding -&gt;  serviceRequest.orderDetail as cc,  cc.extension as ext,  ext.url = 'http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-order-detail-type',  ext.value = create('Coding') as coding,  coding.system = 'http://fhir.ch/ig/ch-rad-order/CodeSystem/ch-rad-order-order-detail-type',  coding.code = 'imagingFocus',  cc.coding = coding "imagingFocus";
+      answer.value : Coding as coding -&gt;  serviceRequest.bodySite as cc,  cc.coding = coding "imagingFocus";
     } "valueCoding";
   } "answer";
   src.item as item where ((linkId.value = 'orderDetail.laterality') and answer.exists()) then {
@@ -96,7 +95,7 @@ group OrderDetailServiceItems(source src : BackboneElement, target serviceReques
 group DiagnosisListServiceItems(source src : BackboneElement, target patient : Patient, target bundle : Bundle, target serviceRequest : ServiceRequest) {
   src.item as item where ((linkId.value = 'diagnosisList.secondaryDiagnosis') and answer.exists()) then {
     item.answer as answer then {
-      answer.value : string as value -&gt;  bundle.entry as e,  e.resource = create('Condition') as condition,  condition.id = uuid() as uuid,  e.fullUrl = ('urn:uuid:' + uuid),  serviceRequest.supportingInfo as supportingInfo,  supportingInfo.reference = ('urn:uuid:' + uuid),  condition.category as category,  category.coding as coding,  coding.code = 'problem-list-item',  coding.system = 'http://terminology.hl7.org/CodeSystem/condition-category',  coding.display = 'Problem List Item',  condition.code as code,  code.text = value,  condition.subject as subject,  subject.reference = ('urn:uuid:' + patient.id) "diagnosis";
+      answer.value : string as value -&gt;  bundle.entry as e,  e.resource = create('Condition') as condition,  condition.id = uuid() as uuid,  e.fullUrl = ('urn:uuid:' + uuid),  serviceRequest.supportingInfo as supportingInfo,  supportingInfo.reference = ('urn:uuid:' + uuid),  condition.category as category,  category.coding as coding,  coding.code = 'problem-list-item',  coding.system = 'http://terminology.hl7.org/CodeSystem/condition-category',  coding.display = 'Problem List Item',  condition.code as code,  code.text = value,  condition.subject as subject,  subject.reference = ('urn:uuid:' + patient.id) "secondaryDiagnosis";
     } "valueString";
   } "answer";
 }
@@ -420,7 +419,7 @@ group RenalInsufficiencyCreatinineServiceItems(source src : BackboneElement, tar
             </parameter>
          </target>
          <rule>
-            <name value="questionnaire"></name>
+            <name value="orfbundle"></name>
             <source>
                <context value="qr"></context>
                <element value="questionnaire"></element>
@@ -430,35 +429,41 @@ group RenalInsufficiencyCreatinineServiceItems(source src : BackboneElement, tar
                <context value="bundle"></context>
                <contextType value="variable"></contextType>
                <element value="entry"></element>
-               <variable value="e"></variable>
+               <variable value="e6"></variable>
             </target>
             <target>
-               <context value="e"></context>
-               <contextType value="variable"></contextType>
-               <element value="fullUrl"></element>
-               <transform value="copy"></transform>
-               <parameter>
-                  <valueId value="can"></valueId>
-               </parameter>
-            </target>
-            <target>
-               <context value="e"></context>
+               <context value="e6"></context>
                <contextType value="variable"></contextType>
                <element value="resource"></element>
+               <variable value="q"></variable>
                <transform value="evaluate"></transform>
                <parameter>
                   <valueString value="can.resolve()"></valueString>
                </parameter>
             </target>
-         </rule>
-         <rule>
-            <name value="orfbundle"></name>
-            <source>
-               <context value="qr"></context>
-            </source>
+            <target>
+               <context value="q"></context>
+               <contextType value="variable"></contextType>
+               <element value="id"></element>
+               <variable value="uuid6"></variable>
+               <transform value="uuid"></transform>
+            </target>
+            <target>
+               <context value="e6"></context>
+               <contextType value="variable"></contextType>
+               <element value="fullUrl"></element>
+               <transform value="append"></transform>
+               <parameter>
+                  <valueString value="urn:uuid:"></valueString>
+               </parameter>
+               <parameter>
+                  <valueId value="uuid6"></valueId>
+               </parameter>
+            </target>
             <dependent>
                <name value="QrToBundle"></name>
                <variable value="qr"></variable>
+               <variable value="q"></variable>
                <variable value="patient"></variable>
                <variable value="questionnaireresp"></variable>
                <variable value="servicerequest"></variable>
@@ -887,51 +892,8 @@ group RenalInsufficiencyCreatinineServiceItems(source src : BackboneElement, tar
                <target>
                   <context value="serviceRequest"></context>
                   <contextType value="variable"></contextType>
-                  <element value="orderDetail"></element>
+                  <element value="bodySite"></element>
                   <variable value="cc"></variable>
-               </target>
-               <target>
-                  <context value="cc"></context>
-                  <contextType value="variable"></contextType>
-                  <element value="extension"></element>
-                  <variable value="ext"></variable>
-               </target>
-               <target>
-                  <context value="ext"></context>
-                  <contextType value="variable"></contextType>
-                  <element value="url"></element>
-                  <transform value="copy"></transform>
-                  <parameter>
-                     <valueString value="http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-order-detail-type"></valueString>
-                  </parameter>
-               </target>
-               <target>
-                  <context value="ext"></context>
-                  <contextType value="variable"></contextType>
-                  <element value="value"></element>
-                  <variable value="coding"></variable>
-                  <transform value="create"></transform>
-                  <parameter>
-                     <valueString value="Coding"></valueString>
-                  </parameter>
-               </target>
-               <target>
-                  <context value="coding"></context>
-                  <contextType value="variable"></contextType>
-                  <element value="system"></element>
-                  <transform value="copy"></transform>
-                  <parameter>
-                     <valueString value="http://fhir.ch/ig/ch-rad-order/CodeSystem/ch-rad-order-order-detail-type"></valueString>
-                  </parameter>
-               </target>
-               <target>
-                  <context value="coding"></context>
-                  <contextType value="variable"></contextType>
-                  <element value="code"></element>
-                  <transform value="copy"></transform>
-                  <parameter>
-                     <valueString value="imagingFocus"></valueString>
-                  </parameter>
                </target>
                <target>
                   <context value="cc"></context>
