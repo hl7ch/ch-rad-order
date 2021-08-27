@@ -1066,7 +1066,7 @@ mittels ImagingStudy Resource (DICOM WADO) oder die mitgegeben werden in der Med
 * item[=].item[=].item[+].linkId = "previousResults.attachment.data"  
 * item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-media#Media.content.data"
 * item[=].item[=].item[=].text = "Daten"
-* item[=].item[=].item[=].type = #string
+* item[=].item[=].item[=].type = #attachment
 
 
 // -------- Service Request Notes ------
