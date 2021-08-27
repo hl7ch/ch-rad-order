@@ -455,6 +455,13 @@ Vorherige Untersuchungsresultate:
 * item[=].item[=].item[=].text = "Dateiname und -endung der angehängten Datei (z.B. \"shoulder_re_F_Muster_12021988.pdf\")"
 * item[=].item[=].item[=].answer.valueString = "xray_chest_S_Ufferer_20190401.dcm"
 
+* item[=].item[=].item[+].linkId = "previousResults.attachment.data"
+* item[=].item[=].item[=].text = "Daten"
+* item[=].item[=].item[=].answer[+].valueAttachment[+].contentType = #application/dicom
+* item[=].item[=].item[=].answer[=].valueAttachment[=].data = "RXhhbXBsZQ=="
+* item[=].item[=].item[=].answer[=].valueAttachment[=].title = "xray_chest_S_Ufferer_20190401.dcm"
+
+
 /* -----------------------------------------------------------------------------
 Service Request Notes 
 */
