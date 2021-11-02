@@ -1,9 +1,9 @@
-<StructureMap 
+StructureMap 
   xmlns="http://hl7.org/fhir">
   <id value="RadOrderQrToBundle"/>
   <meta>
-    <versionId value="5"/>
-    <lastUpdated value="2021-11-02T15:19:57.476+00:00"/>
+    <versionId value="6"/>
+    <lastUpdated value="2021-11-02T16:10:57.712+00:00"/>
   </meta>
   <url value="http://fhir.ch/ig/ch-rad-order/StructureMap/RadOrderQrToBundle"/>
   <name value="RadOrderQrToBundle"/>
@@ -3564,7 +3564,7 @@
           <element value="value"/>
           <transform value="evaluate"/>
           <parameter>
-            <valueString value="'urn:oid:' + dictomitem.answer.value"/>
+            <valueString value="dictomitem.answer.value"/>
           </parameter>
         </target>
       </rule>

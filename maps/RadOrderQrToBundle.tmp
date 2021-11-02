@@ -475,6 +475,6 @@ group PreviousImagingStudyResults(source grp : BackboneElement, target bundle: B
         imagingStudy.identifier as uid, uid.system='urn:dicom:uid', uid.use='official', uid.value=('urn:oid:'+dictomitem.answer.value) "uid";
      item.item as dictomitem where (linkId.value = 'previousResults.imagingStudy.acsn' and answer.exists()) -> 
         imagingStudy.identifier as acsn, acsn.type as type, type.coding as coding, coding.system ='http://terminology.hl7.org/CodeSystem/v2-0203',
-        coding.code='ACSN', acsn.use='usual', acsn.value=('urn:oid:'+dictomitem.answer.value) "acsn";
+        coding.code='ACSN', acsn.use='usual', acsn.value=(dictomitem.answer.value) "acsn";
     } "imagingStudy";
 }
