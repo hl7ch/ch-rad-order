@@ -11,7 +11,7 @@
     
     <a name="volume1"></a><h3>Purpose</h3>
 
-    <p>The CH RAD-Order Implementation Guide defines the content of a radiolgy order and covers the follwing use cases:
+    <p>The CH RAD-Order Implementation Guide defines the content of a radiology order and covers the follwing use cases:
     </p>
    
     <ul>
@@ -62,7 +62,7 @@
 
     <p>CH RAD-Order allows coding of the requested imaging service by means of <a href="https://loinc.org/collaboration/rsna/">LOINC/RSNA RADIOL0GY PLAYBOOK</a>.
     </p>
-    <p>Systems such as PIS and KIS may not yet support RADIOLGY PLAYBOOK. For this reason, CH RAD-Order allows coding of the relevant dimensions 
+    <p>Systems such as PIS and KIS may not yet support RADIOLOGY PLAYBOOK. For this reason, CH RAD-Order allows coding of the relevant dimensions 
     by means of <a href= "https://www.rsna.org/practice-tools/data-tools-and-standards/radlex-radiology-lexicon">RADLEX</a>.
      </p>
 

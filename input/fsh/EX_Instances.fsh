@@ -267,7 +267,7 @@ Instance: HappyDoctors
 InstanceOf: ChCoreOrganization
 Title: "Praxis Happy Doctors"
 Description: "Example for Organization"
-* name = "Praxis Happy Docotors"
+* name = "Praxis Happy Doctors"
 * address.line[0] = "Kantonsstrasse 14"
 * address.line[1] = "Postfach 14"
 * address.city = "Zürich"
