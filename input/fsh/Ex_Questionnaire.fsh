@@ -1058,7 +1058,7 @@ mittels ImagingStudy Resource (DICOM WADO) oder die mitgegeben werden in der Med
 * item[=].item[=].type = #group
 * item[=].item[=].repeats = true
 
-* item[=].item[=].item[+].linkId = "previousResults.attachtment.title"  
+* item[=].item[=].item[+].linkId = "previousResults.attachment.title"  
 * item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-media#Media.content.title"
 * item[=].item[=].item[=].text = "Dateiname und -endung der angehängten Datei (z.B. \"shoulder_re_F_Muster_12021988.pdf\")"
 * item[=].item[=].item[=].type = #string

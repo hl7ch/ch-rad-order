@@ -842,7 +842,7 @@
             <linkId value="previousResults.attachment"/>
             <text value="Anhang"/>
             <item>
-              <linkId value="previousResults.attachtment.title"/>
+              <linkId value="previousResults.attachment.title"/>
               <text value="Dateiname und -endung der angehängten Datei (z.B. &quot;shoulder_re_F_Muster_12021988.pdf&quot;)"/>
               <answer>
                 <valueString value="xray_chest_S_Ufferer_20190401.dcm"/>
@@ -2223,7 +2223,7 @@
             <type value="group"/>
             <repeats value="true"/>
             <item>
-              <linkId value="previousResults.attachtment.title"/>
+              <linkId value="previousResults.attachment.title"/>
               <definition value="http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-media#Media.content.title"/>
               <text value="Dateiname und -endung der angehängten Datei (z.B. &quot;shoulder_re_F_Muster_12021988.pdf&quot;)"/>
               <type value="string"/>
