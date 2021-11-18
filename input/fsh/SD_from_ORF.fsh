@@ -120,6 +120,15 @@ Description: "Extension to define the Type of Caveat in context of CH RAD-Order.
 * value[x] ^short = "Type of Caveat"
 * value[x] from ChRadOrderCaveatType
 
+Extension: ChRadOrderQualifierValue
+Id: ch-rad-order-qualifier-value
+Title: "CH RAD-Order Caveat Type"
+Description: "Extension to define the Type of Caveat in context of CH RAD-Order."
+* value[x] 1..1
+* value[x] only Coding
+* value[x] ^short = "Type of Caveat"
+* value[x] from ChRadOrderQualifierValue
+
 
 Profile: ChRadOrderDocument
 Parent: ChOrfDocument

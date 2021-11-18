@@ -18,7 +18,7 @@ Alias:   AppointmentStatus =                http://hl7.org/fhir/appointmentstatu
 
 
 // Code Systems/ Value Sets from ORF
-Alias:   ChOrfYesNo =  http://fhir.ch/ig/ch-orf/ch-orf-vs-YesNo
+//Alias:   ChOrfYesNo =  http://fhir.ch/ig/ch-orf/ch-orf-vs-YesNo
 
 
 // CH EPR Term Code Systems

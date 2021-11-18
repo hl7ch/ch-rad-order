@@ -399,12 +399,12 @@ Caveats
 
 * item[=].item[+].linkId = "caveat.bloodCoagulation"
 * item[=].item[=].text = "Beinträchtigte Blutgerinnung"   
-* item[=].item[=].answer.valueBoolean = true
+* item[=].item[=].answer.valueCoding = SCT#52101004
 
 
 * item[=].item[+].linkId = "caveat.renalInsufficiency"
 * item[=].item[=].text = "Niereninsuffizienz"   
-* item[=].item[=].answer.valueBoolean = true
+* item[=].item[=].answer.valueCoding = SCT#52101004
 // Creatinin-Clearance
 * item[=].item[=].answer.item[+].linkId = "caveat.renalInsufficiency.creatinineClearance"    
 * item[=].item[=].answer.item[=].text = "Creatinin-Clearance"
@@ -431,7 +431,7 @@ Caveats
 
 * item[=].item[+].linkId = "caveat.bodyPiercing"
 * item[=].item[=].text = "Körperpiercing"   
-* item[=].item[=].answer.valueBoolean = true
+* item[=].item[=].answer.valueCoding = SCT#52101004
 
 * item[=].item[+].linkId = "caveat.device"
 * item[=].item[=].text = "Device (Herzschrittmacher, Herzklappenersatz, Insulinpumpe etc.)" 

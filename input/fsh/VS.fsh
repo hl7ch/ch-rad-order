@@ -31,6 +31,16 @@ Description: "Definition for Type of Caveat Value Set in the context of CH RAD-O
 * SCT#182817000 "Drug prescription (situation)"
 
 
+ValueSet: ChRadOrderQualifierValue
+Id: ch-rad-order-caveat-qualifier-value
+Title: "Qualifier Value"
+Description: "Qualifier values in the context of CH RAD-Order."
+* SCT#2667000 "Absent (qualifier value)"
+* SCT#52101004 "Present (qualifier value)"
+* SCT#373068000 "Undetermined (qualifier value)"
+
+
+
 // Condition.code
 ValueSet: ChRadOrderCaveatCondition
 Id: ch-rad-order-caveat-condition
