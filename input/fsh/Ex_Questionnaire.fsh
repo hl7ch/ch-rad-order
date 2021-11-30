@@ -921,17 +921,16 @@ Caveats
 * item[=].item[=].text = "Beinträchtigte Blutgerinnung"  
 * item[=].item[=].type = #choice
 * item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-caveat-qualifier-value-int"
-//* item[=].item[=].answerValueSet = "http://hl7.org/fhir/ValueSet/yesnodontknow"
+
 
 * item[=].item[=].item[+].linkId = "caveat.coagulation.INR" 
 * item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.evidence.detail"
 * item[=].item[=].item[=].text = "INR"   
 * item[=].item[=].item[=].type = #group
-/* item[=].item[=].item[=].enableWhen[+].question = "caveat.coagulation"
+* item[=].item[=].item[=].enableWhen[+].question = "caveat.coagulation"
 * item[=].item[=].item[=].enableWhen[=].operator = #=
 * item[=].item[=].item[=].enableWhen[=].answerCoding = ChRadOrderQualifierValueIntern#52101004
-*/
-//* item[=].item[=].item[=].enableWhen[=].answerCoding = http://terminology.hl7.org/CodeSystem/v2-0136#Y
+
 
 
 /*
