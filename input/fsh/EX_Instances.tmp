@@ -389,11 +389,11 @@ Usage: #inline
 //------------- caveats -------------
 Instance: CaveatBloodbloodCoagulation
 InstanceOf: ChRadOrderCaveatCondition
-Title: "Caveat Blood bloodCoagulation"
+Title: "Caveat Blood coagulation"
 Description: "Example for Caveat Condition"
-* extension[caveatType].valueCoding = SCT#64779008 "Blood bloodCoagulation disorder (disorder)"
+* extension[caveatType].valueCoding = SCT#64779008 "Blood coagulation disorder (disorder)"
 * category = ConditionCategory#problem-list-item "Problem List Item"
-* code = SCT#64779008 "Blood bloodCoagulation disorder (disorder)"
+* code = SCT#64779008 "Blood coagulation disorder (disorder)"
 * subject = Reference(SUfferer)
 * evidence[+].detail = Reference(CaveatBloodbloodCoagulationINR)
 * evidence[+].detail = Reference(CaveatBloodbloodCoagulationPlatelets)
@@ -401,10 +401,10 @@ Description: "Example for Caveat Condition"
 
 Instance: CaveatBloodbloodCoagulationINR
 InstanceOf: ChRadOrderINRObservation
-Title: "Caveat Blood bloodCoagulation INR"
+Title: "Caveat Blood coagulation INR"
 Description: "Example for INR Observation"
 * status = #final
-* code = LNC#34714-6 "INR in Blood by bloodCoagulation assay"
+* code = LNC#34714-6 "INR in Blood by coagulation assay"
 * subject = Reference(SUfferer)
 * effectiveDateTime = "2019-04-01T10:10:00.000+00:00"
 * valueQuantity = 2.3 '{INR}' "INR"
@@ -412,7 +412,7 @@ Description: "Example for INR Observation"
 
 Instance: CaveatBloodbloodCoagulationPlatelets
 InstanceOf: ChRadOrderPlateletsObservation
-Title: "Caveat Blood bloodCoagulation Platelets"
+Title: "Caveat Blood coagulation Platelets"
 Description: "Example for Platelets Observation"
 * status = #final
 * code = LNC#26515-7 "Platelets [#/volume] in Blood"

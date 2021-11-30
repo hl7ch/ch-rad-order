@@ -748,7 +748,7 @@
           <linkId value="caveat"/>
           <text value="Caveats"/>
           <item>
-            <linkId value="caveat.bloodbloodCoagulation"/>
+            <linkId value="caveat.coagulation"/>
             <text value="Beinträchtigte Blutgerinnung"/>
             <answer>
               <valueBoolean value="true"/>
@@ -2056,51 +2056,51 @@
           <text value="Caveats"/>
           <type value="group"/>
           <item>
-            <linkId value="caveat.bloodbloodCoagulation"/>
+            <linkId value="caveat.coagulation"/>
             <definition value="http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.code"/>
             <text value="Beinträchtigte Blutgerinnung"/>
             <type value="boolean"/>
             <item>
-              <linkId value="caveat.bloodbloodCoagulation.INR"/>
+              <linkId value="caveat.coagulation.INR"/>
               <definition value="http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.evidence.detail"/>
               <text value="INR"/>
               <type value="group"/>
               <enableWhen>
-                <question value="caveat.bloodbloodCoagulation"/>
+                <question value="caveat.coagulation"/>
                 <operator value="="/>
                 <answerBoolean value="true"/>
               </enableWhen>
               <item>
-                <linkId value="caveat.bloodbloodCoagulation.INR.quantity"/>
+                <linkId value="caveat.coagulation.INR.quantity"/>
                 <definition value="http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-INR-observation#Observation.valueQuantity"/>
                 <text value="Wert (INR)"/>
                 <type value="quantity"/>
               </item>
               <item>
-                <linkId value="caveat.bloodbloodCoagulation.INR.dateTime"/>
+                <linkId value="caveat.coagulation.INR.dateTime"/>
                 <definition value="http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-INR-observation#Observation.effectiveDateTime"/>
                 <text value="Zeitpunkt der Bestimmung"/>
                 <type value="dateTime"/>
               </item>
             </item>
             <item>
-              <linkId value="caveat.bloodbloodCoagulation.platelets"/>
+              <linkId value="caveat.coagulation.platelets"/>
               <definition value="http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.evidence.detail"/>
               <text value="Thrombozyten"/>
               <type value="group"/>
               <enableWhen>
-                <question value="caveat.bloodbloodCoagulation"/>
+                <question value="caveat.coagulation"/>
                 <operator value="="/>
                 <answerBoolean value="true"/>
               </enableWhen>
               <item>
-                <linkId value="caveat.bloodbloodCoagulation.platelets.quantity"/>
+                <linkId value="caveat.coagulation.platelets.quantity"/>
                 <definition value="http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-platelets-observation#Observation.valueQuantity"/>
                 <text value="Wert (10^3/µl)"/>
                 <type value="quantity"/>
               </item>
               <item>
-                <linkId value="caveat.bloodbloodCoagulation.platelets.dateTime"/>
+                <linkId value="caveat.coagulation.platelets.dateTime"/>
                 <definition value="http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-platelets-observation#Observation.effectiveDateTime"/>
                 <text value="Zeitpunkt der Bestimmung"/>
                 <type value="dateTime"/>
@@ -2517,7 +2517,7 @@
           <coding>
             <system value="http://snomed.info/sct"/>
             <code value="64779008"/>
-            <display value="Blood bloodCoagulation disorder (disorder)"/>
+            <display value="Blood coagulation disorder (disorder)"/>
           </coding>
         </code>
         <subject>

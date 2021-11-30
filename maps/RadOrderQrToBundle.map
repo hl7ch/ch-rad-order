@@ -160,7 +160,7 @@ group DiagnosisListServiceItems(source src : BackboneElement, target patient : P
 }
 
 group CaveatServiceItems(source src : BackboneElement, target patient : Patient, target bundle : Bundle, target serviceRequest: ServiceRequest) {
-  src.item as item where (linkId.value = 'caveat.bloodbloodCoagulation' and answer.exists()) then {
+  src.item as item where (linkId.value = 'caveat.coagulation' and answer.exists()) then {
     item.answer as answer then {
       answer.value: coding as value where answer.valueCoding ->  //answer.value: boolean as value where answer.valueBoolean -> 
         bundle.entry as e, 
@@ -178,10 +178,10 @@ group CaveatServiceItems(source src : BackboneElement, target patient : Patient,
             code.coding as coding2,
             coding2.code = '64779008',
             coding2.system = 'http://snomed.info/sct',
-            coding2.display = 'Blood bloodCoagulation disorder (disorder)',
+            coding2.display = 'Blood coagulation disorder (disorder)',
         condition.subject as subject,
           subject.reference = ('urn:uuid:'+patient.id)
-              "caveat.bloodbloodCoagulation";
+              "caveat.coagulation";
     } "answer.valueCoding";  //"answer.valueString";
   } "item.answer";
 

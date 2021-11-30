@@ -101,9 +101,9 @@ group DiagnosisListServiceItems(source src : BackboneElement, target patient : P
 }
 
 group CaveatServiceItems(source src : BackboneElement, target patient : Patient, target bundle : Bundle, target serviceRequest : ServiceRequest) {
-  src.item as item where ((linkId.value = 'caveat.bloodbloodCoagulation') and answer.exists()) then {
+  src.item as item where ((linkId.value = 'caveat.coagulation') and answer.exists()) then {
     item.answer as answer then {
-      answer.value : boolean as value where answer.valueBoolean -&gt;  bundle.entry as e,  e.resource = create('Condition') as condition,  condition.id = uuid() as uuid,  e.fullUrl = ('urn:uuid:' + uuid),  serviceRequest.supportingInfo as supportingInfo,  supportingInfo.reference = ('urn:uuid:' + uuid),  condition.category as category,  category.coding as coding,  coding.code = 'problem-list-item',  coding.system = 'http://terminology.hl7.org/CodeSystem/condition-category',  coding.display = 'Problem List Item',  condition.code as code,  code.coding as coding2,  coding2.code = '64779008',  coding2.system = 'http://snomed.info/sct',  coding2.display = 'Blood bloodCoagulation disorder (disorder)',  condition.subject as subject,  subject.reference = ('urn:uuid:' + patient.id) "bloodbloodCoagulation";
+      answer.value : boolean as value where answer.valueBoolean -&gt;  bundle.entry as e,  e.resource = create('Condition') as condition,  condition.id = uuid() as uuid,  e.fullUrl = ('urn:uuid:' + uuid),  serviceRequest.supportingInfo as supportingInfo,  supportingInfo.reference = ('urn:uuid:' + uuid),  condition.category as category,  category.coding as coding,  coding.code = 'problem-list-item',  coding.system = 'http://terminology.hl7.org/CodeSystem/condition-category',  coding.display = 'Problem List Item',  condition.code as code,  code.coding as coding2,  coding2.code = '64779008',  coding2.system = 'http://snomed.info/sct',  coding2.display = 'Blood coagulation disorder (disorder)',  condition.subject as subject,  subject.reference = ('urn:uuid:' + patient.id) "coagulation";
     } "valueString";
   } "answer";
   src.item as item where ((linkId.value = 'caveat.renalInsufficiency') and answer.exists()) then {
@@ -1439,7 +1439,7 @@ group RenalInsufficiencyCreatinineServiceItems(source src : BackboneElement, tar
             <context value="src"></context>
             <element value="item"></element>
             <variable value="item"></variable>
-            <condition value="((linkId.value = 'caveat.bloodbloodCoagulation') and answer.exists())"></condition>
+            <condition value="((linkId.value = 'caveat.coagulation') and answer.exists())"></condition>
          </source>
          <rule>
             <name value="answer.valueString"></name>
@@ -1449,7 +1449,7 @@ group RenalInsufficiencyCreatinineServiceItems(source src : BackboneElement, tar
                <variable value="answer"></variable>
             </source>
             <rule>
-               <name value="caveat.bloodbloodCoagulation"></name>
+               <name value="caveat.coagulation"></name>
                <source>
                   <context value="answer"></context>
                   <type value="boolean"></type>
@@ -1579,7 +1579,7 @@ group RenalInsufficiencyCreatinineServiceItems(source src : BackboneElement, tar
                   <element value="display"></element>
                   <transform value="copy"></transform>
                   <parameter>
-                     <valueString value="Blood bloodCoagulation disorder (disorder)"></valueString>
+                     <valueString value="Blood coagulation disorder (disorder)"></valueString>
                   </parameter>
                </target>
                <target>

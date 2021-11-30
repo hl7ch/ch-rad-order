@@ -93,7 +93,7 @@ Description: "Definition for the INR Observation resource in the context of CH R
 * status MS
 * code MS
 * code = LNC#34714-6
-* code ^short = "INR in Blood by bloodCoagulation assay"
+* code ^short = "INR in Blood by coagulation assay"
 * subject MS 
 * subject only Reference(ChCorePatient) 
 * effectiveDateTime MS
