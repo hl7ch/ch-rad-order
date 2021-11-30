@@ -920,7 +920,7 @@ Caveats
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.code"  
 * item[=].item[=].text = "Beinträchtigte Blutgerinnung"  
 * item[=].item[=].type = #choice
-* item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-caveat-qualifier-value"
+* item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-caveat-qualifier-value-int"
 //* item[=].item[=].answerValueSet = "http://hl7.org/fhir/ValueSet/yesnodontknow"
 
 * item[=].item[=].item[+].linkId = "caveat.coagulation.INR" 
@@ -929,7 +929,7 @@ Caveats
 * item[=].item[=].item[=].type = #group
 /* item[=].item[=].item[=].enableWhen[+].question = "caveat.coagulation"
 * item[=].item[=].item[=].enableWhen[=].operator = #=
-* item[=].item[=].item[=].enableWhen[=].answerCoding = SCT#52101004
+* item[=].item[=].item[=].enableWhen[=].answerCoding = ChRadOrderQualifierValueIntern#52101004
 */
 //* item[=].item[=].item[=].enableWhen[=].answerCoding = http://terminology.hl7.org/CodeSystem/v2-0136#Y
 
@@ -944,7 +944,7 @@ Caveats
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.code"  
 * item[=].item[=].text = "Beinträchtigte Blutgerinnung"  
 * item[=].item[=].type = #choice
-//* item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-caveat-qualifier-value"
+//* item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-caveat-qualifier-value-int"
 * item[=].item[=].answerValueSet = "http://hl7.org/fhir/ValueSet/yesnodontknow"
 
 * item[=].item[=].item[+].linkId = "caveat.coagulation.INR" 
@@ -953,7 +953,7 @@ Caveats
 * item[=].item[=].item[=].type = #group
 * item[=].item[=].item[=].enableWhen[+].question = "caveat.coagulation"
 * item[=].item[=].item[=].enableWhen[=].operator = #=
-//* item[=].item[=].item[=].enableWhen[=].answerCoding = SCT#52101004
+//* item[=].item[=].item[=].enableWhen[=].answerCoding = ChRadOrderQualifierValueIntern#52101004
 * item[=].item[=].item[=].enableWhen[=].answerCoding = http://terminology.hl7.org/CodeSystem/v2-0136#Y
 
 */
@@ -970,7 +970,7 @@ Caveats
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.code"  
 * item[=].item[=].text = "Beinträchtigte Blutgerinnung"  
 * item[=].item[=].type = #choice
-//* item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-caveat-qualifier-value"
+//* item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-caveat-qualifier-value-int"
 * item[=].item[=].answerValueSet = "http://hl7.org/fhir/ValueSet/yesnodontknow"
 
 * item[=].item[=].item[+].linkId = "caveat.coagulation.INR" 
@@ -979,7 +979,7 @@ Caveats
 * item[=].item[=].item[=].type = #group
 * item[=].item[=].item[=].enableWhen[+].question = "caveat.coagulation"
 * item[=].item[=].item[=].enableWhen[=].operator = #=
-//* item[=].item[=].item[=].enableWhen[=].answerCoding = SCT#52101004
+//* item[=].item[=].item[=].enableWhen[=].answerCoding = ChRadOrderQualifierValueIntern#52101004
 * item[=].item[=].item[=].enableWhen[=].answerCoding = http://terminology.hl7.org/CodeSystem/v2-0136#Y
 */
 //___
@@ -1002,7 +1002,7 @@ Caveats
 * item[=].item[=].item[=].type = #group
 /* item[=].item[=].item[=].enableWhen[+].question = "caveat.coagulation"
 * item[=].item[=].item[=].enableWhen[=].operator = #=
-* item[=].item[=].item[=].enableWhen[=].answerCoding = SCT#52101004
+* item[=].item[=].item[=].enableWhen[=].answerCoding = ChRadOrderQualifierValueIntern#52101004
 */
 * item[=].item[=].item[=].item[+].linkId = "caveat.coagulation.platelets.quantity"
 * item[=].item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-platelets-observation#Observation.valueQuantity"
@@ -1018,7 +1018,7 @@ Caveats
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.code"   
 * item[=].item[=].text = "Niereninsuffizienz"   
 * item[=].item[=].type = #choice
-* item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-caveat-qualifier-value"
+* item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-caveat-qualifier-value-int"
 
 * item[=].item[=].item[+].linkId = "caveat.renalInsufficiency.creatinineClearance" 
 * item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.evidence.detail"
@@ -1026,7 +1026,7 @@ Caveats
 * item[=].item[=].item[=].type = #group
 /* item[=].item[=].item[=].enableWhen[+].question = "caveat.renalInsufficiency"
 * item[=].item[=].item[=].enableWhen[=].operator = #=
-* item[=].item[=].item[=].enableWhen[=].answerCoding = SCT#52101004
+* item[=].item[=].item[=].enableWhen[=].answerCoding = ChRadOrderQualifierValueIntern#52101004
 */
 * item[=].item[=].item[=].item[+].linkId = "caveat.renalInsufficiency.creatinineClearance.quantity"
 * item[=].item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-creatinineclearance-observation#Observation.valueQuantity"
@@ -1044,7 +1044,7 @@ Caveats
 * item[=].item[=].item[=].type = #group
 /* item[=].item[=].item[=].enableWhen[+].question = "caveat.renalInsufficiency"
 * item[=].item[=].item[=].enableWhen[=].operator = #=
-* item[=].item[=].item[=].enableWhen[=].answerCoding = SCT#52101004  //Present
+* item[=].item[=].item[=].enableWhen[=].answerCoding = ChRadOrderQualifierValueIntern#52101004  //Present
 */
 * item[=].item[=].item[=].item[+].linkId = "caveat.renalInsufficiency.creatinine.quantity"
 * item[=].item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-creatinine-observation#Observation.valueQuantity"
@@ -1060,13 +1060,13 @@ Caveats
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.code"   
 * item[=].item[=].text = "Klaustrophobie"   
 * item[=].item[=].type = #choice
-* item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-caveat-qualifier-value"
+* item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-caveat-qualifier-value-int"
 
 * item[=].item[+].linkId = "caveat.bodyPiercing"     
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.code"  
 * item[=].item[=].text = "Körperpiercing"   
 * item[=].item[=].type = #choice
-* item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-caveat-qualifier-value"
+* item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-caveat-qualifier-value-int"
 
 * item[=].item[+].linkId = "caveat.device"     
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.code"  
@@ -1079,25 +1079,25 @@ Caveats
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.code"  
 * item[=].item[=].text = "Hyperthyreose"   
 * item[=].item[=].type = #choice
-* item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-caveat-qualifier-value"
+* item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-caveat-qualifier-value-int"
 
 * item[=].item[+].linkId = "caveat.diabetes"    
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.code"   
 * item[=].item[=].text = "Diabetes mellitus"   
 * item[=].item[=].type = #choice
-* item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-caveat-qualifier-value"
+* item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-caveat-qualifier-value-int"
 
 * item[=].item[+].linkId = "caveat.gravida"     
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.code"  
 * item[=].item[=].text = "Schwangerschaft"   
 * item[=].item[=].type = #choice
-* item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-caveat-qualifier-value"
+* item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-caveat-qualifier-value-int"
 
 * item[=].item[+].linkId = "caveat.contrastMediaAllergy"
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.code"  
 * item[=].item[=].text = "Kontrastmittelallergie"   
 * item[=].item[=].type = #choice
-* item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-caveat-qualifier-value"
+* item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-caveat-qualifier-value-int"
 //* item[=].item[=].initial = "52101004"
 
 * item[=].item[+].linkId = "caveat.drugPrescription"     
