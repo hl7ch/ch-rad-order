@@ -27,7 +27,7 @@ Description: "Example for ServiceRequest"
 * supportingInfo[diagnosis][+] = Reference(SecondaryDiagnosis1)
 * supportingInfo[diagnosis][+] = Reference(SecondaryDiagnosis2)
 
-* supportingInfo[caveats][+] = Reference(CaveatBloodCoagulation)
+* supportingInfo[caveats][+] = Reference(CaveatBloodbloodCoagulation)
 * supportingInfo[caveats][+] = Reference(CaveatRenalInsufficiency)
 * supportingInfo[caveats][+] = Reference(CaveatBodyPiercing)
 * supportingInfo[caveats][+] = Reference(CaveatDeviceCardiacPacemaker)
@@ -126,12 +126,12 @@ Description: "Example for Bundle"
 * entry[+].fullUrl = "http://example.com/fhir/Coverage/CoverageKVG"
 * entry[=].resource = CoverageKVG
 //
-* entry[+].fullUrl = "http://example.com/fhir/Condition/CaveatBloodCoagulation"
-* entry[=].resource = CaveatBloodCoagulation
-* entry[+].fullUrl = "http://example.com/fhir/Observation/CaveatBloodCoagulationINR"
-* entry[=].resource = CaveatBloodCoagulationINR
-* entry[+].fullUrl = "http://example.com/fhir/Observation/CaveatBloodCoagulationPlatelets"
-* entry[=].resource = CaveatBloodCoagulationPlatelets
+* entry[+].fullUrl = "http://example.com/fhir/Condition/CaveatBloodbloodCoagulation"
+* entry[=].resource = CaveatBloodbloodCoagulation
+* entry[+].fullUrl = "http://example.com/fhir/Observation/CaveatBloodbloodCoagulationINR"
+* entry[=].resource = CaveatBloodbloodCoagulationINR
+* entry[+].fullUrl = "http://example.com/fhir/Observation/CaveatBloodbloodCoagulationPlatelets"
+* entry[=].resource = CaveatBloodbloodCoagulationPlatelets
 //
 * entry[+].fullUrl = "http://example.com/fhir/Condition/CaveatBodyPiercing"
 * entry[=].resource = CaveatBodyPiercing
@@ -387,32 +387,32 @@ Usage: #inline
 
 
 //------------- caveats -------------
-Instance: CaveatBloodCoagulation
+Instance: CaveatBloodbloodCoagulation
 InstanceOf: ChRadOrderCaveatCondition
-Title: "Caveat Blood Coagulation"
+Title: "Caveat Blood bloodCoagulation"
 Description: "Example for Caveat Condition"
-* extension[caveatType].valueCoding = SCT#64779008 "Blood coagulation disorder (disorder)"
+* extension[caveatType].valueCoding = SCT#64779008 "Blood bloodCoagulation disorder (disorder)"
 * category = ConditionCategory#problem-list-item "Problem List Item"
-* code = SCT#64779008 "Blood coagulation disorder (disorder)"
+* code = SCT#64779008 "Blood bloodCoagulation disorder (disorder)"
 * subject = Reference(SUfferer)
-* evidence[+].detail = Reference(CaveatBloodCoagulationINR)
-* evidence[+].detail = Reference(CaveatBloodCoagulationPlatelets)
+* evidence[+].detail = Reference(CaveatBloodbloodCoagulationINR)
+* evidence[+].detail = Reference(CaveatBloodbloodCoagulationPlatelets)
 
 
-Instance: CaveatBloodCoagulationINR
+Instance: CaveatBloodbloodCoagulationINR
 InstanceOf: ChRadOrderINRObservation
-Title: "Caveat Blood Coagulation INR"
+Title: "Caveat Blood bloodCoagulation INR"
 Description: "Example for INR Observation"
 * status = #final
-* code = LNC#34714-6 "INR in Blood by Coagulation assay"
+* code = LNC#34714-6 "INR in Blood by bloodCoagulation assay"
 * subject = Reference(SUfferer)
 * effectiveDateTime = "2019-04-01T10:10:00.000+00:00"
 * valueQuantity = 2.3 '{INR}' "INR"
 
 
-Instance: CaveatBloodCoagulationPlatelets
+Instance: CaveatBloodbloodCoagulationPlatelets
 InstanceOf: ChRadOrderPlateletsObservation
-Title: "Caveat Blood Coagulation Platelets"
+Title: "Caveat Blood bloodCoagulation Platelets"
 Description: "Example for Platelets Observation"
 * status = #final
 * code = LNC#26515-7 "Platelets [#/volume] in Blood"

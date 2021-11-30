@@ -911,6 +911,7 @@ Darstellung der Diagnosen und Befunde
 /*----------------------------------------------------------------------
 Caveats   
  */
+
 * item[+].linkId = "caveat" 
 * item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.supportingInfo:caveats" 
 * item[=].text = "Caveats"
@@ -918,9 +919,10 @@ Caveats
 
 * item[=].item[+].linkId = "caveat.bloodCoagulation"   
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.code"  
-* item[=].item[=].text = "Beinträchtigte Blutgerinnung"   
+* item[=].item[=].text = "Beinträchtigte Blutgerinnung"  
 * item[=].item[=].type = #choice
-* item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-caveat-qualifier-value"
+//* item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-caveat-qualifier-value"
+* item[=].item[=].answerValueSet = "http://hl7.org/fhir/ValueSet/yesnodontknow"
 
 * item[=].item[=].item[+].linkId = "caveat.bloodCoagulation.INR" 
 * item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.evidence.detail"
@@ -928,49 +930,81 @@ Caveats
 * item[=].item[=].item[=].type = #group
 * item[=].item[=].item[=].enableWhen[+].question = "caveat.bloodCoagulation"
 * item[=].item[=].item[=].enableWhen[=].operator = #=
-* item[=].item[=].item[=].enableWhen[=].answerCoding = SCT#52101004
+//* item[=].item[=].item[=].enableWhen[=].answerCoding = SCT#52101004
+* item[=].item[=].item[=].enableWhen[=].answerCoding = http://terminology.hl7.org/CodeSystem/v2-0136#Y
 
-/* item[=].item[=].item[=].enableBehavior = #any
-* item[=].item[=].item[=].repeats = true
-* item[=].item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-guidance-for-action"
-*/
 * item[=].item[=].item[=].item[+].linkId = "caveat.bloodCoagulation.INR.quantity"
 * item[=].item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-INR-observation#Observation.valueQuantity"
 * item[=].item[=].item[=].item[=].text = "Wert (INR)"   
 * item[=].item[=].item[=].item[=].type = #quantity
-
-/* item[=].item[=].item[=].item[=].enableWhen[+].question = "caveat.bloodCoagulation"
-* item[=].item[=].item[=].item[=].enableWhen[=].operator = #=
-* item[=].item[=].item[=].item[=].enableWhen[=].answerCoding = SCT#2667000
-*/
-/* item[=].item[=].item[=].item[=].enableBehavior = #any
-* item[=].item[=].item[=].item[=].repeats = true
-* item[=].item[=].item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-guidance-for-action"
-*/
 
 * item[=].item[=].item[=].item[+].linkId = "caveat.bloodCoagulation.INR.dateTime"
 * item[=].item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-INR-observation#Observation.effectiveDateTime"
 * item[=].item[=].item[=].item[=].text = "Zeitpunkt der Bestimmung"   
 * item[=].item[=].item[=].item[=].type = #dateTime
 
-* item[=].item[=].item[+].linkId = "caveat.bloodCoagulation.platelets"    
+
+
+/* item[+].linkId = "caveat" 
+* item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.supportingInfo:caveats" 
+* item[=].text = "Caveats"
+* item[=].type = #group
+
+* item[=].item[+].linkId = "caveat.bloodbloodCoagulation"   
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.code"  
+* item[=].item[=].text = "Beinträchtigte Blutgerinnung"   
+* item[=].item[=].type = #choice
+* item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-caveat-qualifier-value"
+
+* item[=].item[=].item[+].linkId = "caveat.bloodbloodCoagulation.INR" 
+* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.evidence.detail"
+* item[=].item[=].item[=].text = "INR"   
+* item[=].item[=].item[=].type = #group
+* item[=].item[=].item[=].enableWhen[+].question = "caveat.bloodbloodCoagulation"
+* item[=].item[=].item[=].enableWhen[=].operator = #=   
+* item[=].item[=].item[=].enableWhen[=].answerCoding = SCT#52101004
+
+* item[=].item[=].item[=].enableBehavior = #any
+* item[=].item[=].item[=].repeats = true
+* item[=].item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-guidance-for-action"
+
+* item[=].item[=].item[=].item[+].linkId = "caveat.bloodbloodCoagulation.INR.quantity"
+* item[=].item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-INR-observation#Observation.valueQuantity"
+* item[=].item[=].item[=].item[=].text = "Wert (INR)"   
+* item[=].item[=].item[=].item[=].type = #quantity
+
+* item[=].item[=].item[=].item[=].enableWhen[+].question = "caveat.bloodbloodCoagulation"
+* item[=].item[=].item[=].item[=].enableWhen[=].operator = #=
+* item[=].item[=].item[=].item[=].enableWhen[=].answerCoding = SCT#2667000
+
+* item[=].item[=].item[=].item[=].enableBehavior = #any
+* item[=].item[=].item[=].item[=].repeats = true
+* item[=].item[=].item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-guidance-for-action"
+
+
+* item[=].item[=].item[=].item[+].linkId = "caveat.bloodbloodCoagulation.INR.dateTime"
+* item[=].item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-INR-observation#Observation.effectiveDateTime"
+* item[=].item[=].item[=].item[=].text = "Zeitpunkt der Bestimmung"   
+* item[=].item[=].item[=].item[=].type = #dateTime
+
+* item[=].item[=].item[+].linkId = "caveat.bloodbloodCoagulation.platelets"    
 * item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.evidence.detail"    
 * item[=].item[=].item[=].text = "Thrombozyten"   
 * item[=].item[=].item[=].type = #group
-/* item[=].item[=].item[=].enableWhen[+].question = "caveat.bloodCoagulation"
+* item[=].item[=].item[=].enableWhen[+].question = "caveat.bloodbloodCoagulation"
 * item[=].item[=].item[=].enableWhen[=].operator = #=
 * item[=].item[=].item[=].enableWhen[=].answerCoding = SCT#52101004
-*/
-* item[=].item[=].item[=].item[+].linkId = "caveat.bloodCoagulation.platelets.quantity"
+
+* item[=].item[=].item[=].item[+].linkId = "caveat.bloodbloodCoagulation.platelets.quantity"
 * item[=].item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-platelets-observation#Observation.valueQuantity"
 * item[=].item[=].item[=].item[=].text = "Wert (10^3/µl)"   
 * item[=].item[=].item[=].item[=].type = #quantity
 
-* item[=].item[=].item[=].item[+].linkId = "caveat.bloodCoagulation.platelets.dateTime"
+* item[=].item[=].item[=].item[+].linkId = "caveat.bloodbloodCoagulation.platelets.dateTime"
 * item[=].item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-platelets-observation#Observation.effectiveDateTime"
 * item[=].item[=].item[=].item[=].text = "Zeitpunkt der Bestimmung"   
 * item[=].item[=].item[=].item[=].type = #dateTime
-
+*/
 * item[=].item[+].linkId = "caveat.renalInsufficiency"    
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.code"   
 * item[=].item[=].text = "Niereninsuffizienz"   

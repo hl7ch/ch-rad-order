@@ -19,7 +19,7 @@ ValueSet: ChRadOrderCaveatType
 Id: ch-rad-order-caveat-type
 Title: "Type of Caveat"
 Description: "Definition for Type of Caveat Value Set in the context of CH RAD-Order."
-* SCT#64779008 "Blood coagulation disorder (disorder)"
+* SCT#64779008 "Blood bloodCoagulation disorder (disorder)"
 * SCT#723188008 "Renal insufficiency (disorder)"
 * SCT#19887002 "Claustrophobia (finding)"
 * SCT#879862001 "Body piercing (finding)"
@@ -46,7 +46,7 @@ ValueSet: ChRadOrderCaveatCondition
 Id: ch-rad-order-caveat-condition
 Title: "Caveat Condition"
 Description: "Definition for Caveat Condition Value Set in the context of CH RAD-Order."
-* SCT#64779008 "Blood coagulation disorder (disorder)"
+* SCT#64779008 "Blood bloodCoagulation disorder (disorder)"
 * SCT#723188008 "Renal insufficiency (disorder)"
 * SCT#19887002 "Claustrophobia (finding)"
 * SCT#879862001 "Body piercing (finding)"

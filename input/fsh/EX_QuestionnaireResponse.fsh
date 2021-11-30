@@ -397,10 +397,10 @@ Caveats
 * item[+].linkId = "caveat"
 * item[=].text = "Caveats"
 
-* item[=].item[+].linkId = "caveat.bloodCoagulation"
+/* item[=].item[+].linkId = "caveat.bloodbloodCoagulation"
 * item[=].item[=].text = "Beinträchtigte Blutgerinnung"   
 * item[=].item[=].answer.valueCoding = SCT#52101004
-
+*/
 
 * item[=].item[+].linkId = "caveat.renalInsufficiency"
 * item[=].item[=].text = "Niereninsuffizienz"   
