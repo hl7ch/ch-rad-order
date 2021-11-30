@@ -162,7 +162,7 @@ group DiagnosisListServiceItems(source src : BackboneElement, target patient : P
 group CaveatServiceItems(source src : BackboneElement, target patient : Patient, target bundle : Bundle, target serviceRequest: ServiceRequest) {
   src.item as item where (linkId.value = 'caveat.bloodCoagulation' and answer.exists()) then {
     item.answer as answer then {
-      answer.value: boolean as value where answer.valueBoolean -> 
+      answer.value: coding as value where answer.valueCoding ->  //answer.value: boolean as value where answer.valueBoolean -> 
         bundle.entry as e, 
           e.resource = create('Condition') as condition, 
           condition.id = uuid() as uuid,
@@ -182,7 +182,7 @@ group CaveatServiceItems(source src : BackboneElement, target patient : Patient,
         condition.subject as subject,
           subject.reference = ('urn:uuid:'+patient.id)
               "caveat.bloodCoagulation";
-    } "answer.valueString";
+    } "answer.valueCoding";  //"answer.valueString";
   } "item.answer";
 
   src.item as item where (linkId.value = 'caveat.renalInsufficiency' and answer.exists()) then {

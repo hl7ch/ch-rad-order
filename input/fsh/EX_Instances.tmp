@@ -392,7 +392,6 @@ InstanceOf: ChRadOrderCaveatCondition
 Title: "Caveat Blood Coagulation"
 Description: "Example for Caveat Condition"
 * extension[caveatType].valueCoding = SCT#64779008 "Blood coagulation disorder (disorder)"
-* extension[qualifierValue].valueCoding = SCT#52101004 "Present (qualifier value)"
 * category = ConditionCategory#problem-list-item "Problem List Item"
 * code = SCT#64779008 "Blood coagulation disorder (disorder)"
 * subject = Reference(SUfferer)
@@ -428,7 +427,6 @@ Title: "Caveat Body Piercing"
 Description: "Example for Caveat Condition"
 * extension[caveatType].valueCoding = SCT#879862001 "Body piercing (finding)"
 * category = ConditionCategory#problem-list-item "Problem List Item"
-* extension[qualifierValue].valueCoding = SCT#52101004 "Present (qualifier value)"
 * code = SCT#879862001 "Body piercing (finding)"
 * subject = Reference(SUfferer)
 
@@ -439,7 +437,6 @@ Title: "Caveat Renal Insufficiency"
 Description: "Example for Caveat Condition"
 * extension[caveatType].valueCoding = SCT#723188008 "Renal insufficiency (disorder)"
 * category = ConditionCategory#problem-list-item "Problem List Item"
-* extension[qualifierValue].valueCoding = SCT#52101004 "Present (qualifier value)"
 * code = SCT#723188008 "Renal insufficiency (disorder)"
 * subject = Reference(SUfferer)
 * evidence[+].detail = Reference(CaveatRenalInsufficiencyCreatinineClearance)
@@ -474,7 +471,6 @@ Title: "Caveat Drug Prescription Metformin"
 Description: "Example for Caveat Condition"
 * extension[caveatType].valueCoding = SCT#182817000 "Drug prescription (situation)"
 * category = ConditionCategory#problem-list-item "Problem List Item"
-* extension[qualifierValue].valueCoding = SCT#52101004 "Present (qualifier value)"
 * code = SCT#372567009 "Metformin (substance)"
 * subject = Reference(SUfferer)
 
@@ -485,7 +481,6 @@ Title: "Caveat Device Cardiac Pacemaker"
 Description: "Example for Caveat Condition"
 * extension[caveatType].valueCoding = SCT#397578001 "Device in situ (finding)"
 * category = ConditionCategory#problem-list-item "Problem List Item"
-* extension[qualifierValue].valueCoding = SCT#52101004 "Present (qualifier value)"
 * code = SCT#441509002 "Cardiac pacemaker in situ"
 * subject = Reference(SUfferer)
 
