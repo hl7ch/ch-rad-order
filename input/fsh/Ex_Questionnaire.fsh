@@ -921,16 +921,17 @@ Caveats
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.code"  
 * item[=].item[=].text = "Beinträchtigte Blutgerinnung"   
 * item[=].item[=].type = #choice
-* item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-caveat-qualifier-value"
+* item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/CodeSystem/ch-rad-order-cs-caveat-qualifier-value-int"
 
 * item[=].item[=].item[+].linkId = "caveat.bloodCoagulation.INR" 
 * item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.evidence.detail"
 * item[=].item[=].item[=].text = "INR"   
 * item[=].item[=].item[=].type = #group
-/* item[=].item[=].item[=].enableWhen[+].question = "caveat.bloodCoagulation"
+* item[=].item[=].item[=].enableWhen[+].question = "caveat.bloodCoagulation"
 * item[=].item[=].item[=].enableWhen[=].operator = #=
-* item[=].item[=].item[=].enableWhen[=].answerCoding = SCT#
-*/
+* item[=].item[=].item[=].enableWhen[=].answerCoding = ChRadOrderQualifierValueIntern#52101004
+
+
 * item[=].item[=].item[=].item[+].linkId = "caveat.bloodCoagulation.INR.quantity"
 * item[=].item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-INR-observation#Observation.valueQuantity"
 * item[=].item[=].item[=].item[=].text = "Wert (INR)"   
