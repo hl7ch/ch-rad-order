@@ -91,6 +91,7 @@ Id: ch-rad-order-caveat-substance
 Title: "Caveat Substance"
 Description: "Definition for Caveat Substance Value Set in the context of CH RAD-Order."
 * SCT#372567009 "Metformin (substance)"
+* SCT#373254001  "Substance with beta adrenergic receptor antagonist mechanism of action (substance)"
 
 
 // Diagnostic Question in free text: Coding of all diagnostic questions will be defined later.
