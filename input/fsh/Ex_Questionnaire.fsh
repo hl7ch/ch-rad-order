@@ -911,6 +911,7 @@ Darstellung der Diagnosen und Befunde
 /*----------------------------------------------------------------------
 Caveats   
  */
+ /**/
 * item[+].linkId = "caveat" 
 * item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.supportingInfo:caveats" 
 * item[=].text = "Caveats"
@@ -926,10 +927,10 @@ Caveats
 * item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.evidence.detail"
 * item[=].item[=].item[=].text = "INR"   
 * item[=].item[=].item[=].type = #group
-* item[=].item[=].item[=].enableWhen[+].question = "caveat.bloodCoagulation"
+/* item[=].item[=].item[=].enableWhen[+].question = "caveat.bloodCoagulation"
 * item[=].item[=].item[=].enableWhen[=].operator = #=
 * item[=].item[=].item[=].enableWhen[=].answerCoding = SCT#52101004
-
+*/
 * item[=].item[=].item[=].item[+].linkId = "caveat.bloodCoagulation.INR.quantity"
 * item[=].item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-INR-observation#Observation.valueQuantity"
 * item[=].item[=].item[=].item[=].text = "Wert (INR)"   
@@ -944,10 +945,10 @@ Caveats
 * item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.evidence.detail"    
 * item[=].item[=].item[=].text = "Thrombozyten"   
 * item[=].item[=].item[=].type = #group
-* item[=].item[=].item[=].enableWhen[+].question = "caveat.bloodCoagulation"
+/* item[=].item[=].item[=].enableWhen[+].question = "caveat.bloodCoagulation"
 * item[=].item[=].item[=].enableWhen[=].operator = #=
 * item[=].item[=].item[=].enableWhen[=].answerBoolean = true
-
+*/
 * item[=].item[=].item[=].item[+].linkId = "caveat.bloodCoagulation.platelets.quantity"
 * item[=].item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-platelets-observation#Observation.valueQuantity"
 * item[=].item[=].item[=].item[=].text = "Wert (10^3/µl)"   
@@ -968,10 +969,10 @@ Caveats
 * item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.evidence.detail"
 * item[=].item[=].item[=].text = "Creatinin-Clearance"   
 * item[=].item[=].item[=].type = #group
-* item[=].item[=].item[=].enableWhen[+].question = "caveat.renalInsufficiency"
+/* item[=].item[=].item[=].enableWhen[+].question = "caveat.renalInsufficiency"
 * item[=].item[=].item[=].enableWhen[=].operator = #=
 * item[=].item[=].item[=].enableWhen[=].answerBoolean = true
-
+*/
 * item[=].item[=].item[=].item[+].linkId = "caveat.renalInsufficiency.creatinineClearance.quantity"
 * item[=].item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-creatinineclearance-observation#Observation.valueQuantity"
 * item[=].item[=].item[=].item[=].text = "Wert (ml/min)"   
@@ -986,10 +987,10 @@ Caveats
 * item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.evidence.detail"    
 * item[=].item[=].item[=].text = "Creatinin"   
 * item[=].item[=].item[=].type = #group
-* item[=].item[=].item[=].enableWhen[+].question = "caveat.renalInsufficiency"
+/* item[=].item[=].item[=].enableWhen[+].question = "caveat.renalInsufficiency"
 * item[=].item[=].item[=].enableWhen[=].operator = #=
 * item[=].item[=].item[=].enableWhen[=].answerCoding = SCT#52101004  //Present
-
+*/
 //* item[=].item[=].item[=].enableBehavior = #any
 //* item[=].item[=].item[=].repeats = true
 //* item[=].item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-guidance-for-action"
