@@ -1058,9 +1058,10 @@ Caveats
 
 * item[=].item[+].linkId = "caveat.drugPrescription"     
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.code"  
-* item[=].item[=].text = "Relevante Medikamente, z.B. Metformin"   
-* item[=].item[=].type = #choice //?????
+* item[=].item[=].text = "Relevante Medikamente"   
+* item[=].item[=].type = #choice 
 * item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-caveat-substance"
+* item[=].item[=].initial.valueCoding = SCT#372567009 "Metformin (substance)" //= Metformin (choice in most use cases)
 * item[=].item[=].repeats = true
 
 
