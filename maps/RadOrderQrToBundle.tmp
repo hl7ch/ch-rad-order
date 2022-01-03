@@ -467,6 +467,7 @@ group PreviousImagingStudyResults(source grp : BackboneElement, target bundle: B
     e.resource = create('ImagingStudy') as imagingStudy, 
     imagingStudy.id = uuid() as uuid,
     imagingStudy.status = 'available',
+    imagingStudy.subject as subject, subject.reference = ('urn:uuid:'+patient.id),
     e.fullUrl = append('urn:uuid:',uuid), 
     serviceRequest.subject as subject, subject.reference = ('urn:uuid:'+patient.id),
     serviceRequest.supportingInfo as supportingInfo,
