@@ -39,24 +39,6 @@ Description: "Qualifier values in the context of CH RAD-Order."
 * SCT#52101004 "Present (qualifier value)"
 * SCT#373068000 "Undetermined (qualifier value)"
 
-//-----------------------------
-//Workaround Bug enablewhen
-CodeSystem: ChRadOrderQualifierValueIntern
-Id: ch-rad-order-cs-caveat-qualifier-value-int
-Title: "Qualifier Value Intern"
-Description: "Code System for Qualifier values in the context of CH RAD-Order"
-* #2667000 "Absent (qualifier value)"
-* #52101004 "Present (qualifier value)"
-* #373068000 "Undetermined (qualifier value)"
-
-ValueSet: ChRadOrderQualifierValueIntern
-Id: ch-rad-order-caveat-qualifier-value-int
-Title: "Qualifier Value Intern"
-Description: "Qualifier values in the context of CH RAD-Order"
-* include codes from system ChRadOrderQualifierValueIntern
-
-//-----------------------------
-
 
 // Condition.code
 ValueSet: ChRadOrderCaveatCondition
@@ -83,15 +65,6 @@ Id: ch-rad-order-caveat-device
 Title: "Caveat Device"
 Description: "Definition for Caveat Device Value Set in the context of CH RAD-Order."
 * include codes from system SCT where concept is-a #397578001 "Device in situ (finding)"
-
-
-// (Q: caveat.drugPrescription)
-ValueSet: ChRadOrderCaveatSubstance
-Id: ch-rad-order-caveat-substance
-Title: "Caveat Substance"
-Description: "Definition for Caveat Substance Value Set in the context of CH RAD-Order."
-* SCT#373254001 "Substance with beta adrenergic receptor antagonist mechanism of action (substance)"
-* SCT#372567009 "Metformin (substance)"
 
 
 // Diagnostic Question in free text: Coding of all diagnostic questions will be defined later.
