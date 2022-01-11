@@ -2,7 +2,7 @@ Instance: QuestionnaireRadiologyOrder
 InstanceOf: ChOrfQuestionnaire
 Title: "Questionnaire Radiology Order"
 Description: "Example for Questionnaire"
-/*---*/
+
 /* -------------------------------------------------------------------------------------------------------
 Nur absolute "Required" sind markiert; es wird dann noch relative Required geben
 Bsp: Fragestellung ist required ausser bei Bestllung alter Bider
@@ -188,6 +188,7 @@ Bsp: Fragestellung ist required ausser bei Bestllung alter Bider
 * item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-composition#Composition.subject"
 * item[=].text = "Patient"
 * item[=].type = #group
+* item[=].required = true
 
 * item[=].item[+].linkId = "patient.familyName"
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-patient#Patient.name.family"
@@ -948,7 +949,7 @@ Caveats
 
 * item[=].item[=].item[=].item[+].linkId = "caveat.bloodCoagulation.platelets.quantity"
 * item[=].item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-platelets-observation#Observation.valueQuantity"
-* item[=].item[=].item[=].item[=].text = "Wert (10^3/µl)"   
+* item[=].item[=].item[=].item[=].text = "Wert (10^3/µL)"   
 * item[=].item[=].item[=].item[=].type = #quantity
 
 * item[=].item[=].item[=].item[+].linkId = "caveat.bloodCoagulation.platelets.dateTime"
@@ -970,7 +971,7 @@ Caveats
 
 * item[=].item[=].item[=].item[+].linkId = "caveat.renalInsufficiency.creatinineClearance.quantity"
 * item[=].item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-creatinineclearance-observation#Observation.valueQuantity"
-* item[=].item[=].item[=].item[=].text = "Wert (ml/min)"   
+* item[=].item[=].item[=].item[=].text = "Wert (mL/min)"   
 * item[=].item[=].item[=].item[=].type = #quantity
 
 * item[=].item[=].item[=].item[+].linkId = "caveat.renalInsufficiency.creatinineClearance.dateTime"
@@ -985,7 +986,7 @@ Caveats
 
 * item[=].item[=].item[=].item[+].linkId = "caveat.renalInsufficiency.creatinine.quantity"
 * item[=].item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-creatinine-observation#Observation.valueQuantity"
-* item[=].item[=].item[=].item[=].text = "Wert (µmol/l)"   
+* item[=].item[=].item[=].item[=].text = "Wert (µmol/L)"   
 * item[=].item[=].item[=].item[=].type = #quantity
 
 * item[=].item[=].item[=].item[+].linkId = "caveat.renalInsufficiency.creatinine.dateTime"
