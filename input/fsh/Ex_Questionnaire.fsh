@@ -1049,7 +1049,6 @@ Caveats
 * item[=].item[=].type = #choice 
 * item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-caveat-qualifier-value"
 * item[=].item[=].initial.valueCoding = SCT#373068000
-* item[=].item[=].repeats = true
 
 * item[=].item[+].linkId = "caveat.betaBlocker"     
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.code"  
@@ -1057,7 +1056,6 @@ Caveats
 * item[=].item[=].type = #choice 
 * item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-caveat-qualifier-value"
 * item[=].item[=].initial.valueCoding = SCT#373068000
-* item[=].item[=].repeats = true
 
 /* ---------------------------------------------------------------------------
 Vorherige Untersuchungsresultat:
