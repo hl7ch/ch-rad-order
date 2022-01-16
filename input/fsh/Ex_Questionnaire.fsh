@@ -48,6 +48,7 @@ Bsp: Fragestellung ist required ausser bei Bestllung alter Bider
 * item[=].item[=].type = #string
 * item[=].item[=].required = true
 * item[=].item[=].readOnly = true
+* item[=].item[=].initial.valueString = "Radiologieauftrag"
 
 * item[=].item[+].linkId = "order.type"
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-composition#Composition.type"
@@ -55,7 +56,8 @@ Bsp: Fragestellung ist required ausser bei Bestllung alter Bider
 * item[=].item[=].type = #choice
 * item[=].item[=].required = true
 * item[=].item[=].readOnly = true
-* item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-epr-term/ValueSet/DocumentEntry.typeCode"
+* item[=].item[=].answerValueSet = DocumentEntryTypeCode
+* item[=].item[=].initial.valueCoding = DocumentEntryTypeCode#2161000195103 // Bildgebungsauftrag
 
 * item[=].item[+].linkId = "order.category"
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-composition#Composition.category"
@@ -63,7 +65,8 @@ Bsp: Fragestellung ist required ausser bei Bestllung alter Bider
 * item[=].item[=].type = #choice
 * item[=].item[=].required = true
 * item[=].item[=].readOnly = true
-* item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-epr-term/ValueSet/DocumentEntry.classCode"
+* item[=].item[=].answerValueSet = DocumentEntryClassCode
+* item[=].item[=].initial.valueCoding = DocumentEntryClassCode#721963009 // Untersuchungsauftrag
 
 * item[=].item[+].linkId = "order.placerOrderIdentifier"
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.identifier:placerOrderIdentifier.value"
