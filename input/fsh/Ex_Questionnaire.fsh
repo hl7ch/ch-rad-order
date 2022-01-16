@@ -461,6 +461,11 @@ Bsp: Fragestellung ist required ausser bei Bestllung alter Bider
 * item[=].item[=].item[=].item[=].text = "GLN"
 * item[=].item[=].item[=].item[=].type = #string
 
+* item[=].item[=].item[=].item[+].linkId = "sender.author.practitioner.zsr"
+* item[=].item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitioner#Practitioner.identifier:ZSR.value"
+* item[=].item[=].item[=].item[=].text = "ZSR"
+* item[=].item[=].item[=].item[=].type = #string
+
 * item[=].item[=].item[=].item[+].linkId = "sender.author.practitioner.phone"
 * item[=].item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitioner#Practitioner.telecom.value"
 * item[=].item[=].item[=].item[=].text = "Telefon"
@@ -564,6 +569,11 @@ Bsp: Fragestellung ist required ausser bei Bestllung alter Bider
 * item[=].item[=].item[+].linkId = "receiver.practitioner.gln"
 * item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitioner#Practitioner.identifier:GLN.value"
 * item[=].item[=].item[=].text = "GLN"
+* item[=].item[=].item[=].type = #string
+
+* item[=].item[=].item[+].linkId = "receiver.practitioner.zsr"
+* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitioner#Practitioner.identifier:ZSR.value"
+* item[=].item[=].item[=].text = "ZSR"
 * item[=].item[=].item[=].type = #string
 
 * item[=].item[=].item[+].linkId = "receiver.practitioner.phone"
