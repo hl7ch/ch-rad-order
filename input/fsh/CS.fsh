@@ -13,11 +13,11 @@ Description: "Definition for Requested Service Code System in the context of CH 
 */
 * #RequestForPrecedentReport "Befundbericht früherer Untersuchung(en)"
 * #RequestForPrecedentReportAndImages "Bilder und Befundberichte früherer Untersuchung(en)"
-* #ImagingRequest "Auftrag zur bildgebenden Diagnostik"
-* #RadIntervention "Auftrag für interventionelle Radiologie"
-* #SecondOpinion "Bitte um Zweitmeinung"
-* #ImagingRequestWithIntervention "Auftrag für bildgebende Diagnostik und Intervention"
-* #RemoteReporting "Auftrag zur Fernbefundung"
+* #ImagingRequest "Bildgebenden Diagnostik"
+* #RadIntervention "Interventionelle Radiologie"
+* #SecondOpinion "Zweitmeinung"
+* #ImagingRequestWithIntervention "Bildgebende Diagnostik und Intervention"
+* #RemoteReporting "Fernbefundung"
 
 
 
