@@ -284,6 +284,11 @@ Bsp: Fragestellung ist required ausser bei Bestllung alter Bider
 * item[=].item[=].text = "Land"
 * item[=].item[=].type = #string
 
+* item[=].item[+].linkId = "patient.languageOfCorrespondance"
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-patient#Patient.communication:languageOfCorrespondance"
+* item[=].item[=].text = "Korrespondenssprache"
+* item[=].item[=].type = #choice
+* item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-epr-term/ValueSet/DocumentEntry.languageCode"
 
 // ---------- Encounter Class (Ambulant / Satinär / Notfall) & Zimmerkategorie ----------
 * item[+].linkId = "requestedEncounter"
@@ -693,6 +698,8 @@ Bsp: Fragestellung ist required ausser bei Bestllung alter Bider
 * item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-organization#Organization.address.country"
 * item[=].item[=].item[=].text = "Land"
 * item[=].item[=].item[=].type = #string
+
+
 
 // ---------- Copy Receiver (Copy of this order and all results therefrom) ----------
 * item[+].linkId = "receiverCopy"
