@@ -144,12 +144,15 @@ equal one Filler Order equal one Imaging Service Request."
 // ---------- Bundle.entry:Composition ----------
 * entry[Composition].resource ^type.profile = Canonical(ChRadOrderComposition)
 
-
 Profile: ChRadOrderComposition
 Parent: ChOrfComposition
 Id: ch-rad-order-composition
 Title: "CH RAD-Order Composition"
 Description: "Definition for the Composition resource in the context of CH RAD-Order."
 * . ^short = "CH RAD-Order Composition"
+* title = "Radiologieauftrag"
+* category = DocumentEntryClassCode#721963009 // Untersuchungsauftrag
+* type = DocumentEntryTypeCode#2161000195103 // Bildgebungsauftrag
+
 // ---------- Composition.section.entry:ServiceRequest ----------
 * section[orderReferral].entry[ServiceRequest] ^type.targetProfile = Canonical(ChRadOrderServiceRequest)

@@ -42,6 +42,8 @@ Bsp: Fragestellung ist required ausser bei Bestllung alter Bider
 * item[=].type = #group
 * item[=].required = true
 
+/* ----------- not depicted in questionnaire; fix values are defined in composition resource
+
 * item[=].item[+].linkId = "order.title"
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-composition#Composition.title"
 * item[=].item[=].text = "Titel"
@@ -67,6 +69,9 @@ Bsp: Fragestellung ist required ausser bei Bestllung alter Bider
 * item[=].item[=].readOnly = true
 * item[=].item[=].answerValueSet = DocumentEntryClassCode
 * item[=].item[=].initial.valueCoding = DocumentEntryClassCode#721963009 // Untersuchungsauftrag
+
+-----------
+*/
 
 * item[=].item[+].linkId = "order.placerOrderIdentifier"
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.identifier:placerOrderIdentifier.value"
