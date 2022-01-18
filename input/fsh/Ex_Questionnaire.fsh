@@ -1219,6 +1219,7 @@ Caveats
 
 /* ---------------------------------------------------------------------------
 Vorherige Untersuchungsresultat:
+Angaben zu Reports, auf die verwiesen wird
 Angaben zu Bildern bzw. allfällige Vorbildern und Reports, auf die verwiesen wird  
 mittels ImagingStudy Resource (DICOM WADO) oder die mitgegeben werden in der Media Resource.
 */
@@ -1242,6 +1243,21 @@ mittels ImagingStudy Resource (DICOM WADO) oder die mitgegeben werden in der Med
 * item[=].item[=].item[=].text = "Daten"
 * item[=].item[=].item[=].type = #string
 
+
+* item[=].item[+].linkId = "previousResults.imagingStudy"
+* item[=].item[=].text = "Bilder (DICOM Studien)"
+* item[=].item[=].type = #group
+* item[=].item[=].repeats = true
+
+* item[=].item[=].item[+].linkId = "previousResults.imagingStudy.uid"  
+* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy#ImagingStudy.identifer"
+* item[=].item[=].item[=].text = "DICOM Study UID"
+* item[=].item[=].item[=].type = #string
+
+* item[=].item[=].item[+].linkId = "previousResults.imagingStudy.acsn"  
+* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy#ImagingStudy.identifer"
+* item[=].item[=].item[=].text = "ACSN"
+* item[=].item[=].item[=].type = #string
 
 // -------- Service Request Notes ------
 * item[+].linkId = "note"
