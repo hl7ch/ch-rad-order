@@ -1228,7 +1228,7 @@ mittels ImagingStudy Resource (DICOM WADO) oder die mitgegeben werden in der Med
 * item[=].text = "Vorherige Untersuchungsresultate"
 * item[=].type = #group
 
-* item[=].item[+].linkId = "previousResults.attachment"
+/* item[=].item[+].linkId = "previousResults.attachment"
 * item[=].item[=].text = "Anhang"
 * item[=].item[=].type = #group
 * item[=].item[=].repeats = true
@@ -1237,11 +1237,13 @@ mittels ImagingStudy Resource (DICOM WADO) oder die mitgegeben werden in der Med
 * item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-media#Media.content.title"
 * item[=].item[=].item[=].text = "Dateiname und -endung der angehängten Datei (z.B. \"shoulder_re_F_Muster_12021988.pdf\")"
 * item[=].item[=].item[=].type = #string
+*/
 
-* item[=].item[=].item[+].linkId = "previousResults.attachment.data"  
-* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-media#Media.content.data"
-* item[=].item[=].item[=].text = "Daten"
-* item[=].item[=].item[=].type = #string
+* item[=].item[+].linkId = "previousResults.attachment.data"  
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-media#Media.content.data"
+* item[=].item[=].text = "Daten"
+* item[=].item[=].type = #attachment
+* item[=].item[=].repeats = true
 
 
 * item[=].item[+].linkId = "previousResults.imagingStudy"

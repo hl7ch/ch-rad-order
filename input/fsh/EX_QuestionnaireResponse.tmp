@@ -451,10 +451,10 @@ Vorherige Untersuchungsresultate:
 * item[=].item[+].linkId = "previousResults.attachment"
 * item[=].item[=].text = "Anhang"
 
-* item[=].item[=].item[+].linkId = "previousResults.attachment.title"
+/* item[=].item[=].item[+].linkId = "previousResults.attachment.title"
 * item[=].item[=].item[=].text = "Dateiname und -endung der angehängten Datei (z.B. \"shoulder_re_F_Muster_12021988.pdf\")"
 * item[=].item[=].item[=].answer.valueString = "xray_chest_S_Ufferer_20190401.dcm"
-
+*/
 /* -----------------------------------------------------------------------------
 Service Request Notes 
 */
