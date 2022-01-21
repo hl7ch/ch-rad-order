@@ -23,8 +23,8 @@ contact:
     system: url
     value: https://www.hl7.ch
 dependencies:
-  ch.fhir.ig.ch-orf: 0.10.0
-  ch.fhir.ig.ch-core: 2.0.0
+  ch.fhir.ig.ch-orf: current
+  ch.fhir.ig.ch-core: 2.0.0 
 
 pages:
   index.html:
@@ -35,7 +35,7 @@ pages:
     title: Anwendungsfälle
   usecase-french.md:
     title: Cas d'application
-  questionnaire.html:
+  questionnaire-form.html:
     title: Questionnaire
   profiles.html:
     title: Profiles

@@ -22,6 +22,7 @@ Title: "CH RAD-Order Caveat Condition"
 Description: "Definition for the Caveat Condition resource in the context of CH RAD-Order."
 * . ^short = "CH RAD-Order Caveat Condition"
 * extension contains ChRadOrderCaveatType named caveatType 1..1 MS
+* extension contains ChRadOrderQualifierValue named qualifierValue 1..1 MS
 * category 1..1 MS
 * category = ConditionCategory#problem-list-item
 * category ^short = "Problem List Item"

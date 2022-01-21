@@ -42,12 +42,15 @@ Bsp: Fragestellung ist required ausser bei Bestllung alter Bider
 * item[=].type = #group
 * item[=].required = true
 
+/* ----------- not depicted in questionnaire; fix values are defined in composition resource
+
 * item[=].item[+].linkId = "order.title"
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-composition#Composition.title"
 * item[=].item[=].text = "Titel"
 * item[=].item[=].type = #string
 * item[=].item[=].required = true
 * item[=].item[=].readOnly = true
+* item[=].item[=].initial.valueString = "Radiologieauftrag"
 
 * item[=].item[+].linkId = "order.type"
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-composition#Composition.type"
@@ -55,7 +58,8 @@ Bsp: Fragestellung ist required ausser bei Bestllung alter Bider
 * item[=].item[=].type = #choice
 * item[=].item[=].required = true
 * item[=].item[=].readOnly = true
-* item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-epr-term/ValueSet/DocumentEntry.typeCode"
+* item[=].item[=].answerValueSet = DocumentEntryTypeCode
+* item[=].item[=].initial.valueCoding = DocumentEntryTypeCode#2161000195103 // Bildgebungsauftrag
 
 * item[=].item[+].linkId = "order.category"
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-composition#Composition.category"
@@ -63,7 +67,11 @@ Bsp: Fragestellung ist required ausser bei Bestllung alter Bider
 * item[=].item[=].type = #choice
 * item[=].item[=].required = true
 * item[=].item[=].readOnly = true
-* item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-epr-term/ValueSet/DocumentEntry.classCode"
+* item[=].item[=].answerValueSet = DocumentEntryClassCode
+* item[=].item[=].initial.valueCoding = DocumentEntryClassCode#721963009 // Untersuchungsauftrag
+
+-----------
+*/
 
 * item[=].item[+].linkId = "order.placerOrderIdentifier"
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.identifier:placerOrderIdentifier.value"
@@ -188,6 +196,7 @@ Bsp: Fragestellung ist required ausser bei Bestllung alter Bider
 * item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-composition#Composition.subject"
 * item[=].text = "Patient"
 * item[=].type = #group
+* item[=].required = true
 
 * item[=].item[+].linkId = "patient.familyName"
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-patient#Patient.name.family"
@@ -230,6 +239,19 @@ Bsp: Fragestellung ist required ausser bei Bestllung alter Bider
 * item[=].item[=].answerOption[+].valueCoding = AdministrativeGender#female "Weiblich"
 * item[=].item[=].answerOption[+].valueCoding = AdministrativeGender#other "Anderes"
 
+* item[=].item[+].linkId = "patient.maritalStatus"
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-patient#Patient.maritalStatus"
+* item[=].item[=].text = "Zivilstand"
+* item[=].item[=].type = #choice
+* item[=].item[=].answerOption[+].valueCoding = EchMaritalStatus#1 "ledig"
+* item[=].item[=].answerOption[+].valueCoding = EchMaritalStatus#2 "verheiratet"
+* item[=].item[=].answerOption[+].valueCoding = EchMaritalStatus#3 "verwitwet"
+* item[=].item[=].answerOption[+].valueCoding = EchMaritalStatus#4 "geschieden"
+* item[=].item[=].answerOption[+].valueCoding = EchMaritalStatus#5 "unverheiratet"
+* item[=].item[=].answerOption[+].valueCoding = EchMaritalStatus#6 "in eingetragener Partnerschaft"
+* item[=].item[=].answerOption[+].valueCoding = EchMaritalStatus#7 "aufgelöste Partnerschaft"
+* item[=].item[=].answerOption[+].valueCoding = EchMaritalStatus#9 "unbekannt"
+
 * item[=].item[+].linkId = "patient.phone"
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-patient#Patient.telecom.value"
 * item[=].item[=].text = "Telefon"
@@ -262,6 +284,11 @@ Bsp: Fragestellung ist required ausser bei Bestllung alter Bider
 * item[=].item[=].text = "Land"
 * item[=].item[=].type = #string
 
+* item[=].item[+].linkId = "patient.languageOfCorrespondance"
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-patient#Patient.communication:languageOfCorrespondance"
+* item[=].item[=].text = "Korrespondenssprache"
+* item[=].item[=].type = #choice
+* item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-epr-term/ValueSet/DocumentEntry.languageCode"
 
 // ---------- Encounter Class (Ambulant / Satinär / Notfall) & Zimmerkategorie ----------
 * item[+].linkId = "requestedEncounter"
@@ -283,9 +310,9 @@ Bsp: Fragestellung ist required ausser bei Bestllung alter Bider
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-encounter#Encounter.extension:desiredAccommodation"
 * item[=].item[=].text = "Zimmerkategorie"
 * item[=].item[=].type = #choice
-* item[=].item[=].answerOption[+].valueCoding = V3ActCode#P "Einerzimmer"
-* item[=].item[=].answerOption[+].valueCoding = V3ActCode#SP "Zweierzimmer"
-* item[=].item[=].answerOption[+].valueCoding = V3ActCode#W "Mehrbettzimmer"
+* item[=].item[=].answerOption[+].valueCoding = ChCoreCSEncounterType#1 "allgemein"
+* item[=].item[=].answerOption[+].valueCoding = ChCoreCSEncounterType#2 "halbprivat"
+* item[=].item[=].answerOption[+].valueCoding = ChCoreCSEncounterType#3 "privat"
 
 // ---------- Coverage (Kostenträger) ----------
 // Design as agreed with eHealth Suisse and Cistec 09.06.2021
@@ -381,15 +408,69 @@ Bsp: Fragestellung ist required ausser bei Bestllung alter Bider
 * item[=].item[=].text = "Selbstzahler"
 * item[=].item[=].type = #group
 
-* item[=].item[=].item[+].linkId = "coverage.self.familyName"
+* item[=].item[=].item[+].linkId = "coverage.self.patient"
 * item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-coverage#Coverage.payor"
-* item[=].item[=].item[=].text = "Name"
-* item[=].item[=].item[=].type = #string
+* item[=].item[=].item[=].text = "Patient selbst"
+* item[=].item[=].item[=].type = #boolean
 
-* item[=].item[=].item[+].linkId = "coverage.self.givenName"
+* item[=].item[=].item[+].linkId = "coverage.self.patientRelatedPerson"
 * item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-coverage#Coverage.payor"
-* item[=].item[=].item[=].text = "Vorname"
-* item[=].item[=].item[=].type = #string
+* item[=].item[=].item[=].text = "Andere Person"
+* item[=].item[=].item[=].type = #boolean
+* item[=].item[=].item[=].enableWhen[+].question = "coverage.self.patient"
+* item[=].item[=].item[=].enableWhen[=].operator = #=
+* item[=].item[=].item[=].enableWhen[=].answerBoolean = false
+
+* item[=].item[=].item[+].linkId = "coverage.self.relatedPerson" 
+* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-coverage#Coverage.payor"
+* item[=].item[=].item[=].text = "Andere Person"   
+* item[=].item[=].item[=].type = #group
+* item[=].item[=].item[=].enableWhen[+].question = "coverage.self.patientRelatedPerson"
+* item[=].item[=].item[=].enableWhen[=].operator = #=
+* item[=].item[=].item[=].enableWhen[=].answerBoolean = true
+
+* item[=].item[=].item[=].item[+].linkId = "coverage.self.relatedPerson.familyName"
+* item[=].item[=].item[=].item[=].definition = "http://hl7.org/fhir/StructureDefinition/RelatedPerson#RelatedPerson.name.family"
+* item[=].item[=].item[=].item[=].text = "Name"
+* item[=].item[=].item[=].item[=].type = #string
+
+* item[=].item[=].item[=].item[+].linkId = "coverage.self.relatedPerson.givenName"
+* item[=].item[=].item[=].item[=].definition = "http://hl7.org/fhir/StructureDefinition/RelatedPerson#RelatedPerson.name.given"
+* item[=].item[=].item[=].item[=].text = "Vorname"
+* item[=].item[=].item[=].item[=].type = #string
+
+* item[=].item[=].item[=].item[+].linkId = "coverage.self.relatedPerson.phone"
+* item[=].item[=].item[=].item[=].definition = "http://hl7.org/fhir/StructureDefinition/RelatedPerson#RelatedPerson.telecom.value"
+* item[=].item[=].item[=].item[=].text = "Telefon"
+* item[=].item[=].item[=].item[=].type = #string
+* item[=].item[=].item[=].item[=].repeats = true
+
+* item[=].item[=].item[=].item[+].linkId = "coverage.self.relatedPerson.email"
+* item[=].item[=].item[=].item[=].definition = "http://hl7.org/fhir/StructureDefinition/RelatedPerson#RelatedPerson.telecom.value"
+* item[=].item[=].item[=].item[=].text = "E-Mail"
+* item[=].item[=].item[=].item[=].type = #string
+
+* item[=].item[=].item[=].item[+].linkId = "coverage.self.relatedPerson.streetAddressLine"
+* item[=].item[=].item[=].item[=].definition = "http://hl7.org/fhir/StructureDefinition/RelatedPerson#RelatedPerson.address.line"
+* item[=].item[=].item[=].item[=].text = "Strasse, Hausnummer, Postfach etc."
+* item[=].item[=].item[=].item[=].type = #string
+* item[=].item[=].item[=].item[=].repeats = true
+
+* item[=].item[=].item[=].item[+].linkId = "coverage.self.relatedPerson.postalCode"
+* item[=].item[=].item[=].item[=].definition = "http://hl7.org/fhir/StructureDefinition/RelatedPerson#RelatedPerson.address.postalCode"
+* item[=].item[=].item[=].item[=].text = "PLZ"
+* item[=].item[=].item[=].item[=].type = #string
+
+* item[=].item[=].item[=].item[+].linkId = "coverage.self.relatedPerson.city"
+* item[=].item[=].item[=].item[=].definition = "http://hl7.org/fhir/StructureDefinition/RelatedPerson#RelatedPerson.address.city"
+* item[=].item[=].item[=].item[=].text = "Ort"
+* item[=].item[=].item[=].item[=].type = #string
+
+* item[=].item[=].item[=].item[+].linkId = "coverage.self.relatedPerson.country"
+* item[=].item[=].item[=].item[=].definition = "http://hl7.org/fhir/StructureDefinition/RelatedPerson#RelatedPerson.address.country"
+* item[=].item[=].item[=].item[=].text = "Land"
+* item[=].item[=].item[=].item[=].type = #string
+
 
 // Other
 * item[=].item[+].linkId = "coverage.other"
@@ -455,6 +536,11 @@ Bsp: Fragestellung ist required ausser bei Bestllung alter Bider
 * item[=].item[=].item[=].item[+].linkId = "sender.author.practitioner.gln"
 * item[=].item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitioner#Practitioner.identifier:GLN.value"
 * item[=].item[=].item[=].item[=].text = "GLN"
+* item[=].item[=].item[=].item[=].type = #string
+
+* item[=].item[=].item[=].item[+].linkId = "sender.author.practitioner.zsr"
+* item[=].item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitioner#Practitioner.identifier:ZSR.value"
+* item[=].item[=].item[=].item[=].text = "ZSR"
 * item[=].item[=].item[=].item[=].type = #string
 
 * item[=].item[=].item[=].item[+].linkId = "sender.author.practitioner.phone"
@@ -562,6 +648,11 @@ Bsp: Fragestellung ist required ausser bei Bestllung alter Bider
 * item[=].item[=].item[=].text = "GLN"
 * item[=].item[=].item[=].type = #string
 
+* item[=].item[=].item[+].linkId = "receiver.practitioner.zsr"
+* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitioner#Practitioner.identifier:ZSR.value"
+* item[=].item[=].item[=].text = "ZSR"
+* item[=].item[=].item[=].type = #string
+
 * item[=].item[=].item[+].linkId = "receiver.practitioner.phone"
 * item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitioner#Practitioner.telecom.value"
 * item[=].item[=].item[=].text = "Telefon"
@@ -580,6 +671,11 @@ Bsp: Fragestellung ist required ausser bei Bestllung alter Bider
 * item[=].item[=].item[+].linkId = "receiver.organization.name"
 * item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-organization#Organization.name"
 * item[=].item[=].item[=].text = "Name der Organisation"
+* item[=].item[=].item[=].type = #string
+
+* item[=].item[=].item[+].linkId = "receiver.organization.gln"
+* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition-ch-core-organization-definitions.html#Organization.identifier:GLN"
+* item[=].item[=].item[=].text = "GLN"
 * item[=].item[=].item[=].type = #string
 
 * item[=].item[=].item[+].linkId = "receiver.organization.streetAddressLine"
@@ -603,68 +699,133 @@ Bsp: Fragestellung ist required ausser bei Bestllung alter Bider
 * item[=].item[=].item[=].text = "Land"
 * item[=].item[=].item[=].type = #string
 
-// ---------- Copy Receiver ----------
-* item[+].linkId = "receiverCopies"
-* item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-composition#Composition.extension:copyReceiver"
-* item[=].text = "Kopieempfänger"
+
+
+// ---------- Copy Receiver (Copy of this order and all results therefrom) ----------
+* item[+].linkId = "receiverCopy"
+* item[=].definition = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-composition#Composition.extension:copyReceiver"
+* item[=].text = "Kopieempfänger (Kopie dieses Auftrags und aller daraus resultierenden Resultate)"
 * item[=].type = #group
 
-* item[=].item[+].linkId = "receiverCopy"
-* item[=].item[=].text = "Kopieempfangende Organisation oder Person"
+* item[=].item[+].linkId = "receiverCopy.practitionerRole"
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitionerrole#PractitionerRole"
+* item[=].item[=].text = "Gesundheitsfachperson oder -organisation"
 * item[=].item[=].type = #group
 * item[=].item[=].repeats = true
 
-* item[=].item[=].item[+].linkId = "receiverCopy.organization.name"
-* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-organization#Organization.name"
-* item[=].item[=].item[=].text = "Name der Organisation"
-* item[=].item[=].item[=].type = #string
+* item[=].item[=].item[+].linkId = "receiverCopy.practitionerRole.practitioner"
+* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitionerrole#PractitionerRole.practitioner"
+* item[=].item[=].item[=].text = "Gesundheitsfachperson"
+* item[=].item[=].item[=].type = #group
 
-* item[=].item[=].item[+].linkId = "receiverCopy.title"
-* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-humanname#HumanName.prefix"
-* item[=].item[=].item[=].text = "Titel"
-* item[=].item[=].item[=].type = #string
+* item[=].item[=].item[=].item[+].linkId = "receiverCopy.practitionerRole.practitioner.title"
+* item[=].item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-humanname#HumanName.prefix"
+* item[=].item[=].item[=].item[=].text = "Titel"
+* item[=].item[=].item[=].item[=].type = #string
 
-* item[=].item[=].item[+].linkId = "receiverCopy.familyName"
-* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-humanname#HumanName.family"
+* item[=].item[=].item[=].item[+].linkId = "receiverCopy.practitionerRole.practitioner.familyName"
+* item[=].item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-humanname#HumanName.family"
+* item[=].item[=].item[=].item[=].text = "Name"
+* item[=].item[=].item[=].item[=].type = #string
+
+* item[=].item[=].item[=].item[+].linkId = "receiverCopy.practitionerRole.practitioner.givenName"
+* item[=].item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-humanname#HumanName.given"
+* item[=].item[=].item[=].item[=].text = "Vorname"
+* item[=].item[=].item[=].item[=].type = #string
+
+* item[=].item[=].item[=].item[+].linkId = "receiverCopy.practitionerRole.practitioner.phone"
+* item[=].item[=].item[=].item[=].definition = "http://hl7.org/fhir/StructureDefinition/ContactPoint#ContactPoint.value"
+* item[=].item[=].item[=].item[=].text = "Telefon"
+* item[=].item[=].item[=].item[=].type = #string
+
+* item[=].item[=].item[=].item[+].linkId = "receiverCopy.practitionerRole.practitioner.email"
+* item[=].item[=].item[=].item[=].definition = "http://hl7.org/fhir/StructureDefinition/ContactPoint#ContactPoint.value"
+* item[=].item[=].item[=].item[=].text = "E-Mail"
+* item[=].item[=].item[=].item[=].type = #string
+
+* item[=].item[=].item[+].linkId = "receiverCopy.practitionerRole.organization"
+* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-practitionerrole#PractitionerRole.organization"
+* item[=].item[=].item[=].text = "Gesundheitsorganisatiton"
+* item[=].item[=].item[=].type = #group
+
+* item[=].item[=].item[=].item[+].linkId = "receiverCopy.practitionerRole.organization.name"
+* item[=].item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-organization#Organization.name"
+* item[=].item[=].item[=].item[=].text = "Name der Organisation"
+* item[=].item[=].item[=].item[=].type = #string
+
+* item[=].item[=].item[=].item[+].linkId = "receiverCopy.practitionerRole.organization.streetAddressLine"
+* item[=].item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-address#Address.line"
+* item[=].item[=].item[=].item[=].text = "Strasse, Hausnummer, Postfach etc."
+* item[=].item[=].item[=].item[=].type = #string
+* item[=].item[=].item[=].item[=].repeats = true
+
+* item[=].item[=].item[=].item[+].linkId = "receiverCopy.practitionerRole.organization.postalCode"
+* item[=].item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-address#Address.postalCode"
+* item[=].item[=].item[=].item[=].text = "PLZ"
+* item[=].item[=].item[=].item[=].type = #string
+
+* item[=].item[=].item[=].item[+].linkId = "receiverCopy.practitionerRole.organization.city"
+* item[=].item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-address#Address.city"
+* item[=].item[=].item[=].item[=].text = "Ort"
+* item[=].item[=].item[=].item[=].type = #string
+
+* item[=].item[=].item[=].item[+].linkId = "receiverCopy.practitionerRole.organization.country"
+* item[=].item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-address#Address.country"
+* item[=].item[=].item[=].item[=].text = "Land"
+* item[=].item[=].item[=].item[=].type = #string
+
+* item[=].item[+].linkId = "receiverCopy.patient"
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-patient#Patient"
+* item[=].item[=].text = "Patient selbst"
+* item[=].item[=].type = #boolean
+
+* item[=].item[+].linkId = "receiverCopy.relatedPerson"
+* item[=].item[=].definition = "http://hl7.org/fhir/StructureDefinition/RelatedPerson#RelatedPerson"
+* item[=].item[=].text = "Andere Person"
+* item[=].item[=].type = #group
+* item[=].item[=].repeats = true
+
+* item[=].item[=].item[+].linkId = "receiverCopy.relatedPerson.familyName"
+* item[=].item[=].item[=].definition = "http://hl7.org/fhir/StructureDefinition/RelatedPerson#RelatedPerson.name.family"
 * item[=].item[=].item[=].text = "Name"
 * item[=].item[=].item[=].type = #string
 
-* item[=].item[=].item[+].linkId = "receiverCopy.givenName"
-* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-humanname#HumanName.given"
-* item[=].item[=].item[=].text = "Vorname"
+* item[=].item[=].item[+].linkId = "receiverCopy.relatedPerson.givenName"
+* item[=].item[=].item[=].definition = "http://hl7.org/fhir/StructureDefinition/RelatedPerson#RelatedPerson.name.given"
+* item[=].item[=].item[=].text = "Vorame"
 * item[=].item[=].item[=].type = #string
 
-* item[=].item[=].item[+].linkId = "receiverCopy.phone"
-* item[=].item[=].item[=].definition = "http://hl7.org/fhir/StructureDefinition/ContactPoint#ContactPoint.value"
+* item[=].item[=].item[+].linkId = "receiverCopy.relatedPerson.phone"
+* item[=].item[=].item[=].definition = "http://hl7.org/fhir/StructureDefinition/RelatedPerson#RelatedPerson.telecom.value"
 * item[=].item[=].item[=].text = "Telefon"
 * item[=].item[=].item[=].type = #string
+* item[=].item[=].item[=].repeats = true
 
-* item[=].item[=].item[+].linkId = "receiverCopy.email"
-* item[=].item[=].item[=].definition = "http://hl7.org/fhir/StructureDefinition/ContactPoint#ContactPoint.value"
+* item[=].item[=].item[+].linkId = "receiverCopy.relatedPerson.email"
+* item[=].item[=].item[=].definition = "http://hl7.org/fhir/StructureDefinition/RelatedPerson#RelatedPerson.telecom.value"
 * item[=].item[=].item[=].text = "E-Mail"
 * item[=].item[=].item[=].type = #string
 
-* item[=].item[=].item[+].linkId = "receiverCopy.streetAddressLine"
-* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-address#Address.line"
+* item[=].item[=].item[+].linkId = "receiverCopy.relatedPerson.streetAddressLine"
+* item[=].item[=].item[=].definition = "http://hl7.org/fhir/StructureDefinition/RelatedPerson#RelatedPerson.address.line"
 * item[=].item[=].item[=].text = "Strasse, Hausnummer, Postfach etc."
 * item[=].item[=].item[=].type = #string
 * item[=].item[=].item[=].repeats = true
 
-* item[=].item[=].item[+].linkId = "receiverCopy.postalCode"
-* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-address#Address.postalCode"
+* item[=].item[=].item[+].linkId = "receiverCopy.relatedPerson.postalCode"
+* item[=].item[=].item[=].definition = "http://hl7.org/fhir/StructureDefinition/RelatedPerson#RelatedPerson.address.postalCode"
 * item[=].item[=].item[=].text = "PLZ"
 * item[=].item[=].item[=].type = #string
 
-* item[=].item[=].item[+].linkId = "receiverCopy.city"
-* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-address#Address.city"
+* item[=].item[=].item[+].linkId = "receiverCopy.relatedPerson.city"
+* item[=].item[=].item[=].definition = "http://hl7.org/fhir/StructureDefinition/RelatedPerson#RelatedPerson.address.city"
 * item[=].item[=].item[=].text = "Ort"
 * item[=].item[=].item[=].type = #string
 
-* item[=].item[=].item[+].linkId = "receiverCopy.country"
-* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-address#Address.country"
+* item[=].item[=].item[+].linkId = "receiverCopy.relatedPerson.country"
+* item[=].item[=].item[=].definition = "http://hl7.org/fhir/StructureDefinition/RelatedPerson#RelatedPerson.address.country"
 * item[=].item[=].item[=].text = "Land"
 * item[=].item[=].item[=].type = #string
-
 
 /*------ Appointment ------------------------------ */
 * item[+].linkId = "appointment"
@@ -919,7 +1080,9 @@ Caveats
 * item[=].item[+].linkId = "caveat.bloodCoagulation"   
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.code"  
 * item[=].item[=].text = "Beinträchtigte Blutgerinnung"   
-* item[=].item[=].type = #boolean
+* item[=].item[=].type = #choice
+* item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-caveat-qualifier-value"
+* item[=].item[=].initial.valueCoding = SCT#373068000
 
 * item[=].item[=].item[+].linkId = "caveat.bloodCoagulation.INR" 
 * item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.evidence.detail"
@@ -927,7 +1090,7 @@ Caveats
 * item[=].item[=].item[=].type = #group
 * item[=].item[=].item[=].enableWhen[+].question = "caveat.bloodCoagulation"
 * item[=].item[=].item[=].enableWhen[=].operator = #=
-* item[=].item[=].item[=].enableWhen[=].answerBoolean = true
+* item[=].item[=].item[=].enableWhen[=].answerCoding = SCT#52101004
 
 * item[=].item[=].item[=].item[+].linkId = "caveat.bloodCoagulation.INR.quantity"
 * item[=].item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-INR-observation#Observation.valueQuantity"
@@ -943,13 +1106,10 @@ Caveats
 * item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.evidence.detail"    
 * item[=].item[=].item[=].text = "Thrombozyten"   
 * item[=].item[=].item[=].type = #group
-* item[=].item[=].item[=].enableWhen[+].question = "caveat.bloodCoagulation"
-* item[=].item[=].item[=].enableWhen[=].operator = #=
-* item[=].item[=].item[=].enableWhen[=].answerBoolean = true
 
 * item[=].item[=].item[=].item[+].linkId = "caveat.bloodCoagulation.platelets.quantity"
 * item[=].item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-platelets-observation#Observation.valueQuantity"
-* item[=].item[=].item[=].item[=].text = "Wert (10^3/µl)"   
+* item[=].item[=].item[=].item[=].text = "Wert (10^3/µL)"   
 * item[=].item[=].item[=].item[=].type = #quantity
 
 * item[=].item[=].item[=].item[+].linkId = "caveat.bloodCoagulation.platelets.dateTime"
@@ -960,19 +1120,18 @@ Caveats
 * item[=].item[+].linkId = "caveat.renalInsufficiency"    
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.code"   
 * item[=].item[=].text = "Niereninsuffizienz"   
-* item[=].item[=].type = #boolean
+* item[=].item[=].type = #choice
+* item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-caveat-qualifier-value"
+* item[=].item[=].initial.valueCoding = SCT#373068000
 
 * item[=].item[=].item[+].linkId = "caveat.renalInsufficiency.creatinineClearance" 
 * item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.evidence.detail"
 * item[=].item[=].item[=].text = "Creatinin-Clearance"   
 * item[=].item[=].item[=].type = #group
-* item[=].item[=].item[=].enableWhen[+].question = "caveat.renalInsufficiency"
-* item[=].item[=].item[=].enableWhen[=].operator = #=
-* item[=].item[=].item[=].enableWhen[=].answerBoolean = true
 
 * item[=].item[=].item[=].item[+].linkId = "caveat.renalInsufficiency.creatinineClearance.quantity"
 * item[=].item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-creatinineclearance-observation#Observation.valueQuantity"
-* item[=].item[=].item[=].item[=].text = "Wert (ml/min)"   
+* item[=].item[=].item[=].item[=].text = "Wert (mL/min)"   
 * item[=].item[=].item[=].item[=].type = #quantity
 
 * item[=].item[=].item[=].item[+].linkId = "caveat.renalInsufficiency.creatinineClearance.dateTime"
@@ -984,13 +1143,10 @@ Caveats
 * item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.evidence.detail"    
 * item[=].item[=].item[=].text = "Creatinin"   
 * item[=].item[=].item[=].type = #group
-* item[=].item[=].item[=].enableWhen[+].question = "caveat.renalInsufficiency"
-* item[=].item[=].item[=].enableWhen[=].operator = #=
-* item[=].item[=].item[=].enableWhen[=].answerBoolean = true
 
 * item[=].item[=].item[=].item[+].linkId = "caveat.renalInsufficiency.creatinine.quantity"
 * item[=].item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-creatinine-observation#Observation.valueQuantity"
-* item[=].item[=].item[=].item[=].text = "Wert (µmol/l)"   
+* item[=].item[=].item[=].item[=].text = "Wert (µmol/L)"   
 * item[=].item[=].item[=].item[=].type = #quantity
 
 * item[=].item[=].item[=].item[+].linkId = "caveat.renalInsufficiency.creatinine.dateTime"
@@ -1001,50 +1157,69 @@ Caveats
 * item[=].item[+].linkId = "caveat.claustrophobia"    
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.code"   
 * item[=].item[=].text = "Klaustrophobie"   
-* item[=].item[=].type = #boolean
+* item[=].item[=].type = #choice
+* item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-caveat-qualifier-value"
+* item[=].item[=].initial.valueCoding = SCT#373068000
 
 * item[=].item[+].linkId = "caveat.bodyPiercing"     
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.code"  
 * item[=].item[=].text = "Körperpiercing"   
-* item[=].item[=].type = #boolean
+* item[=].item[=].type = #choice
+* item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-caveat-qualifier-value"
+* item[=].item[=].initial.valueCoding = SCT#373068000
 
 * item[=].item[+].linkId = "caveat.device"     
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.code"  
 * item[=].item[=].text = "Device (Herzschrittmacher, Herzklappenersatz, Insulinpumpe etc.)"   
 * item[=].item[=].type = #choice
 * item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-caveat-device"
+* item[=].item[=].initial.valueCoding = SCT#373068000
 * item[=].item[=].repeats = true
 
 * item[=].item[+].linkId = "caveat.hyperthyroidism"     
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.code"  
 * item[=].item[=].text = "Hyperthyreose"   
-* item[=].item[=].type = #boolean
+* item[=].item[=].type = #choice
+* item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-caveat-qualifier-value"
+* item[=].item[=].initial.valueCoding = SCT#373068000
 
 * item[=].item[+].linkId = "caveat.diabetes"    
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.code"   
 * item[=].item[=].text = "Diabetes mellitus"   
-* item[=].item[=].type = #boolean
+* item[=].item[=].type = #choice
+* item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-caveat-qualifier-value"
 
 * item[=].item[+].linkId = "caveat.gravida"     
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.code"  
 * item[=].item[=].text = "Schwangerschaft"   
-* item[=].item[=].type = #boolean
+* item[=].item[=].type = #choice
+* item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-caveat-qualifier-value"
+* item[=].item[=].initial.valueCoding = SCT#373068000
 
 * item[=].item[+].linkId = "caveat.contrastMediaAllergy"
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.code"  
 * item[=].item[=].text = "Kontrastmittelallergie"   
-* item[=].item[=].type = #boolean
-
-* item[=].item[+].linkId = "caveat.drugPrescription"     
-* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.code"  
-* item[=].item[=].text = "Relevante Medikamente, z.B. Metformin"   
 * item[=].item[=].type = #choice
-* item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-caveat-substance"
-* item[=].item[=].repeats = true
+* item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-caveat-qualifier-value"
+* item[=].item[=].initial.valueCoding = SCT#373068000
 
+* item[=].item[+].linkId = "caveat.metformin"     
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.code"  
+* item[=].item[=].text = "Metformin"   
+* item[=].item[=].type = #choice 
+* item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-caveat-qualifier-value"
+* item[=].item[=].initial.valueCoding = SCT#373068000
+
+* item[=].item[+].linkId = "caveat.betaBlocker"     
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.code"  
+* item[=].item[=].text = "Betablocker"   
+* item[=].item[=].type = #choice 
+* item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-caveat-qualifier-value"
+* item[=].item[=].initial.valueCoding = SCT#373068000
 
 /* ---------------------------------------------------------------------------
 Vorherige Untersuchungsresultat:
+Angaben zu Reports, auf die verwiesen wird
 Angaben zu Bildern bzw. allfällige Vorbildern und Reports, auf die verwiesen wird  
 mittels ImagingStudy Resource (DICOM WADO) oder die mitgegeben werden in der Media Resource.
 */
@@ -1053,11 +1228,41 @@ mittels ImagingStudy Resource (DICOM WADO) oder die mitgegeben werden in der Med
 * item[=].text = "Vorherige Untersuchungsresultate"
 * item[=].type = #group
 
-* item[=].item[+].linkId = "previousResults.attachment"
+/* item[=].item[+].linkId = "previousResults.attachment"
 * item[=].item[=].text = "Anhang"
 * item[=].item[=].type = #attachment
 * item[=].item[=].repeats = true
 
+<<<<<<< HEAD
+=======
+* item[=].item[=].item[+].linkId = "previousResults.attachment.title"  
+* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-media#Media.content.title"
+* item[=].item[=].item[=].text = "Dateiname und -endung der angehängten Datei (z.B. \"shoulder_re_F_Muster_12021988.pdf\")"
+* item[=].item[=].item[=].type = #string
+*/
+
+* item[=].item[+].linkId = "previousResults.attachment.data"  
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-media#Media.content.data"
+* item[=].item[=].text = "Daten"
+* item[=].item[=].type = #attachment
+* item[=].item[=].repeats = true
+
+
+* item[=].item[+].linkId = "previousResults.imagingStudy"
+* item[=].item[=].text = "Bilder (DICOM Studien)"
+* item[=].item[=].type = #group
+* item[=].item[=].repeats = true
+
+* item[=].item[=].item[+].linkId = "previousResults.imagingStudy.uid"  
+* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy#ImagingStudy.identifer"
+* item[=].item[=].item[=].text = "DICOM Study UID"
+* item[=].item[=].item[=].type = #string
+
+* item[=].item[=].item[+].linkId = "previousResults.imagingStudy.acsn"  
+* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy#ImagingStudy.identifer"
+* item[=].item[=].item[=].text = "ACSN"
+* item[=].item[=].item[=].type = #string
+>>>>>>> master
 
 // -------- Service Request Notes ------
 * item[+].linkId = "note"

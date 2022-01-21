@@ -31,6 +31,15 @@ Description: "Definition for Type of Caveat Value Set in the context of CH RAD-O
 * SCT#182817000 "Drug prescription (situation)"
 
 
+ValueSet: ChRadOrderQualifierValue
+Id: ch-rad-order-caveat-qualifier-value
+Title: "Qualifier Value"
+Description: "Qualifier values in the context of CH RAD-Order."
+* SCT#2667000 "Absent (qualifier value)"
+* SCT#52101004 "Present (qualifier value)"
+* SCT#373068000 "Undetermined (qualifier value)"
+
+
 // Condition.code
 ValueSet: ChRadOrderCaveatCondition
 Id: ch-rad-order-caveat-condition
@@ -56,14 +65,6 @@ Id: ch-rad-order-caveat-device
 Title: "Caveat Device"
 Description: "Definition for Caveat Device Value Set in the context of CH RAD-Order."
 * include codes from system SCT where concept is-a #397578001 "Device in situ (finding)"
-
-
-// (Q: caveat.drugPrescription)
-ValueSet: ChRadOrderCaveatSubstance
-Id: ch-rad-order-caveat-substance
-Title: "Caveat Substance"
-Description: "Definition for Caveat Substance Value Set in the context of CH RAD-Order."
-* SCT#372567009 "Metformin (substance)"
 
 
 // Diagnostic Question in free text: Coding of all diagnostic questions will be defined later.

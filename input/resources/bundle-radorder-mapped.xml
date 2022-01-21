@@ -750,9 +750,29 @@
           <item>
             <linkId value="caveat.bloodCoagulation"/>
             <text value="Beinträchtigte Blutgerinnung"/>
+<!-- raises an error in the ig publisher
             <answer>
               <valueBoolean value="true"/>
             </answer>
+ca.uhn.fhir.rest.server.exceptions.UnprocessableEntityException: Expected answer and actual answer have incompatible types
+        at org.hl7.fhir.validation.instance.EnableWhenEvaluator.evaluateAnswer(EnableWhenEvaluator.java:250)
+        at org.hl7.fhir.validation.instance.EnableWhenEvaluator.lambda$evaluateCondition$1(EnableWhenEvaluator.java:210)
+        at java.base/java.util.stream.MatchOps$1MatchSink.accept(MatchOps.java:90)
+        at java.base/java.util.ArrayList$ArrayListSpliterator.tryAdvance(ArrayList.java:1602)
+        at java.base/java.util.stream.ReferencePipeline.forEachWithCancel(ReferencePipeline.java:127)
+        at java.base/java.util.stream.AbstractPipeline.copyIntoWithCancel(AbstractPipeline.java:502)
+        at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:488)
+        at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:474)
+        at java.base/java.util.stream.MatchOps$MatchOp.evaluateSequential(MatchOps.java:230)
+        at java.base/java.util.stream.MatchOps$MatchOp.evaluateSequential(MatchOps.java:196)
+        at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+        at java.base/java.util.stream.ReferencePipeline.anyMatch(ReferencePipeline.java:528)
+        at org.hl7.fhir.validation.instance.EnableWhenEvaluator.evaluateCondition(EnableWhenEvaluator.java:210)
+        at org.hl7.fhir.validation.instance.EnableWhenEvaluator.lambda$isQuestionEnabled$0(EnableWhenEvaluator.java:160)
+        at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195)
+        at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
+        at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:484)
+-->
           </item>
           <item>
             <linkId value="caveat.renalInsufficiency"/>
@@ -842,7 +862,7 @@
             <linkId value="previousResults.attachment"/>
             <text value="Anhang"/>
             <item>
-              <linkId value="previousResults.attachtment.title"/>
+              <linkId value="previousResults.attachment.title"/>
               <text value="Dateiname und -endung der angehängten Datei (z.B. &quot;shoulder_re_F_Muster_12021988.pdf&quot;)"/>
               <answer>
                 <valueString value="xray_chest_S_Ufferer_20190401.dcm"/>
@@ -2223,7 +2243,7 @@
             <type value="group"/>
             <repeats value="true"/>
             <item>
-              <linkId value="previousResults.attachtment.title"/>
+              <linkId value="previousResults.attachment.title"/>
               <definition value="http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-media#Media.content.title"/>
               <text value="Dateiname und -endung der angehängten Datei (z.B. &quot;shoulder_re_F_Muster_12021988.pdf&quot;)"/>
               <type value="string"/>
