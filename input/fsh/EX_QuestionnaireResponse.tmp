@@ -448,20 +448,12 @@ Vorherige Untersuchungsresultate:
 * item[+].linkId = "previousResults"
 * item[=].text = "Vorherige Untersuchungsresultate"
 
-* item[=].item[+].linkId = "previousResults.attachment"
-* item[=].item[=].text = "Anhang"
+* item[=].item[+].linkId = "previousResults.attachment.data"
+* item[=].item[=].text = "Daten"
 * item[=].item[=].answer[+].valueAttachment[+].contentType = #application/dicom
 * item[=].item[=].answer[=].valueAttachment[=].data = "RXhhbXBsZQ=="
 * item[=].item[=].answer[=].valueAttachment[=].title = "xray_chest_S_Ufferer_20190401.dcm"
 
-<<<<<<< HEAD:input/fsh/EX_QuestionnaireResponse.fsh
-
-=======
-/* item[=].item[=].item[+].linkId = "previousResults.attachment.title"
-* item[=].item[=].item[=].text = "Dateiname und -endung der angehängten Datei (z.B. \"shoulder_re_F_Muster_12021988.pdf\")"
-* item[=].item[=].item[=].answer.valueString = "xray_chest_S_Ufferer_20190401.dcm"
-*/
->>>>>>> master:input/fsh/EX_QuestionnaireResponse.tmp
 /* -----------------------------------------------------------------------------
 Service Request Notes 
 */

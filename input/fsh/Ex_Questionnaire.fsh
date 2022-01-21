@@ -1228,41 +1228,72 @@ mittels ImagingStudy Resource (DICOM WADO) oder die mitgegeben werden in der Med
 * item[=].text = "Vorherige Untersuchungsresultate"
 * item[=].type = #group
 
-/* item[=].item[+].linkId = "previousResults.attachment"
-* item[=].item[=].text = "Anhang"
-* item[=].item[=].type = #attachment
-* item[=].item[=].repeats = true
-
-<<<<<<< HEAD
-=======
-* item[=].item[=].item[+].linkId = "previousResults.attachment.title"  
-* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-media#Media.content.title"
-* item[=].item[=].item[=].text = "Dateiname und -endung der angehängten Datei (z.B. \"shoulder_re_F_Muster_12021988.pdf\")"
-* item[=].item[=].item[=].type = #string
-*/
-
 * item[=].item[+].linkId = "previousResults.attachment.data"  
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-media#Media.content.data"
 * item[=].item[=].text = "Daten"
 * item[=].item[=].type = #attachment
 * item[=].item[=].repeats = true
 
-
 * item[=].item[+].linkId = "previousResults.imagingStudy"
-* item[=].item[=].text = "Bilder (DICOM Studien)"
+* item[=].item[=].text = "Bilder (DICOM)"
 * item[=].item[=].type = #group
 * item[=].item[=].repeats = true
 
-* item[=].item[=].item[+].linkId = "previousResults.imagingStudy.uid"  
+/*
+The ImagingStudy’s DICOM Study Instance UID is encoded in the ImagingStudy.identifier element, 
+which is of the Identifier datatype. When encoding a DICOM UID in an Identifier datatype, 
+use the Identifier system of “urn:dicom:uid”, and prefix the UID value with “urn:oid:”. 
+Therefore, an ImagingStudy with DICOM Study Instance UID of 2.16.124.113543.1154777499.30246.19789.3503430046 
+is encoded as:
+
+	"identifier":{
+		"system":"urn:dicom:uid",
+		"value":"urn:oid:2.16.124.113543.1154777499.30246.19789.3503430046"
+	} 
+*/
+
+* item[=].item[=].item[+].linkId = "previousResults.imagingStudy.StudyInstanceUid"  
 * item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy#ImagingStudy.identifer"
-* item[=].item[=].item[=].text = "DICOM Study UID"
+* item[=].item[=].item[=].text = "DICOM Study Instance UID"
 * item[=].item[=].item[=].type = #string
+
+/*
+ The study accession number can also be encoded as an Identifier using the “ACSN” identifier type, as follows:
+
+  "identifier":{
+		"type" : {
+			"coding" : [
+				{
+					"system" : "http://terminology.hl7.org/CodeSystem/v2-0203",
+					"code" : "ACSN"
+				}
+			]
+		},
+		"system":"http://ginormoushospital.org/accession",
+		"value":"GH334103"
+	} 
+*/
 
 * item[=].item[=].item[+].linkId = "previousResults.imagingStudy.acsn"  
 * item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy#ImagingStudy.identifer"
 * item[=].item[=].item[=].text = "ACSN"
 * item[=].item[=].item[=].type = #string
->>>>>>> master
+
+/*
+DICOM Series Instance UID and SOP Instance UID use the id datatype, and are encoded directly. 
+For example, an image with SOP Instance UID of 2.16.124.113543.1154777499.30246.19789.3503430045.1.1 
+is encoded in ImagingStudy.series.instance.uid as “2.16.124.113543.1154777499.30246.19789.3503430045.1.1”. 
+*/
+
+* item[=].item[=].item[+].linkId = "previousResults.imagingStudy.SeriesInstanceUid"  
+* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy#ImagingStudy.series.uid"
+* item[=].item[=].item[=].text = "DICOM Series Instance UID"
+* item[=].item[=].item[=].type = #string
+
+* item[=].item[=].item[+].linkId = "previousResults.imagingStudy.SopInstanceUid"  
+* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy#ImagingStudy.series.instance.uid"
+* item[=].item[=].item[=].text = "DICOM SOP Instance UID"
+* item[=].item[=].item[=].type = #string
 
 // -------- Service Request Notes ------
 * item[+].linkId = "note"
