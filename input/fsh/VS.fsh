@@ -54,9 +54,10 @@ Description: "Definition for Caveat Condition Value Set in the context of CH RAD
 * SCT#73211009 "Diabetes mellitus (disorder)"
 * SCT#366321006 "Finding of gravida (finding)"
 * SCT#293637006 "Allergy to contrast media (finding)"
-// * SCT#182817000 "Drug prescription (situation)"
-* include codes from valueset http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-caveat-device
-* include codes from valueset http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-caveat-substance
+* include codes from system SCT where concept is-a #397578001 "Device in situ (finding)"
+//Metformin and B-Blocker may be replaced with postcoordinated expression
+* SCT#372567009 "Metformin (substance)"
+* SCT#373254001 "Substance with beta adrenergic receptor antagonist mechanism of action (substance)"
 
 
 // (Q: caveat.device)

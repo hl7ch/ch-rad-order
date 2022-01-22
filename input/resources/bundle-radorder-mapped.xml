@@ -112,7 +112,7 @@
         <meta>
           <profile value="http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-questionnaireresponse"/>
         </meta>
-        <questionnaire value="http://fhir.ch/ig/ch-rad-order/Questionnaire/QuestionnaireRadiologyOrder"/>
+        <questionnaire value="/http://fhir.ch/ig/ch-rad-order/StructureDefinition/QuestionnaireRadiologyOrder"/>
         <status value="completed"/>
         <item>
           <linkId value="order"/>
@@ -999,7 +999,7 @@ ca.uhn.fhir.rest.server.exceptions.UnprocessableEntityException: Expected answer
             <valueString value="The Bundle that is to be used to pre-populate the form"/>
           </extension>
         </extension>
-        <url value="http://fhir.ch/ig/ch-rad-order/Questionnaire/QuestionnaireRadiologyOrder"/>
+        <url value="/http://fhir.ch/ig/ch-rad-order/StructureDefinition/QuestionnaireRadiologyOrder"/>
         <name value="QuestionnaireRadiologyOrder"/>
         <title value="Questionnaire Radiology Order"/>
         <derivedFrom value="http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-questionnaire"/>
