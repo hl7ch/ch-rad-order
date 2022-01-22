@@ -2,7 +2,7 @@ Instance: QuestionnaireResponseRadiologyOrder
 InstanceOf: ChOrfQuestionnaireResponse
 Title: "QuestionniaireResponse Radiology Order"
 Description: "Example for QuestionnaireResponse"
-* questionnaire = "http://fhir.ch/ig/ch-rad-order/Questionnaire/QuestionnaireRadiologyOrder"
+* questionnaire = "/http://fhir.ch/ig/ch-rad-order/StructureDefinition/QuestionnaireRadiologyOrder"
 * status = #completed
 
 // ---------- order (Auftrag) ----------
