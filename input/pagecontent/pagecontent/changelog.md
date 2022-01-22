@@ -8,58 +8,37 @@ During the ballot, the following comments came in, which will be taken into acco
 
 * [Issue #22](https://github.com/hl7ch/ch-rad-order/issues/22): Value Sets are draft; will be refined with Swiss Rad. Society 
 
-See also open issues on [GitHub](https://github.com/hl7ch/ch-rad-order/issues).
+* Interactive behaviour of the questionnaire (such as conditional display of items) will be added in the next release
+* Use case dependent contraints in the questionnaire are subject of furhter disussions 
 
 #### Follow up of changes in CH-ORF
-* [Description](index.html#composition-resource) of the handling of general information about the document in derived questionnaires (title, type and category).
-   * [ORF-Issue #31](https://github.com/hl7ch/ch-orf/issues/31) 
-* Add patients marital status to the [Questionnaire](Questionnaire-order-referral-form.html) and the examples (e.g. [Bundle Order-Referral-Form](Bundle-bundle-order-referral-form.html)).
-   * [ORF-Issue #60](https://github.com/hl7ch/ch-orf/issues/60) and [Issue #63](https://github.com/hl7ch/ch-orf/issues/63)    
-* Add patients language of correspondance to the [Questionnaire](Questionnaire-order-referral-form.html) and the examples (e.g. [Bundle Order-Referral-Form](Bundle-bundle-order-referral-form.html)).
-   * [ORF-Issue #64](https://github.com/hl7ch/ch-orf/issues/64) 
-* Add 'ZSR' as Practitioner.identifier to the [Questionnaire](Questionnaire-order-referral-form.html) and the examples (e.g. [Bundle Order-Referral-Form](Bundle-bundle-order-referral-form.html)).
-   * [ORF-Issue #65](https://github.com/hl7ch/ch-orf/issues/65) 
-* Add 'GLN' to organization ([Questionnaire](Questionnaire-order-referral-form.html)).
-   * [ORF-Issue #57](https://github.com/hl7ch/ch-orf/issues/57)
+* [Issue ORF#31](https://github.com/hl7ch/ch-orf/issues/31): The values for the readonly fields order.title, order.type, order.category are now defined fix in the composition and shonw no more in the questionnaire. 
+
+* [Issue ORF#50](https://github.com/hl7ch/ch-orf/issues/50): Change references of the ch-orf-copyreceiver from `CH Core Organization Profile | CH Core Patient Profile` to `CH Core Practitioner Role Profile | CH Core Patient Profile | RelatedPerson` and update the Questionnaire accordingly.
+   
+* [Issue ORF#53](https://github.com/hl7ch/ch-orf/issues/53) (Feedback 1): The patient in the order defined as required ([Questionnaire](Questionnaire-order-referral-form.html), [CH ORF Composition Profile](StructureDefinition-ch-orf-composition.html)
+
+* [Issue ORF#57](https://github.com/hl7ch/ch-orf/issues/57):Add 'GLN' to organization ([Questionnaire](Questionnaire-order-referral-form.html)).
+
+* [Issue ORF#60](https://github.com/hl7ch/ch-orf/issues/60) and [Issue #63](https://github.com/hl7ch/ch-orf/issues/63):   Add patients marital status to the [Questionnaire](Questionnaire-order-referral-form.html) and the examples (e.g. [Bundle Order-Referral-Form](Bundle-bundle-order-referral-form.html)).
+    
+* [Issue ORF#64](https://github.com/hl7ch/ch-orf/issues/64): Add patients language of correspondance to the [Questionnaire](Questionnaire-order-referral-form.html) and the examples (e.g. [Bundle Order-Referral-Form](Bundle-bundle-order-referral-form.html)).
+  
+* [Issue ORF#65](https://github.com/hl7ch/ch-orf/issues/65): Add 'ZSR' as Practitioner.identifier to the [Questionnaire](Questionnaire-order-referral-form.html) and the examples (e.g. [Bundle Order-Referral-Form](Bundle-bundle-order-referral-form.html)
+
+* [Issue ORF#80](https://github.com/hl7ch/ch-orf/issues/80): Expansion of the [questionnaire](Questionnaire-order-referral-form.html) field 'coverage.self'. Differentiation between [patient himself](Coverage-CoverageSelfPatient.html) or [related person](Coverage-CoverageSelfRelatedPerson.html) as self-payer.
+
+* [Issue ORF#91](https://github.com/hl7ch/ch-orf/issues/91): Change source of the codes for [desired accommodation](ValueSet-ch-orf-vs-desiredaccommodation.html).
 
 #### Added
-
-
+* [Issue #2](https://github.com/hl7ch/ch-rad-order/issues/2): PDF added as original representation.
+* [Issue #17](https://github.com/hl7ch/ch-rad-order/issues/17): Added References to Images of precedent results to questionnaire.
+* [Issue #19](https://github.com/hl7ch/ch-rad-order/issues/19): Caveats changed from boolean to Undetermined/absent/present.
+* [Issue #23](https://github.com/hl7ch/ch-rad-order/issues/23): Caveat Drug prescription improved; added B-Blocker.
 
 #### Changed / Updated
-* Improvement/updating of the documentation.
-   * [Issue #44](https://github.com/hl7ch/ch-orf/issues/44): Description in the [FHIR Representation](index.html#fhir-representation) section adapted, i.e. 'XML' removed, as FHIR can also be serialised for exchange in formats other than XML.
-   * [Issue #42](https://github.com/hl7ch/ch-orf/issues/42): Instead of the redundantly embedded differential tables of the profiles on the 'Home' page ([Volume 3 - Content Modules](index.html#volume-3-%E2%80%93-content-modules)), links to the profiles are provided at the relevant places.
-   * [Issue #43](https://github.com/hl7ch/ch-orf/issues/43): Add meaningful descriptions to the [profiles](profiles.html).
-   * [Issue #51](https://github.com/hl7ch/ch-orf/issues/51): Add a [description](index.html#generic-elements-of-a-questionnaire) of the use of the PractitionerRole resource.
-* The patient in the order defined as required ([Questionnaire](Questionnaire-order-referral-form.html), [CH ORF Composition Profile](StructureDefinition-ch-orf-composition.html))
-   * [Issue #53](https://github.com/hl7ch/ch-orf/issues/53) (Feedback 1)
-* Update the suppressed messages (QA), mainly because of display values.
-   * [Issue #30](https://github.com/hl7ch/ch-orf/issues/30)
-* Change references of the ch-orf-copyreceiver from `CH Core Organization Profile | CH Core Patient Profile` to `CH Core Practitioner Role Profile | CH Core Patient Profile | RelatedPerson` and update the Questionnaire accordingly.
-   * [Issue #50](https://github.com/hl7ch/ch-orf/issues/50)
-* Expansion of the [questionnaire](Questionnaire-order-referral-form.html) field 'coverage.self'. Differentiation between [patient himself](Coverage-CoverageSelfPatient.html) or [related person](Coverage-CoverageSelfRelatedPerson.html) as self-payer.
-   * [Issue #80](https://github.com/hl7ch/ch-orf/issues/80)
-* Change source of the codes for [desired accommodation](ValueSet-ch-orf-vs-desiredaccommodation.html).
-   * [Issue #91](https://github.com/hl7ch/ch-orf/issues/91)
-
-#### Fixed
-* Set values for IV and MV (Coverage.payor) in the mapping.
-   * [Issue #52](https://github.com/hl7ch/ch-orf/issues/52)
-* Different elements for start and end time of an Appointment, according to the status. Add examples of Appointments with the different status.
-   * [Issue #48](https://github.com/hl7ch/ch-orf/issues/48)  
-* Links to SDC FHIR IG: Some links were broken and other links led to wrong versions. For this publication, the IG CH ORF is derived from [SDC v2.7.0](http://hl7.org/fhir/uv/sdc/2019May/). The links were fixed so that they link to this version.
-   * Issues: [#32](https://github.com/hl7ch/ch-orf/issues/32), [#34](https://github.com/hl7ch/ch-orf/issues/34), [#35](https://github.com/hl7ch/ch-orf/issues/35), [#36](https://github.com/hl7ch/ch-orf/issues/36), [#49](https://github.com/hl7ch/ch-orf/issues/49), [#45](https://github.com/hl7ch/ch-orf/issues/45)
-* Fixed typos
-   * Issues: [#45](https://github.com/hl7ch/ch-orf/issues/45), [#41](https://github.com/hl7ch/ch-orf/issues/41), [#37](https://github.com/hl7ch/ch-orf/issues/37), [#38](https://github.com/hl7ch/ch-orf/issues/38), [#39](https://github.com/hl7ch/ch-orf/issues/39), [#40](https://github.com/hl7ch/ch-orf/issues/40)
-* Mapping refinements
-   * Issues: [#46](https://github.com/hl7ch/ch-orf/issues/46), [#47](https://github.com/hl7ch/ch-orf/issues/47), [#28](https://github.com/hl7ch/ch-orf/issues/28)
-* Fixed by IG Publisher update
-   * [Issue #69](https://github.com/hl7ch/ch-orf/issues/69)
+* [Issue #18](https://github.com/hl7ch/ch-rad-order/issues/18): Cardinality for Questionnaire and QR in Composition set to 0..1. Updated [documentation](http://fhir.ch/ig/ch-rad-order/index.html) accordingly.
+* [Issue #4](https://github.com/hl7ch/ch-rad-order/issues/4): Change type of item 'previousResults.attachment' to attachment.
 
 #### Issues resolved without amendment
-* [Issue #55](https://github.com/hl7ch/ch-orf/issues/55): Coverage.type
-* [Issue #56](https://github.com/hl7ch/ch-orf/issues/56): Coverage.class.type
-* [Issue #62](https://github.com/hl7ch/ch-orf/issues/62): Various identifiers
-* [Issue #54](https://github.com/hl7ch/ch-orf/issues/54): Further development form, OID sender/receiver
-* [Issue #58](https://github.com/hl7ch/ch-orf/issues/58): Multiple endpoints for one receiver 
+ * [Issue #20] (https://github.com/hl7ch/ch-orf/issues/55) Multiple imaging procedures in the same order: Not implmented in order to avoid complexity. 
