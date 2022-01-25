@@ -12,23 +12,23 @@ During the ballot, the following comments came in, which will be taken into acco
 * Use case dependent contraints in the questionnaire are subject of furhter disussions 
 
 #### Follow up of changes in CH-ORF
-* [Issue ORF#31](https://github.com/hl7ch/ch-orf/issues/31): The values for the readonly fields order.title, order.type, order.category are now defined fix in the composition and shonw no more in the questionnaire. 
+* [ORF Issue #31](https://github.com/hl7ch/ch-orf/issues/31): The values for the readonly fields order.title, order.type, order.category are now defined fix in the composition and shonw no more in the questionnaire. 
 
-* [Issue ORF#50](https://github.com/hl7ch/ch-orf/issues/50): Change references of the ch-orf-copyreceiver from `CH Core Organization Profile | CH Core Patient Profile` to `CH Core Practitioner Role Profile | CH Core Patient Profile | RelatedPerson` and update the Questionnaire accordingly.
+* [ORF Issue #50](https://github.com/hl7ch/ch-orf/issues/50): Change references of the ch-orf-copyreceiver from `CH Core Organization Profile | CH Core Patient Profile` to `CH Core Practitioner Role Profile | CH Core Patient Profile | RelatedPerson` and update the Questionnaire accordingly.
    
-* [Issue ORF#53](https://github.com/hl7ch/ch-orf/issues/53) (Feedback 1): The patient in the order defined as required ([Questionnaire](Questionnaire-order-referral-form.html), [CH ORF Composition Profile](StructureDefinition-ch-orf-composition.html)
+* [ORF Issue #53](https://github.com/hl7ch/ch-orf/issues/53) (Feedback 1): The patient in the order defined as required ([Questionnaire](Questionnaire-order-referral-form.html), [CH ORF Composition Profile](StructureDefinition-ch-orf-composition.html)
 
-* [Issue ORF#57](https://github.com/hl7ch/ch-orf/issues/57):Add 'GLN' to organization ([Questionnaire](Questionnaire-order-referral-form.html)).
+* [ORF Issue #57](https://github.com/hl7ch/ch-orf/issues/57):Add 'GLN' to organization ([Questionnaire](Questionnaire-order-referral-form.html)).
 
-* [Issue ORF#60](https://github.com/hl7ch/ch-orf/issues/60) and [Issue #63](https://github.com/hl7ch/ch-orf/issues/63):   Add patients marital status to the [Questionnaire](Questionnaire-order-referral-form.html) and the examples (e.g. [Bundle Order-Referral-Form](Bundle-bundle-order-referral-form.html)).
+* [ORF Issue #60](https://github.com/hl7ch/ch-orf/issues/60) and [Issue #63](https://github.com/hl7ch/ch-orf/issues/63):   Add patients marital status to the [Questionnaire](Questionnaire-order-referral-form.html) and the examples (e.g. [Bundle Order-Referral-Form](Bundle-bundle-order-referral-form.html)).
     
-* [Issue ORF#64](https://github.com/hl7ch/ch-orf/issues/64): Add patients language of correspondance to the [Questionnaire](Questionnaire-order-referral-form.html) and the examples (e.g. [Bundle Order-Referral-Form](Bundle-bundle-order-referral-form.html)).
+* [ORF Issue #64](https://github.com/hl7ch/ch-orf/issues/64): Add patients language of correspondance to the [Questionnaire](Questionnaire-order-referral-form.html) and the examples (e.g. [Bundle Order-Referral-Form](Bundle-bundle-order-referral-form.html)).
   
-* [Issue ORF#65](https://github.com/hl7ch/ch-orf/issues/65): Add 'ZSR' as Practitioner.identifier to the [Questionnaire](Questionnaire-order-referral-form.html) and the examples (e.g. [Bundle Order-Referral-Form](Bundle-bundle-order-referral-form.html)
+* [ORF Issue #65](https://github.com/hl7ch/ch-orf/issues/65): Add 'ZSR' as Practitioner.identifier to the [Questionnaire](Questionnaire-order-referral-form.html) and the examples (e.g. [Bundle Order-Referral-Form](Bundle-bundle-order-referral-form.html)
 
-* [Issue ORF#80](https://github.com/hl7ch/ch-orf/issues/80): Expansion of the [questionnaire](Questionnaire-order-referral-form.html) field 'coverage.self'. Differentiation between [patient himself](Coverage-CoverageSelfPatient.html) or [related person](Coverage-CoverageSelfRelatedPerson.html) as self-payer.
+* [ORF Issue #80](https://github.com/hl7ch/ch-orf/issues/80): Expansion of the [questionnaire](Questionnaire-order-referral-form.html) field 'coverage.self'. Differentiation between [patient himself](Coverage-CoverageSelfPatient.html) or [related person](Coverage-CoverageSelfRelatedPerson.html) as self-payer.
 
-* [Issue ORF#91](https://github.com/hl7ch/ch-orf/issues/91): Change source of the codes for [desired accommodation](ValueSet-ch-orf-vs-desiredaccommodation.html).
+* [ORF Issue #91](https://github.com/hl7ch/ch-orf/issues/91): Change source of the codes for [desired accommodation](ValueSet-ch-orf-vs-desiredaccommodation.html).
 
 #### Added
 * [Issue #2](https://github.com/hl7ch/ch-rad-order/issues/2): PDF added as original representation.
