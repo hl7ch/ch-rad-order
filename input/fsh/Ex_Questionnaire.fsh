@@ -29,7 +29,7 @@ Bsp: Fragestellung ist required ausser bei Bestllung alter Bider
 * url = "/http://fhir.ch/ig/ch-rad-order/StructureDefinition/QuestionnaireRadiologyOrder"
 * name = "QuestionnaireRadiologyOrder"
 * title = "Questionnaire Radiology Order"
-* derivedFrom = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-questionnaire"
+* derivedFrom = "http://fhir.ch/ig/ch-orf/Questionnaire/ch-orf-questionnaire"
 * status = #active
 * subjectType = #Patient
 * date = "2021-02-24"
