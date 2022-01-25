@@ -26,10 +26,10 @@ Bsp: Fragestellung ist required ausser bei Bestllung alter Bider
 * extension[2].extension[2].url = "description"
 * extension[2].extension[2].valueString = "The Bundle that is to be used to pre-populate the form"
 
-* url = "/http://fhir.ch/ig/ch-rad-order/StructureDefinition/QuestionnaireRadiologyOrder"
+* url = "http://fhir.ch/ig/ch-rad-order/Questionnaire/QuestionnaireRadiologyOrder"
 * name = "QuestionnaireRadiologyOrder"
 * title = "Questionnaire Radiology Order"
-* derivedFrom = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-questionnaire"
+* derivedFrom = "http://fhir.ch/ig/ch-orf/Questionnaire/ch-orf-questionnaire"
 * status = #active
 * subjectType = #Patient
 * date = "2021-02-24"

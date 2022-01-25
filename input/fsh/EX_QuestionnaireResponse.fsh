@@ -2,24 +2,12 @@ Instance: QuestionnaireResponseRadiologyOrder
 InstanceOf: ChOrfQuestionnaireResponse
 Title: "QuestionniaireResponse Radiology Order"
 Description: "Example for QuestionnaireResponse"
-* questionnaire = "/http://fhir.ch/ig/ch-rad-order/StructureDefinition/QuestionnaireRadiologyOrder"
+* questionnaire = "http://fhir.ch/ig/ch-rad-order/Questionnaire/QuestionnaireRadiologyOrder"
 * status = #completed
 
 // ---------- order (Auftrag) ----------
 * item[+].linkId = "order"
 * item[=].text = "Auftrag"
-
-* item[=].item[+].linkId = "order.title"
-* item[=].item[=].text = "Titel"
-* item[=].item[=].answer.valueString = "Anmeldung Radiologie"
-
-* item[=].item[+].linkId = "order.type"
-* item[=].item[=].text = "Typ"
-* item[=].item[=].answer.valueCoding = SNOMEDCTSwissExtension#2161000195103 "Imaging order (record artifact)"
-
-* item[=].item[+].linkId = "order.category"
-* item[=].item[=].text = "Kategorie"
-* item[=].item[=].answer.valueCoding = SCT#721963009 "Order (record artifact)"
 
 * item[=].item[+].linkId = "order.placerOrderIdentifier"
 * item[=].item[=].text = "Auftragsnummer des Auftraggebers"

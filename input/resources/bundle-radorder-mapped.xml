@@ -5,8 +5,9 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:uuid:099520c8-dd59-445a-a936-6217cc9e65a6"/>
   </identifier>
-  <type value="document"/>
+  <type value="searchset"/>
   <timestamp value="2021-06-17T10:32:28+00:00"/>
+<!-- TODO 
   <entry>
     <fullUrl value="urn:uuid:0050856e-bf48-4e2d-9ed9-3e4c47e7fecf"/>
     <resource>
@@ -750,6 +751,7 @@
           <item>
             <linkId value="caveat.bloodCoagulation"/>
             <text value="Beinträchtigte Blutgerinnung"/>
+-->
 <!-- raises an error in the ig publisher
             <answer>
               <valueBoolean value="true"/>
@@ -772,7 +774,7 @@ ca.uhn.fhir.rest.server.exceptions.UnprocessableEntityException: Expected answer
         at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195)
         at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
         at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:484)
--->
+
           </item>
           <item>
             <linkId value="caveat.renalInsufficiency"/>
@@ -2623,4 +2625,7 @@ ca.uhn.fhir.rest.server.exceptions.UnprocessableEntityException: Expected answer
       </Condition>
     </resource>
   </entry>
+
+  -->
+
 </Bundle>

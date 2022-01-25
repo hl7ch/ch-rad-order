@@ -220,8 +220,6 @@ group CaveatServiceItems(source src : BackboneElement, target patient : Patient,
             coding2.display = 'Renal insufficiency (disorder)',
         condition.subject as subject,
           subject.reference = ('urn:uuid:'+patient.id) then {
-            
-            // FIXME TODO answer.item as item2 where (linkId.value = 'caveat.renalInsufficiency.creatinineClearance') then RenalInsufficiencyCreatinineServiceItems(item2, patient, bundle, serviceRequest, condition) "RenalInsufficiencyCreatinineServiceItems";
             answer.item as item2 where (linkId.value = 'caveat.renalInsufficiency.creatinine') then RenalInsufficiencyCreatinineServiceItems(item2, patient, bundle, serviceRequest, condition) "RenalInsufficiencyCreatinineServiceItems";
           } "caveat.renalInsufficiency";
     } "answer.valueString";
@@ -403,7 +401,16 @@ group CaveatServiceItems(source src : BackboneElement, target patient : Patient,
     } "answer.valueString";
   } "item.answer";
 
-  src.item as item where (linkId.value = 'caveat.drugPrescription' and answer.exists()) then {
+
+  // "caveat.drugPrescription.metformin"
+  // caveat.drugPrescription.betaBlocke 
+  src.item as item where (linkId.value = 'caveat.drugPrescription') then DesiredRadiologistServiceItemsDrugDescription(item, bundle, serviceRequest) "DrugPrescription";
+}
+
+group DesiredRadiologistServiceItemsDrugDescription(source src : BackboneElement, target bundle : Bundle, target serviceRequest: ServiceRequest) {
+  src.item as item where (linkId.value = 'caveat.drugPrescription.metformin') then {
+    // FIXME add extension http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-type
+    // FIXME add extension http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-qualifier-value
     item.answer as answer then {
       answer.value: string as value -> 
         bundle.entry as e, 
@@ -414,22 +421,20 @@ group CaveatServiceItems(source src : BackboneElement, target patient : Patient,
           supportingInfo.reference = ('urn:uuid:'+uuid),
         condition.category as category,
           category.coding as coding,
-             coding.code = 'problem-list-item',
-             coding.system = 'http://terminology.hl7.org/CodeSystem/condition-category',
-             coding.display = 'Problem List Item',
+            coding.code = 'problem-list-item',
+            coding.system = 'http://terminology.hl7.org/CodeSystem/condition-category',
+            coding.display = 'Problem List Item',
         condition.code as code,
             code.coding as coding2,
-            coding2.code = '182817000',
+            coding2.code = '372567009',
             coding2.system = 'http://snomed.info/sct',
-            coding2.display = 'Drug prescription (situation)',
+            coding2.display = 'Metformin (substance)',
         condition.subject as subject,
-          subject.reference = ('urn:uuid:'+patient.id),
-        condition.note as note, note.text = value
+          subject.reference = ('urn:uuid:'+patient.id)
               "caveat.drugPrescription";
     } "answer.valueString";
-  } "item.answer";
-
-}
+  } "caveat.drugPrescription.metformin";
+}  
 
 group RenalInsufficiencyCreatinineServiceItems(source src : BackboneElement, target patient : Patient, target bundle : Bundle, target serviceRequest: ServiceRequest, target condition: Condition) {
   src -> bundle.entry as e, 
