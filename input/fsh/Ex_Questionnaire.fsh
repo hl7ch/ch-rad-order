@@ -26,7 +26,7 @@ Bsp: Fragestellung ist required ausser bei Bestllung alter Bider
 * extension[2].extension[2].url = "description"
 * extension[2].extension[2].valueString = "The Bundle that is to be used to pre-populate the form"
 
-* url = "/http://fhir.ch/ig/ch-rad-order/StructureDefinition/QuestionnaireRadiologyOrder"
+* url = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/QuestionnaireRadiologyOrder"
 * name = "QuestionnaireRadiologyOrder"
 * title = "Questionnaire Radiology Order"
 * derivedFrom = "http://fhir.ch/ig/ch-orf/Questionnaire/ch-orf-questionnaire"
@@ -1278,7 +1278,7 @@ is encoded as:
 */
 
 * item[=].item[=].item[+].linkId = "previousResults.imagingStudy.StudyInstanceUid"  
-* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy#ImagingStudy.identifer"
+* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy#ImagingStudy.identifier"
 * item[=].item[=].item[=].text = "DICOM Study Instance UID"
 * item[=].item[=].item[=].type = #string
 
@@ -1300,7 +1300,7 @@ is encoded as:
 */
 
 * item[=].item[=].item[+].linkId = "previousResults.imagingStudy.acsn"  
-* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy#ImagingStudy.identifer"
+* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy#ImagingStudy.identifier"
 * item[=].item[=].item[=].text = "ACSN"
 * item[=].item[=].item[=].type = #string
 

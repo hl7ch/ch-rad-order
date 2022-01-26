@@ -2,7 +2,7 @@ Instance: QuestionnaireResponseRadiologyOrder
 InstanceOf: ChOrfQuestionnaireResponse
 Title: "QuestionniaireResponse Radiology Order"
 Description: "Example for QuestionnaireResponse"
-* questionnaire = "/http://fhir.ch/ig/ch-rad-order/StructureDefinition/QuestionnaireRadiologyOrder"
+* questionnaire = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/QuestionnaireRadiologyOrder"
 * status = #completed
 
 // ---------- order (Auftrag) ----------
@@ -119,6 +119,9 @@ Description: "Example for QuestionnaireResponse"
 * item[=].item[=].item[=].item[=].text = "GLN"
 * item[=].item[=].item[=].item[=].answer.valueString = "7601000034321"
 
+* item[=].item[=].item[=].item[+].linkId = "sender.author.practitioner.zsr"
+* item[=].item[=].item[=].item[=].answer.valueString = ""
+
 * item[=].item[=].item[=].item[+].linkId = "sender.author.practitioner.phone"
 * item[=].item[=].item[=].item[=].text = "Telefon"
 * item[=].item[=].item[=].item[=].answer.valueString = "+41 44 333 22 11"
@@ -178,6 +181,23 @@ Description: "Example for QuestionnaireResponse"
 * item[+].linkId = "receiver"
 * item[=].text = "Empfänger"
 
+* item[=].item[+].linkId = "receiver.practitioner"
+
+* item[=].item[=].item[+].linkId = "receiver.practitioner.title"
+* item[=].item[=].item[=].answer.valueString = "Dr. med."
+
+* item[=].item[=].item[+].linkId = "receiver.practitioner.familyName"
+* item[=].item[=].item[=].answer.valueString = "Rderfiller"
+
+* item[=].item[=].item[+].linkId = "receiver.practitioner.givenName"
+* item[=].item[=].item[=].answer.valueString = "Ottilie"
+
+* item[=].item[=].item[+].linkId = "receiver.practitioner.gln"
+* item[=].item[=].item[=].answer.valueString = "7601000000000"
+
+* item[=].item[=].item[+].linkId = "receiver.practitioner.zsr"
+* item[=].item[=].item[=].answer.valueString = ""
+
 * item[=].item[+].linkId = "receiver.organization"
 * item[=].item[=].text = "Empfangende Organisation"
 
@@ -203,45 +223,27 @@ Description: "Example for QuestionnaireResponse"
 * item[=].item[=].item[=].answer.valueString = "Schweiz"
 
 // ---------- Copy Receiver ----------
-* item[+].linkId = "receiverCopies"
-* item[=].text = "Kopieempfänger"
+* item[+].linkId = "receiverCopy"
 
-* item[=].item[+].linkId = "receiverCopy"
-* item[=].item[=].text = "Kopieempfangende Organisation oder Person"
+* item[=].item[+].linkId = "receiverCopy.practitionerRole"
 
-* item[=].item[=].item[+].linkId = "receiverCopy.familyName"
-* item[=].item[=].item[=].text = "Name"
-* item[=].item[=].item[=].answer.valueString = "Ufferer"
+* item[=].item[=].item[+].linkId = "receiverCopy.practitionerRole.practitioner"
 
-* item[=].item[=].item[+].linkId = "receiverCopy.givenName"
-* item[=].item[=].item[=].text = "Vorname"
-* item[=].item[=].item[=].answer.valueString = "Susanna"
+* item[=].item[=].item[=].item[+].linkId = "receiverCopy.practitionerRole.practitioner.title"
+* item[=].item[=].item[=].item[=].answer.valueString = "Dr. med."
 
-* item[=].item[=].item[+].linkId = "receiverCopy.phone"
-* item[=].item[=].item[=].text = "Telefon"
-* item[=].item[=].item[=].answer.valueString = "+41 79 979 79 79"
+* item[=].item[=].item[=].item[+].linkId = "receiverCopy.practitionerRole.practitioner.familyName"
+* item[=].item[=].item[=].item[=].answer.valueString = "Ausarzt"
 
-* item[=].item[=].item[+].linkId = "receiverCopy.email"
-* item[=].item[=].item[=].text = "E-Mail"
-* item[=].item[=].item[=].answer.valueString = "susanna@ufferer.ch"
+* item[=].item[=].item[=].item[+].linkId = "receiverCopy.practitionerRole.practitioner.givenName"
+* item[=].item[=].item[=].item[=].answer.valueString = "Hans"
 
-* item[=].item[=].item[+].linkId = "receiverCopy.streetAddressLine"
-* item[=].item[=].item[=].text = "Strasse, Hausnummer, Postfach etc."
-* item[=].item[=].item[=].answer[+].valueString = "Musterweg"
-* item[=].item[=].item[=].answer[+].valueString = "6a"
+* item[=].item[=].item[=].item[+].linkId = "receiverCopy.practitionerRole.practitioner.email"
+* item[=].item[=].item[=].item[=].answer.valueString = "hans@ausarzt.ch"
 
-* item[=].item[=].item[+].linkId = "receiverCopy.postalCode"
-* item[=].item[=].item[=].text = "PLZ"
-* item[=].item[=].item[=].answer.valueString = "8000"
+* item[=].item[+].linkId = "receiverCopy.patient"
 
-* item[=].item[=].item[+].linkId = "receiverCopy.city"
-* item[=].item[=].item[=].text = "Ort"
-* item[=].item[=].item[=].answer.valueString = "Zürich"
-
-* item[=].item[=].item[+].linkId = "receiverCopy.country"
-* item[=].item[=].item[=].text = "Land"
-* item[=].item[=].item[=].answer.valueString = "Schweiz"
-
+* item[=].item[+].linkId = "receiverCopy.relatedPerson"
 
 /*------ Appointment ------------------------------ */
 * item[+].linkId = "appointment"
@@ -383,52 +385,64 @@ Darstellung der Diagnosen und Befunde
 Caveats   
  */
 * item[+].linkId = "caveat"
-* item[=].text = "Caveats"
 
 * item[=].item[+].linkId = "caveat.bloodCoagulation"
-* item[=].item[=].text = "Beinträchtigte Blutgerinnung"   
 * item[=].item[=].answer.valueCoding = SCT#52101004
-
 
 * item[=].item[+].linkId = "caveat.renalInsufficiency"
-* item[=].item[=].text = "Niereninsuffizienz"   
 * item[=].item[=].answer.valueCoding = SCT#52101004
+
 // Creatinin-Clearance
 * item[=].item[=].answer.item[+].linkId = "caveat.renalInsufficiency.creatinineClearance"    
-* item[=].item[=].answer.item[=].text = "Creatinin-Clearance"
 
 * item[=].item[=].answer.item[=].item[+].linkId = "caveat.renalInsufficiency.creatinineClearance.quantity"     
-* item[=].item[=].answer.item[=].item[=].text = "Wert (ml/min)"   
 * item[=].item[=].answer.item[=].item[=].answer.valueQuantity = 55 'mL/min'
 
 * item[=].item[=].answer.item[=].item[+].linkId = "caveat.renalInsufficiency.creatinineClearance.dateTime"     
-* item[=].item[=].answer.item[=].item[=].text = "Zeitpunkt der Bestimmung"   
 * item[=].item[=].answer.item[=].item[=].answer.valueDateTime = "2019-04-01T10:10:00.000+00:00"
+
 // Creatinin
 * item[=].item[=].answer.item[+].linkId = "caveat.renalInsufficiency.creatinine"    
-* item[=].item[=].answer.item[=].text = "Creatinin"
 
 * item[=].item[=].answer.item[=].item[+].linkId = "caveat.renalInsufficiency.creatinine.quantity"     
-* item[=].item[=].answer.item[=].item[=].text = "Wert (µmol/l)"   
 * item[=].item[=].answer.item[=].item[=].answer.valueQuantity = 90 'umol/L'
 
 * item[=].item[=].answer.item[=].item[+].linkId = "caveat.renalInsufficiency.creatinine.dateTime"     
-* item[=].item[=].answer.item[=].item[=].text = "Zeitpunkt der Bestimmung"   
 * item[=].item[=].answer.item[=].item[=].answer.valueDateTime = "2019-04-01T10:10:00.000+00:00"
 
+* item[=].item[+].linkId = "caveat.claustrophobia"  
+* item[=].item[=].answer.valueCoding = SCT#373068000
 
-* item[=].item[+].linkId = "caveat.bodyPiercing"
-* item[=].item[=].text = "Körperpiercing"   
-* item[=].item[=].answer.valueCoding = SCT#52101004
+* item[=].item[+].linkId = "caveat.bodyPiercing"    
+* item[=].item[=].answer.valueCoding = SCT#373068000
 
 * item[=].item[+].linkId = "caveat.device"
-* item[=].item[=].text = "Device (Herzschrittmacher, Herzklappenersatz, Insulinpumpe etc.)" 
-* item[=].item[=].answer.valueCoding = SCT#441509002 "Cardiac pacemaker in situ"
 
-* item[=].item[+].linkId = "caveat.drugPrescription"
-* item[=].item[=].text = "Relevante Medikamente, z.B. Metformin"
-* item[=].item[=].answer.valueCoding = SCT#372567009 "Metformin (substance)"
+* item[=].item[=].item[+].linkId = "caveat.device.specific.type"
+* item[=].item[=].item[=].answer.valueCoding = SCT#441509002
 
+* item[=].item[=].item[=].item[+].linkId = "caveat.device.choice"  
+* item[=].item[=].item[=].item[=].answer.valueCoding = SCT#52101004
+
+* item[=].item[+].linkId = "caveat.hyperthyroidism"
+* item[=].item[=].answer.valueCoding = SCT#373068000
+
+* item[=].item[+].linkId = "caveat.diabetes" 
+* item[=].item[=].answer.valueCoding = SCT#373068000
+
+* item[=].item[+].linkId = "caveat.gravida" 
+* item[=].item[=].answer.valueCoding = SCT#373068000
+
+* item[=].item[+].linkId = "caveat.contrastMediaAllergy"
+* item[=].item[=].answer.valueCoding = SCT#373068000
+
+* item[=].item[+].linkId = "caveat.drugPrescription" 
+
+* item[=].item[=].item[+].linkId = "caveat.drugPrescription.metformin"     
+* item[=].item[=].item[=].answer.valueCoding = SCT#373068000
+
+* item[=].item[=].item[+].linkId = "caveat.drugPrescription.betaBlocker"       
+* item[=].item[=].item[=].answer.valueCoding = SCT#373068000
 
 /* ---------------------------------------------------------------------------
 Vorherige Untersuchungsresultate:
