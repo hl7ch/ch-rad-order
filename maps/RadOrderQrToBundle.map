@@ -47,6 +47,9 @@ group RadOrderQrToServiceRequest(source qr : QuestionnaireResponse, target patie
   qr.item as grp where linkId='diagnosisList' then DiagnosisListServiceItems(grp, patient, bundle, serviceRequest) "diagnosisList";
   qr.item as grp where linkId='caveat' then CaveatServiceItems(grp, patient, bundle, serviceRequest) "Caveat";
   qr.item as grp where linkId='previousResults' then PreviousImagingStudyResults(grp, bundle, serviceRequest, patient) "previousResults";
+
+  // FIXME note, note.text
+
 }
 
 group RequestedServiceItems(source src : BackboneElement, target serviceRequest: ServiceRequest) {
@@ -150,6 +153,7 @@ group DesiredRadiologistServiceItems(source src : BackboneElement, target bundle
 }
 
 group DiagnosisListServiceItems(source src : BackboneElement, target patient : Patient, target bundle : Bundle, target serviceRequest: ServiceRequest) {
+  // FIXME missing diagnosisList.primaryDiagnosis
   src.item as item where (linkId.value = 'diagnosisList.secondaryDiagnosis' and answer.exists()) then {
     item.answer as answer then {
       answer.value: string as value -> 
@@ -171,6 +175,8 @@ group DiagnosisListServiceItems(source src : BackboneElement, target patient : P
               "diagnosisList.secondaryDiagnosis";
     } "answer.valueString";
   } "item.answer";
+  // FIXME missing diagnosisList.bodyHeight
+  // FIXME missing diagnosisList.bodyWeight
 }
 
 group CaveatServiceItems(source src : BackboneElement, target patient : Patient, target bundle : Bundle, target serviceRequest: ServiceRequest) {
@@ -197,6 +203,13 @@ group CaveatServiceItems(source src : BackboneElement, target patient : Patient,
           subject.reference = ('urn:uuid:'+patient.id)
               "caveat.bloodCoagulation";
     } "answer.valueString";
+
+    // FIXME caveat.bloodCoagulation.INR
+    // FIXME caveat.bloodCoagulation.INR.quantity
+    // FIXME caveat.bloodCoagulation.INR.dateTime
+    // FIXME caveat.bloodCoagulation.platelets
+    // FIXME caveat.bloodCoagulation.platelets.quantity
+    // FIXME caveat.bloodCoagulation.platelets.dateTime
   } "item.answer";
 
   src.item as item where (linkId.value = 'caveat.renalInsufficiency' and answer.exists()) then {
@@ -224,6 +237,7 @@ group CaveatServiceItems(source src : BackboneElement, target patient : Patient,
           } "caveat.renalInsufficiency";
     } "answer.valueString";
   } "item.answer";
+
 
   src.item as item where (linkId.value = 'caveat.claustrophobia' and answer.exists()) then {
     item.answer as answer then {
@@ -275,6 +289,8 @@ group CaveatServiceItems(source src : BackboneElement, target patient : Patient,
     } "answer.valueString";
   } "item.answer";
 
+  // FIXME caveat.device.specifictype
+  // FIXME caveat.device.choice
   src.item as item where (linkId.value = 'caveat.device' and answer.exists()) then {
     item.answer as answer then {
       answer.value: string as value -> 
@@ -437,6 +453,13 @@ group DesiredRadiologistServiceItemsDrugDescription(source src : BackboneElement
 }  
 
 group RenalInsufficiencyCreatinineServiceItems(source src : BackboneElement, target patient : Patient, target bundle : Bundle, target serviceRequest: ServiceRequest, target condition: Condition) {
+
+  // FIXME caveat.renalInsufficiency.creatinineClearance
+  // FIXME caveat.renalInsufficiency.creatinineClearance.quantity
+  // FIXME caveat.renalInsufficiency.creatinineClearance.dateTime
+  // FIXME caveat.renalInsufficiency.creatinine
+  // FIXME caveat.renalInsufficiency.creatinine.dateTime
+
   src -> bundle.entry as e, 
          e.resource = create('Observation') as observation, 
          observation.id = uuid() as uuid,
@@ -467,6 +490,13 @@ group RenalInsufficiencyCreatinineServiceItems(source src : BackboneElement, tar
 }
 
 group PreviousImagingStudyResults(source grp : BackboneElement, target bundle: Bundle, target serviceRequest: ServiceRequest, target patient: Patient) {
+  // FIXME  previousResults.attachment.data
+
+  // FIXME previousResults.imagingStudy.StudyInstanceUid
+  // FIXME previousResults.imagingStudy.acsn
+  // FIXME previousResults.imagingStudy.SeriesInstanceUid
+  // FIXME previousResults.imagingStudy.SopInstanceUid
+
   grp.item as item where (linkId.value = 'previousResults.imagingStudy') -> 
     bundle.entry as e, 
     e.resource = create('ImagingStudy') as imagingStudy, 

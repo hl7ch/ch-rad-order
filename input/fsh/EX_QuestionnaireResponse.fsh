@@ -119,9 +119,6 @@ Description: "Example for QuestionnaireResponse"
 * item[=].item[=].item[=].item[=].text = "GLN"
 * item[=].item[=].item[=].item[=].answer.valueString = "7601000034321"
 
-* item[=].item[=].item[=].item[+].linkId = "sender.author.practitioner.zsr"
-* item[=].item[=].item[=].item[=].answer.valueString = ""
-
 * item[=].item[=].item[=].item[+].linkId = "sender.author.practitioner.phone"
 * item[=].item[=].item[=].item[=].text = "Telefon"
 * item[=].item[=].item[=].item[=].answer.valueString = "+41 44 333 22 11"
@@ -194,9 +191,6 @@ Description: "Example for QuestionnaireResponse"
 
 * item[=].item[=].item[+].linkId = "receiver.practitioner.gln"
 * item[=].item[=].item[=].answer.valueString = "7601000000000"
-
-* item[=].item[=].item[+].linkId = "receiver.practitioner.zsr"
-* item[=].item[=].item[=].answer.valueString = ""
 
 * item[=].item[+].linkId = "receiver.organization"
 * item[=].item[=].text = "Empfangende Organisation"
@@ -418,11 +412,11 @@ Caveats
 
 * item[=].item[+].linkId = "caveat.device"
 
-* item[=].item[=].item[+].linkId = "caveat.device.specific.type"
+* item[=].item[=].item[+].linkId = "caveat.device.specifictype"
 * item[=].item[=].item[=].answer.valueCoding = SCT#441509002
 
-* item[=].item[=].item[=].item[+].linkId = "caveat.device.choice"  
-* item[=].item[=].item[=].item[=].answer.valueCoding = SCT#52101004
+* item[=].item[=].item[+].linkId = "caveat.device.choice"  
+* item[=].item[=].item[=].answer.valueCoding = SCT#52101004
 
 * item[=].item[+].linkId = "caveat.hyperthyroidism"
 * item[=].item[=].answer.valueCoding = SCT#373068000

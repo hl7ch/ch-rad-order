@@ -53,7 +53,7 @@ Description: "Example for Composition"
 * extension[copyReceiver].url = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-copyreceiver"
 * extension[copyReceiver].valueReference = Reference(SUffererCopyReceiver)
 * status = #final
-* type = SCT#2161000195103 "Imaging order (record artifact)"
+* type = urn:oid:2.16.756.5.30.1.127.3.4#2161000195103 "Imaging order (record artifact)"
 * category = SCT#721963009 "Order (record artifact)"
 * subject = Reference(SUfferer)
 * date = "2019-04-01T20:18:41.341+00:00"

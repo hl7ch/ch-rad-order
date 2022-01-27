@@ -1175,20 +1175,21 @@ Caveats
 * item[=].item[+].linkId = "caveat.device" 
 * item[=].item[=].text = "Device (Herzschrittmacher, Herzklappenersatz, Insulinpumpe etc.)"     
 * item[=].item[=].type = #group
-* item[=].item[=].required = true
+* item[=].item[=].repeats = true
 
-* item[=].item[=].item[+].linkId = "caveat.device.specific.type"
+* item[=].item[=].item[+].linkId = "caveat.device.specifictype"
+* item[=].item[=].item[=].text = "Device"     
 * item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#ch-rad-order-caveat-type"  
 * item[=].item[=].item[=].type = #choice
 * item[=].item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-caveat-device"
-* item[=].item[=].item[=].repeats = true
 
-* item[=].item[=].item[=].item[+].linkId = "caveat.device.choice"  
-* item[=].item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.code"  
-* item[=].item[=].item[=].item[=].type = #choice
-* item[=].item[=].item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-caveat-qualifier-value"
-* item[=].item[=].item[=].item[=].initial.valueCoding = SCT#373068000
-* item[=].item[=].item[=].item[=].required = true
+* item[=].item[=].item[+].linkId = "caveat.device.choice"  
+* item[=].item[=].item[=].text = "Choice"     
+* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.code"  
+* item[=].item[=].item[=].type = #choice
+* item[=].item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-caveat-qualifier-value"
+* item[=].item[=].item[=].initial.valueCoding = SCT#373068000
+* item[=].item[=].item[=].required = true
 
 * item[=].item[+].linkId = "caveat.hyperthyroidism"     
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.code"  
