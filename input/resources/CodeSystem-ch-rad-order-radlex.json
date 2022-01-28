@@ -1,0 +1,2566 @@
+{
+  "resourceType": "CodeSystem",
+  "status": "active",
+  "content": "complete",
+  "name": "ChRadLexExract",
+  "id": "ch-rad-order-radlex",
+  "title": "RadLex Extract",
+  "version": "0.1.0",
+  "url": "http://www.radlex.org",
+  "caseSensitive" : false,
+  "concept": [
+    {
+      "code": "RID88",
+      "display": "adrenal gland"
+    },
+    {
+      "code": "RID164",
+      "display": "Anus"
+    },
+    {
+      "code": "RID905",
+      "display": "Abdominal aorta"
+    },
+    {
+      "code": "RID879",
+      "display": "Thoracic aorta"
+    },
+    {
+      "code": "RID581",
+      "display": "aortic arch"
+    },
+    {
+      "code": "RID168",
+      "display": "Appendix"
+    },
+    {
+      "code": "RID45712",
+      "display": "set of biliary ducts"
+    },
+    {
+      "code": "RID49533",
+      "display": "celiac nerve plexus"
+    },
+    {
+      "code": "RID49538",
+      "display": "set of cerebral cisterns"
+    },
+    {
+      "code": "RID31011",
+      "display": "Colon"
+    },
+    {
+      "code": "RID28727",
+      "display": "Set of coronary arteries"
+    },
+    {
+      "code": "RID371",
+      "display": "epididymis"
+    },
+    {
+      "code": "RID95",
+      "display": "Esophagus"
+    },
+    {
+      "code": "RID187",
+      "display": "gallbladder"
+    },
+    {
+      "code": "RID1385",
+      "display": "heart"
+    },
+    {
+      "code": "RID38078",
+      "display": "hepatic artery"
+    },
+    {
+      "code": "RID7890",
+      "display": "Intervertebral disk"
+    },
+    {
+      "code": "RID6122",
+      "display": "Joint"
+    },
+    {
+      "code": "RID7589",
+      "display": "larynx"
+    },
+    {
+      "code": "RID58",
+      "display": "liver"
+    },
+    {
+      "code": "RID1301",
+      "display": "Lung"
+    },
+    {
+      "code": "RID35739",
+      "display": "Lung parenchyma"
+    },
+    {
+      "code": "RID1384",
+      "display": "Mediastinum"
+    },
+    {
+      "code": "RID170",
+      "display": "Pancreas"
+    },
+    {
+      "code": "RID38674",
+      "display": "Pituitary gland"
+    },
+    {
+      "code": "RID1362",
+      "display": "Pleura"
+    },
+    {
+      "code": "RID1363",
+      "display": "Pleural space"
+    },
+    {
+      "code": "RID28588",
+      "display": "Set of pulmonary veins"
+    },
+    {
+      "code": "RID163",
+      "display": "Rectum"
+    },
+    {
+      "code": "RID431",
+      "display": "RETROPERITONEUM"
+    },
+    {
+      "code": "RID49864",
+      "display": "Set of runoff vessels"
+    },
+    {
+      "code": "RID9286",
+      "display": "Sella turcica"
+    },
+    {
+      "code": "RID86",
+      "display": "Spleen"
+    },
+    {
+      "code": "RID237",
+      "display": "Urinary bladder"
+    },
+    {
+      "code": "RID39545",
+      "display": "Set of blood vessels"
+    },
+    {
+      "code": "RID28545",
+      "display": "Ankle"
+    },
+    {
+      "code": "RID38594",
+      "display": "bone marrow"
+    },
+    {
+      "code": "RID1854",
+      "display": "clavicle"
+    },
+    {
+      "code": "RID2524",
+      "display": "Coccyx"
+    },
+    {
+      "code": "RID2010",
+      "display": "elbow"
+    },
+    {
+      "code": "RID13284",
+      "display": "face"
+    },
+    {
+      "code": "RID28570",
+      "display": "set of facial bones"
+    },
+    {
+      "code": "RID2107",
+      "display": "forearm"
+    },
+    {
+      "code": "RID2945",
+      "display": "Hindfoot"
+    },
+    {
+      "code": "RID2639",
+      "display": "hip"
+    },
+    {
+      "code": "RID41021",
+      "display": "synovial cavity of joint"
+    },
+    {
+      "code": "RID2743",
+      "display": "knee"
+    },
+    {
+      "code": "RID2869",
+      "display": "Leg"
+    },
+    {
+      "code": "RID13296",
+      "display": "Lymph node"
+    },
+    {
+      "code": "RID35754",
+      "display": "Mastoid region"
+    },
+    {
+      "code": "RID9236",
+      "display": "Maxilla"
+    },
+    {
+      "code": "RID35812",
+      "display": "maxillofacial region"
+    },
+    {
+      "code": "RID2946",
+      "display": "Midfoot"
+    },
+    {
+      "code": "RID13196",
+      "display": "muscle organ"
+    },
+    {
+      "code": "RID9362",
+      "display": "Petrous part of temporal bone"
+    },
+    {
+      "code": "RID343",
+      "display": "Prostate"
+    },
+    {
+      "code": "RID39189",
+      "display": "respiratory system"
+    },
+    {
+      "code": "RID2577",
+      "display": "Sacroiliac joint"
+    },
+    {
+      "code": "RID2509",
+      "display": "Sacrum"
+    },
+    {
+      "code": "RID1860",
+      "display": "Scapula"
+    },
+    {
+      "code": "RID1852",
+      "display": "Shoulder girdle"
+    },
+    {
+      "code": "RID39518",
+      "display": "Shoulder"
+    },
+    {
+      "code": "RID4843",
+      "display": "Fistula"
+    },
+    {
+      "code": "RID28579",
+      "display": "Paranasal sinuses"
+    },
+    {
+      "code": "RID28731",
+      "display": "Base of cranium"
+    },
+    {
+      "code": "RID7741",
+      "display": "Spine"
+    },
+    {
+      "code": "RID34571",
+      "display": "Cervical vertebral column"
+    },
+    {
+      "code": "RID34573",
+      "display": "Lumbar vertebral column"
+    },
+    {
+      "code": "RID28677",
+      "display": "thoracic spine region"
+    },
+    {
+      "code": "RID1884",
+      "display": "Sternoclavicular joint"
+    },
+    {
+      "code": "RID399",
+      "display": "Subphrenic space"
+    },
+    {
+      "code": "RID13298",
+      "display": "portion of tissue"
+    },
+    {
+      "code": "RID1968",
+      "display": "Arm"
+    },
+    {
+      "code": "RID302",
+      "display": "Uterus"
+    },
+    {
+      "code": "RID49537",
+      "display": "Vasculature of kidney"
+    },
+    {
+      "code": "RID28600",
+      "display": "Circle of Willis"
+    },
+    {
+      "code": "RID49861",
+      "display": "joint of lower extremity"
+    },
+    {
+      "code": "RID49862",
+      "display": "joint of upper extremity"
+    },
+    {
+      "code": "RID1245",
+      "display": "Airway"
+    },
+    {
+      "code": "RID229",
+      "display": "Ureter"
+    },
+    {
+      "code": "RID2662",
+      "display": "femur"
+    },
+    {
+      "code": "RID9361",
+      "display": "Temporal bone"
+    },
+    {
+      "code": "RID49873",
+      "display": "set of teeth"
+    },
+    {
+      "code": "RID132",
+      "display": "Small intestine"
+    },
+    {
+      "code": "RID205",
+      "display": "kidney"
+    },
+    {
+      "code": "RID28586",
+      "display": "Set of pulmonary arteries"
+    },
+    {
+      "code": "RID28601",
+      "display": "orbits"
+    },
+    {
+      "code": "RID1178",
+      "display": "Inferior vena cava"
+    },
+    {
+      "code": "RID1010",
+      "display": "Superior vena cava"
+    },
+    {
+      "code": "RID7202",
+      "display": "Brachial plexus"
+    },
+    {
+      "code": "RID34890",
+      "display": "Urethra"
+    },
+    {
+      "code": "RID7578",
+      "display": "thyroid gland"
+    },
+    {
+      "code": "RID2660",
+      "display": "Thigh"
+    },
+    {
+      "code": "RID49939",
+      "display": "Set of superior mesenteric vessels"
+    },
+    {
+      "code": "RID773",
+      "display": "Subclavian artery"
+    },
+    {
+      "code": "RID2473",
+      "display": "Sternum"
+    },
+    {
+      "code": "RID13421",
+      "display": "Salivary gland"
+    },
+    {
+      "code": "RID1184",
+      "display": "Renal vein"
+    },
+    {
+      "code": "RID936",
+      "display": "Renal artery"
+    },
+    {
+      "code": "RID49865",
+      "display": "Set of pulmonary vessels"
+    },
+    {
+      "code": "RID35735",
+      "display": "Posterior cranial fossa"
+    },
+    {
+      "code": "RID1208",
+      "display": "Portal vein"
+    },
+    {
+      "code": "RID6434",
+      "display": "brain"
+    },
+    {
+      "code": "RID7587",
+      "display": "Parathyroid gland"
+    },
+    {
+      "code": "RID290",
+      "display": "Ovary"
+    },
+    {
+      "code": "RID43410",
+      "display": "Set of nasal bones"
+    },
+    {
+      "code": "RID9392",
+      "display": "internal auditory canal"
+    },
+    {
+      "code": "RID176",
+      "display": "pancreatic duct"
+    },
+    {
+      "code": "RID49921",
+      "display": "Set of abdominal vessels"
+    },
+    {
+      "code": "RID49931",
+      "display": "Set of neck vessels"
+    },
+    {
+      "code": "RID49926",
+      "display": "Set of head vessels"
+    },
+    {
+      "code": "RID49933",
+      "display": "Set of pelvis vessels"
+    },
+    {
+      "code": "RID49934",
+      "display": "Set of shoulder vessels"
+    },
+    {
+      "code": "RID49863",
+      "display": "Set of upper extremity vessels"
+    },
+    {
+      "code": "RID49928",
+      "display": "Set of lower extremity vessels"
+    },
+    {
+      "code": "RID49927",
+      "display": "Set of knee vessels"
+    },
+    {
+      "code": "RID49945",
+      "display": "Set of wrist vessels"
+    },
+    {
+      "code": "RID49940",
+      "display": "Set of thigh vessels"
+    },
+    {
+      "code": "RID49929",
+      "display": "Set of lower leg vessels"
+    },
+    {
+      "code": "RID1179",
+      "display": "hepatic vein"
+    },
+    {
+      "code": "RID49930",
+      "display": "Set of neck veins"
+    },
+    {
+      "code": "RID49922",
+      "display": "Set of ankle vessels"
+    },
+    {
+      "code": "RID49924",
+      "display": "Set of foot vessels"
+    },
+    {
+      "code": "RID49925",
+      "display": "Set of forearm vessels"
+    },
+    {
+      "code": "RID49959",
+      "display": "Set of carotid vessels"
+    },
+    {
+      "code": "RID2392",
+      "display": "Thumb"
+    },
+    {
+      "code": "RID2885",
+      "display": "Tibia"
+    },
+    {
+      "code": "RID2871",
+      "display": "Fibula"
+    },
+    {
+      "code": "RID49923",
+      "display": "Set of extremity vessels"
+    },
+    {
+      "code": "RID49932",
+      "display": "Set of orbit vessels"
+    },
+    {
+      "code": "RID49944",
+      "display": "Set of upper extremity veins"
+    },
+    {
+      "code": "RID49938",
+      "display": "Set of thoracic spine vessels"
+    },
+    {
+      "code": "RID49936",
+      "display": "Set of cervical spine vessels"
+    },
+    {
+      "code": "RID49937",
+      "display": "Set of lumbar spine vessels"
+    },
+    {
+      "code": "RID49935",
+      "display": "Set of spine vessels"
+    },
+    {
+      "code": "RID28744",
+      "display": "Parotid gland"
+    },
+    {
+      "code": "RID13190",
+      "display": "Set of cranial nerves"
+    },
+    {
+      "code": "RID6677",
+      "display": "Brainstem"
+    },
+    {
+      "code": "RID49943",
+      "display": "set of tributaries"
+    },
+    {
+      "code": "RID1155",
+      "display": "Spinal vein"
+    },
+    {
+      "code": "RID49942",
+      "display": "Set of tibioperoneal vessels"
+    },
+    {
+      "code": "RID9779",
+      "display": "Temporomandibular joint"
+    },
+    {
+      "code": "RID49941",
+      "display": "Set of thoracic inlet vessels"
+    },
+    {
+      "code": "RID49962",
+      "display": "Set of chest vessels"
+    },
+    {
+      "code": "RID6392",
+      "display": "Temporal brain region"
+    },
+    {
+      "code": "RID49958",
+      "display": "Set of adrenal vessels"
+    },
+    {
+      "code": "RID1895",
+      "display": "acromioclavicular joint"
+    },
+    {
+      "code": "RID49957",
+      "display": "Set of abdominal veins"
+    },
+    {
+      "code": "RID49969",
+      "display": "Set of lower extremity veins"
+    },
+    {
+      "code": "RID49960",
+      "display": "Set of celiac vessels"
+    },
+    {
+      "code": "RID28587",
+      "display": "Set of veins"
+    },
+    {
+      "code": "RID49964",
+      "display": "Set of extremity veins"
+    },
+    {
+      "code": "RID49965",
+      "display": "Set of femoral vessels"
+    },
+    {
+      "code": "RID10003",
+      "display": "Oropharynx"
+    },
+    {
+      "code": "RID13211",
+      "display": "pharynx"
+    },
+    {
+      "code": "RID9990",
+      "display": "Nasopharynx"
+    },
+    {
+      "code": "RID49968",
+      "display": "Set of head veins"
+    },
+    {
+      "code": "RID49971",
+      "display": "Set of pelvis veins"
+    },
+    {
+      "code": "RID49961",
+      "display": "Set of chest veins"
+    },
+    {
+      "code": "RID49967",
+      "display": "Set of head arteries"
+    },
+    {
+      "code": "RID7456",
+      "display": "Lumbosacral plexus"
+    },
+    {
+      "code": "RID38761",
+      "display": "Femoral artery"
+    },
+    {
+      "code": "RID962",
+      "display": "Popliteal artery"
+    },
+    {
+      "code": "RID49963",
+      "display": "Set of extremity arteries"
+    },
+    {
+      "code": "RID49970",
+      "display": "Set of ovarian vessels"
+    },
+    {
+      "code": "RID34550",
+      "display": "Eye"
+    },
+    {
+      "code": "RID49966",
+      "display": "Set of hand vessels"
+    },
+    {
+      "code": "RID2470",
+      "display": "axilla"
+    },
+    {
+      "code": "RID49541",
+      "display": "Set of iliac vessels"
+    },
+    {
+      "code": "RID1008",
+      "display": "Vein"
+    },
+    {
+      "code": "RID49981",
+      "display": "Extremity vein"
+    },
+    {
+      "code": "RID49983",
+      "display": "Upper extremity vein"
+    },
+    {
+      "code": "RID49982",
+      "display": "Lower extremity vein"
+    },
+    {
+      "code": "RID582",
+      "display": "Brachiocephalic artery"
+    },
+    {
+      "code": "RID1199",
+      "display": "Femoral vein"
+    },
+    {
+      "code": "RID1201",
+      "display": "Popliteal vein"
+    },
+    {
+      "code": "RID49976",
+      "display": "Upper extremity artery"
+    },
+    {
+      "code": "RID49975",
+      "display": "Lower extremity artery"
+    },
+    {
+      "code": "RID49974",
+      "display": "Extremity artery"
+    },
+    {
+      "code": "RID43579",
+      "display": "Set of fallopian tubes"
+    },
+    {
+      "code": "RID35730",
+      "display": "Portion of soft tissue"
+    },
+    {
+      "code": "RID13209",
+      "display": "musculoskeletal system"
+    },
+    {
+      "code": "RID2868",
+      "display": "Popliteal fossa"
+    },
+    {
+      "code": "RID49825",
+      "display": "set of penis vessels"
+    },
+    {
+      "code": "RID6067",
+      "display": "tendon"
+    },
+    {
+      "code": "RID49972",
+      "display": "lactiferous duct"
+    },
+    {
+      "code": "RID2314",
+      "display": "Carpal tunnel"
+    },
+    {
+      "code": "RID49979",
+      "display": "Upper extremity vessel"
+    },
+    {
+      "code": "RID49978",
+      "display": "Lower extremity vessel"
+    },
+    {
+      "code": "RID39553",
+      "display": "Set of iliac arteries"
+    },
+    {
+      "code": "RID945",
+      "display": "Internal iliac artery"
+    },
+    {
+      "code": "RID29994",
+      "display": "right upper quadrant of abdomen"
+    },
+    {
+      "code": "RID1524",
+      "display": "diaphragm"
+    },
+    {
+      "code": "RID30014",
+      "display": "wall of abdomen"
+    },
+    {
+      "code": "RID50046",
+      "display": "Set of breast vessels"
+    },
+    {
+      "code": "RID2468",
+      "display": "Chest wall"
+    },
+    {
+      "code": "RID476",
+      "display": "inguinal part of abdomen"
+    },
+    {
+      "code": "RID50047",
+      "display": "set of mesenteric arteries"
+    },
+    {
+      "code": "RID49534",
+      "display": "Set of cerebral arteries"
+    },
+    {
+      "code": "RID38751",
+      "display": "Set of carotid arteries"
+    },
+    {
+      "code": "RID397",
+      "display": "Peritoneal cavity"
+    },
+    {
+      "code": "RID50044",
+      "display": "set of subclavian vessels"
+    },
+    {
+      "code": "RID122",
+      "display": "Pylorus"
+    },
+    {
+      "code": "RID3331",
+      "display": "pseudoaneurysm"
+    },
+    {
+      "code": "RID50045",
+      "display": "Set of testicular vessels"
+    },
+    {
+      "code": "RID50048",
+      "display": "Endomyocardium"
+    },
+    {
+      "code": "RID1408",
+      "display": "Pericardial cavity"
+    },
+    {
+      "code": "RID7361",
+      "display": "Spinal cord"
+    },
+    {
+      "code": "RID34557",
+      "display": "placenta"
+    },
+    {
+      "code": "RID478",
+      "display": "artery"
+    },
+    {
+      "code": "RID94",
+      "display": "gastrointestinal tract"
+    },
+    {
+      "code": "RID43244",
+      "display": "Genitourinary system"
+    },
+    {
+      "code": "RID50038",
+      "display": "visceral artery"
+    },
+    {
+      "code": "RID50039",
+      "display": "iliac artery graft"
+    },
+    {
+      "code": "RID39570",
+      "display": "skull base to mid-thigh"
+    },
+    {
+      "code": "RID13197",
+      "display": "bone organ"
+    },
+    {
+      "code": "RID28569",
+      "display": "set of bone organs"
+    },
+    {
+      "code": "RID114",
+      "display": "stomach"
+    },
+    {
+      "code": "RID34436",
+      "display": "Long bone"
+    },
+    {
+      "code": "RID49727",
+      "display": "cortex of kidney"
+    },
+    {
+      "code": "RID49640",
+      "display": "Set of lymph vessels"
+    },
+    {
+      "code": "RID28575",
+      "display": "Lacrimal ducts"
+    },
+    {
+      "code": "RID49467",
+      "display": "Axial skeleton"
+    },
+    {
+      "code": "RID50049",
+      "display": "Peripheral skeletal system"
+    },
+    {
+      "code": "RID1392",
+      "display": "Left ventricle"
+    },
+    {
+      "code": "RID365",
+      "display": "Scrotum"
+    },
+    {
+      "code": "RID366",
+      "display": "Testis"
+    },
+    {
+      "code": "RID4",
+      "display": "Blood vessel"
+    },
+    {
+      "code": "RID28591",
+      "display": "set of ribs"
+    },
+    {
+      "code": "RID2746",
+      "display": "Patella"
+    },
+    {
+      "code": "RID2109",
+      "display": "Radius"
+    },
+    {
+      "code": "RID2119",
+      "display": "Ulna"
+    },
+    {
+      "code": "RID1971",
+      "display": "Humerus"
+    },
+    {
+      "code": "RID2177",
+      "display": "Wrist"
+    },
+    {
+      "code": "RID28829",
+      "display": "foot"
+    },
+    {
+      "code": "RID2992",
+      "display": "Toe"
+    },
+    {
+      "code": "RID28757",
+      "display": "set of toes"
+    },
+    {
+      "code": "RID2996",
+      "display": "Second toe"
+    },
+    {
+      "code": "RID2997",
+      "display": "Third toe"
+    },
+    {
+      "code": "RID2998",
+      "display": "Fourth toe"
+    },
+    {
+      "code": "RID2999",
+      "display": "Fifth toe"
+    },
+    {
+      "code": "RID2959",
+      "display": "calcaneus"
+    },
+    {
+      "code": "RID35798",
+      "display": "Sesamoid bone of foot"
+    },
+    {
+      "code": "RID2318",
+      "display": "hand"
+    },
+    {
+      "code": "RID9196",
+      "display": "skull"
+    },
+    {
+      "code": "RID9082",
+      "display": "Mandible"
+    },
+    {
+      "code": "RID50164",
+      "display": "posterior ends of lower ribs"
+    },
+    {
+      "code": "RID50165",
+      "display": "posterior ends of upper ribs"
+    },
+    {
+      "code": "RID28581",
+      "display": "posterior ends of ribs"
+    },
+    {
+      "code": "RID28597",
+      "display": "anterior ends of upper ribs"
+    },
+    {
+      "code": "RID50166",
+      "display": "set of upper ribs"
+    },
+    {
+      "code": "RID50168",
+      "display": "anterior ends of ribs"
+    },
+    {
+      "code": "RID50167",
+      "display": "set of lower ribs"
+    },
+    {
+      "code": "RID774",
+      "display": "vertebral artery"
+    },
+    {
+      "code": "RID2391",
+      "display": "Finger"
+    },
+    {
+      "code": "RID2394",
+      "display": "Index finger"
+    },
+    {
+      "code": "RID2396",
+      "display": "Long finger"
+    },
+    {
+      "code": "RID2398",
+      "display": "Ring finger"
+    },
+    {
+      "code": "RID2400",
+      "display": "Small finger"
+    },
+    {
+      "code": "RID2993",
+      "display": "Great toe"
+    },
+    {
+      "code": "RID2564",
+      "display": "Acetabulum"
+    },
+    {
+      "code": "RID50279",
+      "display": "set of orbit veins"
+    },
+    {
+      "code": "RID50267",
+      "display": "Head artery"
+    },
+    {
+      "code": "RID50382",
+      "display": "Neck artery"
+    },
+    {
+      "code": "RID43693",
+      "display": "Optic foramen"
+    },
+    {
+      "code": "RID28599",
+      "display": "zygomatic arch"
+    },
+    {
+      "code": "RID50380",
+      "display": "Set of lower extremity arteries"
+    },
+    {
+      "code": "RID50381",
+      "display": "Set of upper extremity arteries"
+    },
+    {
+      "code": "RID50379",
+      "display": "Set of ankle arteries"
+    },
+    {
+      "code": "RID49636",
+      "display": "set of tibio-peroneal arteries"
+    },
+    {
+      "code": "RID28726",
+      "display": "Cervicothoracic spine region"
+    },
+    {
+      "code": "RID28734",
+      "display": "Lumbosacral junction"
+    },
+    {
+      "code": "RID28739",
+      "display": "Thoracolumbar junction"
+    },
+    {
+      "code": "RID684",
+      "display": "External carotid artery"
+    },
+    {
+      "code": "RID584",
+      "display": "Common carotid artery"
+    },
+    {
+      "code": "RID865",
+      "display": "brachial artery"
+    },
+    {
+      "code": "RID34819",
+      "display": "Adrenal vein"
+    },
+    {
+      "code": "RID295",
+      "display": "uterine tube"
+    },
+    {
+      "code": "RID1980",
+      "display": "Bicipital groove of humerus"
+    },
+    {
+      "code": "RID935",
+      "display": "Adrenal artery"
+    },
+    {
+      "code": "RID50162",
+      "display": "skull vertex to mid-thigh"
+    },
+    {
+      "code": "RID50170",
+      "display": "portion of oral tissue"
+    },
+    {
+      "code": "RID28742",
+      "display": "Superior mediastinum"
+    },
+    {
+      "code": "RID2594",
+      "display": "Symphysis pubis"
+    },
+    {
+      "code": "RID39681",
+      "display": "Olecranon"
+    },
+    {
+      "code": "RID50281",
+      "display": "Spinal vessel"
+    },
+    {
+      "code": "RID50270",
+      "display": "Adrenal vessel"
+    },
+    {
+      "code": "RID7749",
+      "display": "Dens"
+    },
+    {
+      "code": "RID7747",
+      "display": "Axis"
+    },
+    {
+      "code": "RID1247",
+      "display": "trachea"
+    },
+    {
+      "code": "RID50173",
+      "display": "set of bones from skull base to mid-thigh"
+    },
+    {
+      "code": "RID5588",
+      "display": "Shunt catheter"
+    },
+    {
+      "code": "RID29665",
+      "display": "upper gastrointestinal tract"
+    },
+    {
+      "code": "RID362",
+      "display": "penis"
+    },
+    {
+      "code": "RID35951",
+      "display": "Pancreatic artery"
+    },
+    {
+      "code": "RID906",
+      "display": "Celiac artery"
+    },
+    {
+      "code": "RID1212",
+      "display": "Superior mesenteric vein"
+    },
+    {
+      "code": "RID1209",
+      "display": "splenic vein"
+    },
+    {
+      "code": "RID50276",
+      "display": "set of pelvic arteries"
+    },
+    {
+      "code": "RID955",
+      "display": "uterine artery"
+    },
+    {
+      "code": "RID908",
+      "display": "Left gastric artery"
+    },
+    {
+      "code": "RID50277",
+      "display": "st of urinary bladder arteries"
+    },
+    {
+      "code": "RID7901",
+      "display": "Facet joint of spine"
+    },
+    {
+      "code": "RID148",
+      "display": "Jejunum"
+    },
+    {
+      "code": "RID410",
+      "display": "peritoneum"
+    },
+    {
+      "code": "RID9968",
+      "display": "Submandibular gland"
+    },
+    {
+      "code": "RID5555",
+      "display": "Tube"
+    },
+    {
+      "code": "RID1430",
+      "display": "Thymus"
+    },
+    {
+      "code": "RID823",
+      "display": "internal thoracic artery"
+    },
+    {
+      "code": "RID358",
+      "display": "Vas deferens"
+    },
+    {
+      "code": "RID31305",
+      "display": "Set of abdominal lymphatic vessels"
+    },
+    {
+      "code": "RID50274",
+      "display": "set of pelvic lymphatic vessels"
+    },
+    {
+      "code": "RID1211",
+      "display": "Inferior mesenteric vein"
+    },
+    {
+      "code": "RID910",
+      "display": "Gastroduodenal artery"
+    },
+    {
+      "code": "RID34563",
+      "display": "cervical vertebral arch joint"
+    },
+    {
+      "code": "RID50266",
+      "display": "Renal vessel"
+    },
+    {
+      "code": "RID49729",
+      "display": "Set of renal arteries"
+    },
+    {
+      "code": "RID50393",
+      "display": "Set of abdominal arteries"
+    },
+    {
+      "code": "RID921",
+      "display": "Splenic artery"
+    },
+    {
+      "code": "RID50284",
+      "display": "Mesenteric artery"
+    },
+    {
+      "code": "RID5598",
+      "display": "Stent"
+    },
+    {
+      "code": "RID7111",
+      "display": "epidural space"
+    },
+    {
+      "code": "RID6135",
+      "display": "Spinal canal"
+    },
+    {
+      "code": "RID7119",
+      "display": "Subarachnoid space"
+    },
+    {
+      "code": "RID5576",
+      "display": "Catheter"
+    },
+    {
+      "code": "RID927",
+      "display": "Superior mesenteric artery"
+    },
+    {
+      "code": "RID939",
+      "display": "Inferior mesenteric artery"
+    },
+    {
+      "code": "RID50283",
+      "display": "Cerebral artery"
+    },
+    {
+      "code": "RID7195",
+      "display": "Peripheral nerve"
+    },
+    {
+      "code": "RID50285",
+      "display": "Thoracic artery"
+    },
+    {
+      "code": "RID50275",
+      "display": "Set of Extremity lymphatic vessels"
+    },
+    {
+      "code": "RID954",
+      "display": "Internal pudendal artery"
+    },
+    {
+      "code": "RID734",
+      "display": "Maxillary artery"
+    },
+    {
+      "code": "RID50272",
+      "display": "Peripheral artery"
+    },
+    {
+      "code": "RID50273",
+      "display": "Spinal artery"
+    },
+    {
+      "code": "RID38279",
+      "display": "Intrahepatic branch of portal vein"
+    },
+    {
+      "code": "RID20052",
+      "display": "Lumbar segment of spinal epidural space"
+    },
+    {
+      "code": "RID20051",
+      "display": "Thoracic segment of spinal epidural space"
+    },
+    {
+      "code": "RID586",
+      "display": "Cervical portion of internal carotid artery"
+    },
+    {
+      "code": "RID50377",
+      "display": "Set of hepatic veins"
+    },
+    {
+      "code": "RID50280",
+      "display": "set of vertebral vessels"
+    },
+    {
+      "code": "RID1013",
+      "display": "Subclavian vein"
+    },
+    {
+      "code": "RID35904",
+      "display": "subdivision of cerebral part of internal carotid artery"
+    },
+    {
+      "code": "RID585",
+      "display": "Internal carotid artery"
+    },
+    {
+      "code": "RID35846",
+      "display": "subdivision of common carotid artery"
+    },
+    {
+      "code": "RID605",
+      "display": "Cerebral part of internal carotid artery"
+    },
+    {
+      "code": "RID50269",
+      "display": "Femoral vessel"
+    },
+    {
+      "code": "RID50271",
+      "display": "Extremity vessel"
+    },
+    {
+      "code": "RID50268",
+      "display": "Intracranial vessel"
+    },
+    {
+      "code": "RID199",
+      "display": "Common bile duct"
+    },
+    {
+      "code": "RID34474",
+      "display": "Dural venous sinus"
+    },
+    {
+      "code": "RID50383",
+      "display": "Neck vessel"
+    },
+    {
+      "code": "RID34445",
+      "display": "Cerebral vein"
+    },
+    {
+      "code": "RID22795",
+      "display": "Intercostal nerve"
+    },
+    {
+      "code": "RID50378",
+      "display": "Set of visceral vessels"
+    },
+    {
+      "code": "RID50286",
+      "display": "set of intraosseous veins"
+    },
+    {
+      "code": "RID357",
+      "display": "seminal vesicle"
+    },
+    {
+      "code": "RID50384",
+      "display": "Set of pedal lymphatic vessels"
+    },
+    {
+      "code": "RID31553",
+      "display": "Cervical part of esophagus"
+    },
+    {
+      "code": "RID10021",
+      "display": "Hypopharynx"
+    },
+    {
+      "code": "RID13208",
+      "display": "Skeletal system"
+    },
+    {
+      "code": "RID325",
+      "display": "Vagina"
+    },
+    {
+      "code": "RID884",
+      "display": "Intercostal artery"
+    },
+    {
+      "code": "RID49542",
+      "display": "Set of visceral arteries"
+    },
+    {
+      "code": "RID49535",
+      "display": "set of cerebral sinuses"
+    },
+    {
+      "code": "RID1169",
+      "display": "Azygos vein"
+    },
+    {
+      "code": "RID49539",
+      "display": "Set of cervical arteries"
+    },
+    {
+      "code": "RID4851",
+      "display": "arteriovenous fistula"
+    },
+    {
+      "code": "RID880",
+      "display": "Bronchial artery"
+    },
+    {
+      "code": "RID1156",
+      "display": "Epidural venous plexus"
+    },
+    {
+      "code": "RID50287",
+      "display": "Set of extracranial vessels"
+    },
+    {
+      "code": "RID35944",
+      "display": "Infrarenal aorta"
+    },
+    {
+      "code": "RID50392",
+      "display": "Cervical intervertebral disk"
+    },
+    {
+      "code": "RID30383",
+      "display": "Lymphatic vessel"
+    },
+    {
+      "code": "RID39344",
+      "display": "small joint"
+    },
+    {
+      "code": "RID39345",
+      "display": "medium-sized joint"
+    },
+    {
+      "code": "RID39343",
+      "display": "major joint"
+    },
+    {
+      "code": "RID13189",
+      "display": "nerve"
+    },
+    {
+      "code": "RID50342",
+      "display": "Lower leg vessel"
+    },
+    {
+      "code": "RID18593",
+      "display": "nerve root"
+    },
+    {
+      "code": "RID29154",
+      "display": "Vertebra"
+    },
+    {
+      "code": "RID2527",
+      "display": "Pelvic bone"
+    },
+    {
+      "code": "RID1394",
+      "display": "Aortic valve"
+    },
+    {
+      "code": "RID13091",
+      "display": "Inferior epigastric artery"
+    },
+    {
+      "code": "RID50363",
+      "display": "Set of mesenteric vessels"
+    },
+    {
+      "code": "RID9279",
+      "display": "Maxillary dental arcade"
+    },
+    {
+      "code": "RID9106",
+      "display": "Mandibular dental arcade"
+    },
+    {
+      "code": "RID50362",
+      "display": "Set of hepatic vessels"
+    },
+    {
+      "code": "RID1024",
+      "display": "internal jugular vein"
+    },
+    {
+      "code": "RID150",
+      "display": "Ileum"
+    },
+    {
+      "code": "RID434",
+      "display": "Perirenal space"
+    },
+    {
+      "code": "RID2947",
+      "display": "Forefoot"
+    },
+    {
+      "code": "RID28680",
+      "display": "Perirectal region"
+    },
+    {
+      "code": "RID28830",
+      "display": "Lumbar intervertebral disk"
+    },
+    {
+      "code": "RID482",
+      "display": "Supraaortic valve area"
+    },
+    {
+      "code": "RID6071",
+      "display": "Ligament organ"
+    },
+    {
+      "code": "RID3003",
+      "display": "Joint of ankle or foot"
+    },
+    {
+      "code": "RID50528",
+      "display": "Sacral segment of spinal epidural space"
+    },
+    {
+      "code": "RID20050",
+      "display": "Cervical segment of spinal epidural space"
+    },
+    {
+      "code": "RID56",
+      "display": "Abdomen"
+    },
+    {
+      "code": "RID28749",
+      "display": "breast"
+    },
+    {
+      "code": "RID1243",
+      "display": "Thorax"
+    },
+    {
+      "code": "RID13202",
+      "display": "limb of body"
+    },
+    {
+      "code": "RID9080",
+      "display": "head"
+    },
+    {
+      "code": "RID2638",
+      "display": "Lower extremity"
+    },
+    {
+      "code": "RID7488",
+      "display": "neck"
+    },
+    {
+      "code": "RID2507",
+      "display": "Pelvis"
+    },
+    {
+      "code": "RID1850",
+      "display": "Upper extremity"
+    },
+    {
+      "code": "RID39569",
+      "display": "whole body"
+    },
+    {
+      "code": "RID35962",
+      "display": "umbilical artery"
+    },
+    {
+      "code": "RID34558",
+      "display": "Umbilical Cord"
+    },
+    {
+      "code": "RID50043",
+      "display": "set of umbilical vessels"
+    },
+    {
+      "code": "RID665",
+      "display": "middle cerebral artery"
+    },
+    {
+      "code": "RID6062",
+      "display": "Body region"
+    },
+    {
+      "code": "RID5771",
+      "display": "Bilateral"
+    },
+    {
+      "code": "RID5824",
+      "display": "LEFT"
+    },
+    {
+      "code": "RID5825",
+      "display": "RIGHT"
+    },
+    {
+      "code": "RID49843",
+      "display": "Unspecified laterality"
+    },
+    {
+      "code": "RID38593",
+      "display": "Unilateral"
+    },
+    {
+      "code": "RID50075",
+      "display": "Extension maneuver"
+    },
+    {
+      "code": "RID50069",
+      "display": "Flexion maneuver"
+    },
+    {
+      "code": "RID10475",
+      "display": "Stress maneuver"
+    },
+    {
+      "code": "RID12535",
+      "display": "at rest"
+    },
+    {
+      "code": "RID10477",
+      "display": "exercise stress maneuver"
+    },
+    {
+      "code": "RID50035",
+      "display": "Single state of exercise"
+    },
+    {
+      "code": "RID50036",
+      "display": "Multiple states of exercise"
+    },
+    {
+      "code": "RID10467",
+      "display": "exhalation maneuver"
+    },
+    {
+      "code": "RID10468",
+      "display": "inspiration maneuver"
+    },
+    {
+      "code": "RID50083",
+      "display": "Standing maneuver"
+    },
+    {
+      "code": "RID50132",
+      "display": "standing with brace maneuver"
+    },
+    {
+      "code": "RID50073",
+      "display": "Bending maneuver"
+    },
+    {
+      "code": "RID50082",
+      "display": "Right bending maneuver"
+    },
+    {
+      "code": "RID50081",
+      "display": "Left bending maneuver"
+    },
+    {
+      "code": "RID50074",
+      "display": "clenched fist maneuver"
+    },
+    {
+      "code": "RID50078",
+      "display": "forced dorsiflexion maneuver"
+    },
+    {
+      "code": "RID48090",
+      "display": "voiding"
+    },
+    {
+      "code": "RID10397",
+      "display": "Ablation"
+    },
+    {
+      "code": "RID10398",
+      "display": "Aspiration of bodily substance"
+    },
+    {
+      "code": "RID12933",
+      "display": "Fine-needle aspiration"
+    },
+    {
+      "code": "RID38611",
+      "display": "Biopsy"
+    },
+    {
+      "code": "RID49777",
+      "display": "Core needle biopsy"
+    },
+    {
+      "code": "RID10417",
+      "display": "Drainage"
+    },
+    {
+      "code": "RID49621",
+      "display": "Device exchange"
+    },
+    {
+      "code": "RID28842",
+      "display": "Injection"
+    },
+    {
+      "code": "RID28708",
+      "display": "Localization"
+    },
+    {
+      "code": "RID45700",
+      "display": "Needle localization"
+    },
+    {
+      "code": "RID35774",
+      "display": "NERVE BLOCK"
+    },
+    {
+      "code": "RID28707",
+      "display": "device placement procedure"
+    },
+    {
+      "code": "RID39262",
+      "display": "radiotherapy"
+    },
+    {
+      "code": "RID49850",
+      "display": "Radiosurgery"
+    },
+    {
+      "code": "RID49857",
+      "display": "device replacement"
+    },
+    {
+      "code": "RID45699",
+      "display": "STEREOTACTIC BIOPSY"
+    },
+    {
+      "code": "RID1839",
+      "display": "Vertebroplasty"
+    },
+    {
+      "code": "RID49866",
+      "display": "Deep biopsy"
+    },
+    {
+      "code": "RID49871",
+      "display": "Superficial biopsy"
+    },
+    {
+      "code": "RID35777",
+      "display": "Stereotactic localization"
+    },
+    {
+      "code": "RID10407",
+      "display": "Repair"
+    },
+    {
+      "code": "RID38602",
+      "display": "Vacuum-assisted biopsy"
+    },
+    {
+      "code": "RID49956",
+      "display": "Vascular access"
+    },
+    {
+      "code": "RID49838",
+      "display": "Tissue sampling"
+    },
+    {
+      "code": "RID49593",
+      "display": "endovenous laser treatment"
+    },
+    {
+      "code": "RID50031",
+      "display": "Peripheral venous access"
+    },
+    {
+      "code": "RID10415",
+      "display": "Device removal"
+    },
+    {
+      "code": "RID49634",
+      "display": "Substance removal"
+    },
+    {
+      "code": "RID10401",
+      "display": "Atherectomy"
+    },
+    {
+      "code": "RID50156",
+      "display": "Bronchoscopy"
+    },
+    {
+      "code": "RID1840",
+      "display": "kyphoplasty"
+    },
+    {
+      "code": "RID49772",
+      "display": "Dilation procedure"
+    },
+    {
+      "code": "RID45710",
+      "display": "Endoscopy"
+    },
+    {
+      "code": "RID50240",
+      "display": "Denervation procedure"
+    },
+    {
+      "code": "RID1634",
+      "display": "Gastrostomy"
+    },
+    {
+      "code": "RID50359",
+      "display": "Object repositioning"
+    },
+    {
+      "code": "RID10412",
+      "display": "Thrombectomy"
+    },
+    {
+      "code": "RID49757",
+      "display": "percutaneous transluminal angioplasty"
+    },
+    {
+      "code": "RID1559",
+      "display": "Procedure"
+    },
+    {
+      "code": "RID49896",
+      "display": "Change"
+    },
+    {
+      "code": "RID46071",
+      "display": "feeding tube advancement"
+    },
+    {
+      "code": "RID49596",
+      "display": "manometry"
+    },
+    {
+      "code": "RID50349",
+      "display": "Object removal"
+    },
+    {
+      "code": "RID35814",
+      "display": "pericardiocentesis"
+    },
+    {
+      "code": "RID35813",
+      "display": "paracentesis"
+    },
+    {
+      "code": "RID10406",
+      "display": "infusion"
+    },
+    {
+      "code": "RID1754",
+      "display": "cryoablation"
+    },
+    {
+      "code": "RID1849",
+      "display": "radiofrequency ablation"
+    },
+    {
+      "code": "RID46073",
+      "display": "lumbar puncture"
+    },
+    {
+      "code": "RID10380",
+      "display": "myelography"
+    },
+    {
+      "code": "RID35815",
+      "display": "thoracentesis"
+    },
+    {
+      "code": "RID43245",
+      "display": "tube insertion"
+    },
+    {
+      "code": "RID1671",
+      "display": "cholecystostomy"
+    },
+    {
+      "code": "RID49739",
+      "display": "cholangioscopy"
+    },
+    {
+      "code": "RID49747",
+      "display": "ligation"
+    },
+    {
+      "code": "RID49749",
+      "display": "microwave ablation"
+    },
+    {
+      "code": "RID49748",
+      "display": "mechanical thrombectomy"
+    },
+    {
+      "code": "RID49776",
+      "display": "vertebral augmentation"
+    },
+    {
+      "code": "RID49569",
+      "display": "venous sampling"
+    },
+    {
+      "code": "RID49760",
+      "display": "Device revision"
+    },
+    {
+      "code": "RID50330",
+      "display": "Deep drainage"
+    },
+    {
+      "code": "RID49657",
+      "display": "hemodynamic evaluation"
+    },
+    {
+      "code": "RID10379",
+      "display": "Venography"
+    },
+    {
+      "code": "RID49755",
+      "display": "percutaneous sympathectomy"
+    },
+    {
+      "code": "RID10404",
+      "display": "embolization"
+    },
+    {
+      "code": "RID11031",
+      "display": "Angioplasty"
+    },
+    {
+      "code": "RID10408",
+      "display": "Object retrieval"
+    },
+    {
+      "code": "RID1647",
+      "display": "Chemoembolization"
+    },
+    {
+      "code": "RID50522",
+      "display": "Radioembolization"
+    },
+    {
+      "code": "RID50523",
+      "display": "Vascular sclerotherapy"
+    },
+    {
+      "code": "RID11030",
+      "display": "Balloon dilation procedure"
+    },
+    {
+      "code": "RID49912",
+      "display": "reduced"
+    },
+    {
+      "code": "RID49771",
+      "display": "stab phlebectomy"
+    },
+    {
+      "code": "RID50524",
+      "display": "Excisional biopsy"
+    },
+    {
+      "code": "RID49632",
+      "display": "check tube"
+    },
+    {
+      "code": "RID10321",
+      "display": "computed tomography"
+    },
+    {
+      "code": "RID10312",
+      "display": "Magnetic resonance imaging"
+    },
+    {
+      "code": "RID10326",
+      "display": "Ultrasound"
+    },
+    {
+      "code": "RID10363",
+      "display": "dual energy xray absorptiometry"
+    },
+    {
+      "code": "RID10357",
+      "display": "mammography"
+    },
+    {
+      "code": "RID10341",
+      "display": "Pet-ct"
+    },
+    {
+      "code": "RID10330",
+      "display": "nuclear medicine imaging"
+    },
+    {
+      "code": "RID10337",
+      "display": "Positron emission tomography"
+    },
+    {
+      "code": "RID10345",
+      "display": "projection radiography"
+    },
+    {
+      "code": "RID10361",
+      "display": "Fluoroscopy"
+    },
+    {
+      "code": "RID49583",
+      "display": "SPECT-CT"
+    },
+    {
+      "code": "RID10311",
+      "display": "imaging modality"
+    },
+    {
+      "code": "RID50104",
+      "display": "Endorectal view"
+    },
+    {
+      "code": "RID50087",
+      "display": "10 degree caudal angle view"
+    },
+    {
+      "code": "RID50090",
+      "display": "10 degree cephalic angle view"
+    },
+    {
+      "code": "RID50091",
+      "display": "20 degree cephalic angle view"
+    },
+    {
+      "code": "RID50092",
+      "display": "Posteroanterior 30 degree flexion view"
+    },
+    {
+      "code": "RID50088",
+      "display": "30 degree caudal angle view"
+    },
+    {
+      "code": "RID50093",
+      "display": "45 degree cephalic angle view"
+    },
+    {
+      "code": "RID50094",
+      "display": "90 degree abduction view"
+    },
+    {
+      "code": "RID5818",
+      "display": "anterior"
+    },
+    {
+      "code": "RID43583",
+      "display": "AP view"
+    },
+    {
+      "code": "RID10439",
+      "display": "Lateral decubitus position"
+    },
+    {
+      "code": "RID10425",
+      "display": "Left lateral decubitus position"
+    },
+    {
+      "code": "RID10424",
+      "display": "Right lateral decubitus position"
+    },
+    {
+      "code": "RID45790",
+      "display": "Axillary view"
+    },
+    {
+      "code": "RID43665",
+      "display": "Norgaard view"
+    },
+    {
+      "code": "RID50095",
+      "display": "Bora view"
+    },
+    {
+      "code": "RID50096",
+      "display": "Brewerton view"
+    },
+    {
+      "code": "RID43671",
+      "display": "Caldwell view"
+    },
+    {
+      "code": "RID43616",
+      "display": "Danelius miller view"
+    },
+    {
+      "code": "RID43618",
+      "display": "Ferguson view"
+    },
+    {
+      "code": "RID43621",
+      "display": "Friedman view"
+    },
+    {
+      "code": "RID50097",
+      "display": "Garth view"
+    },
+    {
+      "code": "RID43625",
+      "display": "Grashey view"
+    },
+    {
+      "code": "RID43630",
+      "display": "Holmblad view"
+    },
+    {
+      "code": "RID45788",
+      "display": "Inlet view"
+    },
+    {
+      "code": "RID43637",
+      "display": "Judet view"
+    },
+    {
+      "code": "RID50106",
+      "display": "Left anterior oblique view"
+    },
+    {
+      "code": "RID43591",
+      "display": "lateral view"
+    },
+    {
+      "code": "RID45782",
+      "display": "cross table lateral view"
+    },
+    {
+      "code": "RID50107",
+      "display": "Lateral frog leg view"
+    },
+    {
+      "code": "RID50109",
+      "display": "Lateral spot view"
+    },
+    {
+      "code": "RID50111",
+      "display": "Laurin view"
+    },
+    {
+      "code": "RID45780",
+      "display": "Left lateral view"
+    },
+    {
+      "code": "RID43593",
+      "display": "left oblique view"
+    },
+    {
+      "code": "RID43584",
+      "display": "apical lordotic view"
+    },
+    {
+      "code": "RID50113",
+      "display": "Left posterior oblique view"
+    },
+    {
+      "code": "RID43654",
+      "display": "Merchant view"
+    },
+    {
+      "code": "RID50114",
+      "display": "Mediolateral oblique view"
+    },
+    {
+      "code": "RID50115",
+      "display": "Mortise view"
+    },
+    {
+      "code": "RID45661",
+      "display": "oblique view"
+    },
+    {
+      "code": "RID50116",
+      "display": "Odontoid view"
+    },
+    {
+      "code": "RID45789",
+      "display": "Outlet view"
+    },
+    {
+      "code": "RID50118",
+      "display": "Posteroanterior prone view"
+    },
+    {
+      "code": "RID49830",
+      "display": "Panoramic"
+    },
+    {
+      "code": "RID50119",
+      "display": "radio head capitallar view"
+    },
+    {
+      "code": "RID50120",
+      "display": "Right anterior oblique view"
+    },
+    {
+      "code": "RID45781",
+      "display": "Right lateral view"
+    },
+    {
+      "code": "RID43596",
+      "display": "right oblique view"
+    },
+    {
+      "code": "RID50099",
+      "display": "Rosenberg view"
+    },
+    {
+      "code": "RID50121",
+      "display": "Right posterior oblique view"
+    },
+    {
+      "code": "RID50122",
+      "display": "Scaphoid view"
+    },
+    {
+      "code": "RID50123",
+      "display": "Serendipity view"
+    },
+    {
+      "code": "RID43597",
+      "display": "Spot view"
+    },
+    {
+      "code": "RID43682",
+      "display": "Stryker notch view"
+    },
+    {
+      "code": "RID45786",
+      "display": "Sunrise view"
+    },
+    {
+      "code": "RID45663",
+      "display": "swimmers view"
+    },
+    {
+      "code": "RID50124",
+      "display": "Tangential view"
+    },
+    {
+      "code": "RID43686",
+      "display": "Towne view"
+    },
+    {
+      "code": "RID45785",
+      "display": "Transthoracic view"
+    },
+    {
+      "code": "RID50125",
+      "display": "True anteroposterior view"
+    },
+    {
+      "code": "RID50126",
+      "display": "True lateral view"
+    },
+    {
+      "code": "RID45787",
+      "display": "Tunnel view"
+    },
+    {
+      "code": "RID10455",
+      "display": "Upright position"
+    },
+    {
+      "code": "RID50127",
+      "display": "Velpeau view"
+    },
+    {
+      "code": "RID50100",
+      "display": "Von Rosen view"
+    },
+    {
+      "code": "RID43689",
+      "display": "Occipitomental view"
+    },
+    {
+      "code": "RID50102",
+      "display": "Waters upright view"
+    },
+    {
+      "code": "RID43690",
+      "display": "West point view"
+    },
+    {
+      "code": "RID50128",
+      "display": "Laterally exaggerated craniocaudal view"
+    },
+    {
+      "code": "RID50129",
+      "display": "Y view"
+    },
+    {
+      "code": "RID50103",
+      "display": "Zanca view"
+    },
+    {
+      "code": "RID50070",
+      "display": "posteroanterior 45-degree flexion view"
+    },
+    {
+      "code": "RID50079",
+      "display": "Internal rotation view"
+    },
+    {
+      "code": "RID50077",
+      "display": "External rotation view"
+    },
+    {
+      "code": "RID43586",
+      "display": "cone view"
+    },
+    {
+      "code": "RID45659",
+      "display": "babygram"
+    },
+    {
+      "code": "RID10451",
+      "display": "Open mouth position"
+    },
+    {
+      "code": "RID50172",
+      "display": "closed mouth position"
+    },
+    {
+      "code": "RID43653",
+      "display": "Mayer view"
+    },
+    {
+      "code": "RID45779",
+      "display": "supine view"
+    },
+    {
+      "code": "RID43594",
+      "display": "PA view"
+    },
+    {
+      "code": "RID50386",
+      "display": "Oblique upright view"
+    },
+    {
+      "code": "RID28651",
+      "display": "Magnification"
+    },
+    {
+      "code": "RID10509",
+      "display": "Implant displaced"
+    },
+    {
+      "code": "RID39543",
+      "display": "transvaginal"
+    },
+    {
+      "code": "RID6427",
+      "display": "Transabdominal"
+    },
+    {
+      "code": "RID50328",
+      "display": "air gap breast view"
+    },
+    {
+      "code": "RID10534",
+      "display": "Radiography grid"
+    },
+    {
+      "code": "RID10447",
+      "display": "Ulnar deviation position"
+    },
+    {
+      "code": "RID10446",
+      "display": "Radial deviation position"
+    },
+    {
+      "code": "RID43667",
+      "display": "original Law view"
+    },
+    {
+      "code": "RID43681",
+      "display": "Stenvers view"
+    },
+    {
+      "code": "RID45791",
+      "display": "Submentovertical view"
+    },
+    {
+      "code": "RID45795",
+      "display": "Obliques view"
+    },
+    {
+      "code": "RID39542",
+      "display": "transrectal"
+    },
+    {
+      "code": "RID50367",
+      "display": "sunrise 20 degrees view"
+    },
+    {
+      "code": "RID50368",
+      "display": "sunrise 40 degrees view"
+    },
+    {
+      "code": "RID50369",
+      "display": "sunrise 60 degrees view"
+    },
+    {
+      "code": "RID50372",
+      "display": "Merchant 60 degrees view"
+    },
+    {
+      "code": "RID50371",
+      "display": "Merchant 45 degrees view"
+    },
+    {
+      "code": "RID50370",
+      "display": "Merchant 30 degrees view"
+    },
+    {
+      "code": "RID50373",
+      "display": "Trans-scapular view"
+    },
+    {
+      "code": "RID43600",
+      "display": "Arcein view"
+    },
+    {
+      "code": "RID10579",
+      "display": "axial plane"
+    },
+    {
+      "code": "RID50534",
+      "display": "Bitewing view"
+    },
+    {
+      "code": "RID50098",
+      "display": "Harris view"
+    },
+    {
+      "code": "RID45783",
+      "display": "carpal tunnel view"
+    },
+    {
+      "code": "RID43605",
+      "display": "Broden view"
+    },
+    {
+      "code": "RID50535",
+      "display": "Jones view"
+    },
+    {
+      "code": "RID50329",
+      "display": "rolled breast view"
+    },
+    {
+      "code": "RID45802",
+      "display": "Runoff"
+    },
+    {
+      "code": "RID10521",
+      "display": "Frontal projection"
+    },
+    {
+      "code": "RID50635",
+      "display": "Oblique crosstable"
+    },
+    {
+      "code": "RID50628",
+      "display": "Max abduction"
+    },
+    {
+      "code": "RID50629",
+      "display": "Oblique prone"
+    }
+  ],
+  "count": 638
+}

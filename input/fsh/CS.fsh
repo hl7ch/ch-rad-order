@@ -3,6 +3,7 @@ CodeSystem: ChRadOrderRequestedService
 Id: ch-rad-order-requested-service
 Title: "Requested Service"
 Description: "Definition for Requested Service Code System in the context of CH RAD-Order."
+* ^caseSensitive = true
 /* #RequestForPrecedentReport "Request for precedent Reports only"
 * #RequestForPrecedentReportAndImages "Request for precedent Reports and Images"
 * #ImagingRequest "Imaging Request"
@@ -26,6 +27,7 @@ CodeSystem: ChRadOrderOrderDetailType
 Id: ch-rad-order-order-detail-type
 Title: "Type of Order Detail"
 Description: "Definition for Type of Order Detail Code System in the context of CH RAD-Order."
+* ^caseSensitive = true
 * #imagingRegion "Imaging Region"
 * #laterality "Laterality"
 * #viewType "View Type"

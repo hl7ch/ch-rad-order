@@ -15,17 +15,14 @@ Alias:   AdministrativeGender =             http://hl7.org/fhir/administrative-g
 Alias:   RequestPriority =                  http://hl7.org/fhir/request-priority
 Alias:   V3ActCode =                        http://terminology.hl7.org/CodeSystem/v3-ActCode
 Alias:   AppointmentStatus =                http://hl7.org/fhir/appointmentstatus
-Alias:  EchMaritalStatus =                  http://fhir.ch/ig/ch-core/CodeSystem/ech-11-maritalstatus
-Alias:   DocumentEntryClassCode =           http://fhir.ch/ig/ch-epr-term/ValueSet/DocumentEntry.classCode
-Alias:   DocumentEntryTypeCode =            http://fhir.ch/ig/ch-epr-term/ValueSet/DocumentEntry.typeCode
-
+Alias:   EchMaritalStatus =                 http://fhir.ch/ig/ch-core/CodeSystem/ech-11-maritalstatus
 
 // Code Systems/ Value Sets from ORF
 //Alias:   ChOrfYesNo =  http://fhir.ch/ig/ch-orf/ch-orf-vs-YesNo
 
 
 // CH EPR Term Code Systems
-Alias:   SNOMEDCTSwissExtension =       urn:oid:2.16.756.5.30.1.127.3.4
+Alias:   SNOMEDCTSwissExtensionExtension =       urn:oid:2.16.756.5.30.1.127.3.4
 
 
 // CH Core SD

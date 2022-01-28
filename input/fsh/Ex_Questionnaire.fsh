@@ -26,10 +26,10 @@ Bsp: Fragestellung ist required ausser bei Bestllung alter Bider
 * extension[2].extension[2].url = "description"
 * extension[2].extension[2].valueString = "The Bundle that is to be used to pre-populate the form"
 
-* url = "http://fhir.ch/ig/ch-rad-order/Questionnaire/QuestionnaireRadiologyOrder"
+* url = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/QuestionnaireRadiologyOrder"
 * name = "QuestionnaireRadiologyOrder"
 * title = "Questionnaire Radiology Order"
-* derivedFrom = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-questionnaire"
+* derivedFrom = "http://fhir.ch/ig/ch-orf/Questionnaire/ch-orf-questionnaire"
 * status = #active
 * subjectType = #Patient
 * date = "2021-02-24"
@@ -1083,6 +1083,7 @@ Caveats
 * item[=].item[=].type = #choice
 * item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-caveat-qualifier-value"
 * item[=].item[=].initial.valueCoding = SCT#373068000
+* item[=].item[=].required = true
 
 * item[=].item[=].item[+].linkId = "caveat.bloodCoagulation.INR" 
 * item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.evidence.detail"
@@ -1123,6 +1124,7 @@ Caveats
 * item[=].item[=].type = #choice
 * item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-caveat-qualifier-value"
 * item[=].item[=].initial.valueCoding = SCT#373068000
+* item[=].item[=].required = true
 
 * item[=].item[=].item[+].linkId = "caveat.renalInsufficiency.creatinineClearance" 
 * item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.evidence.detail"
@@ -1160,6 +1162,7 @@ Caveats
 * item[=].item[=].type = #choice
 * item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-caveat-qualifier-value"
 * item[=].item[=].initial.valueCoding = SCT#373068000
+* item[=].item[=].required = true
 
 * item[=].item[+].linkId = "caveat.bodyPiercing"     
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.code"  
@@ -1167,14 +1170,26 @@ Caveats
 * item[=].item[=].type = #choice
 * item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-caveat-qualifier-value"
 * item[=].item[=].initial.valueCoding = SCT#373068000
+* item[=].item[=].required = true
 
-* item[=].item[+].linkId = "caveat.device"     
-* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.code"  
-* item[=].item[=].text = "Device (Herzschrittmacher, Herzklappenersatz, Insulinpumpe etc.)"   
-* item[=].item[=].type = #choice
-* item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-caveat-device"
-* item[=].item[=].initial.valueCoding = SCT#373068000
+* item[=].item[+].linkId = "caveat.device" 
+* item[=].item[=].text = "Device (Herzschrittmacher, Herzklappenersatz, Insulinpumpe etc.)"     
+* item[=].item[=].type = #group
 * item[=].item[=].repeats = true
+
+* item[=].item[=].item[+].linkId = "caveat.device.specifictype"
+* item[=].item[=].item[=].text = "Device"     
+* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#ch-rad-order-caveat-type"  
+* item[=].item[=].item[=].type = #choice
+* item[=].item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-caveat-device"
+
+* item[=].item[=].item[+].linkId = "caveat.device.choice"  
+* item[=].item[=].item[=].text = "Choice"     
+* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.code"  
+* item[=].item[=].item[=].type = #choice
+* item[=].item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-caveat-qualifier-value"
+* item[=].item[=].item[=].initial.valueCoding = SCT#373068000
+* item[=].item[=].item[=].required = true
 
 * item[=].item[+].linkId = "caveat.hyperthyroidism"     
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.code"  
@@ -1182,12 +1197,14 @@ Caveats
 * item[=].item[=].type = #choice
 * item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-caveat-qualifier-value"
 * item[=].item[=].initial.valueCoding = SCT#373068000
+* item[=].item[=].required = true
 
 * item[=].item[+].linkId = "caveat.diabetes"    
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.code"   
 * item[=].item[=].text = "Diabetes mellitus"   
 * item[=].item[=].type = #choice
 * item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-caveat-qualifier-value"
+* item[=].item[=].required = true
 
 * item[=].item[+].linkId = "caveat.gravida"     
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.code"  
@@ -1195,6 +1212,7 @@ Caveats
 * item[=].item[=].type = #choice
 * item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-caveat-qualifier-value"
 * item[=].item[=].initial.valueCoding = SCT#373068000
+* item[=].item[=].required = true
 
 * item[=].item[+].linkId = "caveat.contrastMediaAllergy"
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.code"  
@@ -1202,20 +1220,28 @@ Caveats
 * item[=].item[=].type = #choice
 * item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-caveat-qualifier-value"
 * item[=].item[=].initial.valueCoding = SCT#373068000
+* item[=].item[=].required = true
 
-* item[=].item[+].linkId = "caveat.metformin"     
-* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.code"  
-* item[=].item[=].text = "Metformin"   
-* item[=].item[=].type = #choice 
-* item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-caveat-qualifier-value"
-* item[=].item[=].initial.valueCoding = SCT#373068000
+* item[=].item[+].linkId = "caveat.drugPrescription" 
+* item[=].item[=].text = "Relevante Medikamente"     
+* item[=].item[=].type = #group
+* item[=].item[=].required = true
 
-* item[=].item[+].linkId = "caveat.betaBlocker"     
-* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.code"  
-* item[=].item[=].text = "Betablocker"   
-* item[=].item[=].type = #choice 
-* item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-caveat-qualifier-value"
-* item[=].item[=].initial.valueCoding = SCT#373068000
+* item[=].item[=].item[+].linkId = "caveat.drugPrescription.metformin"     
+* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.code"  
+* item[=].item[=].item[=].text = "Metformin"   
+* item[=].item[=].item[=].type = #choice 
+* item[=].item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-caveat-qualifier-value"
+* item[=].item[=].item[=].initial.valueCoding = SCT#373068000
+* item[=].item[=].item[=].required = true
+
+* item[=].item[=].item[+].linkId = "caveat.drugPrescription.betaBlocker"     
+* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.code"  
+* item[=].item[=].item[=].text = "Betablocker"   
+* item[=].item[=].item[=].type = #choice 
+* item[=].item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-caveat-qualifier-value"
+* item[=].item[=].item[=].initial.valueCoding = SCT#373068000
+* item[=].item[=].item[=].required = true
 
 /* ---------------------------------------------------------------------------
 Vorherige Untersuchungsresultat:
@@ -1228,7 +1254,7 @@ mittels ImagingStudy Resource (DICOM WADO) oder die mitgegeben werden in der Med
 * item[=].text = "Vorherige Untersuchungsresultate"
 * item[=].type = #group
 
-* item[=].item[+].linkId = "previousResults.attachment.data"  
+* item[=].item[+].linkId = "previousResults.attachment"  
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-media#Media.content.data"
 * item[=].item[=].text = "Daten"
 * item[=].item[=].type = #attachment
@@ -1253,7 +1279,7 @@ is encoded as:
 */
 
 * item[=].item[=].item[+].linkId = "previousResults.imagingStudy.StudyInstanceUid"  
-* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy#ImagingStudy.identifer"
+* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy#ImagingStudy.identifier"
 * item[=].item[=].item[=].text = "DICOM Study Instance UID"
 * item[=].item[=].item[=].type = #string
 
@@ -1275,7 +1301,7 @@ is encoded as:
 */
 
 * item[=].item[=].item[+].linkId = "previousResults.imagingStudy.acsn"  
-* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy#ImagingStudy.identifer"
+* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy#ImagingStudy.identifier"
 * item[=].item[=].item[=].text = "ACSN"
 * item[=].item[=].item[=].type = #string
 

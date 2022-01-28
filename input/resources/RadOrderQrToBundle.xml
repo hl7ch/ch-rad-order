@@ -1,8 +1,8 @@
 <StructureMap xmlns="http://hl7.org/fhir">
    <id value="RadOrderQrToBundle"/>
    <meta>
-      <versionId value="4"/>
-      <lastUpdated value="2022-01-03T16:58:34.931+01:00"/>
+      <versionId value="34"/>
+      <lastUpdated value="2022-01-28T17:06:31.413+00:00"/>
    </meta>
    <text>
       <status value="generated"/>
@@ -24,7 +24,7 @@ imports &quot;http://fhir.ch/ig/ch-orf/StructureMap/OrfQrToBundle&quot;
 
 group RadOrderQrToBundle(source qr : QuestionnaireResponse, target bundle : Bundle) {
   qr -&gt;  bundle.identifier as documentIdentifier,  documentIdentifier.system = &apos;urn:ietf:rfc:3986&apos;,  uuid() as uuidDoc,  documentIdentifier.value = (&apos;urn:uuid:&apos; + uuidDoc) &quot;documentIdentifier&quot;;
-  qr as qrcp -&gt;  bundle.entry as e,  e.resource = create(&apos;Composition&apos;) as composition,  composition.id = uuid() as uuid,  e.fullUrl = (&apos;urn:uuid:&apos; + uuid),  bundle.entry as e2,  bundle.timestamp = (now()) as timestamp,  composition.date = timestamp,  e2.resource = create(&apos;Patient&apos;) as patient,  patient.id = uuid() as uuid2,  e2.fullUrl = (&apos;urn:uuid:&apos; + uuid2),  bundle.entry as e4,  e4.resource = qrcp as questionnaireresp,  questionnaireresp.id = uuid() as uuid4,  e4.fullUrl = (&apos;urn:uuid:&apos; + uuid4),  bundle.entry as e5,  e5.resource = create(&apos;ServiceRequest&apos;) as servicerequest,  servicerequest.id = uuid() as uuid5,  e5.fullUrl = (&apos;urn:uuid:&apos; + uuid5) then {
+  qr as qrcp -&gt;  bundle.entry as e,  e.resource = create(&apos;Composition&apos;) as composition,  composition.id = uuid() as uuid,  e.fullUrl = (&apos;urn:uuid:&apos; + uuid),  composition.title = &apos;Radiologieauftrag&apos;,  composition.type as type,  type.coding as coding,  coding.code = &apos;2161000195103&apos;,  coding.system = &apos;urn:oid:2.16.756.5.30.1.127.3.4',  coding.display = 'Imaging order (record artifact)',  composition.category as category,  category.coding as coding,  coding.code = '721963009',  coding.system = 'http://snomed.info/sct',  coding.display = 'Order (record artifact)',  bundle.entry as e2,  bundle.timestamp = (now()) as timestamp,  composition.date = timestamp,  e2.resource = create('Patient') as patient,  patient.id = uuid() as uuid2,  e2.fullUrl = ('urn:uuid:' + uuid2),  bundle.entry as e4,  e4.resource = qrcp as questionnaireresp,  questionnaireresp.id = uuid() as uuid4,  e4.fullUrl = (&apos;urn:uuid:&apos; + uuid4),  bundle.entry as e5,  e5.resource = create(&apos;ServiceRequest&apos;) as servicerequest,  servicerequest.id = uuid() as uuid5,  e5.fullUrl = (&apos;urn:uuid:&apos; + uuid5) then {
     qr.questionnaire as can -&gt;  bundle.entry as e6,  e6.resource = (can.resolve()) as q,  q.id = uuid() as uuid6,  e6.fullUrl = append(&apos;urn:uuid:&apos;, uuid6) then QrToBundle(qr, q, patient, questionnaireresp, servicerequest, composition, bundle) &quot;orfbundle&quot;;
     qr then RadOrderQrToServiceRequest(qr, patient, bundle, composition, servicerequest) &quot;servicerequest&quot;;
   } &quot;orfbundle&quot;;
@@ -106,9 +106,24 @@ group DesiredRadiologistServiceItems(source src : BackboneElement, target bundle
 }
 
 group DiagnosisListServiceItems(source src : BackboneElement, target patient : Patient, target bundle : Bundle, target serviceRequest : ServiceRequest) {
+  src.item as item where ((linkId.value = &apos;diagnosisList.primaryDiagnosis&apos;) and answer.exists()) then {
+    item.answer as answer then {
+      answer.value : string as value -&gt;  bundle.entry as e,  e.resource = create('Condition') as condition,  condition.id = uuid() as uuid,  e.fullUrl = ('urn:uuid:' + uuid),  serviceRequest.reasonReference as reasonReference,  reasonReference.reference = ('urn:uuid:' + uuid),  condition.category as category,  category.coding as coding,  coding.code = 'problem-list-item',  coding.system = 'http://terminology.hl7.org/CodeSystem/condition-category',  coding.display = 'Problem List Item',  condition.code as code,  code.text = value,  condition.subject as subject,  subject.reference = (&apos;urn:uuid:&apos; + patient.id) &quot;primaryDiagnosis&quot;;
+    } &quot;valueString&quot;;
+  } &quot;answer&quot;;
   src.item as item where ((linkId.value = &apos;diagnosisList.secondaryDiagnosis&apos;) and answer.exists()) then {
     item.answer as answer then {
       answer.value : string as value -&gt;  bundle.entry as e,  e.resource = create(&apos;Condition&apos;) as condition,  condition.id = uuid() as uuid,  e.fullUrl = (&apos;urn:uuid:&apos; + uuid),  serviceRequest.supportingInfo as supportingInfo,  supportingInfo.reference = (&apos;urn:uuid:&apos; + uuid),  condition.category as category,  category.coding as coding,  coding.code = &apos;problem-list-item&apos;,  coding.system = &apos;http://terminology.hl7.org/CodeSystem/condition-category&apos;,  coding.display = &apos;Problem List Item&apos;,  condition.code as code,  code.text = value,  condition.subject as subject,  subject.reference = (&apos;urn:uuid:&apos; + patient.id) &quot;secondaryDiagnosis&quot;;
+    } &quot;valueString&quot;;
+  } &quot;answer&quot;;
+  src.item as item where ((linkId.value = &apos;diagnosisList.bodyHeight&apos;) and answer.exists()) then {
+    item.answer as answer then {
+      answer.value : Quantity as value -&gt;  bundle.entry as e,  e.resource = create(&apos;Observation&apos;) as observation,  observation.status = &apos;final&apos;,  observation.id = uuid() as uuid,  e.fullUrl = (&apos;urn:uuid:&apos; + uuid),  observation.status = &apos;final&apos;,  serviceRequest.supportingInfo as supportingInfo,  supportingInfo.reference = (&apos;urn:uuid:&apos; + uuid),  observation.category as category,  category.coding as coding,  coding.code = &apos;vital-signs&apos;,  coding.system = &apos;http://terminology.hl7.org/CodeSystem/observation-category&apos;,  observation.value = value,  observation.code as cc,  cc.coding as c,  c.system = &apos;http://loinc.org&apos;,  c.code = &apos;8302-2&apos;,  observation.subject as subject,  subject.reference = (&apos;urn:uuid:&apos; + patient.id) &quot;bodyHeight&quot;;
+    } &quot;valueString&quot;;
+  } &quot;answer&quot;;
+  src.item as item where ((linkId.value = &apos;diagnosisList.bodyWeight&apos;) and answer.exists()) then {
+    item.answer as answer then {
+      answer.value : Quantity as value -&gt;  bundle.entry as e,  e.resource = create(&apos;Observation&apos;) as observation,  observation.status = 'final',  observation.id = uuid() as uuid,  observation.status = 'final',  e.fullUrl = ('urn:uuid:' + uuid),  serviceRequest.supportingInfo as supportingInfo,  supportingInfo.reference = ('urn:uuid:' + uuid),  observation.category as category,  category.coding as coding,  coding.code = 'vital-signs',  coding.system = 'http://terminology.hl7.org/CodeSystem/observation-category',  observation.value = value,  observation.code as cc,  cc.coding as c,  c.system = 'http://loinc.org&apos;,  c.code = &apos;29463-7&apos;,  observation.subject as subject,  subject.reference = (&apos;urn:uuid:&apos; + patient.id) &quot;bodyWeight&quot;;
     } &quot;valueString&quot;;
   } &quot;answer&quot;;
 }
@@ -116,79 +131,138 @@ group DiagnosisListServiceItems(source src : BackboneElement, target patient : P
 group CaveatServiceItems(source src : BackboneElement, target patient : Patient, target bundle : Bundle, target serviceRequest : ServiceRequest) {
   src.item as item where ((linkId.value = &apos;caveat.bloodCoagulation&apos;) and answer.exists()) then {
     item.answer as answer then {
-      answer.value : boolean as value where answer.valueBoolean -&gt;  bundle.entry as e,  e.resource = create(&apos;Condition&apos;) as condition,  condition.id = uuid() as uuid,  e.fullUrl = (&apos;urn:uuid:&apos; + uuid),  serviceRequest.supportingInfo as supportingInfo,  supportingInfo.reference = (&apos;urn:uuid:&apos; + uuid),  condition.category as category,  category.coding as coding,  coding.code = &apos;problem-list-item&apos;,  coding.system = &apos;http://terminology.hl7.org/CodeSystem/condition-category&apos;,  coding.display = &apos;Problem List Item&apos;,  condition.code as code,  code.coding as coding2,  coding2.code = &apos;64779008&apos;,  coding2.system = &apos;http://snomed.info/sct&apos;,  coding2.display = &apos;Blood coagulation disorder (disorder)&apos;,  condition.subject as subject,  subject.reference = (&apos;urn:uuid:&apos; + patient.id) &quot;bloodCoagulation&quot;;
+      answer.value : Coding as value -&gt;  bundle.entry as e,  e.resource = create('Condition') as condition,  condition.id = uuid() as uuid,  e.fullUrl = ('urn:uuid:' + uuid),  serviceRequest.supportingInfo as supportingInfo,  supportingInfo.reference = ('urn:uuid:' + uuid),  condition.extension as ext1,  ext1.url = 'http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-type',  ext1.value = create('Coding') as coding,  coding.code = '64779008',  coding.system = 'http://snomed.info/sct',  coding.display = 'Blood coagulation disorder (disorder)',  condition.extension as ext2,  ext2.url = 'http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-qualifier-value',  ext2.value = value,  condition.category as category,  category.coding as coding,  coding.code = 'problem-list-item',  coding.system = 'http://terminology.hl7.org/CodeSystem/condition-category',  coding.display = 'Problem List Item',  condition.code as code,  code.coding as coding2,  coding2.code = '64779008',  coding2.system = 'http://snomed.info/sct',  coding2.display = 'Blood coagulation disorder (disorder)&apos;,  condition.subject as subject,  subject.reference = (&apos;urn:uuid:&apos; + patient.id) then {
+        answer.item as subitem where (linkId.value = &apos;caveat.bloodCoagulation.INR&apos;) -&gt;  bundle.entry as e,  e.resource = create(&apos;Observation&apos;) as observation,  observation.id = uuid() as uuid,  observation.status = &apos;final&apos;,  e.fullUrl = (&apos;urn:uuid:&apos; + uuid),  condition.evidence as evidence,  evidence.detail as detail,  detail.reference = (&apos;urn:uuid:&apos; + uuid),  observation.code as cc,  cc.coding as c,  c.system = &apos;http://loinc.org&apos;,  c.code = &apos;34714-6&apos;,  observation.subject as subject,  subject.reference = (&apos;urn:uuid:&apos; + patient.id) then {
+          subitem.item as quantityitem where ((linkId.value = &apos;caveat.bloodCoagulation.INR.quantity&apos;) and answer.exists()) then {
+            quantityitem.answer as answer then {
+              answer.value : Quantity as value -&gt; observation.value = value;
+            } &quot;value&quot;;
+          } &quot;quantity&quot;;
+          subitem.item as datetimeitem where ((linkId.value = &apos;caveat.bloodCoagulation.INR.dateTime&apos;) and answer.exists()) then {
+            datetimeitem.answer as answer then {
+              answer.value : dateTime as value -&gt; observation.effective = value;
+            } &quot;value&quot;;
+          } &quot;dateTime&quot;;
+        } &quot;INR&quot;;
+        answer.item as subitem where (linkId.value = &apos;caveat.bloodCoagulation.platelets&apos;) -&gt;  bundle.entry as e,  e.resource = create(&apos;Observation&apos;) as observation,  observation.id = uuid() as uuid,  observation.status = &apos;final&apos;,  e.fullUrl = (&apos;urn:uuid:&apos; + uuid),  condition.evidence as evidence,  evidence.detail as detail,  detail.reference = ('urn:uuid:' + uuid),  observation.code as cc,  cc.coding as c,  c.system = 'http://loinc.org',  c.code = '26515-7',  observation.subject as subject,  subject.reference = ('urn:uuid:' + patient.id) then {
+          subitem.item as quantityitem where ((linkId.value = 'caveat.bloodCoagulation.platelets.quantity') and answer.exists()) then {
+            quantityitem.answer as answer then {
+              answer.value : Quantity as value -&gt; observation.value = value;
+            } &quot;value&quot;;
+          } &quot;platelets&quot;;
+          subitem.item as datetimeitem where ((linkId.value = &apos;caveat.bloodCoagulation.platelets.dateTime&apos;) and answer.exists()) then {
+            datetimeitem.answer as answer then {
+              answer.value : dateTime as value -&gt; observation.effective = value;
+            } &quot;value&quot;;
+          } &quot;platelets&quot;;
+        } &quot;INR&quot;;
+      } &quot;bloodCoagulation&quot;;
     } &quot;valueString&quot;;
   } &quot;answer&quot;;
   src.item as item where ((linkId.value = &apos;caveat.renalInsufficiency&apos;) and answer.exists()) then {
     item.answer as answer then {
-      answer.value : boolean as value where answer.valueBoolean -&gt;  bundle.entry as e,  e.resource = create('Condition') as condition,  condition.id = uuid() as uuid,  e.fullUrl = ('urn:uuid:' + uuid),  serviceRequest.supportingInfo as supportingInfo,  supportingInfo.reference = ('urn:uuid:' + uuid),  condition.category as category,  category.coding as coding,  coding.code = 'problem-list-item',  coding.system = 'http://terminology.hl7.org/CodeSystem/condition-category',  coding.display = 'Problem List Item',  condition.code as code,  code.coding as coding2,  coding2.code = '723188008&apos;,  coding2.system = &apos;http://snomed.info/sct&apos;,  coding2.display = &apos;Renal insufficiency (disorder)&apos;,  condition.subject as subject,  subject.reference = (&apos;urn:uuid:&apos; + patient.id) then {
-        // FIXME TODO answer.item as item2 where (linkId.value = &apos;caveat.renalInsufficiency.creatinineClearance&apos;) then RenalInsufficiencyCreatinineServiceItems(item2, patient, bundle, serviceRequest, condition) &quot;RenalInsufficiencyCreatinineServiceItems&quot;;
-        answer.item as item2 where (linkId.value = &apos;caveat.renalInsufficiency.creatinine&apos;) then RenalInsufficiencyCreatinineServiceItems(item2, patient, bundle, serviceRequest, condition) &quot;RenalInsufficiencyCreatinineServiceItems&quot;;
-      } &quot;renalInsufficiency&quot;;
+      answer.value : Coding as value -&gt;  bundle.entry as e,  e.resource = create(&apos;Condition&apos;) as condition,  condition.id = uuid() as uuid,  e.fullUrl = (&apos;urn:uuid:&apos; + uuid),  serviceRequest.supportingInfo as supportingInfo,  supportingInfo.reference = (&apos;urn:uuid:&apos; + uuid),  condition.extension as ext1,  ext1.url = &apos;http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-type&apos;,  ext1.value = create('Coding') as coding,  coding.code = '723188008',  coding.system = 'http://snomed.info/sct',  coding.display = 'Renal insufficiency (disorder)',  condition.extension as ext2,  ext2.url = 'http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-qualifier-value',  ext2.value = value,  condition.category as category,  category.coding as coding,  coding.code = 'problem-list-item',  coding.system = 'http://terminology.hl7.org/CodeSystem/condition-category',  coding.display = 'Problem List Item',  condition.code as code,  code.coding as coding2,  coding2.code = &apos;723188008&apos;,  coding2.system = &apos;http://snomed.info/sct&apos;,  coding2.display = &apos;Renal insufficiency (disorder)&apos;,  condition.subject as subject,  subject.reference = (&apos;urn:uuid:&apos; + patient.id) then {
+        answer.item as subitem where (linkId.value = &apos;caveat.renalInsufficiency.creatinineClearance&apos;) -&gt;  bundle.entry as e,  e.resource = create(&apos;Observation&apos;) as observation,  observation.status = &apos;final&apos;,  observation.id = uuid() as uuid,  e.fullUrl = (&apos;urn:uuid:' + uuid),  condition.evidence as evidence,  evidence.detail as detail,  detail.reference = ('urn:uuid:' + uuid),  observation.code as cc,  cc.coding as c,  c.system = 'http://loinc.org',  c.code = '33558-8',  observation.subject as subject,  subject.reference = ('urn:uuid:' + patient.id) then {
+          subitem.item as quantityitem where ((linkId.value = 'caveat.renalInsufficiency.creatinineClearance.quantity') and answer.exists()) then {
+            quantityitem.answer as answer then {
+              answer.value : Quantity as value -&gt; observation.value = value;
+            } &quot;value&quot;;
+          } &quot;quantity&quot;;
+          subitem.item as datetimeitem where ((linkId.value = &apos;caveat.renalInsufficiency.creatinineClearance.dateTime&apos;) and answer.exists()) then {
+            datetimeitem.answer as answer then {
+              answer.value : dateTime as value -&gt; observation.effective = value;
+            } &quot;value&quot;;
+          } &quot;creatinineClearancedateTime&quot;;
+        } &quot;INR&quot;;
+        answer.item as subitem where (linkId.value = &apos;caveat.renalInsufficiency.creatinine&apos;) -&gt;  bundle.entry as e,  e.resource = create(&apos;Observation&apos;) as observation,  observation.status = &apos;final&apos;,  observation.id = uuid() as uuid,  e.fullUrl = (&apos;urn:uuid:&apos; + uuid),  condition.evidence as evidence,  evidence.detail as detail,  detail.reference = (&apos;urn:uuid:&apos; + uuid),  observation.code as cc,  cc.coding as c,  c.system = &apos;http://loinc.org&apos;,  c.code = &apos;77140-2&apos;,  observation.subject as subject,  subject.reference = (&apos;urn:uuid:&apos; + patient.id) then {
+          subitem.item as quantityitem where ((linkId.value = &apos;caveat.renalInsufficiency.creatinine.quantity&apos;) and answer.exists()) then {
+            quantityitem.answer as answer then {
+              answer.value : Quantity as value -&gt; observation.value = value;
+            } &quot;value&quot;;
+          } &quot;creatinine&quot;;
+          subitem.item as datetimeitem where ((linkId.value = &apos;caveat.renalInsufficiency.creatinine.dateTime&apos;) and answer.exists()) then {
+            datetimeitem.answer as answer then {
+              answer.value : dateTime as value -&gt; observation.effective = value;
+            } &quot;ue&quot;;
+          } &quot;platelets&quot;;
+        } &quot;creatinine&quot;;
+      } &quot;bloodCoagulation&quot;;
     } &quot;valueString&quot;;
   } &quot;answer&quot;;
   src.item as item where ((linkId.value = &apos;caveat.claustrophobia&apos;) and answer.exists()) then {
     item.answer as answer then {
-      answer.value : boolean as value where answer.valueBoolean -&gt;  bundle.entry as e,  e.resource = create(&apos;Condition&apos;) as condition,  condition.id = uuid() as uuid,  e.fullUrl = ('urn:uuid:' + uuid),  serviceRequest.supportingInfo as supportingInfo,  supportingInfo.reference = ('urn:uuid:' + uuid),  condition.category as category,  category.coding as coding,  coding.code = 'problem-list-item',  coding.system = 'http://terminology.hl7.org/CodeSystem/condition-category',  coding.display = 'Problem List Item',  condition.code as code,  code.coding as coding2,  coding2.code = '19887002',  coding2.system = 'http://snomed.info/sct',  coding2.display = 'Claustrophobia (finding)&apos;,  condition.subject as subject,  subject.reference = (&apos;urn:uuid:&apos; + patient.id) &quot;claustrophobia&quot;;
+      answer.value : Coding as value -&gt;  bundle.entry as e,  e.resource = create(&apos;Condition&apos;) as condition,  condition.id = uuid() as uuid,  e.fullUrl = (&apos;urn:uuid:&apos; + uuid),  serviceRequest.supportingInfo as supportingInfo,  supportingInfo.reference = ('urn:uuid:' + uuid),  condition.extension as ext1,  ext1.url = 'http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-type',  ext1.value = create('Coding') as coding,  coding.code = '19887002',  coding.system = 'http://snomed.info/sct',  coding.display = 'Claustrophobia (finding)',  condition.extension as ext2,  ext2.url = 'http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-qualifier-value',  ext2.value = value,  condition.category as category,  category.coding as coding,  coding.code = &apos;problem-list-item&apos;,  coding.system = &apos;http://terminology.hl7.org/CodeSystem/condition-category&apos;,  coding.display = &apos;Problem List Item&apos;,  condition.code as code,  code.coding as coding2,  coding2.code = &apos;19887002&apos;,  coding2.system = &apos;http://snomed.info/sct&apos;,  coding2.display = &apos;Claustrophobia (finding)&apos;,  condition.subject as subject,  subject.reference = (&apos;urn:uuid:&apos; + patient.id) &quot;claustrophobia&quot;;
     } &quot;valueString&quot;;
   } &quot;answer&quot;;
   src.item as item where ((linkId.value = &apos;caveat.bodyPiercing&apos;) and answer.exists()) then {
     item.answer as answer then {
-      answer.value : boolean as value where answer.valueBoolean -&gt;  bundle.entry as e,  e.resource = create(&apos;Condition&apos;) as condition,  condition.id = uuid() as uuid,  e.fullUrl = (&apos;urn:uuid:&apos; + uuid),  serviceRequest.supportingInfo as supportingInfo,  supportingInfo.reference = ('urn:uuid:' + uuid),  condition.category as category,  category.coding as coding,  coding.code = 'problem-list-item',  coding.system = 'http://terminology.hl7.org/CodeSystem/condition-category',  coding.display = 'Problem List Item',  condition.code as code,  code.coding as coding2,  coding2.code = '879862001',  coding2.system = 'http://snomed.info/sct',  coding2.display = 'Body piercing (finding)',  condition.subject as subject,  subject.reference = ('urn:uuid:' + patient.id) &quot;bodyPiercing&quot;;
+      answer.value : Coding as value -&gt;  bundle.entry as e,  e.resource = create(&apos;Condition&apos;) as condition,  condition.id = uuid() as uuid,  e.fullUrl = (&apos;urn:uuid:&apos; + uuid),  serviceRequest.supportingInfo as supportingInfo,  supportingInfo.reference = (&apos;urn:uuid:&apos; + uuid),  condition.extension as ext1,  ext1.url = &apos;http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-type',  ext1.value = create('Coding') as coding,  coding.code = '879862001',  coding.system = 'http://snomed.info/sct',  coding.display = 'Body piercing (finding)',  condition.extension as ext2,  ext2.url = 'http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-qualifier-value',  ext2.value = value,  condition.category as category,  category.coding as coding,  coding.code = 'problem-list-item',  coding.system = 'http://terminology.hl7.org/CodeSystem/condition-category',  coding.display = &apos;Problem List Item&apos;,  condition.code as code,  code.coding as coding2,  coding2.code = &apos;879862001&apos;,  coding2.system = &apos;http://snomed.info/sct&apos;,  coding2.display = &apos;Body piercing (finding)&apos;,  condition.subject as subject,  subject.reference = (&apos;urn:uuid:&apos; + patient.id) &quot;bodyPiercing&quot;;
     } &quot;valueString&quot;;
   } &quot;answer&quot;;
-  src.item as item where ((linkId.value = &apos;caveat.device&apos;) and answer.exists()) then {
-    item.answer as answer then {
-      answer.value : string as value -&gt;  bundle.entry as e,  e.resource = create(&apos;Condition&apos;) as condition,  condition.id = uuid() as uuid,  e.fullUrl = (&apos;urn:uuid:&apos; + uuid),  serviceRequest.supportingInfo as supportingInfo,  supportingInfo.reference = (&apos;urn:uuid:&apos; + uuid),  condition.category as category,  category.coding as coding,  coding.code = &apos;problem-list-item&apos;,  coding.system = &apos;http://terminology.hl7.org/CodeSystem/condition-category&apos;,  coding.display = &apos;Problem List Item&apos;,  condition.code as code,  code.coding as coding2,  coding2.code = &apos;397578001&apos;,  coding2.system = &apos;http://snomed.info/sct&apos;,  coding2.display = &apos;Device in situ (finding)&apos;,  condition.subject as subject,  subject.reference = (&apos;urn:uuid:&apos; + patient.id),  condition.note as note,  note.text = value &quot;device&quot;;
-    } &quot;valueString&quot;;
-  } &quot;answer&quot;;
+  src.item as item where (linkId.value = &apos;caveat.device&apos;) -&gt;  bundle.entry as e,  e.resource = create(&apos;Condition&apos;) as condition,  condition.id = uuid() as uuid,  e.fullUrl = (&apos;urn:uuid:&apos; + uuid),  serviceRequest.supportingInfo as supportingInfo,  supportingInfo.reference = (&apos;urn:uuid:&apos; + uuid) then {
+    item.item as subitem where ((linkId.value = &apos;caveat.device.choice&apos;) and answer.exists()) then {
+      subitem.answer as answer then {
+        answer.value : Coding as value -&gt;  condition.extension as ext1,  ext1.url = &apos;http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-type&apos;,  ext1.value = create(&apos;Coding&apos;) as coding,  coding.code = &apos;397578001&apos;,  coding.system = &apos;http://snomed.info/sct&apos;,  coding.display = &apos;Device in situ (finding)&apos;,  condition.extension as ext2,  ext2.url = &apos;http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-qualifier-value&apos;,  ext2.value = value,  condition.category as category,  category.coding as coding,  coding.code = &apos;problem-list-item&apos;,  coding.system = &apos;http://terminology.hl7.org/CodeSystem/condition-category&apos;,  coding.display = &apos;Problem List Item&apos;,  condition.subject as subject,  subject.reference = (&apos;urn:uuid:&apos; + patient.id) &quot;device&quot;;
+      } &quot;choise&quot;;
+      item.item as subitem where ((linkId.value = &apos;caveat.device.specifictype&apos;) and answer.exists()) then {
+        subitem.answer as answer then {
+          answer.value : Coding as value -&gt;  condition.code as code,  code.coding = value &quot;devicespecific&quot;;
+        } &quot;specifictype&quot;;
+      } &quot;devicespecific&quot;;
+    } &quot;device&quot;;
+  } &quot;device&quot;;
   src.item as item where ((linkId.value = &apos;caveat.hyperthyroidism&apos;) and answer.exists()) then {
     item.answer as answer then {
-      answer.value : boolean as value where answer.valueBoolean -&gt;  bundle.entry as e,  e.resource = create(&apos;Condition&apos;) as condition,  condition.id = uuid() as uuid,  e.fullUrl = (&apos;urn:uuid:&apos; + uuid),  serviceRequest.supportingInfo as supportingInfo,  supportingInfo.reference = (&apos;urn:uuid:&apos; + uuid),  condition.category as category,  category.coding as coding,  coding.code = &apos;problem-list-item&apos;,  coding.system = &apos;http://terminology.hl7.org/CodeSystem/condition-category&apos;,  coding.display = &apos;Problem List Item&apos;,  condition.code as code,  code.coding as coding2,  coding2.code = &apos;34486009&apos;,  coding2.system = &apos;http://snomed.info/sct&apos;,  coding2.display = &apos;Hyperthyroidism (disorder)&apos;,  condition.subject as subject,  subject.reference = (&apos;urn:uuid:&apos; + patient.id) &quot;hyperthyroidism&quot;;
+      answer.value : Coding as value -&gt;  bundle.entry as e,  e.resource = create(&apos;Condition&apos;) as condition,  condition.id = uuid() as uuid,  e.fullUrl = (&apos;urn:uuid:&apos; + uuid),  serviceRequest.supportingInfo as supportingInfo,  supportingInfo.reference = (&apos;urn:uuid:&apos; + uuid),  condition.extension as ext1,  ext1.url = &apos;http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-type&apos;,  ext1.value = create(&apos;Coding&apos;) as coding,  coding.code = &apos;34486009&apos;,  coding.system = &apos;http://snomed.info/sct&apos;,  coding.display = &apos;Hyperthyroidism (disorder)',  condition.extension as ext2,  ext2.url = 'http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-qualifier-value',  ext2.value = value,  condition.category as category,  category.coding as coding,  coding.code = 'problem-list-item',  coding.system = 'http://terminology.hl7.org/CodeSystem/condition-category',  coding.display = 'Problem List Item',  condition.code as code,  code.coding as coding2,  coding2.code = '34486009',  coding2.system = 'http://snomed.info/sct',  coding2.display = &apos;Hyperthyroidism (disorder)&apos;,  condition.subject as subject,  subject.reference = (&apos;urn:uuid:&apos; + patient.id) &quot;hyperthyroidism&quot;;
     } &quot;valueString&quot;;
   } &quot;answer&quot;;
   src.item as item where ((linkId.value = &apos;caveat.diabetes&apos;) and answer.exists()) then {
     item.answer as answer then {
-      answer.value : boolean as value where answer.valueBoolean -&gt;  bundle.entry as e,  e.resource = create(&apos;Condition&apos;) as condition,  condition.id = uuid() as uuid,  e.fullUrl = (&apos;urn:uuid:&apos; + uuid),  serviceRequest.supportingInfo as supportingInfo,  supportingInfo.reference = (&apos;urn:uuid:&apos; + uuid),  condition.category as category,  category.coding as coding,  coding.code = &apos;problem-list-item&apos;,  coding.system = &apos;http://terminology.hl7.org/CodeSystem/condition-category&apos;,  coding.display = &apos;Problem List Item&apos;,  condition.code as code,  code.coding as coding2,  coding2.code = &apos;73211009&apos;,  coding2.system = &apos;http://snomed.info/sct&apos;,  coding2.display = &apos;Diabetes mellitus (disorder)&apos;,  condition.subject as subject,  subject.reference = (&apos;urn:uuid:&apos; + patient.id) &quot;diabetes&quot;;
+      answer.value : Coding as value -&gt;  bundle.entry as e,  e.resource = create(&apos;Condition&apos;) as condition,  condition.id = uuid() as uuid,  e.fullUrl = (&apos;urn:uuid:&apos; + uuid),  serviceRequest.supportingInfo as supportingInfo,  supportingInfo.reference = ('urn:uuid:' + uuid),  condition.extension as ext1,  ext1.url = 'http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-type',  ext1.value = create('Coding') as coding,  coding.code = '73211009',  coding.system = 'http://snomed.info/sct',  coding.display = 'Diabetes mellitus (disorder)',  condition.extension as ext2,  ext2.url = 'http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-qualifier-value',  ext2.value = value,  condition.category as category,  category.coding as coding,  coding.code = &apos;problem-list-item&apos;,  coding.system = &apos;http://terminology.hl7.org/CodeSystem/condition-category&apos;,  coding.display = &apos;Problem List Item&apos;,  condition.code as code,  code.coding as coding2,  coding2.code = &apos;73211009&apos;,  coding2.system = &apos;http://snomed.info/sct&apos;,  coding2.display = &apos;Diabetes mellitus (disorder)&apos;,  condition.subject as subject,  subject.reference = (&apos;urn:uuid:&apos; + patient.id) &quot;diabetes&quot;;
     } &quot;valueString&quot;;
   } &quot;answer&quot;;
   src.item as item where ((linkId.value = &apos;caveat.gravida&apos;) and answer.exists()) then {
     item.answer as answer then {
-      answer.value : boolean as value where answer.valueBoolean -&gt;  bundle.entry as e,  e.resource = create(&apos;Condition&apos;) as condition,  condition.id = uuid() as uuid,  e.fullUrl = (&apos;urn:uuid:&apos; + uuid),  serviceRequest.supportingInfo as supportingInfo,  supportingInfo.reference = (&apos;urn:uuid:&apos; + uuid),  condition.category as category,  category.coding as coding,  coding.code = &apos;problem-list-item&apos;,  coding.system = &apos;http://terminology.hl7.org/CodeSystem/condition-category&apos;,  coding.display = &apos;Problem List Item&apos;,  condition.code as code,  code.coding as coding2,  coding2.code = &apos;366321006&apos;,  coding2.system = &apos;http://snomed.info/sct&apos;,  coding2.display = &apos;Finding of gravida (finding)&apos;,  condition.subject as subject,  subject.reference = (&apos;urn:uuid:&apos; + patient.id) &quot;gravida&quot;;
+      answer.value : Coding as value -&gt;  bundle.entry as e,  e.resource = create(&apos;Condition&apos;) as condition,  condition.id = uuid() as uuid,  e.fullUrl = (&apos;urn:uuid:&apos; + uuid),  serviceRequest.supportingInfo as supportingInfo,  supportingInfo.reference = (&apos;urn:uuid:&apos; + uuid),  condition.extension as ext1,  ext1.url = &apos;http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-type&apos;,  ext1.value = create(&apos;Coding') as coding,  coding.code = '366321006',  coding.system = 'http://snomed.info/sct',  coding.display = 'Finding of gravida (finding)',  condition.extension as ext2,  ext2.url = 'http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-qualifier-value',  ext2.value = value,  condition.category as category,  category.coding as coding,  coding.code = 'problem-list-item',  coding.system = 'http://terminology.hl7.org/CodeSystem/condition-category',  coding.display = 'Problem List Item',  condition.code as code,  code.coding as coding2,  coding2.code = &apos;366321006&apos;,  coding2.system = &apos;http://snomed.info/sct&apos;,  coding2.display = &apos;Finding of gravida (finding)&apos;,  condition.subject as subject,  subject.reference = (&apos;urn:uuid:&apos; + patient.id) &quot;gravida&quot;;
     } &quot;valueString&quot;;
   } &quot;answer&quot;;
   src.item as item where ((linkId.value = &apos;caveat.contrastMediaAllergy&apos;) and answer.exists()) then {
     item.answer as answer then {
-      answer.value : boolean as value where answer.valueBoolean -&gt;  bundle.entry as e,  e.resource = create(&apos;Condition&apos;) as condition,  condition.id = uuid() as uuid,  e.fullUrl = ('urn:uuid:' + uuid),  serviceRequest.supportingInfo as supportingInfo,  supportingInfo.reference = ('urn:uuid:' + uuid),  condition.category as category,  category.coding as coding,  coding.code = 'problem-list-item',  coding.system = 'http://terminology.hl7.org/CodeSystem/condition-category',  coding.display = 'Problem List Item',  condition.code as code,  code.coding as coding2,  coding2.code = '293637006',  coding2.system = 'http://snomed.info/sct',  coding2.display = &apos;Allergy to contrast media (finding)&apos;,  condition.subject as subject,  subject.reference = (&apos;urn:uuid:&apos; + patient.id) &quot;contrastMediaAllergy&quot;;
+      answer.value : Coding as value -&gt;  bundle.entry as e,  e.resource = create(&apos;Condition') as condition,  condition.id = uuid() as uuid,  e.fullUrl = ('urn:uuid:' + uuid),  serviceRequest.supportingInfo as supportingInfo,  supportingInfo.reference = ('urn:uuid:' + uuid),  condition.extension as ext1,  ext1.url = 'http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-type',  ext1.value = create('Coding') as coding,  coding.code = '293637006',  coding.system = 'http://snomed.info/sct',  coding.display = 'Allergy to contrast media (finding)',  condition.extension as ext2,  ext2.url = 'http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-qualifier-value',  ext2.value = value,  condition.category as category,  category.coding as coding,  coding.code = 'problem-list-item',  coding.system = 'http://terminology.hl7.org/CodeSystem/condition-category',  coding.display = 'Problem List Item',  condition.code as code,  code.coding as coding2,  coding2.code = '293637006',  coding2.system = 'http://snomed.info/sct',  coding2.display = 'Allergy to contrast media (finding)',  condition.subject as subject,  subject.reference = (&apos;urn:uuid:&apos; + patient.id) &quot;contrastMediaAllergy&quot;;
     } &quot;valueString&quot;;
   } &quot;answer&quot;;
-  src.item as item where ((linkId.value = &apos;caveat.drugPrescription&apos;) and answer.exists()) then {
-    item.answer as answer then {
-      answer.value : string as value -&gt;  bundle.entry as e,  e.resource = create(&apos;Condition&apos;) as condition,  condition.id = uuid() as uuid,  e.fullUrl = (&apos;urn:uuid:&apos; + uuid),  serviceRequest.supportingInfo as supportingInfo,  supportingInfo.reference = ('urn:uuid:' + uuid),  condition.category as category,  category.coding as coding,  coding.code = 'problem-list-item',  coding.system = 'http://terminology.hl7.org/CodeSystem/condition-category',  coding.display = 'Problem List Item',  condition.code as code,  code.coding as coding2,  coding2.code = '182817000',  coding2.system = 'http://snomed.info/sct',  coding2.display = 'Drug prescription (situation)',  condition.subject as subject,  subject.reference = (&apos;urn:uuid:&apos; + patient.id),  condition.note as note,  note.text = value &quot;drugPrescription&quot;;
-    } &quot;valueString&quot;;
-  } &quot;answer&quot;;
+  // &quot;caveat.drugPrescription.metformin&quot;
+  src.item as item where (linkId.value = &apos;caveat.drugPrescription&apos;) then DesiredRadiologistServiceItemsDrugDescription(item, bundle, serviceRequest, patient) &quot;DrugPrescription&quot;;
 }
 
-group RenalInsufficiencyCreatinineServiceItems(source src : BackboneElement, target patient : Patient, target bundle : Bundle, target serviceRequest : ServiceRequest, target condition : Condition) {
-  src -&gt;  bundle.entry as e,  e.resource = create(&apos;Observation&apos;) as observation,  observation.id = uuid() as uuid,  e.fullUrl = (&apos;urn:uuid:&apos; + uuid),  observation.status = &apos;final',  observation.code as code,  code.coding as coding2,  coding2.code = '723188008',  coding2.system = 'http://snomed.info/sct',  coding2.display = 'Renal insufficiency (disorder)',  condition.evidence as evidence,  evidence.detail as detail,  detail.reference = ('urn:uuid:' + uuid),  observation.subject as subject,  subject.reference = ('urn:uuid:' + patient.id) then {
-    src.item as item where ((linkId.value = 'caveat.renalInsufficiency.creatinine.quantity') and answer.exists()) then {
-      item.answer as answer then {
-        answer.value : Quantity as value -&gt; observation.value = value;
-      };
-    } &quot;quantity&quot;;
-    src.item as item where ((linkId.value = &apos;caveat.renalInsufficiency.creatinine.dateTime&apos;) and answer.exists()) then {
-      item.answer as answer then {
-        answer.value : dateTime as value -&gt; observation.effective = value;
-      };
-    } &quot;dateTime&quot;;
-  } &quot;observation&quot;;
+group DesiredRadiologistServiceItemsDrugDescription(source src : BackboneElement, target bundle : Bundle, target serviceRequest : ServiceRequest, target patient : Patient) {
+  src.item as item where (linkId.value = &apos;caveat.drugPrescription.metformin&apos;) then {
+    item.answer as answer then {
+      answer.value : Coding as value -&gt;  bundle.entry as e,  e.resource = create(&apos;Condition&apos;) as condition,  condition.id = uuid() as uuid,  e.fullUrl = (&apos;urn:uuid:&apos; + uuid),  serviceRequest.supportingInfo as supportingInfo,  supportingInfo.reference = (&apos;urn:uuid:&apos; + uuid),  condition.extension as ext1,  ext1.url = &apos;http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-type',  ext1.value = create('Coding') as coding,  coding.code = '182817000',  coding.system = 'http://snomed.info/sct',  coding.display = 'Drug prescription (situation)',  condition.extension as ext2,  ext2.url = 'http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-qualifier-value',  ext2.value = value,  condition.category as category,  category.coding as coding,  coding.code = 'problem-list-item',  coding.system = 'http://terminology.hl7.org/CodeSystem/condition-category',  coding.display = &apos;Problem List Item&apos;,  condition.code as code,  code.coding as coding2,  coding2.code = &apos;372567009&apos;,  coding2.system = &apos;http://snomed.info/sct&apos;,  coding2.display = &apos;Metformin (substance)&apos;,  condition.subject as subject,  subject.reference = (&apos;urn:uuid:&apos; + patient.id) &quot;drugPrescription&quot;;
+    } &quot;valueString&quot;;
+  } &quot;metformin&quot;;
+  src.item as item where (linkId.value = &apos;caveat.drugPrescription.betaBlocker&apos;) then {
+    item.answer as answer then {
+      answer.value : Coding as value -&gt;  bundle.entry as e,  e.resource = create('Condition') as condition,  condition.id = uuid() as uuid,  e.fullUrl = ('urn:uuid:' + uuid),  serviceRequest.supportingInfo as supportingInfo,  supportingInfo.reference = ('urn:uuid:' + uuid),  condition.extension as ext1,  ext1.url = 'http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-type',  ext1.value = create('Coding') as coding,  coding.code = '182817000',  coding.system = 'http://snomed.info/sct',  coding.display = 'Drug prescription (situation)',  condition.extension as ext2,  ext2.url = 'http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-qualifier-value',  ext2.value = value,  condition.category as category,  category.coding as coding,  coding.code = 'problem-list-item',  coding.system = 'http://terminology.hl7.org/CodeSystem/condition-category',  coding.display = 'Problem List Item',  condition.code as code,  code.coding as coding2,  coding2.code = '373254001',  coding2.system = 'http://snomed.info/sct',  coding2.display = 'Substance with beta adrenergic receptor antagonist mechanism of action (substance)&apos;,  condition.subject as subject,  subject.reference = (&apos;urn:uuid:&apos; + patient.id) &quot;drugPrescription&quot;;
+    } &quot;valueString&quot;;
+  } &quot;betaBlocker&quot;;
 }
 
 group PreviousImagingStudyResults(source grp : BackboneElement, target bundle : Bundle, target serviceRequest : ServiceRequest, target patient : Patient) {
   grp.item as item where (linkId.value = &apos;previousResults.imagingStudy&apos;) -&gt;  bundle.entry as e,  e.resource = create(&apos;ImagingStudy&apos;) as imagingStudy,  imagingStudy.id = uuid() as uuid,  imagingStudy.status = &apos;available&apos;,  imagingStudy.subject as subject,  subject.reference = (&apos;urn:uuid:&apos; + patient.id),  e.fullUrl = append(&apos;urn:uuid:&apos;, uuid),  serviceRequest.subject as subject,  subject.reference = (&apos;urn:uuid:&apos; + patient.id),  serviceRequest.supportingInfo as supportingInfo,  supportingInfo.reference = (&apos;urn:uuid:&apos; + uuid) then {
-    item.item as dictomitem where ((linkId.value = &apos;previousResults.imagingStudy.uid&apos;) and answer.exists()) -&gt;  imagingStudy.identifier as uid,  uid.system = &apos;urn:dicom:uid&apos;,  uid.use = &apos;official&apos;,  uid.value = (&apos;urn:oid:&apos; + dictomitem.answer.value) &quot;uid&quot;;
+    item.item as dictomitem where ((linkId.value = &apos;previousResults.imagingStudy.StudyInstanceUid&apos;) and answer.exists()) -&gt;  imagingStudy.identifier as uid,  uid.system = &apos;urn:dicom:uid&apos;,  uid.use = &apos;official&apos;,  uid.value = (&apos;urn:oid:&apos; + dictomitem.answer.value) &quot;uid&quot;;
     item.item as dictomitem where ((linkId.value = &apos;previousResults.imagingStudy.acsn&apos;) and answer.exists()) -&gt;  imagingStudy.identifier as acsn,  acsn.type as type,  type.coding as coding,  coding.system = &apos;http://terminology.hl7.org/CodeSystem/v2-0203&apos;,  coding.code = &apos;ACSN&apos;,  acsn.use = &apos;usual&apos;,  acsn.value = (dictomitem.answer.value) &quot;acsn&quot;;
-  } &quot;imagingStudy&quot;;
+    item.item as dictomitem where ((linkId.value = &apos;previousResults.imagingStudy.SeriesInstanceUid&apos;) and answer.exists()) -&gt; imagingStudy.series as series then {
+      dictomitem.answer as answer then {
+        answer.value : string as value -&gt; series.uid = value &quot;uid&quot;;
+        item.item as dictomitem where ((linkId.value = &apos;previousResults.imagingStudy.SopInstanceUid&apos;) and answer.exists()) -&gt; series.instance as instance then {
+          dictomitem.answer as answer then {
+            answer.value : string as value -&gt; instance.uid = value &quot;uid&quot;;
+          };
+        } &quot;answer&quot;;
+      } &quot;series&quot;;
+    } &quot;imagingStudy&quot;;
+  } &quot;previousResult&quot;;
 }
 
 </pre>
@@ -322,6 +396,93 @@ group PreviousImagingStudyResults(source grp : BackboneElement, target bundle : 
             <transform value="evaluate"/>
             <parameter>
                <valueString value="'urn:uuid:' + uuid"/>
+            </parameter>
+         </target>
+         <target>
+            <context value="composition"/>
+            <contextType value="variable"/>
+            <element value="title"/>
+            <transform value="copy"/>
+            <parameter>
+               <valueString value="Radiologieauftrag"/>
+            </parameter>
+         </target>
+         <target>
+            <context value="composition"/>
+            <contextType value="variable"/>
+            <element value="type"/>
+            <variable value="type"/>
+         </target>
+         <target>
+            <context value="type"/>
+            <contextType value="variable"/>
+            <element value="coding"/>
+            <variable value="coding"/>
+         </target>
+         <target>
+            <context value="coding"/>
+            <contextType value="variable"/>
+            <element value="code"/>
+            <transform value="copy"/>
+            <parameter>
+               <valueString value="2161000195103"/>
+            </parameter>
+         </target>
+         <target>
+            <context value="coding"/>
+            <contextType value="variable"/>
+            <element value="system"/>
+            <transform value="copy"/>
+            <parameter>
+               <valueString value="urn:oid:2.16.756.5.30.1.127.3.4"/>
+            </parameter>
+         </target>
+         <target>
+            <context value="coding"/>
+            <contextType value="variable"/>
+            <element value="display"/>
+            <transform value="copy"/>
+            <parameter>
+               <valueString value="Imaging order (record artifact)"/>
+            </parameter>
+         </target>
+         <target>
+            <context value="composition"/>
+            <contextType value="variable"/>
+            <element value="category"/>
+            <variable value="category"/>
+         </target>
+         <target>
+            <context value="category"/>
+            <contextType value="variable"/>
+            <element value="coding"/>
+            <variable value="coding"/>
+         </target>
+         <target>
+            <context value="coding"/>
+            <contextType value="variable"/>
+            <element value="code"/>
+            <transform value="copy"/>
+            <parameter>
+               <valueString value="721963009"/>
+            </parameter>
+         </target>
+         <target>
+            <context value="coding"/>
+            <contextType value="variable"/>
+            <element value="system"/>
+            <transform value="copy"/>
+            <parameter>
+               <valueString value="http://snomed.info/sct"/>
+            </parameter>
+         </target>
+         <target>
+            <context value="coding"/>
+            <contextType value="variable"/>
+            <element value="display"/>
+            <transform value="copy"/>
+            <parameter>
+               <valueString value="Order (record artifact)"/>
             </parameter>
          </target>
          <target>
@@ -1449,6 +1610,148 @@ group PreviousImagingStudyResults(source grp : BackboneElement, target bundle : 
             <context value="src"/>
             <element value="item"/>
             <variable value="item"/>
+            <condition value="((linkId.value = 'diagnosisList.primaryDiagnosis') and answer.exists())"/>
+         </source>
+         <rule>
+            <name value="answer.valueString"/>
+            <source>
+               <context value="item"/>
+               <element value="answer"/>
+               <variable value="answer"/>
+            </source>
+            <rule>
+               <name value="diagnosisList.primaryDiagnosis"/>
+               <source>
+                  <context value="answer"/>
+                  <type value="string"/>
+                  <element value="value"/>
+                  <variable value="value"/>
+               </source>
+               <target>
+                  <context value="bundle"/>
+                  <contextType value="variable"/>
+                  <element value="entry"/>
+                  <variable value="e"/>
+               </target>
+               <target>
+                  <context value="e"/>
+                  <contextType value="variable"/>
+                  <element value="resource"/>
+                  <variable value="condition"/>
+                  <transform value="create"/>
+                  <parameter>
+                     <valueString value="Condition"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="condition"/>
+                  <contextType value="variable"/>
+                  <element value="id"/>
+                  <variable value="uuid"/>
+                  <transform value="uuid"/>
+               </target>
+               <target>
+                  <context value="e"/>
+                  <contextType value="variable"/>
+                  <element value="fullUrl"/>
+                  <transform value="evaluate"/>
+                  <parameter>
+                     <valueString value="'urn:uuid:' + uuid"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="serviceRequest"/>
+                  <contextType value="variable"/>
+                  <element value="reasonReference"/>
+                  <variable value="reasonReference"/>
+               </target>
+               <target>
+                  <context value="reasonReference"/>
+                  <contextType value="variable"/>
+                  <element value="reference"/>
+                  <transform value="evaluate"/>
+                  <parameter>
+                     <valueString value="'urn:uuid:' + uuid"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="condition"/>
+                  <contextType value="variable"/>
+                  <element value="category"/>
+                  <variable value="category"/>
+               </target>
+               <target>
+                  <context value="category"/>
+                  <contextType value="variable"/>
+                  <element value="coding"/>
+                  <variable value="coding"/>
+               </target>
+               <target>
+                  <context value="coding"/>
+                  <contextType value="variable"/>
+                  <element value="code"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueString value="problem-list-item"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="coding"/>
+                  <contextType value="variable"/>
+                  <element value="system"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueString value="http://terminology.hl7.org/CodeSystem/condition-category"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="coding"/>
+                  <contextType value="variable"/>
+                  <element value="display"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueString value="Problem List Item"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="condition"/>
+                  <contextType value="variable"/>
+                  <element value="code"/>
+                  <variable value="code"/>
+               </target>
+               <target>
+                  <context value="code"/>
+                  <contextType value="variable"/>
+                  <element value="text"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueId value="value"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="condition"/>
+                  <contextType value="variable"/>
+                  <element value="subject"/>
+                  <variable value="subject"/>
+               </target>
+               <target>
+                  <context value="subject"/>
+                  <contextType value="variable"/>
+                  <element value="reference"/>
+                  <transform value="evaluate"/>
+                  <parameter>
+                     <valueString value="'urn:uuid:' + patient.id"/>
+                  </parameter>
+               </target>
+            </rule>
+         </rule>
+      </rule>
+      <rule>
+         <name value="item.answer"/>
+         <source>
+            <context value="src"/>
+            <element value="item"/>
+            <variable value="item"/>
             <condition value="((linkId.value = 'diagnosisList.secondaryDiagnosis') and answer.exists())"/>
          </source>
          <rule>
@@ -1585,6 +1888,356 @@ group PreviousImagingStudyResults(source grp : BackboneElement, target bundle : 
             </rule>
          </rule>
       </rule>
+      <rule>
+         <name value="item.answer"/>
+         <source>
+            <context value="src"/>
+            <element value="item"/>
+            <variable value="item"/>
+            <condition value="((linkId.value = 'diagnosisList.bodyHeight') and answer.exists())"/>
+         </source>
+         <rule>
+            <name value="answer.valueString"/>
+            <source>
+               <context value="item"/>
+               <element value="answer"/>
+               <variable value="answer"/>
+            </source>
+            <rule>
+               <name value="observation.bodyHeight"/>
+               <source>
+                  <context value="answer"/>
+                  <type value="Quantity"/>
+                  <element value="value"/>
+                  <variable value="value"/>
+               </source>
+               <target>
+                  <context value="bundle"/>
+                  <contextType value="variable"/>
+                  <element value="entry"/>
+                  <variable value="e"/>
+               </target>
+               <target>
+                  <context value="e"/>
+                  <contextType value="variable"/>
+                  <element value="resource"/>
+                  <variable value="observation"/>
+                  <transform value="create"/>
+                  <parameter>
+                     <valueString value="Observation"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="observation"/>
+                  <contextType value="variable"/>
+                  <element value="status"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueString value="final"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="observation"/>
+                  <contextType value="variable"/>
+                  <element value="id"/>
+                  <variable value="uuid"/>
+                  <transform value="uuid"/>
+               </target>
+               <target>
+                  <context value="e"/>
+                  <contextType value="variable"/>
+                  <element value="fullUrl"/>
+                  <transform value="evaluate"/>
+                  <parameter>
+                     <valueString value="'urn:uuid:' + uuid"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="observation"/>
+                  <contextType value="variable"/>
+                  <element value="status"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueString value="final"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="serviceRequest"/>
+                  <contextType value="variable"/>
+                  <element value="supportingInfo"/>
+                  <variable value="supportingInfo"/>
+               </target>
+               <target>
+                  <context value="supportingInfo"/>
+                  <contextType value="variable"/>
+                  <element value="reference"/>
+                  <transform value="evaluate"/>
+                  <parameter>
+                     <valueString value="'urn:uuid:' + uuid"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="observation"/>
+                  <contextType value="variable"/>
+                  <element value="category"/>
+                  <variable value="category"/>
+               </target>
+               <target>
+                  <context value="category"/>
+                  <contextType value="variable"/>
+                  <element value="coding"/>
+                  <variable value="coding"/>
+               </target>
+               <target>
+                  <context value="coding"/>
+                  <contextType value="variable"/>
+                  <element value="code"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueString value="vital-signs"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="coding"/>
+                  <contextType value="variable"/>
+                  <element value="system"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueString value="http://terminology.hl7.org/CodeSystem/observation-category"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="observation"/>
+                  <contextType value="variable"/>
+                  <element value="value"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueId value="value"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="observation"/>
+                  <contextType value="variable"/>
+                  <element value="code"/>
+                  <variable value="cc"/>
+               </target>
+               <target>
+                  <context value="cc"/>
+                  <contextType value="variable"/>
+                  <element value="coding"/>
+                  <variable value="c"/>
+               </target>
+               <target>
+                  <context value="c"/>
+                  <contextType value="variable"/>
+                  <element value="system"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueString value="http://loinc.org"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="c"/>
+                  <contextType value="variable"/>
+                  <element value="code"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueString value="8302-2"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="observation"/>
+                  <contextType value="variable"/>
+                  <element value="subject"/>
+                  <variable value="subject"/>
+               </target>
+               <target>
+                  <context value="subject"/>
+                  <contextType value="variable"/>
+                  <element value="reference"/>
+                  <transform value="evaluate"/>
+                  <parameter>
+                     <valueString value="'urn:uuid:' + patient.id"/>
+                  </parameter>
+               </target>
+            </rule>
+         </rule>
+      </rule>
+      <rule>
+         <name value="item.answer"/>
+         <source>
+            <context value="src"/>
+            <element value="item"/>
+            <variable value="item"/>
+            <condition value="((linkId.value = 'diagnosisList.bodyWeight') and answer.exists())"/>
+         </source>
+         <rule>
+            <name value="answer.valueString"/>
+            <source>
+               <context value="item"/>
+               <element value="answer"/>
+               <variable value="answer"/>
+            </source>
+            <rule>
+               <name value="observation.bodyWeight"/>
+               <source>
+                  <context value="answer"/>
+                  <type value="Quantity"/>
+                  <element value="value"/>
+                  <variable value="value"/>
+               </source>
+               <target>
+                  <context value="bundle"/>
+                  <contextType value="variable"/>
+                  <element value="entry"/>
+                  <variable value="e"/>
+               </target>
+               <target>
+                  <context value="e"/>
+                  <contextType value="variable"/>
+                  <element value="resource"/>
+                  <variable value="observation"/>
+                  <transform value="create"/>
+                  <parameter>
+                     <valueString value="Observation"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="observation"/>
+                  <contextType value="variable"/>
+                  <element value="status"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueString value="final"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="observation"/>
+                  <contextType value="variable"/>
+                  <element value="id"/>
+                  <variable value="uuid"/>
+                  <transform value="uuid"/>
+               </target>
+               <target>
+                  <context value="observation"/>
+                  <contextType value="variable"/>
+                  <element value="status"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueString value="final"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="e"/>
+                  <contextType value="variable"/>
+                  <element value="fullUrl"/>
+                  <transform value="evaluate"/>
+                  <parameter>
+                     <valueString value="'urn:uuid:' + uuid"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="serviceRequest"/>
+                  <contextType value="variable"/>
+                  <element value="supportingInfo"/>
+                  <variable value="supportingInfo"/>
+               </target>
+               <target>
+                  <context value="supportingInfo"/>
+                  <contextType value="variable"/>
+                  <element value="reference"/>
+                  <transform value="evaluate"/>
+                  <parameter>
+                     <valueString value="'urn:uuid:' + uuid"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="observation"/>
+                  <contextType value="variable"/>
+                  <element value="category"/>
+                  <variable value="category"/>
+               </target>
+               <target>
+                  <context value="category"/>
+                  <contextType value="variable"/>
+                  <element value="coding"/>
+                  <variable value="coding"/>
+               </target>
+               <target>
+                  <context value="coding"/>
+                  <contextType value="variable"/>
+                  <element value="code"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueString value="vital-signs"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="coding"/>
+                  <contextType value="variable"/>
+                  <element value="system"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueString value="http://terminology.hl7.org/CodeSystem/observation-category"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="observation"/>
+                  <contextType value="variable"/>
+                  <element value="value"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueId value="value"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="observation"/>
+                  <contextType value="variable"/>
+                  <element value="code"/>
+                  <variable value="cc"/>
+               </target>
+               <target>
+                  <context value="cc"/>
+                  <contextType value="variable"/>
+                  <element value="coding"/>
+                  <variable value="c"/>
+               </target>
+               <target>
+                  <context value="c"/>
+                  <contextType value="variable"/>
+                  <element value="system"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueString value="http://loinc.org"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="c"/>
+                  <contextType value="variable"/>
+                  <element value="code"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueString value="29463-7"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="observation"/>
+                  <contextType value="variable"/>
+                  <element value="subject"/>
+                  <variable value="subject"/>
+               </target>
+               <target>
+                  <context value="subject"/>
+                  <contextType value="variable"/>
+                  <element value="reference"/>
+                  <transform value="evaluate"/>
+                  <parameter>
+                     <valueString value="'urn:uuid:' + patient.id"/>
+                  </parameter>
+               </target>
+            </rule>
+         </rule>
+      </rule>
    </group>
    <group>
       <name value="CaveatServiceItems"/>
@@ -1625,13 +2278,12 @@ group PreviousImagingStudyResults(source grp : BackboneElement, target bundle : 
                <variable value="answer"/>
             </source>
             <rule>
-               <name value="caveat.bloodCoagulation"/>
+               <name value="bloodCoagulation"/>
                <source>
                   <context value="answer"/>
-                  <type value="boolean"/>
+                  <type value="Coding"/>
                   <element value="value"/>
                   <variable value="value"/>
-                  <condition value="answer.valueBoolean"/>
                </source>
                <target>
                   <context value="bundle"/>
@@ -1678,6 +2330,82 @@ group PreviousImagingStudyResults(source grp : BackboneElement, target bundle : 
                   <transform value="evaluate"/>
                   <parameter>
                      <valueString value="'urn:uuid:' + uuid"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="condition"/>
+                  <contextType value="variable"/>
+                  <element value="extension"/>
+                  <variable value="ext1"/>
+               </target>
+               <target>
+                  <context value="ext1"/>
+                  <contextType value="variable"/>
+                  <element value="url"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueString value="http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-type"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="ext1"/>
+                  <contextType value="variable"/>
+                  <element value="value"/>
+                  <variable value="coding"/>
+                  <transform value="create"/>
+                  <parameter>
+                     <valueString value="Coding"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="coding"/>
+                  <contextType value="variable"/>
+                  <element value="code"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueString value="64779008"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="coding"/>
+                  <contextType value="variable"/>
+                  <element value="system"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueString value="http://snomed.info/sct"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="coding"/>
+                  <contextType value="variable"/>
+                  <element value="display"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueString value="Blood coagulation disorder (disorder)"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="condition"/>
+                  <contextType value="variable"/>
+                  <element value="extension"/>
+                  <variable value="ext2"/>
+               </target>
+               <target>
+                  <context value="ext2"/>
+                  <contextType value="variable"/>
+                  <element value="url"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueString value="http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-qualifier-value"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="ext2"/>
+                  <contextType value="variable"/>
+                  <element value="value"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueId value="value"/>
                   </parameter>
                </target>
                <target>
@@ -1773,6 +2501,378 @@ group PreviousImagingStudyResults(source grp : BackboneElement, target bundle : 
                      <valueString value="'urn:uuid:' + patient.id"/>
                   </parameter>
                </target>
+               <rule>
+                  <name value="cavveat.bloodCoagulation.INR"/>
+                  <source>
+                     <context value="answer"/>
+                     <element value="item"/>
+                     <variable value="subitem"/>
+                     <condition value="(linkId.value = 'caveat.bloodCoagulation.INR')"/>
+                  </source>
+                  <target>
+                     <context value="bundle"/>
+                     <contextType value="variable"/>
+                     <element value="entry"/>
+                     <variable value="e"/>
+                  </target>
+                  <target>
+                     <context value="e"/>
+                     <contextType value="variable"/>
+                     <element value="resource"/>
+                     <variable value="observation"/>
+                     <transform value="create"/>
+                     <parameter>
+                        <valueString value="Observation"/>
+                     </parameter>
+                  </target>
+                  <target>
+                     <context value="observation"/>
+                     <contextType value="variable"/>
+                     <element value="id"/>
+                     <variable value="uuid"/>
+                     <transform value="uuid"/>
+                  </target>
+                  <target>
+                     <context value="observation"/>
+                     <contextType value="variable"/>
+                     <element value="status"/>
+                     <transform value="copy"/>
+                     <parameter>
+                        <valueString value="final"/>
+                     </parameter>
+                  </target>
+                  <target>
+                     <context value="e"/>
+                     <contextType value="variable"/>
+                     <element value="fullUrl"/>
+                     <transform value="evaluate"/>
+                     <parameter>
+                        <valueString value="'urn:uuid:' + uuid"/>
+                     </parameter>
+                  </target>
+                  <target>
+                     <context value="condition"/>
+                     <contextType value="variable"/>
+                     <element value="evidence"/>
+                     <variable value="evidence"/>
+                  </target>
+                  <target>
+                     <context value="evidence"/>
+                     <contextType value="variable"/>
+                     <element value="detail"/>
+                     <variable value="detail"/>
+                  </target>
+                  <target>
+                     <context value="detail"/>
+                     <contextType value="variable"/>
+                     <element value="reference"/>
+                     <transform value="evaluate"/>
+                     <parameter>
+                        <valueString value="'urn:uuid:' + uuid"/>
+                     </parameter>
+                  </target>
+                  <target>
+                     <context value="observation"/>
+                     <contextType value="variable"/>
+                     <element value="code"/>
+                     <variable value="cc"/>
+                  </target>
+                  <target>
+                     <context value="cc"/>
+                     <contextType value="variable"/>
+                     <element value="coding"/>
+                     <variable value="c"/>
+                  </target>
+                  <target>
+                     <context value="c"/>
+                     <contextType value="variable"/>
+                     <element value="system"/>
+                     <transform value="copy"/>
+                     <parameter>
+                        <valueString value="http://loinc.org"/>
+                     </parameter>
+                  </target>
+                  <target>
+                     <context value="c"/>
+                     <contextType value="variable"/>
+                     <element value="code"/>
+                     <transform value="copy"/>
+                     <parameter>
+                        <valueString value="34714-6"/>
+                     </parameter>
+                  </target>
+                  <target>
+                     <context value="observation"/>
+                     <contextType value="variable"/>
+                     <element value="subject"/>
+                     <variable value="subject"/>
+                  </target>
+                  <target>
+                     <context value="subject"/>
+                     <contextType value="variable"/>
+                     <element value="reference"/>
+                     <transform value="evaluate"/>
+                     <parameter>
+                        <valueString value="'urn:uuid:' + patient.id"/>
+                     </parameter>
+                  </target>
+                  <rule>
+                     <name value="cavveat.bloodCoagulation.INR.quantity"/>
+                     <source>
+                        <context value="subitem"/>
+                        <element value="item"/>
+                        <variable value="quantityitem"/>
+                        <condition value="((linkId.value = 'caveat.bloodCoagulation.INR.quantity') and answer.exists())"/>
+                     </source>
+                     <rule>
+                        <name value="cavveat.bloodCoagulation.INR.quantity.value"/>
+                        <source>
+                           <context value="quantityitem"/>
+                           <element value="answer"/>
+                           <variable value="answer"/>
+                        </source>
+                        <rule>
+                           <name value="value"/>
+                           <source>
+                              <context value="answer"/>
+                              <type value="Quantity"/>
+                              <element value="value"/>
+                              <variable value="value"/>
+                           </source>
+                           <target>
+                              <context value="observation"/>
+                              <contextType value="variable"/>
+                              <element value="value"/>
+                              <transform value="copy"/>
+                              <parameter>
+                                 <valueId value="value"/>
+                              </parameter>
+                           </target>
+                        </rule>
+                     </rule>
+                  </rule>
+                  <rule>
+                     <name value="cavveat.bloodCoagulation.INR.dateTime"/>
+                     <source>
+                        <context value="subitem"/>
+                        <element value="item"/>
+                        <variable value="datetimeitem"/>
+                        <condition value="((linkId.value = 'caveat.bloodCoagulation.INR.dateTime') and answer.exists())"/>
+                     </source>
+                     <rule>
+                        <name value="cavveat.bloodCoagulation.INR.dateTime.value"/>
+                        <source>
+                           <context value="datetimeitem"/>
+                           <element value="answer"/>
+                           <variable value="answer"/>
+                        </source>
+                        <rule>
+                           <name value="value"/>
+                           <source>
+                              <context value="answer"/>
+                              <type value="dateTime"/>
+                              <element value="value"/>
+                              <variable value="value"/>
+                           </source>
+                           <target>
+                              <context value="observation"/>
+                              <contextType value="variable"/>
+                              <element value="effective"/>
+                              <transform value="copy"/>
+                              <parameter>
+                                 <valueId value="value"/>
+                              </parameter>
+                           </target>
+                        </rule>
+                     </rule>
+                  </rule>
+               </rule>
+               <rule>
+                  <name value="cavveat.bloodCoagulation.INR"/>
+                  <source>
+                     <context value="answer"/>
+                     <element value="item"/>
+                     <variable value="subitem"/>
+                     <condition value="(linkId.value = 'caveat.bloodCoagulation.platelets')"/>
+                  </source>
+                  <target>
+                     <context value="bundle"/>
+                     <contextType value="variable"/>
+                     <element value="entry"/>
+                     <variable value="e"/>
+                  </target>
+                  <target>
+                     <context value="e"/>
+                     <contextType value="variable"/>
+                     <element value="resource"/>
+                     <variable value="observation"/>
+                     <transform value="create"/>
+                     <parameter>
+                        <valueString value="Observation"/>
+                     </parameter>
+                  </target>
+                  <target>
+                     <context value="observation"/>
+                     <contextType value="variable"/>
+                     <element value="id"/>
+                     <variable value="uuid"/>
+                     <transform value="uuid"/>
+                  </target>
+                  <target>
+                     <context value="observation"/>
+                     <contextType value="variable"/>
+                     <element value="status"/>
+                     <transform value="copy"/>
+                     <parameter>
+                        <valueString value="final"/>
+                     </parameter>
+                  </target>
+                  <target>
+                     <context value="e"/>
+                     <contextType value="variable"/>
+                     <element value="fullUrl"/>
+                     <transform value="evaluate"/>
+                     <parameter>
+                        <valueString value="'urn:uuid:' + uuid"/>
+                     </parameter>
+                  </target>
+                  <target>
+                     <context value="condition"/>
+                     <contextType value="variable"/>
+                     <element value="evidence"/>
+                     <variable value="evidence"/>
+                  </target>
+                  <target>
+                     <context value="evidence"/>
+                     <contextType value="variable"/>
+                     <element value="detail"/>
+                     <variable value="detail"/>
+                  </target>
+                  <target>
+                     <context value="detail"/>
+                     <contextType value="variable"/>
+                     <element value="reference"/>
+                     <transform value="evaluate"/>
+                     <parameter>
+                        <valueString value="'urn:uuid:' + uuid"/>
+                     </parameter>
+                  </target>
+                  <target>
+                     <context value="observation"/>
+                     <contextType value="variable"/>
+                     <element value="code"/>
+                     <variable value="cc"/>
+                  </target>
+                  <target>
+                     <context value="cc"/>
+                     <contextType value="variable"/>
+                     <element value="coding"/>
+                     <variable value="c"/>
+                  </target>
+                  <target>
+                     <context value="c"/>
+                     <contextType value="variable"/>
+                     <element value="system"/>
+                     <transform value="copy"/>
+                     <parameter>
+                        <valueString value="http://loinc.org"/>
+                     </parameter>
+                  </target>
+                  <target>
+                     <context value="c"/>
+                     <contextType value="variable"/>
+                     <element value="code"/>
+                     <transform value="copy"/>
+                     <parameter>
+                        <valueString value="26515-7"/>
+                     </parameter>
+                  </target>
+                  <target>
+                     <context value="observation"/>
+                     <contextType value="variable"/>
+                     <element value="subject"/>
+                     <variable value="subject"/>
+                  </target>
+                  <target>
+                     <context value="subject"/>
+                     <contextType value="variable"/>
+                     <element value="reference"/>
+                     <transform value="evaluate"/>
+                     <parameter>
+                        <valueString value="'urn:uuid:' + patient.id"/>
+                     </parameter>
+                  </target>
+                  <rule>
+                     <name value="cavveat.bloodCoagulation.INR.platelets"/>
+                     <source>
+                        <context value="subitem"/>
+                        <element value="item"/>
+                        <variable value="quantityitem"/>
+                        <condition value="((linkId.value = 'caveat.bloodCoagulation.platelets.quantity') and answer.exists())"/>
+                     </source>
+                     <rule>
+                        <name value="cavveat.bloodCoagulation.INR.platelets.value"/>
+                        <source>
+                           <context value="quantityitem"/>
+                           <element value="answer"/>
+                           <variable value="answer"/>
+                        </source>
+                        <rule>
+                           <name value="value"/>
+                           <source>
+                              <context value="answer"/>
+                              <type value="Quantity"/>
+                              <element value="value"/>
+                              <variable value="value"/>
+                           </source>
+                           <target>
+                              <context value="observation"/>
+                              <contextType value="variable"/>
+                              <element value="value"/>
+                              <transform value="copy"/>
+                              <parameter>
+                                 <valueId value="value"/>
+                              </parameter>
+                           </target>
+                        </rule>
+                     </rule>
+                  </rule>
+                  <rule>
+                     <name value="cavveat.bloodCoagulation.INR.platelets"/>
+                     <source>
+                        <context value="subitem"/>
+                        <element value="item"/>
+                        <variable value="datetimeitem"/>
+                        <condition value="((linkId.value = 'caveat.bloodCoagulation.platelets.dateTime') and answer.exists())"/>
+                     </source>
+                     <rule>
+                        <name value="cavveat.bloodCoagulation.INR.platelets.value"/>
+                        <source>
+                           <context value="datetimeitem"/>
+                           <element value="answer"/>
+                           <variable value="answer"/>
+                        </source>
+                        <rule>
+                           <name value="value"/>
+                           <source>
+                              <context value="answer"/>
+                              <type value="dateTime"/>
+                              <element value="value"/>
+                              <variable value="value"/>
+                           </source>
+                           <target>
+                              <context value="observation"/>
+                              <contextType value="variable"/>
+                              <element value="effective"/>
+                              <transform value="copy"/>
+                              <parameter>
+                                 <valueId value="value"/>
+                              </parameter>
+                           </target>
+                        </rule>
+                     </rule>
+                  </rule>
+               </rule>
             </rule>
          </rule>
       </rule>
@@ -1792,13 +2892,12 @@ group PreviousImagingStudyResults(source grp : BackboneElement, target bundle : 
                <variable value="answer"/>
             </source>
             <rule>
-               <name value="caveat.renalInsufficiency"/>
+               <name value="bloodCoagulation"/>
                <source>
                   <context value="answer"/>
-                  <type value="boolean"/>
+                  <type value="Coding"/>
                   <element value="value"/>
                   <variable value="value"/>
-                  <condition value="answer.valueBoolean"/>
                </source>
                <target>
                   <context value="bundle"/>
@@ -1845,6 +2944,82 @@ group PreviousImagingStudyResults(source grp : BackboneElement, target bundle : 
                   <transform value="evaluate"/>
                   <parameter>
                      <valueString value="'urn:uuid:' + uuid"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="condition"/>
+                  <contextType value="variable"/>
+                  <element value="extension"/>
+                  <variable value="ext1"/>
+               </target>
+               <target>
+                  <context value="ext1"/>
+                  <contextType value="variable"/>
+                  <element value="url"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueString value="http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-type"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="ext1"/>
+                  <contextType value="variable"/>
+                  <element value="value"/>
+                  <variable value="coding"/>
+                  <transform value="create"/>
+                  <parameter>
+                     <valueString value="Coding"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="coding"/>
+                  <contextType value="variable"/>
+                  <element value="code"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueString value="723188008"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="coding"/>
+                  <contextType value="variable"/>
+                  <element value="system"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueString value="http://snomed.info/sct"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="coding"/>
+                  <contextType value="variable"/>
+                  <element value="display"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueString value="Renal insufficiency (disorder)"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="condition"/>
+                  <contextType value="variable"/>
+                  <element value="extension"/>
+                  <variable value="ext2"/>
+               </target>
+               <target>
+                  <context value="ext2"/>
+                  <contextType value="variable"/>
+                  <element value="url"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueString value="http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-qualifier-value"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="ext2"/>
+                  <contextType value="variable"/>
+                  <element value="value"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueId value="value"/>
                   </parameter>
                </target>
                <target>
@@ -1941,22 +3116,376 @@ group PreviousImagingStudyResults(source grp : BackboneElement, target bundle : 
                   </parameter>
                </target>
                <rule>
-                  <name value="RenalInsufficiencyCreatinineServiceItems"/>
+                  <name value="caveat.renalInsufficiency.creatinineClearance.INR"/>
                   <source>
                      <context value="answer"/>
                      <element value="item"/>
-                     <variable value="item2"/>
+                     <variable value="subitem"/>
+                     <condition value="(linkId.value = 'caveat.renalInsufficiency.creatinineClearance')"/>
+                  </source>
+                  <target>
+                     <context value="bundle"/>
+                     <contextType value="variable"/>
+                     <element value="entry"/>
+                     <variable value="e"/>
+                  </target>
+                  <target>
+                     <context value="e"/>
+                     <contextType value="variable"/>
+                     <element value="resource"/>
+                     <variable value="observation"/>
+                     <transform value="create"/>
+                     <parameter>
+                        <valueString value="Observation"/>
+                     </parameter>
+                  </target>
+                  <target>
+                     <context value="observation"/>
+                     <contextType value="variable"/>
+                     <element value="status"/>
+                     <transform value="copy"/>
+                     <parameter>
+                        <valueString value="final"/>
+                     </parameter>
+                  </target>
+                  <target>
+                     <context value="observation"/>
+                     <contextType value="variable"/>
+                     <element value="id"/>
+                     <variable value="uuid"/>
+                     <transform value="uuid"/>
+                  </target>
+                  <target>
+                     <context value="e"/>
+                     <contextType value="variable"/>
+                     <element value="fullUrl"/>
+                     <transform value="evaluate"/>
+                     <parameter>
+                        <valueString value="'urn:uuid:' + uuid"/>
+                     </parameter>
+                  </target>
+                  <target>
+                     <context value="condition"/>
+                     <contextType value="variable"/>
+                     <element value="evidence"/>
+                     <variable value="evidence"/>
+                  </target>
+                  <target>
+                     <context value="evidence"/>
+                     <contextType value="variable"/>
+                     <element value="detail"/>
+                     <variable value="detail"/>
+                  </target>
+                  <target>
+                     <context value="detail"/>
+                     <contextType value="variable"/>
+                     <element value="reference"/>
+                     <transform value="evaluate"/>
+                     <parameter>
+                        <valueString value="'urn:uuid:' + uuid"/>
+                     </parameter>
+                  </target>
+                  <target>
+                     <context value="observation"/>
+                     <contextType value="variable"/>
+                     <element value="code"/>
+                     <variable value="cc"/>
+                  </target>
+                  <target>
+                     <context value="cc"/>
+                     <contextType value="variable"/>
+                     <element value="coding"/>
+                     <variable value="c"/>
+                  </target>
+                  <target>
+                     <context value="c"/>
+                     <contextType value="variable"/>
+                     <element value="system"/>
+                     <transform value="copy"/>
+                     <parameter>
+                        <valueString value="http://loinc.org"/>
+                     </parameter>
+                  </target>
+                  <target>
+                     <context value="c"/>
+                     <contextType value="variable"/>
+                     <element value="code"/>
+                     <transform value="copy"/>
+                     <parameter>
+                        <valueString value="33558-8"/>
+                     </parameter>
+                  </target>
+                  <target>
+                     <context value="observation"/>
+                     <contextType value="variable"/>
+                     <element value="subject"/>
+                     <variable value="subject"/>
+                  </target>
+                  <target>
+                     <context value="subject"/>
+                     <contextType value="variable"/>
+                     <element value="reference"/>
+                     <transform value="evaluate"/>
+                     <parameter>
+                        <valueString value="'urn:uuid:' + patient.id"/>
+                     </parameter>
+                  </target>
+                  <rule>
+                     <name value="caveat.renalInsufficiency.creatinineClearance.quantity"/>
+                     <source>
+                        <context value="subitem"/>
+                        <element value="item"/>
+                        <variable value="quantityitem"/>
+                        <condition value="((linkId.value = 'caveat.renalInsufficiency.creatinineClearance.quantity') and answer.exists())"/>
+                     </source>
+                     <rule>
+                        <name value="caveat.renalInsufficiency.creatinineClearance.quantity.value"/>
+                        <source>
+                           <context value="quantityitem"/>
+                           <element value="answer"/>
+                           <variable value="answer"/>
+                        </source>
+                        <rule>
+                           <name value="value"/>
+                           <source>
+                              <context value="answer"/>
+                              <type value="Quantity"/>
+                              <element value="value"/>
+                              <variable value="value"/>
+                           </source>
+                           <target>
+                              <context value="observation"/>
+                              <contextType value="variable"/>
+                              <element value="value"/>
+                              <transform value="copy"/>
+                              <parameter>
+                                 <valueId value="value"/>
+                              </parameter>
+                           </target>
+                        </rule>
+                     </rule>
+                  </rule>
+                  <rule>
+                     <name value="caveat.renalInsuffic.iency.creatinineClearancedateTime"/>
+                     <source>
+                        <context value="subitem"/>
+                        <element value="item"/>
+                        <variable value="datetimeitem"/>
+                        <condition value="((linkId.value = 'caveat.renalInsufficiency.creatinineClearance.dateTime') and answer.exists())"/>
+                     </source>
+                     <rule>
+                        <name value="caveat.renalInsufficiency.creatinineClearance.dateTime.value"/>
+                        <source>
+                           <context value="datetimeitem"/>
+                           <element value="answer"/>
+                           <variable value="answer"/>
+                        </source>
+                        <rule>
+                           <name value="value"/>
+                           <source>
+                              <context value="answer"/>
+                              <type value="dateTime"/>
+                              <element value="value"/>
+                              <variable value="value"/>
+                           </source>
+                           <target>
+                              <context value="observation"/>
+                              <contextType value="variable"/>
+                              <element value="effective"/>
+                              <transform value="copy"/>
+                              <parameter>
+                                 <valueId value="value"/>
+                              </parameter>
+                           </target>
+                        </rule>
+                     </rule>
+                  </rule>
+               </rule>
+               <rule>
+                  <name value="caveat.renalInsufficiency.creatinine"/>
+                  <source>
+                     <context value="answer"/>
+                     <element value="item"/>
+                     <variable value="subitem"/>
                      <condition value="(linkId.value = 'caveat.renalInsufficiency.creatinine')"/>
                   </source>
-                  <dependent>
-                     <name value="RenalInsufficiencyCreatinineServiceItems"/>
-                     <variable value="item2"/>
-                     <variable value="patient"/>
-                     <variable value="bundle"/>
-                     <variable value="serviceRequest"/>
-                     <variable value="condition"/>
-                  </dependent>
-                  <documentation value="FIXME TODO answer.item as item2 where (linkId.value = 'caveat.renalInsufficiency.creatinineClearance') then RenalInsufficiencyCreatinineServiceItems(item2, patient, bundle, serviceRequest, condition) &quot;RenalInsufficiencyCreatinineServiceItems&quot;;"/>
+                  <target>
+                     <context value="bundle"/>
+                     <contextType value="variable"/>
+                     <element value="entry"/>
+                     <variable value="e"/>
+                  </target>
+                  <target>
+                     <context value="e"/>
+                     <contextType value="variable"/>
+                     <element value="resource"/>
+                     <variable value="observation"/>
+                     <transform value="create"/>
+                     <parameter>
+                        <valueString value="Observation"/>
+                     </parameter>
+                  </target>
+                  <target>
+                     <context value="observation"/>
+                     <contextType value="variable"/>
+                     <element value="status"/>
+                     <transform value="copy"/>
+                     <parameter>
+                        <valueString value="final"/>
+                     </parameter>
+                  </target>
+                  <target>
+                     <context value="observation"/>
+                     <contextType value="variable"/>
+                     <element value="id"/>
+                     <variable value="uuid"/>
+                     <transform value="uuid"/>
+                  </target>
+                  <target>
+                     <context value="e"/>
+                     <contextType value="variable"/>
+                     <element value="fullUrl"/>
+                     <transform value="evaluate"/>
+                     <parameter>
+                        <valueString value="'urn:uuid:' + uuid"/>
+                     </parameter>
+                  </target>
+                  <target>
+                     <context value="condition"/>
+                     <contextType value="variable"/>
+                     <element value="evidence"/>
+                     <variable value="evidence"/>
+                  </target>
+                  <target>
+                     <context value="evidence"/>
+                     <contextType value="variable"/>
+                     <element value="detail"/>
+                     <variable value="detail"/>
+                  </target>
+                  <target>
+                     <context value="detail"/>
+                     <contextType value="variable"/>
+                     <element value="reference"/>
+                     <transform value="evaluate"/>
+                     <parameter>
+                        <valueString value="'urn:uuid:' + uuid"/>
+                     </parameter>
+                  </target>
+                  <target>
+                     <context value="observation"/>
+                     <contextType value="variable"/>
+                     <element value="code"/>
+                     <variable value="cc"/>
+                  </target>
+                  <target>
+                     <context value="cc"/>
+                     <contextType value="variable"/>
+                     <element value="coding"/>
+                     <variable value="c"/>
+                  </target>
+                  <target>
+                     <context value="c"/>
+                     <contextType value="variable"/>
+                     <element value="system"/>
+                     <transform value="copy"/>
+                     <parameter>
+                        <valueString value="http://loinc.org"/>
+                     </parameter>
+                  </target>
+                  <target>
+                     <context value="c"/>
+                     <contextType value="variable"/>
+                     <element value="code"/>
+                     <transform value="copy"/>
+                     <parameter>
+                        <valueString value="77140-2"/>
+                     </parameter>
+                  </target>
+                  <target>
+                     <context value="observation"/>
+                     <contextType value="variable"/>
+                     <element value="subject"/>
+                     <variable value="subject"/>
+                  </target>
+                  <target>
+                     <context value="subject"/>
+                     <contextType value="variable"/>
+                     <element value="reference"/>
+                     <transform value="evaluate"/>
+                     <parameter>
+                        <valueString value="'urn:uuid:' + patient.id"/>
+                     </parameter>
+                  </target>
+                  <rule>
+                     <name value="caveat.renalInsufficiency.creatinine"/>
+                     <source>
+                        <context value="subitem"/>
+                        <element value="item"/>
+                        <variable value="quantityitem"/>
+                        <condition value="((linkId.value = 'caveat.renalInsufficiency.creatinine.quantity') and answer.exists())"/>
+                     </source>
+                     <rule>
+                        <name value="caveat.renalInsufficiency.creatinine.value"/>
+                        <source>
+                           <context value="quantityitem"/>
+                           <element value="answer"/>
+                           <variable value="answer"/>
+                        </source>
+                        <rule>
+                           <name value="value"/>
+                           <source>
+                              <context value="answer"/>
+                              <type value="Quantity"/>
+                              <element value="value"/>
+                              <variable value="value"/>
+                           </source>
+                           <target>
+                              <context value="observation"/>
+                              <contextType value="variable"/>
+                              <element value="value"/>
+                              <transform value="copy"/>
+                              <parameter>
+                                 <valueId value="value"/>
+                              </parameter>
+                           </target>
+                        </rule>
+                     </rule>
+                  </rule>
+                  <rule>
+                     <name value="cavveat.bloodCoagulation.INR.platelets"/>
+                     <source>
+                        <context value="subitem"/>
+                        <element value="item"/>
+                        <variable value="datetimeitem"/>
+                        <condition value="((linkId.value = 'caveat.renalInsufficiency.creatinine.dateTime') and answer.exists())"/>
+                     </source>
+                     <rule>
+                        <name value="caveat.renalInsufficiency.creatinineval.ue"/>
+                        <source>
+                           <context value="datetimeitem"/>
+                           <element value="answer"/>
+                           <variable value="answer"/>
+                        </source>
+                        <rule>
+                           <name value="value"/>
+                           <source>
+                              <context value="answer"/>
+                              <type value="dateTime"/>
+                              <element value="value"/>
+                              <variable value="value"/>
+                           </source>
+                           <target>
+                              <context value="observation"/>
+                              <contextType value="variable"/>
+                              <element value="effective"/>
+                              <transform value="copy"/>
+                              <parameter>
+                                 <valueId value="value"/>
+                              </parameter>
+                           </target>
+                        </rule>
+                     </rule>
+                  </rule>
                </rule>
             </rule>
          </rule>
@@ -1980,10 +3509,9 @@ group PreviousImagingStudyResults(source grp : BackboneElement, target bundle : 
                <name value="caveat.claustrophobia"/>
                <source>
                   <context value="answer"/>
-                  <type value="boolean"/>
+                  <type value="Coding"/>
                   <element value="value"/>
                   <variable value="value"/>
-                  <condition value="answer.valueBoolean"/>
                </source>
                <target>
                   <context value="bundle"/>
@@ -2030,6 +3558,82 @@ group PreviousImagingStudyResults(source grp : BackboneElement, target bundle : 
                   <transform value="evaluate"/>
                   <parameter>
                      <valueString value="'urn:uuid:' + uuid"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="condition"/>
+                  <contextType value="variable"/>
+                  <element value="extension"/>
+                  <variable value="ext1"/>
+               </target>
+               <target>
+                  <context value="ext1"/>
+                  <contextType value="variable"/>
+                  <element value="url"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueString value="http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-type"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="ext1"/>
+                  <contextType value="variable"/>
+                  <element value="value"/>
+                  <variable value="coding"/>
+                  <transform value="create"/>
+                  <parameter>
+                     <valueString value="Coding"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="coding"/>
+                  <contextType value="variable"/>
+                  <element value="code"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueString value="19887002"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="coding"/>
+                  <contextType value="variable"/>
+                  <element value="system"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueString value="http://snomed.info/sct"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="coding"/>
+                  <contextType value="variable"/>
+                  <element value="display"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueString value="Claustrophobia (finding)"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="condition"/>
+                  <contextType value="variable"/>
+                  <element value="extension"/>
+                  <variable value="ext2"/>
+               </target>
+               <target>
+                  <context value="ext2"/>
+                  <contextType value="variable"/>
+                  <element value="url"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueString value="http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-qualifier-value"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="ext2"/>
+                  <contextType value="variable"/>
+                  <element value="value"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueId value="value"/>
                   </parameter>
                </target>
                <target>
@@ -2147,10 +3751,9 @@ group PreviousImagingStudyResults(source grp : BackboneElement, target bundle : 
                <name value="caveat.bodyPiercing"/>
                <source>
                   <context value="answer"/>
-                  <type value="boolean"/>
+                  <type value="Coding"/>
                   <element value="value"/>
                   <variable value="value"/>
-                  <condition value="answer.valueBoolean"/>
                </source>
                <target>
                   <context value="bundle"/>
@@ -2197,6 +3800,82 @@ group PreviousImagingStudyResults(source grp : BackboneElement, target bundle : 
                   <transform value="evaluate"/>
                   <parameter>
                      <valueString value="'urn:uuid:' + uuid"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="condition"/>
+                  <contextType value="variable"/>
+                  <element value="extension"/>
+                  <variable value="ext1"/>
+               </target>
+               <target>
+                  <context value="ext1"/>
+                  <contextType value="variable"/>
+                  <element value="url"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueString value="http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-type"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="ext1"/>
+                  <contextType value="variable"/>
+                  <element value="value"/>
+                  <variable value="coding"/>
+                  <transform value="create"/>
+                  <parameter>
+                     <valueString value="Coding"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="coding"/>
+                  <contextType value="variable"/>
+                  <element value="code"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueString value="879862001"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="coding"/>
+                  <contextType value="variable"/>
+                  <element value="system"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueString value="http://snomed.info/sct"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="coding"/>
+                  <contextType value="variable"/>
+                  <element value="display"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueString value="Body piercing (finding)"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="condition"/>
+                  <contextType value="variable"/>
+                  <element value="extension"/>
+                  <variable value="ext2"/>
+               </target>
+               <target>
+                  <context value="ext2"/>
+                  <contextType value="variable"/>
+                  <element value="url"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueString value="http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-qualifier-value"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="ext2"/>
+                  <contextType value="variable"/>
+                  <element value="value"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueId value="value"/>
                   </parameter>
                </target>
                <target>
@@ -2296,183 +3975,255 @@ group PreviousImagingStudyResults(source grp : BackboneElement, target bundle : 
          </rule>
       </rule>
       <rule>
-         <name value="item.answer"/>
+         <name value="caveat.device"/>
          <source>
             <context value="src"/>
             <element value="item"/>
             <variable value="item"/>
-            <condition value="((linkId.value = 'caveat.device') and answer.exists())"/>
+            <condition value="(linkId.value = 'caveat.device')"/>
          </source>
+         <target>
+            <context value="bundle"/>
+            <contextType value="variable"/>
+            <element value="entry"/>
+            <variable value="e"/>
+         </target>
+         <target>
+            <context value="e"/>
+            <contextType value="variable"/>
+            <element value="resource"/>
+            <variable value="condition"/>
+            <transform value="create"/>
+            <parameter>
+               <valueString value="Condition"/>
+            </parameter>
+         </target>
+         <target>
+            <context value="condition"/>
+            <contextType value="variable"/>
+            <element value="id"/>
+            <variable value="uuid"/>
+            <transform value="uuid"/>
+         </target>
+         <target>
+            <context value="e"/>
+            <contextType value="variable"/>
+            <element value="fullUrl"/>
+            <transform value="evaluate"/>
+            <parameter>
+               <valueString value="'urn:uuid:' + uuid"/>
+            </parameter>
+         </target>
+         <target>
+            <context value="serviceRequest"/>
+            <contextType value="variable"/>
+            <element value="supportingInfo"/>
+            <variable value="supportingInfo"/>
+         </target>
+         <target>
+            <context value="supportingInfo"/>
+            <contextType value="variable"/>
+            <element value="reference"/>
+            <transform value="evaluate"/>
+            <parameter>
+               <valueString value="'urn:uuid:' + uuid"/>
+            </parameter>
+         </target>
          <rule>
-            <name value="answer.valueString"/>
+            <name value="caveat.device"/>
             <source>
                <context value="item"/>
-               <element value="answer"/>
-               <variable value="answer"/>
+               <element value="item"/>
+               <variable value="subitem"/>
+               <condition value="((linkId.value = 'caveat.device.choice') and answer.exists())"/>
             </source>
             <rule>
-               <name value="caveat.device"/>
+               <name value="caveat.device.choise"/>
                <source>
-                  <context value="answer"/>
-                  <type value="string"/>
-                  <element value="value"/>
-                  <variable value="value"/>
+                  <context value="subitem"/>
+                  <element value="answer"/>
+                  <variable value="answer"/>
                </source>
-               <target>
-                  <context value="bundle"/>
-                  <contextType value="variable"/>
-                  <element value="entry"/>
-                  <variable value="e"/>
-               </target>
-               <target>
-                  <context value="e"/>
-                  <contextType value="variable"/>
-                  <element value="resource"/>
-                  <variable value="condition"/>
-                  <transform value="create"/>
-                  <parameter>
-                     <valueString value="Condition"/>
-                  </parameter>
-               </target>
-               <target>
-                  <context value="condition"/>
-                  <contextType value="variable"/>
-                  <element value="id"/>
-                  <variable value="uuid"/>
-                  <transform value="uuid"/>
-               </target>
-               <target>
-                  <context value="e"/>
-                  <contextType value="variable"/>
-                  <element value="fullUrl"/>
-                  <transform value="evaluate"/>
-                  <parameter>
-                     <valueString value="'urn:uuid:' + uuid"/>
-                  </parameter>
-               </target>
-               <target>
-                  <context value="serviceRequest"/>
-                  <contextType value="variable"/>
-                  <element value="supportingInfo"/>
-                  <variable value="supportingInfo"/>
-               </target>
-               <target>
-                  <context value="supportingInfo"/>
-                  <contextType value="variable"/>
-                  <element value="reference"/>
-                  <transform value="evaluate"/>
-                  <parameter>
-                     <valueString value="'urn:uuid:' + uuid"/>
-                  </parameter>
-               </target>
-               <target>
-                  <context value="condition"/>
-                  <contextType value="variable"/>
-                  <element value="category"/>
-                  <variable value="category"/>
-               </target>
-               <target>
-                  <context value="category"/>
-                  <contextType value="variable"/>
-                  <element value="coding"/>
-                  <variable value="coding"/>
-               </target>
-               <target>
-                  <context value="coding"/>
-                  <contextType value="variable"/>
-                  <element value="code"/>
-                  <transform value="copy"/>
-                  <parameter>
-                     <valueString value="problem-list-item"/>
-                  </parameter>
-               </target>
-               <target>
-                  <context value="coding"/>
-                  <contextType value="variable"/>
-                  <element value="system"/>
-                  <transform value="copy"/>
-                  <parameter>
-                     <valueString value="http://terminology.hl7.org/CodeSystem/condition-category"/>
-                  </parameter>
-               </target>
-               <target>
-                  <context value="coding"/>
-                  <contextType value="variable"/>
-                  <element value="display"/>
-                  <transform value="copy"/>
-                  <parameter>
-                     <valueString value="Problem List Item"/>
-                  </parameter>
-               </target>
-               <target>
-                  <context value="condition"/>
-                  <contextType value="variable"/>
-                  <element value="code"/>
-                  <variable value="code"/>
-               </target>
-               <target>
-                  <context value="code"/>
-                  <contextType value="variable"/>
-                  <element value="coding"/>
-                  <variable value="coding2"/>
-               </target>
-               <target>
-                  <context value="coding2"/>
-                  <contextType value="variable"/>
-                  <element value="code"/>
-                  <transform value="copy"/>
-                  <parameter>
-                     <valueString value="397578001"/>
-                  </parameter>
-               </target>
-               <target>
-                  <context value="coding2"/>
-                  <contextType value="variable"/>
-                  <element value="system"/>
-                  <transform value="copy"/>
-                  <parameter>
-                     <valueString value="http://snomed.info/sct"/>
-                  </parameter>
-               </target>
-               <target>
-                  <context value="coding2"/>
-                  <contextType value="variable"/>
-                  <element value="display"/>
-                  <transform value="copy"/>
-                  <parameter>
-                     <valueString value="Device in situ (finding)"/>
-                  </parameter>
-               </target>
-               <target>
-                  <context value="condition"/>
-                  <contextType value="variable"/>
-                  <element value="subject"/>
-                  <variable value="subject"/>
-               </target>
-               <target>
-                  <context value="subject"/>
-                  <contextType value="variable"/>
-                  <element value="reference"/>
-                  <transform value="evaluate"/>
-                  <parameter>
-                     <valueString value="'urn:uuid:' + patient.id"/>
-                  </parameter>
-               </target>
-               <target>
-                  <context value="condition"/>
-                  <contextType value="variable"/>
-                  <element value="note"/>
-                  <variable value="note"/>
-               </target>
-               <target>
-                  <context value="note"/>
-                  <contextType value="variable"/>
-                  <element value="text"/>
-                  <transform value="copy"/>
-                  <parameter>
-                     <valueId value="value"/>
-                  </parameter>
-               </target>
+               <rule>
+                  <name value="caveat.device"/>
+                  <source>
+                     <context value="answer"/>
+                     <type value="Coding"/>
+                     <element value="value"/>
+                     <variable value="value"/>
+                  </source>
+                  <target>
+                     <context value="condition"/>
+                     <contextType value="variable"/>
+                     <element value="extension"/>
+                     <variable value="ext1"/>
+                  </target>
+                  <target>
+                     <context value="ext1"/>
+                     <contextType value="variable"/>
+                     <element value="url"/>
+                     <transform value="copy"/>
+                     <parameter>
+                        <valueString value="http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-type"/>
+                     </parameter>
+                  </target>
+                  <target>
+                     <context value="ext1"/>
+                     <contextType value="variable"/>
+                     <element value="value"/>
+                     <variable value="coding"/>
+                     <transform value="create"/>
+                     <parameter>
+                        <valueString value="Coding"/>
+                     </parameter>
+                  </target>
+                  <target>
+                     <context value="coding"/>
+                     <contextType value="variable"/>
+                     <element value="code"/>
+                     <transform value="copy"/>
+                     <parameter>
+                        <valueString value="397578001"/>
+                     </parameter>
+                  </target>
+                  <target>
+                     <context value="coding"/>
+                     <contextType value="variable"/>
+                     <element value="system"/>
+                     <transform value="copy"/>
+                     <parameter>
+                        <valueString value="http://snomed.info/sct"/>
+                     </parameter>
+                  </target>
+                  <target>
+                     <context value="coding"/>
+                     <contextType value="variable"/>
+                     <element value="display"/>
+                     <transform value="copy"/>
+                     <parameter>
+                        <valueString value="Device in situ (finding)"/>
+                     </parameter>
+                  </target>
+                  <target>
+                     <context value="condition"/>
+                     <contextType value="variable"/>
+                     <element value="extension"/>
+                     <variable value="ext2"/>
+                  </target>
+                  <target>
+                     <context value="ext2"/>
+                     <contextType value="variable"/>
+                     <element value="url"/>
+                     <transform value="copy"/>
+                     <parameter>
+                        <valueString value="http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-qualifier-value"/>
+                     </parameter>
+                  </target>
+                  <target>
+                     <context value="ext2"/>
+                     <contextType value="variable"/>
+                     <element value="value"/>
+                     <transform value="copy"/>
+                     <parameter>
+                        <valueId value="value"/>
+                     </parameter>
+                  </target>
+                  <target>
+                     <context value="condition"/>
+                     <contextType value="variable"/>
+                     <element value="category"/>
+                     <variable value="category"/>
+                  </target>
+                  <target>
+                     <context value="category"/>
+                     <contextType value="variable"/>
+                     <element value="coding"/>
+                     <variable value="coding"/>
+                  </target>
+                  <target>
+                     <context value="coding"/>
+                     <contextType value="variable"/>
+                     <element value="code"/>
+                     <transform value="copy"/>
+                     <parameter>
+                        <valueString value="problem-list-item"/>
+                     </parameter>
+                  </target>
+                  <target>
+                     <context value="coding"/>
+                     <contextType value="variable"/>
+                     <element value="system"/>
+                     <transform value="copy"/>
+                     <parameter>
+                        <valueString value="http://terminology.hl7.org/CodeSystem/condition-category"/>
+                     </parameter>
+                  </target>
+                  <target>
+                     <context value="coding"/>
+                     <contextType value="variable"/>
+                     <element value="display"/>
+                     <transform value="copy"/>
+                     <parameter>
+                        <valueString value="Problem List Item"/>
+                     </parameter>
+                  </target>
+                  <target>
+                     <context value="condition"/>
+                     <contextType value="variable"/>
+                     <element value="subject"/>
+                     <variable value="subject"/>
+                  </target>
+                  <target>
+                     <context value="subject"/>
+                     <contextType value="variable"/>
+                     <element value="reference"/>
+                     <transform value="evaluate"/>
+                     <parameter>
+                        <valueString value="'urn:uuid:' + patient.id"/>
+                     </parameter>
+                  </target>
+               </rule>
+            </rule>
+            <rule>
+               <name value="caveat.devicespecific"/>
+               <source>
+                  <context value="item"/>
+                  <element value="item"/>
+                  <variable value="subitem"/>
+                  <condition value="((linkId.value = 'caveat.device.specifictype') and answer.exists())"/>
+               </source>
+               <rule>
+                  <name value="caveat.device.specifictype"/>
+                  <source>
+                     <context value="subitem"/>
+                     <element value="answer"/>
+                     <variable value="answer"/>
+                  </source>
+                  <rule>
+                     <name value="caveat.devicespecific"/>
+                     <source>
+                        <context value="answer"/>
+                        <type value="Coding"/>
+                        <element value="value"/>
+                        <variable value="value"/>
+                     </source>
+                     <target>
+                        <context value="condition"/>
+                        <contextType value="variable"/>
+                        <element value="code"/>
+                        <variable value="code"/>
+                     </target>
+                     <target>
+                        <context value="code"/>
+                        <contextType value="variable"/>
+                        <element value="coding"/>
+                        <transform value="copy"/>
+                        <parameter>
+                           <valueId value="value"/>
+                        </parameter>
+                     </target>
+                  </rule>
+               </rule>
             </rule>
          </rule>
       </rule>
@@ -2495,10 +4246,9 @@ group PreviousImagingStudyResults(source grp : BackboneElement, target bundle : 
                <name value="caveat.hyperthyroidism"/>
                <source>
                   <context value="answer"/>
-                  <type value="boolean"/>
+                  <type value="Coding"/>
                   <element value="value"/>
                   <variable value="value"/>
-                  <condition value="answer.valueBoolean"/>
                </source>
                <target>
                   <context value="bundle"/>
@@ -2545,6 +4295,82 @@ group PreviousImagingStudyResults(source grp : BackboneElement, target bundle : 
                   <transform value="evaluate"/>
                   <parameter>
                      <valueString value="'urn:uuid:' + uuid"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="condition"/>
+                  <contextType value="variable"/>
+                  <element value="extension"/>
+                  <variable value="ext1"/>
+               </target>
+               <target>
+                  <context value="ext1"/>
+                  <contextType value="variable"/>
+                  <element value="url"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueString value="http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-type"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="ext1"/>
+                  <contextType value="variable"/>
+                  <element value="value"/>
+                  <variable value="coding"/>
+                  <transform value="create"/>
+                  <parameter>
+                     <valueString value="Coding"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="coding"/>
+                  <contextType value="variable"/>
+                  <element value="code"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueString value="34486009"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="coding"/>
+                  <contextType value="variable"/>
+                  <element value="system"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueString value="http://snomed.info/sct"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="coding"/>
+                  <contextType value="variable"/>
+                  <element value="display"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueString value="Hyperthyroidism (disorder)"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="condition"/>
+                  <contextType value="variable"/>
+                  <element value="extension"/>
+                  <variable value="ext2"/>
+               </target>
+               <target>
+                  <context value="ext2"/>
+                  <contextType value="variable"/>
+                  <element value="url"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueString value="http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-qualifier-value"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="ext2"/>
+                  <contextType value="variable"/>
+                  <element value="value"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueId value="value"/>
                   </parameter>
                </target>
                <target>
@@ -2662,10 +4488,9 @@ group PreviousImagingStudyResults(source grp : BackboneElement, target bundle : 
                <name value="caveat.diabetes"/>
                <source>
                   <context value="answer"/>
-                  <type value="boolean"/>
+                  <type value="Coding"/>
                   <element value="value"/>
                   <variable value="value"/>
-                  <condition value="answer.valueBoolean"/>
                </source>
                <target>
                   <context value="bundle"/>
@@ -2712,6 +4537,82 @@ group PreviousImagingStudyResults(source grp : BackboneElement, target bundle : 
                   <transform value="evaluate"/>
                   <parameter>
                      <valueString value="'urn:uuid:' + uuid"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="condition"/>
+                  <contextType value="variable"/>
+                  <element value="extension"/>
+                  <variable value="ext1"/>
+               </target>
+               <target>
+                  <context value="ext1"/>
+                  <contextType value="variable"/>
+                  <element value="url"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueString value="http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-type"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="ext1"/>
+                  <contextType value="variable"/>
+                  <element value="value"/>
+                  <variable value="coding"/>
+                  <transform value="create"/>
+                  <parameter>
+                     <valueString value="Coding"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="coding"/>
+                  <contextType value="variable"/>
+                  <element value="code"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueString value="73211009"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="coding"/>
+                  <contextType value="variable"/>
+                  <element value="system"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueString value="http://snomed.info/sct"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="coding"/>
+                  <contextType value="variable"/>
+                  <element value="display"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueString value="Diabetes mellitus (disorder)"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="condition"/>
+                  <contextType value="variable"/>
+                  <element value="extension"/>
+                  <variable value="ext2"/>
+               </target>
+               <target>
+                  <context value="ext2"/>
+                  <contextType value="variable"/>
+                  <element value="url"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueString value="http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-qualifier-value"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="ext2"/>
+                  <contextType value="variable"/>
+                  <element value="value"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueId value="value"/>
                   </parameter>
                </target>
                <target>
@@ -2829,10 +4730,9 @@ group PreviousImagingStudyResults(source grp : BackboneElement, target bundle : 
                <name value="caveat.gravida"/>
                <source>
                   <context value="answer"/>
-                  <type value="boolean"/>
+                  <type value="Coding"/>
                   <element value="value"/>
                   <variable value="value"/>
-                  <condition value="answer.valueBoolean"/>
                </source>
                <target>
                   <context value="bundle"/>
@@ -2879,6 +4779,82 @@ group PreviousImagingStudyResults(source grp : BackboneElement, target bundle : 
                   <transform value="evaluate"/>
                   <parameter>
                      <valueString value="'urn:uuid:' + uuid"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="condition"/>
+                  <contextType value="variable"/>
+                  <element value="extension"/>
+                  <variable value="ext1"/>
+               </target>
+               <target>
+                  <context value="ext1"/>
+                  <contextType value="variable"/>
+                  <element value="url"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueString value="http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-type"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="ext1"/>
+                  <contextType value="variable"/>
+                  <element value="value"/>
+                  <variable value="coding"/>
+                  <transform value="create"/>
+                  <parameter>
+                     <valueString value="Coding"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="coding"/>
+                  <contextType value="variable"/>
+                  <element value="code"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueString value="366321006"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="coding"/>
+                  <contextType value="variable"/>
+                  <element value="system"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueString value="http://snomed.info/sct"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="coding"/>
+                  <contextType value="variable"/>
+                  <element value="display"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueString value="Finding of gravida (finding)"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="condition"/>
+                  <contextType value="variable"/>
+                  <element value="extension"/>
+                  <variable value="ext2"/>
+               </target>
+               <target>
+                  <context value="ext2"/>
+                  <contextType value="variable"/>
+                  <element value="url"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueString value="http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-qualifier-value"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="ext2"/>
+                  <contextType value="variable"/>
+                  <element value="value"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueId value="value"/>
                   </parameter>
                </target>
                <target>
@@ -2996,10 +4972,9 @@ group PreviousImagingStudyResults(source grp : BackboneElement, target bundle : 
                <name value="caveat.contrastMediaAllergy"/>
                <source>
                   <context value="answer"/>
-                  <type value="boolean"/>
+                  <type value="Coding"/>
                   <element value="value"/>
                   <variable value="value"/>
-                  <condition value="answer.valueBoolean"/>
                </source>
                <target>
                   <context value="bundle"/>
@@ -3046,6 +5021,82 @@ group PreviousImagingStudyResults(source grp : BackboneElement, target bundle : 
                   <transform value="evaluate"/>
                   <parameter>
                      <valueString value="'urn:uuid:' + uuid"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="condition"/>
+                  <contextType value="variable"/>
+                  <element value="extension"/>
+                  <variable value="ext1"/>
+               </target>
+               <target>
+                  <context value="ext1"/>
+                  <contextType value="variable"/>
+                  <element value="url"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueString value="http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-type"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="ext1"/>
+                  <contextType value="variable"/>
+                  <element value="value"/>
+                  <variable value="coding"/>
+                  <transform value="create"/>
+                  <parameter>
+                     <valueString value="Coding"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="coding"/>
+                  <contextType value="variable"/>
+                  <element value="code"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueString value="293637006"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="coding"/>
+                  <contextType value="variable"/>
+                  <element value="system"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueString value="http://snomed.info/sct"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="coding"/>
+                  <contextType value="variable"/>
+                  <element value="display"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueString value="Allergy to contrast media (finding)"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="condition"/>
+                  <contextType value="variable"/>
+                  <element value="extension"/>
+                  <variable value="ext2"/>
+               </target>
+               <target>
+                  <context value="ext2"/>
+                  <contextType value="variable"/>
+                  <element value="url"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueString value="http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-qualifier-value"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="ext2"/>
+                  <contextType value="variable"/>
+                  <element value="value"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueId value="value"/>
                   </parameter>
                </target>
                <target>
@@ -3145,12 +5196,53 @@ group PreviousImagingStudyResults(source grp : BackboneElement, target bundle : 
          </rule>
       </rule>
       <rule>
-         <name value="item.answer"/>
+         <name value="DrugPrescription"/>
          <source>
             <context value="src"/>
             <element value="item"/>
             <variable value="item"/>
-            <condition value="((linkId.value = 'caveat.drugPrescription') and answer.exists())"/>
+            <condition value="(linkId.value = 'caveat.drugPrescription')"/>
+         </source>
+         <dependent>
+            <name value="DesiredRadiologistServiceItemsDrugDescription"/>
+            <variable value="item"/>
+            <variable value="bundle"/>
+            <variable value="serviceRequest"/>
+            <variable value="patient"/>
+         </dependent>
+         <documentation value="&quot;caveat.drugPrescription.metformin&quot;"/>
+      </rule>
+   </group>
+   <group>
+      <name value="DesiredRadiologistServiceItemsDrugDescription"/>
+      <typeMode value="none"/>
+      <input>
+         <name value="src"/>
+         <type value="BackboneElement"/>
+         <mode value="source"/>
+      </input>
+      <input>
+         <name value="bundle"/>
+         <type value="Bundle"/>
+         <mode value="target"/>
+      </input>
+      <input>
+         <name value="serviceRequest"/>
+         <type value="ServiceRequest"/>
+         <mode value="target"/>
+      </input>
+      <input>
+         <name value="patient"/>
+         <type value="Patient"/>
+         <mode value="target"/>
+      </input>
+      <rule>
+         <name value="caveat.drugPrescription.metformin"/>
+         <source>
+            <context value="src"/>
+            <element value="item"/>
+            <variable value="item"/>
+            <condition value="(linkId.value = 'caveat.drugPrescription.metformin')"/>
          </source>
          <rule>
             <name value="answer.valueString"/>
@@ -3163,7 +5255,7 @@ group PreviousImagingStudyResults(source grp : BackboneElement, target bundle : 
                <name value="caveat.drugPrescription"/>
                <source>
                   <context value="answer"/>
-                  <type value="string"/>
+                  <type value="Coding"/>
                   <element value="value"/>
                   <variable value="value"/>
                </source>
@@ -3212,6 +5304,82 @@ group PreviousImagingStudyResults(source grp : BackboneElement, target bundle : 
                   <transform value="evaluate"/>
                   <parameter>
                      <valueString value="'urn:uuid:' + uuid"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="condition"/>
+                  <contextType value="variable"/>
+                  <element value="extension"/>
+                  <variable value="ext1"/>
+               </target>
+               <target>
+                  <context value="ext1"/>
+                  <contextType value="variable"/>
+                  <element value="url"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueString value="http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-type"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="ext1"/>
+                  <contextType value="variable"/>
+                  <element value="value"/>
+                  <variable value="coding"/>
+                  <transform value="create"/>
+                  <parameter>
+                     <valueString value="Coding"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="coding"/>
+                  <contextType value="variable"/>
+                  <element value="code"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueString value="182817000"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="coding"/>
+                  <contextType value="variable"/>
+                  <element value="system"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueString value="http://snomed.info/sct"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="coding"/>
+                  <contextType value="variable"/>
+                  <element value="display"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueString value="Drug prescription (situation)"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="condition"/>
+                  <contextType value="variable"/>
+                  <element value="extension"/>
+                  <variable value="ext2"/>
+               </target>
+               <target>
+                  <context value="ext2"/>
+                  <contextType value="variable"/>
+                  <element value="url"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueString value="http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-qualifier-value"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="ext2"/>
+                  <contextType value="variable"/>
+                  <element value="value"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueId value="value"/>
                   </parameter>
                </target>
                <target>
@@ -3271,7 +5439,7 @@ group PreviousImagingStudyResults(source grp : BackboneElement, target bundle : 
                   <element value="code"/>
                   <transform value="copy"/>
                   <parameter>
-                     <valueString value="182817000"/>
+                     <valueString value="372567009"/>
                   </parameter>
                </target>
                <target>
@@ -3289,7 +5457,7 @@ group PreviousImagingStudyResults(source grp : BackboneElement, target bundle : 
                   <element value="display"/>
                   <transform value="copy"/>
                   <parameter>
-                     <valueString value="Drug prescription (situation)"/>
+                     <valueString value="Metformin (substance)"/>
                   </parameter>
                </target>
                <target>
@@ -3307,242 +5475,248 @@ group PreviousImagingStudyResults(source grp : BackboneElement, target bundle : 
                      <valueString value="'urn:uuid:' + patient.id"/>
                   </parameter>
                </target>
+            </rule>
+         </rule>
+      </rule>
+      <rule>
+         <name value="caveat.drugPrescription.betaBlocker"/>
+         <source>
+            <context value="src"/>
+            <element value="item"/>
+            <variable value="item"/>
+            <condition value="(linkId.value = 'caveat.drugPrescription.betaBlocker')"/>
+         </source>
+         <rule>
+            <name value="answer.valueString"/>
+            <source>
+               <context value="item"/>
+               <element value="answer"/>
+               <variable value="answer"/>
+            </source>
+            <rule>
+               <name value="caveat.drugPrescription"/>
+               <source>
+                  <context value="answer"/>
+                  <type value="Coding"/>
+                  <element value="value"/>
+                  <variable value="value"/>
+               </source>
+               <target>
+                  <context value="bundle"/>
+                  <contextType value="variable"/>
+                  <element value="entry"/>
+                  <variable value="e"/>
+               </target>
+               <target>
+                  <context value="e"/>
+                  <contextType value="variable"/>
+                  <element value="resource"/>
+                  <variable value="condition"/>
+                  <transform value="create"/>
+                  <parameter>
+                     <valueString value="Condition"/>
+                  </parameter>
+               </target>
                <target>
                   <context value="condition"/>
                   <contextType value="variable"/>
-                  <element value="note"/>
-                  <variable value="note"/>
+                  <element value="id"/>
+                  <variable value="uuid"/>
+                  <transform value="uuid"/>
                </target>
                <target>
-                  <context value="note"/>
+                  <context value="e"/>
                   <contextType value="variable"/>
-                  <element value="text"/>
+                  <element value="fullUrl"/>
+                  <transform value="evaluate"/>
+                  <parameter>
+                     <valueString value="'urn:uuid:' + uuid"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="serviceRequest"/>
+                  <contextType value="variable"/>
+                  <element value="supportingInfo"/>
+                  <variable value="supportingInfo"/>
+               </target>
+               <target>
+                  <context value="supportingInfo"/>
+                  <contextType value="variable"/>
+                  <element value="reference"/>
+                  <transform value="evaluate"/>
+                  <parameter>
+                     <valueString value="'urn:uuid:' + uuid"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="condition"/>
+                  <contextType value="variable"/>
+                  <element value="extension"/>
+                  <variable value="ext1"/>
+               </target>
+               <target>
+                  <context value="ext1"/>
+                  <contextType value="variable"/>
+                  <element value="url"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueString value="http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-type"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="ext1"/>
+                  <contextType value="variable"/>
+                  <element value="value"/>
+                  <variable value="coding"/>
+                  <transform value="create"/>
+                  <parameter>
+                     <valueString value="Coding"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="coding"/>
+                  <contextType value="variable"/>
+                  <element value="code"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueString value="182817000"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="coding"/>
+                  <contextType value="variable"/>
+                  <element value="system"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueString value="http://snomed.info/sct"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="coding"/>
+                  <contextType value="variable"/>
+                  <element value="display"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueString value="Drug prescription (situation)"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="condition"/>
+                  <contextType value="variable"/>
+                  <element value="extension"/>
+                  <variable value="ext2"/>
+               </target>
+               <target>
+                  <context value="ext2"/>
+                  <contextType value="variable"/>
+                  <element value="url"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueString value="http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-qualifier-value"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="ext2"/>
+                  <contextType value="variable"/>
+                  <element value="value"/>
                   <transform value="copy"/>
                   <parameter>
                      <valueId value="value"/>
                   </parameter>
                </target>
-            </rule>
-         </rule>
-      </rule>
-   </group>
-   <group>
-      <name value="RenalInsufficiencyCreatinineServiceItems"/>
-      <typeMode value="none"/>
-      <input>
-         <name value="src"/>
-         <type value="BackboneElement"/>
-         <mode value="source"/>
-      </input>
-      <input>
-         <name value="patient"/>
-         <type value="Patient"/>
-         <mode value="target"/>
-      </input>
-      <input>
-         <name value="bundle"/>
-         <type value="Bundle"/>
-         <mode value="target"/>
-      </input>
-      <input>
-         <name value="serviceRequest"/>
-         <type value="ServiceRequest"/>
-         <mode value="target"/>
-      </input>
-      <input>
-         <name value="condition"/>
-         <type value="Condition"/>
-         <mode value="target"/>
-      </input>
-      <rule>
-         <name value="observation"/>
-         <source>
-            <context value="src"/>
-         </source>
-         <target>
-            <context value="bundle"/>
-            <contextType value="variable"/>
-            <element value="entry"/>
-            <variable value="e"/>
-         </target>
-         <target>
-            <context value="e"/>
-            <contextType value="variable"/>
-            <element value="resource"/>
-            <variable value="observation"/>
-            <transform value="create"/>
-            <parameter>
-               <valueString value="Observation"/>
-            </parameter>
-         </target>
-         <target>
-            <context value="observation"/>
-            <contextType value="variable"/>
-            <element value="id"/>
-            <variable value="uuid"/>
-            <transform value="uuid"/>
-         </target>
-         <target>
-            <context value="e"/>
-            <contextType value="variable"/>
-            <element value="fullUrl"/>
-            <transform value="evaluate"/>
-            <parameter>
-               <valueString value="'urn:uuid:' + uuid"/>
-            </parameter>
-         </target>
-         <target>
-            <context value="observation"/>
-            <contextType value="variable"/>
-            <element value="status"/>
-            <transform value="copy"/>
-            <parameter>
-               <valueString value="final"/>
-            </parameter>
-         </target>
-         <target>
-            <context value="observation"/>
-            <contextType value="variable"/>
-            <element value="code"/>
-            <variable value="code"/>
-         </target>
-         <target>
-            <context value="code"/>
-            <contextType value="variable"/>
-            <element value="coding"/>
-            <variable value="coding2"/>
-         </target>
-         <target>
-            <context value="coding2"/>
-            <contextType value="variable"/>
-            <element value="code"/>
-            <transform value="copy"/>
-            <parameter>
-               <valueString value="723188008"/>
-            </parameter>
-         </target>
-         <target>
-            <context value="coding2"/>
-            <contextType value="variable"/>
-            <element value="system"/>
-            <transform value="copy"/>
-            <parameter>
-               <valueString value="http://snomed.info/sct"/>
-            </parameter>
-         </target>
-         <target>
-            <context value="coding2"/>
-            <contextType value="variable"/>
-            <element value="display"/>
-            <transform value="copy"/>
-            <parameter>
-               <valueString value="Renal insufficiency (disorder)"/>
-            </parameter>
-         </target>
-         <target>
-            <context value="condition"/>
-            <contextType value="variable"/>
-            <element value="evidence"/>
-            <variable value="evidence"/>
-         </target>
-         <target>
-            <context value="evidence"/>
-            <contextType value="variable"/>
-            <element value="detail"/>
-            <variable value="detail"/>
-         </target>
-         <target>
-            <context value="detail"/>
-            <contextType value="variable"/>
-            <element value="reference"/>
-            <transform value="evaluate"/>
-            <parameter>
-               <valueString value="'urn:uuid:' + uuid"/>
-            </parameter>
-         </target>
-         <target>
-            <context value="observation"/>
-            <contextType value="variable"/>
-            <element value="subject"/>
-            <variable value="subject"/>
-         </target>
-         <target>
-            <context value="subject"/>
-            <contextType value="variable"/>
-            <element value="reference"/>
-            <transform value="evaluate"/>
-            <parameter>
-               <valueString value="'urn:uuid:' + patient.id"/>
-            </parameter>
-         </target>
-         <rule>
-            <name value="caveat.renalInsufficiency.creatinine.quantity"/>
-            <source>
-               <context value="src"/>
-               <element value="item"/>
-               <variable value="item"/>
-               <condition value="((linkId.value = 'caveat.renalInsufficiency.creatinine.quantity') and answer.exists())"/>
-            </source>
-            <rule>
-               <name value="item.answer"/>
-               <source>
-                  <context value="item"/>
-                  <element value="answer"/>
-                  <variable value="answer"/>
-               </source>
-               <rule>
-                  <name value="value-Quantity"/>
-                  <source>
-                     <context value="answer"/>
-                     <type value="Quantity"/>
-                     <element value="value"/>
-                     <variable value="value"/>
-                  </source>
-                  <target>
-                     <context value="observation"/>
-                     <contextType value="variable"/>
-                     <element value="value"/>
-                     <transform value="copy"/>
-                     <parameter>
-                        <valueId value="value"/>
-                     </parameter>
-                  </target>
-               </rule>
-            </rule>
-         </rule>
-         <rule>
-            <name value="caveat.renalInsufficiency.creatinine.dateTime"/>
-            <source>
-               <context value="src"/>
-               <element value="item"/>
-               <variable value="item"/>
-               <condition value="((linkId.value = 'caveat.renalInsufficiency.creatinine.dateTime') and answer.exists())"/>
-            </source>
-            <rule>
-               <name value="item.answer"/>
-               <source>
-                  <context value="item"/>
-                  <element value="answer"/>
-                  <variable value="answer"/>
-               </source>
-               <rule>
-                  <name value="value-dateTime"/>
-                  <source>
-                     <context value="answer"/>
-                     <type value="dateTime"/>
-                     <element value="value"/>
-                     <variable value="value"/>
-                  </source>
-                  <target>
-                     <context value="observation"/>
-                     <contextType value="variable"/>
-                     <element value="effective"/>
-                     <transform value="copy"/>
-                     <parameter>
-                        <valueId value="value"/>
-                     </parameter>
-                  </target>
-               </rule>
+               <target>
+                  <context value="condition"/>
+                  <contextType value="variable"/>
+                  <element value="category"/>
+                  <variable value="category"/>
+               </target>
+               <target>
+                  <context value="category"/>
+                  <contextType value="variable"/>
+                  <element value="coding"/>
+                  <variable value="coding"/>
+               </target>
+               <target>
+                  <context value="coding"/>
+                  <contextType value="variable"/>
+                  <element value="code"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueString value="problem-list-item"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="coding"/>
+                  <contextType value="variable"/>
+                  <element value="system"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueString value="http://terminology.hl7.org/CodeSystem/condition-category"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="coding"/>
+                  <contextType value="variable"/>
+                  <element value="display"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueString value="Problem List Item"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="condition"/>
+                  <contextType value="variable"/>
+                  <element value="code"/>
+                  <variable value="code"/>
+               </target>
+               <target>
+                  <context value="code"/>
+                  <contextType value="variable"/>
+                  <element value="coding"/>
+                  <variable value="coding2"/>
+               </target>
+               <target>
+                  <context value="coding2"/>
+                  <contextType value="variable"/>
+                  <element value="code"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueString value="373254001"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="coding2"/>
+                  <contextType value="variable"/>
+                  <element value="system"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueString value="http://snomed.info/sct"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="coding2"/>
+                  <contextType value="variable"/>
+                  <element value="display"/>
+                  <transform value="copy"/>
+                  <parameter>
+                     <valueString value="Substance with beta adrenergic receptor antagonist mechanism of action (substance)"/>
+                  </parameter>
+               </target>
+               <target>
+                  <context value="condition"/>
+                  <contextType value="variable"/>
+                  <element value="subject"/>
+                  <variable value="subject"/>
+               </target>
+               <target>
+                  <context value="subject"/>
+                  <contextType value="variable"/>
+                  <element value="reference"/>
+                  <transform value="evaluate"/>
+                  <parameter>
+                     <valueString value="'urn:uuid:' + patient.id"/>
+                  </parameter>
+               </target>
             </rule>
          </rule>
       </rule>
@@ -3571,7 +5745,7 @@ group PreviousImagingStudyResults(source grp : BackboneElement, target bundle : 
          <mode value="target"/>
       </input>
       <rule>
-         <name value="imagingStudy"/>
+         <name value="previousResult"/>
          <source>
             <context value="grp"/>
             <element value="item"/>
@@ -3673,7 +5847,7 @@ group PreviousImagingStudyResults(source grp : BackboneElement, target bundle : 
                <context value="item"/>
                <element value="item"/>
                <variable value="dictomitem"/>
-               <condition value="((linkId.value = 'previousResults.imagingStudy.uid') and answer.exists())"/>
+               <condition value="((linkId.value = 'previousResults.imagingStudy.StudyInstanceUid') and answer.exists())"/>
             </source>
             <target>
                <context value="imagingStudy"/>
@@ -3771,6 +5945,88 @@ group PreviousImagingStudyResults(source grp : BackboneElement, target bundle : 
                   <valueString value="dictomitem.answer.value"/>
                </parameter>
             </target>
+         </rule>
+         <rule>
+            <name value="imagingStudy"/>
+            <source>
+               <context value="item"/>
+               <element value="item"/>
+               <variable value="dictomitem"/>
+               <condition value="((linkId.value = 'previousResults.imagingStudy.SeriesInstanceUid') and answer.exists())"/>
+            </source>
+            <target>
+               <context value="imagingStudy"/>
+               <contextType value="variable"/>
+               <element value="series"/>
+               <variable value="series"/>
+            </target>
+            <rule>
+               <name value="series"/>
+               <source>
+                  <context value="dictomitem"/>
+                  <element value="answer"/>
+                  <variable value="answer"/>
+               </source>
+               <rule>
+                  <name value="uid"/>
+                  <source>
+                     <context value="answer"/>
+                     <type value="string"/>
+                     <element value="value"/>
+                     <variable value="value"/>
+                  </source>
+                  <target>
+                     <context value="series"/>
+                     <contextType value="variable"/>
+                     <element value="uid"/>
+                     <transform value="copy"/>
+                     <parameter>
+                        <valueId value="value"/>
+                     </parameter>
+                  </target>
+               </rule>
+               <rule>
+                  <name value="answer"/>
+                  <source>
+                     <context value="item"/>
+                     <element value="item"/>
+                     <variable value="dictomitem"/>
+                     <condition value="((linkId.value = 'previousResults.imagingStudy.SopInstanceUid') and answer.exists())"/>
+                  </source>
+                  <target>
+                     <context value="series"/>
+                     <contextType value="variable"/>
+                     <element value="instance"/>
+                     <variable value="instance"/>
+                  </target>
+                  <rule>
+                     <name value="answer"/>
+                     <source>
+                        <context value="dictomitem"/>
+                        <element value="answer"/>
+                        <variable value="answer"/>
+                     </source>
+                     <rule>
+                        <name value="uid"/>
+                        <source>
+                           <context value="answer"/>
+                           <type value="string"/>
+                           <element value="value"/>
+                           <variable value="value"/>
+                        </source>
+                        <target>
+                           <context value="instance"/>
+                           <contextType value="variable"/>
+                           <element value="uid"/>
+                           <transform value="copy"/>
+                           <parameter>
+                              <valueId value="value"/>
+                           </parameter>
+                        </target>
+                     </rule>
+                  </rule>
+               </rule>
+            </rule>
          </rule>
       </rule>
    </group>
