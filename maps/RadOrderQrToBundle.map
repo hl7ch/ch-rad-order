@@ -19,6 +19,9 @@ group RadOrderQrToBundle(source qr : QuestionnaireResponse, target bundle : Bund
              e.resource = create('Composition') as composition, 
              composition.id = uuid() as uuid,
              e.fullUrl = ('urn:uuid:'+uuid),
+             composition.title = 'Radiologieauftrag',
+             composition.type as type, type.coding as coding, coding.code= '2161000195103', coding.system = 'urn:oid:2.16.756.5.30.1.127.3.4', coding.display ='Imaging order (record artifact)',
+             composition.category as category, category.coding as coding, coding.code= '721963009', coding.system = 'http://snomed.info/sct', coding.display ='Order (record artifact)',
              bundle.entry as e2, 
              bundle.timestamp = (now()) as timestamp,
              composition.date = timestamp,
@@ -197,8 +200,10 @@ group DiagnosisListServiceItems(source src : BackboneElement, target patient : P
       answer.value: Quantity as value -> 
         bundle.entry as e, 
           e.resource = create('Observation') as observation, 
+          observation.status = 'final',
           observation.id = uuid() as uuid,
           e.fullUrl = ('urn:uuid:'+uuid),
+          observation.status = 'final',
           serviceRequest.supportingInfo as supportingInfo,
           supportingInfo.reference = ('urn:uuid:'+uuid),
         observation.category as category,
@@ -217,7 +222,9 @@ group DiagnosisListServiceItems(source src : BackboneElement, target patient : P
       answer.value: Quantity as value -> 
         bundle.entry as e, 
           e.resource = create('Observation') as observation, 
+          observation.status = 'final',
           observation.id = uuid() as uuid,
+          observation.status = 'final',
           e.fullUrl = ('urn:uuid:'+uuid),
           serviceRequest.supportingInfo as supportingInfo,
           supportingInfo.reference = ('urn:uuid:'+uuid),
@@ -266,6 +273,7 @@ group CaveatServiceItems(source src : BackboneElement, target patient : Patient,
                 bundle.entry as e, 
                 e.resource = create('Observation') as observation, 
                 observation.id = uuid() as uuid,
+                observation.status = 'final',
                 e.fullUrl = ('urn:uuid:'+uuid),
                 condition.evidence as evidence,
                 evidence.detail as detail,
@@ -288,6 +296,7 @@ group CaveatServiceItems(source src : BackboneElement, target patient : Patient,
               bundle.entry as e, 
               e.resource = create('Observation') as observation, 
               observation.id = uuid() as uuid,
+              observation.status = 'final',
               e.fullUrl = ('urn:uuid:'+uuid),
               condition.evidence as evidence,
               evidence.detail as detail,
@@ -340,6 +349,7 @@ group CaveatServiceItems(source src : BackboneElement, target patient : Patient,
             answer.item as subitem where (linkId.value = 'caveat.renalInsufficiency.creatinineClearance') ->
                 bundle.entry as e, 
                 e.resource = create('Observation') as observation, 
+                observation.status = 'final',
                 observation.id = uuid() as uuid,
                 e.fullUrl = ('urn:uuid:'+uuid),
                 condition.evidence as evidence,
@@ -362,6 +372,7 @@ group CaveatServiceItems(source src : BackboneElement, target patient : Patient,
             answer.item as subitem where (linkId.value = 'caveat.renalInsufficiency.creatinine') ->
               bundle.entry as e, 
               e.resource = create('Observation') as observation, 
+              observation.status = 'final',
               observation.id = uuid() as uuid,
               e.fullUrl = ('urn:uuid:'+uuid),
               condition.evidence as evidence,
@@ -608,10 +619,10 @@ group CaveatServiceItems(source src : BackboneElement, target patient : Patient,
 
   // "caveat.drugPrescription.metformin"
   // caveat.drugPrescription.betaBlocke 
-  src.item as item where (linkId.value = 'caveat.drugPrescription') then DesiredRadiologistServiceItemsDrugDescription(item, bundle, serviceRequest) "DrugPrescription";
+  src.item as item where (linkId.value = 'caveat.drugPrescription') then DesiredRadiologistServiceItemsDrugDescription(item, bundle, serviceRequest, patient) "DrugPrescription";
 }
 
-group DesiredRadiologistServiceItemsDrugDescription(source src : BackboneElement, target bundle : Bundle, target serviceRequest: ServiceRequest) {
+group DesiredRadiologistServiceItemsDrugDescription(source src : BackboneElement, target bundle : Bundle, target serviceRequest: ServiceRequest, target patient: Patient) {
   src.item as item where (linkId.value = 'caveat.drugPrescription.metformin') then {
     item.answer as answer then {
       answer.value: Coding as value -> 

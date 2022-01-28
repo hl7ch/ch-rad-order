@@ -444,7 +444,7 @@ Vorherige Untersuchungsresultate:
 * item[+].linkId = "previousResults"
 * item[=].text = "Vorherige Untersuchungsresultate"
 
-* item[=].item[+].linkId = "previousResults.attachment.data"
+* item[=].item[+].linkId = "previousResults.attachment"
 * item[=].item[=].text = "Daten"
 * item[=].item[=].answer[+].valueAttachment[+].contentType = #application/dicom
 * item[=].item[=].answer[=].valueAttachment[=].data = "RXhhbXBsZQ=="

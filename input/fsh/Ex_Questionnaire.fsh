@@ -1254,7 +1254,7 @@ mittels ImagingStudy Resource (DICOM WADO) oder die mitgegeben werden in der Med
 * item[=].text = "Vorherige Untersuchungsresultate"
 * item[=].type = #group
 
-* item[=].item[+].linkId = "previousResults.attachment.data"  
+* item[=].item[+].linkId = "previousResults.attachment"  
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-media#Media.content.data"
 * item[=].item[=].text = "Daten"
 * item[=].item[=].type = #attachment
