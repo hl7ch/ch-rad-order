@@ -35,9 +35,17 @@ The link 'StructureDefinition-ch-rad-order-servicerequest.html#ServiceRequest.su
 The link 'StructureDefinition-ch-rad-order-servicerequest.html#ServiceRequest.supportingInfo:caveats' for "ServiceRequest.supportingInfo:caveats" cannot be resolved (valid targets: 313 targets)
 The link 'StructureDefinition-ch-rad-order-caveat-condition.html#ch-rad-order-caveat-type' for "ch-rad-order-caveat-type" cannot be resolved (valid targets: 155 targets)
 The link 'StructureDefinition-ch-rad-order-servicerequest.html#ServiceRequest.supportingInfo:previousImagingResults' for "ServiceRequest.supportingInfo:previousImagingResults" cannot be resolved (valid targets: 313 targets)
-
 The link 'StructureDefinition-ch-rad-order-servicerequest.html#ServiceRequest.identifier:placerOrderIdentifier.value' for "ServiceRequest.identifier:placerOrderIdentifier.value" cannot be resolved (valid targets: 313 targets)
 The link 'StructureDefinition-ch-rad-order-servicerequest.html#ServiceRequest.identifier:placerOrderIdentifier.system' for "ServiceRequest.identifier:placerOrderIdentifier.system" cannot be resolved (valid targets: 313 targets)
+The link 'StructureDefinition-ch-rad-order-composition.html#Composition.extension:precedentDocument' for "Composition.extension:precedentDocument" cannot be resolved (valid targets: 370 targets)
+The link 'StructureDefinition-ch-rad-order-composition.html#Composition.extension:urgentNoficationContactForThisDocument' for "Composition.extension:urgentNoficationContactForThisDocument" cannot be resolved (valid targets: 370 targets)
+The link 'StructureDefinition-ch-rad-order-composition.html#Composition.extension:urgentNoficationContactForTheResponseToThisDocument' for "Composition.extension:urgentNoficationContactForTheResponseToThisDocument" cannot be resolved (valid targets: 370 targets)
+The link 'StructureDefinition-ch-rad-order-composition.html#Composition.extension:dataEnterer' for "Composition.extension:dataEnterer" cannot be resolved (valid targets: 370 targets)
+The link 'StructureDefinition-ch-rad-order-composition.html#Composition.extension:receiver' for "Composition.extension:receiver" cannot be resolved (valid targets: 370 targets)
+
+The link 'CodeSystem-ch-rad-order-radlex.html#RID2468' for "http://www.radlex.org" cannot be resolved (valid targets: 655 targets)
+The link 'CodeSystem-ch-rad-order-radlex.html#RID1243' for "http://www.radlex.org" cannot be resolved (valid targets: 655 targets)
+The link 'CodeSystem-ch-rad-order-radlex.html#RID10345' for "http://www.radlex.org" cannot be resolved (valid targets: 655 targets)
 The link 'CodeSystem-ch-rad-order-requested-service.html#ImagingRequest' for "http://fhir.ch/ig/ch-rad-order/CodeSystem/ch-rad-order-requested-service" cannot be resolved (valid targets: [ch-rad-order-requested-service-RequestForPrecedentReportAndImages, ch-rad-order-requested-service-RadIntervention, segment-header, ch-rad-order-requested-service-RequestForPrecedentReport, publish-box, ch-rad-order-requested-service-RemoteReporting, bottom, hl7-logo, segment-post-footer, ch-rad-order-requested-service-ImagingRequest, family-nav, codesystem-requested-service, ig-status, ch-rad-order-requested-service-SecondOpinion, top, ch-rad-order-requested-service-ImagingRequestWithIntervention, root, stripe, segment-footer, logo, hl7-nav, segment-navbar, segment-content, segment-breadcrumb])
 
 The link 'null#item.order.priority' for "Answers: 4 options" cannot be resolved
@@ -46,3 +54,10 @@ The link 'null#item.patient.maritalStatus' for "Answers: 8 options" cannot be re
 The link 'null#item.requestedEncounter.class' for "Answers: 3 options" cannot be resolved
 The link 'null#item.requestedEncounter.desiredAccommodation' for "Answers: 3 options" cannot be resolved
 The link 'null#item.appointment.status' for "Answers: 3 options" cannot be resolved
+
+# Information to snapshot
+The element Observation.component.value[x] has a binding, and has multiple types ([dateTime, boolean, string, SampledData, Quantity, Period, Ratio, integer, time, Range, CodeableConcept]). The binding will apply to all the types
+The element ServiceRequest.asNeeded[x] has a binding, and has multiple types ([boolean, CodeableConcept]). The binding will apply to all the types
+
+# No example provided
+WARNING: StructureDefinition.where(url = 'http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy'): The Implementation Guide contains no examples for this profile
