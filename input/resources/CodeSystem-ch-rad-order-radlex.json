@@ -5,6 +5,7 @@
   "name": "ChRadLexExract",
   "id": "ch-rad-order-radlex",
   "title": "RadLex Extract",
+  "description": "RadLex Extract",
   "version": "0.1.0",
   "url": "http://www.radlex.org",
   "caseSensitive" : false,
