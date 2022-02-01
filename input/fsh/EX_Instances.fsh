@@ -9,7 +9,7 @@ Description: "Example for ServiceRequest"
 * status = #active
 * intent = #order
 * priority = #routine
-* category = ChRadOrderRequestedService#ImagingRequest "Imaging Request"
+* category = ChRadOrderRequestedService#ImagingRequest "Bildgebende Diagnostik"
 * code.coding[RdlxModType] = RDLX#RID10345 "projection radiography"
 
 * orderDetail[imagingRegion] = RDLX#RID1243 "Thorax"

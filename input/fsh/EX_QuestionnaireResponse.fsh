@@ -301,7 +301,7 @@ Description: "Example for QuestionnaireResponse"
 
 * item[=].item[+].linkId = "requestedService.service"
 * item[=].item[=].text = "Leistung"    
-* item[=].item[=].answer.valueCoding = ChRadOrderRequestedService#ImagingRequest "Imaging Request"
+* item[=].item[=].answer.valueCoding = ChRadOrderRequestedService#ImagingRequest "Bildgebende Diagnostik"
 
 /*------------------------------------------------------------------------
 2. Fragestellung (mehrere Werte)
