@@ -55,6 +55,9 @@ The link 'null#item.requestedEncounter.class' for "Answers: 3 options" cannot be
 The link 'null#item.requestedEncounter.desiredAccommodation' for "Answers: 3 options" cannot be resolved
 The link 'null#item.appointment.status' for "Answers: 3 options" cannot be resolved
 
+# Build error with contained resource (cannot resolved in ToC)
+The link 'Organization-CoverageKVG_Sanitas.html' for "10.47.1 Organization" cannot be resolved
+
 # Information to snapshot
 The element Observation.component.value[x] has a binding, and has multiple types ([dateTime, boolean, string, SampledData, Quantity, Period, Ratio, integer, time, Range, CodeableConcept]). The binding will apply to all the types
 The element ServiceRequest.asNeeded[x] has a binding, and has multiple types ([boolean, CodeableConcept]). The binding will apply to all the types
