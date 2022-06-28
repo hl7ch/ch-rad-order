@@ -1204,6 +1204,7 @@ Caveats
 * item[=].item[=].text = "Diabetes mellitus"   
 * item[=].item[=].type = #choice
 * item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-caveat-qualifier-value"
+* item[=].item[=].initial.valueCoding = SCT#373068000
 * item[=].item[=].required = true
 
 * item[=].item[+].linkId = "caveat.gravida"     
