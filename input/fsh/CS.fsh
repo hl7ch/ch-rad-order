@@ -14,7 +14,7 @@ Description: "Definition for Requested Service Code System in the context of CH 
 */
 * #RequestForPrecedentReport "Befundbericht früherer Untersuchung(en)"
 * #RequestForPrecedentReportAndImages "Bilder und Befundberichte früherer Untersuchung(en)"
-* #ImagingRequest "Bildgebenden Diagnostik"
+* #ImagingRequest "Bildgebende Diagnostik"
 * #RadIntervention "Interventionelle Radiologie"
 * #SecondOpinion "Zweitmeinung"
 * #ImagingRequestWithIntervention "Bildgebende Diagnostik und Intervention"
