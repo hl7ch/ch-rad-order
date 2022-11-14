@@ -29,7 +29,7 @@ During the ballot, the following comments came in, which will be taken into acco
 
 * [ORF Issue #60](https://github.com/hl7chhttp://build.fhir.org/ig/hl7ch/ch-orf/issues/60) and [Issue #63](https://github.com/hl7chhttp://build.fhir.org/ig/hl7ch/ch-orf/issues/63):   Added patients marital status to the [Questionnaire](http://build.fhir.org/ig/hl7ch/ch-orf/Questionnaire-order-referral-form.html) and the examples (e.g. [Bundle Order-Referral-Form](http://build.fhir.org/ig/hl7ch/ch-orf/Bundle-bundle-order-referral-form.html)).
     
-* [ORF Issue #64](https://github.com/hl7chhttp://build.fhir.org/ig/hl7ch/ch-orf/issues/64): Add patients language of correspondance to the [Questionnaire](http://build.fhir.org/ig/hl7ch/ch-orf/Questionnaire-order-referral-form.html) and the examples (e.g. [Bundle Order-Referral-Form](http://build.fhir.org/ig/hl7ch/ch-orf/Bundle-bundle-order-referral-form.html)).
+* [ORF Issue #64](https://github.com/hl7chhttp://build.fhir.org/ig/hl7ch/ch-orf/issues/64): Add patients language of correspondence to the [Questionnaire](http://build.fhir.org/ig/hl7ch/ch-orf/Questionnaire-order-referral-form.html) and the examples (e.g. [Bundle Order-Referral-Form](http://build.fhir.org/ig/hl7ch/ch-orf/Bundle-bundle-order-referral-form.html)).
   
 * [ORF Issue #65](https://github.com/hl7chhttp://build.fhir.org/ig/hl7ch/ch-orf/issues/65): Added 'ZSR' as Practitioner.identifier to the [Questionnaire](http://build.fhir.org/ig/hl7ch/ch-orf/Questionnaire-order-referral-form.html) and the examples (e.g. [Bundle Order-Referral-Form](http://build.fhir.org/ig/hl7ch/ch-orf/Bundle-bundle-order-referral-form.html).
 
