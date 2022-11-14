@@ -4,7 +4,7 @@ Alias:   NMU =          http://hl7.org/fhir/name-use
 Alias:   LNCPLAYBFULL = http://loinc.org/vs/loinc-rsna-radiology-playbook
 // see https://chat.fhir.org/#narrow/stream/179202-terminology/topic/radlex
 
-Alias:   RDLX =         http://www.radlex.org
+Alias:   RDLX =         http://radlex.org
 // see https://www.hl7.org/fhir/terminologies-systems.html -> External CS
 // see https://confluence.hl7.org/display/TA/RadLex  -> Technical identifier/s of the code system (OIDs, URNs etc)
 

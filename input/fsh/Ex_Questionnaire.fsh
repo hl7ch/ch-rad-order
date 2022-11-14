@@ -1306,6 +1306,8 @@ is encoded as:
 * item[=].item[=].item[=].text = "ACSN"
 * item[=].item[=].item[=].type = #string
 
+
+
 /*
 DICOM Series Instance UID and SOP Instance UID use the id datatype, and are encoded directly. 
 For example, an image with SOP Instance UID of 2.16.124.113543.1154777499.30246.19789.3503430045.1.1 
