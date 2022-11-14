@@ -1204,6 +1204,7 @@ Caveats
 * item[=].item[=].text = "Diabetes mellitus"   
 * item[=].item[=].type = #choice
 * item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-caveat-qualifier-value"
+* item[=].item[=].initial.valueCoding = SCT#373068000
 * item[=].item[=].required = true
 
 * item[=].item[+].linkId = "caveat.gravida"     
@@ -1304,6 +1305,8 @@ is encoded as:
 * item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy#ImagingStudy.identifier"
 * item[=].item[=].item[=].text = "ACSN"
 * item[=].item[=].item[=].type = #string
+
+
 
 /*
 DICOM Series Instance UID and SOP Instance UID use the id datatype, and are encoded directly. 
