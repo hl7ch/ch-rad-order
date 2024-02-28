@@ -154,5 +154,5 @@ Description: "Definition for the Composition resource in the context of CH RAD-O
 * type = urn:oid:2.16.756.5.30.1.127.3.4#2161000195103 "Imaging order (record artifact)"
 * category = SCT#721963009 "Order (record artifact)"
 
-// ---------- Composition.section.entry:ServiceRequest ----------
+// ---------- Composition.section.entry:ServiceRequest -----------
 * section[orderReferral].entry[ServiceRequest] ^type.targetProfile = Canonical(ChRadOrderServiceRequest)
