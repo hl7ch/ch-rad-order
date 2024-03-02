@@ -1740,7 +1740,7 @@ is encoded in ImagingStudy.series.instance.uid as “2.16.124.113543.1154777499.
 * item[=].item[=].item[=].item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy#ImagingStudy.modality.CodeableConcept.coding"
 * item[=].item[=].item[=].item[=].item[=].item[=].text = "DICOM Series Modality"
 * item[=].item[=].item[=].item[=].item[=].item[=].type = #choice
-* item[=].item[=].item[=].item[=].item[=].item[=].answerValueSet = ChRadOrderCid33
+* item[=].item[=].item[=].item[=].item[=].item[=].answerValueSet = Modality
 
 * item[=].item[=].item[=].item[=].item[=].item[=].item[+].linkId = "previousResults.imagingStudy.study.series.sopInstance"
 * item[=].item[=].item[=].item[=].item[=].item[=].item[=].text = "SOP Instance"
