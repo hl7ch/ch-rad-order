@@ -1684,10 +1684,16 @@ is encoded as:
 	} 
 */
 
-* item[=].item[=].item[+].linkId = "previousResults.imagingStudy.StudyInstanceUid"  
-* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy#ImagingStudy.identifier"
-* item[=].item[=].item[=].text = "DICOM Study Instance UID"
-* item[=].item[=].item[=].type = #string
+* item[=].item[=].item[+].linkId = "previousResults.imagingStudy.study"
+* item[=].item[=].item[=].text = "Study"
+* item[=].item[=].item[=].type = #group
+* item[=].item[=].repeats = true
+
+* item[=].item[=].item[=].item[+].linkId = "previousResults.imagingStudy.study.studyInstanceUid"  
+* item[=].item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy#ImagingStudy.identifier"
+* item[=].item[=].item[=].item[=].text = "DICOM Study Instance UID"
+* item[=].item[=].item[=].item[=].type = #string
+
 
 /*
  The study accession number can also be encoded as an Identifier using the “ACSN” identifier type, as follows:
@@ -1706,10 +1712,10 @@ is encoded as:
 	} 
 */
 
-* item[=].item[=].item[+].linkId = "previousResults.imagingStudy.acsn"  
-* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy#ImagingStudy.identifier"
-* item[=].item[=].item[=].text = "ACSN"
-* item[=].item[=].item[=].type = #string
+* item[=].item[=].item[=].item[+].linkId = "previousResults.imagingStudy.study.acsn"  
+* item[=].item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy#ImagingStudy.identifier"
+* item[=].item[=].item[=].item[=].text = "ACSN"
+* item[=].item[=].item[=].item[=].type = #string
 
 
 
@@ -1719,15 +1725,34 @@ For example, an image with SOP Instance UID of 2.16.124.113543.1154777499.30246.
 is encoded in ImagingStudy.series.instance.uid as “2.16.124.113543.1154777499.30246.19789.3503430045.1.1”. 
 */
 
-* item[=].item[=].item[+].linkId = "previousResults.imagingStudy.SeriesInstanceUid"  
-* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy#ImagingStudy.series.uid"
-* item[=].item[=].item[=].text = "DICOM Series Instance UID"
-* item[=].item[=].item[=].type = #string
+* item[=].item[=].item[=].item[=].item[+].linkId = "previousResults.imagingStudy.study.series"
+* item[=].item[=].item[=].item[=].item[=].text = "Series"
+* item[=].item[=].item[=].item[=].item[=].type = #group
+* item[=].item[=].item[=].item[=].repeats = true
 
-* item[=].item[=].item[+].linkId = "previousResults.imagingStudy.SopInstanceUid"  
-* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy#ImagingStudy.series.instance.uid"
-* item[=].item[=].item[=].text = "DICOM SOP Instance UID"
-* item[=].item[=].item[=].type = #string
+* item[=].item[=].item[=].item[=].item[=].item[+].linkId = "previousResults.imagingStudy.study.series.SeriesInstanceUid"  
+* item[=].item[=].item[=].item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy#ImagingStudy.series.uid"
+* item[=].item[=].item[=].item[=].item[=].item[=].text = "DICOM Series Instance UID"
+* item[=].item[=].item[=].item[=].item[=].item[=].type = #string
+* item[=].item[=].item[=].item[=].item[=].item[=].repeats = true
+
+* item[=].item[=].item[=].item[=].item[=].item[+].linkId = "previousResults.imagingStudy.study.series.Modality"  
+* item[=].item[=].item[=].item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy#ImagingStudy.modality.CodeableConcept.coding"
+* item[=].item[=].item[=].item[=].item[=].item[=].text = "DICOM Series Modality"
+* item[=].item[=].item[=].item[=].item[=].item[=].type = #choice
+* item[=].item[=].item[=].item[=].item[=].item[=].answerValueSet = ChRadOrderCid33
+
+* item[=].item[=].item[=].item[=].item[=].item[=].item[+].linkId = "previousResults.imagingStudy.study.series.sopInstance"
+* item[=].item[=].item[=].item[=].item[=].item[=].item[=].text = "SOP Instance"
+* item[=].item[=].item[=].item[=].item[=].item[=].item[=].type = #group
+* item[=].item[=].item[=].item[=].item[=].item[=].repeats = true
+
+* item[=].item[=].item[=].item[=].item[=].item[=].item[=].item[+].linkId = "previousResults.imagingStudy.study.series.sopInstance.sopInstanceUid"  
+* item[=].item[=].item[=].item[=].item[=].item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy#ImagingStudy.series.instance.uid"
+* item[=].item[=].item[=].item[=].item[=].item[=].item[=].item[=].text = "DICOM SOP Instance UID"
+* item[=].item[=].item[=].item[=].item[=].item[=].item[=].item[=].type = #string
+* item[=].item[=].item[=].item[=].item[=].item[=].item[=].item[=].repeats = true
+
 
 // -------- Service Request Notes ------
 * item[+].linkId = "note"
