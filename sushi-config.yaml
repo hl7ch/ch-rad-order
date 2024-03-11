@@ -27,7 +27,7 @@ dependencies:
   ch.fhir.ig.ch-orf: 1.0.0
 
 pages:
-  index.html:
+  index.md:
     title: Home
   usecase-english.md:
     title: Use Cases
