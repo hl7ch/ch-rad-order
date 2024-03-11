@@ -8,6 +8,8 @@ Alias:   RDLX =         http://radlex.org
 // see https://www.hl7.org/fhir/terminologies-systems.html -> External CS
 // see https://confluence.hl7.org/display/TA/RadLex  -> Technical identifier/s of the code system (OIDs, URNs etc)
 
+Alias:   Modality =          https://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_33.html
+
 Alias:   SCT =                              http://snomed.info/sct
 Alias:   UCUM =                             http://unitsofmeasure.org
 Alias:   ConditionCategory =                http://terminology.hl7.org/CodeSystem/condition-category

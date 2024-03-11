@@ -864,3 +864,11 @@ Description: "Definition for View Type Value Set in the context of CH RAD-Order.
 * RDLX#RID50635 "Oblique crosstable"
 * RDLX#RID5818 "anterior"
 * RDLX#RID6427 "Transabdominal"
+
+// ServiceRequest.category (Q: requestedService.service)
+/* ValueSet: ChRadOrderCid33
+Id: ch-rad-order-cid33
+Title: "Modality that created the series"
+Description: "Valuset for the Type of equipment, or function or technique of that equipment, that created the data"
+* include codes from system Cid33
+*/
