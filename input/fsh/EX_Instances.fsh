@@ -33,7 +33,7 @@ Description: "Example for ServiceRequest"
 * supportingInfo[caveats][+] = Reference(CaveatDeviceCardiacPacemaker)
 * supportingInfo[caveats][+] = Reference(CaveatDrugPrescriptionMetformin)
 
-* supportingInfo[previousImagingResults][+] = Reference(MediaRx)
+* supportingInfo[previousImagingResults][+] = Reference(ChOrfDocumentReferenceThoraxRx)
 
 * bodySite = RDLX#RID2468 "Chest wall" // imagingFocus
 * note.text = "Bemerkung/Kommentar"
@@ -144,8 +144,8 @@ Description: "Example for Bundle"
 * entry[=].resource = CaveatDrugPrescriptionMetformin
 * entry[+].fullUrl = "http://example.com/fhir/Condition/CaveatDeviceCardiacPacemaker"
 * entry[=].resource = CaveatDeviceCardiacPacemaker
-* entry[+].fullUrl = "http://example.com/fhir/Media/MediaRx"
-* entry[=].resource = MediaRx
+* entry[+].fullUrl = "http://example.com/fhir/DocumentReference/ChOrfDocumentReference"
+* entry[=].resource = ChOrfDocumentReference
 * entry[+].fullUrl = "http://example.com/fhir/Appointment/AppointmentRadiography"
 * entry[=].resource = AppointmentRadiography
 * entry[+].fullUrl = "http://example.com/fhir/Location/LocationRadiography"
@@ -486,18 +486,6 @@ Description: "Example for Caveat Condition"
 * code = SCT#441509002 "Cardiac pacemaker in situ"
 * subject = Reference(SUfferer)
 
-
-//------------- previousResults -------------
-Instance: MediaRx
-InstanceOf: ChRadOrderMedia
-Title: "Media Previous Rx"
-Description: "Example for Media"
-* status = #completed
-* content.contentType = #application/dicom
-* content.data = "RXhhbXBsZQ=="
-* content.title = "xray_chest_S_Ufferer_20190401.dcm"
-
-
 //-------------  Time and Location -------------
 Instance: AppointmentRadiography
 InstanceOf: ChOrfAppointment
@@ -526,6 +514,12 @@ Description: "Example for Location"
 * address.postalCode = "8000"
 * address.country = "Schweiz"
 
+Instance: ChOrfDocumentReferenceThoraxRx
+InstanceOf: ChOrfDocumentReference
+Title: "Thorax Rx attached"
+Description: "Example for Previous Result"
+* status = #current
+* content.attachment.data = "VGhpcyBpcyBhbiBleGFtcGxl" // "This is an example" encoded in base64
 
 Instance: DicomSopInstanceConformant
 InstanceOf: ImagingStudy
