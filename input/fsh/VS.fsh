@@ -872,3 +872,7 @@ Title: "Modality that created the series"
 Description: "Valuset for the Type of equipment, or function or technique of that equipment, that created the data"
 * include codes from system Cid33
 */
+
+/* include codes from system Cid33
+* ChRadOrderDicomUnknown#UNKNOWN
+*/

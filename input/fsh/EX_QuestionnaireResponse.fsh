@@ -244,7 +244,6 @@ Description: "Example for QuestionnaireResponse"
 * item[=].item[=].item[+].linkId = "patient.contactperson.relationship"
 * item[=].item[=].item[=].text = "Beziehung"
 * item[=].item[=].item[=].answer.valueString = "Guter Freund"
-
 * item[=].item[=].item[+].linkId = "patient.contactperson.familyName"
 * item[=].item[=].item[=].text = "Name"
 * item[=].item[=].item[=].answer.valueString = "Freund"
@@ -734,6 +733,10 @@ Vorherige Untersuchungsresultate:
 * item[=].item[=].item[=].item[=].item[=].item[+].linkId = "previousResults.imagingStudy.study.series.sopInstance.sopInstanceUid"  
 * item[=].item[=].item[=].item[=].item[=].item[=].text = "DICOM SOP Instance UID"
 * item[=].item[=].item[=].item[=].item[=].item[=].answer[+].valueString = "123456789"
+
+* item[=].item[=].item[=].item[=].item[=].item[+].linkId = "previousResults.imagingStudy.study.series.sopClass"  
+* item[=].item[=].item[=].item[=].item[=].item[=].text = "DICOM SOP Class"
+* item[=].item[=].item[=].item[=].item[=].item[=].answer[+].valueCoding = #1.2.840.10008.5.1.4.1.1.1
 
 /* -----------------------------------------------------------------------------
 Service Request Notes 

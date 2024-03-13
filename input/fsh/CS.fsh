@@ -115,3 +115,11 @@ Description: "DICOM Code System for the Type of equipment, or function or techni
 * #SRF "Subjective Refraction"
 * #CFM "Confocal Microscopy"
 */
+
+/* CodeSystem: ChRadOrderDicomUnknown
+Id: ch-rad-order-dicom-unknown
+Title: "Contains Code for /"unknown/" in dicom context"
+Description: "Definition for /"unknown/" in the context CH RAD-Order in order to handle non conformant metadata."
+* ^caseSensitive = true
+* #UNKNOWN // must be uppercase; no space allowed
+*/

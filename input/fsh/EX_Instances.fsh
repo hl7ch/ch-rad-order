@@ -525,3 +525,16 @@ Description: "Example for Location"
 * address.city = "Zürich"
 * address.postalCode = "8000"
 * address.country = "Schweiz"
+
+
+Instance: DicomSopInstanceConformant
+InstanceOf: ImagingStudy
+Title: "DICOM conformant SOP Instance"
+Description: "Example DICOM conformant SOP Instance (regarding Coding of Series-Modality)"
+* status = #available
+* subject = Reference(SUfferer)
+* identifier.value = "1234"
+* series.uid = "12345"
+* series.modality = #DX
+* series.instance.uid = "123456"
+* series.instance.sopClass = #1.2.840.10008.5.1.4.1.1.1

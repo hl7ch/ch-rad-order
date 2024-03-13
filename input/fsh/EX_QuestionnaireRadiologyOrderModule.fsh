@@ -762,6 +762,23 @@ is encoded in ImagingStudy.series.instance.uid as “2.16.124.113543.1154777499.
 * item[=].item[=].item[=].item[=].item[=].text = "DICOM Series Modality"
 * item[=].item[=].item[=].item[=].item[=].type = #choice
 * item[=].item[=].item[=].item[=].item[=].answerValueSet = Modality
+
+* item[=].item[=].item[=].item[=].item[+].linkId = "previousResults.imagingStudy.study.series.sopClass"  
+* item[=].item[=].item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy#ImagingStudy.sopClass.value"
+* item[=].item[=].item[=].item[=].item[=].text = "DICOM SOP Class"
+* item[=].item[=].item[=].item[=].item[=].type = #choice
+* item[=].item[=].item[=].item[=].item[=].answerValueSet = SopClass
+
+
+
+//R4: VS is CID 29 Acquisition Modality
+//    Modalit has datatype Coding
+
+//R5: VS is CID 33 Modality which consists of CID 29 “Acquisition Modality” and CID 32 “Non-Acquisition Modality” 
+//    Modality has datatype CodeableConcept 
+// VS for RAD-Order has been set to CID 33
+
+
 /* DCM#BMD "Bone Mineral Densitometry"
 * DCM#EOG "Electrooculography"
 * DCM#SM "Slide Microscopy"
