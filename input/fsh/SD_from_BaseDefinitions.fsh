@@ -173,6 +173,7 @@ Title: "CH RAD-Order ImagingStudy"
 Description: "Definition for the ImagingStudy resource in the context of CH RAD-Order."
 * . ^short = "CH RAD-Order ImagingStudy"
 * status MS
+* status.
 * subject MS
 * subject only Reference(ChCorePatient or Device or Group)
 * series MS
@@ -186,7 +187,7 @@ Description: "Definition for the ImagingStudy resource in the context of CH RAD-
 * series.instance.sopClass MS
 
 
-Profile: ChRadOrderMedia
+/*Profile: ChRadOrderMedia
 Parent: Media
 Id: ch-rad-order-media
 Title: "CH RAD-Order Media"
@@ -198,3 +199,4 @@ Description: "Definition for the Media resource in the context of CH RAD-Order."
 * content.data MS
 * content.title MS
 * content.title ^short = "Provide filename and extension (e.g. \"shoulder_re_F_Muster_12021988.pdf\")"
+*/

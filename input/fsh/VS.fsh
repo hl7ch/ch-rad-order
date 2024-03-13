@@ -865,14 +865,10 @@ Description: "Definition for View Type Value Set in the context of CH RAD-Order.
 * RDLX#RID5818 "anterior"
 * RDLX#RID6427 "Transabdominal"
 
-// ServiceRequest.category (Q: requestedService.service)
-/* ValueSet: ChRadOrderCid33
-Id: ch-rad-order-cid33
+
+ValueSet: ChRadOrderAcquisitionModality
+Id: ch-rad-order-acquisition-modality
 Title: "Modality that created the series"
 Description: "Valuset for the Type of equipment, or function or technique of that equipment, that created the data"
-* include codes from system Cid33
-*/
-
-/* include codes from system Cid33
-* ChRadOrderDicomUnknown#UNKNOWN
-*/
+* include codes from system AcquisitionModality
+* include codes from system ChRadOrderDicomUnknown

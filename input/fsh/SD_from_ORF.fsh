@@ -92,7 +92,7 @@ In case of 'ChRadOrderModalityType' specify Imaging Request Details by means of 
 * supportingInfo[previousImagingResults] MS
 * supportingInfo[previousImagingResults] ^short = "The ImagingStudy Resource supports DICOM WADO-RS and formats defined 
                                                   elsewhere (e.g. DICOM, JPEG ..)"
-* supportingInfo[previousImagingResults] only Reference(ChRadOrderImagingStudy or ChRadOrderMedia)
+* supportingInfo[previousImagingResults] only Reference(ChRadOrderImagingStudy or ChOrfDocumentReference)
 //------- bodySite -------
 * bodySite MS
 * bodySite from ChRadOrderImagingFocus
@@ -156,3 +156,5 @@ Description: "Definition for the Composition resource in the context of CH RAD-O
 
 // ---------- Composition.section.entry:ServiceRequest ---------
 * section[orderReferral].entry[ServiceRequest] ^type.targetProfile = Canonical(ChRadOrderServiceRequest)
+
+
