@@ -501,6 +501,7 @@ Description: "Subquestionnaire Caveats"
 * item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.evidence.detail"
 * item[=].item[=].item[=].text = "INR"   
 * item[=].item[=].item[=].type = #group
+
 * item[=].item[=].item[=].enableWhen[+].question = "caveat.bloodCoagulation"
 * item[=].item[=].item[=].enableWhen[=].operator = #=
 * item[=].item[=].item[=].enableWhen[=].answerCoding = SCT#52101004

@@ -4038,7 +4038,7 @@ group PreviousImagingStudyResults(source grp : BackboneElement, target bundle : 
                <condition value="((linkId.value = 'caveat.device.choice') and answer.exists())"/>
             </source>
             <rule>
-               <name value="caveat.device.choise"/>
+               <name value="caveat.device.choice"/>
                <source>
                   <context value="subitem"/>
                   <element value="answer"/>

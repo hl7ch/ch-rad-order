@@ -1487,7 +1487,7 @@ group CaveatServiceItems(source src : BackboneElement, target patient : Patient,
                   condition.subject as subject,
                     subject.reference = ('urn:uuid:'+patient.id)
                         "caveat.device";
-              } "caveat.device.choise";
+              } "caveat.device.choice";
               item.item as subitem where (linkId.value = 'caveat.device.specifictype' and answer.exists()) then {
                 subitem.answer as answer then {
                   answer.value: Coding as value -> 

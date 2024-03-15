@@ -488,7 +488,7 @@ Description: "Example for QuestionnaireResponse"
 
 * item[=].item[+].linkId = "patient.consent.statement"
 * item[=].item[=].text = "Ist der Patient über die Anmeldung informiert und explizit einverstanden?"
-* item[=].item[=].answer[+].valueCoding = ChOrfConsentStatus#Other "Other situation such as 'implicit agreement', 'agreed by legal guardian'  etc."
+* item[=].item[=].answer[+].valueCoding = ChOrfConsentStatus#Other "Other situation such as 'implicit agreement', 'agreed by legal guardian' etc."
 * item[=].item[=].answer[=].item[+].linkId = "patient.consent.statement.note"
 * item[=].item[=].answer[=].item[=].text = "Anmerkung"
 * item[=].item[=].answer[=].item[=].answer.valueString = "Voraussichtlich einverstanden; Sohn wird die Situation beim nä. Besuch mit Pat. besprechen"
@@ -596,6 +596,7 @@ Caveats
  */
 * item[+].linkId = "caveat"
 * item[=].text = "Caveats"
+//* item[=].type = #group
 
 * item[=].item[+].linkId = "caveat.bloodCoagulation"
 * item[=].item[=].text = "Beinträchtigte Blutgerinnung" 
@@ -603,18 +604,29 @@ Caveats
 
 * item[=].item[=].item[+].linkId = "caveat.bloodCoagulation.INR" 
 * item[=].item[=].item[=].text = "INR" 
+//* item[=].type = #group
+
+* item[=].item[=].item[=].item[+].linkId = "caveat.bloodCoagulation.INR.quantity"
+* item[=].item[=].item[=].item[=].text = "Wert (INR)"  
+* item[=].item[=].item[=].item[=].answer.valueQuantity = 2.7 ''
 
 * item[=].item[=].item[=].item[+].linkId = "caveat.bloodCoagulation.INR.dateTime"
 * item[=].item[=].item[=].item[=].text = "Zeitpunkt der Bestimmung"  
 
 * item[=].item[=].item[+].linkId = "caveat.bloodCoagulation.platelets"    
-* item[=].item[=].item[=].text = "Thrombozyten"  
+* item[=].item[=].item[=].text = "Thrombozyten"
+//* item[=].item[=].item[=].type = #group
 
 * item[=].item[=].item[=].item[+].linkId = "caveat.bloodCoagulation.platelets.quantity"
 * item[=].item[=].item[=].item[=].text = "Wert (10^3/µL)"   
 
+//* item[=].item[=].item[+].linkId = "caveat.bloodCoagulation.platelets"    
+//* item[=].item[=].item[=].text = "Thrombozyten"
+//* item[=].item[=].item[=].type = #group
+
 * item[=].item[=].item[=].item[+].linkId = "caveat.bloodCoagulation.platelets.dateTime"
-* item[=].item[=].item[=].item[=].text = "Zeitpunkt der Bestimmung"   
+* item[=].item[=].item[=].item[=].text = "Zeitpunkt der Bestimmung"  
+* item[=].item[=].item[=].item[=].answer.valueDateTime = "2024-02-01T10:10:00.000+00:00" 
 
 * item[=].item[+].linkId = "caveat.renalInsufficiency"
 * item[=].item[=].text = "Niereninsuffizienz"  
@@ -629,7 +641,7 @@ Caveats
 
 * item[=].item[=].item[=].item[+].linkId = "caveat.renalInsufficiency.creatinineClearance.dateTime"     
 * item[=].item[=].item[=].item[=].text = "Zeitpunkt der Bestimmung"   
-* item[=].item[=].item[=].item[=].answer.valueDateTime = "2019-04-01T10:10:00.000+00:00"
+* item[=].item[=].item[=].item[=].answer.valueDateTime = "2024-02-01T10:10:00.000+00:00"
 
 // Creatinin
 * item[=].item[=].answer.item[+].linkId = "caveat.renalInsufficiency.creatinine"    
