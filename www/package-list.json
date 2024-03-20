@@ -1,5 +1,5 @@
 {
-  "package-id": "ch.fhir.ig.ch-rad-order.r4",
+  "package-id": "ch.fhir.ig.ch-rad-order",
   "title": "CH RAD-Order (R4)",
   "category": "National Base",
   "canonical": "http://fhir.ch/ig/ch-rad-order",
