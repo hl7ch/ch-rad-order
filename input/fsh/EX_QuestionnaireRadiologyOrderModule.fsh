@@ -26,7 +26,7 @@ Usage: #example
 * item[=].required = true
 
 * item[=].item.extension.url = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-subQuestionnaire"
-* item[=].item.extension.valueCanonical = "http://fhir.ch/ig/ch-orf/Questionnaire/ch-orf-module-order|2.0.0"
+* item[=].item.extension.valueCanonical = "http://fhir.ch/ig/ch-orf/Questionnaire/ch-orf-module-order|2.0.1"
 * item[=].item.linkId = "order.1"
 * item[=].item.text = "Unable to resolve 'order' sub-questionnaire"
 * item[=].item.type = #display
@@ -67,7 +67,7 @@ Usage: #example
 * item[=].type = #group
 
 * item[=].item.extension.url = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-subQuestionnaire"
-* item[=].item.extension.valueCanonical = "http://fhir.ch/ig/ch-orf/Questionnaire/ch-orf-module-receiver|2.0.0"
+* item[=].item.extension.valueCanonical = "http://fhir.ch/ig/ch-orf/Questionnaire/ch-orf-module-receiver|2.0.1"
 * item[=].item.linkId = "receiver.1"
 * item[=].item.text = "Unable to resolve 'receiver' sub-questionnaire"
 * item[=].item.type = #display
@@ -79,7 +79,7 @@ Usage: #example
 * item[=].type = #group
 
 * item[=].item.extension.url = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-subQuestionnaire"
-* item[=].item.extension.valueCanonical = "http://fhir.ch/ig/ch-orf/Questionnaire/ch-orf-module-initiator|2.0.0"
+* item[=].item.extension.valueCanonical = "http://fhir.ch/ig/ch-orf/Questionnaire/ch-orf-module-initiator|2.0.1"
 * item[=].item.linkId = "initiator.1"
 * item[=].item.text = "Unable to resolve 'intitiator' sub-questionnaire"
 * item[=].item.type = #display
@@ -99,7 +99,7 @@ Usage: #example
 * item[=].extension[=].valueExpression.language = #text/fhirpath
 * item[=].extension[=].valueExpression.expression = "%patient.address"
 * item[=].item.extension.url = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-subQuestionnaire"
-* item[=].item.extension.valueCanonical = "http://fhir.ch/ig/ch-orf/Questionnaire/ch-orf-module-patient|2.0.0"
+* item[=].item.extension.valueCanonical = "http://fhir.ch/ig/ch-orf/Questionnaire/ch-orf-module-patient|2.0.1"
 * item[=].item.linkId = "patient.1"
 * item[=].item.text = "Unable to resolve 'patient' sub-questionnaire"
 * item[=].item.type = #display
@@ -111,7 +111,7 @@ Usage: #example
 * item[=].type = #group
 
 * item[=].item.extension.url = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-subQuestionnaire"
-* item[=].item.extension.valueCanonical = "http://fhir.ch/ig/ch-orf/Questionnaire/ch-orf-module-requestedencounter|2.0.0"
+* item[=].item.extension.valueCanonical = "http://fhir.ch/ig/ch-orf/Questionnaire/ch-orf-module-requestedencounter|2.0.1"
 * item[=].item.linkId = "requestedEncounter.1"
 * item[=].item.text = "Unable to resolve 'requestedEncounter' sub-questionnaire"
 * item[=].item.type = #display
@@ -126,7 +126,7 @@ Usage: #example
 * item[=].type = #group
 
 * item[=].item.extension.url = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-subQuestionnaire"
-* item[=].item.extension.valueCanonical = "http://fhir.ch/ig/ch-orf/Questionnaire/ch-orf-module-coverage|2.0.0"
+* item[=].item.extension.valueCanonical = "http://fhir.ch/ig/ch-orf/Questionnaire/ch-orf-module-coverage|2.0.1"
 * item[=].item.linkId = "coverage.1"
 * item[=].item.text = "Unable to resolve 'coverage' sub-questionnaire"
 * item[=].item.type = #display
@@ -145,7 +145,7 @@ Usage: #example
 * item[=].item[=].required = true
 
 * item[=].item.extension.url = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-subQuestionnaire"
-* item[=].item.extension.valueCanonical = "http://fhir.ch/ig/ch-orf/Questionnaire/ch-orf-module-sender|2.0.0"
+* item[=].item.extension.valueCanonical = "http://fhir.ch/ig/ch-orf/Questionnaire/ch-orf-module-sender|2.0.1"
 * item[=].item.linkId = "sender.1"
 * item[=].item.text = "Unable to resolve 'sender' sub-questionnaire"
 * item[=].item.type = #display
@@ -157,7 +157,7 @@ Usage: #example
 * item[=].type = #group
 
 * item[=].item.extension.url = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-subQuestionnaire"
-* item[=].item.extension.valueCanonical = "http://fhir.ch/ig/ch-orf/Questionnaire/ch-orf-module-receivercopy|2.0.0"
+* item[=].item.extension.valueCanonical = "http://fhir.ch/ig/ch-orf/Questionnaire/ch-orf-module-receivercopy|2.0.1"
 * item[=].item.linkId = "receiverCopy.1"
 * item[=].item.text = "Unable to resolve 'receiverCopy' sub-questionnaire"
 * item[=].item.type = #display
@@ -196,7 +196,7 @@ Usage: #example
 * item[=].item[=].item[=].type = #string
 
 * item[=].item[=].item[+].extension.url = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-subQuestionnaire"
-* item[=].item[=].item[=].extension.valueCanonical = "http://fhir.ch/ig/ch-orf/Questionnaire/ch-orf-module-address|2.0.0"
+* item[=].item[=].item[=].extension.valueCanonical = "http://fhir.ch/ig/ch-orf/Questionnaire/ch-orf-module-address|2.0.1"
 * item[=].item[=].item[=].linkId = "antecedentEpisodeOfCare.organization.1"
 * item[=].item[=].item[=].text = "Unable to resolve 'address' sub-questionnaire"
 * item[=].item[=].item[=].type = #display
@@ -209,7 +209,7 @@ Usage: #example
 * item[=].repeats = true
 
 * item[=].item.extension.url = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-subQuestionnaire"
-* item[=].item.extension.valueCanonical = "http://fhir.ch/ig/ch-orf/Questionnaire/ch-orf-module-appointment|2.0.0"
+* item[=].item.extension.valueCanonical = "http://fhir.ch/ig/ch-orf/Questionnaire/ch-orf-module-appointment|2.0.1"
 * item[=].item.linkId = "appointment.1"
 * item[=].item.text = "Unable to resolve 'appointment' sub-questionnaire"
 * item[=].item.type = #display
@@ -221,7 +221,7 @@ Usage: #example
 * item[=].type = #group
 
 * item[=].item.extension.url = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-subQuestionnaire"
-* item[=].item.extension.valueCanonical = "http://fhir.ch/ig/ch-orf/Questionnaire/ch-orf-module-consent|2.0.0"
+* item[=].item.extension.valueCanonical = "http://fhir.ch/ig/ch-orf/Questionnaire/ch-orf-module-consent|2.0.1"
 * item[=].item.linkId = "consent.1"
 * item[=].item.text = "Unable to resolve 'consent' sub-questionnaire"
 * item[=].item.type = #display
@@ -241,7 +241,7 @@ Instruction
 * item[=].type = #group
 
 * item[=].item.extension.url = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-subQuestionnaire"
-* item[=].item.extension.valueCanonical = "http://fhir.ch/ig/ch-rad-order/Questionnaire/ch-rad-order-module-instruction|2.0.0"
+* item[=].item.extension.valueCanonical = "http://fhir.ch/ig/ch-rad-order/Questionnaire/ch-rad-order-module-instruction|current"
 * item[=].item.linkId = "instruction.1"
 * item[=].item.text = "Unable to resolve 'instruction' sub-questionnaire"
 * item[=].item.type = #display
@@ -254,7 +254,7 @@ Diagnosis and Findings
 * item[=].type = #group
 
 * item[=].item.extension.url = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-subQuestionnaire"
-* item[=].item.extension.valueCanonical = "http://fhir.ch/ig/ch-rad-order/Questionnaire/ch-rad-order-module-diagnosis|2.0.0"
+* item[=].item.extension.valueCanonical = "http://fhir.ch/ig/ch-rad-order/Questionnaire/ch-rad-order-module-diagnosis|current"
 * item[=].item.linkId = "diagnosis.1"
 * item[=].item.text = "Unable to resolve 'diagnosis' sub-questionnaire"
 * item[=].item.type = #display
@@ -267,7 +267,7 @@ Caveats
 * item[=].type = #group
 
 * item[=].item.extension.url = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-subQuestionnaire"
-* item[=].item.extension.valueCanonical = "http://fhir.ch/ig/ch-rad-order/Questionnaire/ch-rad-order-module-caveats|2.0.0"
+* item[=].item.extension.valueCanonical = "http://fhir.ch/ig/ch-rad-order/Questionnaire/ch-rad-order-module-caveats|current"
 * item[=].item.linkId = "caveats.1"
 * item[=].item.text = "Unable to resolve 'caveats' sub-questionnaire"
 * item[=].item.type = #display
@@ -280,7 +280,7 @@ Precedent Imaging
 * item[=].type = #group
 
 * item[=].item.extension.url = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-subQuestionnaire"
-* item[=].item.extension.valueCanonical = "http://fhir.ch/ig/ch-rad-order/Questionnaire/ch-rad-order-module-pecedentImaging|2.0.0"
+* item[=].item.extension.valueCanonical = "http://fhir.ch/ig/ch-rad-order/Questionnaire/ch-rad-order-module-pecedentImaging|current"
 * item[=].item.linkId = "precedentImaging.1"
 * item[=].item.text = "Unable to resolve 'precedentImaging' sub-questionnaire"
 * item[=].item.type = #display
