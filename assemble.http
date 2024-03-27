@@ -1,0 +1,48 @@
+@host = http://test.ahdis.ch/matchbox/fhir
+
+### Create modular questionnaire with $assemble operation
+### first upload also ch-orf-module-*.json Questionnaires i ch-orf assemble.http
+
+GET {{host}}/Questionnaire HTTP/1.1
+Accept: application/json+fhir
+
+### 
+GET {{host}}/Questionnaire?url=http://fhir.ch/ig/ch-rad-order/Questionnaire/ch-rad-order-module-precedentImaging
+Accept: application/json+fhir
+
+###
+POST {{host}}/Questionnaire HTTP/1.1
+Accept: application/json+fhir
+Content-Type: application/json+fhir
+
+< ./output/Questionnaire-ch-rad-order-module-caveats.json
+
+###
+POST {{host}}/Questionnaire HTTP/1.1
+Accept: application/json+fhir
+Content-Type: application/json+fhir
+
+< ./output/Questionnaire-ch-rad-order-module-instruction.json
+
+###
+POST {{host}}/Questionnaire HTTP/1.1
+Accept: application/json+fhir
+Content-Type: application/json+fhir
+
+< ./output/Questionnaire-ch-rad-order-module-diagnosis.json
+
+###
+POST {{host}}/Questionnaire HTTP/1.1
+Accept: application/json+fhir
+Content-Type: application/json+fhir
+
+< ./output/Questionnaire-ch-rad-order-module-precedentImaging.json
+
+
+### $assemble operation on modular Questionnaire
+POST {{host}}/Questionnaire/$assemble HTTP/1.1
+Accept: application/json+fhir
+Content-Type: application/json+fhir
+
+< ./output/Questionnaire-QuestionnaireRadiologyOrder-modular.json
+
