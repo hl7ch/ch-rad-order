@@ -7,7 +7,7 @@ GET {{host}}/Questionnaire HTTP/1.1
 Accept: application/json+fhir
 
 ### 
-GET {{host}}/Questionnaire?url=http://fhir.ch/ig/ch-rad-order/Questionnaire/ch-rad-order-module-precedentImaging
+GET {{host}}/Questionnaire?url=http://fhir.ch/ig/ch-rad-order/Questionnaire/ch-rad-order-module-attachment
 Accept: application/json+fhir
 
 ###
@@ -36,7 +36,7 @@ POST {{host}}/Questionnaire HTTP/1.1
 Accept: application/json+fhir
 Content-Type: application/json+fhir
 
-< ./output/Questionnaire-ch-rad-order-module-precedentImaging.json
+< ./output/Questionnaire-ch-rad-order-module-attachment.json
 
 
 ### $assemble operation on modular Questionnaire

@@ -48,7 +48,7 @@ Usage: #example
 * extension[+].url = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-assembledFrom"
 * extension[=].valueCanonical = "http://fhir.ch/ig/ch-rad-order/Questionnaire/ch-rad-order-module-caveats|1.1.0"
 * extension[+].url = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-assembledFrom"
-* extension[=].valueCanonical = "http://fhir.ch/ig/ch-rad-order/Questionnaire/ch-rad-order-module-precedentImaging|1.1.0"
+* extension[=].valueCanonical = "http://fhir.ch/ig/ch-rad-order/Questionnaire/ch-rad-order-module-attachment|1.1.0"
 * url = "http://fhir.ch/ig/ch-rad-order/Questionnaire/QuestionnaireRadiologyOrder"
 * version = "1.1.0-assembled"
 * name = "QuestionnaireRadiologyOrder"
@@ -92,8 +92,8 @@ Usage: #example
 * item[=].item[=].type = #string
 * item[=].item[+].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-hidden"
 * item[=].item[=].extension.valueBoolean = true
-* item[=].item[=].linkId = "order.precedentDocumentIdentifier"
-* item[=].item[=].definition = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-composition#Composition.extension:precedentDocument"
+* item[=].item[=].linkId = "order.previousDocumentIdentifier"
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-composition#Composition.extension:previousDocument"
 * item[=].item[=].text = "Identifier des Vorgängerdokuments"
 * item[=].item[=].type = #string
 * item[=].item[+].linkId = "order.notificationContactDocument"
@@ -1483,61 +1483,61 @@ Usage: #example
 * item[=].item.item[=].item[=].required = true
 * item[=].item.item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-caveat-qualifier-value"
 * item[=].item.item[=].item[=].initial.valueCoding = $sct#373068000
-* item[+].linkId = "precedentImaging"
+* item[+].linkId = "previousImaging"
 * item[=].type = #group
-* item[=].item[0].linkId = "previousResults.attachment"
+* item[=].item[0].linkId = "attachment.attachment"
 * item[=].item[=].text = "Bilder (DICOM)"
 * item[=].item[=].type = #group
 * item[=].item[=].repeats = true
-* item[=].item[=].item[0].linkId = "previousResults.attachment.title"
+* item[=].item[=].item[0].linkId = "attachment.attachment.title"
 * item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-documentreference#content.attachment.title"
 * item[=].item[=].item[=].text = "Dateiname und -endung der angehängten Datei (z.B. \"Verlauf.pdf\")"
 * item[=].item[=].item[=].type = #string
 * item[=].item[=].item[=].repeats = true
-* item[=].item[=].item[+].linkId = "previousResults.attachment.description"
+* item[=].item[=].item[+].linkId = "attachment.attachment.description"
 * item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-documentreference#content.descritption"
 * item[=].item[=].item[=].text = "Beschreibung"
 * item[=].item[=].item[=].type = #string
-* item[=].item[+].linkId = "previousResults.imagingStudy"
+* item[=].item[+].linkId = "attachment.imagingStudy"
 * item[=].item[=].text = "Bilder (DICOM)"
 * item[=].item[=].type = #group
 * item[=].item[=].repeats = true
-* item[=].item[=].item.linkId = "previousResults.imagingStudy.study"
+* item[=].item[=].item.linkId = "attachment.imagingStudy.study"
 * item[=].item[=].item.text = "Study"
 * item[=].item[=].item.type = #group
 * item[=].item[=].item.repeats = true
-* item[=].item[=].item.item[0].linkId = "previousResults.imagingStudy.study.studyInstanceUid"
+* item[=].item[=].item.item[0].linkId = "attachment.imagingStudy.study.studyInstanceUid"
 * item[=].item[=].item.item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy#ImagingStudy.identifier"
 * item[=].item[=].item.item[=].text = "DICOM Study Instance UID"
 * item[=].item[=].item.item[=].type = #string
-* item[=].item[=].item.item[+].linkId = "previousResults.imagingStudy.study.acsn"
+* item[=].item[=].item.item[+].linkId = "attachment.imagingStudy.study.acsn"
 * item[=].item[=].item.item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy#ImagingStudy.identifier"
 * item[=].item[=].item.item[=].text = "ACSN"
 * item[=].item[=].item.item[=].type = #string
 * item[=].item[=].item.item[=].repeats = true
-* item[=].item[=].item.item[=].item.linkId = "previousResults.imagingStudy.study.series"
+* item[=].item[=].item.item[=].item.linkId = "attachment.imagingStudy.study.series"
 * item[=].item[=].item.item[=].item.text = "Series"
 * item[=].item[=].item.item[=].item.type = #group
-* item[=].item[=].item.item[=].item.item[0].linkId = "previousResults.imagingStudy.study.series.SeriesInstanceUid"
+* item[=].item[=].item.item[=].item.item[0].linkId = "attachment.imagingStudy.study.series.SeriesInstanceUid"
 * item[=].item[=].item.item[=].item.item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy#ImagingStudy.series.uid"
 * item[=].item[=].item.item[=].item.item[=].text = "DICOM Series Instance UID"
 * item[=].item[=].item.item[=].item.item[=].type = #string
 * item[=].item[=].item.item[=].item.item[=].repeats = true
-* item[=].item[=].item.item[=].item.item[+].linkId = "previousResults.imagingStudy.study.series.Modality"
+* item[=].item[=].item.item[=].item.item[+].linkId = "attachment.imagingStudy.study.series.Modality"
 * item[=].item[=].item.item[=].item.item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy#ImagingStudy.modality.coding"
 * item[=].item[=].item.item[=].item.item[=].text = "DICOM Series Modality"
 * item[=].item[=].item.item[=].item.item[=].type = #choice
 * item[=].item[=].item.item[=].item.item[=].answerValueSet = "https://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_33.html"
-* item[=].item[=].item.item[=].item.item[+].linkId = "previousResults.imagingStudy.study.series.sopClass"
+* item[=].item[=].item.item[=].item.item[+].linkId = "attachment.imagingStudy.study.series.sopClass"
 * item[=].item[=].item.item[=].item.item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy#ImagingStudy.sopClass.value"
 * item[=].item[=].item.item[=].item.item[=].text = "DICOM SOP Class"
 * item[=].item[=].item.item[=].item.item[=].type = #choice
 * item[=].item[=].item.item[=].item.item[=].repeats = true
 * item[=].item[=].item.item[=].item.item[=].answerValueSet = "https://dicom.nema.org/medical/dicom/current/output/chtml/part04/sect_B.5.html"
-* item[=].item[=].item.item[=].item.item[=].item.linkId = "previousResults.imagingStudy.study.series.sopInstance"
+* item[=].item[=].item.item[=].item.item[=].item.linkId = "attachment.imagingStudy.study.series.sopInstance"
 * item[=].item[=].item.item[=].item.item[=].item.text = "SOP Instance"
 * item[=].item[=].item.item[=].item.item[=].item.type = #group
-* item[=].item[=].item.item[=].item.item[=].item.item.linkId = "previousResults.imagingStudy.study.series.sopInstance.sopInstanceUid"
+* item[=].item[=].item.item[=].item.item[=].item.item.linkId = "attachment.imagingStudy.study.series.sopInstance.sopInstanceUid"
 * item[=].item[=].item.item[=].item.item[=].item.item.definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy#ImagingStudy.series.instance.uid"
 * item[=].item[=].item.item[=].item.item[=].item.item.text = "DICOM SOP Instance UID"
 * item[=].item[=].item.item[=].item.item[=].item.item.type = #string

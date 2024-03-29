@@ -11,7 +11,7 @@ The CH RAD-Order Implementation Guide defines the content of a radiology order a
 * Referral for radiological intervention
 * Request for second opinion
 * Request for remote reporting
-* Request for precedent imaging results
+* Request for previous imaging results
 
 CH RAD-Order is intended for use in directional communication as well as for the use in the SWISS EPR.
   

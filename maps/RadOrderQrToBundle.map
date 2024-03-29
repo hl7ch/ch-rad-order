@@ -62,7 +62,7 @@ group QrToGroups(source qr : QuestionnaireResponse, target patient : Patient, ta
     qr.item as grp where linkId='sender' then SenderAuthorInit(grp, bundle, composition, serviceRequest) "grpsender";
     qr.item as grp where linkId='receiverCopy' then ReceiverCopy(grp, bundle, patient, composition, serviceRequest) "receiverCopy";
     qr.item as grp where linkId='appointment' then Appointment(grp, bundle, composition, serviceRequest) "appointment";
-    qr.item as grp where linkId='previousResults' then PreviousResults(grp, bundle, serviceRequest) "previousResults";
+    qr.item as grp where linkId='attachment' then PreviousResults(grp, bundle, serviceRequest) "attachment";
     qr.item as grp where linkId='antecedentEpisodeOfCare' then AntecedentEpisodeOfCareInit(grp, bundle, patient, composition) "AntecedentEpisodeOfCareInit";
     qr.item as grp where linkId='consent' then Consent(grp, bundle, composition) "consent";
     qr.item as grp where linkId='note' then Note(grp, serviceRequest) "note";
@@ -70,8 +70,8 @@ group QrToGroups(source qr : QuestionnaireResponse, target patient : Patient, ta
 
 group OrderItems(source src : BackboneElement, target bundle: Bundle, target composition, target serviceRequest : ServiceRequest) {
 
-  src.item as item where (linkId.value = 'order.precedentDocumentIdentifier' and answer.exists())   -> composition.extension as ext, ext.url = 'http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-precedentdocument',
-                                                                        ext.value = create('Identifier') as value, value.system='urn:ietf:rfc:3986', value.value=('urn:uuid:'+item.answer.valueString) "order.precedentDocumentIdentifier"; 
+  src.item as item where (linkId.value = 'order.previousDocumentIdentifier' and answer.exists())   -> composition.extension as ext, ext.url = 'http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-previousdocument',
+                                                                        ext.value = create('Identifier') as value, value.system='urn:ietf:rfc:3986', value.value=('urn:uuid:'+item.answer.valueString) "order.previousDocumentIdentifier"; 
 
   src.item as item where (linkId.value = 'order.placerOrderIdentifier' and answer.exists()) -> serviceRequest.identifier as value share placer, 
                                                                                    value.type as type, type.coding as coding,
@@ -961,7 +961,7 @@ group Appointment(source grp : BackboneElement, target bundle: Bundle, target co
 }
 
 group PreviousResults(source grp : BackboneElement, target bundle: Bundle, target serviceRequest: ServiceRequest) {
-   grp.item as item where (linkId='previousResults.attachment' and answer.exists()) then {
+   grp.item as item where (linkId='attachment.attachment' and answer.exists()) then {
       item.answer as answer then {
          answer.value: Attachment as attachment -> 
             bundle.entry as e, 
@@ -1054,7 +1054,7 @@ group RadOrderQrToServiceRequest(source qr : QuestionnaireResponse, target patie
   qr.item as grp where linkId='desiredRadiologist' then DesiredRadiologistServiceItems(grp, bundle, serviceRequest) "desiredRadiologist";
   qr.item as grp where linkId='diagnosisList' then DiagnosisListServiceItems(grp, patient, bundle, serviceRequest) "diagnosisList";
   qr.item as grp where linkId='caveat' then CaveatServiceItems(grp, patient, bundle, serviceRequest) "Caveat";
-  qr.item as grp where linkId='previousResults' then PreviousImagingStudyResults(grp, bundle, serviceRequest, patient) "previousResults";
+  qr.item as grp where linkId='attachment' then PreviousImagingStudyResults(grp, bundle, serviceRequest, patient) "attachment";
 }
 
 group RequestedServiceItems(source src : BackboneElement, target serviceRequest: ServiceRequest) {
@@ -1691,7 +1691,7 @@ group DesiredRadiologistServiceItemsDrugDescription(source src : BackboneElement
 }  
 
 group PreviousImagingStudyResults(source grp : BackboneElement, target bundle: Bundle, target serviceRequest: ServiceRequest, target patient: Patient) {
-  grp.item as item where (linkId.value = 'previousResults.imagingStudy') -> 
+  grp.item as item where (linkId.value = 'attachment.imagingStudy') -> 
     bundle.entry as e, 
     e.resource = create('ImagingStudy') as imagingStudy, 
     imagingStudy.id = uuid() as uuid,
@@ -1701,15 +1701,15 @@ group PreviousImagingStudyResults(source grp : BackboneElement, target bundle: B
     serviceRequest.subject as subject, subject.reference = ('urn:uuid:'+patient.id),
     serviceRequest.supportingInfo as supportingInfo,
     supportingInfo.reference = ('urn:uuid:'+uuid) then {
-      item.item as dictomitem where (linkId.value = 'previousResults.imagingStudy.StudyInstanceUid' and answer.exists()) -> 
+      item.item as dictomitem where (linkId.value = 'attachment.imagingStudy.StudyInstanceUid' and answer.exists()) -> 
         imagingStudy.identifier as uid, uid.system='urn:dicom:uid', uid.use='official', uid.value=('urn:oid:'+dictomitem.answer.value) "uid";
-     item.item as dictomitem where (linkId.value = 'previousResults.imagingStudy.acsn' and answer.exists()) -> 
+     item.item as dictomitem where (linkId.value = 'attachment.imagingStudy.acsn' and answer.exists()) -> 
         imagingStudy.identifier as acsn, acsn.type as type, type.coding as coding, coding.system ='http://terminology.hl7.org/CodeSystem/v2-0203',
         coding.code='ACSN', acsn.use='usual', acsn.value=(dictomitem.answer.value) "acsn";
-     item.item as dictomitem where (linkId.value = 'previousResults.imagingStudy.SeriesInstanceUid' and answer.exists()) -> imagingStudy.series as series then {
+     item.item as dictomitem where (linkId.value = 'attachment.imagingStudy.SeriesInstanceUid' and answer.exists()) -> imagingStudy.series as series then {
       dictomitem.answer as answer then {
         answer.value: string as value -> series.uid = value "uid";
-        item.item as dictomitem where (linkId.value = 'previousResults.imagingStudy.SopInstanceUid' and answer.exists()) -> series.instance as instance then {
+        item.item as dictomitem where (linkId.value = 'attachment.imagingStudy.SopInstanceUid' and answer.exists()) -> series.instance as instance then {
           dictomitem.answer as answer then {
             answer.value: string as value -> instance.uid = value "uid";
           } "answer";

@@ -38,7 +38,7 @@ group RadOrderQrToServiceRequest(source qr : QuestionnaireResponse, target patie
   qr.item as grp where linkId = &apos;desiredRadiologist&apos; then DesiredRadiologistServiceItems(grp, bundle, serviceRequest) &quot;desiredRadiologist&quot;;
   qr.item as grp where linkId = &apos;diagnosisList&apos; then DiagnosisListServiceItems(grp, patient, bundle, serviceRequest) &quot;diagnosisList&quot;;
   qr.item as grp where linkId = &apos;caveat&apos; then CaveatServiceItems(grp, patient, bundle, serviceRequest) &quot;Caveat&quot;;
-  qr.item as grp where linkId = &apos;previousResults&apos; then PreviousImagingStudyResults(grp, bundle, serviceRequest, patient) &quot;previousResults&quot;;
+  qr.item as grp where linkId = &apos;attachment&apos; then PreviousImagingStudyResults(grp, bundle, serviceRequest, patient) &quot;attachment&quot;;
 }
 
 group RequestedServiceItems(source src : BackboneElement, target serviceRequest : ServiceRequest) {
@@ -249,13 +249,13 @@ group DesiredRadiologistServiceItemsDrugDescription(source src : BackboneElement
 }
 
 group PreviousImagingStudyResults(source grp : BackboneElement, target bundle : Bundle, target serviceRequest : ServiceRequest, target patient : Patient) {
-  grp.item as item where (linkId.value = &apos;previousResults.imagingStudy&apos;) -&gt;  bundle.entry as e,  e.resource = create(&apos;ImagingStudy&apos;) as imagingStudy,  imagingStudy.id = uuid() as uuid,  imagingStudy.status = &apos;available&apos;,  imagingStudy.subject as subject,  subject.reference = (&apos;urn:uuid:&apos; + patient.id),  e.fullUrl = append(&apos;urn:uuid:&apos;, uuid),  serviceRequest.subject as subject,  subject.reference = (&apos;urn:uuid:&apos; + patient.id),  serviceRequest.supportingInfo as supportingInfo,  supportingInfo.reference = (&apos;urn:uuid:&apos; + uuid) then {
-    item.item as dictomitem where ((linkId.value = &apos;previousResults.imagingStudy.StudyInstanceUid&apos;) and answer.exists()) -&gt;  imagingStudy.identifier as uid,  uid.system = &apos;urn:dicom:uid&apos;,  uid.use = &apos;official&apos;,  uid.value = (&apos;urn:oid:&apos; + dictomitem.answer.value) &quot;uid&quot;;
-    item.item as dictomitem where ((linkId.value = &apos;previousResults.imagingStudy.acsn&apos;) and answer.exists()) -&gt;  imagingStudy.identifier as acsn,  acsn.type as type,  type.coding as coding,  coding.system = &apos;http://terminology.hl7.org/CodeSystem/v2-0203&apos;,  coding.code = &apos;ACSN&apos;,  acsn.use = &apos;usual&apos;,  acsn.value = (dictomitem.answer.value) &quot;acsn&quot;;
-    item.item as dictomitem where ((linkId.value = &apos;previousResults.imagingStudy.SeriesInstanceUid&apos;) and answer.exists()) -&gt; imagingStudy.series as series then {
+  grp.item as item where (linkId.value = &apos;attachment.imagingStudy&apos;) -&gt;  bundle.entry as e,  e.resource = create(&apos;ImagingStudy&apos;) as imagingStudy,  imagingStudy.id = uuid() as uuid,  imagingStudy.status = &apos;available&apos;,  imagingStudy.subject as subject,  subject.reference = (&apos;urn:uuid:&apos; + patient.id),  e.fullUrl = append(&apos;urn:uuid:&apos;, uuid),  serviceRequest.subject as subject,  subject.reference = (&apos;urn:uuid:&apos; + patient.id),  serviceRequest.supportingInfo as supportingInfo,  supportingInfo.reference = (&apos;urn:uuid:&apos; + uuid) then {
+    item.item as dictomitem where ((linkId.value = &apos;attachment.imagingStudy.StudyInstanceUid&apos;) and answer.exists()) -&gt;  imagingStudy.identifier as uid,  uid.system = &apos;urn:dicom:uid&apos;,  uid.use = &apos;official&apos;,  uid.value = (&apos;urn:oid:&apos; + dictomitem.answer.value) &quot;uid&quot;;
+    item.item as dictomitem where ((linkId.value = &apos;attachment.imagingStudy.acsn&apos;) and answer.exists()) -&gt;  imagingStudy.identifier as acsn,  acsn.type as type,  type.coding as coding,  coding.system = &apos;http://terminology.hl7.org/CodeSystem/v2-0203&apos;,  coding.code = &apos;ACSN&apos;,  acsn.use = &apos;usual&apos;,  acsn.value = (dictomitem.answer.value) &quot;acsn&quot;;
+    item.item as dictomitem where ((linkId.value = &apos;attachment.imagingStudy.SeriesInstanceUid&apos;) and answer.exists()) -&gt; imagingStudy.series as series then {
       dictomitem.answer as answer then {
         answer.value : string as value -&gt; series.uid = value &quot;uid&quot;;
-        item.item as dictomitem where ((linkId.value = &apos;previousResults.imagingStudy.SopInstanceUid&apos;) and answer.exists()) -&gt; series.instance as instance then {
+        item.item as dictomitem where ((linkId.value = &apos;attachment.imagingStudy.SopInstanceUid&apos;) and answer.exists()) -&gt; series.instance as instance then {
           dictomitem.answer as answer then {
             answer.value : string as value -&gt; instance.uid = value &quot;uid&quot;;
           };
@@ -801,12 +801,12 @@ group PreviousImagingStudyResults(source grp : BackboneElement, target bundle : 
          </dependent>
       </rule>
       <rule>
-         <name value="previousResults"/>
+         <name value="attachment"/>
          <source>
             <context value="qr"/>
             <element value="item"/>
             <variable value="grp"/>
-            <condition value="linkId = 'previousResults'"/>
+            <condition value="linkId = 'attachment'"/>
          </source>
          <dependent>
             <name value="PreviousImagingStudyResults"/>
@@ -5750,7 +5750,7 @@ group PreviousImagingStudyResults(source grp : BackboneElement, target bundle : 
             <context value="grp"/>
             <element value="item"/>
             <variable value="item"/>
-            <condition value="(linkId.value = 'previousResults.imagingStudy')"/>
+            <condition value="(linkId.value = 'attachment.imagingStudy')"/>
          </source>
          <target>
             <context value="bundle"/>
@@ -5847,7 +5847,7 @@ group PreviousImagingStudyResults(source grp : BackboneElement, target bundle : 
                <context value="item"/>
                <element value="item"/>
                <variable value="dictomitem"/>
-               <condition value="((linkId.value = 'previousResults.imagingStudy.StudyInstanceUid') and answer.exists())"/>
+               <condition value="((linkId.value = 'attachment.imagingStudy.StudyInstanceUid') and answer.exists())"/>
             </source>
             <target>
                <context value="imagingStudy"/>
@@ -5889,7 +5889,7 @@ group PreviousImagingStudyResults(source grp : BackboneElement, target bundle : 
                <context value="item"/>
                <element value="item"/>
                <variable value="dictomitem"/>
-               <condition value="((linkId.value = 'previousResults.imagingStudy.acsn') and answer.exists())"/>
+               <condition value="((linkId.value = 'attachment.imagingStudy.acsn') and answer.exists())"/>
             </source>
             <target>
                <context value="imagingStudy"/>
@@ -5952,7 +5952,7 @@ group PreviousImagingStudyResults(source grp : BackboneElement, target bundle : 
                <context value="item"/>
                <element value="item"/>
                <variable value="dictomitem"/>
-               <condition value="((linkId.value = 'previousResults.imagingStudy.SeriesInstanceUid') and answer.exists())"/>
+               <condition value="((linkId.value = 'attachment.imagingStudy.SeriesInstanceUid') and answer.exists())"/>
             </source>
             <target>
                <context value="imagingStudy"/>
@@ -5991,7 +5991,7 @@ group PreviousImagingStudyResults(source grp : BackboneElement, target bundle : 
                      <context value="item"/>
                      <element value="item"/>
                      <variable value="dictomitem"/>
-                     <condition value="((linkId.value = 'previousResults.imagingStudy.SopInstanceUid') and answer.exists())"/>
+                     <condition value="((linkId.value = 'attachment.imagingStudy.SopInstanceUid') and answer.exists())"/>
                   </source>
                   <target>
                      <context value="series"/>

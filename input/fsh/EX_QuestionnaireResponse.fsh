@@ -25,7 +25,7 @@ Description: "Example for QuestionnaireResponse"
 * item[=].item[=].text = "Identifier Domain der Auftragsnummer des Auftragsempfängers"
 * item[=].item[=].answer.valueString = "urn:oid:2.999.7.8.9.10.11"
 
-* item[=].item[+].linkId = "order.precedentDocumentIdentifier"
+* item[=].item[+].linkId = "order.previousDocumentIdentifier"
 * item[=].item[=].text = "Identifier des Vorgängerdokuments"
 * item[=].item[=].answer.valueString = "1622f2fb-6ba3-4532-9aed-35b158def187"
 
@@ -698,57 +698,53 @@ Caveats
 * item[=].item[=].item[=].answer.valueCoding = SCT#373068000
 
 /* ---------------------------------------------------------------------------
-Vorherige Untersuchungsresultate:
+Attachment:
 */
-* item[+].linkId = "previousResults"
-* item[=].text = "Vorherige Untersuchungsresultate"
+* item[+].linkId = "attachment.nonDicom"
+* item[=].text = "Anhang (nicht DICOM)"
 
-* item[=].item[+].linkId = "attachment"
-* item[=].item[=].text = "Non-DICOM Attachments (z.B. \"Befund.pdf\")"
+* item[=].item[+].linkId = "attachment.nonDicom.title"  
+* item[=].item[=].text = "Dateiname und -endung der angehängten Datei (z.B. \"Befund.pdf\")"
+* item[=].item[=].answer[+].valueString = "Befund_Rx_Thorax_S_Ufferer_20190401.pdf"
 
-* item[=].item[=].item[+].linkId = "previousResults.attachment.title"
-* item[=].item[=].item[=].text = "Dateiname und -endung der angehängten Datei (z.B. \"Verlauf.pdf\")"
-* item[=].item[=].item[=].answer[+].valueString = "Befund_Rx_Thorax_S_Ufferer_20190401.pdf"
+* item[=].item[=].answer[=].item[+].linkId = "attachment.nonDicom.description"  
+* item[=].item[=].answer[=].item[=].text = "Beschreibung"
+* item[=].item[=].answer[=].item[=].answer[+].valueString = "Befund Notfall-Rx nach Sturz"
 
-* item[=].item[=].item[+].linkId = "previousResults.attachment.description"
-* item[=].item[=].item[=].text = "Beschreibung"
-* item[=].item[=].item[=].answer[+].valueString = "Befund Notfall-Rx nach Sturz"
+* item[+].linkId = "attachment.dicom"
+* item[=].text = "Anhang (DICOM)"
 
-* item[=].item[+].linkId = "previousResults.imagingStudy"
-* item[=].item[=].text = "Bilder (DICOM)"
+* item[=].item[+].linkId = "attachment.dicom.title"  
+* item[=].item[=].text = "Dateiname und -endung der angehängten Dicom-Datei (z.B. \"Muster_F_2023-07-20_MR Knie nativ beidseits_im2588909576\")"
+* item[=].item[=].answer[+].valueString = "Muster_F_2023-07-20_MR Knie nativ beidseits_im2588909576"
 
-* item[=].item[=].item[+].linkId = "previousResults.imagingStudy.study"
-* item[=].item[=].item[=].text = "Study"
+* item[=].item[=].answer[=].item[+].linkId = "attachment.dicom.sopInstanceUid"  
+* item[=].item[=].answer[=].item[=].text = "DICOM SOP Instance UID"
+* item[=].item[=].answer[=].item[=].answer[+].valueString = "123456789"
 
-* item[=].item[=].item[=].item[+].linkId = "previousResults.imagingStudy.study.studyInstanceUid"  
-* item[=].item[=].item[=].item[=].text = "DICOM Study Instance UID"
-* item[=].item[=].item[=].item[=].answer[+].valueString = "123456789"
+* item[=].item[=].answer[=].item[+].linkId = "attachment.dicom.sopClass"  
+* item[=].item[=].answer[=].item[=].text = "DICOM SOP Class"
+* item[=].item[=].answer[=].item[=].answer.valueCoding = #1.2.840.10008.5.1.4.1.1.4
 
-* item[=].item[=].item[=].item[+].linkId = "previousResults.imagingStudy.study.acsn"  
-* item[=].item[=].item[=].item[=].text = "ACSN"
-* item[=].item[=].item[=].item[=].answer[+].valueString = "123456789"
+* item[=].item[=].answer[=].item[+].linkId = "attachment.dicom.modality"  
+* item[=].item[=].answer[=].item[=].text = "DICOM Series Modality"
+* item[=].item[=].answer[=].item[=].answer.valueCoding = #MR
 
-* item[=].item[=].item[=].item[+].linkId = "previousResults.imagingStudy.study.series"
-* item[=].item[=].item[=].item[=].text = "Series"
+* item[=].item[=].answer[=].item[+].linkId = "attachment.dicom.SeriesInstanceUid"  
+* item[=].item[=].answer[=].item[=].text = "DICOM Series Instance UID"
+* item[=].item[=].answer[=].item[=].answer[+].valueString = "123456789"
 
-* item[=].item[=].item[=].item[=].item[+].linkId = "previousResults.imagingStudy.study.series.SeriesInstanceUid"  
-* item[=].item[=].item[=].item[=].item[=].text = "DICOM Series Instance UID"
-* item[=].item[=].item[=].item[=].item[=].answer[+].valueString = "123456789"
+* item[=].item[=].answer[=].item[+].linkId = "attachment.dicom.studyInstanceUid"  
+* item[=].item[=].answer[=].item[=].text = "DICOM Study Instance UID"
+* item[=].item[=].answer[=].item[=].answer[+].valueString = "123456789"
 
-* item[=].item[=].item[=].item[=].item[+].linkId = "previousResults.imagingStudy.study.series.Modality"  
-* item[=].item[=].item[=].item[=].item[=].text = "DICOM Series Modality"
-* item[=].item[=].item[=].item[=].item[=].answer[+].valueString = "123456789"
+* item[=].item[=].answer[=].item[+].linkId = "attachment.dicom.acsn"  
+* item[=].item[=].answer[=].item[=].text = "ACSN"
+* item[=].item[=].answer[=].item[=].answer[+].valueString = "123456789"
 
-* item[=].item[=].item[=].item[=].item[+].linkId = "previousResults.imagingStudy.study.series.sopInstance"
-* item[=].item[=].item[=].item[=].item[=].text = "SOP Instance"
 
-* item[=].item[=].item[=].item[=].item[=].item[+].linkId = "previousResults.imagingStudy.study.series.sopInstance.sopInstanceUid"  
-* item[=].item[=].item[=].item[=].item[=].item[=].text = "DICOM SOP Instance UID"
-* item[=].item[=].item[=].item[=].item[=].item[=].answer[+].valueString = "123456789"
 
-* item[=].item[=].item[=].item[=].item[=].item[+].linkId = "previousResults.imagingStudy.study.series.sopClass"  
-* item[=].item[=].item[=].item[=].item[=].item[=].text = "DICOM SOP Class"
-* item[=].item[=].item[=].item[=].item[=].item[=].answer[+].valueCoding = #1.2.840.10008.5.1.4.1.1.1
+
 
 /* -----------------------------------------------------------------------------
 Service Request Notes 
