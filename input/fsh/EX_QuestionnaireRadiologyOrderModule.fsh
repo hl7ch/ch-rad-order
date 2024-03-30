@@ -1,3 +1,4 @@
+
 Instance: QuestionnaireRadiologyOrder-modular
 InstanceOf: ChOrfQuestionnaire
 Title: "Questionnaire RadiologyOrder (Modular version)"
@@ -484,12 +485,12 @@ Description: "Subquestionnaire Caveats"
 * date = "2024-03-02"
 * publisher = "HL7 Switzerland"
 
-* item[+].linkId = "caveat" 
+* item[+].linkId = "caveatList" 
 * item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.supportingInfo:caveats" 
 * item[=].text = "Caveats"
 * item[=].type = #group
 
-* item[=].item[+].linkId = "caveat.bloodCoagulation"   
+* item[=].item[+].linkId = "caveatList.bloodCoagulation"   
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.code"  
 * item[=].item[=].text = "Beinträchtigte Blutgerinnung"   
 * item[=].item[=].type = #choice
@@ -497,41 +498,41 @@ Description: "Subquestionnaire Caveats"
 * item[=].item[=].initial.valueCoding = SCT#373068000
 * item[=].item[=].required = true
 
-* item[=].item[=].item[+].linkId = "caveat.bloodCoagulation.INR" 
+* item[=].item[=].item[+].linkId = "caveatList.bloodCoagulation.INR" 
 * item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.evidence.detail"
 * item[=].item[=].item[=].text = "INR"   
 * item[=].item[=].item[=].type = #group
 
-* item[=].item[=].item[=].enableWhen[+].question = "caveat.bloodCoagulation"
+* item[=].item[=].item[=].enableWhen[+].question = "caveatList.bloodCoagulation"
 * item[=].item[=].item[=].enableWhen[=].operator = #=
 * item[=].item[=].item[=].enableWhen[=].answerCoding = SCT#52101004
 
-* item[=].item[=].item[=].item[+].linkId = "caveat.bloodCoagulation.INR.quantity"
+* item[=].item[=].item[=].item[+].linkId = "caveatList.bloodCoagulation.INR.quantity"
 * item[=].item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-INR-observation#Observation.valueQuantity"
 * item[=].item[=].item[=].item[=].text = "Wert (INR)"   
 * item[=].item[=].item[=].item[=].type = #quantity
 
-* item[=].item[=].item[=].item[+].linkId = "caveat.bloodCoagulation.INR.dateTime"
+* item[=].item[=].item[=].item[+].linkId = "caveatList.bloodCoagulation.INR.dateTime"
 * item[=].item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-INR-observation#Observation.effectiveDateTime"
 * item[=].item[=].item[=].item[=].text = "Zeitpunkt der Bestimmung"   
 * item[=].item[=].item[=].item[=].type = #dateTime
 
-* item[=].item[=].item[+].linkId = "caveat.bloodCoagulation.platelets"    
+* item[=].item[=].item[+].linkId = "caveatList.bloodCoagulation.platelets"    
 * item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.evidence.detail"    
 * item[=].item[=].item[=].text = "Thrombozyten"   
 * item[=].item[=].item[=].type = #group
 
-* item[=].item[=].item[=].item[+].linkId = "caveat.bloodCoagulation.platelets.quantity"
+* item[=].item[=].item[=].item[+].linkId = "caveatList.bloodCoagulation.platelets.quantity"
 * item[=].item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-platelets-observation#Observation.valueQuantity"
 * item[=].item[=].item[=].item[=].text = "Wert (10^3/µL)"   
 * item[=].item[=].item[=].item[=].type = #quantity
 
-* item[=].item[=].item[=].item[+].linkId = "caveat.bloodCoagulation.platelets.dateTime"
+* item[=].item[=].item[=].item[+].linkId = "caveatList.bloodCoagulation.platelets.dateTime"
 * item[=].item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-platelets-observation#Observation.effectiveDateTime"
 * item[=].item[=].item[=].item[=].text = "Zeitpunkt der Bestimmung"   
 * item[=].item[=].item[=].item[=].type = #dateTime
 
-* item[=].item[+].linkId = "caveat.renalInsufficiency"    
+* item[=].item[+].linkId = "caveatList.renalInsufficiency"    
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.code"   
 * item[=].item[=].text = "Niereninsuffizienz"   
 * item[=].item[=].type = #choice
@@ -539,37 +540,37 @@ Description: "Subquestionnaire Caveats"
 * item[=].item[=].initial.valueCoding = SCT#373068000
 * item[=].item[=].required = true
 
-* item[=].item[=].item[+].linkId = "caveat.renalInsufficiency.creatinineClearance" 
+* item[=].item[=].item[+].linkId = "caveatList.renalInsufficiency.creatinineClearance" 
 * item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.evidence.detail"
 * item[=].item[=].item[=].text = "Creatinin-Clearance"   
 * item[=].item[=].item[=].type = #group
 
-* item[=].item[=].item[=].item[+].linkId = "caveat.renalInsufficiency.creatinineClearance.quantity"
+* item[=].item[=].item[=].item[+].linkId = "caveatList.renalInsufficiency.creatinineClearance.quantity"
 * item[=].item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-creatinineclearance-observation#Observation.valueQuantity"
 * item[=].item[=].item[=].item[=].text = "Wert (mL/min)"   
 * item[=].item[=].item[=].item[=].type = #quantity
 
-* item[=].item[=].item[=].item[+].linkId = "caveat.renalInsufficiency.creatinineClearance.dateTime"
+* item[=].item[=].item[=].item[+].linkId = "caveatList.renalInsufficiency.creatinineClearance.dateTime"
 * item[=].item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-creatinineclearance-observation#Observation.effectiveDateTime"
 * item[=].item[=].item[=].item[=].text = "Zeitpunkt der Bestimmung"   
 * item[=].item[=].item[=].item[=].type = #dateTime
 
-* item[=].item[=].item[+].linkId = "caveat.renalInsufficiency.creatinine"    
+* item[=].item[=].item[+].linkId = "caveatList.renalInsufficiency.creatinine"    
 * item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.evidence.detail"    
 * item[=].item[=].item[=].text = "Creatinin"   
 * item[=].item[=].item[=].type = #group
 
-* item[=].item[=].item[=].item[+].linkId = "caveat.renalInsufficiency.creatinine.quantity"
+* item[=].item[=].item[=].item[+].linkId = "caveatList.renalInsufficiency.creatinine.quantity"
 * item[=].item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-creatinine-observation#Observation.valueQuantity"
 * item[=].item[=].item[=].item[=].text = "Wert (µmol/L)"   
 * item[=].item[=].item[=].item[=].type = #quantity
 
-* item[=].item[=].item[=].item[+].linkId = "caveat.renalInsufficiency.creatinine.dateTime"
+* item[=].item[=].item[=].item[+].linkId = "caveatList.renalInsufficiency.creatinine.dateTime"
 * item[=].item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-creatinine-observation#Observation.effectiveDateTime"
 * item[=].item[=].item[=].item[=].text = "Zeitpunkt der Bestimmung"   
 * item[=].item[=].item[=].item[=].type = #dateTime
 
-* item[=].item[+].linkId = "caveat.claustrophobia"    
+* item[=].item[+].linkId = "caveatList.claustrophobia"    
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.code"   
 * item[=].item[=].text = "Klaustrophobie"   
 * item[=].item[=].type = #choice
@@ -577,7 +578,7 @@ Description: "Subquestionnaire Caveats"
 * item[=].item[=].initial.valueCoding = SCT#373068000
 * item[=].item[=].required = true
 
-* item[=].item[+].linkId = "caveat.bodyPiercing"     
+* item[=].item[+].linkId = "caveatList.bodyPiercing"     
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.code"  
 * item[=].item[=].text = "Körperpiercing"   
 * item[=].item[=].type = #choice
@@ -585,22 +586,23 @@ Description: "Subquestionnaire Caveats"
 * item[=].item[=].initial.valueCoding = SCT#373068000
 * item[=].item[=].required = true
 
-* item[=].item[+].linkId = "caveat.device.specifictype"
+* item[=].item[+].linkId = "caveatList.device"
 * item[=].item[=].text = "Device (Herzschrittmacher, Herzklappenersatz, Insulinpumpe etc.)"     
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#ch-rad-order-caveat-type"  
 * item[=].item[=].type = #choice
 * item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-caveat-device"
 * item[=].item[=].repeats = true
 
-* item[=].item[=].item[+].linkId = "caveat.device.choice"  
+/* item[=].item[=].item[+].linkId = "caveatList.device.choice"  
 * item[=].item[=].item[=].text = "Choice"     
 * item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.code"  
 * item[=].item[=].item[=].type = #choice
 * item[=].item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-caveat-qualifier-value"
 * item[=].item[=].item[=].initial.valueCoding = SCT#373068000
 * item[=].item[=].item[=].required = true
+*/
 
-* item[=].item[+].linkId = "caveat.hyperthyroidism"     
+* item[=].item[+].linkId = "caveatList.hyperthyroidism"     
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.code"  
 * item[=].item[=].text = "Hyperthyreose"   
 * item[=].item[=].type = #choice
@@ -608,7 +610,7 @@ Description: "Subquestionnaire Caveats"
 * item[=].item[=].initial.valueCoding = SCT#373068000
 * item[=].item[=].required = true
 
-* item[=].item[+].linkId = "caveat.diabetes"    
+* item[=].item[+].linkId = "caveatList.diabetes"    
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.code"   
 * item[=].item[=].text = "Diabetes mellitus"   
 * item[=].item[=].type = #choice
@@ -616,7 +618,7 @@ Description: "Subquestionnaire Caveats"
 * item[=].item[=].initial.valueCoding = SCT#373068000
 * item[=].item[=].required = true
 
-* item[=].item[+].linkId = "caveat.gravida"     
+* item[=].item[+].linkId = "caveatList.gravida"     
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.code"  
 * item[=].item[=].text = "Schwangerschaft"   
 * item[=].item[=].type = #choice
@@ -624,7 +626,7 @@ Description: "Subquestionnaire Caveats"
 * item[=].item[=].initial.valueCoding = SCT#373068000
 * item[=].item[=].required = true
 
-* item[=].item[+].linkId = "caveat.contrastMediaAllergy"
+* item[=].item[+].linkId = "caveatList.contrastMediaAllergy"
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.code"  
 * item[=].item[=].text = "Kontrastmittelallergie"   
 * item[=].item[=].type = #choice
@@ -632,12 +634,12 @@ Description: "Subquestionnaire Caveats"
 * item[=].item[=].initial.valueCoding = SCT#373068000
 * item[=].item[=].required = true
 
-* item[=].item[+].linkId = "caveat.drugPrescription" 
+* item[=].item[+].linkId = "caveatList.drugPrescription" 
 * item[=].item[=].text = "Relevante Medikamente"     
 * item[=].item[=].type = #group
 * item[=].item[=].required = true
 
-* item[=].item[=].item[+].linkId = "caveat.drugPrescription.metformin"     
+* item[=].item[=].item[+].linkId = "caveatList.drugPrescription.metformin"     
 * item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.code"  
 * item[=].item[=].item[=].text = "Metformin"   
 * item[=].item[=].item[=].type = #choice 
@@ -645,7 +647,7 @@ Description: "Subquestionnaire Caveats"
 * item[=].item[=].item[=].initial.valueCoding = SCT#373068000
 * item[=].item[=].item[=].required = true
 
-* item[=].item[=].item[+].linkId = "caveat.drugPrescription.betaBlocker"     
+* item[=].item[=].item[+].linkId = "caveatList.drugPrescription.betaBlocker"     
 * item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition#Condition.code"  
 * item[=].item[=].item[=].text = "Betablocker"   
 * item[=].item[=].item[=].type = #choice 

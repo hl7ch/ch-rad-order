@@ -1,66 +1,8 @@
 == Suppressed Messages ==
 
-# Allow German display values or clearer descriptions for the questionnaire
-Display Name for http://hl7.org/fhir/administrative-gender#female should be one of 'Female' instead of 'Weiblich' for 'http://hl7.org/fhir/administrative-gender#female'
-Display Name for http://hl7.org/fhir/administrative-gender#male should be one of 'Male' instead of 'Männlich' for 'http://hl7.org/fhir/administrative-gender#male'
-Display Name for http://hl7.org/fhir/administrative-gender#other should be one of 'Other' instead of 'Anderes' for 'http://hl7.org/fhir/administrative-gender#other'
-Display Name for http://hl7.org/fhir/request-priority#routine should be one of 'Routine' instead of 'Die Anfrage hat normale Priorität.' for 'http://hl7.org/fhir/request-priority#routine'
-Display Name for http://hl7.org/fhir/request-priority#urgent should be one of 'Urgent' instead of 'Die Anfrage sollte dringend bearbeitet werden - höhere Priorität als normal.' for 'http://hl7.org/fhir/request-priority#urgent'
-Display Name for http://hl7.org/fhir/request-priority#asap should be one of 'ASAP' instead of 'Die Anfrage sollte so schnell wie möglich bearbeitet werden - höhere Priorität als dringend.' for 'http://hl7.org/fhir/request-priority#asap'
-Display Name for http://hl7.org/fhir/request-priority#stat should be one of 'STAT' instead of 'Die Anfrage sollte sofort bearbeitet werden - höchstmögliche Priorität. Z.B. bei einem Notfall.' for 'http://hl7.org/fhir/request-priority#stat'
-Display Name for http://hl7.org/fhir/appointmentstatus#proposed should be one of 'Proposed' instead of 'Wunsch des Patienten (vorgeschlagen)' for 'http://hl7.org/fhir/appointmentstatus#proposed'
-Display Name for http://hl7.org/fhir/appointmentstatus#pending should be one of 'Pending' instead of 'Vom Patienten bestätigt, aber vom Leistungserbringer noch nicht (ausstehend)' for 'http://hl7.org/fhir/appointmentstatus#pending'
-Display Name for http://hl7.org/fhir/appointmentstatus#booked should be one of 'Booked' instead of 'Vom Patienten und Leistungserbringer bestätigt (gebucht)' for 'http://hl7.org/fhir/appointmentstatus#booked'
-Display Name for http://terminology.hl7.org/CodeSystem/v3-ActCode#AMB should be one of 'ambulatory' instead of 'Ambulant' for 'http://terminology.hl7.org/CodeSystem/v3-ActCode#AMB'
-Display Name for http://terminology.hl7.org/CodeSystem/v3-ActCode#IMP should be one of 'inpatient encounter' instead of 'Stationär' for 'http://terminology.hl7.org/CodeSystem/v3-ActCode#IMP'
-Display Name for http://terminology.hl7.org/CodeSystem/v3-ActCode#EMER should be one of 'emergency' instead of 'Notfall' for 'http://terminology.hl7.org/CodeSystem/v3-ActCode#EMER'
-
-# Allow Swiss specific display value
-The display "Clinical presentation" is not a valid display for the code {http://loinc.org}55108-5 - should be one of ['Clinical presentation Document', 'Clinical presentation Doc', '临床文档型' (zh-CN), '临床文档' (zh-CN), '文档' (zh-CN), '文书' (zh-CN), '医疗文书' (zh-CN), '临床医疗文书 医疗服务对象' (zh-CN), '客户' (zh-CN), '病人' (zh-CN), '病患' (zh-CN), '病号' (zh-CN), '超系统 - 病人 发现是一个原子型临床观察指标，并不是作为印象的概括陈述。体格检查、病史、系统检查及其他此类观察指标的属性均为发现。它们的标尺对于编码型发现可能是名义型，而对于叙述型文本之中所报告的发现，则可能是叙述型。' (zh-CN), '发现物' (zh-CN), '所见' (zh-CN), '结果' (zh-CN), '结论 文档.其他' (zh-CN), '杂项类文档' (zh-CN), '其他文档 时刻' (zh-CN), '随机' (zh-CN), '随意' (zh-CN), '瞬间 杂项' (zh-CN), '杂项类' (zh-CN), '杂项试验' (zh-CN), 'Documentazione miscellanea Miscellanea Osservazione paziente Punto nel tempo (episodio)' (it-IT), 'Документ Точка во времени' (ru-RU), 'Момент' (ru-RU), '' (ru-RU)] (from http://tx.fhir.org/r4) for 'http://loinc.org#55108-5'
-
-# Build Errors
-The link 'StructureDefinition-ch-rad-order-servicerequest.html#ServiceRequest.identifier:fillerOrderIdentifier.value' for "ServiceRequest.identifier:fillerOrderIdentifier.value" cannot be resolved (valid targets: 313 targets)
-The link 'StructureDefinition-ch-rad-order-servicerequest.html#ServiceRequest.identifier:fillerOrderIdentifier.system' for "ServiceRequest.identifier:fillerOrderIdentifier.system" cannot be resolved (valid targets: 313 targets)
-The link 'StructureDefinition-ch-rad-order-servicerequest.html#ServiceRequest.extension:requestedEncounterDetails' for "ServiceRequest.extension:requestedEncounterDetails" cannot be resolved (valid targets: 313 targets)
-The link 'StructureDefinition-ch-rad-order-servicerequest.html#ServiceRequest.category.coding' for "ServiceRequest.category.coding" cannot be resolved (valid targets: 313 targets)
-The link 'StructureDefinition-ch-rad-order-servicerequest.html#ServiceRequest.code.coding:RdlxModType' for "ServiceRequest.code.coding:RdlxModType" cannot be resolved (valid targets: 313 targets)
-The link 'StructureDefinition-ch-rad-order-servicerequest.html#ServiceRequest.orderDetail:imagingRegion' for "ServiceRequest.orderDetail:imagingRegion" cannot be resolved (valid targets: 313 targets)
-The link 'StructureDefinition-ch-rad-order-servicerequest.html#ServiceRequest.orderDetail:laterality' for "ServiceRequest.orderDetail:laterality" cannot be resolved (valid targets: 313 targets)
-The link 'StructureDefinition-ch-rad-order-servicerequest.html#ServiceRequest.orderDetail:viewType' for "ServiceRequest.orderDetail:viewType" cannot be resolved (valid targets: 313 targets)
-The link 'StructureDefinition-ch-rad-order-servicerequest.html#ServiceRequest.orderDetail:maneuverType' for "ServiceRequest.orderDetail:maneuverType" cannot be resolved (valid targets: 313 targets)
-The link 'StructureDefinition-ch-rad-order-servicerequest.html#ServiceRequest.orderDetail:guidanceForAction' for "ServiceRequest.orderDetail:guidanceForAction" cannot be resolved (valid targets: 313 targets)
-The link 'StructureDefinition-ch-rad-order-servicerequest.html#ServiceRequest.supportingInfo:diagnosis' for "ServiceRequest.supportingInfo:diagnosis" cannot be resolved (valid targets: 313 targets)
-The link 'StructureDefinition-ch-rad-order-servicerequest.html#ServiceRequest.supportingInfo:bodyHeight' for "ServiceRequest.supportingInfo:bodyHeight" cannot be resolved (valid targets: 313 targets)
-The link 'StructureDefinition-ch-rad-order-servicerequest.html#ServiceRequest.supportingInfo:bodyWeight' for "ServiceRequest.supportingInfo:bodyWeight" cannot be resolved (valid targets: 313 targets)
-The link 'StructureDefinition-ch-rad-order-servicerequest.html#ServiceRequest.supportingInfo:caveats' for "ServiceRequest.supportingInfo:caveats" cannot be resolved (valid targets: 313 targets)
-The link 'StructureDefinition-ch-rad-order-caveat-condition.html#ch-rad-order-caveat-type' for "ch-rad-order-caveat-type" cannot be resolved (valid targets: 155 targets)
-The link 'StructureDefinition-ch-rad-order-servicerequest.html#ServiceRequest.supportingInfo:previousImagingResults' for "ServiceRequest.supportingInfo:previousImagingResults" cannot be resolved (valid targets: 313 targets)
-The link 'StructureDefinition-ch-rad-order-servicerequest.html#ServiceRequest.identifier:placerOrderIdentifier.value' for "ServiceRequest.identifier:placerOrderIdentifier.value" cannot be resolved (valid targets: 313 targets)
-The link 'StructureDefinition-ch-rad-order-servicerequest.html#ServiceRequest.identifier:placerOrderIdentifier.system' for "ServiceRequest.identifier:placerOrderIdentifier.system" cannot be resolved (valid targets: 313 targets)
-The link 'StructureDefinition-ch-rad-order-composition.html#Composition.extension:previousDocument' for "Composition.extension:previousDocument" cannot be resolved (valid targets: 370 targets)
-The link 'StructureDefinition-ch-rad-order-composition.html#Composition.extension:urgentNoficationContactForThisDocument' for "Composition.extension:urgentNoficationContactForThisDocument" cannot be resolved (valid targets: 370 targets)
-The link 'StructureDefinition-ch-rad-order-composition.html#Composition.extension:urgentNoficationContactForTheResponseToThisDocument' for "Composition.extension:urgentNoficationContactForTheResponseToThisDocument" cannot be resolved (valid targets: 370 targets)
-The link 'StructureDefinition-ch-rad-order-composition.html#Composition.extension:dataEnterer' for "Composition.extension:dataEnterer" cannot be resolved (valid targets: 370 targets)
-The link 'StructureDefinition-ch-rad-order-composition.html#Composition.extension:receiver' for "Composition.extension:receiver" cannot be resolved (valid targets: 370 targets)
-
-The link 'CodeSystem-ch-rad-order-radlex.html#RID2468' for "http://www.radlex.org" cannot be resolved (valid targets: 655 targets)
-The link 'CodeSystem-ch-rad-order-radlex.html#RID1243' for "http://www.radlex.org" cannot be resolved (valid targets: 655 targets)
-The link 'CodeSystem-ch-rad-order-radlex.html#RID10345' for "http://www.radlex.org" cannot be resolved (valid targets: 655 targets)
-The link 'CodeSystem-ch-rad-order-requested-service.html#ImagingRequest' for "http://fhir.ch/ig/ch-rad-order/CodeSystem/ch-rad-order-requested-service" cannot be resolved (valid targets: [ch-rad-order-requested-service-RequestForPreviousReportAndImages, ch-rad-order-requested-service-RadIntervention, segment-header, ch-rad-order-requested-service-RequestForPreviousReport, publish-box, ch-rad-order-requested-service-RemoteReporting, bottom, hl7-logo, segment-post-footer, ch-rad-order-requested-service-ImagingRequest, family-nav, codesystem-requested-service, ig-status, ch-rad-order-requested-service-SecondOpinion, top, ch-rad-order-requested-service-ImagingRequestWithIntervention, root, stripe, segment-footer, logo, hl7-nav, segment-navbar, segment-content, segment-breadcrumb])
-
-The link 'null#item.order.priority' for "Answers: 4 options" cannot be resolved
-The link 'null#item.patient.gender' for "Answers: 3 options" cannot be resolved
-The link 'null#item.patient.maritalStatus' for "Answers: 8 options" cannot be resolved
-The link 'null#item.requestedEncounter.class' for "Answers: 3 options" cannot be resolved
-The link 'null#item.requestedEncounter.desiredAccommodation' for "Answers: 3 options" cannot be resolved
-The link 'null#item.appointment.status' for "Answers: 3 options" cannot be resolved
+# Swiss specific display values
+Wrong Display Name%
+Wrong Display Nam
 
 # Build error with contained resource (cannot resolved in ToC)
-The link 'Organization-CoverageKVG_Sanitas.html' for "10.47.1 Organization" cannot be resolved
-
-# Information to snapshot
-The element Observation.component.value[x] has a binding, and has multiple types ([dateTime, boolean, string, SampledData, Quantity, Period, Ratio, integer, time, Range, CodeableConcept]). The binding will apply to all the types
-The element ServiceRequest.asNeeded[x] has a binding, and has multiple types ([boolean, CodeableConcept]). The binding will apply to all the types
-
-# No example provided
-WARNING: StructureDefinition.where(url = 'http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy'): The Implementation Guide contains no examples for this profile
+The link%

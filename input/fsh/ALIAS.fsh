@@ -22,6 +22,7 @@ Alias:   SopClass =          https://dicom.nema.org/medical/dicom/current/output
 Alias:   SCT =                              http://snomed.info/sct
 Alias:   UCUM =                             http://unitsofmeasure.org
 Alias:   ConditionCategory =                http://terminology.hl7.org/CodeSystem/condition-category
+Alias:   MimeType =                         urn:ietf:bcp:13
 Alias:   AdministrativeGender =             http://hl7.org/fhir/administrative-gender
 Alias:   RequestPriority =                  http://hl7.org/fhir/request-priority
 Alias:   V3ActCode =                        http://terminology.hl7.org/CodeSystem/v3-ActCode

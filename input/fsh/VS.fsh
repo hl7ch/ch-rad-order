@@ -67,6 +67,8 @@ Id: ch-rad-order-caveat-device
 Title: "Caveat Device"
 Description: "Definition for Caveat Device Value Set in the context of CH RAD-Order."
 * include codes from system SCT where concept is-a #397578001 "Device in situ (finding)"
+* SCT#2667000 "Absent (qualifier value)"
+* SCT#373068000 "Undetermined (qualifier value)"
 
 
 // Diagnostic Question in free text: Coding of all diagnostic questions will be defined later.

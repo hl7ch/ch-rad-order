@@ -598,102 +598,111 @@ Caveats
 * item[=].text = "Caveats"
 //* item[=].type = #group
 
-* item[=].item[+].linkId = "caveat.bloodCoagulation"
+//=====
+* item[=].item[+].linkId = "caveatList.bloodCoagulation"
 * item[=].item[=].text = "Beinträchtigte Blutgerinnung" 
-* item[=].item[=].answer.valueCoding = SCT#52101004
+* item[=].item[=].answer[+].valueCoding = SCT#52101004
 
-* item[=].item[=].item[+].linkId = "caveat.bloodCoagulation.INR" 
-* item[=].item[=].item[=].text = "INR" 
+* item[=].item[=].answer[=].item[+].linkId = "caveatList.bloodCoagulation.INR" 
+* item[=].item[=].answer[=].item[=].text = "INR" 
 //* item[=].type = #group
 
-* item[=].item[=].item[=].item[+].linkId = "caveat.bloodCoagulation.INR.quantity"
-* item[=].item[=].item[=].item[=].text = "Wert (INR)"  
-* item[=].item[=].item[=].item[=].answer.valueQuantity = 2.7 ''
+* item[=].item[=].answer[=].item[=].item[+].linkId = "caveatList.bloodCoagulation.INR.quantity"
+* item[=].item[=].answer[=].item[=].item[=].text = "Wert (INR)"  
+* item[=].item[=].answer[=].item[=].item[=].answer[+].valueQuantity = 2.7 ''
 
-* item[=].item[=].item[=].item[+].linkId = "caveat.bloodCoagulation.INR.dateTime"
-* item[=].item[=].item[=].item[=].text = "Zeitpunkt der Bestimmung"  
+* item[=].item[=].answer[=].item[=].item[=].answer[=].item[+].linkId = "caveatList.bloodCoagulation.INR.dateTime"
+* item[=].item[=].answer[=].item[=].item[=].answer[=].item[=].text = "Zeitpunkt der Bestimmung"
+* item[=].item[=].answer[=].item[=].item[=].answer[=].item[=].answer[+].valueDateTime = "2024-02-01T10:10:00.000+00:00" 
 
-* item[=].item[=].item[+].linkId = "caveat.bloodCoagulation.platelets"    
-* item[=].item[=].item[=].text = "Thrombozyten"
-//* item[=].item[=].item[=].type = #group
+//-----
+* item[=].item[=].answer[=].item[+].linkId = "caveatList.bloodCoagulation.platelets"
+* item[=].item[=].answer[=].item[=].text = "Thrombozyten"
+//* item[=].type = #group
 
-* item[=].item[=].item[=].item[+].linkId = "caveat.bloodCoagulation.platelets.quantity"
-* item[=].item[=].item[=].item[=].text = "Wert (10^3/µL)"   
+* item[=].item[=].answer[=].item[=].item[+].linkId = "caveatList.bloodCoagulation.platelets.quantity"
+* item[=].item[=].answer[=].item[=].item[=].text = "Wert (10^3/µL)"  
+* item[=].item[=].answer[=].item[=].item[=].answer[+].valueQuantity = 98 '10^3/µL'
 
-//* item[=].item[=].item[+].linkId = "caveat.bloodCoagulation.platelets"    
-//* item[=].item[=].item[=].text = "Thrombozyten"
-//* item[=].item[=].item[=].type = #group
+* item[=].item[=].answer[=].item[=].item[=].answer[=].item[+].linkId = "caveatList.bloodCoagulation.INR.dateTime"
+* item[=].item[=].answer[=].item[=].item[=].answer[=].item[=].text = "Zeitpunkt der Bestimmung"
+* item[=].item[=].answer[=].item[=].item[=].answer[=].item[=].answer[+].valueDateTime = "2024-02-01T10:10:00.000+00:00" 
 
-* item[=].item[=].item[=].item[+].linkId = "caveat.bloodCoagulation.platelets.dateTime"
-* item[=].item[=].item[=].item[=].text = "Zeitpunkt der Bestimmung"  
-* item[=].item[=].item[=].item[=].answer.valueDateTime = "2024-02-01T10:10:00.000+00:00" 
-
-* item[=].item[+].linkId = "caveat.renalInsufficiency"
+//======
+* item[=].item[+].linkId = "caveatList.renalInsufficiency"
 * item[=].item[=].text = "Niereninsuffizienz"  
-* item[=].item[=].answer.valueCoding = SCT#52101004
+* item[=].item[=].answer[+].valueCoding = SCT#52101004
 
-* item[=].item[=].item[+].linkId = "caveat.renalInsufficiency.creatinineClearance"   
-* item[=].item[=].item[=].text = "Creatinin-Clearance"  
+* item[=].item[=].answer[=].item[+].linkId = "caveatList.renalInsufficiency.creatinineClearance"
+* item[=].item[=].answer[=].item[=].text = "Creatinin-Clearance" 
+//* item[=].type = #group
 
-* item[=].item[=].item[=].item[+].linkId = "caveat.renalInsufficiency.creatinineClearance.quantity"     
-* item[=].item[=].item[=].item[=].text = "Wert (mL/min)" 
-* item[=].item[=].item[=].item[=].answer.valueQuantity = 55 'mL/min'
+* item[=].item[=].answer[=].item[=].item[+].linkId = "caveatList.renalInsufficiency.creatinineClearance.quantity" 
+* item[=].item[=].answer[=].item[=].item[=].text = "Wert (mL/min)"  
+* item[=].item[=].answer[=].item[=].item[=].answer[+].valueQuantity = 55 'mL/min'
 
-* item[=].item[=].item[=].item[+].linkId = "caveat.renalInsufficiency.creatinineClearance.dateTime"     
-* item[=].item[=].item[=].item[=].text = "Zeitpunkt der Bestimmung"   
-* item[=].item[=].item[=].item[=].answer.valueDateTime = "2024-02-01T10:10:00.000+00:00"
+* item[=].item[=].answer[=].item[=].item[=].answer[=].item[+].linkId = "caveatList.renalInsufficiency.creatinineClearance.dateTime"   
+* item[=].item[=].answer[=].item[=].item[=].answer[=].item[=].text = "Zeitpunkt der Bestimmung"
+* item[=].item[=].answer[=].item[=].item[=].answer[=].item[=].answer[+].valueDateTime = "2024-02-01T10:10:00.000+00:00" 
 
-// Creatinin
-* item[=].item[=].answer.item[+].linkId = "caveat.renalInsufficiency.creatinine"    
-* item[=].item[=].item[=].text = "Creatinin"  
+//-----
+* item[=].item[=].answer[=].item[+].linkId = "caveatList.renalInsufficiency.creatinine"
+* item[=].item[=].answer[=].item[=].text = "Creatinin"
+//* item[=].type = #group
 
-* item[=].item[=].answer.item[=].item[+].linkId = "caveat.renalInsufficiency.creatinine.quantity"     
-* item[=].item[=].item[=].item[=].text = "Wert (µmol/L)" 
-* item[=].item[=].answer.item[=].item[=].answer.valueQuantity = 90 'umol/L'
+* item[=].item[=].answer[=].item[=].item[+].linkId = "caveatList.renalInsufficiency.creatinine.quantity"   
+* item[=].item[=].answer[=].item[=].item[=].text = "Wert (µmol/L)" 
+* item[=].item[=].answer[=].item[=].item[=].answer[+].valueQuantity = 90 'umol/L'
 
-* item[=].item[=].answer.item[=].item[+].linkId = "caveat.renalInsufficiency.creatinine.dateTime"     
-* item[=].item[=].item[=].item[=].text = "Zeitpunkt der Bestimmung"   
-* item[=].item[=].answer.item[=].item[=].answer.valueDateTime = "2019-04-01T10:10:00.000+00:00"
+* item[=].item[=].answer[=].item[=].item[=].answer[=].item[+].linkId = "caveatList.renalInsufficiency.creatinine.dateTime"
+* item[=].item[=].answer[=].item[=].item[=].answer[=].item[=].text = "Zeitpunkt der Bestimmung"
+* item[=].item[=].answer[=].item[=].item[=].answer[=].item[=].answer[+].valueDateTime = "2024-02-01T10:10:00.000+00:00" 
 
-* item[=].item[+].linkId = "caveat.claustrophobia"  
+//======
+* item[=].item[+].linkId = "caveatList.claustrophobia"  
 * item[=].item[=].text = "Klaustrophobie"   
 * item[=].item[=].answer.valueCoding = SCT#373068000
 
-* item[=].item[+].linkId = "caveat.bodyPiercing"    
+* item[=].item[+].linkId = "caveatList.bodyPiercing"    
 * item[=].item[=].text = "Körperpiercing"   
 * item[=].item[=].answer.valueCoding = SCT#373068000
-   
-* item[=].item[+].linkId = "caveat.device.specifictype"
-* item[=].item[=].text = "Device (Herzschrittmacher, Herzklappenersatz, Insulinpumpe etc.)"  
-* item[=].item[=].answer.valueCoding = SCT#441509002
+//======
 
-* item[=].item[=].item[+].linkId = "caveat.device.choice"  
-* item[=].item[=].item[=].answer.valueCoding = SCT#52101004
+* item[=].item[+].linkId = "caveatList.device"
+* item[=].item[=].text = "Device (Herzschrittmacher, Herzklappenersatz, Insulinpumpe etc.)" 
+* item[=].item[=].answer[+].valueCoding = SCT#441509002 "Herzschrittmacher"
 
-* item[=].item[+].linkId = "caveat.hyperthyroidism"
+/* item[=].item[=].answer[=].item[+].linkId = "caveatList.device.specifictype"
+* item[=].item[=].answer[=].item[+].text = "Device (Herzschrittmacher, Herzklappenersatz, Insulinpumpe etc.)"  
+* item[=].item[=].answer[=].item[+].valueCoding = SCT#441509002 "Herzschrittmacher"
+*/
+//* item[=].item[=].answer[=].item[+].linkId ="caveatList.device.choice"  
+//* item[=].item[=].item[=].answer.valueCoding = SCT#52101004
+
+* item[=].item[+].linkId = "caveatList.hyperthyroidism"
 * item[=].item[=].text = "Hyperthyreose"  
 * item[=].item[=].answer.valueCoding = SCT#373068000
 
-* item[=].item[+].linkId = "caveat.diabetes"
+* item[=].item[+].linkId = "caveatList.diabetes"
 * item[=].item[=].text = "Diabetes mellitus"   
 * item[=].item[=].answer.valueCoding = SCT#373068000
 
-* item[=].item[+].linkId = "caveat.gravida" 
+* item[=].item[+].linkId = "caveatList.gravida" 
 * item[=].item[=].text = "Schwangerschaft"   
 * item[=].item[=].answer.valueCoding = SCT#373068000
 
-* item[=].item[+].linkId = "caveat.contrastMediaAllergy"
+* item[=].item[+].linkId = "caveatList.contrastMediaAllergy"
 * item[=].item[=].text = "Kontrastmittelallergie"  
 * item[=].item[=].answer.valueCoding = SCT#373068000
 
-* item[=].item[+].linkId = "caveat.drugPrescription" 
+* item[=].item[+].linkId = "caveatList.drugPrescription" 
 * item[=].item[=].text = "Relevante Medikamente"   
 
-* item[=].item[=].item[+].linkId = "caveat.drugPrescription.metformin"
+* item[=].item[=].item[+].linkId = "caveatList.drugPrescription.metformin"
 * item[=].item[=].item[=].text = "Metformin"       
 * item[=].item[=].item[=].answer.valueCoding = SCT#373068000
 
-* item[=].item[=].item[+].linkId = "caveat.drugPrescription.betaBlocker" 
+* item[=].item[=].item[+].linkId = "caveatList.drugPrescription.betaBlocker" 
 * item[=].item[=].item[=].text = "Betablocker"         
 * item[=].item[=].item[=].answer.valueCoding = SCT#373068000
 

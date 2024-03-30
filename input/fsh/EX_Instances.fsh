@@ -519,7 +519,9 @@ InstanceOf: ChOrfDocumentReference
 Title: "Thorax Rx attached"
 Description: "Example for Previous Result"
 * status = #current
+* content.attachment.contentType = MimeType#application/dicom
 * content.attachment.data = "VGhpcyBpcyBhbiBleGFtcGxl" // "This is an example" encoded in base64
+
 
 Instance: DicomSopInstanceConformant
 InstanceOf: ImagingStudy
