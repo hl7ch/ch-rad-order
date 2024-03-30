@@ -13,7 +13,7 @@
       "current": true
     },
     {
-      "version": "1.0.0",
+      "version": "1.1.0",
       "date": "2022-02-22",
       "desc": "HL7 Switzerland STU 1",
       "path": "http://fhir.ch/ig/ch-rad-order",

@@ -43,13 +43,13 @@ During the ballot, the following comments came in, which will be taken into acco
 
 #### Added
 * [Issue #2](https://github.com/hl7ch/ch-rad-order/issues/2): PDF added as original representation.
-* [Issue #17](https://github.com/hl7ch/ch-rad-order/issues/17): Added References to Images of precedent results to questionnaire.
+* [Issue #17](https://github.com/hl7ch/ch-rad-order/issues/17): Added References to Images of previous results to questionnaire.
 * [Issue #19](https://github.com/hl7ch/ch-rad-order/issues/19): Caveats changed from boolean to Undetermined/absent/present.
 * [Issue #23](https://github.com/hl7ch/ch-rad-order/issues/23): Caveat Drug prescription improved; added B-Blocker.
 
 #### Changed / Updated
 * [Issue #18](https://github.com/hl7ch/ch-rad-order/issues/18): Cardinality for Questionnaire and QR in Composition set to 0..1. Updated [documentation](http://fhir.ch/ighttp://build.fhir.org/ig/hl7ch/ch-orf/index.html) accordingly.
-* [Issue #4](https://github.com/hl7ch/ch-rad-order/issues/4): Change type of item 'previousResults.attachment' to attachment.
+* [Issue #4](https://github.com/hl7ch/ch-rad-order/issues/4): Change type of item 'attachment.attachment' to attachment.
 
 #### Issues resolved without amendment
  * [Issue #20](https://github.com/hl7ch/ch-rad-order/issues/20) Multiple imaging procedures in the same order: Not implmented in order to avoid complexity. 

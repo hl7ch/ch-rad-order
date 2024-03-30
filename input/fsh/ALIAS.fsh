@@ -8,9 +8,21 @@ Alias:   RDLX =         http://radlex.org
 // see https://www.hl7.org/fhir/terminologies-systems.html -> External CS
 // see https://confluence.hl7.org/display/TA/RadLex  -> Technical identifier/s of the code system (OIDs, URNs etc)
 
+Alias:   AcquisitionModality =          https://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_33.html
+Alias:   SopClass =          https://dicom.nema.org/medical/dicom/current/output/chtml/part04/sect_B.5.html 
+
+//R4: VS is CID 29 Acquisition Modality
+//    Modalit has datatype Coding
+
+//R5: VS is CID 33 Modality which consists of CID 29 “Acquisition Modality” and CID 32 “Non-Acquisition Modality” 
+//    Modality has datatype CodeableConcept 
+// VS for RAD-Order has been set to CID 33
+
+
 Alias:   SCT =                              http://snomed.info/sct
 Alias:   UCUM =                             http://unitsofmeasure.org
 Alias:   ConditionCategory =                http://terminology.hl7.org/CodeSystem/condition-category
+Alias:   MimeType =                         urn:ietf:bcp:13
 Alias:   AdministrativeGender =             http://hl7.org/fhir/administrative-gender
 Alias:   RequestPriority =                  http://hl7.org/fhir/request-priority
 Alias:   V3ActCode =                        http://terminology.hl7.org/CodeSystem/v3-ActCode
