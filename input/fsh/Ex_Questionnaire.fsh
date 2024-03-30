@@ -49,7 +49,7 @@ Usage: #example
 * extension[=].valueCanonical = "http://fhir.ch/ig/ch-rad-order/Questionnaire/ch-rad-order-module-caveats|1.1.0"
 * extension[+].url = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-assembledFrom"
 * extension[=].valueCanonical = "http://fhir.ch/ig/ch-rad-order/Questionnaire/ch-rad-order-module-attachment|1.1.0"
-* url = "http://fhir.ch/ig/ch-rad-order/Questionnaire/QuestionnaireRadiologyOrder"
+* url = "http://fhir.ch/ig/ch-rad-order/Questionnaire/QuestionnaireRadiologyOrder-modular"
 * version = "1.1.0-assembled"
 * name = "QuestionnaireRadiologyOrder"
 * title = "QuestionnaireRadiologyOrder"
@@ -1509,24 +1509,29 @@ Usage: #example
 * item[=].item[=].item.item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-SopInstance#SopInstance.series.instance.uid"
 * item[=].item[=].item.item[=].text = "DICOM SOP Instance UID"
 * item[=].item[=].item.item[=].type = #string
+* item[=].item[=].item.item[=].required = true
 * item[=].item[=].item.item[+].linkId = "attachment.dicom.sopClass"
 * item[=].item[=].item.item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-SopInstance#SopInstance.sopClass.value"
 * item[=].item[=].item.item[=].text = "DICOM SOP Class"
 * item[=].item[=].item.item[=].type = #choice
+* item[=].item[=].item.item[=].required = true
 * item[=].item[=].item.item[=].answerValueSet = "https://dicom.nema.org/medical/dicom/current/output/chtml/part04/sect_B.5.html"
 * item[=].item[=].item.item[+].linkId = "attachment.dicom.modality"
 * item[=].item[=].item.item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-SopInstance#SopInstance.modality.coding"
 * item[=].item[=].item.item[=].text = "DICOM Series Modality"
 * item[=].item[=].item.item[=].type = #choice
+* item[=].item[=].item.item[=].required = true
 * item[=].item[=].item.item[=].answerValueSet = "https://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_33.html"
 * item[=].item[=].item.item[+].linkId = "attachment.dicom.SeriesInstanceUid"
 * item[=].item[=].item.item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-SopInstance#SopInstance.series.uid"
 * item[=].item[=].item.item[=].text = "DICOM Series Instance UID"
 * item[=].item[=].item.item[=].type = #string
+* item[=].item[=].item.item[=].required = true
 * item[=].item[=].item.item[+].linkId = "attachment.dicom.studyInstanceUid"
 * item[=].item[=].item.item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-SopInstance#SopInstance.identifier"
 * item[=].item[=].item.item[=].text = "DICOM Study Instance UID"
 * item[=].item[=].item.item[=].type = #string
+* item[=].item[=].item.item[=].required = true
 * item[=].item[=].item.item[+].linkId = "attachment.dicom.acsn"
 * item[=].item[=].item.item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy#ImagingStudy.identifier"
 * item[=].item[=].item.item[=].text = "ACSN"
@@ -1534,9 +1539,7 @@ Usage: #example
 * item[=].item[+].linkId = "note"
 * item[=].item[=].text = "Bemerkungen"
 * item[=].item[=].type = #group
-* item[=].item[=].repeats = true
 * item[=].item[=].item.linkId = "note.text"
 * item[=].item[=].item.definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.note.text"
 * item[=].item[=].item.text = "Kommentar"
 * item[=].item[=].item.type = #string
-* item[=].item[=].item.required = true

@@ -703,28 +703,33 @@ mittels ImagingStudy Resource (DICOM WADO) oder die mitgegeben werden in der Med
 * item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-SopInstance#SopInstance.series.instance.uid"
 * item[=].item[=].item[=].text = "DICOM SOP Instance UID"
 * item[=].item[=].item[=].type = #string
+* item[=].item[=].item[=].required = true
 
 * item[=].item[=].item[+].linkId = "attachment.dicom.sopClass"  
 * item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-SopInstance#SopInstance.sopClass.value"
 * item[=].item[=].item[=].text = "DICOM SOP Class"
 * item[=].item[=].item[=].type = #choice
 * item[=].item[=].item[=].answerValueSet = SopClass
+* item[=].item[=].item[=].required = true
 
 * item[=].item[=].item[+].linkId = "attachment.dicom.modality"  
 * item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-SopInstance#SopInstance.modality.coding"
 * item[=].item[=].item[=].text = "DICOM Series Modality"
 * item[=].item[=].item[=].type = #choice
 * item[=].item[=].item[=].answerValueSet = AcquisitionModality
+* item[=].item[=].item[=].required = true
 
 * item[=].item[=].item[+].linkId = "attachment.dicom.SeriesInstanceUid"  
 * item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-SopInstance#SopInstance.series.uid"
 * item[=].item[=].item[=].text = "DICOM Series Instance UID"
 * item[=].item[=].item[=].type = #string
+* item[=].item[=].item[=].required = true
 
 * item[=].item[=].item[+].linkId = "attachment.dicom.studyInstanceUid"  
 * item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-SopInstance#SopInstance.identifier"
 * item[=].item[=].item[=].text = "DICOM Study Instance UID"
 * item[=].item[=].item[=].type = #string
+* item[=].item[=].item[=].required = true
 
 * item[=].item[=].item[+].linkId = "attachment.dicom.acsn"  
 * item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy#ImagingStudy.identifier"
@@ -880,10 +885,10 @@ is encoded in ImagingStudy.series.instance.uid as “2.16.124.113543.1154777499.
 * item[+].linkId = "note"
 * item[=].text = "Bemerkungen"
 * item[=].type = #group
-* item[=].repeats = true
+//* item[=].repeats = true
 
 * item[=].item[+].linkId = "note.text"
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest#ServiceRequest.note.text"
 * item[=].item[=].text = "Kommentar" 
 * item[=].item[=].type = #string
-* item[=].item[=].required = true
+//* item[=].item[=].required = true
