@@ -45,3 +45,8 @@ pages:
     title: Terminology
   changelog.md:
     title: Changelog
+
+parameters:
+  excludettl: true
+  allow-extensible-warnings: true
+  display-warnings: true      
