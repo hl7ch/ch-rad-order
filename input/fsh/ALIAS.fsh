@@ -9,7 +9,7 @@ Alias:   RDLX =         http://radlex.org
 // see https://confluence.hl7.org/display/TA/RadLex  -> Technical identifier/s of the code system (OIDs, URNs etc)
 
 Alias:   AcquisitionModality =          https://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_33.html
-Alias:   SopClass =          https://dicom.nema.org/medical/dicom/current/output/chtml/part04/sect_B.5.html 
+Alias:   SopClass =                     https://dicom.nema.org/medical/dicom/current/output/chtml/part04/sect_B.5.html#table_B.5-1
 
 //R4: VS is CID 29 Acquisition Modality
 //    Modalit has datatype Coding

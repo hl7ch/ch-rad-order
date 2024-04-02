@@ -37,7 +37,7 @@ Description: "Definition for Type of Order Detail Code System in the context of 
 /* CodeSystem: Cid33
 Id: ch-rad-order-acquisition-modality
 Title: "Modality that created the series"
-Description: "DICOM Code System for the Type of equipment, or function or technique of that equipment, that created the data"
+Description: " Code System for the Type of equipment, or function or technique of that equipment, that created the data"
 // Workaround because canonical for CID33 in DICOM does not work
 
 * #BMD "Bone Mineral Densitometry"

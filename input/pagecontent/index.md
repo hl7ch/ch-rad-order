@@ -38,11 +38,12 @@ Actors, transcations and safety considerations are covered in the corresponding 
 [CH ORF](http://build.fhir.org/ig/hl7ch/ch-orf/index.html).
 
 ### Terminology
+
 CH RAD-Order allows coding of the requested imaging service by means of [LOINC/RSNA RADIOL0GY PLAYBOOK](https://loinc.org/collaboration/rsna/).
 
 Systems such as PIS and KIS may not yet support RADIOLOGY PLAYBOOK. For this reason, CH RAD-Order allows coding of the relevant dimensions 
 by means of [RADLEX](https://www.rsna.org/practice-tools/data-tools-and-standards/radlex-radiology-lexicon).
- 
+
 The relevant dimensions are defined by PLAYBOOK such as:
 
 Modality
@@ -54,7 +55,15 @@ Guidance for action (used for interventions)
   
  Coding of these dimensions is done by [RADLEX terms](https://www.rsna.org/practice-tools/data-tools-and-standards/radlex-radiology-lexicon).
  
-Value sets and coding are preliminary and not yet approved by eHealth Suisse.
+IMPORTANT NOTICE: Value sets, in particular those containing Radlex terms, are still experimental. Definitve value sets will be defined when CH-Rad-Order becomes operational.All coding is preliminary and not yet approved by eHealth Suisse.
+
+#### Previous Images
+
+Results from earlier can be provided be means of attachments or - in case of DICOM SOP Instances - by means of a DICOM Service (e.g. WADO-RS). The ImagingStudy Resource allows for idiciating DICOM tags such as SOP Instance UID, Series instance UID etc. DICOM Imaging data as well as other data (pdf, jpeg etc.) can be attached by means of a document reference.
+
+The implementation of a DICOM service requires prerequisites in terms of infrastructure and policies (e.g. access rights). CH RAD-Order does not give guidance about that.
+
+IMPORTANT NOTICE: Questionnaire items allowing entry for DICOM tags (such as study instance ID, series instance ID etc.) are for illustration / experimental use. A real world application shall hopefully provide other means for the selection of images / reports etc.
  
 #### IP Statements
 This document is licensed under Creative Commons "No Rights Reserved" ([CC0](https://creativecommons.org/publicdomain/zero/1.0/)).

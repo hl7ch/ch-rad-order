@@ -90,8 +90,7 @@ In case of 'ChRadOrderModalityType' specify Imaging Request Details by means of 
 * supportingInfo[caveats] MS
 * supportingInfo[caveats] only Reference(ChRadOrderCaveatCondition)
 * supportingInfo[previousImagingResults] MS
-* supportingInfo[previousImagingResults] ^short = "The ImagingStudy Resource supports DICOM WADO-RS and formats defined 
-                                                  elsewhere (e.g. DICOM, JPEG ..)"
+* supportingInfo[previousImagingResults] ^short = "The ImagingStudy Resource lists the SOP Instances which are either attached by means of a document reference or which shall be retrieved by means of a DICOM service"
 * supportingInfo[previousImagingResults] only Reference(ChRadOrderImagingStudy or ChOrfDocumentReference)
 //------- bodySite -------
 * bodySite MS

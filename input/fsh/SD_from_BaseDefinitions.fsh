@@ -124,7 +124,7 @@ Description: "Definition for the Platelets Observation resource in the context o
 * valueQuantity MS
 * valueQuantity.value 1.. MS
 * valueQuantity.unit 1.. MS
-* valueQuantity.unit ^fixedString = "10^3/μl"
+* valueQuantity.unit ^fixedString = "10^9/L"
 * valueQuantity.system 1.. MS
 * valueQuantity.system ^fixedUri = "http://unitsofmeasure.org"
 * valueQuantity.code 1.. MS
@@ -185,18 +185,3 @@ Description: "Definition for the ImagingStudy resource in the context of CH RAD-
 * series.instance MS
 * series.instance.uid MS
 * series.instance.sopClass MS
-
-
-/*Profile: ChRadOrderMedia
-Parent: Media
-Id: ch-rad-order-media
-Title: "CH RAD-Order Media"
-Description: "Definition for the Media resource in the context of CH RAD-Order."
-* . ^short = "CH RAD-Order Media"
-* status MS
-* content MS
-* content.contentType MS
-* content.data MS
-* content.title MS
-* content.title ^short = "Provide filename and extension (e.g. \"shoulder_re_F_Muster_12021988.pdf\")"
-*/

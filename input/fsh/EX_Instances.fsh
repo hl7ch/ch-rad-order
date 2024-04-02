@@ -144,7 +144,7 @@ Description: "Example for Bundle"
 * entry[=].resource = CaveatDrugPrescriptionMetformin
 * entry[+].fullUrl = "http://example.com/fhir/Condition/CaveatDeviceCardiacPacemaker"
 * entry[=].resource = CaveatDeviceCardiacPacemaker
-* entry[+].fullUrl = "http://example.com/fhir/DocumentReference/ChOrfDocumentReference"
+* entry[+].fullUrl = "h"
 * entry[=].resource = ChOrfDocumentReference
 * entry[+].fullUrl = "http://example.com/fhir/Appointment/AppointmentRadiography"
 * entry[=].resource = AppointmentRadiography
@@ -416,7 +416,7 @@ Description: "Example for Platelets Observation"
 * code = LNC#26515-7 "Platelets [#/volume] in Blood"
 * subject = Reference(SUfferer)
 * effectiveDateTime = "2019-04-01T10:10:00.000+00:00"
-* valueQuantity = 150000 '10*3/uL' "10^3/μl"
+* valueQuantity = 150000 '10*3/uL' "10^9/L"
 
 
 Instance: CaveatBodyPiercing

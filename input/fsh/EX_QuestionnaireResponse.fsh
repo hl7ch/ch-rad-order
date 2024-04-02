@@ -621,8 +621,8 @@ Caveats
 //* item[=].type = #group
 
 * item[=].item[=].answer[=].item[=].item[+].linkId = "caveatList.bloodCoagulation.platelets.quantity"
-* item[=].item[=].answer[=].item[=].item[=].text = "Wert (10^3/µL)"  
-* item[=].item[=].answer[=].item[=].item[=].answer[+].valueQuantity = 98 '10^3/µL'
+* item[=].item[=].answer[=].item[=].item[=].text = "Wert (10^9/L)"  
+* item[=].item[=].answer[=].item[=].item[=].answer[+].valueQuantity = 98 '10^9/L'
 
 * item[=].item[=].answer[=].item[=].item[=].answer[=].item[+].linkId = "caveatList.bloodCoagulation.INR.dateTime"
 * item[=].item[=].answer[=].item[=].item[=].answer[=].item[=].text = "Zeitpunkt der Bestimmung"
