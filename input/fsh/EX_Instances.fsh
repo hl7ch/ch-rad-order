@@ -144,7 +144,7 @@ Description: "Example for Bundle"
 * entry[=].resource = CaveatDrugPrescriptionMetformin
 * entry[+].fullUrl = "http://example.com/fhir/Condition/CaveatDeviceCardiacPacemaker"
 * entry[=].resource = CaveatDeviceCardiacPacemaker
-* entry[+].fullUrl = "h"
+* entry[+].fullUrl = "http://example.com/fhir/DocumentReference/ChOrfDocumentReferenceThoraxRx"
 * entry[=].resource = ChOrfDocumentReference
 * entry[+].fullUrl = "http://example.com/fhir/Appointment/AppointmentRadiography"
 * entry[=].resource = AppointmentRadiography

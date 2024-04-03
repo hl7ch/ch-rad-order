@@ -472,7 +472,7 @@ Description: "Example for QuestionnaireResponse"
 
 // -------- Appointment ------
 * item[+].linkId = "appointment"
-* item[=].definition = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-servicerequest#ServiceRequest.extension:locationAndTime"
+* item[=].definition = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-servicerequest#extension:locationAndTime"
 * item[=].text = "Ort und Zeit der Durchführung der angeforderten Leistung"
 * item[=].item[+].linkId = "appointment.location"
 * item[=].item[=].text = "Ort der Durchführung"
