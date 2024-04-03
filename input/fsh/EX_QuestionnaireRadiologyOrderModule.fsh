@@ -702,33 +702,33 @@ mittels ImagingStudy Resource (DICOM WADO) oder die mitgegeben werden mit der Do
 * item[=].item[=].repeats = true
 
 * item[=].item[=].item[+].linkId = "attachment.dicom.sopInstanceUid"  
-* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy#SopInstance.series.instance.uid"
+* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy#series.instance.uid"
 * item[=].item[=].item[=].text = "DICOM SOP Instance UID"
 * item[=].item[=].item[=].type = #string
 * item[=].item[=].item[=].required = true
 
 * item[=].item[=].item[+].linkId = "attachment.dicom.sopClass"  
-* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy#SopInstance.sopClass.value"
+* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy#series.instance.sopClass.value"
 * item[=].item[=].item[=].text = "DICOM SOP Class"
 * item[=].item[=].item[=].type = #choice
 * item[=].item[=].item[=].answerValueSet = SopClass
 * item[=].item[=].item[=].required = true
 
 * item[=].item[=].item[+].linkId = "attachment.dicom.modality"  
-* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy#SopInstance.modality.coding"
+* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy#.series.modality.coding"
 * item[=].item[=].item[=].text = "DICOM Series Modality"
 * item[=].item[=].item[=].type = #choice
 * item[=].item[=].item[=].answerValueSet = AcquisitionModality
 * item[=].item[=].item[=].required = true
 
 * item[=].item[=].item[+].linkId = "attachment.dicom.SeriesInstanceUid"  
-* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy#SopInstance.series.uid"
+* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy#.series.uid"
 * item[=].item[=].item[=].text = "DICOM Series Instance UID"
 * item[=].item[=].item[=].type = #string
 * item[=].item[=].item[=].required = true
 
 * item[=].item[=].item[+].linkId = "attachment.dicom.studyInstanceUid"  
-* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy#SopInstance.identifier"
+* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy#.identifier"
 * item[=].item[=].item[=].text = "DICOM Study Instance UID"
 * item[=].item[=].item[=].type = #string
 * item[=].item[=].item[=].required = true
@@ -875,11 +875,6 @@ is encoded in ImagingStudy.series.instance.uid as “2.16.124.113543.1154777499.
 * DCM#CFM "Confocal Microscopy"
 */
 
-/* item[=].item[=].item[=].item[=].item[=].item[+].linkId = "attachment.imagingStudy.study.series.sopInstance"
-* item[=].item[=].item[=].item[=].item[=].item[=].text = "SOP Instance"
-* item[=].item[=].item[=].item[=].item[=].item[=].type = #group
-* item[=].item[=].item[=].item[=].item[=].repeats = true
-*/
 
 
 
