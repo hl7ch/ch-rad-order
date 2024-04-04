@@ -33,7 +33,7 @@ Description: "Example for ServiceRequest"
 * supportingInfo[caveats][+] = Reference(CaveatDeviceCardiacPacemaker)
 * supportingInfo[caveats][+] = Reference(CaveatDrugPrescriptionMetformin)
 
-* supportingInfo[previousImagingResults][+] = Reference(ChOrfDocumentReferenceThoraxRx)
+* supportingInfo[previousImagingResults][+] = Reference(DocumentReferenceThoraxRx)
 
 * bodySite = RDLX#RID2468 "Chest wall" // imagingFocus
 * note.text = "Bemerkung/Kommentar"
@@ -144,8 +144,9 @@ Description: "Example for Bundle"
 * entry[=].resource = CaveatDrugPrescriptionMetformin
 * entry[+].fullUrl = "http://example.com/fhir/Condition/CaveatDeviceCardiacPacemaker"
 * entry[=].resource = CaveatDeviceCardiacPacemaker
-* entry[+].fullUrl = "http://example.com/fhir/DocumentReference/ChOrfDocumentReferenceThoraxRx"
-* entry[=].resource = ChOrfDocumentReference
+* entry[+].fullUrl = "http://example.com/fhir/DocumentReference/DocumentReferenceThoraxRx"
+//* entry[=].resource = ChOrfDocumentReference
+* entry[=].resource = DocumentReferenceThoraxRx
 * entry[+].fullUrl = "http://example.com/fhir/Appointment/AppointmentRadiography"
 * entry[=].resource = AppointmentRadiography
 * entry[+].fullUrl = "http://example.com/fhir/Location/LocationRadiography"
@@ -514,7 +515,7 @@ Description: "Example for Location"
 * address.postalCode = "8000"
 * address.country = "Schweiz"
 
-Instance: ChOrfDocumentReferenceThoraxRx
+Instance: DocumentReferenceThoraxRx
 InstanceOf: ChOrfDocumentReference
 Title: "Thorax Rx attached"
 Description: "Example for Previous Result"
