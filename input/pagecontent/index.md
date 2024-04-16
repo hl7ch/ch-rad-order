@@ -1,11 +1,6 @@
-**Download:**
-
-You can download this implementation guide in [NPM format](https://confluence.hl7.org/display/FHIR/NPM+Package+Specification) from [here](package.tgz).
-
-
 ### Purpose
 
-The CH RAD-Order Implementation Guide defines the content of a radiology order and covers the follwing use cases:
+The CH RAD-Order Implementation Guide defines the content of a radiology order and covers the following use cases:
 
 * Referral for imaging
 * Referral for radiological intervention
@@ -15,6 +10,13 @@ The CH RAD-Order Implementation Guide defines the content of a radiology order a
 
 CH RAD-Order is intended for use in directional communication as well as for the use in the SWISS EPR.
   
+<div markdown="1" class="stu-note">
+
+[Significant changes, open and closed issues](changelog.html)
+
+</div>
+
+**Download**: You can download this implementation guide in [npm format](https://confluence.hl7.org/display/FHIR/NPM+Package+Specification) from [here](package.tgz).
 
 ### Foundation 
 This Implementation Guide uses FHIR defined resources. For details on HL7 FHIR R4 see [http://hl7.org/fhir/r4](http://hl7.org/fhir/r4).
@@ -34,7 +36,7 @@ Applications claiming for conformance with the ORF Implementation Guide shall:
 * In case of an implementation without the resources Questionnaire and QuestionnaireResponse, the content of otherwise implemented user interfaces shall be in accordance to the questionnaire definition.
 * Be able to process all codes related to the generic elements in a Questionnaire.
 
-Actors, transcations and safety considerations are covered in the corresponding sections of 
+Actors, transactions and safety considerations are covered in the corresponding sections of 
 [CH ORF](http://build.fhir.org/ig/hl7ch/ch-orf/index.html).
 
 ### Terminology
@@ -49,17 +51,17 @@ The relevant dimensions are defined by PLAYBOOK such as:
 Modality
 Region
 Focus
-Laterlity
+Laterality
 Maneuvre
 Guidance for action (used for interventions)
   
  Coding of these dimensions is done by [RADLEX terms](https://www.rsna.org/practice-tools/data-tools-and-standards/radlex-radiology-lexicon).
  
-IMPORTANT NOTICE: Value sets, in particular those containing Radlex terms, are still experimental. Definitve value sets will be defined when CH-Rad-Order becomes operational.All coding is preliminary and not yet approved by eHealth Suisse.
+IMPORTANT NOTICE: Value sets, in particular those containing Radlex terms, are still experimental. Definitive value sets will be defined when CH-Rad-Order becomes operational.All coding is preliminary and not yet approved by eHealth Suisse.
 
 #### Previous Images
 
-Results from earlier can be provided be means of attachments or - in case of DICOM SOP Instances - by means of a DICOM Service (e.g. WADO-RS). The ImagingStudy Resource allows for idiciating DICOM tags such as SOP Instance UID, Series instance UID etc. DICOM Imaging data as well as other data (pdf, jpeg etc.) can be attached by means of a document reference.
+Results from earlier can be provided be means of attachments or - in case of DICOM SOP Instances - by means of a DICOM Service (e.g. WADO-RS). The ImagingStudy Resource allows for indicating DICOM tags such as SOP Instance UID, Series instance UID etc. DICOM Imaging data as well as other data (pdf, jpeg etc.) can be attached by means of a document reference.
 
 The implementation of a DICOM service requires prerequisites in terms of infrastructure and policies (e.g. access rights). CH RAD-Order does not give guidance about that.
 

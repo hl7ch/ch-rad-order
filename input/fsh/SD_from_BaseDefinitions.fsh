@@ -1,7 +1,7 @@
 // Leave in CH RAD-Order, as details or context specific to RAD-Order
 
 Profile: ChRadOrderDiagnosisCondition
-Parent: Condition
+Parent: CHCoreCondition
 Id: ch-rad-order-diagnosis-condition
 Title: "CH RAD-Order Diagnosis Condition"
 Description: "Definition for the Diagnosis Condition resource in the context of CH RAD-Order."
@@ -16,7 +16,7 @@ Description: "Definition for the Diagnosis Condition resource in the context of 
 
 
 Profile: ChRadOrderCaveatCondition
-Parent: Condition
+Parent: CHCoreCondition
 Id: ch-rad-order-caveat-condition
 Title: "CH RAD-Order Caveat Condition"
 Description: "Definition for the Caveat Condition resource in the context of CH RAD-Order."
