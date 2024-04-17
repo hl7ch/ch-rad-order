@@ -72,7 +72,8 @@ group RadOrderQrToServiceRequest(source qr : QuestionnaireResponse, target patie
   qr.item as grp where linkId='desiredRadiologist' then DesiredRadiologistServiceItems(grp, bundle, serviceRequest) "desiredRadiologist";
   qr.item as grp where linkId='diagnosisList' then DiagnosisListServiceItems(grp, patient, bundle, serviceRequest) "diagnosisList";
   qr.item as grp where linkId='caveat' then CaveatServiceItems(grp, patient, bundle, serviceRequest) "Caveat";
-  qr.item as grp where linkId='attachment' then PreviousImagingStudyResults(grp, bundle, serviceRequest, patient) "attachment";
+  qr.item as grp where linkId='attachment.nonDicom"' then PreviousImagingStudyResults(grp, bundle, serviceRequest, patient) "attachment";
+  qr.item as grp where linkId='attachment.dicom' then PreviousImagingStudyResults(grp, bundle, serviceRequest, patient) "attachment";
 }
 
 group RequestedServiceItems(source src , target serviceRequest: ServiceRequest) {
@@ -481,40 +482,33 @@ group CaveatServiceItems(source src, target patient : Patient, target bundle : B
     } "answerValueString";
   } "itemAnswer";
 
-  src.item as item where (linkId.value = 'caveatList.device') ->
+  src.item as item where (linkId.value = 'caveatList.device' and answer.exists()) then {
+    item.answer as answer then {
+      answer.value: Coding as value  -> 
         bundle.entry as e, 
           e.resource = create('Condition') as condition, 
           condition.id = uuid() as uuid,
           e.fullUrl = ('urn:uuid:'+%uuid),
           serviceRequest.supportingInfo as supportingInfo,
-          supportingInfo.reference = ('urn:uuid:'+%uuid) then {
-            item.item as subitem where (linkId.value = 'caveatList.device.choice' and answer.exists()) then {
-              subitem.answer as answer then {
-                answer.value: Coding as value -> 
-                   condition.extension as ext1, 
-                      ext1.url = 'http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-type',
-                      ext1.value = create('Coding') as coding, coding.code = '397578001', coding.system = 'http://snomed.info/sct', coding.display = 'Device in situ (finding)', 
-                    condition.extension as ext2, 
-                      ext2.url = 'http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-qualifier-value',
-                      ext2.value = value,
-                  condition.category as category,
-                    category.coding as coding,
-                       coding.code = 'problem-list-item',
-                       coding.system = 'http://terminology.hl7.org/CodeSystem/condition-category',
-                       coding.display = 'Problem List Item',
-                  condition.subject as subject,
-                    subject.reference = ('urn:uuid:'+%patient.id)
-                        "caveatListDevice";
-              } "caveatListDeviceChoice";
-              item.item as subitem where (linkId.value = 'caveatList.device.specifictype' and answer.exists()) then {
-                subitem.answer as answer then {
-                  answer.value: Coding as value -> 
-                    condition.code as code,
-                    code.coding = value "caveatListDevicespecific";
-                } "caveatListDeviceSpecifictype";
-              } "caveatListDevicespecific";
-           } "caveatListDevice"; 
-        } "caveatListDevice";
+          supportingInfo.reference = ('urn:uuid:'+%uuid),
+          condition.extension as ext1, 
+            ext1.url = 'http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-type',
+            ext1.value = create('Coding') as coding, coding.code = '397578001', coding.system = 'http://snomed.info/sct', coding.display = 'Device in situ (finding)', 
+          condition.extension as ext2, 
+            ext2.url = 'http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-qualifier-value',
+            ext2.value = create('Coding') as coding, coding.code = '52101004', coding.system = 'http://snomed.info/sct', coding.display = 'Present (qualifier value)',
+        condition.category as category,
+          category.coding as coding,
+             coding.code = 'problem-list-item',
+             coding.system = 'http://terminology.hl7.org/CodeSystem/condition-category',
+             coding.display = 'Problem List Item',
+        condition.code as code,
+            code.coding = value,
+        condition.subject as subject,
+          subject.reference = ('urn:uuid:'+%patient.id)
+              "caveatListDevice";
+    } "answerValueString";
+  } "itemAnswer";
 
   src.item as item where (linkId.value = 'caveatList.hyperthyroidism' and answer.exists()) then {
     item.answer as answer then {
