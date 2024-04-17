@@ -470,7 +470,7 @@ Instance: CaveatDrugPrescriptionMetformin
 InstanceOf: ChRadOrderCaveatCondition
 Title: "Caveat Drug Prescription Metformin"
 Description: "Example for Caveat Condition"
-* extension[caveatType].valueCoding = SCT#182817000 "Drug prescription (situation)"
+* extension[caveatType].valueCoding = SCT#33633005 "Drug prescription (situation)"
 * category = ConditionCategory#problem-list-item "Problem List Item"
 * extension[qualifierValue].valueCoding = SCT#52101004 "Present (qualifier value)"
 * code = SCT#372567009 "Metformin (substance)"

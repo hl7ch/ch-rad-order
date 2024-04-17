@@ -28,7 +28,7 @@ Description: "Definition for Type of Caveat Value Set in the context of CH RAD-O
 * SCT#73211009 "Diabetes mellitus (disorder)"
 * SCT#366321006 "Finding of gravida (finding)"
 * SCT#293637006 "Allergy to contrast media (finding)"
-* SCT#182817000 "Drug prescription (situation)"
+* SCT#33633005 "Drug prescription (situation)"
 
 
 ValueSet: ChRadOrderQualifierValue
