@@ -128,7 +128,7 @@ Description: "Definition for the Platelets Observation resource in the context o
 * valueQuantity.system 1.. MS
 * valueQuantity.system ^fixedUri = "http://unitsofmeasure.org"
 * valueQuantity.code 1.. MS
-* valueQuantity.code ^fixedCode = #10*3/uL
+* valueQuantity.code ^fixedCode = #10*9/uL
 * dataAbsentReason MS
 
 

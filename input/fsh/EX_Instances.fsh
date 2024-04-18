@@ -417,7 +417,7 @@ Description: "Example for Platelets Observation"
 * code = LNC#26515-7 "Platelets [#/volume] in Blood"
 * subject = Reference(SUfferer)
 * effectiveDateTime = "2019-04-01T10:10:00.000+00:00"
-* valueQuantity = 150000 '10*3/uL' "10^9/L"
+* valueQuantity = 150000 '10*9/uL' "10^9/L"
 
 
 Instance: CaveatBodyPiercing
