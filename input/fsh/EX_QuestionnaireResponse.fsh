@@ -725,15 +725,15 @@ Attachment:
 
 * item[=].item[+].linkId = "attachment.dicom.title"  
 * item[=].item[=].text = "Dateiname und -endung der angehängten Dicom-Datei (z.B. \"Muster_F_2023-07-20_MR Knie nativ beidseits_im2588909576\")"
-* item[=].item[=].answer[+].valueString = "Muster_F_2023-07-20_MR Knie nativ beidseits_im2588909576"
+* item[=].item[=].answer[+].valueString = "Sufferer_S_2023-07-20_MR Knie nativ beidseits_im2588909576"
 
 * item[=].item[=].answer[=].item[+].linkId = "attachment.dicom.sopInstanceUid"  
 * item[=].item[=].answer[=].item[=].text = "DICOM SOP Instance UID"
-* item[=].item[=].answer[=].item[=].answer[+].valueString = "123456789"
+* item[=].item[=].answer[=].item[=].answer[+].valueString = "2.16.124.113543.1154777499.30246.19789.3503430045.1.1"
 
 * item[=].item[=].answer[=].item[+].linkId = "attachment.dicom.sopClass"  
 * item[=].item[=].answer[=].item[=].text = "DICOM SOP Class"
-* item[=].item[=].answer[=].item[=].answer.valueCoding = #1.2.840.10008.5.1.4.1.1.4
+* item[=].item[=].answer[=].item[=].answer.valueCoding = #1.2.840.10008.5.1.4.1.1.1
 
 * item[=].item[=].answer[=].item[+].linkId = "attachment.dicom.modality"  
 * item[=].item[=].answer[=].item[=].text = "DICOM Series Modality"
@@ -741,15 +741,15 @@ Attachment:
 
 * item[=].item[=].answer[=].item[+].linkId = "attachment.dicom.SeriesInstanceUid"  
 * item[=].item[=].answer[=].item[=].text = "DICOM Series Instance UID"
-* item[=].item[=].answer[=].item[=].answer[+].valueString = "123456789"
+* item[=].item[=].answer[=].item[=].answer[+].valueString = "2.16.124.113543.1154777499.30246.19789.3503430045.1"
 
 * item[=].item[=].answer[=].item[+].linkId = "attachment.dicom.studyInstanceUid"  
 * item[=].item[=].answer[=].item[=].text = "DICOM Study Instance UID"
-* item[=].item[=].answer[=].item[=].answer[+].valueString = "123456789"
+* item[=].item[=].answer[=].item[=].answer[+].valueString = "2.16.124.113543.1154777499.30246.19789.3503430045"
 
 * item[=].item[=].answer[=].item[+].linkId = "attachment.dicom.acsn"  
 * item[=].item[=].answer[=].item[=].text = "ACSN"
-* item[=].item[=].answer[=].item[=].answer[+].valueString = "123456789"
+* item[=].item[=].answer[=].item[=].answer[+].valueString = "2819497684894126"
 
 
 

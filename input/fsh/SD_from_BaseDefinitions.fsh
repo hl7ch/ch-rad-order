@@ -172,8 +172,24 @@ Id: ch-rad-order-imagingstudy
 Title: "CH RAD-Order ImagingStudy"
 Description: "Definition for the ImagingStudy resource in the context of CH RAD-Order."
 * . ^short = "CH RAD-Order ImagingStudy"
+
+* identifier MS
+* identifier ^slicing.discriminator.type = #pattern
+* identifier ^slicing.discriminator.path = "$this"
+* identifier ^slicing.rules = #open
+* identifier contains studyInstanceUid 1..1 MS
+* identifier[studyInstanceUid] ^short = "Study Instanve UID"
+* identifier[studyInstanceUid] ^patternIdentifier.type.coding.system = "urn:dicom:uid"
+* identifier[studyInstanceUid] ^patternIdentifier.type.coding.code = #PLAC
+* identifier[studyInstanceUid].system MS
+* identifier[studyInstanceUid].value MS
+* identifier contains acsn 1..1 MS
+* identifier[acsn] ^short = "Accession Number"
+* identifier[acsn] ^patternIdentifier.type.coding.system = "http://terminology.hl7.org/CodeSystem/v2-0203"
+* identifier[acsn] ^patternIdentifier.type.coding.code = #ACSN
+* identifier[acsn].system MS
+* identifier[acsn].value MS
 * status MS
-* status.
 * subject MS
 * subject only Reference(ChCorePatient or Device or Group)
 * series MS

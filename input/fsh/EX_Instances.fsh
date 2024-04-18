@@ -33,7 +33,7 @@ Description: "Example for ServiceRequest"
 * supportingInfo[caveats][+] = Reference(CaveatDeviceCardiacPacemaker)
 * supportingInfo[caveats][+] = Reference(CaveatDrugPrescriptionMetformin)
 
-* supportingInfo[previousImagingResults][+] = Reference(DocumentReferenceThoraxRx)
+* supportingInfo[previousImagingResults][+] = Reference(DocumentReferenceDicomSopInstanceConformant)
 
 * bodySite = RDLX#RID2468 "Chest wall" // imagingFocus
 * note.text = "Bemerkung/Kommentar"
@@ -144,14 +144,12 @@ Description: "Example for Bundle"
 * entry[=].resource = CaveatDrugPrescriptionMetformin
 * entry[+].fullUrl = "http://example.com/fhir/Condition/CaveatDeviceCardiacPacemaker"
 * entry[=].resource = CaveatDeviceCardiacPacemaker
-* entry[+].fullUrl = "http://example.com/fhir/DocumentReference/DocumentReferenceThoraxRx"
-//* entry[=].resource = ChOrfDocumentReference
-* entry[=].resource = DocumentReferenceThoraxRx
-* entry[+].fullUrl = "http://example.com/fhir/Appointment/AppointmentRadiography"
-* entry[=].resource = AppointmentRadiography
-* entry[+].fullUrl = "http://example.com/fhir/Location/LocationRadiography"
-* entry[=].resource = LocationRadiography
+//
+* entry[+].fullUrl = "http://example.com/fhir/ImagingStudy/DicomSopInstanceConformant"
+* entry[=].resource = DicomSopInstanceConformant
 
+* entry[+].fullUrl = "http://example.com/fhir/DocumentReference/DocumentReferenceDicomSopInstanceConformant"
+* entry[=].resource = DocumentReferenceDicomSopInstanceConformant
 
 //------------- Patient -------------
 Instance: SUfferer
@@ -515,23 +513,23 @@ Description: "Example for Location"
 * address.postalCode = "8000"
 * address.country = "Schweiz"
 
-Instance: DocumentReferenceThoraxRx
+Instance: DicomSopInstanceConformant
+InstanceOf: ChRadOrderImagingStudy
+Title: "DICOM conformant SOP Instance"
+Description: "Example of DICOM conformant SOP Instance (regarding Coding of Series-Modality)"
+* status = #available
+* subject = Reference(SUfferer)
+* series.instance.uid = "2.16.124.113543.1154777499.30246.19789.3503430045.1.1"
+* series.instance.sopClass = #1.2.840.10008.5.1.4.1.1.1
+* series.modality = #DX
+* series.uid = "2.16.124.113543.1154777499.30246.19789.3503430045.1"
+* identifier[studyInstanceUid].value = "2.16.124.113543.1154777499.30246.19789.3503430045" //StudyInstanceUid 
+* identifier[acsn].value = "2819497684894126" //ACSN
+
+Instance: DocumentReferenceDicomSopInstanceConformant
 InstanceOf: ChOrfDocumentReference
 Title: "Thorax Rx attached"
 Description: "Example for Previous Result"
 * status = #current
 * content.attachment.contentType = MimeType#application/dicom
 * content.attachment.data = "VGhpcyBpcyBhbiBleGFtcGxl" // "This is an example" encoded in base64
-
-
-Instance: DicomSopInstanceConformant
-InstanceOf: ImagingStudy
-Title: "DICOM conformant SOP Instance"
-Description: "Example DICOM conformant SOP Instance (regarding Coding of Series-Modality)"
-* status = #available
-* subject = Reference(SUfferer)
-* identifier.value = "1234"
-* series.uid = "12345"
-* series.modality = #DX
-* series.instance.uid = "123456"
-* series.instance.sopClass = #1.2.840.10008.5.1.4.1.1.1
