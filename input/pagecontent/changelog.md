@@ -3,10 +3,38 @@ All significant changes to this FHIR implementation guide will be documented on 
 
 
 ### STU 2 Ballot (2024)
+#### Open Issues
+* [Issue #62](https://github.com/hl7ch/ch-rad-order/issues/62): Update Coverage
+* [Issue #63](https://github.com/hl7ch/ch-rad-order/issues/63): Update ServiceRequest
 
 #### Added
 * [Issue #36](https://github.com/hl7ch/ch-rad-order/issues/36): Added  SCT#373068000 as initial value to caveat Diabetes mellitus".
+* [Issue #37](https://github.com/hl7ch/ch-rad-order/issues/37): Added item Modality (for series) to Questionnaire because this item has card 1..1 in ImagingStudy Resource.
+* [Issue #39](https://github.com/hl7ch/ch-rad-order/issues/39): Added a default value to "Bildgebendes Verfahren"; This item will therefore never be empty.
+* [Issue #46](https://github.com/hl7ch/ch-rad-order/issues/47): Added details about attachements to index.html
+* [Issue #47](https://github.com/hl7ch/ch-rad-order/issues/47): Updated index.html
+* [Issue #48](https://github.com/hl7ch/ch-rad-order/issues/48): Updated Questionnaire Response according to #37
+* [Issue #49](https://github.com/hl7ch/ch-rad-order/issues/49): Added UNKNOWN to VS Ascquisition Modality.
 * [Issue #59](https://github.com/hl7ch/ch-rad-order/issues/59): Use CH Core Condition as parent profile
+
+##### Adopted from CH ORF
+* [ORF Issue #71](https://github.com/hl7ch/ch-orf/issues/71): Added Initiator and his relationship to to the patient.
+* [ORF Issue #72](https://github.com/hl7ch/ch-orf/issues/72): Added Patient consent.
+* [ORF Issue #73](https://github.com/hl7ch/ch-orf/issues/73): Added Entry date, discharge Date and Organization of stationary episode antecedent to requested service (e.g spitex).
+* [ORF Issue #61](https://github.com/hl7ch/ch-orf/issues/61): Added Family doctor.
+* [ORF Issue #106](https://github.com/hl7ch/ch-orf/issues/106): Changed Cardinality of Contact Person from 0..1 to 0..*.* 
+
+#### Changed / Updated
+* [Issue #41](https://github.com/hl7ch/ch-rad-order/issues/41): Corrected radlex url
+* [Issue #44](https://github.com/hl7ch/ch-rad-order/issues/44): Chnaged license to CC0 1.0 Universal (CC0 1.0)
+* [Issue #51](https://github.com/hl7ch/ch-rad-order/issues/51): Dropped group, changed hierarchy of device and choice (present, absent, undeterminded) in caveat.device item of questionnaire.
+* [Issue #52](https://github.com/hl7ch/ch-rad-order/issues/52): Change according to CH-ORF#50: attachment embedded in the DocumentReference resource instead of CH RAD-Order Media.
+* [Issue #53](https://github.com/hl7ch/ch-rad-order/issues/53): Addded series.instance.sopClass which has has cardinality 1..1 to questionnaire and questionnaire response.
+* [Issue #54](https://github.com/hl7ch/ch-rad-order/issues/54): Snomed Code 182817000 -Drug prescription (situation)- is not active anymore; replaced with Changed to 1290126002 -Drug therapy with explicit context (situation).
+* [Issue #56](https://github.com/hl7ch/ch-rad-order/issues/56): Replaced Platelets unit of measurment 10^3/µL with 10^9/L (According to http://unitsofmeasure.org V2.01).
+
+##### Adopted from CH ORF
+* [ORF Issue Issue #108](https://github.com/hl7ch/ch-orf/issues/108): Improve slicing that info entry[x] warnings are not shown.
 
 ### STU 1 (2022-02-22)
 
