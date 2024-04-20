@@ -49,4 +49,4 @@ pages:
 parameters:
   excludettl: true
   allow-extensible-warnings: true
-  display-warnings: true      
+  display-warnings: true    
