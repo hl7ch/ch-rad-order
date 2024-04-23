@@ -156,4 +156,5 @@ Description: "Definition for the Composition resource in the context of CH RAD-O
 // ---------- Composition.section.entry:ServiceRequest ---------
 * section[orderReferral].entry[ServiceRequest] ^type.targetProfile = Canonical(ChRadOrderServiceRequest)
 
-
+// ---------- Composition.section.entry:ChOrfDocumentReference ---------
+* section[orderReferral].entry[DocumentReference] ^type.targetProfile = Canonical(ChOrfDocumentReference)

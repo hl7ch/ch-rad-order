@@ -681,7 +681,7 @@ mittels ImagingStudy Resource (DICOM WADO) oder die mitgegeben werden mit der Do
 
 * item[=].item[+].linkId = "attachment.nonDicom.title"  
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-documentreference-definitions#content.attachment.title"
-* item[=].item[=].text = "Dateiname und -endung der angehängten Datei (z.B. \"Befund.pdf\")"
+* item[=].item[=].text = "Dateiname und -endung der angehängten Datei (z.B. \"Befund Thorax-Rx\")"
 * item[=].item[=].type = #string
 * item[=].item[=].repeats = true
 

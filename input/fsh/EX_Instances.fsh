@@ -34,6 +34,7 @@ Description: "Example for ServiceRequest"
 * supportingInfo[caveats][+] = Reference(CaveatDrugPrescriptionMetformin)
 
 * supportingInfo[previousImagingResults][+] = Reference(DocumentReferenceDicomSopInstanceConformant)
+* supportingInfo[previousImagingResults][+] = Reference(DocumentReferenceNonDicom)
 
 * bodySite = RDLX#RID2468 "Chest wall" // imagingFocus
 * note.text = "Bemerkung/Kommentar"
@@ -150,6 +151,10 @@ Description: "Example for Bundle"
 
 * entry[+].fullUrl = "http://example.com/fhir/DocumentReference/DocumentReferenceDicomSopInstanceConformant"
 * entry[=].resource = DocumentReferenceDicomSopInstanceConformant
+
+* entry[+].fullUrl = "http://example.com/fhir/DocumentReference/DocumentReferenceNonDicom"
+* entry[=].resource = DocumentReferenceNonDicom
+
 
 //------------- Patient -------------
 Instance: SUfferer
@@ -513,10 +518,20 @@ Description: "Example for Location"
 * address.postalCode = "8000"
 * address.country = "Schweiz"
 
+Instance: DocumentReferenceNonDicom
+InstanceOf: ChOrfDocumentReference
+Title: "Befund_Rx_Thorax_S_Ufferer_20190401"
+Description: "Example of non-Dicom Attachment (e.g. pdf)"
+* status = #current
+* content.attachment.title = "Befund_Rx_Thorax_S_Ufferer_20190401.pdf"
+* description = "Befund Thorax-Rx vom 1.2.23; Eyample of Non-DICOM Attachment"
+* content.attachment.contentType = MimeType#application/pdf
+* content.attachment.data = "VGVzdCBCZWZ1bmQgTm9uIERpY29t" // "This is an example" encoded in base64
+
 Instance: DicomSopInstanceConformant
 InstanceOf: ChRadOrderImagingStudy
 Title: "DICOM conformant SOP Instance"
-Description: "Example of DICOM conformant SOP Instance (regarding Coding of Series-Modality)"
+Description: "Rx-Knie-S_Ufferer_05032024; Example of DICOM conformant SOP Instance (regarding Coding of Series-Modality)"
 * status = #available
 * subject = Reference(SUfferer)
 * series.instance.uid = "2.16.124.113543.1154777499.30246.19789.3503430045.1.1"
@@ -528,7 +543,7 @@ Description: "Example of DICOM conformant SOP Instance (regarding Coding of Seri
 
 Instance: DocumentReferenceDicomSopInstanceConformant
 InstanceOf: ChOrfDocumentReference
-Title: "Thorax Rx attached"
+Title: "Rx-Knie-S_Ufferer_05032024"
 Description: "Example for Previous Result"
 * status = #current
 * content.attachment.contentType = MimeType#application/dicom

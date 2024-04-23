@@ -713,7 +713,7 @@ Attachment:
 * item[=].text = "Anhang (nicht DICOM)"
 
 * item[=].item[+].linkId = "attachment.nonDicom.title"  
-* item[=].item[=].text = "Dateiname und -endung der angehängten Datei (z.B. \"Befund.pdf\")"
+* item[=].item[=].text = "Dateiname und -endung der angehängten Datei (z.B. \"Befund Thorax-Rx\")"
 * item[=].item[=].answer[+].valueString = "Befund_Rx_Thorax_S_Ufferer_20190401.pdf"
 
 * item[=].item[=].answer[=].item[+].linkId = "attachment.nonDicom.description"  
