@@ -1225,7 +1225,7 @@ Usage: #example
 * item[=].item.text = "Ist der Patient über die Anmeldung informiert und explizit einverstanden?"
 * item[=].item.type = #choice
 * item[=].item.answerOption[0].valueCoding = $ch-orf-cs-consentstatus#ExplicitAgreement "Patient is informed and has explicitly agreed"
-* item[=].item.answerOption[+].valueCoding = $ch-orf-cs-consentstatus#Other "Other situation such as 'implicit agreement', 'agreed by legal guardian' etc."
+* item[=].item.answerOption[+].valueCoding = $ch-orf-cs-consentstatus#Other "Other situation such as 'implicit agreement', 'agreed by legal guardian'  etc."
 * item[=].item.item.linkId = "patient.consent.statement.note"
 * item[=].item.item.text = "Anmerkung"
 * item[=].item.item.type = #string
@@ -1486,7 +1486,6 @@ Usage: #example
 * item[=].item[=].item.text = "Dateiname und -endung der angehängten Datei (z.B. \"Befund Thorax-Rx\")"
 * item[=].item[=].item.type = #string
 * item[=].item[=].item.repeats = true
-* item[=].item[=].item.initial.valueCoding = urn:ietf:bcp:13#application/pdf
 * item[=].item[=].item.item[0].linkId = "attachment.nonDicom.description"
 * item[=].item[=].item.item[=].definition = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-documentreference-definitions#DocumentReference.description"
 * item[=].item[=].item.item[=].text = "Beschreibung"
@@ -1495,7 +1494,9 @@ Usage: #example
 * item[=].item[=].item.item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-orf-documentreference-defintions#DocumentReference.content.attachment.data"
 * item[=].item[=].item.item[=].text = "Mime Type"
 * item[=].item[=].item.item[=].type = #choice
+* item[=].item[=].item.item[=].required = true
 * item[=].item[=].item.item[=].answerValueSet = "http://hl7.org/fhir/ValueSet/mimetypes"
+* item[=].item[=].item.item[=].initial.valueCoding = urn:ietf:bcp:13#application/pdf
 * item[=].item[=].item.item[+].linkId = "attachment.nonDicom.attachment.data"
 * item[=].item[=].item.item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-orf-documentreference-defintions#DocumentReference.content.attachment.data"
 * item[=].item[=].item.item[=].text = "Non-DICOM Data"
@@ -1508,7 +1509,6 @@ Usage: #example
 * item[=].item[=].item.text = "Dateiname und -endung der angehängten Dicom-Datei (z.B. \"Muster_F_2023-07-20_MR Knie nativ beidseits_im2588909576\")"
 * item[=].item[=].item.type = #string
 * item[=].item[=].item.repeats = true
-* item[=].item[=].item.initial.valueCoding = urn:ietf:bcp:13#application/dicom
 * item[=].item[=].item.item[0].linkId = "attachment.dicom.sopInstanceUid"
 * item[=].item[=].item.item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy-definitions#ImagingStudy.series.instance.uid"
 * item[=].item[=].item.item[=].text = "DICOM SOP Instance UID"
@@ -1544,7 +1544,9 @@ Usage: #example
 * item[=].item[=].item.item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-orf-documentreference-defintions#DocumentReference.content.attachment.data"
 * item[=].item[=].item.item[=].text = "Mime Type"
 * item[=].item[=].item.item[=].type = #choice
+* item[=].item[=].item.item[=].required = true
 * item[=].item[=].item.item[=].answerValueSet = "http://hl7.org/fhir/ValueSet/mimetypes"
+* item[=].item[=].item.item[=].initial.valueCoding = urn:ietf:bcp:13#application/dicom
 * item[=].item[=].item.item[+].linkId = "attachment.dicom.attachment.data"
 * item[=].item[=].item.item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-orf-documentreference-defintions#DocumentReference.content.attachment.data"
 * item[=].item[=].item.item[=].text = "DICOM Data"
