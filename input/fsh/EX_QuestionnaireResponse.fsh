@@ -720,6 +720,14 @@ Attachment:
 * item[=].item[=].answer[=].item[=].text = "Beschreibung"
 * item[=].item[=].answer[=].item[=].answer[+].valueString = "Befund Notfall-Rx nach Sturz"
 
+* item[=].item[=].answer[=].item[+].linkId = "attachment.nonDicom.attachment.mimeType"  
+* item[=].item[=].answer[=].item[=].text = "Mime Type"
+* item[=].item[=].answer[=].item[=].answer[+].valueCoding = MimeType#application/pdf
+
+* item[=].item[=].answer[=].item[+].linkId = "attachment.nonDicom.attachment.data"  
+* item[=].item[=].answer[=].item[=].text = "Non-DICOM Data"
+* item[=].item[=].answer[=].item[=].answer[+].valueAttachment.data = "VGVzdCBCZWZ1bmQgTm9uIERpY29t" // Encoded in base64
+
 * item[+].linkId = "attachment.dicom"
 * item[=].text = "Anhang (DICOM)"
 
@@ -737,7 +745,7 @@ Attachment:
 
 * item[=].item[=].answer[=].item[+].linkId = "attachment.dicom.modality"  
 * item[=].item[=].answer[=].item[=].text = "DICOM Series Modality"
-* item[=].item[=].answer[=].item[=].answer.valueCoding = #MR
+* item[=].item[=].answer[=].item[=].answer.valueCoding = #DX
 
 * item[=].item[=].answer[=].item[+].linkId = "attachment.dicom.SeriesInstanceUid"  
 * item[=].item[=].answer[=].item[=].text = "DICOM Series Instance UID"
@@ -751,9 +759,13 @@ Attachment:
 * item[=].item[=].answer[=].item[=].text = "ACSN"
 * item[=].item[=].answer[=].item[=].answer[+].valueString = "2819497684894126"
 
+* item[=].item[=].answer[=].item[+].linkId = "attachment.dicom.attachment.mimeType"  
+* item[=].item[=].answer[=].item[=].text = "Mime Type"
+* item[=].item[=].answer[=].item[=].answer[+].valueCoding = MimeType#application/dicom
 
-
-
+* item[=].item[=].answer[=].item[+].linkId = "attachment.dicom.attachment.data"  
+* item[=].item[=].answer[=].item[=].text = "DICOM Data"
+* item[=].item[=].answer[=].item[=].answer[+].valueAttachment.data = "VGhpcyBpcyBhbiBleGFtcGxl" // Encoded in base64
 
 /* -----------------------------------------------------------------------------
 Service Request Notes 

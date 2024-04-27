@@ -526,7 +526,7 @@ Description: "Example of non-Dicom Attachment (e.g. pdf)"
 * content.attachment.title = "Befund_Rx_Thorax_S_Ufferer_20190401.pdf"
 * description = "Befund Thorax-Rx vom 1.2.23; Eyample of Non-DICOM Attachment"
 * content.attachment.contentType = MimeType#application/pdf
-* content.attachment.data = "VGVzdCBCZWZ1bmQgTm9uIERpY29t" // "This is an example" encoded in base64
+* content.attachment.data = "VGVzdCBCZWZ1bmQgTm9uIERpY29t" // Encoded in base64
 
 Instance: DicomSopInstanceConformant
 InstanceOf: ChRadOrderImagingStudy
@@ -547,4 +547,4 @@ Title: "Rx-Knie-S_Ufferer_05032024"
 Description: "Example for Previous Result"
 * status = #current
 * content.attachment.contentType = MimeType#application/dicom
-* content.attachment.data = "VGhpcyBpcyBhbiBleGFtcGxl" // "This is an example" encoded in base64
+* content.attachment.data = "VGhpcyBpcyBhbiBleGFtcGxl" // Encoded in base64
