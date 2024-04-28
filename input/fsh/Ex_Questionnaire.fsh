@@ -1540,14 +1540,7 @@ Usage: #example
 * item[=].item[=].item.item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy-definitions#ImagingStudy.identifier"
 * item[=].item[=].item.item[=].text = "ACSN"
 * item[=].item[=].item.item[=].type = #string
-* item[=].item[=].item.item[+].linkId = "attachment.dicom.attachment.mimeType"
-* item[=].item[=].item.item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-orf-documentreference-defintions#DocumentReference.content.attachment.data"
-* item[=].item[=].item.item[=].text = "Mime Type"
-* item[=].item[=].item.item[=].type = #choice
-* item[=].item[=].item.item[=].required = true
-* item[=].item[=].item.item[=].answerValueSet = "http://hl7.org/fhir/ValueSet/mimetypes"
-* item[=].item[=].item.item[=].initial.valueCoding = urn:ietf:bcp:13#application/dicom
-* item[=].item[=].item.item[+].linkId = "attachment.dicom.attachment.data"
+* item[=].item[=].item.item[+].linkId = "attachment.dicom.attachment"
 * item[=].item[=].item.item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-orf-documentreference-defintions#DocumentReference.content.attachment.data"
 * item[=].item[=].item.item[=].text = "DICOM Data"
 * item[=].item[=].item.item[=].type = #attachment

@@ -320,6 +320,7 @@ Title: "Primary Diagnosis"
 Description: "Example for Diagnosis Condition"
 * category = ConditionCategory#problem-list-item "Problem List Item"
 * code.text = "Primary Diagnosis"
+* clinicalStatus = ClinicalStatus#active
 * subject = Reference(SUfferer)
 
 
@@ -353,6 +354,7 @@ Title: "Secondary Diagnosis 1"
 Description: "Example for Diagnosis Condition"
 * category = ConditionCategory#problem-list-item "Problem List Item"
 * code.text = "Secondary Diagnosis 1"
+* clinicalStatus = ClinicalStatus#active
 * subject = Reference(SUfferer)
 
 
@@ -362,6 +364,7 @@ Title: "Secondary Diagnosis 2"
 Description: "Example for Diagnosis Condition"
 * category = ConditionCategory#problem-list-item "Problem List Item"
 * code.text = "Secondary Diagnosis 2"
+* clinicalStatus = ClinicalStatus#active
 * subject = Reference(SUfferer)
 
 
@@ -396,6 +399,7 @@ Description: "Example for Caveat Condition"
 * extension[qualifierValue].valueCoding = SCT#52101004 "Present (qualifier value)"
 * category = ConditionCategory#problem-list-item "Problem List Item"
 * code = SCT#64779008 "Blood coagulation disorder (disorder)"
+* clinicalStatus = ClinicalStatus#active
 * subject = Reference(SUfferer)
 * evidence[+].detail = Reference(CaveatBloodCoagulationINR)
 * evidence[+].detail = Reference(CaveatBloodCoagulationPlatelets)
@@ -431,6 +435,7 @@ Description: "Example for Caveat Condition"
 * category = ConditionCategory#problem-list-item "Problem List Item"
 * extension[qualifierValue].valueCoding = SCT#52101004 "Present (qualifier value)"
 * code = SCT#879862001 "Body piercing (finding)"
+* clinicalStatus = ClinicalStatus#active
 * subject = Reference(SUfferer)
 
 
@@ -442,6 +447,7 @@ Description: "Example for Caveat Condition"
 * category = ConditionCategory#problem-list-item "Problem List Item"
 * extension[qualifierValue].valueCoding = SCT#52101004 "Present (qualifier value)"
 * code = SCT#723188008 "Renal insufficiency (disorder)"
+* clinicalStatus = ClinicalStatus#active
 * subject = Reference(SUfferer)
 * evidence[+].detail = Reference(CaveatRenalInsufficiencyCreatinineClearance)
 * evidence[+].detail = Reference(CaveatRenalInsufficiencyCreatinine)
@@ -477,6 +483,7 @@ Description: "Example for Caveat Condition"
 * category = ConditionCategory#problem-list-item "Problem List Item"
 * extension[qualifierValue].valueCoding = SCT#52101004 "Present (qualifier value)"
 * code = SCT#372567009 "Metformin (substance)"
+* clinicalStatus = ClinicalStatus#active
 * subject = Reference(SUfferer)
 
 
@@ -488,6 +495,7 @@ Description: "Example for Caveat Condition"
 * category = ConditionCategory#problem-list-item "Problem List Item"
 * extension[qualifierValue].valueCoding = SCT#52101004 "Present (qualifier value)"
 * code = SCT#441509002 "Cardiac pacemaker in situ"
+* clinicalStatus = ClinicalStatus#active
 * subject = Reference(SUfferer)
 
 //-------------  Time and Location -------------

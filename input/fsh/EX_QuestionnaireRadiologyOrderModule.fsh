@@ -751,15 +751,15 @@ mittels ImagingStudy Resource (DICOM WADO) oder die mitgegeben werden mit der Do
 * item[=].item[=].item[=].text = "ACSN"
 * item[=].item[=].item[=].type = #string
 
-* item[=].item[=].item[+].linkId = "attachment.dicom.attachment.mimeType"  
+/* item[=].item[=].item[+].linkId = "attachment.dicom.attachment.mimeType"  
 * item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-orf-documentreference-defintions#DocumentReference.content.attachment.data"
 * item[=].item[=].item[=].text = "Mime Type"
 * item[=].item[=].item[=].type = #choice
 * item[=].item[=].item[=].answerValueSet = "http://hl7.org/fhir/ValueSet/mimetypes"
 * item[=].item[=].item[=].initial.valueCoding = MimeType#application/dicom
 * item[=].item[=].item[=].required = true
-
-* item[=].item[=].item[+].linkId = "attachment.dicom.attachment.data"  
+*/
+* item[=].item[=].item[+].linkId = "attachment.dicom.attachment"  
 * item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-orf-documentreference-defintions#DocumentReference.content.attachment.data"
 * item[=].item[=].item[=].text = "DICOM Data"
 * item[=].item[=].item[=].type = #attachment
