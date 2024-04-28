@@ -698,11 +698,11 @@ mittels ImagingStudy Resource (DICOM WADO) oder die mitgegeben werden mit der Do
 * item[=].item[=].item[=].initial.valueCoding = MimeType#application/pdf
 * item[=].item[=].item[=].required = true
 
-
 * item[=].item[=].item[+].linkId = "attachment.nonDicom.attachment.data"  
 * item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-orf-documentreference-defintions#DocumentReference.content.attachment.data"
 * item[=].item[=].item[=].text = "Non-DICOM Data"
 * item[=].item[=].item[=].type = #attachment
+* item[=].item[=].item[=].required = true
 
 * item[+].linkId = "attachment.dicom"
 * item[=].text = "Anhang (DICOM)"
@@ -763,6 +763,7 @@ mittels ImagingStudy Resource (DICOM WADO) oder die mitgegeben werden mit der Do
 * item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-orf-documentreference-defintions#DocumentReference.content.attachment.data"
 * item[=].item[=].item[=].text = "DICOM Data"
 * item[=].item[=].item[=].type = #attachment
+* item[=].item[=].item[=].required = true
 
 /*
 The ImagingStudy’s DICOM Study Instance UID is encoded in the ImagingStudy.identifier element, 

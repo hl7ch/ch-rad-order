@@ -1501,6 +1501,7 @@ Usage: #example
 * item[=].item[=].item.item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-orf-documentreference-defintions#DocumentReference.content.attachment.data"
 * item[=].item[=].item.item[=].text = "Non-DICOM Data"
 * item[=].item[=].item.item[=].type = #attachment
+* item[=].item[=].item.item[=].required = true
 * item[=].item[+].linkId = "attachment.dicom"
 * item[=].item[=].text = "Anhang (DICOM)"
 * item[=].item[=].type = #group
@@ -1544,6 +1545,7 @@ Usage: #example
 * item[=].item[=].item.item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-orf-documentreference-defintions#DocumentReference.content.attachment.data"
 * item[=].item[=].item.item[=].text = "DICOM Data"
 * item[=].item[=].item.item[=].type = #attachment
+* item[=].item[=].item.item[=].required = true
 * item[=].item[+].linkId = "note"
 * item[=].item[=].text = "Bemerkungen"
 * item[=].item[=].type = #group
