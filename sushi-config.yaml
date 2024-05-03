@@ -50,3 +50,8 @@ parameters:
   excludettl: true
   allow-extensible-warnings: true
   display-warnings: true    
+
+resources:
+  StructureMap/RadOrderQrToBundle:
+    name: RadOrderQrToBundle
+    description: Maps RadOrder QuestionnaireResponse to Bundle

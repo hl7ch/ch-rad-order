@@ -1,0 +1,759 @@
+map "http://fhir.ch/ig/ch-rad-order/StructureMap/RadOrderQrToBundle" = "RadOrderQrToBundle"
+
+// Radiologoy QuestionnaireResponse to Bundle
+// Derived from ORF QuestionnaireResponse to Bundle
+// 2021-01-11 Oliver Egger, copyright ahdis ag, Apache License 
+// QRF Questionnaire: http://fhir.ch/ig/ch-orf/Questionnaire-order-referral-form.html
+// QRF QuestionnaireResponse: http://fhir.ch/ig/ch-orf/QuestionnaireResponse-order-referral-form.xml.html
+// Bundle: http://fhir.ch/ig/ch-orf/StructureDefinition-ch-orf-document.html
+
+uses "http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse" alias QuestionnaireResponse as source
+uses "http://hl7.org/fhir/StructureDefinition/Bundle" alias Bundle as target
+uses "http://hl7.org/fhir/StructureDefinition/Composition" alias Composition as target
+uses "http://hl7.org/fhir/StructureDefinition/Patient" alias Patient as target
+uses "http://hl7.org/fhir/StructureDefinition/RelatedPerson" alias RelatedPerson as target
+uses "http://hl7.org/fhir/StructureDefinition/Organization" alias Organization as target
+uses "http://hl7.org/fhir/StructureDefinition/Practitioner" alias Practitioner as target
+uses "http://hl7.org/fhir/StructureDefinition/PractitionerRole" alias PractitionerRole as target
+uses "http://hl7.org/fhir/StructureDefinition/ServiceRequest" alias ServiceRequest as target
+uses "http://hl7.org/fhir/StructureDefinition/Extension" alias Extension as target
+uses "http://hl7.org/fhir/StructureDefinition/EpisodeOfCare" alias EpisodeOfCare as target
+uses "http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse" alias QuestionnaireResponseTarget as target
+
+uses "http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse" alias QuestionnaireResponse as source
+uses "http://hl7.org/fhir/StructureDefinition/Bundle" alias Bundle as target
+uses "http://hl7.org/fhir/StructureDefinition/Patient" alias Patient as target
+uses "http://hl7.org/fhir/StructureDefinition/Organization" alias Organization as target
+uses "http://hl7.org/fhir/StructureDefinition/Practitioner" alias Practitioner as target
+uses "http://hl7.org/fhir/StructureDefinition/PractitionerRole" alias PractitionerRole as target
+uses "http://hl7.org/fhir/StructureDefinition/ServiceRequest" alias ServiceRequest as target
+
+imports "http://fhir.ch/ig/ch-orf/StructureMap/OrfQrToBundle"
+
+group RadOrderQrToBundle(source qr : QuestionnaireResponse, target bundle : Bundle ) {
+      qr -> bundle.identifier as documentIdentifier, documentIdentifier.system = 'urn:ietf:rfc:3986',  uuid() as uuidDoc, documentIdentifier.value = append('urn:uuid:', uuidDoc) "documentIdentifier";
+      qr as qrcp -> bundle.entry as e, 
+             e.resource = create('Composition') as composition, 
+             composition.id = uuid() as uuid,
+             e.fullUrl = ('urn:uuid:'+%uuid),
+             composition.title = 'Radiologieauftrag',
+             composition.type as type, type.coding as coding, coding.code= '2161000195103', coding.system = 'urn:oid:2.16.756.5.30.1.127.3.4', coding.display ='Imaging order (record artifact)',
+             composition.category as category, category.coding as coding, coding.code= '721963009', coding.system = 'http://snomed.info/sct', coding.display ='Order (record artifact)',
+             bundle.entry as e2, 
+             bundle.timestamp = (now()) as timestamp,
+             bundle.type = 'document',
+             composition.date = timestamp,
+             e2.resource = create('Patient') as patient,
+             patient.id = uuid() as uuid2,
+             e2.fullUrl = ('urn:uuid:'+%uuid2),
+             bundle.entry as e4, 
+             e4.resource = create('QuestionnaireResponse') as questionnaireresp then {
+              qr then QuestionnaireResponseMap(qr, questionnaireresp) "questionnaireresp";
+              qr -> questionnaireresp.id = uuid() as uuid4,
+              e4.fullUrl = append('urn:uuid:',uuid4),
+              bundle.entry as e5, 
+              e5.resource = create('ServiceRequest') as servicerequest, 
+              servicerequest.id = uuid() as uuid5,
+              e5.fullUrl = ('urn:uuid:'+%uuid5) then {
+                qr then OrfComposition(qr, composition, patient, questionnaireresp, servicerequest, bundle) "composition";
+                qr then QrToGroups(questionnaireresp, patient, bundle, composition, servicerequest) "orf";
+                qr then RadOrderQrToServiceRequest(questionnaireresp, patient, bundle, composition, servicerequest) "servicerequest";
+              } "servicerequest";
+               //{
+// see also issue StructureMap: Questionnaire cannot be embedded in Bundle #146  
+// FIXME API-0389: Failed to call access method: org.hl7.fhir.exceptions.FHIRException: Error setting resource on BackboneElement for rule OrfQrToBundle|OrfQrToBundle|orfbundle to value Questionnaire[http://fhir.ch/ig/ch-orf/Questionnaire/order-referral-form|1.1.0-assembled]: Cannot set property resource on entry - value is not a primitive type (Questionnaire) or an ElementModel type
+//             then {
+//               qr.questionnaire as can -> bundle.entry as e6, e6.resource = (can.resolve()) as q, q.id = uuid() as uuid6, e6.fullUrl = append('urn:uuid:',uuid6) then QrToBundle(qr, q, patient, questionnaireresp, servicerequest, composition, bundle) "orfbundle";
+//               qr then RadOrderQrToServiceRequest(qr, patient, bundle, composition, servicerequest) "servicerequest";
+             } "orfbundle";
+}
+
+group RadOrderQrToServiceRequest(source qr : QuestionnaireResponse, target patient : Patient, target bundle: Bundle, target composition : Composition, target serviceRequest: ServiceRequest)  {
+  qr.item as grp where linkId='requestedService' then RequestedServiceItems(grp, serviceRequest) "requestedService";
+  qr.item as grp where linkId='reason' then ReasonServiceItems(grp, serviceRequest) "reason";
+  qr.item as grp where linkId='imagingService' then ImagingServiceItems(grp, serviceRequest) "imagingService";
+  qr.item as grp where linkId='orderDetail' then OrderDetailServiceItems(grp, serviceRequest) "orderDetail";
+  qr.item as grp where linkId='desiredRadiologist' then DesiredRadiologistServiceItems(grp, bundle, serviceRequest) "desiredRadiologist";
+  qr.item as grp where linkId='diagnosisList' then DiagnosisListServiceItems(grp, patient, bundle, serviceRequest) "diagnosisList";
+  qr.item as grp where linkId='caveat' then CaveatServiceItems(grp, patient, bundle, serviceRequest) "Caveat";
+  qr.item as grp where linkId='attachment.nonDicom' then PreviousImagingStudyResultsNonDicom(grp, bundle, serviceRequest, patient) "attachment";
+  qr.item as grp where linkId='attachment.dicom' then PreviousImagingStudyResults(grp, bundle, serviceRequest, patient) "attachment";
+}
+
+group RequestedServiceItems(source src , target serviceRequest: ServiceRequest) {
+  src.item as item where (linkId.value = 'requestedService.service' and answer.exists()) then {
+    item.answer as answer then {
+      answer.value: Coding as coding -> serviceRequest.category as cc, cc.coding = coding "requestedServiceService";
+    } "answerCalueCoding";
+  } "itemAnswer";
+}
+
+group ReasonServiceItems(source src , target serviceRequest: ServiceRequest) {
+  src.item as item where (linkId.value = 'reason.question' and answer.exists()) then {
+    item.answer as answer then {
+      answer.value: string as value -> serviceRequest.reasonCode as reasonCode, reasonCode.text = value "reasonQuestion";
+    } "answerValueString";
+  } "itemAnswer";
+}
+
+group ImagingServiceItems(source src, target serviceRequest: ServiceRequest) {
+  src.item as item where (linkId.value = 'imagingService.type' and answer.exists()) then {
+    item.answer as answer then {
+      answer.value: Coding as coding -> serviceRequest.code as code, code.coding = coding "requestedServiceService";
+    } "answerValueCoding";
+  } "itemAnswer";
+}
+
+group OrderDetailServiceItems(source src, target serviceRequest: ServiceRequest) {
+  src.item as item where (linkId.value = 'orderDetail.imagingRegion' and answer.exists()) then {
+    item.answer as answer then {
+      answer.value: Coding as coding -> serviceRequest.orderDetail as cc, 
+                                          cc.extension as ext, 
+                                             ext.url='http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-order-detail-type', 
+                                             ext.value = create('Coding') as coding,
+                                             coding.system = 'http://fhir.ch/ig/ch-rad-order/CodeSystem/ch-rad-order-order-detail-type',
+                                             coding.code = 'imagingRegion', 
+                                          cc.coding = coding "orderDetailImagingRegion";
+    } "answerValueCoding";
+  } "itemAnswer";
+  src.item as item where (linkId.value = 'orderDetail.imagingFocus' and answer.exists()) then {
+    item.answer as answer then {
+      answer.value: Coding as coding -> serviceRequest.bodySite as cc, 
+                                          cc.coding = coding "orderDetailImagingFocus";
+    } "answerValueCoding";
+  } "itemAnswer";
+  src.item as item where (linkId.value = 'orderDetail.laterality' and answer.exists()) then {
+    item.answer as answer then {
+      answer.value: Coding as coding -> serviceRequest.orderDetail as cc, 
+                                          cc.extension as ext, 
+                                          ext.url='http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-order-detail-type', 
+                                          ext.value = create('Coding') as coding,
+                                          coding.system = 'http://fhir.ch/ig/ch-rad-order/CodeSystem/ch-rad-order-order-detail-type',
+                                          coding.code = 'laterality', 
+                                          cc.coding = coding "orderDetailLaterality";
+    } "answerValueCoding";
+  } "itemAnswer";
+  src.item as item where (linkId.value = 'orderDetail.viewType' and answer.exists()) then {
+    item.answer as answer then {
+      answer.value: Coding as coding -> serviceRequest.orderDetail as cc, 
+                                          cc.extension as ext, 
+                                          ext.url='http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-order-detail-type', 
+                                          ext.value = create('Coding') as coding,
+                                          coding.system = 'http://fhir.ch/ig/ch-rad-order/CodeSystem/ch-rad-order-order-detail-type',
+                                          coding.code = 'viewType', 
+                                          cc.coding = coding "orderDetailViewType";
+    } "answerValueCoding";
+  } "itemAnswer";
+  src.item as item where (linkId.value = 'orderDetail.maneuverType' and answer.exists()) then {
+    item.answer as answer then {
+      answer.value: Coding as coding -> serviceRequest.orderDetail as cc, 
+                                          cc.extension as ext, 
+                                          ext.url='http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-order-detail-type', 
+                                          ext.value = create('Coding') as coding,
+                                          coding.system = 'http://fhir.ch/ig/ch-rad-order/CodeSystem/ch-rad-order-order-detail-type',
+                                          coding.code = 'maneuverType', 
+                                          cc.coding = coding "orderDetailManeuverType";
+    } "answerValueCoding";
+  } "itemAnswer";
+  src.item as item where (linkId.value = 'orderDetail.guidanceForAction' and answer.exists()) then {
+    item.answer as answer then {
+      answer.value: Coding as coding -> serviceRequest.orderDetail as cc, 
+                                          cc.extension as ext, 
+                                          ext.url='http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-order-detail-type', 
+                                          ext.value = create('Coding') as coding,
+                                          coding.system = 'http://fhir.ch/ig/ch-rad-order/CodeSystem/ch-rad-order-order-detail-type',
+                                          coding.code = 'guidanceForAction', 
+                                          cc.coding = coding "orderDetailGuidanceForAction";
+    } "answerValueCoding";
+  } "itemAnswer";
+}
+
+group DesiredRadiologistServiceItems(source src, target bundle : Bundle, target serviceRequest: ServiceRequest) {
+  src -> bundle.entry as e, 
+    e.resource = create('Practitioner') as practitioner, 
+    practitioner.id = uuid() as uuid,
+    serviceRequest.performer as performer,
+    performer.reference = ('urn:uuid:'+%uuid),
+    e.fullUrl = ('urn:uuid:'+%uuid) then {
+      src.item as item where (linkId.value = 'desiredRadiologist.familyName' and answer.exists()) -> practitioner.name as name share name, name.family = (%item.answer.value);
+      src.item as item where (linkId.value = 'desiredRadiologist.givenName' and answer.exists()) -> practitioner.name as name share name, name.given = (%item.answer.value);
+    } "serviceRequestPerformer";
+}
+
+group DiagnosisListServiceItems(source src, target patient : Patient, target bundle : Bundle, target serviceRequest: ServiceRequest) {
+  src.item as item where (linkId.value = 'diagnosisList.primaryDiagnosis' and answer.exists()) then {
+    item.answer as answer then {
+      answer.value: string as value -> 
+        bundle.entry as e, 
+          e.resource = create('Condition') as condition, 
+          condition.id = uuid() as uuid,
+          e.fullUrl = ('urn:uuid:'+%uuid),
+          serviceRequest.reasonReference as reasonReference,
+          reasonReference.reference = ('urn:uuid:'+%uuid),
+        condition.category as category,
+          category.coding as coding,
+             coding.code = 'problem-list-item',
+             coding.system = 'http://terminology.hl7.org/CodeSystem/condition-category',
+             coding.display = 'Problem List Item',
+        condition.code as code,
+          code.text = value,
+        condition.subject as subject,
+          subject.reference = ('urn:uuid:'+%patient.id)
+              "diagnosisListPrimaryDiagnosis";
+    } "answerValueString";
+  } "itemAnswer";
+  src.item as item where (linkId.value = 'diagnosisList.secondaryDiagnosis' and answer.exists()) then {
+    item.answer as answer then {
+      answer.value: string as value -> 
+        bundle.entry as e, 
+          e.resource = create('Condition') as condition, 
+          condition.id = uuid() as uuid,
+          e.fullUrl = ('urn:uuid:'+%uuid),
+          serviceRequest.supportingInfo as supportingInfo,
+          supportingInfo.reference = ('urn:uuid:'+%uuid),
+        condition.category as category,
+          category.coding as coding,
+             coding.code = 'problem-list-item',
+             coding.system = 'http://terminology.hl7.org/CodeSystem/condition-category',
+             coding.display = 'Problem List Item',
+        condition.code as code,
+          code.text = value,
+        condition.subject as subject,
+          subject.reference = ('urn:uuid:'+%patient.id)
+              "diagnosisListSecondaryDiagnosis";
+    } "answerValueString";
+  } "itemAnswer";
+  src.item as item where (linkId.value = 'diagnosisList.bodyHeight' and answer.exists()) then {
+    item.answer as answer then {
+      answer.value: Quantity as value -> 
+        bundle.entry as e, 
+          e.resource = create('Observation') as observation, 
+          observation.status = 'final',
+          observation.id = uuid() as uuid,
+          e.fullUrl = ('urn:uuid:'+%uuid),
+          observation.status = 'final',
+          serviceRequest.supportingInfo as supportingInfo,
+          supportingInfo.reference = ('urn:uuid:'+%uuid),
+        observation.category as category,
+          category.coding as coding,
+             coding.code = 'vital-signs',
+             coding.system = 'http://terminology.hl7.org/CodeSystem/observation-category',
+        observation.value = value,
+        observation.code as cc, cc.coding as c, c.system = 'http://loinc.org', c.code = '8302-2',
+      observation.subject as subject,
+          subject.reference = ('urn:uuid:'+%patient.id)
+              "observationBodyHeight";
+    } "answerValueString";
+  } "itemAnswer";
+  src.item as item where (linkId.value = 'diagnosisList.bodyWeight' and answer.exists()) then {
+    item.answer as answer then {
+      answer.value: Quantity as value -> 
+        bundle.entry as e, 
+          e.resource = create('Observation') as observation, 
+          observation.status = 'final',
+          observation.id = uuid() as uuid,
+          observation.status = 'final',
+          e.fullUrl = ('urn:uuid:'+%uuid),
+          serviceRequest.supportingInfo as supportingInfo,
+          supportingInfo.reference = ('urn:uuid:'+%uuid),
+        observation.category as category,
+          category.coding as coding,
+             coding.code = 'vital-signs',
+             coding.system = 'http://terminology.hl7.org/CodeSystem/observation-category',
+        observation.value = value,
+        observation.code as cc, cc.coding as c, c.system = 'http://loinc.org', c.code = '29463-7',
+      observation.subject as subject,
+          subject.reference = ('urn:uuid:'+%patient.id)
+              "observationBbodyWeight";
+    } "answerValueString";
+  } "itemAnswer";
+}
+
+group CaveatServiceItems(source src, target patient : Patient, target bundle : Bundle, target serviceRequest: ServiceRequest) {
+  src.item as item where (linkId.value = 'caveatList.bloodCoagulation' and answer.exists()) then {
+    item.answer as answer then {
+      answer.value: Coding as value -> 
+        bundle.entry as e, 
+          e.resource = create('Condition') as condition, 
+          condition.id = uuid() as uuid,
+          e.fullUrl = ('urn:uuid:'+%uuid),
+          serviceRequest.supportingInfo as supportingInfo,
+          supportingInfo.reference = ('urn:uuid:'+%uuid),
+          condition.extension as ext1, 
+            ext1.url = 'http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-type',
+            ext1.value = create('Coding') as coding, coding.code = '64779008', coding.system = 'http://snomed.info/sct', coding.display = 'Blood coagulation disorder (disorder)', 
+          condition.extension as ext2, 
+            ext2.url = 'http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-qualifier-value',
+            ext2.value = value,
+          condition.category as category,
+            category.coding as coding,
+             coding.code = 'problem-list-item',
+             coding.system = 'http://terminology.hl7.org/CodeSystem/condition-category',
+             coding.display = 'Problem List Item',
+          condition.code as code,
+            code.coding as coding2,
+            coding2.code = '64779008',
+            coding2.system = 'http://snomed.info/sct',
+            coding2.display = 'Blood coagulation disorder (disorder)',
+          condition.subject as subject,
+            subject.reference = ('urn:uuid:'+%patient.id) then {
+            answer.item as subitem where (linkId.value = 'caveatList.bloodCoagulation.INR') ->
+                bundle.entry as e, 
+                e.resource = create('Observation') as observation, 
+                observation.id = uuid() as uuid,
+                observation.status = 'final',
+                e.fullUrl = ('urn:uuid:'+%uuid),
+                condition.evidence as evidence,
+                evidence.detail as detail,
+                detail.reference = ('urn:uuid:'+%uuid),
+                observation.code as cc, cc.coding as c, c.system = 'http://loinc.org', c.code = '34714-6',
+                observation.subject as subject,
+                subject.reference = ('urn:uuid:'+%patient.id) then {
+                  subitem.item as quantityitem where (linkId.value = 'caveatList.bloodCoagulation.INR.quantity' and answer.exists()) then {
+                    quantityitem.answer as answer then {
+                      answer.value: Quantity as value -> observation.value = value "value";
+                    } "caveatBloodCoagulationINRQuantityValue";
+                  } "caveatBloodCoagulationINRQuantity";
+                  subitem.item as datetimeitem where (linkId.value = 'caveatList.bloodCoagulation.INR.dateTime' and answer.exists()) then {
+                    datetimeitem.answer as answer then {
+                      answer.value: dateTime as value -> observation.effective = value "value";
+                    } "caveatBloodCoagulationINRDateTimeValue";
+                  } "caveatBloodCoagulationINRDateTime";
+              } "caveatBloodCoagulationINR";
+            answer.item as subitem where (linkId.value = 'caveatList.bloodCoagulation.platelets') ->
+              bundle.entry as e, 
+              e.resource = create('Observation') as observation, 
+              observation.id = uuid() as uuid,
+              observation.status = 'final',
+              e.fullUrl = ('urn:uuid:'+%uuid),
+              condition.evidence as evidence,
+              evidence.detail as detail,
+              detail.reference = ('urn:uuid:'+%uuid),
+              observation.code as cc, cc.coding as c, c.system = 'http://loinc.org', c.code = '26515-7',
+              observation.subject as subject,
+              subject.reference = ('urn:uuid:'+%patient.id) then {
+                subitem.item as quantityitem where (linkId.value = 'caveatList.bloodCoagulation.platelets.quantity' and answer.exists()) then {
+                  quantityitem.answer as answer then {
+                    answer.value: Quantity as value -> observation.value = value "value";
+                  } "caveatBloodCoagulationINRPlateletsValue";
+                } "caveatBloodCoagulationINRPlatelets";
+                subitem.item as datetimeitem where (linkId.value = 'caveatList.bloodCoagulation.platelets.dateTime' and answer.exists()) then {
+                  datetimeitem.answer as answer then {
+                    answer.value: dateTime as value -> observation.effective = value "value";
+                  } "caveatBloodCoagulationINRPlateletsValue";
+                } "caveatBloodCoagulationINRPlatelets";
+            } "caveatBloodCoagulationINR";
+        } "bloodCoagulation";
+    } "answerValueString";
+  } "itemAnswer";
+
+  src.item as item where (linkId.value = 'caveatList.renalInsufficiency' and answer.exists()) then {
+    item.answer as answer then {
+      answer.value: Coding as value -> 
+        bundle.entry as e, 
+          e.resource = create('Condition') as condition, 
+          condition.id = uuid() as uuid,
+          e.fullUrl = ('urn:uuid:'+%uuid),
+          serviceRequest.supportingInfo as supportingInfo,
+          supportingInfo.reference = ('urn:uuid:'+%uuid),
+          condition.extension as ext1, 
+            ext1.url = 'http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-type',
+            ext1.value = create('Coding') as coding, coding.code = '723188008', coding.system = 'http://snomed.info/sct', coding.display = 'Renal insufficiency (disorder)', 
+          condition.extension as ext2, 
+            ext2.url = 'http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-qualifier-value',
+            ext2.value = value,
+          condition.category as category,
+            category.coding as coding,
+             coding.code = 'problem-list-item',
+             coding.system = 'http://terminology.hl7.org/CodeSystem/condition-category',
+             coding.display = 'Problem List Item',
+          condition.code as code,
+            code.coding as coding2,
+            coding2.code = '723188008',
+            coding2.system = 'http://snomed.info/sct',
+            coding2.display = 'Renal insufficiency (disorder)',
+          condition.subject as subject,
+            subject.reference = ('urn:uuid:'+%patient.id) then {
+            answer.item as subitem where (linkId.value = 'caveatList.renalInsufficiency.creatinineClearance') ->
+                bundle.entry as e, 
+                e.resource = create('Observation') as observation, 
+                observation.status = 'final',
+                observation.id = uuid() as uuid,
+                e.fullUrl = ('urn:uuid:'+%uuid),
+                condition.evidence as evidence,
+                evidence.detail as detail,
+                detail.reference = ('urn:uuid:'+%uuid),
+                observation.code as cc, cc.coding as c, c.system = 'http://loinc.org', c.code = '33558-8',
+                observation.subject as subject,
+                subject.reference = ('urn:uuid:'+%patient.id) then {
+                  subitem.item as quantityitem where (linkId.value = 'caveatList.renalInsufficiency.creatinineClearance.quantity' and answer.exists()) then {
+                    quantityitem.answer as answer then {
+                      answer.value: Quantity as value -> observation.value = value "value";
+                    } "caveatListRenalInsufficiencyCreatinineClearanceQuantityValue";
+                  } "caveatListRenalInsufficiencyCreatinineClearanceQuantity";
+                  subitem.item as datetimeitem where (linkId.value = 'caveatList.renalInsufficiency.creatinineClearance.dateTime' and answer.exists()) then {
+                    datetimeitem.answer as answer then {
+                      answer.value: dateTime as value -> observation.effective = value "value";
+                    } "caveatListRenalInsufficiencyCreatinineClearanceDateTimeValue";
+                  } "caveatListRenalInsufficiencyCreatinineClearancedateTime";
+              } "caveatListRenalInsufficiencyCreatinineClearanceINR";
+            answer.item as subitem where (linkId.value = 'caveatList.renalInsufficiency.creatinine') ->
+              bundle.entry as e, 
+              e.resource = create('Observation') as observation, 
+              observation.status = 'final',
+              observation.id = uuid() as uuid,
+              e.fullUrl = ('urn:uuid:'+%uuid),
+              condition.evidence as evidence,
+              evidence.detail as detail,
+              detail.reference = ('urn:uuid:'+%uuid),
+              observation.code as cc, cc.coding as c, c.system = 'http://loinc.org', c.code = '77140-2',
+              observation.subject as subject,
+              subject.reference = ('urn:uuid:'+%patient.id) then {
+                subitem.item as quantityitem where (linkId.value = 'caveatList.renalInsufficiency.creatinine.quantity' and answer.exists()) then {
+                  quantityitem.answer as answer then {
+                    answer.value: Quantity as value -> observation.value = value "value";
+                  } "caveatListRenalInsufficiencyCreatinineValue";
+                } "caveatListRenalInsufficiencyCreatinine";
+                subitem.item as datetimeitem where (linkId.value = 'caveatList.renalInsufficiency.creatinine.dateTime' and answer.exists()) then {
+                  datetimeitem.answer as answer then {
+                    answer.value: dateTime as value -> observation.effective = value "value";
+                  } "caveatListRenalInsufficiencyCreatininevalue";
+                } "caveatBloodCoagulationINRPlatelets";
+            } "caveatListRenalInsufficiencyCreatinine";
+        } "bloodCoagulation";
+    } "answerValueString";
+  } "itemAnswer";
+
+  src.item as item where (linkId.value = 'caveatList.claustrophobia' and answer.exists()) then {
+    item.answer as answer then {
+      answer.value: Coding as value -> 
+        bundle.entry as e, 
+          e.resource = create('Condition') as condition, 
+          condition.id = uuid() as uuid,
+          e.fullUrl = ('urn:uuid:'+%uuid),
+          serviceRequest.supportingInfo as supportingInfo,
+          supportingInfo.reference = ('urn:uuid:'+%uuid),
+          condition.extension as ext1, 
+            ext1.url = 'http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-type',
+            ext1.value = create('Coding') as coding, coding.code = '19887002', coding.system = 'http://snomed.info/sct', coding.display = 'Claustrophobia (finding)', 
+          condition.extension as ext2, 
+            ext2.url = 'http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-qualifier-value',
+            ext2.value = value,
+        condition.category as category,
+          category.coding as coding,
+             coding.code = 'problem-list-item',
+             coding.system = 'http://terminology.hl7.org/CodeSystem/condition-category',
+             coding.display = 'Problem List Item',
+        condition.code as code,
+            code.coding as coding2,
+            coding2.code = '19887002',
+            coding2.system = 'http://snomed.info/sct',
+            coding2.display = 'Claustrophobia (finding)',
+        condition.subject as subject,
+          subject.reference = ('urn:uuid:'+%patient.id)
+              "caveatListClaustrophobia";
+    } "answerValueString";
+  } "itemAnswer";
+
+  src.item as item where (linkId.value = 'caveatList.bodyPiercing' and answer.exists()) then {
+    item.answer as answer then {
+      answer.value: Coding as value  -> 
+        bundle.entry as e, 
+          e.resource = create('Condition') as condition, 
+          condition.id = uuid() as uuid,
+          e.fullUrl = ('urn:uuid:'+%uuid),
+          serviceRequest.supportingInfo as supportingInfo,
+          supportingInfo.reference = ('urn:uuid:'+%uuid),
+          condition.extension as ext1, 
+            ext1.url = 'http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-type',
+            ext1.value = create('Coding') as coding, coding.code = '879862001', coding.system = 'http://snomed.info/sct', coding.display = 'Body piercing (finding)', 
+          condition.extension as ext2, 
+            ext2.url = 'http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-qualifier-value',
+            ext2.value = value,
+        condition.category as category,
+          category.coding as coding,
+             coding.code = 'problem-list-item',
+             coding.system = 'http://terminology.hl7.org/CodeSystem/condition-category',
+             coding.display = 'Problem List Item',
+        condition.code as code,
+            code.coding as coding2,
+            coding2.code = '879862001',
+            coding2.system = 'http://snomed.info/sct',
+            coding2.display = 'Body piercing (finding)',
+        condition.subject as subject,
+          subject.reference = ('urn:uuid:'+%patient.id)
+              "caveatListBodyPiercing";
+    } "answerValueString";
+  } "itemAnswer";
+
+  src.item as item where (linkId.value = 'caveatList.device' and answer.exists()) then {
+    item.answer as answer then {
+      answer.value: Coding as value  -> 
+        bundle.entry as e, 
+          e.resource = create('Condition') as condition, 
+          condition.id = uuid() as uuid,
+          e.fullUrl = ('urn:uuid:'+%uuid),
+          serviceRequest.supportingInfo as supportingInfo,
+          supportingInfo.reference = ('urn:uuid:'+%uuid),
+          condition.extension as ext1, 
+            ext1.url = 'http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-type',
+            ext1.value = create('Coding') as coding, coding.code = '397578001', coding.system = 'http://snomed.info/sct', coding.display = 'Device in situ (finding)', 
+          condition.extension as ext2, 
+            ext2.url = 'http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-qualifier-value',
+            ext2.value = create('Coding') as coding, coding.code = '52101004', coding.system = 'http://snomed.info/sct', coding.display = 'Present (qualifier value)',
+        condition.category as category,
+          category.coding as coding,
+             coding.code = 'problem-list-item',
+             coding.system = 'http://terminology.hl7.org/CodeSystem/condition-category',
+             coding.display = 'Problem List Item',
+        condition.code as code,
+            code.coding = value,
+        condition.subject as subject,
+          subject.reference = ('urn:uuid:'+%patient.id)
+              "caveatListDevice";
+    } "answerValueString";
+  } "itemAnswer";
+
+  src.item as item where (linkId.value = 'caveatList.hyperthyroidism' and answer.exists()) then {
+    item.answer as answer then {
+      answer.value: Coding as value -> 
+        bundle.entry as e, 
+          e.resource = create('Condition') as condition, 
+          condition.id = uuid() as uuid,
+          e.fullUrl = ('urn:uuid:'+%uuid),
+          serviceRequest.supportingInfo as supportingInfo,
+          supportingInfo.reference = ('urn:uuid:'+%uuid),
+          condition.extension as ext1, 
+            ext1.url = 'http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-type',
+            ext1.value = create('Coding') as coding, coding.code = '34486009', coding.system = 'http://snomed.info/sct', coding.display = 'Hyperthyroidism (disorder)', 
+          condition.extension as ext2, 
+            ext2.url = 'http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-qualifier-value',
+            ext2.value = value,
+        condition.category as category,
+          category.coding as coding,
+             coding.code = 'problem-list-item',
+             coding.system = 'http://terminology.hl7.org/CodeSystem/condition-category',
+             coding.display = 'Problem List Item',
+        condition.code as code,
+            code.coding as coding2,
+            coding2.code = '34486009',
+            coding2.system = 'http://snomed.info/sct',
+            coding2.display = 'Hyperthyroidism (disorder)',
+        condition.subject as subject,
+          subject.reference = ('urn:uuid:'+%patient.id)
+              "caveatListHyperthyroidism";
+    } "answerValueString";
+  } "itemAnswer";
+
+  src.item as item where (linkId.value = 'caveatList.diabetes' and answer.exists()) then {
+    item.answer as answer then {
+      answer.value: Coding as value -> 
+        bundle.entry as e, 
+          e.resource = create('Condition') as condition, 
+          condition.id = uuid() as uuid,
+          e.fullUrl = ('urn:uuid:'+%uuid),
+          serviceRequest.supportingInfo as supportingInfo,
+          supportingInfo.reference = ('urn:uuid:'+%uuid),
+          condition.extension as ext1, 
+            ext1.url = 'http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-type',
+            ext1.value = create('Coding') as coding, coding.code = '73211009', coding.system = 'http://snomed.info/sct', coding.display = 'Diabetes mellitus (disorder)', 
+          condition.extension as ext2, 
+            ext2.url = 'http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-qualifier-value',
+            ext2.value = value,
+        condition.category as category,
+          category.coding as coding,
+             coding.code = 'problem-list-item',
+             coding.system = 'http://terminology.hl7.org/CodeSystem/condition-category',
+             coding.display = 'Problem List Item',
+        condition.code as code,
+            code.coding as coding2,
+            coding2.code = '73211009',
+            coding2.system = 'http://snomed.info/sct',
+            coding2.display = 'Diabetes mellitus (disorder)',
+        condition.subject as subject,
+          subject.reference = ('urn:uuid:'+%patient.id)
+              "caveatListDiabetes";
+    } "answerValueString";
+  } "itemAnswer";
+
+  src.item as item where (linkId.value = 'caveatList.gravida' and answer.exists()) then {
+    item.answer as answer then {
+      answer.value: Coding as value -> 
+        bundle.entry as e, 
+          e.resource = create('Condition') as condition, 
+          condition.id = uuid() as uuid,
+          e.fullUrl = ('urn:uuid:'+%uuid),
+          serviceRequest.supportingInfo as supportingInfo,
+          supportingInfo.reference = ('urn:uuid:'+%uuid),
+          condition.extension as ext1, 
+            ext1.url = 'http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-type',
+            ext1.value = create('Coding') as coding, coding.code = '366321006', coding.system = 'http://snomed.info/sct', coding.display = 'Finding of gravida (finding)', 
+          condition.extension as ext2, 
+            ext2.url = 'http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-qualifier-value',
+            ext2.value = value,
+        condition.category as category,
+          category.coding as coding,
+             coding.code = 'problem-list-item',
+             coding.system = 'http://terminology.hl7.org/CodeSystem/condition-category',
+             coding.display = 'Problem List Item',
+        condition.code as code,
+            code.coding as coding2,
+            coding2.code = '366321006',
+            coding2.system = 'http://snomed.info/sct',
+            coding2.display = 'Finding of gravida (finding)',
+        condition.subject as subject,
+          subject.reference = ('urn:uuid:'+%patient.id)
+              "caveatListGravida";
+    } "answerValueString";
+  } "itemAnswer";
+
+  src.item as item where (linkId.value = 'caveatList.contrastMediaAllergy' and answer.exists()) then {
+    item.answer as answer then {
+      answer.value: Coding as value -> 
+        bundle.entry as e, 
+          e.resource = create('Condition') as condition, 
+          condition.id = uuid() as uuid,
+          e.fullUrl = ('urn:uuid:'+%uuid),
+          serviceRequest.supportingInfo as supportingInfo,
+          supportingInfo.reference = ('urn:uuid:'+%uuid),
+          condition.extension as ext1, 
+            ext1.url = 'http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-type',
+            ext1.value = create('Coding') as coding, coding.code = '293637006', coding.system = 'http://snomed.info/sct', coding.display = 'Allergy to contrast media (finding)', 
+          condition.extension as ext2, 
+            ext2.url = 'http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-qualifier-value',
+            ext2.value = value,
+        condition.category as category,
+          category.coding as coding,
+             coding.code = 'problem-list-item',
+             coding.system = 'http://terminology.hl7.org/CodeSystem/condition-category',
+             coding.display = 'Problem List Item',
+        condition.code as code,
+            code.coding as coding2,
+            coding2.code = '293637006',
+            coding2.system = 'http://snomed.info/sct',
+            coding2.display = 'Allergy to contrast media (finding)',
+        condition.subject as subject,
+          subject.reference = ('urn:uuid:'+%patient.id)
+              "caveatListContrastMediaAllergy";
+    } "answerValueString";
+  } "itemAnswer";
+
+  // "caveatListDrugPrescription.metformin"
+  // caveatList.drugPrescription.betaBlocke 
+  src.item as item where (linkId.value = 'caveatList.drugPrescription') then DesiredRadiologistServiceItemsDrugDescription(item, bundle, serviceRequest, patient) "DrugPrescription";
+}
+
+group DesiredRadiologistServiceItemsDrugDescription(source src, target bundle : Bundle, target serviceRequest: ServiceRequest, target patient: Patient) {
+  src.item as item where (linkId.value = 'caveatList.drugPrescription.metformin') then {
+    item.answer as answer then {
+      answer.value: Coding as value -> 
+        bundle.entry as e, 
+          e.resource = create('Condition') as condition, 
+          condition.id = uuid() as uuid,
+          e.fullUrl = ('urn:uuid:'+%uuid),
+          serviceRequest.supportingInfo as supportingInfo,
+          supportingInfo.reference = ('urn:uuid:'+%uuid),
+          condition.extension as ext1, 
+            ext1.url = 'http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-type',
+            ext1.value = create('Coding') as coding, coding.code = '182817000', coding.system = 'http://snomed.info/sct', coding.display = 'Drug prescription (situation)', 
+          condition.extension as ext2, 
+            ext2.url = 'http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-qualifier-value',
+            ext2.value = value,
+        condition.category as category,
+          category.coding as coding,
+            coding.code = 'problem-list-item',
+            coding.system = 'http://terminology.hl7.org/CodeSystem/condition-category',
+            coding.display = 'Problem List Item',
+        condition.code as code,
+            code.coding as coding2,
+            coding2.code = '372567009',
+            coding2.system = 'http://snomed.info/sct',
+            coding2.display = 'Metformin (substance)',
+        condition.subject as subject,
+          subject.reference = ('urn:uuid:'+%patient.id)
+              "caveatListDrugPrescription";
+    } "answerValueString";
+  } "caveatListDrugPrescriptionMetformin";
+  src.item as item where (linkId.value = 'caveatList.drugPrescription.betaBlocker') then {
+    item.answer as answer then {
+      answer.value: Coding as value -> 
+        bundle.entry as e, 
+          e.resource = create('Condition') as condition, 
+          condition.id = uuid() as uuid,
+          e.fullUrl = ('urn:uuid:'+%uuid),
+          serviceRequest.supportingInfo as supportingInfo,
+          supportingInfo.reference = ('urn:uuid:'+%uuid),
+          condition.extension as ext1, 
+            ext1.url = 'http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-type',
+            ext1.value = create('Coding') as coding, coding.code = '182817000', coding.system = 'http://snomed.info/sct', coding.display = 'Drug prescription (situation)', 
+          condition.extension as ext2, 
+            ext2.url = 'http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-qualifier-value',
+            ext2.value = value,
+        condition.category as category,
+          category.coding as coding,
+            coding.code = 'problem-list-item',
+            coding.system = 'http://terminology.hl7.org/CodeSystem/condition-category',
+            coding.display = 'Problem List Item',
+        condition.code as code,
+            code.coding as coding2,
+            coding2.code = '373254001',
+            coding2.system = 'http://snomed.info/sct',
+            coding2.display = 'Substance with beta adrenergic receptor antagonist mechanism of action (substance)',
+        condition.subject as subject,
+          subject.reference = ('urn:uuid:'+%patient.id)
+              "caveatListDrugPrescription";
+    } "answerValueString";
+  } "caveatListDrugPrescriptionBetaBlocker";
+}  
+
+group PreviousImagingStudyResultsNonDicom(source grp , target bundle: Bundle, target serviceRequest: ServiceRequest, target patient: Patient) {
+  grp.item as item where (linkId.value = 'attachment.nonDicom.title') -> 
+    bundle.entry as e, 
+    e.resource = create('DocumentReference') as documentReference, 
+    documentReference.id = uuid() as uuid,
+    documentReference.subject as subject, subject.reference = ('urn:uuid:'+%patient.id),
+    e.fullUrl = append('urn:uuid:',uuid), 
+    documentReference.status = 'current',
+    serviceRequest.supportingInfo as supportingInfo,
+    supportingInfo.reference = ('urn:uuid:'+%uuid) then {
+      item.answer as answer then {
+        answer.item as dictomitem where (linkId.value = 'attachment.nonDicom.attachment' and answer.exists()) -> 
+        documentReference.content as content, content.attachment = (%dictomitem.answer.value) as attachment then {
+          answer.value: string as value -> attachment.title = value "tmpshouldnotbe";
+        }  "uid";
+        answer.item as dictomitem where (linkId.value = 'attachment.nonDicom.description' and answer.exists()) -> 
+          documentReference.description = (%dictomitem.answer.value) "description";
+      } "answerValueString";
+    } "itemAnswer";
+}
+
+group PreviousImagingStudyResults(source grp , target bundle: Bundle, target serviceRequest: ServiceRequest, target patient: Patient) {
+  grp.item as item where (linkId.value = 'attachment.dicom.title') -> 
+    bundle.entry as e, 
+    e.resource = create('ImagingStudy') as imagingStudy, 
+    imagingStudy.id = uuid() as uuid,
+    imagingStudy.status = 'available',
+    imagingStudy.subject as subject, subject.reference = ('urn:uuid:'+%patient.id),
+    e.fullUrl = append('urn:uuid:',uuid), 
+    serviceRequest.subject as subject, subject.reference = ('urn:uuid:'+%patient.id),
+    serviceRequest.supportingInfo as supportingInfo,
+    supportingInfo.reference = ('urn:uuid:'+%uuid) then {
+      item.answer as answer -> imagingStudy.series as series, series.instance as instance then {
+        answer.value: string as value -> imagingStudy.description = value "description";
+        answer.item as dictomitem where (linkId.value = 'attachment.dicom.sopInstanceUid' and answer.exists()) -> 
+          instance.uid  =(%dictomitem.answer.value) "uid";
+        answer.item as dictomitem where (linkId.value = 'attachment.dicom.sopClass' and answer.exists()) -> 
+          instance.sopClass as sopClass, sopClass.code =(%dictomitem.answer.value.code) "sopClass";
+        answer.item as dictomitem where (linkId.value = 'attachment.dicom.modality' and answer.exists()) -> 
+          series.modality as modality, modality.code =(%dictomitem.answer.value.code) "modality";
+        answer.item as dictomitem where (linkId.value = 'attachment.dicom.studyInstanceUid' and answer.exists()) -> 
+        imagingStudy.identifier as uid, uid.type as type, type.coding as coding, coding.system ='urn:dicom:uid',
+        coding.code='PLAC', uid.value=(%dictomitem.answer.value) "uid";
+        answer.item as dictomitem where (linkId.value = 'attachment.dicom.SeriesInstanceUid' and answer.exists()) -> 
+          series.uid =(%dictomitem.answer.value) "attachmentdicomSeriesInstanceUid";
+        answer.item as dictomitem where (linkId.value = 'attachment.dicom.acsn' and answer.exists()) -> 
+          imagingStudy.identifier as acsn, acsn.type as type, type.coding as coding, coding.system ='http://terminology.hl7.org/CodeSystem/v2-0203',
+          coding.code='ACSN', acsn.value=(%dictomitem.answer.value) "acsn";
+      } "answerValueString";
+    } "itemAnswer";
+}

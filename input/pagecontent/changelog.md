@@ -7,6 +7,8 @@ All significant changes to this FHIR implementation guide will be documented on 
 #### Added
 * [Issue #36](https://github.com/hl7ch/ch-rad-order/issues/36): Added  SCT#373068000 as initial value to caveat Diabetes mellitus".
 * [Issue #59](https://github.com/hl7ch/ch-rad-order/issues/59): Use CH Core Condition as parent profile
+* [Issue #57](https://github.com/hl7ch/ch-rad-order/issues/57): Fix StructureMap errors and adapt map to new Questionnaire
+
 
 ### STU 1 (2022-02-22)
 
