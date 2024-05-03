@@ -33,7 +33,7 @@ Description: "Example for ServiceRequest"
 * supportingInfo[caveats][+] = Reference(CaveatDeviceCardiacPacemaker)
 * supportingInfo[caveats][+] = Reference(CaveatDrugPrescriptionMetformin)
 
-* supportingInfo[previousImagingResults][+] = Reference(DocumentReferenceDicomSopInstanceConformant)
+//* supportingInfo[previousImagingResults][+] = Reference(DocumentReferenceDicomSopInstanceConformant)
 * supportingInfo[previousImagingResults][+] = Reference(DocumentReferenceNonDicom)
 
 * bodySite = RDLX#RID2468 "Chest wall" // imagingFocus
@@ -149,8 +149,8 @@ Description: "Example for Bundle"
 * entry[+].fullUrl = "http://example.com/fhir/ImagingStudy/DicomSopInstanceConformant"
 * entry[=].resource = DicomSopInstanceConformant
 
-* entry[+].fullUrl = "http://example.com/fhir/DocumentReference/DocumentReferenceDicomSopInstanceConformant"
-* entry[=].resource = DocumentReferenceDicomSopInstanceConformant
+//* entry[+].fullUrl = "http://example.com/fhir/DocumentReference/DocumentReferenceDicomSopInstanceConformant"
+//* entry[=].resource = DocumentReferenceDicomSopInstanceConformant
 
 * entry[+].fullUrl = "http://example.com/fhir/DocumentReference/DocumentReferenceNonDicom"
 * entry[=].resource = DocumentReferenceNonDicom
@@ -529,7 +529,7 @@ Description: "Example for Location"
 Instance: DocumentReferenceNonDicom
 InstanceOf: ChOrfDocumentReference
 Title: "Befund_Rx_Thorax_S_Ufferer_20190401"
-Description: "Example of non-Dicom Attachment (e.g. pdf)"
+Description: "Example of Document Reference for Attachment (e.g. pdf)"
 * status = #current
 * content.attachment.title = "Befund_Rx_Thorax_S_Ufferer_20190401.pdf"
 * description = "Befund Thorax-Rx vom 1.2.23; Eyample of Non-DICOM Attachment"
@@ -549,10 +549,11 @@ Description: "Rx-Knie-S_Ufferer_05032024; Example of DICOM conformant SOP Instan
 * identifier[studyInstanceUid].value = "2.16.124.113543.1154777499.30246.19789.3503430045" //StudyInstanceUid 
 * identifier[acsn].value = "2819497684894126" //ACSN
 
-Instance: DocumentReferenceDicomSopInstanceConformant
+/*Instance: DocumentReferenceDicomSopInstanceConformant
 InstanceOf: ChOrfDocumentReference
 Title: "Rx-Knie-S_Ufferer_05032024"
 Description: "Example for Previous Result"
 * status = #current
 * content.attachment.contentType = MimeType#application/dicom
 * content.attachment.data = "VGhpcyBpcyBhbiBleGFtcGxl" // Encoded in base64
+*/
