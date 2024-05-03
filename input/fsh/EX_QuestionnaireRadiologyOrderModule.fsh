@@ -735,4 +735,4 @@ mittels ImagingStudy Resource (DICOM WADO) oder die mitgegeben werden mit der Do
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest-definitions#ServiceRequest.note.text"
 * item[=].item[=].text = "Kommentar" 
 * item[=].item[=].type = #string
-* item[=].item[=].required = true
+//* item[=].item[=].required = true

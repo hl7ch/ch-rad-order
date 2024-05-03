@@ -1530,4 +1530,3 @@ Usage: #example
 * item[=].item[=].item.definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest-definitions#ServiceRequest.note.text"
 * item[=].item[=].item.text = "Kommentar"
 * item[=].item[=].item.type = #string
-* item[=].item[=].item.required = true
