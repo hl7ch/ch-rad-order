@@ -555,5 +555,5 @@ Title: "Rx-Knie-S_Ufferer_05032024"
 Description: "Example for Previous Result"
 * status = #current
 * content.attachment.contentType = MimeType#application/dicom
-* content.attachment.data = "VGhpcyBpcyBhbiBleGFtcGxl" // Encoded in base64
+* content.attachedFile = "VGhpcyBpcyBhbiBleGFtcGxl" // Encoded in base64
 */

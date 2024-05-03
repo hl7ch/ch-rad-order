@@ -1479,47 +1479,47 @@ Usage: #example
 * item[+].linkId = "previousResults"
 * item[=].text = "Vorherige Untersuchungsresultate"
 * item[=].type = #group
-* item[=].item[0].linkId = "previousResults.attachment"
-* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-orf-documentreference-defintions#DocumentReference.content.attachment.data"
+* item[=].item[0].linkId = "attachedFile"
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-orf-documentreference-defintions#DocumentReference.content.attachedFile"
 * item[=].item[=].text = "Datei"
 * item[=].item[=].type = #attachment
 * item[=].item[=].repeats = true
-* item[=].item[=].item.linkId = "previousResults.attachment.description"
+* item[=].item[=].item.linkId = "attachedFile.description"
 * item[=].item[=].item.definition = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-documentreference-definitions#DocumentReference.description"
 * item[=].item[=].item.text = "Beschreibung"
 * item[=].item[=].item.type = #string
-* item[=].item[+].linkId = "previousResults.dicom"
+* item[=].item[+].linkId = "dicomObject"
 * item[=].item[=].text = "DICOM Objekt"
 * item[=].item[=].type = #group
 * item[=].item[=].repeats = true
-* item[=].item[=].item[0].linkId = "previousResults.dicom.sopInstanceUid"
+* item[=].item[=].item[0].linkId = "dicomObject.sopInstanceUid"
 * item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy-definitions#ImagingStudy.series.instance.uid"
 * item[=].item[=].item[=].text = "DICOM SOP Instance UID"
 * item[=].item[=].item[=].type = #string
 * item[=].item[=].item[=].required = true
-* item[=].item[=].item[+].linkId = "previousResults.dicom.sopClass"
+* item[=].item[=].item[+].linkId = "dicomObject.sopClass"
 * item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy-definitions#ImagingStudy.series.instance.sopClass.value"
 * item[=].item[=].item[=].text = "DICOM SOP Class"
 * item[=].item[=].item[=].type = #choice
 * item[=].item[=].item[=].required = true
 * item[=].item[=].item[=].answerValueSet = "https://dicom.nema.org/medical/dicom/current/output/chtml/part04/sect_B.5.html#table_B.5-1"
-* item[=].item[=].item[+].linkId = "previousResults.dicom.modality"
+* item[=].item[=].item[+].linkId = "dicomObject.modality"
 * item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy-definitions#.ImagingStudy.series.modality.coding"
 * item[=].item[=].item[=].text = "DICOM Series Modality"
 * item[=].item[=].item[=].type = #choice
 * item[=].item[=].item[=].required = true
 * item[=].item[=].item[=].answerValueSet = "https://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_33.html"
-* item[=].item[=].item[+].linkId = "previousResults.dicom.SeriesInstanceUid"
+* item[=].item[=].item[+].linkId = "dicomObject.SeriesInstanceUid"
 * item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy-definitions#ImagingStudy.series.uid"
 * item[=].item[=].item[=].text = "DICOM Series Instance UID"
 * item[=].item[=].item[=].type = #string
 * item[=].item[=].item[=].required = true
-* item[=].item[=].item[+].linkId = "previousResults.dicom.studyInstanceUid"
+* item[=].item[=].item[+].linkId = "dicomObject.studyInstanceUid"
 * item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy-definitions#ImagingStudy.identifier"
 * item[=].item[=].item[=].text = "DICOM Study Instance UID"
 * item[=].item[=].item[=].type = #string
 * item[=].item[=].item[=].required = true
-* item[=].item[=].item[+].linkId = "previousResults.dicom.acsn"
+* item[=].item[=].item[+].linkId = "dicomObject.acsn"
 * item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy-definitions#ImagingStudy.identifier"
 * item[=].item[=].item[=].text = "ACSN"
 * item[=].item[=].item[=].type = #string

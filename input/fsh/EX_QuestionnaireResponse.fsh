@@ -713,39 +713,39 @@ Previous Results:
 * item[+].linkId = "previousResults"
 * item[=].text = "Vorherige Untersuchungsresultate"
 
-* item[=].item[+].linkId = "previousResults.attachment"  
+* item[=].item[+].linkId = "attachedFile"  
 * item[=].item[=].text = "Datei"
 * item[=].item[=].answer[+].valueAttachment.contentType = MimeType#application/pdf
 * item[=].item[=].answer[=].valueAttachment.data = "VGVzdCBCZWZ1bmQgTm9uIERpY29t" // Encoded in base64
 
-* item[=].item[=].answer[=].item[+].linkId = "previousResults.attachment.description"  
+* item[=].item[=].answer[=].item[+].linkId = "attachedFile.description"  
 * item[=].item[=].answer[=].item[=].text = "Beschreibung"
 * item[=].item[=].answer[=].item[=].answer[+].valueString = "Befund Notfall-Rx nach Sturz"
 
-* item[=].item[+].linkId = "previousResults.dicom"
+* item[=].item[+].linkId = "dicomObject"
 * item[=].item[=].text = "DICOM Objekt"
 
-* item[=].item[=].item[+].linkId = "previousResults.dicom.sopInstanceUid"  
+* item[=].item[=].item[+].linkId = "dicomObject.sopInstanceUid"  
 * item[=].item[=].item[=].text = "DICOM SOP Instance UID"
 * item[=].item[=].item[=].answer[+].valueString = "2.16.124.113543.1154777499.30246.19789.3503430045.1.1"
 
-* item[=].item[=].item[+].linkId = "previousResults.dicom.sopClass"  
+* item[=].item[=].item[+].linkId = "dicomObject.sopClass"  
 * item[=].item[=].item[=].text = "DICOM SOP Class"
 * item[=].item[=].item[=].answer[+].valueCoding = #1.2.840.10008.5.1.4.1.1.1
 
-* item[=].item[=].item[+].linkId = "previousResults.dicom.modality"  
+* item[=].item[=].item[+].linkId = "dicomObject.modality"  
 * item[=].item[=].item[=].text = "DICOM Series Modality"
 * item[=].item[=].item[=].answer[+].valueCoding = #DX
 
-* item[=].item[=].item[+].linkId = "previousResults.dicom.SeriesInstanceUid"  
+* item[=].item[=].item[+].linkId = "dicomObject.SeriesInstanceUid"  
 * item[=].item[=].item[=].text = "DICOM Series Instance UID"
 * item[=].item[=].item[=].answer[+].valueString = "2.16.124.113543.1154777499.30246.19789.3503430045.1"
 
-* item[=].item[=].item[+].linkId = "previousResults.dicom.studyInstanceUid"  
+* item[=].item[=].item[+].linkId = "dicomObject.studyInstanceUid"  
 * item[=].item[=].item[=].text = "DICOM Study Instance UID"
 * item[=].item[=].item[=].answer[+].valueString = "2.16.124.113543.1154777499.30246.19789.3503430045"
 
-* item[=].item[=].item[+].linkId = "previousResults.dicom.acsn"  
+* item[=].item[=].item[+].linkId = "dicomObject.acsn"  
 * item[=].item[=].item[=].text = "ACSN"
 * item[=].item[=].item[=].answer[+].valueString = "2819497684894126"
 
