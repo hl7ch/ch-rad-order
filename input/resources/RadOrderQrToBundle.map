@@ -77,7 +77,7 @@ group RadOrderQrToServiceRequest(source qr : QuestionnaireResponse, target patie
   qr.item as grp where linkId='diagnosisList' then DiagnosisListServiceItems(grp, patient, bundle, serviceRequest) "diagnosisList";
   qr.item as grp where linkId='caveat' then CaveatServiceItems(grp, patient, bundle, serviceRequest) "Caveat";
   qr.item as grp where linkId='attachment.nonDicom' then PreviousImagingStudyResultsNonDicom(grp, bundle, serviceRequest, patient) "attachment";
-  qr.item as grp where linkId='attachment.dicom' then PreviousImagingStudyResults(grp, bundle, serviceRequest, patient) "attachment";
+  qr.item as grp where linkId='previousResults.dicom' then PreviousImagingStudyResults(grp, bundle, serviceRequest, patient) "attachment";
 }
 
 group RequestedServiceItems(source src , target serviceRequest: ServiceRequest) {
@@ -717,18 +717,18 @@ group PreviousImagingStudyResultsNonDicom(source grp , target bundle: Bundle, ta
     serviceRequest.supportingInfo as supportingInfo,
     supportingInfo.reference = ('urn:uuid:'+%uuid) then {
       item.answer as answer then {
-        answer.item as dictomitem where (linkId.value = 'attachment.nonDicom.attachment' and answer.exists()) -> 
+        answer.item as dictomitem where (linkId.value = 'previousResults.attachment' and answer.exists()) -> 
         documentReference.content as content, content.attachment = (%dictomitem.answer.value) as attachment then {
           answer.value: string as value -> attachment.title = value "tmpshouldnotbe";
         }  "uid";
-        answer.item as dictomitem where (linkId.value = 'attachment.nonDicom.description' and answer.exists()) -> 
+        answer.item as dictomitem where (linkId.value = 'previousResults.attachment.description' and answer.exists()) -> 
           documentReference.description = (%dictomitem.answer.value) "description";
       } "answerValueString";
     } "itemAnswer";
 }
 
 group PreviousImagingStudyResults(source grp , target bundle: Bundle, target serviceRequest: ServiceRequest, target patient: Patient) {
-  grp.item as item where (linkId.value = 'attachment.dicom.title') -> 
+  grp.item as item where (linkId.value = 'previousResults.dicom.title') -> 
     bundle.entry as e, 
     e.resource = create('ImagingStudy') as imagingStudy, 
     imagingStudy.id = uuid() as uuid,
@@ -740,18 +740,18 @@ group PreviousImagingStudyResults(source grp , target bundle: Bundle, target ser
     supportingInfo.reference = ('urn:uuid:'+%uuid) then {
       item.answer as answer -> imagingStudy.series as series, series.instance as instance then {
         answer.value: string as value -> imagingStudy.description = value "description";
-        answer.item as dictomitem where (linkId.value = 'attachment.dicom.sopInstanceUid' and answer.exists()) -> 
+        answer.item as dictomitem where (linkId.value = 'previousResults.dicom.sopInstanceUid' and answer.exists()) -> 
           instance.uid  =(%dictomitem.answer.value) "uid";
-        answer.item as dictomitem where (linkId.value = 'attachment.dicom.sopClass' and answer.exists()) -> 
+        answer.item as dictomitem where (linkId.value = 'previousResults.dicom.sopClass' and answer.exists()) -> 
           instance.sopClass as sopClass, sopClass.code =(%dictomitem.answer.value.code) "sopClass";
-        answer.item as dictomitem where (linkId.value = 'attachment.dicom.modality' and answer.exists()) -> 
+        answer.item as dictomitem where (linkId.value = 'previousResults.dicom.modality' and answer.exists()) -> 
           series.modality as modality, modality.code =(%dictomitem.answer.value.code) "modality";
-        answer.item as dictomitem where (linkId.value = 'attachment.dicom.studyInstanceUid' and answer.exists()) -> 
+        answer.item as dictomitem where (linkId.value = 'previousResults.dicom.studyInstanceUid' and answer.exists()) -> 
         imagingStudy.identifier as uid, uid.type as type, type.coding as coding, coding.system ='urn:dicom:uid',
         coding.code='PLAC', uid.value=(%dictomitem.answer.value) "uid";
-        answer.item as dictomitem where (linkId.value = 'attachment.dicom.SeriesInstanceUid' and answer.exists()) -> 
+        answer.item as dictomitem where (linkId.value = 'previousResults.dicom.SeriesInstanceUid' and answer.exists()) -> 
           series.uid =(%dictomitem.answer.value) "attachmentdicomSeriesInstanceUid";
-        answer.item as dictomitem where (linkId.value = 'attachment.dicom.acsn' and answer.exists()) -> 
+        answer.item as dictomitem where (linkId.value = 'previousResults.dicom.acsn' and answer.exists()) -> 
           imagingStudy.identifier as acsn, acsn.type as type, type.coding as coding, coding.system ='http://terminology.hl7.org/CodeSystem/v2-0203',
           coding.code='ACSN', acsn.value=(%dictomitem.answer.value) "acsn";
       } "answerValueString";

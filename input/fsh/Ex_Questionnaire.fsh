@@ -48,7 +48,7 @@ Usage: #example
 * extension[+].url = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-assembledFrom"
 * extension[=].valueCanonical = "http://fhir.ch/ig/ch-rad-order/Questionnaire/ch-rad-order-module-caveats|2.0.0-ci-build"
 * extension[+].url = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-assembledFrom"
-* extension[=].valueCanonical = "http://fhir.ch/ig/ch-rad-order/Questionnaire/ch-rad-order-module-attachment|2.0.0-ci-build"
+* extension[=].valueCanonical = "http://fhir.ch/ig/ch-rad-order/Questionnaire/ch-rad-order-module-previousresults|2.0.0-ci-build"
 * url = "http://fhir.ch/ig/ch-rad-order/Questionnaire/QuestionnaireRadiologyOrder"
 * version = "2.0.0-ci-build-assembled"
 * name = "QuestionnaireRadiologyOrder"
@@ -1476,76 +1476,53 @@ Usage: #example
 * item[=].item.item[=].item[=].required = true
 * item[=].item.item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-caveat-qualifier-value"
 * item[=].item.item[=].item[=].initial.valueCoding = $sct#373068000
-* item[+].linkId = "previousImaging"
+* item[+].linkId = "previousResults"
+* item[=].text = "Vorherige Untersuchungsresultate"
 * item[=].type = #group
-* item[=].item[0].linkId = "attachment.nonDicom"
-* item[=].item[=].text = "Anhang (nicht DICOM)"
-* item[=].item[=].type = #group
-* item[=].item[=].item.linkId = "attachment.nonDicom.title"
-* item[=].item[=].item.definition = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-documentreference-definitions#content.attachment.title"
-* item[=].item[=].item.text = "Dateiname und -endung der angehängten Datei (z.B. \"Befund Thorax-Rx\")"
+* item[=].item[0].linkId = "previousResults.attachment"
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-orf-documentreference-defintions#DocumentReference.content.attachment.data"
+* item[=].item[=].text = "Datei"
+* item[=].item[=].type = #attachment
+* item[=].item[=].repeats = true
+* item[=].item[=].item.linkId = "previousResults.attachment.description"
+* item[=].item[=].item.definition = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-documentreference-definitions#DocumentReference.description"
+* item[=].item[=].item.text = "Beschreibung"
 * item[=].item[=].item.type = #string
-* item[=].item[=].item.repeats = true
-* item[=].item[=].item.item[0].linkId = "attachment.nonDicom.description"
-* item[=].item[=].item.item[=].definition = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-documentreference-definitions#DocumentReference.description"
-* item[=].item[=].item.item[=].text = "Beschreibung"
-* item[=].item[=].item.item[=].type = #string
-* item[=].item[=].item.item[+].linkId = "attachment.nonDicom.attachment.mimeType"
-* item[=].item[=].item.item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-orf-documentreference-defintions#DocumentReference.content.attachment.data"
-* item[=].item[=].item.item[=].text = "Mime Type"
-* item[=].item[=].item.item[=].type = #choice
-* item[=].item[=].item.item[=].required = true
-* item[=].item[=].item.item[=].answerValueSet = "http://hl7.org/fhir/ValueSet/mimetypes"
-* item[=].item[=].item.item[=].initial.valueCoding = urn:ietf:bcp:13#application/pdf
-* item[=].item[=].item.item[+].linkId = "attachment.nonDicom.attachment.data"
-* item[=].item[=].item.item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-orf-documentreference-defintions#DocumentReference.content.attachment.data"
-* item[=].item[=].item.item[=].text = "Non-DICOM Data"
-* item[=].item[=].item.item[=].type = #attachment
-* item[=].item[=].item.item[=].required = true
-* item[=].item[+].linkId = "attachment.dicom"
-* item[=].item[=].text = "Anhang (DICOM)"
+* item[=].item[+].linkId = "previousResults.dicom"
+* item[=].item[=].text = "DICOM Objekt"
 * item[=].item[=].type = #group
-* item[=].item[=].item.linkId = "attachment.dicom.title"
-* item[=].item[=].item.definition = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-documentreference-definitions#DocumentReference.content.attachment.title"
-* item[=].item[=].item.text = "Dateiname und -endung der angehängten Dicom-Datei (z.B. \"Muster_F_2023-07-20_MR Knie nativ beidseits_im2588909576\")"
-* item[=].item[=].item.type = #string
-* item[=].item[=].item.repeats = true
-* item[=].item[=].item.item[0].linkId = "attachment.dicom.sopInstanceUid"
-* item[=].item[=].item.item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy-definitions#ImagingStudy.series.instance.uid"
-* item[=].item[=].item.item[=].text = "DICOM SOP Instance UID"
-* item[=].item[=].item.item[=].type = #string
-* item[=].item[=].item.item[=].required = true
-* item[=].item[=].item.item[+].linkId = "attachment.dicom.sopClass"
-* item[=].item[=].item.item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy-definitions#ImagingStudy.series.instance.sopClass.value"
-* item[=].item[=].item.item[=].text = "DICOM SOP Class"
-* item[=].item[=].item.item[=].type = #choice
-* item[=].item[=].item.item[=].required = true
-* item[=].item[=].item.item[=].answerValueSet = "https://dicom.nema.org/medical/dicom/current/output/chtml/part04/sect_B.5.html#table_B.5-1"
-* item[=].item[=].item.item[+].linkId = "attachment.dicom.modality"
-* item[=].item[=].item.item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy-definitions#.ImagingStudy.series.modality.coding"
-* item[=].item[=].item.item[=].text = "DICOM Series Modality"
-* item[=].item[=].item.item[=].type = #choice
-* item[=].item[=].item.item[=].required = true
-* item[=].item[=].item.item[=].answerValueSet = "https://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_33.html"
-* item[=].item[=].item.item[+].linkId = "attachment.dicom.SeriesInstanceUid"
-* item[=].item[=].item.item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy-definitions#ImagingStudy.series.uid"
-* item[=].item[=].item.item[=].text = "DICOM Series Instance UID"
-* item[=].item[=].item.item[=].type = #string
-* item[=].item[=].item.item[=].required = true
-* item[=].item[=].item.item[+].linkId = "attachment.dicom.studyInstanceUid"
-* item[=].item[=].item.item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy-definitions#ImagingStudy.identifier"
-* item[=].item[=].item.item[=].text = "DICOM Study Instance UID"
-* item[=].item[=].item.item[=].type = #string
-* item[=].item[=].item.item[=].required = true
-* item[=].item[=].item.item[+].linkId = "attachment.dicom.acsn"
-* item[=].item[=].item.item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy-definitions#ImagingStudy.identifier"
-* item[=].item[=].item.item[=].text = "ACSN"
-* item[=].item[=].item.item[=].type = #string
-* item[=].item[=].item.item[+].linkId = "attachment.dicom.attachment"
-* item[=].item[=].item.item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-orf-documentreference-defintions#DocumentReference.content.attachment.data"
-* item[=].item[=].item.item[=].text = "DICOM Data"
-* item[=].item[=].item.item[=].type = #attachment
-* item[=].item[=].item.item[=].required = true
+* item[=].item[=].repeats = true
+* item[=].item[=].item[0].linkId = "previousResults.dicom.sopInstanceUid"
+* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy-definitions#ImagingStudy.series.instance.uid"
+* item[=].item[=].item[=].text = "DICOM SOP Instance UID"
+* item[=].item[=].item[=].type = #string
+* item[=].item[=].item[=].required = true
+* item[=].item[=].item[+].linkId = "previousResults.dicom.sopClass"
+* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy-definitions#ImagingStudy.series.instance.sopClass.value"
+* item[=].item[=].item[=].text = "DICOM SOP Class"
+* item[=].item[=].item[=].type = #choice
+* item[=].item[=].item[=].required = true
+* item[=].item[=].item[=].answerValueSet = "https://dicom.nema.org/medical/dicom/current/output/chtml/part04/sect_B.5.html#table_B.5-1"
+* item[=].item[=].item[+].linkId = "previousResults.dicom.modality"
+* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy-definitions#.ImagingStudy.series.modality.coding"
+* item[=].item[=].item[=].text = "DICOM Series Modality"
+* item[=].item[=].item[=].type = #choice
+* item[=].item[=].item[=].required = true
+* item[=].item[=].item[=].answerValueSet = "https://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_33.html"
+* item[=].item[=].item[+].linkId = "previousResults.dicom.SeriesInstanceUid"
+* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy-definitions#ImagingStudy.series.uid"
+* item[=].item[=].item[=].text = "DICOM Series Instance UID"
+* item[=].item[=].item[=].type = #string
+* item[=].item[=].item[=].required = true
+* item[=].item[=].item[+].linkId = "previousResults.dicom.studyInstanceUid"
+* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy-definitions#ImagingStudy.identifier"
+* item[=].item[=].item[=].text = "DICOM Study Instance UID"
+* item[=].item[=].item[=].type = #string
+* item[=].item[=].item[=].required = true
+* item[=].item[=].item[+].linkId = "previousResults.dicom.acsn"
+* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy-definitions#ImagingStudy.identifier"
+* item[=].item[=].item[=].text = "ACSN"
+* item[=].item[=].item[=].type = #string
 * item[=].item[+].linkId = "note"
 * item[=].item[=].text = "Bemerkungen"
 * item[=].item[=].type = #group
@@ -1553,3 +1530,4 @@ Usage: #example
 * item[=].item[=].item.definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest-definitions#ServiceRequest.note.text"
 * item[=].item[=].item.text = "Kommentar"
 * item[=].item[=].item.type = #string
+* item[=].item[=].item.required = true

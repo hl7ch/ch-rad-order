@@ -273,21 +273,17 @@ Caveats
 * item[=].item.type = #display
 
 /*------------------------------------------------------------------------
-Previous Imaging
+Previous Results
 */
-* item[+].linkId = "previousImaging"
-//* item[=].text = "Previous imaging"
+* item[+].linkId = "previousResults"
+* item[=].text = "Vorherige Untersuchungsresultate"
 * item[=].type = #group
 
 * item[=].item.extension.url = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-subQuestionnaire"
-* item[=].item.extension.valueCanonical = "http://fhir.ch/ig/ch-rad-order/Questionnaire/ch-rad-order-module-attachment|2.0.0"
+* item[=].item.extension.valueCanonical = "http://fhir.ch/ig/ch-rad-order/Questionnaire/ch-rad-order-module-previousresults|2.0.0"
 * item[=].item.linkId = "previousImaging.1"
 * item[=].item.text = "Unable to resolve 'previousImaging' sub-questionnaire"
 * item[=].item.type = #display
-
-
-
-
 
 
 /*=================================================*/
@@ -655,8 +651,8 @@ Description: "Subquestionnaire Caveats"
 * item[=].item[=].item[=].required = true
 
 
-/*Module Attachment*/
-Instance: ch-rad-order-module-attachment
+/*Module Previous Results*/
+Instance: ch-rad-order-module-previousresults
 InstanceOf: Questionnaire
 Title: "Module Questionnaire Attachment"
 Description: "Subquestionnaire Attachment"
@@ -668,238 +664,65 @@ mittels ImagingStudy Resource (DICOM WADO) oder die mitgegeben werden mit der Do
 
 * extension[0].url = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-assemble-expectation"
 * extension[=].valueCode = #assemble-child
-* url = "http://fhir.ch/ig/ch-rad-order/Questionnaire/ch-rad-order-module-attachment"
+* url = "http://fhir.ch/ig/ch-rad-order/Questionnaire/ch-rad-order-module-previousresults"
 * name = "ModuleQuestionnaireRadiologyOrderPreviousResults"
 * title = "Module Questionnaire Radiologyorder Previous Results"
 * status = #active
 * date = "2024-03-02"
 * publisher = "HL7 Switzerland"
 
-* item[+].linkId = "attachment.nonDicom"
-* item[=].text = "Anhang (nicht DICOM)"
-* item[=].type = #group
+* item[+].linkId = "previousResults.attachment"  
+* item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-orf-documentreference-defintions#DocumentReference.content.attachment.data"
+* item[=].text = "Datei"
+* item[=].type = #attachment
+* item[=].repeats = true
 
-* item[=].item[+].linkId = "attachment.nonDicom.title"  
-* item[=].item[=].definition = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-documentreference-definitions#content.attachment.title"
-* item[=].item[=].text = "Dateiname und -endung der angehängten Datei (z.B. \"Befund Thorax-Rx\")"
+* item[=].item[+].linkId = "previousResults.attachment.description"  
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-documentreference-definitions#DocumentReference.description"
+* item[=].item[=].text = "Beschreibung"
 * item[=].item[=].type = #string
-* item[=].item[=].repeats = true
 
-* item[=].item[=].item[+].linkId = "attachment.nonDicom.description"  
-* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-documentreference-definitions#DocumentReference.description"
-* item[=].item[=].item[=].text = "Beschreibung"
-* item[=].item[=].item[=].type = #string
-
-* item[=].item[=].item[+].linkId = "attachment.nonDicom.attachment.mimeType"  
-* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-orf-documentreference-defintions#DocumentReference.content.attachment.data"
-* item[=].item[=].item[=].text = "Mime Type"
-* item[=].item[=].item[=].type = #choice
-* item[=].item[=].item[=].answerValueSet = "http://hl7.org/fhir/ValueSet/mimetypes"
-* item[=].item[=].item[=].initial.valueCoding = MimeType#application/pdf
-* item[=].item[=].item[=].required = true
-
-* item[=].item[=].item[+].linkId = "attachment.nonDicom.attachment.data"  
-* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-orf-documentreference-defintions#DocumentReference.content.attachment.data"
-* item[=].item[=].item[=].text = "Non-DICOM Data"
-* item[=].item[=].item[=].type = #attachment
-* item[=].item[=].item[=].required = true
-
-* item[+].linkId = "attachment.dicom"
-* item[=].text = "Anhang (DICOM)"
+* item[+].linkId = "previousResults.dicom"
+* item[=].text = "DICOM Objekt"
 * item[=].type = #group
+* item[=].repeats = true
 
-* item[=].item[+].linkId = "attachment.dicom.title"  
-* item[=].item[=].definition = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-documentreference-definitions#DocumentReference.content.attachment.title"
-* item[=].item[=].text = "Dateiname und -endung der angehängten Dicom-Datei (z.B. \"Muster_F_2023-07-20_MR Knie nativ beidseits_im2588909576\")"
+* item[=].item[+].linkId = "previousResults.dicom.sopInstanceUid"  
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy-definitions#ImagingStudy.series.instance.uid"
+* item[=].item[=].text = "DICOM SOP Instance UID"
 * item[=].item[=].type = #string
-* item[=].item[=].repeats = true
+* item[=].item[=].required = true
 
-* item[=].item[=].item[+].linkId = "attachment.dicom.sopInstanceUid"  
-* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy-definitions#ImagingStudy.series.instance.uid"
-* item[=].item[=].item[=].text = "DICOM SOP Instance UID"
-* item[=].item[=].item[=].type = #string
-* item[=].item[=].item[=].required = true
+* item[=].item[+].linkId = "previousResults.dicom.sopClass"  
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy-definitions#ImagingStudy.series.instance.sopClass.value"
+* item[=].item[=].text = "DICOM SOP Class"
+* item[=].item[=].type = #choice
+* item[=].item[=].answerValueSet = SopClass
+* item[=].item[=].required = true
 
-* item[=].item[=].item[+].linkId = "attachment.dicom.sopClass"  
-* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy-definitions#ImagingStudy.series.instance.sopClass.value"
-* item[=].item[=].item[=].text = "DICOM SOP Class"
-* item[=].item[=].item[=].type = #choice
-* item[=].item[=].item[=].answerValueSet = SopClass
-* item[=].item[=].item[=].required = true
+* item[=].item[+].linkId = "previousResults.dicom.modality"  
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy-definitions#.ImagingStudy.series.modality.coding"
+* item[=].item[=].text = "DICOM Series Modality"
+* item[=].item[=].type = #choice
+* item[=].item[=].answerValueSet = AcquisitionModality
+* item[=].item[=].required = true
 
-* item[=].item[=].item[+].linkId = "attachment.dicom.modality"  
-* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy-definitions#.ImagingStudy.series.modality.coding"
-* item[=].item[=].item[=].text = "DICOM Series Modality"
-* item[=].item[=].item[=].type = #choice
-* item[=].item[=].item[=].answerValueSet = AcquisitionModality
-* item[=].item[=].item[=].required = true
+* item[=].item[+].linkId = "previousResults.dicom.SeriesInstanceUid"  
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy-definitions#ImagingStudy.series.uid"
+* item[=].item[=].text = "DICOM Series Instance UID"
+* item[=].item[=].type = #string
+* item[=].item[=].required = true
 
-* item[=].item[=].item[+].linkId = "attachment.dicom.SeriesInstanceUid"  
-* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy-definitions#ImagingStudy.series.uid"
-* item[=].item[=].item[=].text = "DICOM Series Instance UID"
-* item[=].item[=].item[=].type = #string
-* item[=].item[=].item[=].required = true
+* item[=].item[+].linkId = "previousResults.dicom.studyInstanceUid"  
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy-definitions#ImagingStudy.identifier"
+* item[=].item[=].text = "DICOM Study Instance UID"
+* item[=].item[=].type = #string
+* item[=].item[=].required = true
 
-* item[=].item[=].item[+].linkId = "attachment.dicom.studyInstanceUid"  
-* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy-definitions#ImagingStudy.identifier"
-* item[=].item[=].item[=].text = "DICOM Study Instance UID"
-* item[=].item[=].item[=].type = #string
-* item[=].item[=].item[=].required = true
-
-* item[=].item[=].item[+].linkId = "attachment.dicom.acsn"  
-* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy-definitions#ImagingStudy.identifier"
-* item[=].item[=].item[=].text = "ACSN"
-* item[=].item[=].item[=].type = #string
-
-/* item[=].item[=].item[+].linkId = "attachment.dicom.attachment.mimeType"  
-* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-orf-documentreference-defintions#DocumentReference.content.attachment.data"
-* item[=].item[=].item[=].text = "Mime Type"
-* item[=].item[=].item[=].type = #choice
-* item[=].item[=].item[=].answerValueSet = "http://hl7.org/fhir/ValueSet/mimetypes"
-* item[=].item[=].item[=].initial.valueCoding = MimeType#application/dicom
-* item[=].item[=].item[=].required = true
-*/
-* item[=].item[=].item[+].linkId = "attachment.dicom.attachment"  
-* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-orf-documentreference-defintions#DocumentReference.content.attachment.data"
-* item[=].item[=].item[=].text = "DICOM Data"
-* item[=].item[=].item[=].type = #attachment
-* item[=].item[=].item[=].required = true
-
-/*
-The ImagingStudy’s DICOM Study Instance UID is encoded in the ImagingStudy.identifier element, 
-which is of the Identifier datatype. When encoding a DICOM UID in an Identifier datatype, 
-use the Identifier system of “urn:dicom:uid”, and prefix the UID value with “urn:oid:”. 
-Therefore, an ImagingStudy with DICOM Study Instance UID of 2.16.124.113543.1154777499.30246.19789.3503430046 
-is encoded as:
-
-	"identifier":{
-		"system":"urn:dicom:uid",
-		"value":"urn:oid:2.16.124.113543.1154777499.30246.19789.3503430046"
-	} 
-*/
-
-/* item[=].item[+].linkId = "attachment.imagingStudy.study"
-* item[=].item[=].text = "Study"
-* item[=].item[=].type = #group
-* item[=].item[=].repeats = true
-*/
-
-
-
-/*
- The study accession number can also be encoded as an Identifier using the “ACSN” identifier type, as follows:
-
-  "identifier":{
-		"type" : {
-			"coding" : [
-				{
-					"system" : "http://terminology.hl7.org/CodeSystem/v2-0203",
-					"code" : "ACSN"
-				}
-			]
-		},
-		"system":"http://ginormoushospital.org/accession",
-		"value":"GH334103"
-	} 
-*/
-
-/*
-DICOM Series Instance UID and SOP Instance UID use the id datatype, and are encoded directly. 
-For example, an image with SOP Instance UID of 2.16.124.113543.1154777499.30246.19789.3503430045.1.1 
-is encoded in ImagingStudy.series.instance.uid as “2.16.124.113543.1154777499.30246.19789.3503430045.1.1”. 
-*/
-
-/* item[=].item[=].item[=].item[+].linkId = "attachment.imagingStudy.study.series"
-* item[=].item[=].item[=].item[=].text = "Series"
-* item[=].item[=].item[=].item[=].type = #group
-* item[=].item[=].item[=].repeats = true
-*/
-
-//R4: VS is CID 29 Acquisition Modality
-//    Modalit has datatype Coding
-
-//R5: VS is CID 33 Modality which consists of CID 29 “Acquisition Modality” and CID 32 “Non-Acquisition Modality” 
-//    Modality has datatype CodeableConcept 
-// VS for RAD-Order has been set to CID 33
-
-
-/* DCM#BMD "Bone Mineral Densitometry"
-* DCM#EOG "Electrooculography"
-* DCM#SM "Slide Microscopy"
-* DCM#SR "Structured Report Document"
-* DCM#FID "Spatial Fiducials"
-* DCM#OP "Ophthalmic Photography"
-* DCM#OT "Other"
-* DCM#KO "Key Object Selection"
-* DCM#ECG "Electrocardiography"
-* DCM#GM "General Microscopy"
-* DCM#XA "X-Ray Angiography"
-* DCM#IOL "Intraocular Lens Calculation"
-* DCM#XC "External-camera Photography"
-* DCM#ASMT "Content Assessment Result"
-* DCM#DMS "Dermoscopy"
-* DCM#IVUS "Intravascular Ultrasound"
-* DCM#CR "Computed Radiography"
-* DCM#CT "Computed Tomography"
-* DCM#PA "Photoacoustic"
-* DCM#OSS "Optical Surface Scanner"
-* DCM#TG "Thermography"
-* DCM#REG "Registration"
-* DCM#LEN "Lensometry"
-* DCM#TEXTUREMAP "Texture Map"
-* DCM#RTDOSE "RT Dose"
-* DCM#OPTENF "Ophthalmic Tomography En Face"
-* DCM#HC "Hard Copy"
-* DCM#RTPLAN "RT Plan"
-* DCM#HD "Hemodynamic Waveform"
-* DCM#OCT "Optical Coherence Tomography"
-* DCM#BDUS "Ultrasound Bone Densitometry"
-* DCM#M3D "Model for 3D Manufacturing"
-* DCM#DG "Diaphanography"
-* DCM#PR "Presentation State"
-* DCM#PT "Positron emission tomography"
-* DCM#EPS "Cardiac Electrophysiology"
-* DCM#LS "Laser Scan"
-* DCM#PX "Panoramic X-Ray"
-* DCM#OPM "Ophthalmic Mapping"
-* DCM#OPTBSV "Ophthalmic Tomography B-scan Volume Analysis"
-* DCM#OPV "Ophthalmic Visual Field"
-* DCM#DX "Digital Radiography"
-* DCM#OPT "Ophthalmic Tomography"
-* DCM#DOC "Document"
-* DCM#RTRECORD "RT Treatment Record"
-* DCM#MG "Mammography"
-* DCM#US "Ultrasound"
-* DCM#EMG "Electromyography"
-* DCM#IVOCT "Intravascular Optical Coherence Tomography"
-* DCM#RTSTRUCT "RT Structure Set"
-* DCM#MR "Magnetic Resonance"
-* DCM#IO "Intra-oral Radiography"
-* DCM#EEG "Electroencephalography"
-* DCM#RTIMAGE "RT Image"
-* DCM#VA "Visual Acuity"
-* DCM#RESP "Respiratory Waveform"
-* DCM#ES "Endoscopy"
-* DCM#RWV "Real World Value Map"
-* DCM#AR "Autorefraction"
-* DCM#POS "Position Sensor"
-* DCM#SEG "Segmentation"
-* DCM#RG "Radiographic imaging"
-* DCM#RF "Radiofluoroscopy"
-* DCM#AU "Basic Voice Audio"
-* DCM#KER "Keratometry"
-* DCM#SMR "Stereometric Relationship"
-* DCM#CTPROTOCOL "CT Protocol"
-* DCM#STAIN "Automated Slide Stainer"
-* DCM#OAM "Ophthalmic Axial Measurements"
-* DCM#NM "Nuclear Medicine"
-* DCM#PLAN "Plan"
-* DCM#BI "Biomagnetic Imaging"
-* DCM#SRF "Subjective Refraction"
-* DCM#CFM "Confocal Microscopy"
-*/
-
-
+* item[=].item[+].linkId = "previousResults.dicom.acsn"  
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy-definitions#ImagingStudy.identifier"
+* item[=].item[=].text = "ACSN"
+* item[=]..item[=].type = #string
 
 
 // -------- Service Request Notes ------
@@ -912,4 +735,4 @@ is encoded in ImagingStudy.series.instance.uid as “2.16.124.113543.1154777499.
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest-definitions#ServiceRequest.note.text"
 * item[=].item[=].text = "Kommentar" 
 * item[=].item[=].type = #string
-//* item[=].item[=].required = true
+* item[=].item[=].required = true
