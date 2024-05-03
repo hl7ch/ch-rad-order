@@ -1,4 +1,3 @@
-
 map "http://fhir.ch/ig/ch-rad-order/StructureMap/RadOrderQrToBundle" = "RadOrderQrToBundle"
 
 // Radiologoy QuestionnaireResponse to Bundle
@@ -42,6 +41,7 @@ group RadOrderQrToBundle(source qr : QuestionnaireResponse, target bundle : Bund
              composition.category as category, category.coding as coding, coding.code= '721963009', coding.system = 'http://snomed.info/sct', coding.display ='Order (record artifact)',
              bundle.entry as e2, 
              bundle.timestamp = (now()) as timestamp,
+             bundle.type = 'document',
              composition.date = timestamp,
              e2.resource = create('Patient') as patient,
              patient.id = uuid() as uuid2,
@@ -54,7 +54,11 @@ group RadOrderQrToBundle(source qr : QuestionnaireResponse, target bundle : Bund
               bundle.entry as e5, 
               e5.resource = create('ServiceRequest') as servicerequest, 
               servicerequest.id = uuid() as uuid5,
-              e5.fullUrl = ('urn:uuid:'+%uuid5) then RadOrderQrToServiceRequest(questionnaireresp, patient, bundle, composition, servicerequest) "servicerequest";
+              e5.fullUrl = ('urn:uuid:'+%uuid5) then {
+                qr then OrfComposition(qr, composition, patient, questionnaireresp, servicerequest, bundle) "composition";
+                qr then QrToGroups(questionnaireresp, patient, bundle, composition, servicerequest) "orf";
+                qr then RadOrderQrToServiceRequest(questionnaireresp, patient, bundle, composition, servicerequest) "servicerequest";
+              } "servicerequest";
                //{
 // see also issue StructureMap: Questionnaire cannot be embedded in Bundle #146  
 // FIXME API-0389: Failed to call access method: org.hl7.fhir.exceptions.FHIRException: Error setting resource on BackboneElement for rule OrfQrToBundle|OrfQrToBundle|orfbundle to value Questionnaire[http://fhir.ch/ig/ch-orf/Questionnaire/order-referral-form|1.1.0-assembled]: Cannot set property resource on entry - value is not a primitive type (Questionnaire) or an ElementModel type
@@ -64,7 +68,7 @@ group RadOrderQrToBundle(source qr : QuestionnaireResponse, target bundle : Bund
              } "orfbundle";
 }
 
-group RadOrderQrToServiceRequest(source qr : QuestionnaireResponse, target patient : Patient, target bundle: Bundle, target composition : Composition, target serviceRequest: ServiceRequest) {
+group RadOrderQrToServiceRequest(source qr : QuestionnaireResponse, target patient : Patient, target bundle: Bundle, target composition : Composition, target serviceRequest: ServiceRequest)  {
   qr.item as grp where linkId='requestedService' then RequestedServiceItems(grp, serviceRequest) "requestedService";
   qr.item as grp where linkId='reason' then ReasonServiceItems(grp, serviceRequest) "reason";
   qr.item as grp where linkId='imagingService' then ImagingServiceItems(grp, serviceRequest) "imagingService";
@@ -72,7 +76,7 @@ group RadOrderQrToServiceRequest(source qr : QuestionnaireResponse, target patie
   qr.item as grp where linkId='desiredRadiologist' then DesiredRadiologistServiceItems(grp, bundle, serviceRequest) "desiredRadiologist";
   qr.item as grp where linkId='diagnosisList' then DiagnosisListServiceItems(grp, patient, bundle, serviceRequest) "diagnosisList";
   qr.item as grp where linkId='caveat' then CaveatServiceItems(grp, patient, bundle, serviceRequest) "Caveat";
-  qr.item as grp where linkId='attachment.nonDicom"' then PreviousImagingStudyResults(grp, bundle, serviceRequest, patient) "attachment";
+  qr.item as grp where linkId='attachment.nonDicom' then PreviousImagingStudyResultsNonDicom(grp, bundle, serviceRequest, patient) "attachment";
   qr.item as grp where linkId='attachment.dicom' then PreviousImagingStudyResults(grp, bundle, serviceRequest, patient) "attachment";
 }
 
@@ -702,8 +706,29 @@ group DesiredRadiologistServiceItemsDrugDescription(source src, target bundle : 
   } "caveatListDrugPrescriptionBetaBlocker";
 }  
 
+group PreviousImagingStudyResultsNonDicom(source grp , target bundle: Bundle, target serviceRequest: ServiceRequest, target patient: Patient) {
+  grp.item as item where (linkId.value = 'attachment.nonDicom.title') -> 
+    bundle.entry as e, 
+    e.resource = create('DocumentReference') as documentReference, 
+    documentReference.id = uuid() as uuid,
+    documentReference.subject as subject, subject.reference = ('urn:uuid:'+%patient.id),
+    e.fullUrl = append('urn:uuid:',uuid), 
+    documentReference.status = 'current',
+    serviceRequest.supportingInfo as supportingInfo,
+    supportingInfo.reference = ('urn:uuid:'+%uuid) then {
+      item.answer as answer then {
+        answer.item as dictomitem where (linkId.value = 'attachment.nonDicom.attachment' and answer.exists()) -> 
+        documentReference.content as content, content.attachment = (%dictomitem.answer.value) as attachment then {
+          answer.value: string as value -> attachment.title = value "tmpshouldnotbe";
+        }  "uid";
+        answer.item as dictomitem where (linkId.value = 'attachment.nonDicom.description' and answer.exists()) -> 
+          documentReference.description = (%dictomitem.answer.value) "description";
+      } "answerValueString";
+    } "itemAnswer";
+}
+
 group PreviousImagingStudyResults(source grp , target bundle: Bundle, target serviceRequest: ServiceRequest, target patient: Patient) {
-  grp.item as item where (linkId.value = 'attachment.imagingStudy') -> 
+  grp.item as item where (linkId.value = 'attachment.dicom.title') -> 
     bundle.entry as e, 
     e.resource = create('ImagingStudy') as imagingStudy, 
     imagingStudy.id = uuid() as uuid,
@@ -713,20 +738,22 @@ group PreviousImagingStudyResults(source grp , target bundle: Bundle, target ser
     serviceRequest.subject as subject, subject.reference = ('urn:uuid:'+%patient.id),
     serviceRequest.supportingInfo as supportingInfo,
     supportingInfo.reference = ('urn:uuid:'+%uuid) then {
-      item.item as dictomitem where (linkId.value = 'attachment.imagingStudy.StudyInstanceUid' and answer.exists()) -> 
-        imagingStudy.identifier as uid, uid.system='urn:dicom:uid', uid.use='official', uid.value=('urn:oid:'+%dictomitem.answer.value) "uid";
-     item.item as dictomitem where (linkId.value = 'attachment.imagingStudy.acsn' and answer.exists()) -> 
-        imagingStudy.identifier as acsn, acsn.type as type, type.coding as coding, coding.system ='http://terminology.hl7.org/CodeSystem/v2-0203',
-        coding.code='ACSN', acsn.use='usual', acsn.value=(%dictomitem.answer.value) "acsn";
-     item.item as dictomitem where (linkId.value = 'attachment.imagingStudy.SeriesInstanceUid' and answer.exists()) -> imagingStudy.series as series then {
-      dictomitem.answer as answer then {
-        answer.value: string as value -> series.uid = value "uid";
-        item.item as dictomitem where (linkId.value = 'attachment.imagingStudy.SopInstanceUid' and answer.exists()) -> series.instance as instance then {
-          dictomitem.answer as answer then {
-            answer.value: string as value -> instance.uid = value "uid";
-          } "answer";
-        } "answer";
-      } "series";
-    } "imagingStudy";
-  } "previousResult";
+      item.answer as answer -> imagingStudy.series as series, series.instance as instance then {
+        answer.value: string as value -> imagingStudy.description = value "description";
+        answer.item as dictomitem where (linkId.value = 'attachment.dicom.sopInstanceUid' and answer.exists()) -> 
+          instance.uid  =(%dictomitem.answer.value) "uid";
+        answer.item as dictomitem where (linkId.value = 'attachment.dicom.sopClass' and answer.exists()) -> 
+          instance.sopClass as sopClass, sopClass.code =(%dictomitem.answer.value.code) "sopClass";
+        answer.item as dictomitem where (linkId.value = 'attachment.dicom.modality' and answer.exists()) -> 
+          series.modality as modality, modality.code =(%dictomitem.answer.value.code) "modality";
+        answer.item as dictomitem where (linkId.value = 'attachment.dicom.studyInstanceUid' and answer.exists()) -> 
+        imagingStudy.identifier as uid, uid.type as type, type.coding as coding, coding.system ='urn:dicom:uid',
+        coding.code='PLAC', uid.value=(%dictomitem.answer.value) "uid";
+        answer.item as dictomitem where (linkId.value = 'attachment.dicom.SeriesInstanceUid' and answer.exists()) -> 
+          series.uid =(%dictomitem.answer.value) "attachmentdicomSeriesInstanceUid";
+        answer.item as dictomitem where (linkId.value = 'attachment.dicom.acsn' and answer.exists()) -> 
+          imagingStudy.identifier as acsn, acsn.type as type, type.coding as coding, coding.system ='http://terminology.hl7.org/CodeSystem/v2-0203',
+          coding.code='ACSN', acsn.value=(%dictomitem.answer.value) "acsn";
+      } "answerValueString";
+    } "itemAnswer";
 }
