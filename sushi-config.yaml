@@ -24,7 +24,7 @@ contact:
     value: https://www.hl7.ch
 dependencies:
   ch.fhir.ig.ch-core: current
-  ch.fhir.ig.ch-orf: current
+  ch.fhir.ig.ch-orf: 2.0.1
 
 pages:
   index.md:
@@ -49,4 +49,9 @@ pages:
 parameters:
   excludettl: true
   allow-extensible-warnings: true
-  display-warnings: true      
+  display-warnings: true    
+
+resources:
+  StructureMap/RadOrderQrToBundle:
+    name: RadOrderQrToBundle
+    description: Maps RadOrder QuestionnaireResponse to Bundle

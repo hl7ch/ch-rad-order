@@ -16,6 +16,8 @@ All significant changes to this FHIR implementation guide will be documented on 
 * [Issue #48](https://github.com/hl7ch/ch-rad-order/issues/48): Updated Questionnaire Response according to #37
 * [Issue #49](https://github.com/hl7ch/ch-rad-order/issues/49): Added UNKNOWN to VS Ascquisition Modality.
 * [Issue #59](https://github.com/hl7ch/ch-rad-order/issues/59): Use CH Core Condition as parent profile
+* [Issue #57](https://github.com/hl7ch/ch-rad-order/issues/57): Fix StructureMap errors and adapt map to new Questionnaire
+
 
 ##### Adopted from CH ORF
 * [ORF Issue #71](https://github.com/hl7ch/ch-orf/issues/71): Added Initiator and his relationship to to the patient.

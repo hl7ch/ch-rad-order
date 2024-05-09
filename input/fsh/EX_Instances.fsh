@@ -33,7 +33,8 @@ Description: "Example for ServiceRequest"
 * supportingInfo[caveats][+] = Reference(CaveatDeviceCardiacPacemaker)
 * supportingInfo[caveats][+] = Reference(CaveatDrugPrescriptionMetformin)
 
-* supportingInfo[previousImagingResults][+] = Reference(DocumentReferenceThoraxRx)
+//* supportingInfo[previousImagingResults][+] = Reference(DocumentReferenceDicomSopInstanceConformant)
+* supportingInfo[previousImagingResults][+] = Reference(DocumentReferenceNonDicom)
 
 * bodySite = RDLX#RID2468 "Chest wall" // imagingFocus
 * note.text = "Bemerkung/Kommentar"
@@ -144,13 +145,15 @@ Description: "Example for Bundle"
 * entry[=].resource = CaveatDrugPrescriptionMetformin
 * entry[+].fullUrl = "http://example.com/fhir/Condition/CaveatDeviceCardiacPacemaker"
 * entry[=].resource = CaveatDeviceCardiacPacemaker
-* entry[+].fullUrl = "http://example.com/fhir/DocumentReference/DocumentReferenceThoraxRx"
-//* entry[=].resource = ChOrfDocumentReference
-* entry[=].resource = DocumentReferenceThoraxRx
-* entry[+].fullUrl = "http://example.com/fhir/Appointment/AppointmentRadiography"
-* entry[=].resource = AppointmentRadiography
-* entry[+].fullUrl = "http://example.com/fhir/Location/LocationRadiography"
-* entry[=].resource = LocationRadiography
+//
+* entry[+].fullUrl = "http://example.com/fhir/ImagingStudy/DicomSopInstanceConformant"
+* entry[=].resource = DicomSopInstanceConformant
+
+//* entry[+].fullUrl = "http://example.com/fhir/DocumentReference/DocumentReferenceDicomSopInstanceConformant"
+//* entry[=].resource = DocumentReferenceDicomSopInstanceConformant
+
+* entry[+].fullUrl = "http://example.com/fhir/DocumentReference/DocumentReferenceNonDicom"
+* entry[=].resource = DocumentReferenceNonDicom
 
 
 //------------- Patient -------------
@@ -317,6 +320,7 @@ Title: "Primary Diagnosis"
 Description: "Example for Diagnosis Condition"
 * category = ConditionCategory#problem-list-item "Problem List Item"
 * code.text = "Primary Diagnosis"
+* clinicalStatus = ClinicalStatus#active
 * subject = Reference(SUfferer)
 
 
@@ -350,6 +354,7 @@ Title: "Secondary Diagnosis 1"
 Description: "Example for Diagnosis Condition"
 * category = ConditionCategory#problem-list-item "Problem List Item"
 * code.text = "Secondary Diagnosis 1"
+* clinicalStatus = ClinicalStatus#active
 * subject = Reference(SUfferer)
 
 
@@ -359,6 +364,7 @@ Title: "Secondary Diagnosis 2"
 Description: "Example for Diagnosis Condition"
 * category = ConditionCategory#problem-list-item "Problem List Item"
 * code.text = "Secondary Diagnosis 2"
+* clinicalStatus = ClinicalStatus#active
 * subject = Reference(SUfferer)
 
 
@@ -393,6 +399,7 @@ Description: "Example for Caveat Condition"
 * extension[qualifierValue].valueCoding = SCT#52101004 "Present (qualifier value)"
 * category = ConditionCategory#problem-list-item "Problem List Item"
 * code = SCT#64779008 "Blood coagulation disorder (disorder)"
+* clinicalStatus = ClinicalStatus#active
 * subject = Reference(SUfferer)
 * evidence[+].detail = Reference(CaveatBloodCoagulationINR)
 * evidence[+].detail = Reference(CaveatBloodCoagulationPlatelets)
@@ -417,7 +424,7 @@ Description: "Example for Platelets Observation"
 * code = LNC#26515-7 "Platelets [#/volume] in Blood"
 * subject = Reference(SUfferer)
 * effectiveDateTime = "2019-04-01T10:10:00.000+00:00"
-* valueQuantity = 150000 '10*3/uL' "10^9/L"
+* valueQuantity = 150000 '10*9/uL' "10^9/L"
 
 
 Instance: CaveatBodyPiercing
@@ -428,6 +435,7 @@ Description: "Example for Caveat Condition"
 * category = ConditionCategory#problem-list-item "Problem List Item"
 * extension[qualifierValue].valueCoding = SCT#52101004 "Present (qualifier value)"
 * code = SCT#879862001 "Body piercing (finding)"
+* clinicalStatus = ClinicalStatus#active
 * subject = Reference(SUfferer)
 
 
@@ -439,6 +447,7 @@ Description: "Example for Caveat Condition"
 * category = ConditionCategory#problem-list-item "Problem List Item"
 * extension[qualifierValue].valueCoding = SCT#52101004 "Present (qualifier value)"
 * code = SCT#723188008 "Renal insufficiency (disorder)"
+* clinicalStatus = ClinicalStatus#active
 * subject = Reference(SUfferer)
 * evidence[+].detail = Reference(CaveatRenalInsufficiencyCreatinineClearance)
 * evidence[+].detail = Reference(CaveatRenalInsufficiencyCreatinine)
@@ -470,10 +479,11 @@ Instance: CaveatDrugPrescriptionMetformin
 InstanceOf: ChRadOrderCaveatCondition
 Title: "Caveat Drug Prescription Metformin"
 Description: "Example for Caveat Condition"
-* extension[caveatType].valueCoding = SCT#182817000 "Drug prescription (situation)"
+* extension[caveatType].valueCoding = SCT#1290126002 "Drug therapy with explicit context (situation)"
 * category = ConditionCategory#problem-list-item "Problem List Item"
 * extension[qualifierValue].valueCoding = SCT#52101004 "Present (qualifier value)"
 * code = SCT#372567009 "Metformin (substance)"
+* clinicalStatus = ClinicalStatus#active
 * subject = Reference(SUfferer)
 
 
@@ -485,6 +495,7 @@ Description: "Example for Caveat Condition"
 * category = ConditionCategory#problem-list-item "Problem List Item"
 * extension[qualifierValue].valueCoding = SCT#52101004 "Present (qualifier value)"
 * code = SCT#441509002 "Cardiac pacemaker in situ"
+* clinicalStatus = ClinicalStatus#active
 * subject = Reference(SUfferer)
 
 //-------------  Time and Location -------------
@@ -515,23 +526,34 @@ Description: "Example for Location"
 * address.postalCode = "8000"
 * address.country = "Schweiz"
 
-Instance: DocumentReferenceThoraxRx
+Instance: DocumentReferenceNonDicom
 InstanceOf: ChOrfDocumentReference
-Title: "Thorax Rx attached"
+Title: "Befund_Rx_Thorax_S_Ufferer_20190401"
+Description: "Example of Document Reference for Attachment (e.g. pdf)"
+* status = #current
+* content.attachment.title = "Befund_Rx_Thorax_S_Ufferer_20190401.pdf"
+* description = "Befund Thorax-Rx vom 1.2.23; Eyample of Non-DICOM Attachment"
+* content.attachment.contentType = MimeType#application/pdf
+* content.attachment.data = "VGVzdCBCZWZ1bmQgTm9uIERpY29t" // Encoded in base64
+
+Instance: DicomSopInstanceConformant
+InstanceOf: ChRadOrderImagingStudy
+Title: "DICOM conformant SOP Instance"
+Description: "Rx-Knie-S_Ufferer_05032024; Example of DICOM conformant SOP Instance (regarding Coding of Series-Modality)"
+* status = #available
+* subject = Reference(SUfferer)
+* series.instance.uid = "2.16.124.113543.1154777499.30246.19789.3503430045.1.1"
+* series.instance.sopClass = #1.2.840.10008.5.1.4.1.1.1
+* series.modality = #DX
+* series.uid = "2.16.124.113543.1154777499.30246.19789.3503430045.1"
+* identifier[studyInstanceUid].value = "2.16.124.113543.1154777499.30246.19789.3503430045" //StudyInstanceUid 
+* identifier[acsn].value = "2819497684894126" //ACSN
+
+/*Instance: DocumentReferenceDicomSopInstanceConformant
+InstanceOf: ChOrfDocumentReference
+Title: "Rx-Knie-S_Ufferer_05032024"
 Description: "Example for Previous Result"
 * status = #current
 * content.attachment.contentType = MimeType#application/dicom
-* content.attachment.data = "VGhpcyBpcyBhbiBleGFtcGxl" // "This is an example" encoded in base64
-
-
-Instance: DicomSopInstanceConformant
-InstanceOf: ImagingStudy
-Title: "DICOM conformant SOP Instance"
-Description: "Example DICOM conformant SOP Instance (regarding Coding of Series-Modality)"
-* status = #available
-* subject = Reference(SUfferer)
-* identifier.value = "1234"
-* series.uid = "12345"
-* series.modality = #DX
-* series.instance.uid = "123456"
-* series.instance.sopClass = #1.2.840.10008.5.1.4.1.1.1
+* content.attachedFile = "VGhpcyBpcyBhbiBleGFtcGxl" // Encoded in base64
+*/

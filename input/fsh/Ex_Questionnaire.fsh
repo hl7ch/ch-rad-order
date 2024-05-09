@@ -16,41 +16,41 @@ Usage: #example
 * meta.profile[+] = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-extr-smap"
 * meta.profile[+] = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-pop-exp"
 * extension[0].url = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-assembledFrom"
-* extension[=].valueCanonical = "http://fhir.ch/ig/ch-orf/Questionnaire/ch-orf-module-order|3.0.0-ci-build"
+* extension[=].valueCanonical = "http://fhir.ch/ig/ch-orf/Questionnaire/ch-orf-module-order|2.0.0-ci-build"
 * extension[+].url = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-assembledFrom"
-* extension[=].valueCanonical = "http://fhir.ch/ig/ch-orf/Questionnaire/ch-orf-module-practitioner-nametel|3.0.0-ci-build"
+* extension[=].valueCanonical = "http://fhir.ch/ig/ch-orf/Questionnaire/ch-orf-module-practitioner-nametel|2.0.0-ci-build"
 * extension[+].url = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-assembledFrom"
-* extension[=].valueCanonical = "http://fhir.ch/ig/ch-orf/Questionnaire/ch-orf-module-receiver|3.0.0-ci-build"
+* extension[=].valueCanonical = "http://fhir.ch/ig/ch-orf/Questionnaire/ch-orf-module-receiver|2.0.0-ci-build"
 * extension[+].url = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-assembledFrom"
-* extension[=].valueCanonical = "http://fhir.ch/ig/ch-orf/Questionnaire/ch-orf-module-address|3.0.0-ci-build"
+* extension[=].valueCanonical = "http://fhir.ch/ig/ch-orf/Questionnaire/ch-orf-module-address|2.0.0-ci-build"
 * extension[+].url = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-assembledFrom"
-* extension[=].valueCanonical = "http://fhir.ch/ig/ch-orf/Questionnaire/ch-orf-module-initiator|3.0.0-ci-build"
+* extension[=].valueCanonical = "http://fhir.ch/ig/ch-orf/Questionnaire/ch-orf-module-initiator|2.0.0-ci-build"
 * extension[+].url = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-assembledFrom"
-* extension[=].valueCanonical = "http://fhir.ch/ig/ch-orf/Questionnaire/ch-orf-module-patient|3.0.0-ci-build"
+* extension[=].valueCanonical = "http://fhir.ch/ig/ch-orf/Questionnaire/ch-orf-module-patient|2.0.0-ci-build"
 * extension[+].url = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-assembledFrom"
-* extension[=].valueCanonical = "http://fhir.ch/ig/ch-orf/Questionnaire/ch-orf-module-familydoctor|3.0.0-ci-build"
+* extension[=].valueCanonical = "http://fhir.ch/ig/ch-orf/Questionnaire/ch-orf-module-familydoctor|2.0.0-ci-build"
 * extension[+].url = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-assembledFrom"
-* extension[=].valueCanonical = "http://fhir.ch/ig/ch-orf/Questionnaire/ch-orf-module-requestedencounter|3.0.0-ci-build"
+* extension[=].valueCanonical = "http://fhir.ch/ig/ch-orf/Questionnaire/ch-orf-module-requestedencounter|2.0.0-ci-build"
 * extension[+].url = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-assembledFrom"
-* extension[=].valueCanonical = "http://fhir.ch/ig/ch-orf/Questionnaire/ch-orf-module-coverage|3.0.0-ci-build"
+* extension[=].valueCanonical = "http://fhir.ch/ig/ch-orf/Questionnaire/ch-orf-module-coverage|2.0.0-ci-build"
 * extension[+].url = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-assembledFrom"
-* extension[=].valueCanonical = "http://fhir.ch/ig/ch-orf/Questionnaire/ch-orf-module-sender|3.0.0-ci-build"
+* extension[=].valueCanonical = "http://fhir.ch/ig/ch-orf/Questionnaire/ch-orf-module-sender|2.0.0-ci-build"
 * extension[+].url = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-assembledFrom"
-* extension[=].valueCanonical = "http://fhir.ch/ig/ch-orf/Questionnaire/ch-orf-module-receivercopy|3.0.0-ci-build"
+* extension[=].valueCanonical = "http://fhir.ch/ig/ch-orf/Questionnaire/ch-orf-module-receivercopy|2.0.0-ci-build"
 * extension[+].url = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-assembledFrom"
-* extension[=].valueCanonical = "http://fhir.ch/ig/ch-orf/Questionnaire/ch-orf-module-appointment|3.0.0-ci-build"
+* extension[=].valueCanonical = "http://fhir.ch/ig/ch-orf/Questionnaire/ch-orf-module-appointment|2.0.0-ci-build"
 * extension[+].url = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-assembledFrom"
-* extension[=].valueCanonical = "http://fhir.ch/ig/ch-orf/Questionnaire/ch-orf-module-consent|3.0.0-ci-build"
+* extension[=].valueCanonical = "http://fhir.ch/ig/ch-orf/Questionnaire/ch-orf-module-consent|2.0.0-ci-build"
 * extension[+].url = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-assembledFrom"
-* extension[=].valueCanonical = "http://fhir.ch/ig/ch-rad-order/Questionnaire/ch-rad-order-module-instruction|1.1.0"
+* extension[=].valueCanonical = "http://fhir.ch/ig/ch-rad-order/Questionnaire/ch-rad-order-module-instruction|2.0.0-ci-build"
 * extension[+].url = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-assembledFrom"
-* extension[=].valueCanonical = "http://fhir.ch/ig/ch-rad-order/Questionnaire/ch-rad-order-module-diagnosis|1.1.0"
+* extension[=].valueCanonical = "http://fhir.ch/ig/ch-rad-order/Questionnaire/ch-rad-order-module-diagnosis|2.0.0-ci-build"
 * extension[+].url = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-assembledFrom"
-* extension[=].valueCanonical = "http://fhir.ch/ig/ch-rad-order/Questionnaire/ch-rad-order-module-caveats|1.1.0"
+* extension[=].valueCanonical = "http://fhir.ch/ig/ch-rad-order/Questionnaire/ch-rad-order-module-caveats|2.0.0-ci-build"
 * extension[+].url = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-assembledFrom"
-* extension[=].valueCanonical = "http://fhir.ch/ig/ch-rad-order/Questionnaire/ch-rad-order-module-attachment|1.1.0"
+* extension[=].valueCanonical = "http://fhir.ch/ig/ch-rad-order/Questionnaire/ch-rad-order-module-previousresults|2.0.0-ci-build"
 * url = "http://fhir.ch/ig/ch-rad-order/Questionnaire/QuestionnaireRadiologyOrder"
-* version = "1.1.0-assembled"
+* version = "2.0.0-ci-build-assembled"
 * name = "QuestionnaireRadiologyOrder"
 * title = "QuestionnaireRadiologyOrder"
 * status = #active
@@ -516,7 +516,7 @@ Usage: #example
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-patient#Patient.communication:languageOfCorrespondence"
 * item[=].item[=].text = "Korrespondenzsprache"
 * item[=].item[=].type = #choice
-* item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-term/ValueSet/DocumentEntry.languageCode"
+* item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-epr-term/ValueSet/DocumentEntry.languageCode"
 * item[=].item[+].extension.url = "http://hl7.org/fhir/StructureDefinition/variable"
 * item[=].item[=].extension.valueExpression.name = "contact"
 * item[=].item[=].extension.valueExpression.language = #text/fhirpath
@@ -1225,7 +1225,7 @@ Usage: #example
 * item[=].item.text = "Ist der Patient über die Anmeldung informiert und explizit einverstanden?"
 * item[=].item.type = #choice
 * item[=].item.answerOption[0].valueCoding = $ch-orf-cs-consentstatus#ExplicitAgreement "Patient is informed and has explicitly agreed"
-* item[=].item.answerOption[+].valueCoding = $ch-orf-cs-consentstatus#Other "Other situation such as 'implicit agreement', 'agreed by legal guardian' etc."
+* item[=].item.answerOption[+].valueCoding = $ch-orf-cs-consentstatus#Other "Other situation such as 'implicit agreement', 'agreed by legal guardian'  etc."
 * item[=].item.item.linkId = "patient.consent.statement.note"
 * item[=].item.item.text = "Anmerkung"
 * item[=].item.item.type = #string
@@ -1476,59 +1476,53 @@ Usage: #example
 * item[=].item.item[=].item[=].required = true
 * item[=].item.item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-rad-order/ValueSet/ch-rad-order-caveat-qualifier-value"
 * item[=].item.item[=].item[=].initial.valueCoding = $sct#373068000
-* item[+].linkId = "previousImaging"
+* item[+].linkId = "previousResults"
+* item[=].text = "Vorherige Untersuchungsresultate"
 * item[=].type = #group
-* item[=].item[0].linkId = "attachment.nonDicom"
-* item[=].item[=].text = "Anhang (nicht DICOM)"
-* item[=].item[=].type = #group
-* item[=].item[=].item.linkId = "attachment.nonDicom.title"
-* item[=].item[=].item.definition = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-documentreference-definitions#content.attachment.title"
-* item[=].item[=].item.text = "Dateiname und -endung der angehängten Datei (z.B. \"Befund.pdf\")"
+* item[=].item[0].linkId = "attachedFile"
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-orf-documentreference-defintions#DocumentReference.content.attachedFile"
+* item[=].item[=].text = "Datei"
+* item[=].item[=].type = #attachment
+* item[=].item[=].repeats = true
+* item[=].item[=].item.linkId = "attachedFile.description"
+* item[=].item[=].item.definition = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-documentreference-definitions#DocumentReference.description"
+* item[=].item[=].item.text = "Beschreibung"
 * item[=].item[=].item.type = #string
-* item[=].item[=].item.repeats = true
-* item[=].item[=].item.item.linkId = "attachment.nonDicom.description"
-* item[=].item[=].item.item.definition = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-documentreference-definitions#DocumentReference.description"
-* item[=].item[=].item.item.text = "Beschreibung"
-* item[=].item[=].item.item.type = #string
-* item[=].item[+].linkId = "attachment.dicom"
-* item[=].item[=].text = "Anhang (DICOM)"
+* item[=].item[+].linkId = "dicomObject"
+* item[=].item[=].text = "DICOM Objekt"
 * item[=].item[=].type = #group
-* item[=].item[=].item.linkId = "attachment.dicom.title"
-* item[=].item[=].item.definition = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-documentreference-definitions#DocumentReference.content.attachment.title"
-* item[=].item[=].item.text = "Dateiname und -endung der angehängten Dicom-Datei (z.B. \"Muster_F_2023-07-20_MR Knie nativ beidseits_im2588909576\")"
-* item[=].item[=].item.type = #string
-* item[=].item[=].item.repeats = true
-* item[=].item[=].item.item[0].linkId = "attachment.dicom.sopInstanceUid"
-* item[=].item[=].item.item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy-definitions#ImagingStudy.series.instance.uid"
-* item[=].item[=].item.item[=].text = "DICOM SOP Instance UID"
-* item[=].item[=].item.item[=].type = #string
-* item[=].item[=].item.item[=].required = true
-* item[=].item[=].item.item[+].linkId = "attachment.dicom.sopClass"
-* item[=].item[=].item.item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy-definitions#ImagingStudy.series.instance.sopClass.value"
-* item[=].item[=].item.item[=].text = "DICOM SOP Class"
-* item[=].item[=].item.item[=].type = #choice
-* item[=].item[=].item.item[=].required = true
-* item[=].item[=].item.item[=].answerValueSet = "https://dicom.nema.org/medical/dicom/current/output/chtml/part04/sect_B.5.html#table_B.5-1"
-* item[=].item[=].item.item[+].linkId = "attachment.dicom.modality"
-* item[=].item[=].item.item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy-definitions#.ImagingStudy.series.modality.coding"
-* item[=].item[=].item.item[=].text = "DICOM Series Modality"
-* item[=].item[=].item.item[=].type = #choice
-* item[=].item[=].item.item[=].required = true
-* item[=].item[=].item.item[=].answerValueSet = "https://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_33.html"
-* item[=].item[=].item.item[+].linkId = "attachment.dicom.SeriesInstanceUid"
-* item[=].item[=].item.item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy-definitions#ImagingStudy.series.uid"
-* item[=].item[=].item.item[=].text = "DICOM Series Instance UID"
-* item[=].item[=].item.item[=].type = #string
-* item[=].item[=].item.item[=].required = true
-* item[=].item[=].item.item[+].linkId = "attachment.dicom.studyInstanceUid"
-* item[=].item[=].item.item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy-definitions#ImagingStudy.identifier"
-* item[=].item[=].item.item[=].text = "DICOM Study Instance UID"
-* item[=].item[=].item.item[=].type = #string
-* item[=].item[=].item.item[=].required = true
-* item[=].item[=].item.item[+].linkId = "attachment.dicom.acsn"
-* item[=].item[=].item.item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy-definitions#ImagingStudy.identifier"
-* item[=].item[=].item.item[=].text = "ACSN"
-* item[=].item[=].item.item[=].type = #string
+* item[=].item[=].repeats = true
+* item[=].item[=].item[0].linkId = "dicomObject.sopInstanceUid"
+* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy-definitions#ImagingStudy.series.instance.uid"
+* item[=].item[=].item[=].text = "DICOM SOP Instance UID"
+* item[=].item[=].item[=].type = #string
+* item[=].item[=].item[=].required = true
+* item[=].item[=].item[+].linkId = "dicomObject.sopClass"
+* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy-definitions#ImagingStudy.series.instance.sopClass.value"
+* item[=].item[=].item[=].text = "DICOM SOP Class"
+* item[=].item[=].item[=].type = #choice
+* item[=].item[=].item[=].required = true
+* item[=].item[=].item[=].answerValueSet = "https://dicom.nema.org/medical/dicom/current/output/chtml/part04/sect_B.5.html#table_B.5-1"
+* item[=].item[=].item[+].linkId = "dicomObject.modality"
+* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy-definitions#.ImagingStudy.series.modality.coding"
+* item[=].item[=].item[=].text = "DICOM Series Modality"
+* item[=].item[=].item[=].type = #choice
+* item[=].item[=].item[=].required = true
+* item[=].item[=].item[=].answerValueSet = "https://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_33.html"
+* item[=].item[=].item[+].linkId = "dicomObject.SeriesInstanceUid"
+* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy-definitions#ImagingStudy.series.uid"
+* item[=].item[=].item[=].text = "DICOM Series Instance UID"
+* item[=].item[=].item[=].type = #string
+* item[=].item[=].item[=].required = true
+* item[=].item[=].item[+].linkId = "dicomObject.studyInstanceUid"
+* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy-definitions#ImagingStudy.identifier"
+* item[=].item[=].item[=].text = "DICOM Study Instance UID"
+* item[=].item[=].item[=].type = #string
+* item[=].item[=].item[=].required = true
+* item[=].item[=].item[+].linkId = "dicomObject.acsn"
+* item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy-definitions#ImagingStudy.identifier"
+* item[=].item[=].item[=].text = "ACSN"
+* item[=].item[=].item[=].type = #string
 * item[=].item[+].linkId = "note"
 * item[=].item[=].text = "Bemerkungen"
 * item[=].item[=].type = #group
