@@ -1,0 +1,2752 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:uuid:662547f5-2196-4b31-9f49-5846c2302e43"/>
+  </identifier>
+  <type value="document"/>
+  <timestamp value="2024-05-16T13:18:12+00:00"/>
+  <entry>
+    <fullUrl value="urn:uuid:c34ca8aa-5d90-4f10-9f4a-e1b7e0d55b7a"/>
+    <resource>
+      <Composition>
+        <id value="c34ca8aa-5d90-4f10-9f4a-e1b7e0d55b7a"/>
+        <extension url="http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-urgentnoficationcontactforthisdocument">
+          <valueReference>
+            <reference value="urn:uuid:5c6cdda5-12c4-422f-ab4e-3d2e531772dd"/>
+          </valueReference>
+        </extension>
+        <extension url="http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-urgentnoficationcontactfortheresponsetothisdocument">
+          <valueReference>
+            <reference value="urn:uuid:ef33a804-d268-4a6d-bd21-a995457265d7"/>
+          </valueReference>
+        </extension>
+        <extension url="http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-receiver">
+          <valueReference>
+            <reference value="urn:uuid:1462055e-f8bc-4730-ad28-66cc8f08e484"/>
+          </valueReference>
+        </extension>
+        <extension url="http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-initiator">
+          <extension url="ch-orf-personalrelation">
+            <valueCoding>
+              <system value="http://snomed.info/sct"/>
+              <code value="65616008"/>
+            </valueCoding>
+          </extension>
+          <extension url="ch-orf-legalrelation">
+            <valueCoding>
+              <system value="http://snomed.info/sct"/>
+              <code value="373068000"/>
+              <display value="Nicht definiert"/>
+            </valueCoding>
+          </extension>
+          <extension url="ch-orf-personorganization">
+            <valueReference>
+              <reference value="urn:uuid:138e672b-ea67-4e4d-8bf3-c797e417fdbd"/>
+            </valueReference>
+          </extension>
+        </extension>
+        <extension url="http://fhir.ch/ig/ch-core/StructureDefinition/ch-ext-epr-dataenterer">
+          <extension url="enterer">
+            <valueReference>
+              <reference value="urn:uuid:795fe9db-b8b9-449d-b14d-73632208a284"/>
+            </valueReference>
+          </extension>
+        </extension>
+        <extension url="http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-copyreceiver">
+          <valueReference>
+            <reference value="urn:uuid:d940c591-119a-49a8-a0da-59dd82fc0da9"/>
+          </valueReference>
+        </extension>
+        <extension url="http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-copyreceiver">
+          <valueReference>
+            <reference value="urn:uuid:55462ff6-8cb6-4dc3-8000-57ef0aec70e3"/>
+          </valueReference>
+        </extension>
+        <extension url="http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-antecedentepisodeofcare">
+          <valueReference>
+            <reference value="urn:uuid:7fc00380-e8ed-4896-a83b-927585e6d10b"/>
+          </valueReference>
+        </extension>
+        <status value="final"/>
+        <type>
+          <coding>
+            <system value="urn:oid:2.16.756.5.30.1.127.3.4"/>
+            <code value="2161000195103"/>
+            <display value="Imaging order (record artifact)"/>
+          </coding>
+        </type>
+        <category>
+          <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="721963009"/>
+            <display value="Order (record artifact)"/>
+          </coding>
+        </category>
+        <subject>
+          <reference value="urn:uuid:55462ff6-8cb6-4dc3-8000-57ef0aec70e3"/>
+        </subject>
+        <date value="2024-05-16T13:18:12+00:00"/>
+        <author>
+          <reference value="urn:uuid:90fd7f71-3179-43ef-a543-4c59d8a09fa8"/>
+        </author>
+        <title value="Radiologieauftrag"/>
+        <section>
+          <title value="Order-Referral"/>
+          <code>
+            <coding>
+              <system value="http://loinc.org"/>
+              <code value="93037-0"/>
+              <display value="Portable medical order form"/>
+            </coding>
+          </code>
+          <entry>
+            <reference value="urn:uuid:a9003486-ba20-457b-9b65-634b0f3cadd3"/>
+          </entry>
+          <entry>
+            <reference value="urn:uuid:9b8b64a0-af88-4a4e-bbc9-63732287644f"/>
+          </entry>
+        </section>
+      </Composition>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="urn:uuid:55462ff6-8cb6-4dc3-8000-57ef0aec70e3"/>
+    <resource>
+      <Patient>
+        <id value="55462ff6-8cb6-4dc3-8000-57ef0aec70e3"/>
+        <identifier>
+          <type>
+            <coding>
+              <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
+              <code value="MR"/>
+            </coding>
+          </type>
+          <system value="urn:oid:2.999.1.2.3.4"/>
+          <value value="11.22.33.4567"/>
+        </identifier>
+        <name>
+          <family value="Ufferer"/>
+          <given value="Susanna"/>
+        </name>
+        <name>
+          <use value="maiden"/>
+          <family value="Leidend"/>
+        </name>
+        <telecom>
+          <system value="phone"/>
+          <value value="079 979 79 79"/>
+        </telecom>
+        <telecom>
+          <system value="email"/>
+          <value value="susanna@ufferer.ch"/>
+        </telecom>
+        <gender value="female"/>
+        <birthDate value="1970-03-14"/>
+        <address>
+          <line value="Musterweg 6a"/>
+          <city value="Zürich"/>
+          <postalCode value="8000"/>
+          <country value="Schweiz"/>
+        </address>
+        <maritalStatus>
+          <coding>
+            <system value="http://fhir.ch/ig/ch-core/CodeSystem/ech-11-maritalstatus"/>
+            <code value="3"/>
+            <display value="verwitwet"/>
+          </coding>
+        </maritalStatus>
+        <contact>
+          <relationship>
+            <text value="Guter Freund"/>
+          </relationship>
+          <name>
+            <family value="Freund"/>
+            <given value="Max"/>
+          </name>
+          <telecom>
+            <system value="email"/>
+            <value value="max@freund.ch"/>
+          </telecom>
+        </contact>
+        <communication>
+          <language>
+            <coding>
+              <system value="urn:ietf:bcp:47"/>
+              <code value="de-CH"/>
+              <display value="German (Switzerland)"/>
+            </coding>
+          </language>
+          <preferred value="true"/>
+        </communication>
+        <generalPractitioner>
+          <reference value="urn:uuid:f1fb5081-a557-4cda-abb3-4bf67905d9d3"/>
+        </generalPractitioner>
+      </Patient>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="urn:uuid:a9003486-ba20-457b-9b65-634b0f3cadd3"/>
+    <resource>
+      <QuestionnaireResponse>
+        <id value="a9003486-ba20-457b-9b65-634b0f3cadd3"/>
+        <questionnaire value="http://fhir.ch/ig/ch-rad-order/StructureDefinition/QuestionnaireRadiologyOrder"/>
+        <status value="completed"/>
+        <item>
+          <linkId value="order"/>
+          <text value="Auftrag"/>
+          <item>
+            <linkId value="order.placerOrderIdentifier"/>
+            <text value="Auftragsnummer des Auftraggebers"/>
+            <answer>
+              <valueString value="123"/>
+            </answer>
+          </item>
+          <item>
+            <linkId value="order.placerOrderIdentifierDomain"/>
+            <text value="Identifier Domain der Auftragsnummer des Auftraggebers"/>
+            <answer>
+              <valueString value="urn:oid:2.999.1.3.4.5.6.7"/>
+            </answer>
+          </item>
+          <item>
+            <linkId value="order.fillerOrderIdentifier"/>
+            <text value="Auftragsnummer des Auftragsempfängers"/>
+            <answer>
+              <valueString value="456"/>
+            </answer>
+          </item>
+          <item>
+            <linkId value="order.fillerOrderIdentifierDomain"/>
+            <text value="Identifier Domain der Auftragsnummer des Auftragsempfängers"/>
+            <answer>
+              <valueString value="urn:oid:2.999.7.8.9.10.11"/>
+            </answer>
+          </item>
+          <item>
+            <linkId value="order.previousDocumentIdentifier"/>
+            <text value="Identifier des Vorgängerdokuments"/>
+            <answer>
+              <valueString value="1622f2fb-6ba3-4532-9aed-35b158def187"/>
+            </answer>
+          </item>
+          <item>
+            <linkId value="order.notificationContactDocument"/>
+            <text value="Dringender Benachrichtigungskontakt für dieses Dokument"/>
+            <item>
+              <linkId value="order.notificationContactDocument.practitioner"/>
+              <text value="Zu benachrichtigende Person"/>
+              <item>
+                <linkId value="order.notificationContactDocument.practitioner.title"/>
+                <text value="Titel"/>
+                <answer>
+                  <valueString value="Dr. med."/>
+                </answer>
+              </item>
+              <item>
+                <linkId value="order.notificationContactDocument.practitioner.familyName"/>
+                <text value="Name"/>
+                <answer>
+                  <valueString value="Rderfiller"/>
+                </answer>
+              </item>
+              <item>
+                <linkId value="order.notificationContactDocument.practitioner.givenName"/>
+                <text value="Vorname"/>
+                <answer>
+                  <valueString value="Otto"/>
+                </answer>
+              </item>
+              <item>
+                <linkId value="order.notificationContactDocument.practitioner.phone"/>
+                <text value="Telefon"/>
+                <answer>
+                  <valueString value="044 412 00 99"/>
+                </answer>
+              </item>
+              <item>
+                <linkId value="order.notificationContactDocument.practitioner.email"/>
+                <text value="E-Mail"/>
+                <answer>
+                  <valueString value="otto.rderfiller@happyhosptial.ch"/>
+                </answer>
+              </item>
+            </item>
+          </item>
+          <item>
+            <linkId value="order.notificationContactDocumentResponse"/>
+            <text value="Dringender Benachrichtigungskontakt für die Antwort auf dieses Dokument"/>
+            <item>
+              <linkId value="order.notificationContactDocumentResponse.practitioner"/>
+              <text value="Zu benachrichtigende Person"/>
+              <item>
+                <linkId value="order.notificationContactDocumentResponse.practitioner.title"/>
+                <text value="Titel"/>
+                <answer>
+                  <valueString value="Dr. med."/>
+                </answer>
+              </item>
+              <item>
+                <linkId value="order.notificationContactDocumentResponse.practitioner.familyName"/>
+                <text value="Name"/>
+                <answer>
+                  <valueString value="Rderplacer"/>
+                </answer>
+              </item>
+              <item>
+                <linkId value="order.notificationContactDocumentResponse.practitioner.givenName"/>
+                <text value="Vorname"/>
+                <answer>
+                  <valueString value="Ottilie"/>
+                </answer>
+              </item>
+              <item>
+                <linkId value="order.notificationContactDocumentResponse.practitioner.phone"/>
+                <text value="Telefon"/>
+                <answer>
+                  <valueString value="044 333 22 11"/>
+                </answer>
+              </item>
+              <item>
+                <linkId value="order.notificationContactDocumentResponse.practitioner.email"/>
+                <text value="E-Mail"/>
+                <answer>
+                  <valueString value="ottilie.rderplacer@happydoctors.ch"/>
+                </answer>
+              </item>
+            </item>
+          </item>
+          <item>
+            <linkId value="order.priority"/>
+            <text value="Auftragspriorität"/>
+            <answer>
+              <valueCoding>
+                <system value="http://hl7.org/fhir/request-priority"/>
+                <code value="routine"/>
+              </valueCoding>
+            </answer>
+          </item>
+        </item>
+        <item>
+          <linkId value="receiver"/>
+          <text value="Empfänger"/>
+          <item>
+            <linkId value="receiver.practitioner"/>
+            <text value="Empfangende Person"/>
+            <item>
+              <linkId value="receiver.practitioner.title"/>
+              <text value="Titel"/>
+              <answer>
+                <valueString value="Dr. med."/>
+              </answer>
+            </item>
+            <item>
+              <linkId value="receiver.practitioner.familyName"/>
+              <text value="Name"/>
+              <answer>
+                <valueString value="Rderfiller"/>
+              </answer>
+            </item>
+            <item>
+              <linkId value="receiver.practitioner.givenName"/>
+              <text value="Vorname"/>
+              <answer>
+                <valueString value="Otto"/>
+              </answer>
+            </item>
+            <item>
+              <linkId value="receiver.practitioner.gln"/>
+              <text value="GLN"/>
+              <answer>
+                <valueString value="7601000201041"/>
+              </answer>
+            </item>
+            <item>
+              <linkId value="receiver.practitioner.zsr"/>
+              <text value="ZSR"/>
+              <answer>
+                <valueString value="A123262"/>
+              </answer>
+            </item>
+            <item>
+              <linkId value="receiver.practitioner.phone"/>
+              <text value="Telefon"/>
+              <answer>
+                <valueString value="044 412 00 99"/>
+              </answer>
+            </item>
+            <item>
+              <linkId value="receiver.practitioner.email"/>
+              <text value="E-Mail"/>
+              <answer>
+                <valueString value="otto.rderfiller@happyhospital.ch"/>
+              </answer>
+            </item>
+          </item>
+          <item>
+            <linkId value="receiver.organization"/>
+            <text value="Empfangende Organisation"/>
+            <item>
+              <linkId value="receiver.organization.name"/>
+              <text value="Name der Organisation"/>
+              <answer>
+                <valueString value="Spital Happyhospital"/>
+              </answer>
+            </item>
+            <item>
+              <linkId value="receiver.organization.streetAddressLine"/>
+              <text value="Strasse, Hausnummer, Postfach etc."/>
+              <answer>
+                <valueString value="Happystrasse 14"/>
+              </answer>
+              <answer>
+                <valueString value="Postfach 14"/>
+              </answer>
+            </item>
+            <item>
+              <linkId value="receiver.organization.postalCode"/>
+              <text value="PLZ"/>
+              <answer>
+                <valueString value="8000"/>
+              </answer>
+            </item>
+            <item>
+              <linkId value="receiver.organization.city"/>
+              <text value="Ort"/>
+              <answer>
+                <valueString value="Zürich"/>
+              </answer>
+            </item>
+            <item>
+              <linkId value="receiver.organization.country"/>
+              <text value="Land"/>
+              <answer>
+                <valueString value="Schweiz"/>
+              </answer>
+            </item>
+          </item>
+        </item>
+        <item>
+          <linkId value="initiator"/>
+          <text value="Initiant dieser Anmeldung"/>
+          <item>
+            <linkId value="initiator.legalrelation"/>
+            <text value="Juristische Beziehung zum Patienten"/>
+            <answer>
+              <valueCoding>
+                <system value="http://snomed.info/sct"/>
+                <code value="373068000"/>
+                <display value="Nicht definiert"/>
+              </valueCoding>
+            </answer>
+          </item>
+          <item>
+            <linkId value="initiator.personalrelation"/>
+            <text value="Persönliche Beziehung zum Patienten?"/>
+            <answer>
+              <valueCoding>
+                <system value="http://snomed.info/sct"/>
+                <code value="65616008"/>
+              </valueCoding>
+            </answer>
+          </item>
+          <item>
+            <linkId value="initiator.relatedPerson"/>
+            <text value="Andere Person"/>
+            <item>
+              <linkId value="initiator.relatedPerson.familyName"/>
+              <text value="Name"/>
+              <answer>
+                <valueString value="Leidend"/>
+              </answer>
+            </item>
+            <item>
+              <linkId value="initiator.relatedPerson.givenName"/>
+              <text value="Vorname"/>
+              <answer>
+                <valueString value="Fritz"/>
+              </answer>
+            </item>
+          </item>
+        </item>
+        <item>
+          <linkId value="patient"/>
+          <text value="Patient"/>
+          <item>
+            <linkId value="patient.familyName"/>
+            <text value="Name"/>
+            <answer>
+              <valueString value="Ufferer"/>
+            </answer>
+          </item>
+          <item>
+            <linkId value="patient.maidenName"/>
+            <text value="Ledigname"/>
+            <answer>
+              <valueString value="Leidend"/>
+            </answer>
+          </item>
+          <item>
+            <linkId value="patient.givenName"/>
+            <text value="Vorname"/>
+            <answer>
+              <valueString value="Susanna"/>
+            </answer>
+          </item>
+          <item>
+            <linkId value="patient.localPid"/>
+            <text value="Lokale Patienten-ID"/>
+            <answer>
+              <valueString value="11.22.33.4567"/>
+            </answer>
+          </item>
+          <item>
+            <linkId value="patient.localPidDomain"/>
+            <text value="Lokale Patienten-ID Domain"/>
+            <answer>
+              <valueString value="urn:oid:2.999.1.2.3.4"/>
+            </answer>
+          </item>
+          <item>
+            <linkId value="patient.birthDate"/>
+            <text value="Geburtsdatum"/>
+            <answer>
+              <valueDate value="1970-03-14"/>
+            </answer>
+          </item>
+          <item>
+            <linkId value="patient.gender"/>
+            <text value="Geschlecht"/>
+            <answer>
+              <valueCoding>
+                <system value="http://hl7.org/fhir/administrative-gender"/>
+                <code value="female"/>
+              </valueCoding>
+            </answer>
+          </item>
+          <item>
+            <linkId value="patient.maritalStatus"/>
+            <text value="Zivilstand"/>
+            <answer>
+              <valueCoding>
+                <system value="http://fhir.ch/ig/ch-core/CodeSystem/ech-11-maritalstatus"/>
+                <code value="3"/>
+                <display value="verwitwet"/>
+              </valueCoding>
+            </answer>
+          </item>
+          <item>
+            <linkId value="patient.phone"/>
+            <text value="Telefon"/>
+            <answer>
+              <valueString value="079 979 79 79"/>
+            </answer>
+          </item>
+          <item>
+            <linkId value="patient.email"/>
+            <text value="E-Mail"/>
+            <answer>
+              <valueString value="susanna@ufferer.ch"/>
+            </answer>
+          </item>
+          <item>
+            <linkId value="patient.streetAddressLine"/>
+            <text value="Strasse, Hausnummer, Postfach etc."/>
+            <answer>
+              <valueString value="Musterweg 6a"/>
+            </answer>
+          </item>
+          <item>
+            <linkId value="patient.postalCode"/>
+            <text value="PLZ"/>
+            <answer>
+              <valueString value="8000"/>
+            </answer>
+          </item>
+          <item>
+            <linkId value="patient.city"/>
+            <text value="Ort"/>
+            <answer>
+              <valueString value="Zürich"/>
+            </answer>
+          </item>
+          <item>
+            <linkId value="patient.country"/>
+            <text value="Land"/>
+            <answer>
+              <valueString value="Schweiz"/>
+            </answer>
+          </item>
+          <item>
+            <linkId value="patient.languageOfCorrespondence"/>
+            <text value="Korrespondenzsprache"/>
+            <answer>
+              <valueCoding>
+                <system value="urn:ietf:bcp:47"/>
+                <code value="de-CH"/>
+                <display value="German (Switzerland)"/>
+              </valueCoding>
+            </answer>
+          </item>
+          <item>
+            <linkId value="patient.contactperson"/>
+            <text value="Kontaktperson"/>
+            <item>
+              <linkId value="patient.contactperson.relationship"/>
+              <text value="Beziehung"/>
+              <answer>
+                <valueString value="Guter Freund"/>
+              </answer>
+            </item>
+            <item>
+              <linkId value="patient.contactperson.familyName"/>
+              <text value="Name"/>
+              <answer>
+                <valueString value="Freund"/>
+              </answer>
+            </item>
+            <item>
+              <linkId value="patient.contactperson.givenName"/>
+              <text value="Vorname"/>
+              <answer>
+                <valueString value="Max"/>
+              </answer>
+            </item>
+            <item>
+              <linkId value="patient.contactperson.phone"/>
+              <text value="Telefon"/>
+              <answer>
+                <valueString value="079 111 22 33"/>
+              </answer>
+            </item>
+            <item>
+              <linkId value="patient.contactperson.email"/>
+              <text value="E-Mail"/>
+              <answer>
+                <valueString value="max@freund.ch"/>
+              </answer>
+            </item>
+          </item>
+          <item>
+            <linkId value="familydoctor"/>
+            <text value="Hausarzt"/>
+            <item>
+              <linkId value="familydoctor.practitioner"/>
+              <text value="Hausarzt Person"/>
+              <item>
+                <linkId value="familydoctor.practitioner.title"/>
+                <text value="Titel"/>
+                <answer>
+                  <valueString value="Dr. med."/>
+                </answer>
+              </item>
+              <item>
+                <linkId value="familydoctor.practitioner.familyName"/>
+                <text value="Name"/>
+                <answer>
+                  <valueString value="Meier"/>
+                </answer>
+              </item>
+              <item>
+                <linkId value="familydoctor.practitioner.givenName"/>
+                <answer>
+                  <valueString value="Sabine"/>
+                </answer>
+              </item>
+            </item>
+          </item>
+        </item>
+        <item>
+          <linkId value="requestedEncounter"/>
+          <text value="Patientenaufnahme"/>
+          <item>
+            <linkId value="requestedEncounter.class"/>
+            <text value="Voraussichtlich: Ambulant / Stationär / Notfall"/>
+            <answer>
+              <valueCoding>
+                <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
+                <code value="EMER"/>
+              </valueCoding>
+            </answer>
+          </item>
+          <item>
+            <linkId value="requestedEncounter.desiredAccommodation"/>
+            <text value="Zimmerkategorie"/>
+            <answer>
+              <valueCoding>
+                <system value="http://fhir.ch/ig/ch-core/CodeSystem/bfs-medstats-21-encountertype"/>
+                <code value="2"/>
+                <display value="halbprivat"/>
+              </valueCoding>
+            </answer>
+          </item>
+        </item>
+        <item>
+          <linkId value="coverage"/>
+          <text value="Kostenträger"/>
+          <item>
+            <linkId value="coverage.kvg"/>
+            <text value="Krankenkasse (nach KVG)"/>
+            <item>
+              <linkId value="coverage.kvg.name"/>
+              <text value="Name der Versicherung"/>
+              <answer>
+                <valueString value="Sanitas"/>
+              </answer>
+            </item>
+            <item>
+              <linkId value="coverage.kvg.insuranceCardNumber"/>
+              <text value="Kennnummer der Versichertenkarte"/>
+              <answer>
+                <valueString value="80756015090002647590"/>
+              </answer>
+            </item>
+          </item>
+        </item>
+        <item>
+          <linkId value="sender"/>
+          <text value="Absender"/>
+          <item>
+            <linkId value="sender.author"/>
+            <text value="Verantwortlicher"/>
+            <item>
+              <linkId value="sender.author.practitioner"/>
+              <text value="Verantwortliche Person"/>
+              <item>
+                <linkId value="sender.author.practitioner.title"/>
+                <text value="Titel"/>
+                <answer>
+                  <valueString value="Dr. med."/>
+                </answer>
+              </item>
+              <item>
+                <linkId value="sender.author.practitioner.familyName"/>
+                <text value="Name"/>
+                <answer>
+                  <valueString value="Rderplacer"/>
+                </answer>
+              </item>
+              <item>
+                <linkId value="sender.author.practitioner.givenName"/>
+                <text value="Vorname"/>
+                <answer>
+                  <valueString value="Ottilie"/>
+                </answer>
+              </item>
+              <item>
+                <linkId value="sender.author.practitioner.gln"/>
+                <text value="GLN"/>
+                <answer>
+                  <valueString value="7601000618627"/>
+                </answer>
+              </item>
+              <item>
+                <linkId value="sender.author.practitioner.zsr"/>
+                <text value="ZSR"/>
+                <answer>
+                  <valueString value="A123321"/>
+                </answer>
+              </item>
+              <item>
+                <linkId value="sender.author.practitioner.phone"/>
+                <text value="Telefon"/>
+                <answer>
+                  <valueString value="044 333 22 11"/>
+                </answer>
+              </item>
+              <item>
+                <linkId value="sender.author.practitioner.email"/>
+                <text value="E-Mail"/>
+                <answer>
+                  <valueString value="ottilie.rderplacer@happydoctors.ch"/>
+                </answer>
+              </item>
+            </item>
+            <item>
+              <linkId value="sender.author.organization"/>
+              <text value="Verantwortliche Organisation"/>
+              <item>
+                <linkId value="sender.author.organization.name"/>
+                <text value="Name der Organisation"/>
+                <answer>
+                  <valueString value="Praxis Happydoctors"/>
+                </answer>
+              </item>
+              <item>
+                <linkId value="sender.author.organization.streetAddressLine"/>
+                <text value="Strasse, Hausnummer, Postfach etc."/>
+                <answer>
+                  <valueString value="Happystrasse 133"/>
+                </answer>
+              </item>
+              <item>
+                <linkId value="sender.author.organization.postalCode"/>
+                <text value="PLZ"/>
+                <answer>
+                  <valueString value="8000"/>
+                </answer>
+              </item>
+              <item>
+                <linkId value="sender.author.organization.city"/>
+                <text value="Ort"/>
+                <answer>
+                  <valueString value="Zürich"/>
+                </answer>
+              </item>
+              <item>
+                <linkId value="sender.author.organization.country"/>
+                <text value="Land"/>
+                <answer>
+                  <valueString value="Schweiz"/>
+                </answer>
+              </item>
+            </item>
+          </item>
+          <item>
+            <linkId value="sender.dataenterer"/>
+            <text value="Erfasser"/>
+            <item>
+              <linkId value="sender.dataenterer.practitioner"/>
+              <text value="Erfassende Person"/>
+              <item>
+                <linkId value="sender.dataenterer.practitioner.familyName"/>
+                <text value="Name"/>
+                <answer>
+                  <valueString value="Boss"/>
+                </answer>
+              </item>
+              <item>
+                <linkId value="sender.dataenterer.practitioner.givenName"/>
+                <text value="Vorname"/>
+                <answer>
+                  <valueString value="Stabilo"/>
+                </answer>
+              </item>
+              <item>
+                <linkId value="sender.dataenterer.practitioner.phone"/>
+                <text value="Telefon"/>
+                <answer>
+                  <valueString value="044 333 22 12"/>
+                </answer>
+              </item>
+              <item>
+                <linkId value="sender.dataenterer.practitioner.email"/>
+                <text value="E-Mail"/>
+                <answer>
+                  <valueString value="stabilo.boss@praxisseeblick.ch"/>
+                </answer>
+              </item>
+            </item>
+          </item>
+        </item>
+        <item>
+          <linkId value="receiverCopy"/>
+          <text value="Kopieempfänger (Kopie dieses Auftrags und aller daraus resultierenden Resultate)"/>
+          <item>
+            <linkId value="receiverCopy.practitionerRole"/>
+            <text value="Gesundheitsfachperson oder -organisation"/>
+            <item>
+              <linkId value="receiverCopy.practitionerRole.practitioner"/>
+              <text value="Gesundheitsfachperson"/>
+              <item>
+                <linkId value="receiverCopy.practitionerRole.practitioner.title"/>
+                <text value="Titel"/>
+                <answer>
+                  <valueString value="Dr. med."/>
+                </answer>
+              </item>
+              <item>
+                <linkId value="receiverCopy.practitionerRole.practitioner.familyName"/>
+                <text value="Name"/>
+                <answer>
+                  <valueString value="Meier"/>
+                </answer>
+              </item>
+              <item>
+                <linkId value="receiverCopy.practitionerRole.practitioner.givenName"/>
+                <text value="Vorname"/>
+                <answer>
+                  <valueString value="Sabine"/>
+                </answer>
+              </item>
+              <item>
+                <linkId value="receiverCopy.practitionerRole.practitioner.phone"/>
+                <text value="Telefon"/>
+                <answer>
+                  <valueString value="044 333 22 11"/>
+                </answer>
+              </item>
+              <item>
+                <linkId value="receiverCopy.practitionerRole.practitioner.email"/>
+                <text value="E-Mail"/>
+                <answer>
+                  <valueString value="sabine.meier@praxisseeblick.ch"/>
+                </answer>
+              </item>
+            </item>
+            <item>
+              <linkId value="receiverCopy.practitionerRole.organization"/>
+              <text value="Gesundheitsorganisatiton"/>
+              <item>
+                <linkId value="receiverCopy.practitionerRole.organization.name"/>
+                <text value="Name der Organisation"/>
+                <answer>
+                  <valueString value="Praxis Seeblick"/>
+                </answer>
+              </item>
+              <item>
+                <linkId value="receiverCopy.practitionerRole.organization.streetAddressLine"/>
+                <text value="Strasse, Hausnummer, Postfach etc."/>
+                <answer>
+                  <valueString value="Seestrasse 133"/>
+                </answer>
+              </item>
+              <item>
+                <linkId value="receiverCopy.practitionerRole.organization.postalCode"/>
+                <text value="PLZ"/>
+                <answer>
+                  <valueString value="8000"/>
+                </answer>
+              </item>
+              <item>
+                <linkId value="receiverCopy.practitionerRole.organization.city"/>
+                <text value="Ort"/>
+                <answer>
+                  <valueString value="Zürich"/>
+                </answer>
+              </item>
+              <item>
+                <linkId value="receiverCopy.practitionerRole.organization.country"/>
+                <text value="Land"/>
+                <answer>
+                  <valueString value="Schweiz"/>
+                </answer>
+              </item>
+            </item>
+          </item>
+          <item>
+            <linkId value="receiverCopy.patient"/>
+            <text value="Patient selbst"/>
+            <answer>
+              <valueBoolean value="true"/>
+            </answer>
+          </item>
+        </item>
+        <item>
+          <linkId value="antecedentEpisodeOfCare"/>
+          <text value="Vorgängiger Aufenthalt in Spital / Heim"/>
+          <item>
+            <linkId value="antecedentEpisodeOfCare.start"/>
+            <text value="Von"/>
+            <answer>
+              <valueDateTime value="2023-05-22"/>
+            </answer>
+          </item>
+          <item>
+            <linkId value="antecedentEpisodeOfCare.end"/>
+            <text value="Bis"/>
+            <answer>
+              <valueDateTime value="2023-05-27"/>
+            </answer>
+          </item>
+          <item>
+            <linkId value="antecedentEpisodeOfCare.managingOrganization"/>
+            <text value="Spital /Heim"/>
+            <item>
+              <linkId value="antecedentEpisodeOfCare.managingOrganization.name"/>
+              <text value="Name der Organisation"/>
+              <answer>
+                <valueString value="Spital Hinterfultigen"/>
+              </answer>
+            </item>
+          </item>
+        </item>
+        <item>
+          <linkId value="appointment"/>
+          <definition value="http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-servicerequest#extension:locationAndTime"/>
+          <text value="Ort und Zeit der Durchführung der angeforderten Leistung"/>
+          <item>
+            <linkId value="appointment.location"/>
+            <text value="Ort der Durchführung"/>
+            <item>
+              <linkId value="appointment.location.name"/>
+              <text value="Name"/>
+              <answer>
+                <valueString value="Notfall Spital Happyhospital"/>
+              </answer>
+            </item>
+          </item>
+          <item>
+            <linkId value="appointment.status"/>
+            <answer>
+              <valueCoding>
+                <system value="http://hl7.org/fhir/appointmentstatus"/>
+                <code value="pending"/>
+              </valueCoding>
+            </answer>
+          </item>
+        </item>
+        <item>
+          <linkId value="consent"/>
+          <text value="Einverständniserklärung"/>
+          <item>
+            <linkId value="patient.consent.statement"/>
+            <text value="Ist der Patient über die Anmeldung informiert und explizit einverstanden?"/>
+            <answer>
+              <valueCoding>
+                <system value="http://fhir.ch/ig/ch-orf/CodeSystem/ch-orf-cs-consentstatus"/>
+                <code value="Other"/>
+                <display value="Other situation such as 'implicit agreement', 'agreed by legal guardian' etc."/>
+              </valueCoding>
+              <item>
+                <linkId value="patient.consent.statement.note"/>
+                <text value="Anmerkung"/>
+                <answer>
+                  <valueString value="Voraussichtlich einverstanden; Sohn wird die Situation beim nä. Besuch mit Pat. besprechen"/>
+                </answer>
+              </item>
+            </answer>
+          </item>
+        </item>
+        <item>
+          <linkId value="requestedService"/>
+          <text value="Angeforderte Leistung"/>
+          <item>
+            <linkId value="requestedService.service"/>
+            <text value="Leistung"/>
+            <answer>
+              <valueCoding>
+                <system value="http://fhir.ch/ig/ch-rad-order/CodeSystem/ch-rad-order-requested-service"/>
+                <code value="ImagingRequest"/>
+                <display value="Bildgebende Diagnostik"/>
+              </valueCoding>
+            </answer>
+          </item>
+        </item>
+        <item>
+          <linkId value="reason"/>
+          <text value="Klinische Fragestellung"/>
+          <item>
+            <linkId value="reason.question"/>
+            <text value="Fragestellung"/>
+            <answer>
+              <valueString value="Diagnostic Question"/>
+            </answer>
+          </item>
+        </item>
+        <item>
+          <linkId value="imagingService"/>
+          <text value="Bildgebendes Verfahren"/>
+          <item>
+            <linkId value="imagingService.type"/>
+            <text value="Art"/>
+            <answer>
+              <valueCoding>
+                <system value="http://radlex.org"/>
+                <code value="RID10345"/>
+                <display value="projection radiography"/>
+              </valueCoding>
+            </answer>
+          </item>
+        </item>
+        <item>
+          <linkId value="orderDetail"/>
+          <text value="Weitere Angaben zur Bildgebung"/>
+          <item>
+            <linkId value="orderDetail.imagingRegion"/>
+            <text value="Region"/>
+            <answer>
+              <valueCoding>
+                <system value="http://radlex.org"/>
+                <code value="RID1243"/>
+                <display value="Thorax"/>
+              </valueCoding>
+            </answer>
+          </item>
+          <item>
+            <linkId value="orderDetail.imagingFocus"/>
+            <text value="Fokus"/>
+            <answer>
+              <valueCoding>
+                <system value="http://radlex.org"/>
+                <code value="RID2468"/>
+                <display value="Chest wall"/>
+              </valueCoding>
+            </answer>
+          </item>
+          <item>
+            <linkId value="orderDetail.laterality"/>
+            <text value="Seitenangabe"/>
+          </item>
+          <item>
+            <linkId value="orderDetail.viewType"/>
+            <text value="Ansicht"/>
+          </item>
+          <item>
+            <linkId value="orderDetail.maneuverType"/>
+            <text value="Manöver"/>
+          </item>
+          <item>
+            <linkId value="orderDetail.guidanceForAction"/>
+            <text value="Handlungsanleitung"/>
+          </item>
+        </item>
+        <item>
+          <linkId value="desiredRadiologist"/>
+          <text value="Gewünschter Radiologe für die Befundung / für die Intervention"/>
+          <item>
+            <linkId value="desiredRadiologist.familyName"/>
+            <text value="Name"/>
+            <answer>
+              <valueString value="Rderfiller"/>
+            </answer>
+          </item>
+          <item>
+            <linkId value="desiredRadiologist.givenName"/>
+            <text value="Vorname"/>
+            <answer>
+              <valueString value="Otto"/>
+            </answer>
+          </item>
+        </item>
+        <item>
+          <linkId value="diagnosisList"/>
+          <text value="Diagnosen und Befunde"/>
+          <item>
+            <linkId value="diagnosisList.primaryDiagnosis"/>
+            <text value="Hauptdiagnose"/>
+            <answer>
+              <valueString value="Primary Diagnosis"/>
+            </answer>
+          </item>
+          <item>
+            <linkId value="diagnosisList.secondaryDiagnosis"/>
+            <text value="Nebendiagnose"/>
+            <answer>
+              <valueString value="Secondary Diagnosis 1"/>
+            </answer>
+            <answer>
+              <valueString value="Secondary Diagnosis 2"/>
+            </answer>
+          </item>
+          <item>
+            <linkId value="diagnosisList.bodyHeight"/>
+            <text value="Grösse (cm)"/>
+            <answer>
+              <valueQuantity>
+                <value value="176"/>
+                <unit value="cm"/>
+                <system value="http://unitsofmeasure.org"/>
+                <code value="cm"/>
+              </valueQuantity>
+            </answer>
+          </item>
+          <item>
+            <linkId value="diagnosisList.bodyWeight"/>
+            <text value="Gewicht (kg)"/>
+            <answer>
+              <valueQuantity>
+                <value value="99"/>
+                <unit value="kg"/>
+                <system value="http://unitsofmeasure.org"/>
+                <code value="kg"/>
+              </valueQuantity>
+            </answer>
+          </item>
+        </item>
+        <item>
+          <linkId value="caveat"/>
+          <text value="Caveats"/>
+          <item>
+            <linkId value="caveatList.bloodCoagulation"/>
+            <text value="Beinträchtigte Blutgerinnung"/>
+            <answer>
+              <valueCoding>
+                <system value="http://snomed.info/sct"/>
+                <code value="52101004"/>
+              </valueCoding>
+              <item>
+                <linkId value="caveatList.bloodCoagulation.INR"/>
+                <text value="INR"/>
+                <item>
+                  <linkId value="caveatList.bloodCoagulation.INR.quantity"/>
+                  <text value="Wert (INR)"/>
+                  <answer>
+                    <valueQuantity>
+                      <value value="2.7"/>
+                      <system value="http://unitsofmeasure.org"/>
+                    </valueQuantity>
+                    <item>
+                      <linkId value="caveatList.bloodCoagulation.INR.dateTime"/>
+                      <text value="Zeitpunkt der Bestimmung"/>
+                      <answer>
+                        <valueDateTime value="2024-02-01T10:10:00.000+00:00"/>
+                      </answer>
+                    </item>
+                  </answer>
+                </item>
+              </item>
+              <item>
+                <linkId value="caveatList.bloodCoagulation.platelets"/>
+                <text value="Thrombozyten"/>
+                <item>
+                  <linkId value="caveatList.bloodCoagulation.platelets.quantity"/>
+                  <text value="Wert (10^9/L)"/>
+                  <answer>
+                    <valueQuantity>
+                      <value value="98"/>
+                      <system value="http://unitsofmeasure.org"/>
+                      <code value="10^9/L"/>
+                    </valueQuantity>
+                    <item>
+                      <linkId value="caveatList.bloodCoagulation.INR.dateTime"/>
+                      <text value="Zeitpunkt der Bestimmung"/>
+                      <answer>
+                        <valueDateTime value="2024-02-01T10:10:00.000+00:00"/>
+                      </answer>
+                    </item>
+                  </answer>
+                </item>
+              </item>
+            </answer>
+          </item>
+          <item>
+            <linkId value="caveatList.renalInsufficiency"/>
+            <text value="Niereninsuffizienz"/>
+            <answer>
+              <valueCoding>
+                <system value="http://snomed.info/sct"/>
+                <code value="52101004"/>
+              </valueCoding>
+              <item>
+                <linkId value="caveatList.renalInsufficiency.creatinineClearance"/>
+                <text value="Creatinin-Clearance"/>
+                <item>
+                  <linkId value="caveatList.renalInsufficiency.creatinineClearance.quantity"/>
+                  <text value="Wert (mL/min)"/>
+                  <answer>
+                    <valueQuantity>
+                      <value value="55"/>
+                      <system value="http://unitsofmeasure.org"/>
+                      <code value="mL/min"/>
+                    </valueQuantity>
+                    <item>
+                      <linkId value="caveatList.renalInsufficiency.creatinineClearance.dateTime"/>
+                      <text value="Zeitpunkt der Bestimmung"/>
+                      <answer>
+                        <valueDateTime value="2024-02-01T10:10:00.000+00:00"/>
+                      </answer>
+                    </item>
+                  </answer>
+                </item>
+              </item>
+              <item>
+                <linkId value="caveatList.renalInsufficiency.creatinine"/>
+                <text value="Creatinin"/>
+                <item>
+                  <linkId value="caveatList.renalInsufficiency.creatinine.quantity"/>
+                  <text value="Wert (µmol/L)"/>
+                  <answer>
+                    <valueQuantity>
+                      <value value="90"/>
+                      <system value="http://unitsofmeasure.org"/>
+                      <code value="umol/L"/>
+                    </valueQuantity>
+                    <item>
+                      <linkId value="caveatList.renalInsufficiency.creatinine.dateTime"/>
+                      <text value="Zeitpunkt der Bestimmung"/>
+                      <answer>
+                        <valueDateTime value="2024-02-01T10:10:00.000+00:00"/>
+                      </answer>
+                    </item>
+                  </answer>
+                </item>
+              </item>
+            </answer>
+          </item>
+          <item>
+            <linkId value="caveatList.claustrophobia"/>
+            <text value="Klaustrophobie"/>
+            <answer>
+              <valueCoding>
+                <system value="http://snomed.info/sct"/>
+                <code value="373068000"/>
+              </valueCoding>
+            </answer>
+          </item>
+          <item>
+            <linkId value="caveatList.bodyPiercing"/>
+            <text value="Körperpiercing"/>
+            <answer>
+              <valueCoding>
+                <system value="http://snomed.info/sct"/>
+                <code value="373068000"/>
+              </valueCoding>
+            </answer>
+          </item>
+          <item>
+            <linkId value="caveatList.device"/>
+            <text value="Device (Herzschrittmacher, Herzklappenersatz, Insulinpumpe etc.)"/>
+            <answer>
+              <valueCoding>
+                <system value="http://snomed.info/sct"/>
+                <code value="441509002"/>
+                <display value="Herzschrittmacher"/>
+              </valueCoding>
+            </answer>
+          </item>
+          <item>
+            <linkId value="caveatList.hyperthyroidism"/>
+            <text value="Hyperthyreose"/>
+            <answer>
+              <valueCoding>
+                <system value="http://snomed.info/sct"/>
+                <code value="373068000"/>
+              </valueCoding>
+            </answer>
+          </item>
+          <item>
+            <linkId value="caveatList.diabetes"/>
+            <text value="Diabetes mellitus"/>
+            <answer>
+              <valueCoding>
+                <system value="http://snomed.info/sct"/>
+                <code value="373068000"/>
+              </valueCoding>
+            </answer>
+          </item>
+          <item>
+            <linkId value="caveatList.gravida"/>
+            <text value="Schwangerschaft"/>
+            <answer>
+              <valueCoding>
+                <system value="http://snomed.info/sct"/>
+                <code value="373068000"/>
+              </valueCoding>
+            </answer>
+          </item>
+          <item>
+            <linkId value="caveatList.contrastMediaAllergy"/>
+            <text value="Kontrastmittelallergie"/>
+            <answer>
+              <valueCoding>
+                <system value="http://snomed.info/sct"/>
+                <code value="373068000"/>
+              </valueCoding>
+            </answer>
+          </item>
+          <item>
+            <linkId value="caveatList.drugPrescription"/>
+            <text value="Relevante Medikamente"/>
+            <item>
+              <linkId value="caveatList.drugPrescription.metformin"/>
+              <text value="Metformin"/>
+              <answer>
+                <valueCoding>
+                  <system value="http://snomed.info/sct"/>
+                  <code value="373068000"/>
+                </valueCoding>
+              </answer>
+            </item>
+            <item>
+              <linkId value="caveatList.drugPrescription.betaBlocker"/>
+              <text value="Betablocker"/>
+              <answer>
+                <valueCoding>
+                  <system value="http://snomed.info/sct"/>
+                  <code value="373068000"/>
+                </valueCoding>
+              </answer>
+            </item>
+          </item>
+        </item>
+        <item>
+          <linkId value="previousResults"/>
+          <text value="Vorherige Untersuchungsresultate"/>
+          <item>
+            <linkId value="attachedFile"/>
+            <text value="Datei"/>
+            <answer>
+              <valueAttachment>
+                <contentType value="application/pdf"/>
+                <data value="VGVzdCBCZWZ1bmQgTm9uIERpY29t"/>
+              </valueAttachment>
+              <item>
+                <linkId value="attachedFile.description"/>
+                <text value="Beschreibung"/>
+                <answer>
+                  <valueString value="Befund Notfall-Rx nach Sturz"/>
+                </answer>
+              </item>
+            </answer>
+          </item>
+          <item>
+            <linkId value="dicomObject"/>
+            <text value="DICOM Objekt"/>
+            <item>
+              <linkId value="dicomObject.sopInstanceUid"/>
+              <text value="DICOM SOP Instance UID"/>
+              <answer>
+                <valueString value="2.16.124.113543.1154777499.30246.19789.3503430045.1.1"/>
+              </answer>
+            </item>
+            <item>
+              <linkId value="dicomObject.sopClass"/>
+              <text value="DICOM SOP Class"/>
+              <answer>
+                <valueCoding>
+                  <code value="1.2.840.10008.5.1.4.1.1.1"/>
+                </valueCoding>
+              </answer>
+            </item>
+            <item>
+              <linkId value="dicomObject.modality"/>
+              <text value="DICOM Series Modality"/>
+              <answer>
+                <valueCoding>
+                  <code value="DX"/>
+                </valueCoding>
+              </answer>
+            </item>
+            <item>
+              <linkId value="dicomObject.SeriesInstanceUid"/>
+              <text value="DICOM Series Instance UID"/>
+              <answer>
+                <valueString value="2.16.124.113543.1154777499.30246.19789.3503430045.1"/>
+              </answer>
+            </item>
+            <item>
+              <linkId value="dicomObject.studyInstanceUid"/>
+              <text value="DICOM Study Instance UID"/>
+              <answer>
+                <valueString value="2.16.124.113543.1154777499.30246.19789.3503430045"/>
+              </answer>
+            </item>
+            <item>
+              <linkId value="dicomObject.acsn"/>
+              <text value="ACSN"/>
+              <answer>
+                <valueString value="2819497684894126"/>
+              </answer>
+            </item>
+          </item>
+        </item>
+        <item>
+          <linkId value="note"/>
+          <text value="Bemerkungen"/>
+          <item>
+            <linkId value="note.text"/>
+            <text value="Kommentar"/>
+            <answer>
+              <valueString value="Patientin ist sehr ängstlich"/>
+            </answer>
+          </item>
+        </item>
+      </QuestionnaireResponse>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="urn:uuid:9b8b64a0-af88-4a4e-bbc9-63732287644f"/>
+    <resource>
+      <ServiceRequest>
+        <id value="9b8b64a0-af88-4a4e-bbc9-63732287644f"/>
+        <extension url="http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-requestedencounterdetails">
+          <valueReference>
+            <reference value="urn:uuid:25145997-fa4f-4af2-9f62-c912550fa12f"/>
+          </valueReference>
+        </extension>
+        <extension url="http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-locationandtime">
+          <valueReference>
+            <reference value="urn:uuid:82cc6f39-ec30-4a6e-ba92-f9f406946b9c"/>
+          </valueReference>
+        </extension>
+        <identifier>
+          <type>
+            <coding>
+              <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
+              <code value="PLAC"/>
+            </coding>
+          </type>
+          <system value="urn:oid:2.999.1.3.4.5.6.7"/>
+          <value value="123"/>
+        </identifier>
+        <identifier>
+          <type>
+            <coding>
+              <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
+              <code value="FILL"/>
+            </coding>
+          </type>
+          <system value="urn:oid:2.999.7.8.9.10.11"/>
+          <value value="456"/>
+        </identifier>
+        <status value="active"/>
+        <intent value="order"/>
+        <category>
+          <coding>
+            <system value="http://fhir.ch/ig/ch-rad-order/CodeSystem/ch-rad-order-requested-service"/>
+            <code value="ImagingRequest"/>
+            <display value="Bildgebende Diagnostik"/>
+          </coding>
+        </category>
+        <priority value="routine"/>
+        <code>
+          <coding>
+            <system value="http://radlex.org"/>
+            <code value="RID10345"/>
+            <display value="projection radiography"/>
+          </coding>
+        </code>
+        <orderDetail>
+          <extension url="http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-order-detail-type">
+            <valueCoding>
+              <system value="http://fhir.ch/ig/ch-rad-order/CodeSystem/ch-rad-order-order-detail-type"/>
+              <code value="imagingRegion"/>
+            </valueCoding>
+          </extension>
+          <coding>
+            <system value="http://radlex.org"/>
+            <code value="RID1243"/>
+            <display value="Thorax"/>
+          </coding>
+        </orderDetail>
+        <subject>
+          <reference value="urn:uuid:55462ff6-8cb6-4dc3-8000-57ef0aec70e3"/>
+        </subject>
+        <requester>
+          <reference value="urn:uuid:90fd7f71-3179-43ef-a543-4c59d8a09fa8"/>
+        </requester>
+        <performer>
+          <reference value="urn:uuid:1c390f21-8d81-47fc-9bfb-ce0fd8c9ce3d"/>
+        </performer>
+        <reasonCode>
+          <text value="Diagnostic Question"/>
+        </reasonCode>
+        <reasonReference>
+          <reference value="urn:uuid:ad6c1a02-a73d-4a8d-b21a-b0d8dd1420e4"/>
+        </reasonReference>
+        <insurance>
+          <reference value="urn:uuid:eef845bc-625e-4407-b2b7-8312985552fb"/>
+        </insurance>
+        <supportingInfo>
+          <reference value="urn:uuid:6bb28655-53f4-4c5c-9613-d7b451e1c196"/>
+        </supportingInfo>
+        <supportingInfo>
+          <reference value="urn:uuid:7323ad5f-8206-44f6-b8e6-421f66e4365c"/>
+        </supportingInfo>
+        <supportingInfo>
+          <reference value="urn:uuid:36bcc510-c773-4952-86c8-320d69cc419d"/>
+        </supportingInfo>
+        <supportingInfo>
+          <reference value="urn:uuid:88cc5412-5a6c-4d75-9270-099ad3864f0a"/>
+        </supportingInfo>
+        <supportingInfo>
+          <reference value="urn:uuid:e3dcd0f2-c10a-42f4-8a9a-9f320ba8fe94"/>
+        </supportingInfo>
+        <supportingInfo>
+          <reference value="urn:uuid:e2b814c1-0eb4-45a9-a113-b5abf35abec9"/>
+        </supportingInfo>
+        <supportingInfo>
+          <reference value="urn:uuid:ed1451de-f60b-449c-97ac-0266fb82f87c"/>
+        </supportingInfo>
+        <supportingInfo>
+          <reference value="urn:uuid:e9514904-7bdf-444d-896e-864aed9bdb11"/>
+        </supportingInfo>
+        <supportingInfo>
+          <reference value="urn:uuid:40e328af-d6af-4906-9f32-b12acd71c676"/>
+        </supportingInfo>
+        <supportingInfo>
+          <reference value="urn:uuid:e2952c4c-4f27-4b38-aa3c-fdbd92cb5d89"/>
+        </supportingInfo>
+        <supportingInfo>
+          <reference value="urn:uuid:fec19b48-8e09-45ab-8282-3a99794ecd4b"/>
+        </supportingInfo>
+        <supportingInfo>
+          <reference value="urn:uuid:36ec9827-4bf8-4b08-9cb0-b6606773d828"/>
+        </supportingInfo>
+        <supportingInfo>
+          <reference value="urn:uuid:fd802225-5d24-4213-92b7-9c86f6fb71f5"/>
+        </supportingInfo>
+        <supportingInfo>
+          <reference value="urn:uuid:717d554e-d302-4653-a8a4-bf7554fb9045"/>
+        </supportingInfo>
+        <supportingInfo>
+          <reference value="urn:uuid:23fd2b71-72a8-498d-ba08-a114a7d9ced5"/>
+        </supportingInfo>
+        <supportingInfo>
+          <reference value="urn:uuid:31463a8a-1020-4e62-a7c0-cfd3362a6457"/>
+        </supportingInfo>
+        <supportingInfo>
+          <reference value="urn:uuid:7260f7e4-4d28-40ee-911d-757c849ff828"/>
+        </supportingInfo>
+        <bodySite>
+          <coding>
+            <system value="http://radlex.org"/>
+            <code value="RID2468"/>
+            <display value="Chest wall"/>
+          </coding>
+        </bodySite>
+        <note>
+          <text value="Patientin ist sehr ängstlich"/>
+        </note>
+      </ServiceRequest>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="urn:uuid:5c6cdda5-12c4-422f-ab4e-3d2e531772dd"/>
+    <resource>
+      <PractitionerRole>
+        <id value="5c6cdda5-12c4-422f-ab4e-3d2e531772dd"/>
+        <practitioner>
+          <reference value="urn:uuid:2a8a850e-81a3-4ebd-a852-688c4e10d8c1"/>
+        </practitioner>
+      </PractitionerRole>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="urn:uuid:2a8a850e-81a3-4ebd-a852-688c4e10d8c1"/>
+    <resource>
+      <Practitioner>
+        <id value="2a8a850e-81a3-4ebd-a852-688c4e10d8c1"/>
+        <name>
+          <family value="Rderfiller"/>
+          <given value="Otto"/>
+          <prefix value="Dr. med.">
+            <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier">
+              <valueCode value="AC"/>
+            </extension>
+          </prefix>
+        </name>
+        <telecom>
+          <system value="phone"/>
+          <value value="044 412 00 99"/>
+        </telecom>
+        <telecom>
+          <system value="email"/>
+          <value value="otto.rderfiller@happyhosptial.ch"/>
+        </telecom>
+      </Practitioner>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="urn:uuid:ef33a804-d268-4a6d-bd21-a995457265d7"/>
+    <resource>
+      <PractitionerRole>
+        <id value="ef33a804-d268-4a6d-bd21-a995457265d7"/>
+        <practitioner>
+          <reference value="urn:uuid:111ec9a6-fc7b-4209-939e-356ab59e516f"/>
+        </practitioner>
+      </PractitionerRole>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="urn:uuid:111ec9a6-fc7b-4209-939e-356ab59e516f"/>
+    <resource>
+      <Practitioner>
+        <id value="111ec9a6-fc7b-4209-939e-356ab59e516f"/>
+        <name>
+          <family value="Rderplacer"/>
+          <given value="Ottilie"/>
+          <prefix value="Dr. med.">
+            <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier">
+              <valueCode value="AC"/>
+            </extension>
+          </prefix>
+        </name>
+        <telecom>
+          <system value="phone"/>
+          <value value="044 333 22 11"/>
+        </telecom>
+        <telecom>
+          <system value="email"/>
+          <value value="ottilie.rderplacer@happydoctors.ch"/>
+        </telecom>
+      </Practitioner>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="urn:uuid:1462055e-f8bc-4730-ad28-66cc8f08e484"/>
+    <resource>
+      <PractitionerRole>
+        <id value="1462055e-f8bc-4730-ad28-66cc8f08e484"/>
+        <practitioner>
+          <reference value="urn:uuid:789cc1a9-69c3-4087-8da6-9afca1e68139"/>
+        </practitioner>
+        <organization>
+          <reference value="urn:uuid:d2fa1d0b-ba1d-4d44-8df7-1208ad578bdf"/>
+        </organization>
+      </PractitionerRole>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="urn:uuid:789cc1a9-69c3-4087-8da6-9afca1e68139"/>
+    <resource>
+      <Practitioner>
+        <id value="789cc1a9-69c3-4087-8da6-9afca1e68139"/>
+        <identifier>
+          <system value="urn:oid:2.51.1.3"/>
+          <value value="7601000201041"/>
+        </identifier>
+        <identifier>
+          <system value="urn:oid:2.16.756.5.30.1.123.100.2.1.1"/>
+          <value value="A123262"/>
+        </identifier>
+        <name>
+          <family value="Rderfiller"/>
+          <given value="Otto"/>
+          <prefix value="Dr. med.">
+            <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier">
+              <valueCode value="AC"/>
+            </extension>
+          </prefix>
+        </name>
+        <telecom>
+          <system value="phone"/>
+          <value value="044 412 00 99"/>
+        </telecom>
+        <telecom>
+          <system value="email"/>
+          <value value="otto.rderfiller@happyhospital.ch"/>
+        </telecom>
+      </Practitioner>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="urn:uuid:d2fa1d0b-ba1d-4d44-8df7-1208ad578bdf"/>
+    <resource>
+      <Organization>
+        <id value="d2fa1d0b-ba1d-4d44-8df7-1208ad578bdf"/>
+        <name value="Spital Happyhospital"/>
+        <address>
+          <line value="Happystrasse 14"/>
+          <line value="Postfach 14"/>
+          <city value="Zürich"/>
+          <postalCode value="8000"/>
+          <country value="Schweiz"/>
+        </address>
+      </Organization>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="urn:uuid:138e672b-ea67-4e4d-8bf3-c797e417fdbd"/>
+    <resource>
+      <RelatedPerson>
+        <id value="138e672b-ea67-4e4d-8bf3-c797e417fdbd"/>
+        <patient>
+          <reference value="urn:uuid:55462ff6-8cb6-4dc3-8000-57ef0aec70e3"/>
+        </patient>
+        <name>
+          <family value="Leidend"/>
+          <given value="Fritz"/>
+        </name>
+      </RelatedPerson>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="urn:uuid:f1fb5081-a557-4cda-abb3-4bf67905d9d3"/>
+    <resource>
+      <PractitionerRole>
+        <id value="f1fb5081-a557-4cda-abb3-4bf67905d9d3"/>
+        <practitioner>
+          <reference value="urn:uuid:afd0c3bf-9ecc-4fcd-9d8b-3e6a04b139e1"/>
+        </practitioner>
+      </PractitionerRole>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="urn:uuid:afd0c3bf-9ecc-4fcd-9d8b-3e6a04b139e1"/>
+    <resource>
+      <Practitioner>
+        <id value="afd0c3bf-9ecc-4fcd-9d8b-3e6a04b139e1"/>
+        <name>
+          <family value="Meier"/>
+          <given value="Sabine"/>
+          <prefix value="Dr. med.">
+            <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier">
+              <valueCode value="AC"/>
+            </extension>
+          </prefix>
+        </name>
+      </Practitioner>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="urn:uuid:25145997-fa4f-4af2-9f62-c912550fa12f"/>
+    <resource>
+      <Encounter>
+        <id value="25145997-fa4f-4af2-9f62-c912550fa12f"/>
+        <extension url="http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-desiredaccommodation">
+          <valueCoding>
+            <system value="http://fhir.ch/ig/ch-core/CodeSystem/bfs-medstats-21-encountertype"/>
+            <code value="2"/>
+            <display value="halbprivat"/>
+          </valueCoding>
+        </extension>
+        <status value="planned"/>
+        <class>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
+          <code value="EMER"/>
+        </class>
+        <subject>
+          <reference value="urn:uuid:55462ff6-8cb6-4dc3-8000-57ef0aec70e3"/>
+        </subject>
+      </Encounter>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="urn:uuid:eef845bc-625e-4407-b2b7-8312985552fb"/>
+    <resource>
+      <Coverage>
+        <id value="eef845bc-625e-4407-b2b7-8312985552fb"/>
+        <contained>
+          <Organization>
+            <id value="org"/>
+            <name value="Sanitas"/>
+          </Organization>
+        </contained>
+        <identifier>
+          <type>
+            <coding>
+              <system value="http://fhir.ch/ig/ch-orf/CodeSystem/ch-orf-cs-coverageidentifiertype"/>
+              <code value="VeKa"/>
+            </coding>
+          </type>
+          <value value="80756015090002647590"/>
+        </identifier>
+        <status value="active"/>
+        <type>
+          <coding>
+            <system value="http://fhir.ch/ig/ch-orf/CodeSystem/ch-orf-cs-coveragetype"/>
+            <code value="KVG"/>
+          </coding>
+        </type>
+        <beneficiary>
+          <reference value="urn:uuid:55462ff6-8cb6-4dc3-8000-57ef0aec70e3"/>
+        </beneficiary>
+        <payor>
+          <reference value="#org"/>
+        </payor>
+      </Coverage>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="urn:uuid:90fd7f71-3179-43ef-a543-4c59d8a09fa8"/>
+    <resource>
+      <PractitionerRole>
+        <id value="90fd7f71-3179-43ef-a543-4c59d8a09fa8"/>
+        <practitioner>
+          <reference value="urn:uuid:8132d995-e480-4c94-837f-fa4ac9c672dd"/>
+        </practitioner>
+        <organization>
+          <reference value="urn:uuid:345a83a7-0b20-4683-92f8-b798b4940f0c"/>
+        </organization>
+      </PractitionerRole>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="urn:uuid:8132d995-e480-4c94-837f-fa4ac9c672dd"/>
+    <resource>
+      <Practitioner>
+        <id value="8132d995-e480-4c94-837f-fa4ac9c672dd"/>
+        <identifier>
+          <system value="urn:oid:2.51.1.3"/>
+          <value value="7601000618627"/>
+        </identifier>
+        <identifier>
+          <system value="urn:oid:2.16.756.5.30.1.123.100.2.1.1"/>
+          <value value="A123321"/>
+        </identifier>
+        <name>
+          <family value="Rderplacer"/>
+          <given value="Ottilie"/>
+          <prefix value="Dr. med.">
+            <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier">
+              <valueCode value="AC"/>
+            </extension>
+          </prefix>
+        </name>
+        <telecom>
+          <system value="phone"/>
+          <value value="044 333 22 11"/>
+        </telecom>
+        <telecom>
+          <system value="email"/>
+          <value value="ottilie.rderplacer@happydoctors.ch"/>
+        </telecom>
+      </Practitioner>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="urn:uuid:345a83a7-0b20-4683-92f8-b798b4940f0c"/>
+    <resource>
+      <Organization>
+        <id value="345a83a7-0b20-4683-92f8-b798b4940f0c"/>
+        <name value="Praxis Happydoctors"/>
+        <address>
+          <line value="Happystrasse 133"/>
+          <city value="Zürich"/>
+          <postalCode value="8000"/>
+          <country value="Schweiz"/>
+        </address>
+      </Organization>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="urn:uuid:795fe9db-b8b9-449d-b14d-73632208a284"/>
+    <resource>
+      <PractitionerRole>
+        <id value="795fe9db-b8b9-449d-b14d-73632208a284"/>
+        <practitioner>
+          <reference value="urn:uuid:9eeca72d-b46a-4eda-8306-eb15ae0d09a4"/>
+        </practitioner>
+        <organization>
+          <reference value="urn:uuid:345a83a7-0b20-4683-92f8-b798b4940f0c"/>
+        </organization>
+      </PractitionerRole>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="urn:uuid:9eeca72d-b46a-4eda-8306-eb15ae0d09a4"/>
+    <resource>
+      <Practitioner>
+        <id value="9eeca72d-b46a-4eda-8306-eb15ae0d09a4"/>
+        <name>
+          <family value="Boss"/>
+          <given value="Stabilo"/>
+        </name>
+        <telecom>
+          <system value="phone"/>
+          <value value="044 333 22 12"/>
+        </telecom>
+        <telecom>
+          <system value="email"/>
+          <value value="stabilo.boss@praxisseeblick.ch"/>
+        </telecom>
+      </Practitioner>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="urn:uuid:d940c591-119a-49a8-a0da-59dd82fc0da9"/>
+    <resource>
+      <PractitionerRole>
+        <id value="d940c591-119a-49a8-a0da-59dd82fc0da9"/>
+        <practitioner>
+          <reference value="urn:uuid:f75a661a-01f9-4ca3-ad2a-20ed0451a1ac"/>
+        </practitioner>
+        <organization>
+          <reference value="urn:uuid:15d7dae4-48d7-40c8-9c07-3ce038257d33"/>
+        </organization>
+      </PractitionerRole>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="urn:uuid:f75a661a-01f9-4ca3-ad2a-20ed0451a1ac"/>
+    <resource>
+      <Practitioner>
+        <id value="f75a661a-01f9-4ca3-ad2a-20ed0451a1ac"/>
+        <name>
+          <family value="Meier"/>
+          <given value="Sabine"/>
+          <prefix value="Dr. med.">
+            <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier">
+              <valueCode value="AC"/>
+            </extension>
+          </prefix>
+        </name>
+        <telecom>
+          <system value="phone"/>
+          <value value="044 333 22 11"/>
+        </telecom>
+        <telecom>
+          <system value="email"/>
+          <value value="sabine.meier@praxisseeblick.ch"/>
+        </telecom>
+      </Practitioner>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="urn:uuid:15d7dae4-48d7-40c8-9c07-3ce038257d33"/>
+    <resource>
+      <Organization>
+        <id value="15d7dae4-48d7-40c8-9c07-3ce038257d33"/>
+        <name value="Praxis Seeblick"/>
+        <address>
+          <line value="Seestrasse 133"/>
+          <city value="Zürich"/>
+          <postalCode value="8000"/>
+          <country value="Schweiz"/>
+        </address>
+      </Organization>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="urn:uuid:82cc6f39-ec30-4a6e-ba92-f9f406946b9c"/>
+    <resource>
+      <Appointment>
+        <id value="82cc6f39-ec30-4a6e-ba92-f9f406946b9c"/>
+        <status value="pending"/>
+        <participant>
+          <actor>
+            <reference value="urn:uuid:5c6fa656-5941-4abe-b17d-01d12b623401"/>
+          </actor>
+          <status value="tentative"/>
+        </participant>
+      </Appointment>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="urn:uuid:5c6fa656-5941-4abe-b17d-01d12b623401"/>
+    <resource>
+      <Location>
+        <id value="5c6fa656-5941-4abe-b17d-01d12b623401"/>
+        <name value="Notfall Spital Happyhospital"/>
+      </Location>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="urn:uuid:7fc00380-e8ed-4896-a83b-927585e6d10b"/>
+    <resource>
+      <EpisodeOfCare>
+        <id value="7fc00380-e8ed-4896-a83b-927585e6d10b"/>
+        <status value="finished"/>
+        <statusHistory>
+          <status value="finished"/>
+          <period>
+            <start value="2023-05-22"/>
+            <end value="2023-05-27"/>
+          </period>
+        </statusHistory>
+        <patient>
+          <reference value="urn:uuid:55462ff6-8cb6-4dc3-8000-57ef0aec70e3"/>
+        </patient>
+        <managingOrganization>
+          <reference value="urn:uuid:33639e15-1908-4c98-8956-56ca69e3a9c5"/>
+        </managingOrganization>
+      </EpisodeOfCare>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="urn:uuid:33639e15-1908-4c98-8956-56ca69e3a9c5"/>
+    <resource>
+      <Organization>
+        <id value="33639e15-1908-4c98-8956-56ca69e3a9c5"/>
+        <name value="Spital Hinterfultigen"/>
+      </Organization>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="urn:uuid:1c390f21-8d81-47fc-9bfb-ce0fd8c9ce3d"/>
+    <resource>
+      <Practitioner>
+        <id value="1c390f21-8d81-47fc-9bfb-ce0fd8c9ce3d"/>
+        <name>
+          <family value="Rderfiller"/>
+          <given value="Otto"/>
+        </name>
+      </Practitioner>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="urn:uuid:ad6c1a02-a73d-4a8d-b21a-b0d8dd1420e4"/>
+    <resource>
+      <Condition>
+        <id value="ad6c1a02-a73d-4a8d-b21a-b0d8dd1420e4"/>
+        <category>
+          <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/condition-category"/>
+            <code value="problem-list-item"/>
+            <display value="Problem List Item"/>
+          </coding>
+        </category>
+        <code>
+          <text value="Primary Diagnosis"/>
+        </code>
+        <subject>
+          <reference value="urn:uuid:55462ff6-8cb6-4dc3-8000-57ef0aec70e3"/>
+        </subject>
+      </Condition>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="urn:uuid:6bb28655-53f4-4c5c-9613-d7b451e1c196"/>
+    <resource>
+      <Condition>
+        <id value="6bb28655-53f4-4c5c-9613-d7b451e1c196"/>
+        <category>
+          <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/condition-category"/>
+            <code value="problem-list-item"/>
+            <display value="Problem List Item"/>
+          </coding>
+        </category>
+        <code>
+          <text value="Secondary Diagnosis 1"/>
+        </code>
+        <subject>
+          <reference value="urn:uuid:55462ff6-8cb6-4dc3-8000-57ef0aec70e3"/>
+        </subject>
+      </Condition>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="urn:uuid:7323ad5f-8206-44f6-b8e6-421f66e4365c"/>
+    <resource>
+      <Condition>
+        <id value="7323ad5f-8206-44f6-b8e6-421f66e4365c"/>
+        <category>
+          <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/condition-category"/>
+            <code value="problem-list-item"/>
+            <display value="Problem List Item"/>
+          </coding>
+        </category>
+        <code>
+          <text value="Secondary Diagnosis 2"/>
+        </code>
+        <subject>
+          <reference value="urn:uuid:55462ff6-8cb6-4dc3-8000-57ef0aec70e3"/>
+        </subject>
+      </Condition>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="urn:uuid:36bcc510-c773-4952-86c8-320d69cc419d"/>
+    <resource>
+      <Observation>
+        <id value="36bcc510-c773-4952-86c8-320d69cc419d"/>
+        <status value="final"/>
+        <category>
+          <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/observation-category"/>
+            <code value="vital-signs"/>
+          </coding>
+        </category>
+        <code>
+          <coding>
+            <system value="http://loinc.org"/>
+            <code value="8302-2"/>
+          </coding>
+        </code>
+        <subject>
+          <reference value="urn:uuid:55462ff6-8cb6-4dc3-8000-57ef0aec70e3"/>
+        </subject>
+        <valueQuantity>
+          <value value="176"/>
+          <unit value="cm"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="cm"/>
+        </valueQuantity>
+      </Observation>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="urn:uuid:88cc5412-5a6c-4d75-9270-099ad3864f0a"/>
+    <resource>
+      <Observation>
+        <id value="88cc5412-5a6c-4d75-9270-099ad3864f0a"/>
+        <status value="final"/>
+        <category>
+          <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/observation-category"/>
+            <code value="vital-signs"/>
+          </coding>
+        </category>
+        <code>
+          <coding>
+            <system value="http://loinc.org"/>
+            <code value="29463-7"/>
+          </coding>
+        </code>
+        <subject>
+          <reference value="urn:uuid:55462ff6-8cb6-4dc3-8000-57ef0aec70e3"/>
+        </subject>
+        <valueQuantity>
+          <value value="99"/>
+          <unit value="kg"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="kg"/>
+        </valueQuantity>
+      </Observation>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="urn:uuid:e3dcd0f2-c10a-42f4-8a9a-9f320ba8fe94"/>
+    <resource>
+      <Condition>
+        <id value="e3dcd0f2-c10a-42f4-8a9a-9f320ba8fe94"/>
+        <extension url="http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-type">
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="64779008"/>
+            <display value="Blood coagulation disorder (disorder)"/>
+          </valueCoding>
+        </extension>
+        <extension url="http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-qualifier-value">
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="52101004"/>
+          </valueCoding>
+        </extension>
+        <category>
+          <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/condition-category"/>
+            <code value="problem-list-item"/>
+            <display value="Problem List Item"/>
+          </coding>
+        </category>
+        <code>
+          <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="64779008"/>
+            <display value="Blood coagulation disorder (disorder)"/>
+          </coding>
+        </code>
+        <subject>
+          <reference value="urn:uuid:55462ff6-8cb6-4dc3-8000-57ef0aec70e3"/>
+        </subject>
+        <evidence>
+          <detail>
+            <reference value="urn:uuid:b6d7f3b2-dc6e-4fb2-ac29-4247fcea9202"/>
+          </detail>
+        </evidence>
+        <evidence>
+          <detail>
+            <reference value="urn:uuid:2d250d33-fc5d-4205-acdf-eaa3cfe39d8a"/>
+          </detail>
+        </evidence>
+      </Condition>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="urn:uuid:b6d7f3b2-dc6e-4fb2-ac29-4247fcea9202"/>
+    <resource>
+      <Observation>
+        <id value="b6d7f3b2-dc6e-4fb2-ac29-4247fcea9202"/>
+        <status value="final"/>
+        <code>
+          <coding>
+            <system value="http://loinc.org"/>
+            <code value="34714-6"/>
+          </coding>
+        </code>
+        <subject>
+          <reference value="urn:uuid:55462ff6-8cb6-4dc3-8000-57ef0aec70e3"/>
+        </subject>
+        <valueQuantity>
+          <value value="2.7"/>
+          <system value="http://unitsofmeasure.org"/>
+        </valueQuantity>
+      </Observation>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="urn:uuid:2d250d33-fc5d-4205-acdf-eaa3cfe39d8a"/>
+    <resource>
+      <Observation>
+        <id value="2d250d33-fc5d-4205-acdf-eaa3cfe39d8a"/>
+        <status value="final"/>
+        <code>
+          <coding>
+            <system value="http://loinc.org"/>
+            <code value="26515-7"/>
+          </coding>
+        </code>
+        <subject>
+          <reference value="urn:uuid:55462ff6-8cb6-4dc3-8000-57ef0aec70e3"/>
+        </subject>
+        <valueQuantity>
+          <value value="98"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="10^9/L"/>
+        </valueQuantity>
+      </Observation>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="urn:uuid:e2b814c1-0eb4-45a9-a113-b5abf35abec9"/>
+    <resource>
+      <Condition>
+        <id value="e2b814c1-0eb4-45a9-a113-b5abf35abec9"/>
+        <extension url="http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-type">
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="723188008"/>
+            <display value="Renal insufficiency (disorder)"/>
+          </valueCoding>
+        </extension>
+        <extension url="http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-qualifier-value">
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="52101004"/>
+          </valueCoding>
+        </extension>
+        <category>
+          <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/condition-category"/>
+            <code value="problem-list-item"/>
+            <display value="Problem List Item"/>
+          </coding>
+        </category>
+        <code>
+          <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="723188008"/>
+            <display value="Renal insufficiency (disorder)"/>
+          </coding>
+        </code>
+        <subject>
+          <reference value="urn:uuid:55462ff6-8cb6-4dc3-8000-57ef0aec70e3"/>
+        </subject>
+        <evidence>
+          <detail>
+            <reference value="urn:uuid:914f7a6c-51f5-49a0-a7a6-049d3334faee"/>
+          </detail>
+        </evidence>
+        <evidence>
+          <detail>
+            <reference value="urn:uuid:2196233a-4cd1-48ea-97d2-5ab53587ceac"/>
+          </detail>
+        </evidence>
+      </Condition>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="urn:uuid:914f7a6c-51f5-49a0-a7a6-049d3334faee"/>
+    <resource>
+      <Observation>
+        <id value="914f7a6c-51f5-49a0-a7a6-049d3334faee"/>
+        <status value="final"/>
+        <code>
+          <coding>
+            <system value="http://loinc.org"/>
+            <code value="33558-8"/>
+          </coding>
+        </code>
+        <subject>
+          <reference value="urn:uuid:55462ff6-8cb6-4dc3-8000-57ef0aec70e3"/>
+        </subject>
+        <valueQuantity>
+          <value value="55"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="mL/min"/>
+        </valueQuantity>
+      </Observation>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="urn:uuid:2196233a-4cd1-48ea-97d2-5ab53587ceac"/>
+    <resource>
+      <Observation>
+        <id value="2196233a-4cd1-48ea-97d2-5ab53587ceac"/>
+        <status value="final"/>
+        <code>
+          <coding>
+            <system value="http://loinc.org"/>
+            <code value="77140-2"/>
+          </coding>
+        </code>
+        <subject>
+          <reference value="urn:uuid:55462ff6-8cb6-4dc3-8000-57ef0aec70e3"/>
+        </subject>
+        <valueQuantity>
+          <value value="90"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="umol/L"/>
+        </valueQuantity>
+      </Observation>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="urn:uuid:ed1451de-f60b-449c-97ac-0266fb82f87c"/>
+    <resource>
+      <Condition>
+        <id value="ed1451de-f60b-449c-97ac-0266fb82f87c"/>
+        <extension url="http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-type">
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="19887002"/>
+            <display value="Claustrophobia (finding)"/>
+          </valueCoding>
+        </extension>
+        <extension url="http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-qualifier-value">
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="373068000"/>
+          </valueCoding>
+        </extension>
+        <category>
+          <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/condition-category"/>
+            <code value="problem-list-item"/>
+            <display value="Problem List Item"/>
+          </coding>
+        </category>
+        <code>
+          <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="19887002"/>
+            <display value="Claustrophobia (finding)"/>
+          </coding>
+        </code>
+        <subject>
+          <reference value="urn:uuid:55462ff6-8cb6-4dc3-8000-57ef0aec70e3"/>
+        </subject>
+      </Condition>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="urn:uuid:e9514904-7bdf-444d-896e-864aed9bdb11"/>
+    <resource>
+      <Condition>
+        <id value="e9514904-7bdf-444d-896e-864aed9bdb11"/>
+        <extension url="http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-type">
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="879862001"/>
+            <display value="Body piercing (finding)"/>
+          </valueCoding>
+        </extension>
+        <extension url="http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-qualifier-value">
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="373068000"/>
+          </valueCoding>
+        </extension>
+        <category>
+          <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/condition-category"/>
+            <code value="problem-list-item"/>
+            <display value="Problem List Item"/>
+          </coding>
+        </category>
+        <code>
+          <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="879862001"/>
+            <display value="Body piercing (finding)"/>
+          </coding>
+        </code>
+        <subject>
+          <reference value="urn:uuid:55462ff6-8cb6-4dc3-8000-57ef0aec70e3"/>
+        </subject>
+      </Condition>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="urn:uuid:40e328af-d6af-4906-9f32-b12acd71c676"/>
+    <resource>
+      <Condition>
+        <id value="40e328af-d6af-4906-9f32-b12acd71c676"/>
+        <extension url="http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-type">
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="397578001"/>
+            <display value="Device in situ (finding)"/>
+          </valueCoding>
+        </extension>
+        <extension url="http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-qualifier-value">
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="52101004"/>
+            <display value="Present (qualifier value)"/>
+          </valueCoding>
+        </extension>
+        <category>
+          <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/condition-category"/>
+            <code value="problem-list-item"/>
+            <display value="Problem List Item"/>
+          </coding>
+        </category>
+        <code>
+          <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="441509002"/>
+            <display value="Herzschrittmacher"/>
+          </coding>
+        </code>
+        <subject>
+          <reference value="urn:uuid:55462ff6-8cb6-4dc3-8000-57ef0aec70e3"/>
+        </subject>
+      </Condition>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="urn:uuid:e2952c4c-4f27-4b38-aa3c-fdbd92cb5d89"/>
+    <resource>
+      <Condition>
+        <id value="e2952c4c-4f27-4b38-aa3c-fdbd92cb5d89"/>
+        <extension url="http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-type">
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="34486009"/>
+            <display value="Hyperthyroidism (disorder)"/>
+          </valueCoding>
+        </extension>
+        <extension url="http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-qualifier-value">
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="373068000"/>
+          </valueCoding>
+        </extension>
+        <category>
+          <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/condition-category"/>
+            <code value="problem-list-item"/>
+            <display value="Problem List Item"/>
+          </coding>
+        </category>
+        <code>
+          <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="34486009"/>
+            <display value="Hyperthyroidism (disorder)"/>
+          </coding>
+        </code>
+        <subject>
+          <reference value="urn:uuid:55462ff6-8cb6-4dc3-8000-57ef0aec70e3"/>
+        </subject>
+      </Condition>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="urn:uuid:fec19b48-8e09-45ab-8282-3a99794ecd4b"/>
+    <resource>
+      <Condition>
+        <id value="fec19b48-8e09-45ab-8282-3a99794ecd4b"/>
+        <extension url="http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-type">
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="73211009"/>
+            <display value="Diabetes mellitus (disorder)"/>
+          </valueCoding>
+        </extension>
+        <extension url="http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-qualifier-value">
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="373068000"/>
+          </valueCoding>
+        </extension>
+        <category>
+          <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/condition-category"/>
+            <code value="problem-list-item"/>
+            <display value="Problem List Item"/>
+          </coding>
+        </category>
+        <code>
+          <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="73211009"/>
+            <display value="Diabetes mellitus (disorder)"/>
+          </coding>
+        </code>
+        <subject>
+          <reference value="urn:uuid:55462ff6-8cb6-4dc3-8000-57ef0aec70e3"/>
+        </subject>
+      </Condition>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="urn:uuid:36ec9827-4bf8-4b08-9cb0-b6606773d828"/>
+    <resource>
+      <Condition>
+        <id value="36ec9827-4bf8-4b08-9cb0-b6606773d828"/>
+        <extension url="http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-type">
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="366321006"/>
+            <display value="Finding of gravida (finding)"/>
+          </valueCoding>
+        </extension>
+        <extension url="http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-qualifier-value">
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="373068000"/>
+          </valueCoding>
+        </extension>
+        <category>
+          <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/condition-category"/>
+            <code value="problem-list-item"/>
+            <display value="Problem List Item"/>
+          </coding>
+        </category>
+        <code>
+          <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="366321006"/>
+            <display value="Finding of gravida (finding)"/>
+          </coding>
+        </code>
+        <subject>
+          <reference value="urn:uuid:55462ff6-8cb6-4dc3-8000-57ef0aec70e3"/>
+        </subject>
+      </Condition>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="urn:uuid:fd802225-5d24-4213-92b7-9c86f6fb71f5"/>
+    <resource>
+      <Condition>
+        <id value="fd802225-5d24-4213-92b7-9c86f6fb71f5"/>
+        <extension url="http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-type">
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="293637006"/>
+            <display value="Allergy to contrast media (finding)"/>
+          </valueCoding>
+        </extension>
+        <extension url="http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-qualifier-value">
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="373068000"/>
+          </valueCoding>
+        </extension>
+        <category>
+          <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/condition-category"/>
+            <code value="problem-list-item"/>
+            <display value="Problem List Item"/>
+          </coding>
+        </category>
+        <code>
+          <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="293637006"/>
+            <display value="Allergy to contrast media (finding)"/>
+          </coding>
+        </code>
+        <subject>
+          <reference value="urn:uuid:55462ff6-8cb6-4dc3-8000-57ef0aec70e3"/>
+        </subject>
+      </Condition>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="urn:uuid:717d554e-d302-4653-a8a4-bf7554fb9045"/>
+    <resource>
+      <Condition>
+        <id value="717d554e-d302-4653-a8a4-bf7554fb9045"/>
+        <extension url="http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-type">
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="182817000"/>
+            <display value="Drug prescription (situation)"/>
+          </valueCoding>
+        </extension>
+        <extension url="http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-qualifier-value">
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="373068000"/>
+          </valueCoding>
+        </extension>
+        <category>
+          <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/condition-category"/>
+            <code value="problem-list-item"/>
+            <display value="Problem List Item"/>
+          </coding>
+        </category>
+        <code>
+          <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="372567009"/>
+            <display value="Metformin (substance)"/>
+          </coding>
+        </code>
+        <subject>
+          <reference value="urn:uuid:55462ff6-8cb6-4dc3-8000-57ef0aec70e3"/>
+        </subject>
+      </Condition>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="urn:uuid:23fd2b71-72a8-498d-ba08-a114a7d9ced5"/>
+    <resource>
+      <Condition>
+        <id value="23fd2b71-72a8-498d-ba08-a114a7d9ced5"/>
+        <extension url="http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-type">
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="182817000"/>
+            <display value="Drug prescription (situation)"/>
+          </valueCoding>
+        </extension>
+        <extension url="http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-qualifier-value">
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="373068000"/>
+          </valueCoding>
+        </extension>
+        <category>
+          <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/condition-category"/>
+            <code value="problem-list-item"/>
+            <display value="Problem List Item"/>
+          </coding>
+        </category>
+        <code>
+          <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="373254001"/>
+            <display value="Substance with beta adrenergic receptor antagonist mechanism of action (substance)"/>
+          </coding>
+        </code>
+        <subject>
+          <reference value="urn:uuid:55462ff6-8cb6-4dc3-8000-57ef0aec70e3"/>
+        </subject>
+      </Condition>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="urn:uuid:31463a8a-1020-4e62-a7c0-cfd3362a6457"/>
+    <resource>
+      <DocumentReference>
+        <id value="31463a8a-1020-4e62-a7c0-cfd3362a6457"/>
+        <status value="current"/>
+        <subject>
+          <reference value="urn:uuid:55462ff6-8cb6-4dc3-8000-57ef0aec70e3"/>
+        </subject>
+        <description value="Befund Notfall-Rx nach Sturz"/>
+      </DocumentReference>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="urn:uuid:7260f7e4-4d28-40ee-911d-757c849ff828"/>
+    <resource>
+      <ImagingStudy>
+        <id value="7260f7e4-4d28-40ee-911d-757c849ff828"/>
+        <identifier>
+          <type>
+            <coding>
+              <system value="urn:dicom:uid"/>
+              <code value="PLAC"/>
+            </coding>
+          </type>
+          <value value="2.16.124.113543.1154777499.30246.19789.3503430045"/>
+        </identifier>
+        <identifier>
+          <type>
+            <coding>
+              <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
+              <code value="ACSN"/>
+            </coding>
+          </type>
+          <value value="2819497684894126"/>
+        </identifier>
+        <status value="available"/>
+        <subject>
+          <reference value="urn:uuid:55462ff6-8cb6-4dc3-8000-57ef0aec70e3"/>
+        </subject>
+        <series>
+          <uid value="2.16.124.113543.1154777499.30246.19789.3503430045.1"/>
+          <instance>
+            <uid value="2.16.124.113543.1154777499.30246.19789.3503430045.1.1"/>
+          </instance>
+        </series>
+      </ImagingStudy>
+    </resource>
+  </entry>
+</Bundle>

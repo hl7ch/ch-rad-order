@@ -76,8 +76,10 @@ group RadOrderQrToServiceRequest(source qr : QuestionnaireResponse, target patie
   qr.item as grp where linkId='desiredRadiologist' then DesiredRadiologistServiceItems(grp, bundle, serviceRequest) "desiredRadiologist";
   qr.item as grp where linkId='diagnosisList' then DiagnosisListServiceItems(grp, patient, bundle, serviceRequest) "diagnosisList";
   qr.item as grp where linkId='caveat' then CaveatServiceItems(grp, patient, bundle, serviceRequest) "Caveat";
-  qr.item as grp where linkId='attachment.nonDicom' then PreviousImagingStudyResultsNonDicom(grp, bundle, serviceRequest, patient) "attachment";
-  qr.item as grp where linkId='dicomObject' then PreviousImagingStudyResults(grp, bundle, serviceRequest, patient) "attachment";
+  qr.item as grp where linkId='previousResults' then {
+    grp.item as grp where linkId='attachedFile' then PreviousImagingStudyResultsNonDicom(grp, bundle, serviceRequest, patient) "attachment";
+    grp.item as grp where linkId='dicomObject' then PreviousImagingStudyResults(grp, bundle, serviceRequest, patient) "attachment";
+  } "previousResults";
 }
 
 group RequestedServiceItems(source src , target serviceRequest: ServiceRequest) {
@@ -706,8 +708,8 @@ group DesiredRadiologistServiceItemsDrugDescription(source src, target bundle : 
   } "caveatListDrugPrescriptionBetaBlocker";
 }  
 
-group PreviousImagingStudyResultsNonDicom(source grp , target bundle: Bundle, target serviceRequest: ServiceRequest, target patient: Patient) {
-  grp.item as item where (linkId.value = 'attachment.nonDicom.title') -> 
+group PreviousImagingStudyResultsNonDicom(source item , target bundle: Bundle, target serviceRequest: ServiceRequest, target patient: Patient) {
+  item as item -> 
     bundle.entry as e, 
     e.resource = create('DocumentReference') as documentReference, 
     documentReference.id = uuid() as uuid,
@@ -716,19 +718,16 @@ group PreviousImagingStudyResultsNonDicom(source grp , target bundle: Bundle, ta
     documentReference.status = 'current',
     serviceRequest.supportingInfo as supportingInfo,
     supportingInfo.reference = ('urn:uuid:'+%uuid) then {
-      item.answer as answer then {
-        answer.item as dictomitem where (linkId.value = 'attachedFile' and answer.exists()) -> 
-        documentReference.content as content, content.attachment = (%dictomitem.answer.value) as attachment then {
-          answer.value: string as value -> attachment.title = value "tmpshouldnotbe";
-        }  "uid";
-        answer.item as dictomitem where (linkId.value = 'attachedFile.description' and answer.exists()) -> 
-          documentReference.description = (%dictomitem.answer.value) "description";
-      } "answerValueString";
+      item.answer as answer -> 
+        documentReference.content as content, content.attachment = (%.answer.value) as attachment then {
+           answer.item as dictomitem where (linkId.value = 'attachedFile.description' and answer.exists()) -> 
+           documentReference.description = (%dictomitem.answer.value) "description";
+        } "answerValueString";
     } "itemAnswer";
 }
 
-group PreviousImagingStudyResults(source grp , target bundle: Bundle, target serviceRequest: ServiceRequest, target patient: Patient) {
-  grp.item as item where (linkId.value = 'dicomObject.title') -> 
+group PreviousImagingStudyResults(source item , target bundle: Bundle, target serviceRequest: ServiceRequest, target patient: Patient) {
+  item as item -> 
     bundle.entry as e, 
     e.resource = create('ImagingStudy') as imagingStudy, 
     imagingStudy.id = uuid() as uuid,
@@ -736,24 +735,15 @@ group PreviousImagingStudyResults(source grp , target bundle: Bundle, target ser
     imagingStudy.subject as subject, subject.reference = ('urn:uuid:'+%patient.id),
     e.fullUrl = append('urn:uuid:',uuid), 
     serviceRequest.subject as subject, subject.reference = ('urn:uuid:'+%patient.id),
-    serviceRequest.supportingInfo as supportingInfo,
+    serviceRequest.supportingInfo as supportingInfo, imagingStudy.series as series, series.instance as instance,
     supportingInfo.reference = ('urn:uuid:'+%uuid) then {
-      item.answer as answer -> imagingStudy.series as series, series.instance as instance then {
-        answer.value: string as value -> imagingStudy.description = value "description";
-        answer.item as dictomitem where (linkId.value = 'dicomObject.sopInstanceUid' and answer.exists()) -> 
-          instance.uid  =(%dictomitem.answer.value) "uid";
-        answer.item as dictomitem where (linkId.value = 'dicomObject.sopClass' and answer.exists()) -> 
-          instance.sopClass as sopClass, sopClass.code =(%dictomitem.answer.value.code) "sopClass";
-        answer.item as dictomitem where (linkId.value = 'dicomObject.modality' and answer.exists()) -> 
-          series.modality as modality, modality.code =(%dictomitem.answer.value.code) "modality";
-        answer.item as dictomitem where (linkId.value = 'dicomObject.studyInstanceUid' and answer.exists()) -> 
-        imagingStudy.identifier as uid, uid.type as type, type.coding as coding, coding.system ='urn:dicom:uid',
-        coding.code='PLAC', uid.value=(%dictomitem.answer.value) "uid";
-        answer.item as dictomitem where (linkId.value = 'dicomObject.SeriesInstanceUid' and answer.exists()) -> 
-          series.uid =(%dictomitem.answer.value) "attachmentdicomSeriesInstanceUid";
-        answer.item as dictomitem where (linkId.value = 'dicomObject.acsn' and answer.exists()) -> 
-          imagingStudy.identifier as acsn, acsn.type as type, type.coding as coding, coding.system ='http://terminology.hl7.org/CodeSystem/v2-0203',
-          coding.code='ACSN', acsn.value=(%dictomitem.answer.value) "acsn";
-      } "answerValueString";
-    } "itemAnswer";
+        item.answer as answer then {
+          answer.value: string as value -> imagingStudy.description = value "description";
+        } "answerValueString";
+        item.item as item where linkId.value = 'dicomObject.sopInstanceUid' and answer.exists() -> instance.uid  = (%item.answer.value) "uid";
+        item.item as item where linkId.value = 'dicomObject.modality' and answer.exists() -> series.modality as modality, modality.code =(%ditem.answer.value.code) "modality";
+        item.item as item where linkId.value = 'dicomObject.studyInstanceUid' and answer.exists() -> imagingStudy.identifier as uid, uid.type as type, type.coding as coding, coding.system ='urn:dicom:uid', coding.code='PLAC', uid.value=(%item.answer.value) "uid";
+        item.item as item where linkId.value = 'dicomObject.SeriesInstanceUid' and answer.exists() -> series.uid =(%item.answer.value) "attachmentdicomSeriesInstanceUid";
+        item.item as item where linkId.value = 'dicomObject.acsn' and answer.exists() ->  imagingStudy.identifier as acsn, acsn.type as type, type.coding as coding, coding.system ='http://terminology.hl7.org/CodeSystem/v2-0203', coding.code='ACSN', acsn.value=(%item.answer.value) "acsn";
+      } "supportingInfo";
 }
