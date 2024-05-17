@@ -1,0 +1,12 @@
+{
+  "package-id" : "ch.fhir.ig.ch-rad-order",
+  "version" : "2.0.0-ballot",
+  "path" : "http://fhir.ch/ig/ch-rad-order/2.0.0-ballot",
+  "mode" : "milestone",
+  "status" : "ballot",
+  "sequence" : "STU 2",
+  "desc" : "HL7 Switzerland STU 2",
+  "descmd": "HL7 Switzerland STU 2",
+  "changes" : "changelog.html",
+  "first": false
+}
