@@ -741,7 +741,7 @@ group PreviousImagingStudyResults(source item , target bundle: Bundle, target se
           answer.value: string as value -> imagingStudy.description = value "description";
         } "answerValueString";
         item.item as item where linkId.value = 'dicomObject.sopInstanceUid' and answer.exists() -> instance.uid  = (%item.answer.value) "uid";
-        item.item as item where linkId.value = 'dicomObject.modality' and answer.exists() -> series.modality as modality, modality.code =(%ditem.answer.value.code) "modality";
+        item.item as item where linkId.value = 'dicomObject.modality' and answer.exists() -> series.modality as modality, modality.code =(%item.answer.value.code) "modality";
         item.item as item where linkId.value = 'dicomObject.studyInstanceUid' and answer.exists() -> imagingStudy.identifier as uid, uid.type as type, type.coding as coding, coding.system ='urn:dicom:uid', coding.code='PLAC', uid.value=(%item.answer.value) "uid";
         item.item as item where linkId.value = 'dicomObject.SeriesInstanceUid' and answer.exists() -> series.uid =(%item.answer.value) "attachmentdicomSeriesInstanceUid";
         item.item as item where linkId.value = 'dicomObject.acsn' and answer.exists() ->  imagingStudy.identifier as acsn, acsn.type as type, type.coding as coding, coding.system ='http://terminology.hl7.org/CodeSystem/v2-0203', coding.code='ACSN', acsn.value=(%item.answer.value) "acsn";
