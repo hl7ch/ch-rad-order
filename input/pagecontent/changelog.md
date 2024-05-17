@@ -2,7 +2,7 @@
 All significant changes to this FHIR implementation guide will be documented on this page.   
 
 
-### STU 2 Ballot (2024)
+### STU 2 Ballot (2024-05-17)
 #### Open Issues
 * [Issue #62](https://github.com/hl7ch/ch-rad-order/issues/62): Update Coverage
 * [Issue #63](https://github.com/hl7ch/ch-rad-order/issues/63): Update ServiceRequest
