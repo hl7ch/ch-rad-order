@@ -719,7 +719,7 @@ group PreviousImagingStudyResultsNonDicom(source item , target bundle: Bundle, t
     serviceRequest.supportingInfo as supportingInfo,
     supportingInfo.reference = ('urn:uuid:'+%uuid) then {
       item.answer as answer -> 
-        documentReference.content as content, content.attachment = (%.answer.value) as attachment then {
+        documentReference.content as content, content.attachment = (%answer.value) as attachment then {
            answer.item as dictomitem where (linkId.value = 'attachedFile.description' and answer.exists()) -> 
            documentReference.description = (%dictomitem.answer.value) "description";
         } "answerValueString";
