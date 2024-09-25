@@ -8,7 +8,7 @@ All significant changes to this FHIR implementation guide will be documented on 
 
 
 #### Fixed
-[#74](https://github.com/hl7ch/ch-rad-order/issues/74): Fixing the title and description of the qualifier value extension
+[#74](https://github.com/hl7ch/ch-rad-order/issues/74): Fixing the title and description of the qualifier value extension 
 
 #### Issues resolved without amendment (in IG)
 
