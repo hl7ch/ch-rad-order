@@ -474,6 +474,15 @@ Description: "Example for CreatinineClearance Observation"
 * effectiveDateTime = "2019-04-01T10:10:00.000+00:00"
 * valueQuantity = 55 'mL/min' "ml/min"
 
+Instance: CaveatRenalInsufficiencyGFR
+InstanceOf: ChRadOrderGFRObservation
+Title: "Caveat Renal Insufficiency GFR"
+Description: "Example for GFR Observation"
+* status = #final
+* code = LNC#33558-8 "Creatinine renal clearance in Urine and Serum or Plasma collected for unspecified duration"
+* subject = Reference(SUfferer)
+* effectiveDateTime = "2019-04-01T10:10:00.000+00:00"
+* valueQuantity = 55 'mL/min' "ml/min"
 
 Instance: CaveatDrugPrescriptionMetformin
 InstanceOf: ChRadOrderCaveatCondition

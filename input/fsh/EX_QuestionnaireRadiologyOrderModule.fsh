@@ -535,17 +535,19 @@ Description: "Subquestionnaire Caveats"
 * item[=].item[=].initial.valueCoding = SCT#373068000
 * item[=].item[=].required = true
 
-* item[=].item[=].item[+].linkId = "caveatList.renalInsufficiency.creatinineClearance" 
+* item[=].item[=].item[+].linkId = "caveatList.renalInsufficiency.GFR" 
 * item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-caveat-condition-definitions#Condition.evidence.detail"
-* item[=].item[=].item[=].text = "Creatinin-Clearance"   
+* item[=].item[=].item[=].text = "Glomeruläre Filtrationsrate
+
+"   
 * item[=].item[=].item[=].type = #group
 
-* item[=].item[=].item[=].item[+].linkId = "caveatList.renalInsufficiency.creatinineClearance.quantity"
+* item[=].item[=].item[=].item[+].linkId = "caveatList.renalInsufficiency.GFR.quantity"
 * item[=].item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-creatinineclearance-observation-definitions#Observation.valueQuantity"
 * item[=].item[=].item[=].item[=].text = "Wert (mL/min)"   
 * item[=].item[=].item[=].item[=].type = #quantity
 
-* item[=].item[=].item[=].item[+].linkId = "caveatList.renalInsufficiency.creatinineClearance.dateTime"
+* item[=].item[=].item[=].item[+].linkId = "caveatList.renalInsufficiency.GFR.dateTime"
 * item[=].item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-creatinineclearance-observation-definitions#Observation.effectiveDateTime"
 * item[=].item[=].item[=].item[=].text = "Zeitpunkt der Bestimmung"   
 * item[=].item[=].item[=].item[=].type = #dateTime

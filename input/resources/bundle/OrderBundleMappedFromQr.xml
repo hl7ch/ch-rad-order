@@ -1220,10 +1220,10 @@
                 <code value="52101004"/>
               </valueCoding>
               <item>
-                <linkId value="caveatList.renalInsufficiency.creatinineClearance"/>
-                <text value="Creatinin-Clearance"/>
+                <linkId value="caveatList.renalInsufficiency.GFR"/>
+                <text value="Glomeruläre Filtrationsrate"/>
                 <item>
-                  <linkId value="caveatList.renalInsufficiency.creatinineClearance.quantity"/>
+                  <linkId value="caveatList.renalInsufficiency.GFR.quantity"/>
                   <text value="Wert (mL/min)"/>
                   <answer>
                     <valueQuantity>
@@ -1232,7 +1232,7 @@
                       <code value="mL/min"/>
                     </valueQuantity>
                     <item>
-                      <linkId value="caveatList.renalInsufficiency.creatinineClearance.dateTime"/>
+                      <linkId value="caveatList.renalInsufficiency.GFR.dateTime"/>
                       <text value="Zeitpunkt der Bestimmung"/>
                       <answer>
                         <valueDateTime value="2024-02-01T10:10:00.000+00:00"/>

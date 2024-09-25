@@ -33,7 +33,7 @@ Description: "Definition for the Caveat Condition resource in the context of CH 
 * evidence MS
 //* evidence.detail 1..1 MS must be 0..1 because only used for clood coagulation and rneal insufficience
 * evidence.detail ^short = "Supporting information: for renal insufficiency (creatinine clearance, creatinine) and coagulopathy (INR, platelets)"
-* evidence.detail only Reference(ChRadOrderCreatinineClearanceObservation or ChRadOrderCreatinineObservation or
+* evidence.detail only Reference(ChRadOrderGFRObservation or ChRadOrderCreatinineObservation or
                                   ChRadOrderINRObservation or ChRadOrderPlateletsObservation)
 
 Profile: ChRadOrderCreatinineClearanceObservation
@@ -59,6 +59,28 @@ Description: "Definition for the Creatinine Clearance Observation resource in th
 * valueQuantity.code ^fixedCode = #mL/min
 * dataAbsentReason MS
 
+Profile: ChRadOrderGFRObservation
+Parent: Observation
+Id: ch-rad-order-gfr-observation
+Title: "CH RAD-Order Glomerular Filtration Rate Observation"
+Description: "Definition for the glomerular filtration rate observation resource in the context of CH RAD-Order."
+* . ^short = "CH Glomerular filtration rate observation"
+* status MS
+* code MS
+* code = LNC#33558-8
+* code ^short = "Creatinine renal clearance in Urine and Serum or Plasma collected for unspecified duration"
+* subject MS 
+* subject only Reference(ChCorePatient) 
+* effectiveDateTime MS
+* valueQuantity MS
+* valueQuantity.value 1.. MS
+* valueQuantity.unit 1.. MS
+* valueQuantity.unit ^fixedString = "ml/min"
+* valueQuantity.system 1.. MS
+* valueQuantity.system ^fixedUri = "http://unitsofmeasure.org"
+* valueQuantity.code 1.. MS
+* valueQuantity.code ^fixedCode = #mL/min
+* dataAbsentReason MS
 
 Profile: ChRadOrderCreatinineObservation
 Parent: Observation

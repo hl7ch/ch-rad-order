@@ -1,6 +1,19 @@
 
 All significant changes to this FHIR implementation guide will be documented on this page.   
 
+### STU 2 Sequence - v2.0.0
+
+#### Added
+
+#### Changed / Updated
+[#69](https://github.com/hl7ch/ch-rad-order/issues/69): Determination of renal function changed from creatine clearance to glomerular filtration rate
+
+#### Fixed
+
+
+#### Issues resolved without amendment (in IG)
+
+
 
 ### STU 2 Ballot (2024-05-17)
 #### Open Issues

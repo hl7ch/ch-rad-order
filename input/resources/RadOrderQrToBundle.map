@@ -376,7 +376,7 @@ group CaveatServiceItems(source src, target patient : Patient, target bundle : B
             coding2.display = 'Renal insufficiency (disorder)',
           condition.subject as subject,
             subject.reference = ('urn:uuid:'+%patient.id) then {
-            answer.item as subitem where (linkId.value = 'caveatList.renalInsufficiency.creatinineClearance') ->
+            answer.item as subitem where (linkId.value = 'caveatList.renalInsufficiency.GFR') ->
                 bundle.entry as e, 
                 e.resource = create('Observation') as observation, 
                 observation.status = 'final',
@@ -388,16 +388,16 @@ group CaveatServiceItems(source src, target patient : Patient, target bundle : B
                 observation.code as cc, cc.coding as c, c.system = 'http://loinc.org', c.code = '33558-8',
                 observation.subject as subject,
                 subject.reference = ('urn:uuid:'+%patient.id) then {
-                  subitem.item as quantityitem where (linkId.value = 'caveatList.renalInsufficiency.creatinineClearance.quantity' and answer.exists()) then {
+                  subitem.item as quantityitem where (linkId.value = 'caveatList.renalInsufficiency.GFR.quantity' and answer.exists()) then {
                     quantityitem.answer as answer then {
                       answer.value: Quantity as value -> observation.value = value "value";
-                    } "caveatListRenalInsufficiencyCreatinineClearanceQuantityValue";
-                  } "caveatListRenalInsufficiencyCreatinineClearanceQuantity";
-                  subitem.item as datetimeitem where (linkId.value = 'caveatList.renalInsufficiency.creatinineClearance.dateTime' and answer.exists()) then {
+                    } "caveatListRenalInsufficiencyGFRQuantityValue";
+                  } "caveatListRenalInsufficiencyGFRQuantity";
+                  subitem.item as datetimeitem where (linkId.value = 'caveatList.renalInsufficiency.GFR.dateTime' and answer.exists()) then {
                     datetimeitem.answer as answer then {
                       answer.value: dateTime as value -> observation.effective = value "value";
-                    } "caveatListRenalInsufficiencyCreatinineClearanceDateTimeValue";
-                  } "caveatListRenalInsufficiencyCreatinineClearancedateTime";
+                    } "caveatListRenalInsufficiencyGFRDateTimeValue";
+                  } "caveatListRenalInsufficiencyGFRdateTime";
               } "caveatListRenalInsufficiencyCreatinineClearanceINR";
             answer.item as subitem where (linkId.value = 'caveatList.renalInsufficiency.creatinine') ->
               bundle.entry as e, 

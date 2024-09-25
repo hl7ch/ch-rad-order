@@ -633,15 +633,15 @@ Caveats
 * item[=].item[=].text = "Niereninsuffizienz"  
 * item[=].item[=].answer[+].valueCoding = SCT#52101004
 
-* item[=].item[=].answer[=].item[+].linkId = "caveatList.renalInsufficiency.creatinineClearance"
-* item[=].item[=].answer[=].item[=].text = "Creatinin-Clearance" 
+* item[=].item[=].answer[=].item[+].linkId = "caveatList.renalInsufficiency.GFR"
+* item[=].item[=].answer[=].item[=].text = "Glomeruläre Filtrationsrate" 
 //* item[=].type = #group
 
-* item[=].item[=].answer[=].item[=].item[+].linkId = "caveatList.renalInsufficiency.creatinineClearance.quantity" 
+* item[=].item[=].answer[=].item[=].item[+].linkId = "caveatList.renalInsufficiency.GFR.quantity" 
 * item[=].item[=].answer[=].item[=].item[=].text = "Wert (mL/min)"  
 * item[=].item[=].answer[=].item[=].item[=].answer[+].valueQuantity = 55 'mL/min'
 
-* item[=].item[=].answer[=].item[=].item[=].answer[=].item[+].linkId = "caveatList.renalInsufficiency.creatinineClearance.dateTime"   
+* item[=].item[=].answer[=].item[=].item[=].answer[=].item[+].linkId = "caveatList.renalInsufficiency.GFR.dateTime"   
 * item[=].item[=].answer[=].item[=].item[=].answer[=].item[=].text = "Zeitpunkt der Bestimmung"
 * item[=].item[=].answer[=].item[=].item[=].answer[=].item[=].answer[+].valueDateTime = "2024-02-01T10:10:00.000+00:00" 
 
