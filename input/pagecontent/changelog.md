@@ -1,6 +1,15 @@
 
 All significant changes to this FHIR implementation guide will be documented on this page.   
 
+### STU 2 Sequence - v2.0.0
+
+#### Added
+
+#### Changed / Updated
+
+
+#### Fixed
+[#71](https://github.com/hl7ch/ch-rad-order/issues/74): Fix typo in example
 
 ### STU 2 Ballot (2024-05-17)
 #### Open Issues
