@@ -6,7 +6,7 @@ All significant changes to this FHIR implementation guide will be documented on 
 #### Added
 
 #### Changed / Updated
-[#69](https://github.com/hl7ch/ch-rad-order/issues/69): Determination of renal function changed from creatine clearance to glomerular filtration rate
+[#69](https://github.com/hl7ch/ch-rad-order/issues/69): Determination of renal function changed from creatine clearance to glomerular filtration rate 
 
 #### Fixed
 
