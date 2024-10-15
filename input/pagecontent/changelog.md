@@ -6,14 +6,14 @@ All significant changes to this FHIR implementation guide will be documented on 
 #### Open Issues
 During the ballot, the following comments came in, which will be taken into account in the further development of CH RAD-Order:
 
-* [#62](https://github.com/hl7ch/ch-rad-order/issues/62): Revision (harmonization, usage SCT) of code system and value set ServiceRequest Category
+* [Issue #62](https://github.com/hl7ch/ch-rad-order/issues/62): Revision (harmonization, usage SCT) of code system and value set ServiceRequest Category
 
 See also open issues on [GitHub](https://github.com/hl7ch/ch-rad-order/issues).
 
 ### STU 2 Ballot (2024-05-17)
 #### Open Issues
-* [Issue #62](https://github.com/hl7ch/ch-rad-order/issues/62): Update Coverage
-* [Issue #63](https://github.com/hl7ch/ch-rad-order/issues/63): Update ServiceRequest
+* [Issue #63](https://github.com/hl7ch/ch-rad-order/issues/62): Update Coverage
+* [Issue #62](https://github.com/hl7ch/ch-rad-order/issues/63): Update ServiceRequest
 
 #### Added
 * [Issue #36](https://github.com/hl7ch/ch-rad-order/issues/36): Added  SCT#373068000 as initial value to caveat Diabetes mellitus".
