@@ -2,7 +2,6 @@
 
 # Swiss specific display values
 Wrong Display Name%
-Wrong Display Nam
 
 # Build error with contained resource (cannot resolved in ToC)
 The link%
