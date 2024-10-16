@@ -19,10 +19,10 @@ See also open issues on [GitHub](https://github.com/hl7ch/ch-rad-order/issues).
 * [Issue #36](https://github.com/hl7ch/ch-rad-order/issues/36): Added  SCT#373068000 as initial value to caveat Diabetes mellitus".
 * [Issue #37](https://github.com/hl7ch/ch-rad-order/issues/37): Added item Modality (for series) to Questionnaire because this item has card 1..1 in ImagingStudy Resource.
 * [Issue #39](https://github.com/hl7ch/ch-rad-order/issues/39): Added a default value to "Bildgebendes Verfahren"; This item will therefore never be empty.
-* [Issue #46](https://github.com/hl7ch/ch-rad-order/issues/47): Added details about attachements to index.html
+* [Issue #46](https://github.com/hl7ch/ch-rad-order/issues/47): Added details about attachments to index.html
 * [Issue #47](https://github.com/hl7ch/ch-rad-order/issues/47): Updated index.html
 * [Issue #48](https://github.com/hl7ch/ch-rad-order/issues/48): Updated Questionnaire Response according to #37
-* [Issue #49](https://github.com/hl7ch/ch-rad-order/issues/49): Added UNKNOWN to VS Ascquisition Modality.
+* [Issue #49](https://github.com/hl7ch/ch-rad-order/issues/49): Added UNKNOWN to VS Acquisition Modality.
 * [Issue #59](https://github.com/hl7ch/ch-rad-order/issues/59): Use CH Core Condition as parent profile
 * [Issue #57](https://github.com/hl7ch/ch-rad-order/issues/57): Fix StructureMap errors and adapt map to new Questionnaire
 
@@ -36,12 +36,12 @@ See also open issues on [GitHub](https://github.com/hl7ch/ch-rad-order/issues).
 
 #### Changed / Updated
 * [Issue #41](https://github.com/hl7ch/ch-rad-order/issues/41): Corrected radlex url
-* [Issue #44](https://github.com/hl7ch/ch-rad-order/issues/44): Chnaged license to CC0 1.0 Universal (CC0 1.0)
-* [Issue #51](https://github.com/hl7ch/ch-rad-order/issues/51): Dropped group, changed hierarchy of device and choice (present, absent, undeterminded) in caveat.device item of questionnaire.
+* [Issue #44](https://github.com/hl7ch/ch-rad-order/issues/44): Changed license to CC0 1.0 Universal (CC0 1.0)
+* [Issue #51](https://github.com/hl7ch/ch-rad-order/issues/51): Dropped group, changed hierarchy of device and choice (present, absent, undetermined) in caveat.device item of questionnaire.
 * [Issue #52](https://github.com/hl7ch/ch-rad-order/issues/52): Change according to CH-ORF#50: attachment embedded in the DocumentReference resource instead of CH RAD-Order Media.
-* [Issue #53](https://github.com/hl7ch/ch-rad-order/issues/53): Addded series.instance.sopClass which has has cardinality 1..1 to questionnaire and questionnaire response.
+* [Issue #53](https://github.com/hl7ch/ch-rad-order/issues/53): Added series.instance.sopClass which has has cardinality 1..1 to questionnaire and questionnaire response.
 * [Issue #54](https://github.com/hl7ch/ch-rad-order/issues/54): Snomed Code 182817000 -Drug prescription (situation)- is not active anymore; replaced with Changed to 1290126002 -Drug therapy with explicit context (situation).
-* [Issue #56](https://github.com/hl7ch/ch-rad-order/issues/56): Replaced Platelets unit of measurment 10^3/µL with 10^9/L (According to http://unitsofmeasure.org V2.01).
+* [Issue #56](https://github.com/hl7ch/ch-rad-order/issues/56): Replaced Platelets unit of measurement 10^3/µL with 10^9/L (According to http://unitsofmeasure.org V2.01).
 
 ##### Adopted from CH ORF
 * [ORF Issue Issue #108](https://github.com/hl7ch/ch-orf/issues/108): Improve slicing that info entry[x] warnings are not shown.
