@@ -13,13 +13,14 @@ See also open issues on [GitHub](https://github.com/hl7ch/ch-rad-order/issues).
 * [#63](https://github.com/hl7ch/ch-rad-order/issues/63): Update Coverage.type according to changes in parent profile CH ORF (see [CH ORF #177](https://github.com/hl7ch/ch-orf/issues/177))
 
 #### Fixed
-* [#74](https://github.com/hl7ch/ch-rad-order/issues/74): Fixing the title and description of the qualifier value extension 
+* [#71](https://github.com/hl7ch/ch-rad-order/issues/74): Fix typo in example 
+* [#74](https://github.com/hl7ch/ch-rad-order/issues/74): Fixing the title and description of the qualifier value extension
 
 
 ### STU 2 Ballot (2024-05-17)
 #### Open Issues
-* [Issue #63](https://github.com/hl7ch/ch-rad-order/issues/62): Update Coverage
 * [Issue #62](https://github.com/hl7ch/ch-rad-order/issues/63): Update ServiceRequest
+* [Issue #63](https://github.com/hl7ch/ch-rad-order/issues/62): Update Coverage
 
 #### Added
 * [Issue #36](https://github.com/hl7ch/ch-rad-order/issues/36): Added  SCT#373068000 as initial value to caveat Diabetes mellitus".
