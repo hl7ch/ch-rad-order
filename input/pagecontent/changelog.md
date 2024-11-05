@@ -1,4 +1,3 @@
-
 All significant changes to this FHIR implementation guide will be documented on this page.   
 
 ### STU 3 (2024)
@@ -12,6 +11,10 @@ See also open issues on [GitHub](https://github.com/hl7ch/ch-rad-order/issues).
 
 #### Changed / Updated 
 * [#63](https://github.com/hl7ch/ch-rad-order/issues/63): Update Coverage.type according to changes in parent profile CH ORF (see [CH ORF #177](https://github.com/hl7ch/ch-orf/issues/177))
+
+#### Fixed
+* [#74](https://github.com/hl7ch/ch-rad-order/issues/74): Fixing the title and description of the qualifier value extension 
+
 
 ### STU 2 Ballot (2024-05-17)
 #### Open Issues

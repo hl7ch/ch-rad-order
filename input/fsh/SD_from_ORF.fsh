@@ -113,7 +113,7 @@ Description: "Extension to define the Type of Order Detail in context of CH RAD-
 Extension: ChRadOrderCaveatType
 Id: ch-rad-order-caveat-type
 Title: "CH RAD-Order Caveat Type"
-Description: "Extension to define the Type of Caveat in context of CH RAD-Order."
+Description: "Extension to define the type of caveat in the context CH RAD-Order."
 * value[x] 1..1
 * value[x] only Coding
 * value[x] ^short = "Type of Caveat"
@@ -121,11 +121,11 @@ Description: "Extension to define the Type of Caveat in context of CH RAD-Order.
 
 Extension: ChRadOrderQualifierValue
 Id: ch-rad-order-qualifier-value
-Title: "CH RAD-Order Caveat Type"
-Description: "Extension to define the Type of Caveat in context of CH RAD-Order."
+Title: "CH RAD-Order Qualifier Value"
+Description: "Extension to define the value of the qualifier in the context of CH RAD-Order."
 * value[x] 1..1
 * value[x] only Coding
-* value[x] ^short = "Type of Caveat"
+* value[x] ^short = "Value of Qualifier"
 * value[x] from ChRadOrderQualifierValue
 
 
