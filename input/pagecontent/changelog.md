@@ -15,7 +15,7 @@ See also open issues on [GitHub](https://github.com/hl7ch/ch-rad-order/issues).
 #### Fixed
 * [#71](https://github.com/hl7ch/ch-rad-order/issues/74): Fix typo in example 
 * [#74](https://github.com/hl7ch/ch-rad-order/issues/74): Fixing the title and description of the qualifier value extension
-
+* [#79](https://github.com/hl7ch/ch-rad-order/issues/79): Replace deprecated discriminator (`pattern` -> `value`) 
 
 ### STU 2 Ballot (2024-05-17)
 #### Open Issues

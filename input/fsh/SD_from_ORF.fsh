@@ -22,7 +22,7 @@ equal one Filler Order equal one Imaging Service Request."
 * code MS
 * code ^short = "Use 'RSNA/LOINC Playbook (Full Version support)' OR Codes from 'ChRadOrderModalityType' but NOT both. 
 In case of 'ChRadOrderModalityType' specify Imaging Request Details by means of orderDetail."
-* code.coding ^slicing.discriminator.type = #pattern
+* code.coding ^slicing.discriminator.type = #value
 * code.coding ^slicing.discriminator.path = "$this"
 * code.coding ^slicing.rules = #open
 * code.coding contains 
@@ -35,7 +35,7 @@ In case of 'ChRadOrderModalityType' specify Imaging Request Details by means of 
 //------- orderDetail -------
 * orderDetail MS
 * orderDetail.extension contains ChRadOrderOrderDetailType named orderDetailType 1..1 MS
-* orderDetail ^slicing.discriminator.type = #pattern
+* orderDetail ^slicing.discriminator.type = #value
 * orderDetail ^slicing.discriminator.path = "$this"
 * orderDetail ^slicing.rules = #open
 * orderDetail contains 
