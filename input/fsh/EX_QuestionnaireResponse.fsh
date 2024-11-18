@@ -777,7 +777,7 @@ Description: "Example of a QuestionnaireResponse for a Imaging"
 Instance: QuestionnaireResponseRadiologyOrderImagIntervent
 InstanceOf: ChOrfQuestionnaireResponse
 Title: "QuestionniaireResponse Radiology Order for Imaging with Intervention"
-Description: "Example of a QuestionnaireResponse for Imaging"
+Description: "Example of a QuestionnaireResponse for Imaging with Intervention"
 * questionnaire = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/QuestionnaireRadiologyOrder"
 * status = #completed
 
@@ -3102,7 +3102,7 @@ Description: "Example of a QuestionnaireResponse for remote Reporting"
 Instance: QuestionnaireResponseRadiologyOrderRequestPrevious
 InstanceOf: ChOrfQuestionnaireResponse
 Title: "QuestionniaireResponse Radiology Order for Request for previous Report and Images"
-Description: "Example of a QuestionnaireResponse for remote Reporting"
+Description: "Example of a QuestionnaireResponse for previous Report and Images"
 * questionnaire = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/QuestionnaireRadiologyOrder"
 * status = #completed
 
