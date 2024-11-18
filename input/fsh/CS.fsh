@@ -4,14 +4,7 @@ Id: ch-rad-order-requested-service
 Title: "Requested Service"
 Description: "Definition for Requested Service Code System in the context of CH RAD-Order."
 * ^caseSensitive = true
-/* #RequestForPreviousReport "Request for previous Reports only"
-* #RequestForPreviousReportAndImages "Request for previous Reports and Images"
-* #ImagingRequest "Imaging Request"
-* #RadIntervention "Interventional radiology"
-* #SecondOpinion "Second Opinion"
-* #ImagingRequestWithIntervention "Imaging Request with Intervention"
-* #RemoteReporting "Remote Reporting"
-*/
+
 * #RequestForPreviousReport "Befundbericht früherer Untersuchung(en)"
 * #RequestForPreviousReportAndImages "Bilder und Befundberichte früherer Untersuchung(en)"
 * #ImagingRequest "Bildgebende Diagnostik"

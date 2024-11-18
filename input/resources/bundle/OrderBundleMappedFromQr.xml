@@ -143,7 +143,7 @@
           <value value="susanna@ufferer.ch"/>
         </telecom>
         <gender value="female"/>
-        <birthDate value="1970-03-14"/>
+        <birthDate value="1945-03-14"/>
         <address>
           <line value="Musterweg 6a"/>
           <city value="Zürich"/>
@@ -512,7 +512,7 @@
             <linkId value="patient.birthDate"/>
             <text value="Geburtsdatum"/>
             <answer>
-              <valueDate value="1970-03-14"/>
+              <valueDate value="1945-03-14"/>
             </answer>
           </item>
           <item>
@@ -692,7 +692,7 @@
               <linkId value="coverage.kvg.name"/>
               <text value="Name der Versicherung"/>
               <answer>
-                <valueString value="Sanitas"/>
+                <valueString value="OrgSanitas"/>
               </answer>
             </item>
             <item>
@@ -770,7 +770,7 @@
                 <linkId value="sender.author.organization.name"/>
                 <text value="Name der Organisation"/>
                 <answer>
-                  <valueString value="Praxis Happydoctors"/>
+                  <valueString value="Gemeinschaftspraxis Happydoctors"/>
                 </answer>
               </item>
               <item>
@@ -813,14 +813,14 @@
                 <linkId value="sender.dataenterer.practitioner.familyName"/>
                 <text value="Name"/>
                 <answer>
-                  <valueString value="Boss"/>
+                  <valueString value="Ataenterer"/>
                 </answer>
               </item>
               <item>
                 <linkId value="sender.dataenterer.practitioner.givenName"/>
                 <text value="Vorname"/>
                 <answer>
-                  <valueString value="Stabilo"/>
+                  <valueString value="Doris"/>
                 </answer>
               </item>
               <item>
@@ -834,7 +834,7 @@
                 <linkId value="sender.dataenterer.practitioner.email"/>
                 <text value="E-Mail"/>
                 <answer>
-                  <valueString value="stabilo.boss@praxisseeblick.ch"/>
+                  <valueString value="d.ataenterer@happydoctors.ch"/>
                 </answer>
               </item>
             </item>
@@ -965,7 +965,7 @@
         <item>
           <linkId value="appointment"/>
           <definition value="http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-servicerequest#extension:locationAndTime"/>
-          <text value="Ort und Zeit der Durchführung der angeforderten Leistung"/>
+          <text value="Ort und Zeit"/>
           <item>
             <linkId value="appointment.location"/>
             <text value="Ort der Durchführung"/>
@@ -1802,7 +1802,7 @@
         <contained>
           <Organization>
             <id value="org"/>
-            <name value="Sanitas"/>
+            <name value="OrgSanitas"/>
           </Organization>
         </contained>
         <identifier>
@@ -1882,7 +1882,7 @@
     <resource>
       <Organization>
         <id value="345a83a7-0b20-4683-92f8-b798b4940f0c"/>
-        <name value="Praxis Happydoctors"/>
+        <name value="Gemeinschaftspraxis Happydoctors"/>
         <address>
           <line value="Happystrasse 133"/>
           <city value="Zürich"/>
@@ -1912,8 +1912,8 @@
       <Practitioner>
         <id value="9eeca72d-b46a-4eda-8306-eb15ae0d09a4"/>
         <name>
-          <family value="Boss"/>
-          <given value="Stabilo"/>
+          <family value="Ataenterer"/>
+          <given value="Doris"/>
         </name>
         <telecom>
           <system value="phone"/>
@@ -1921,7 +1921,7 @@
         </telecom>
         <telecom>
           <system value="email"/>
-          <value value="stabilo.boss@praxisseeblick.ch"/>
+          <value value="d.ataenterer@happydoctors.ch"/>
         </telecom>
       </Practitioner>
     </resource>

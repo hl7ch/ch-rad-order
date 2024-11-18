@@ -2,6 +2,9 @@
 All significant changes to this FHIR implementation guide will be documented on this page.   
 
 ### STU 3 (2024)
+#### Changed / Updated 
+* [Issue #72](https://github.com/hl7ch/ch-rad-order/issues/72): Update Usecases German; added QR for each Usecase
+* [Issue #73](https://github.com/hl7ch/ch-rad-order/issues/73): Update Usecases English; added QR for each Usecase
 
 #### Open Issues
 During the ballot, the following comments came in, which will be taken into account in the further development of CH RAD-Order:

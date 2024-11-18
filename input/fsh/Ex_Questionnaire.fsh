@@ -10,6 +10,8 @@ Alias: $ch-rad-order-requested-service = http://fhir.ch/ig/ch-rad-order/CodeSyst
 
 Instance: QuestionnaireRadiologyOrder
 InstanceOf: Questionnaire
+Title: "Questionnaire"
+Description: "Questionnarie with all modules assembled"
 Usage: #example
 * meta.profile[0] = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-questionnaire"
 * meta.profile[+] = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire"
@@ -68,7 +70,7 @@ Usage: #example
 * item[=].required = true
 * item[=].item[0].linkId = "order.authoredOn"
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-orf/StructureDefinition-ch-orf-servicerequest#ServiceRequest.authoredOn"
-* item[=].item[=].text = "Daum/Zeit der Auftragserteilung"
+* item[=].item[=].text = "Datum/Zeit der Auftragserteilung"
 * item[=].item[=].type = #dateTime
 * item[=].item[+].linkId = "order.placerOrderIdentifier"
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-servicerequest#ServiceRequest.identifier:placerOrderIdentifier.value"
@@ -1143,7 +1145,7 @@ Usage: #example
 * item[=].item[=].item[=].type = #string
 * item[+].linkId = "appointment"
 * item[=].definition = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-servicerequest#extension:locationAndTime"
-* item[=].text = "Ort und Zeit der Durchführung der angeforderten Leistung"
+* item[=].text = "Ort und Zeit"
 * item[=].type = #group
 * item[=].repeats = true
 * item[=].item[0].extension.url = "http://hl7.org/fhir/StructureDefinition/variable"

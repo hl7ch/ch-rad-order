@@ -1,7 +1,7 @@
 Instance: ServiceRequestRadiologyOrder
 InstanceOf: ChRadOrderServiceRequest
 Title: "ServiceRequest Radiology Order"
-Description: "Example for ServiceRequest"
+Description: "Example of ServiceRequest"
 * extension[locationAndTime].valueReference = Reference(AppointmentRadiography)
 
 * identifier[placerOrderIdentifier].system = "urn:oid:1.3.4.5.6.7"
@@ -15,9 +15,9 @@ Description: "Example for ServiceRequest"
 * orderDetail[imagingRegion] = RDLX#RID1243 "Thorax"
 * orderDetail[imagingRegion].extension[orderDetailType].valueCoding = ChRadOrderOrderDetailType#imagingRegion
 
-* subject = Reference(SUfferer)
-* requester = Reference(ORderplacerHappyDoctors)
-* performer = Reference(ORderfillerHappyHospital) // desiredRadiologist
+* subject = Reference(PatSUfferer)
+* requester = Reference(RoleORderplacer)
+* performer = Reference(RoleORderfiller) // desiredRadiologist
 * reasonCode.text = "Diagnostic Question"
 * reasonReference[+] = Reference(PrimaryDiagnosis)
 * insurance = Reference(CoverageKVG)
@@ -40,76 +40,102 @@ Description: "Example for ServiceRequest"
 * note.text = "Bemerkung/Kommentar"
 
 
-Instance: CompositionRadiologyOrder
+Instance: CompositionRadiologyOrderImagingRequest
 InstanceOf: ChRadOrderComposition
 Title: "Composition Radiology Order"
-Description: "Example for Composition"
+Description: "Example of Composition"
 * text.status = #additional
 * text.div = "<div xmlns='http://www.w3.org/1999/xhtml'><div>Radiology Order</div></div>"
 * extension[dataEnterer].url = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-ext-epr-dataenterer"
 * extension[dataEnterer].extension[enterer].url = "enterer"
-* extension[dataEnterer].extension[enterer].valueReference = Reference(DAtaentererHappyDoctors)
+* extension[dataEnterer].extension[enterer].valueReference = Reference(RoleDAtaenterer)
 * extension[receiver].url = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-receiver"
-* extension[receiver].valueReference = Reference(RadiologyDepartmentHappyHospital)
+* extension[receiver].valueReference = Reference(RoleORderfiller)
 * extension[copyReceiver].url = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-copyreceiver"
-* extension[copyReceiver].valueReference = Reference(SUffererCopyReceiver)
+* extension[copyReceiver].valueReference = Reference(PatSUfferer)
 * status = #final
 * type = urn:oid:2.16.756.5.30.1.127.3.4#2161000195103 "Imaging order (record artifact)"
 * category = SCT#721963009 "Order (record artifact)"
-* subject = Reference(SUfferer)
+* subject = Reference(PatSUfferer)
 * date = "2019-04-01T20:18:41.341+00:00"
-* author = Reference(ORderplacerHappyDoctors)
+* author = Reference(RoleORderplacer)
 * section[orderReferral].title = "Order-Referral"
 * section[orderReferral].code = LNC#93037-0 "Portable medical order form"
 * section[orderReferral].entry[Questionnaire] = Reference(QuestionnaireRadiologyOrder)
-* section[orderReferral].entry[QuestionnaireResponse] = Reference(QuestionnaireResponseRadiologyOrder)
+* section[orderReferral].entry[QuestionnaireResponse] = Reference(QuestionnaireResponseRadiologyOrderImagingRequest)
 * section[orderReferral].entry[ServiceRequest] = Reference(ServiceRequestRadiologyOrder)
 
+/*
+Instance: CompositionRadiologyOrderSecondOpinion
+InstanceOf: ChRadOrderComposition
+Title: "Composition Radiology Order"
+Description: "Example of Composition"
+* text.status = #additional
+* text.div = "<div xmlns='http://www.w3.org/1999/xhtml'><div>Radiology Order</div></div>"
+* extension[dataEnterer].url = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-ext-epr-dataenterer"
+* extension[dataEnterer].extension[enterer].url = "enterer"
+* extension[dataEnterer].extension[enterer].valueReference = Reference(RoleDAtaenterer)
+* extension[receiver].url = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-receiver"
+* extension[receiver].valueReference = Reference(RoleORderfiller)
+* extension[copyReceiver].url = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-copyreceiver"
+* extension[copyReceiver].valueReference = Reference(PatSUfferer)
+* status = #final
+* type = urn:oid:2.16.756.5.30.1.127.3.4#2161000195103 "Imaging order (record artifact)"
+* category = SCT#721963009 "Order (record artifact)"
+* subject = Reference(PatSUfferer)
+* date = "2019-04-01T20:18:41.341+00:00"
+* author = Reference(RoleORderplacer)
+* section[orderReferral].title = "Order-Referral"
+* section[orderReferral].code = LNC#93037-0 "Portable medical order form"
+* section[orderReferral].entry[Questionnaire] = Reference(QuestionnaireRadiologyOrder)
+* section[orderReferral].entry[QuestionnaireResponse] = Reference(QuestionnaireResponseRadiologyOrderSecondOpinion)
+* section[orderReferral].entry[ServiceRequest] = Reference(ServiceRequestRadiologyOrder)
+*/
 
 Instance: DocumentRadiologyOrder // Noch nicht vollständig
 InstanceOf: ChRadOrderDocument
 Title: "Bundle Radiology Order"
-Description: "Example for Bundle"
+Description: "Example of Bundle"
 * identifier.system = "urn:ietf:rfc:3986"
 * identifier.value = "urn:uuid:26d3dff7-ab05-4737-a49c-5eccd33595f7"
 * type = #document
 * timestamp = "2019-04-01T20:18:41.341+00:00"
-* entry[+].fullUrl = "http://example.com/fhir/Composition/CompositionRadiologyOrder"
-* entry[=].resource = CompositionRadiologyOrder
+* entry[+].fullUrl = "http://example.com/fhir/Composition/CompositionRadiologyOrderImagingRequest"
+* entry[=].resource = CompositionRadiologyOrderImagingRequest
 * entry[+].fullUrl = "http://example.com/fhir/Questionnaire/QuestionnaireRadiologyOrder"
 * entry[=].resource = QuestionnaireRadiologyOrder
-* entry[+].fullUrl = "http://example.com/fhir/QuestionnaireResponse/QuestionnaireResponseRadiologyOrder"
-* entry[=].resource = QuestionnaireResponseRadiologyOrder
+* entry[+].fullUrl = "http://example.com/fhir/QuestionnaireResponse/QuestionnaireResponseRadiologyOrderImagingRequest"
+* entry[=].resource = QuestionnaireResponseRadiologyOrderImagingRequest
 * entry[+].fullUrl = "http://example.com/fhir/ServiceRequest/ServiceRequestRadiologyOrder"
 * entry[=].resource = ServiceRequestRadiologyOrder
 //------------- Patient and Copy Receiver -------------
-* entry[+].fullUrl = "http://example.com/fhir/Patient/SUfferer"
-* entry[=].resource = SUfferer
-* entry[+].fullUrl = "http://example.com/fhir/Patient/SUffererCopyReceiver"
-* entry[=].resource = SUffererCopyReceiver
+* entry[+].fullUrl = "http://example.com/fhir/Patient/PatSUfferer"
+* entry[=].resource = PatSUfferer
+//* entry[+].fullUrl = "http://example.com/fhir/Patient/PatSUfferer"
+//* entry[=].resource = PatSUfferer
 //------------- Data Enterer -------------
-* entry[+].fullUrl = "http://example.com/fhir/PractitionerRole/DAtaentererHappyDoctors"
-* entry[=].resource = DAtaentererHappyDoctors
-* entry[+].fullUrl = "http://example.com/fhir/Practitioner/DAtaenterer"
-* entry[=].resource = DAtaenterer
+* entry[+].fullUrl = "http://example.com/fhir/PractitionerRole/RoleDAtaenterer"
+* entry[=].resource = RoleDAtaenterer
+* entry[+].fullUrl = "http://example.com/fhir/Practitioner/PractDAtaenterer"
+* entry[=].resource = PractDAtaenterer
 //------------- Author -------------
-* entry[+].fullUrl = "http://example.com/fhir/PractitionerRole/ORderplacerHappyDoctors"
-* entry[=].resource = ORderplacerHappyDoctors
-* entry[+].fullUrl = "http://example.com/fhir/Practitioner/ORderplacer"
-* entry[=].resource = ORderplacer
+* entry[+].fullUrl = "http://example.com/fhir/PractitionerRole/RoleORderplacer"
+* entry[=].resource = RoleORderplacer
+* entry[+].fullUrl = "http://example.com/fhir/Practitioner/PractORderplacer"
+* entry[=].resource = PractORderplacer
 //------------- Receiver -------------
-* entry[+].fullUrl = "http://example.com/fhir/PractitionerRole/RadiologyDepartmentHappyHospital"
-* entry[=].resource = RadiologyDepartmentHappyHospital
+* entry[+].fullUrl = "http://example.com/fhir/PractitionerRole/RoleORderfiller"
+* entry[=].resource = RoleORderfiller
 //------------- Organizations -------------
-* entry[+].fullUrl = "http://example.com/fhir/Organization/HappyDoctors"
-* entry[=].resource = HappyDoctors
-* entry[+].fullUrl = "http://example.com/fhir/Organization/HappyHospital"
-* entry[=].resource = HappyHospital
+* entry[+].fullUrl = "http://example.com/fhir/Organization/OrgHappyDoctors"
+* entry[=].resource = OrgHappyDoctors
+* entry[+].fullUrl = "http://example.com/fhir/Organization/OrgRadHappyHospital"
+* entry[=].resource = OrgRadHappyHospital
 //------------- desiredRadiologist -------------
-* entry[+].fullUrl = "http://example.com/fhir/PractitionerRole/ORderfillerHappyHospital"
-* entry[=].resource = ORderfillerHappyHospital
-* entry[+].fullUrl = "http://example.com/fhir/Practitioner/ORderfiller"
-* entry[=].resource = ORderfiller
+//* entry[+].fullUrl = "http://example.com/fhir/PractitionerRole/RoleORderfiller"
+//* entry[=].resource = RoleORderfiller
+* entry[+].fullUrl = "http://example.com/fhir/Practitioner/PractORderfiller"
+* entry[=].resource = PractORderfiller
 //------------- more -------------
 * entry[+].fullUrl = "http://example.com/fhir/Condition/PrimaryDiagnosis"
 * entry[=].resource = PrimaryDiagnosis
@@ -157,10 +183,10 @@ Description: "Example for Bundle"
 
 
 //------------- Patient -------------
-Instance: SUfferer
+Instance: PatSUfferer
 InstanceOf: ChCorePatient
 Title: "Susanna Ufferer"
-Description: "Example for Patient"
+Description: "Example of Patient"
 * name[+].use = #official
 * name[=].family[+] = "Ufferer"
 * name[=].family[=].extension[ech11name].url = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-ext-ech-11-name"
@@ -180,7 +206,7 @@ Description: "Example for Patient"
 * telecom[1].system = #email
 * telecom[1].value = "susanna@ufferer.ch"
 * gender = #female 
-* birthDate = "1970-03-14"
+* birthDate = "1945-03-14"
 * address.use = #home
 * address.line[0] = "Musterweg"
 * address.line[1] = "6a"
@@ -189,11 +215,11 @@ Description: "Example for Patient"
 * address.country = "Schweiz"
 
 
-//------------- Copy Receiver -------------
-Instance: SUffererCopyReceiver
+/*------------- Copy Receiver -------------
+Instance: PatSUfferer
 InstanceOf: ChCorePatient
 Title: "Susanna Ufferer Copy Receiver"
-Description: "Example for Patient"
+Description: "Example of Patient"
 * name.family = "Ufferer"
 * name.given = "Susanna"
 * telecom[0].system = #phone
@@ -205,21 +231,21 @@ Description: "Example for Patient"
 * address.city = "Zürich"
 * address.postalCode = "8000"
 * address.country = "Schweiz"
-
+*/
 
 //------------- Data Enterer -------------
-Instance: DAtaentererHappyDoctors
+Instance: RoleDAtaenterer
 InstanceOf: ChCorePractitionerRole
-Title: "Doris Ataenterer @ Happy Doctors"
-Description: "Example for PractionerRole"
-* practitioner = Reference(DAtaenterer)
-* organization = Reference(HappyDoctors)
+Title: "Doris Ataenterer (Role)"
+Description: "Example of PractionerRole"
+* practitioner = Reference(PractDAtaenterer)
+* organization = Reference(OrgHappyDoctors)
 
 
-Instance: DAtaenterer
+Instance: PractDAtaenterer
 InstanceOf: ChCorePractitioner
 Title: "Doris Ataenterer"
-Description: "Example for Practitioner"
+Description: "Example of Practitioner"
 * name.family = "Ataenterer"
 * name.given = "Doris"
 * telecom[0].system = #phone
@@ -229,18 +255,18 @@ Description: "Example for Practitioner"
 
 
 //------------- Author -------------
-Instance: ORderplacerHappyDoctors
+Instance: RoleORderplacer
 InstanceOf: ChCorePractitionerRole
-Title: "Ottilie Rderplacer @ Happy Doctors"
-Description: "Example for PractionerRole"
-* practitioner = Reference(ORderplacer)
-* organization = Reference(HappyDoctors)
+Title: "Ottilie Rderplacer (Role)"
+Description: "Example of PractionerRole"
+* practitioner = Reference(PractORderplacer)
+* organization = Reference(OrgHappyDoctors)
 
 
-Instance: ORderplacer
+Instance: PractORderplacer
 InstanceOf: ChCorePractitioner
 Title: "Ottilie Rderplacer"
-Description: "Example for Practitioner"
+Description: "Example of Practitioner"
 * identifier.system = "urn:oid:2.51.1.3"
 * identifier.value = "7601000034321"
 * name.use = #official
@@ -254,33 +280,81 @@ Description: "Example for Practitioner"
 * telecom[1].system = #email
 * telecom[1].value = "o.rderplacer@happydoctors.ch"
 
+Instance: PractORderplacerJunior
+InstanceOf: ChCorePractitioner
+Title: "Olga Rderplacer-Junior"
+Description: "Example of Practitioner"
+* identifier.system = "urn:oid:2.51.1.3"
+* identifier.value = "7601000034321"
+* name.use = #official
+* name.family = "Rderplacer-Junior"
+* name.given = "Olga"
+* name.prefix = "Med. pract."
+* name.prefix.extension.url = "http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier"
+* name.prefix.extension.valueCode = #AC
+* telecom[0].system = #phone
+* telecom[0].value = "+41 32 444 55 11"
+* telecom[1].system = #email
+* telecom[1].value = "o.rderplacer-junior@smallhospital.ch"
 
-//------------- Receiver -------------
-Instance: RadiologyDepartmentHappyHospital
+Instance: RoleORderplacerJunior
 InstanceOf: ChCorePractitionerRole
-Title: "RadiologyDepartment @ Happy Hospital"
-Description: "Example for PractionerRole"
-* organization = Reference(HappyHospital)
+Title: "Doris Ataenterer (Role)"
+Description: "Example of PractionerRole"
+* practitioner = Reference(PractORderplacerJunior)
+* organization = Reference(OrgSmallHospital)
 
+
+Instance: PractKNowit-All
+InstanceOf: ChCorePractitioner
+Title: "Kurt Nowit-All"
+Description: "Example of Practitioner"
+* identifier.system = "urn:oid:2.51.1.3"
+* identifier.value = "7601000034321"
+* name.use = #official
+* name.family = "Nowit-All"
+* name.given = "Kurt"
+* name.prefix = "Prof. Dr. med."
+* name.prefix.extension.url = "http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier"
+* name.prefix.extension.valueCode = #AC
+* telecom[0].system = #phone
+* telecom[0].value = "+41 44 412 00 98"
+* telecom[1].system = #email
+* telecom[1].value = "s.nowit-all@OrthoHappyHospital.ch"
+
+
+Instance: RoleKNowit-All
+InstanceOf: ChCorePractitionerRole
+Title: "Doris Ataenterer (Role)"
+Description: "Example of PractionerRole"
+* practitioner = Reference(PractKNowit-All)
+* organization = Reference(OrgRadHappyHospital)
+
+/*------------- Receiver -------------
+Instance: RoleORderfiller
+InstanceOf: ChCorePractitionerRole
+Title: "RadiologyDepartment (Role)"
+Description: "Example of PractionerRole"
+* organization = Reference(OrgRadHappyHospital)
+*/
 
 //------------- Organizations -------------
-Instance: HappyDoctors
+Instance: OrgHappyDoctors
 InstanceOf: ChCoreOrganization
-Title: "Praxis Happy Doctors"
-Description: "Example for Organization"
+Title: "Gemeinschaftspraxis Happy Doctors"
+Description: "Example of Organization"
 * name = "Praxis Happy Doctors"
-* address.line[0] = "Kantonsstrasse 14"
-* address.line[1] = "Postfach 14"
+* address.line[+] = "Kantonsstrasse 14"
 * address.city = "Zürich"
 * address.postalCode = "8000"
 * address.country = "Schweiz"
 
 
-Instance: HappyHospital
+Instance: OrgRadHappyHospital
 InstanceOf: ChCoreOrganization
-Title: "Klinik Happy Hospital"
-Description: "Example for Organization"
-* name = "Klinik Happy Hospital"
+Title: "Radiologie Klinik Happy Hospital"
+Description: "Example of Organization"
+* name = "Radiologie Klinik Happy Hospital"
 * address.line[0] = "Seestrasse 133"
 * address.line[1] = "Haus C"
 * address.city = "Zürich"
@@ -288,50 +362,62 @@ Description: "Example for Organization"
 * address.country = "Schweiz" 
 
 
-//------------- desiredRadiologist -------------
-Instance: ORderfillerHappyHospital
-InstanceOf: ChCorePractitionerRole
-Title: "Otto Rderfiller @ Happy Hospital"
-Description: "Example for PractionerRole"
-* practitioner = Reference(ORderfiller)
+Instance: OrgSmallHospital
+InstanceOf: ChCoreOrganization
+Title: "Spital Small Hospital"
+Description: "Example of Organization"
+* name = "Spital Small Hospital"
+* address.line[0] = "Hausmatten"
+//* address.line[1] = ""
+* address.city = "Kammersrohr"
+* address.postalCode = "4535"
+* address.country = "Schweiz" 
 
-Instance: ORderfiller
+
+Instance: RoleORderfiller
+InstanceOf: ChCorePractitionerRole
+Title: "Otto Rderfiller (Role)"
+Description: "Example of PractionerRole"
+* practitioner = Reference(PractORderfiller)
+* organization = Reference(OrgRadHappyHospital)
+
+Instance: PractORderfiller
 InstanceOf: ChCorePractitioner
 Title: "Otto Rderfiller"
-Description: "Example for Practitioner"
-// * identifier.system = "urn:oid:2.51.1.3"
-// * identifier.value = "7601000066878"
+Description: "Example of Practitioner"
+* identifier.system = "urn:oid:2.51.1.3"
+* identifier.value = "7601000066878"
 * name.use = #official
 * name.family = "Rderfiller"
 * name.given = "Otto"
-// * name.prefix = "Dr. med."
-// * name.prefix.extension.url = "http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier"
-// * name.prefix.extension.valueCode = #AC
-// * telecom[0].system = #phone
-// * telecom[0].value = "+41 44 412 00 99"
-// * telecom[1].system = #email
-// * telecom[1].value = "o.rderfiller@happyhospital.ch"
+* name.prefix = "Dr. med."
+* name.prefix.extension.url = "http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier"
+* name.prefix.extension.valueCode = #AC
+* telecom[0].system = #phone
+* telecom[0].value = "+41 44 412 00 99"
+* telecom[1].system = #email
+* telecom[1].value = "o.rderfiller@OrgRadHappyHospital.ch"
 
 
 //------------- diagnosisList -------------
 Instance: PrimaryDiagnosis
 InstanceOf: ChRadOrderDiagnosisCondition
 Title: "Primary Diagnosis"
-Description: "Example for Diagnosis Condition"
+Description: "Example of Diagnosis Condition"
 * category = ConditionCategory#problem-list-item "Problem List Item"
 * code.text = "Primary Diagnosis"
 * clinicalStatus = ClinicalStatus#active
-* subject = Reference(SUfferer)
+* subject = Reference(PatSUfferer)
 
 
 Instance: BodyHeight
 InstanceOf: ChRadOrderBodyHeightObservation
 Title: "Body Height 176 cm"
-Description: "Example for Body Height Observation"
+Description: "Example of Body Height Observation"
 * status = #final
 * category = ObservationCategory#vital-signs
 * code = LNC#8302-2 "Body height" // "Body Height, method unspecified"
-* subject = Reference(SUfferer)
+* subject = Reference(PatSUfferer)
 * effectiveDateTime = "2019-04-01T10:10:00.000+00:00"
 * valueQuantity = 176 'cm' "cm"
 
@@ -339,11 +425,11 @@ Description: "Example for Body Height Observation"
 Instance: BodyWeight
 InstanceOf: ChRadOrderBodyWeightObservation
 Title: "Body Weight 99 kg"
-Description: "Example for Body Weight Observation"
+Description: "Example of Body Weight Observation"
 * status = #final
 * category = ObservationCategory#vital-signs
 * code = LNC#29463-7 "Body weight" // "Body Weight, method unspecified"
-* subject = Reference(SUfferer)
+* subject = Reference(PatSUfferer)
 * effectiveDateTime = "2019-04-01T10:10:00.000+00:00"
 * valueQuantity = 99 'kg' "kg"
 
@@ -351,56 +437,56 @@ Description: "Example for Body Weight Observation"
 Instance: SecondaryDiagnosis1
 InstanceOf: ChRadOrderDiagnosisCondition
 Title: "Secondary Diagnosis 1"
-Description: "Example for Diagnosis Condition"
+Description: "Example of Diagnosis Condition"
 * category = ConditionCategory#problem-list-item "Problem List Item"
 * code.text = "Secondary Diagnosis 1"
 * clinicalStatus = ClinicalStatus#active
-* subject = Reference(SUfferer)
+* subject = Reference(PatSUfferer)
 
 
 Instance: SecondaryDiagnosis2
 InstanceOf: ChRadOrderDiagnosisCondition
 Title: "Secondary Diagnosis 2"
-Description: "Example for Diagnosis Condition"
+Description: "Example of Diagnosis Condition"
 * category = ConditionCategory#problem-list-item "Problem List Item"
 * code.text = "Secondary Diagnosis 2"
 * clinicalStatus = ClinicalStatus#active
-* subject = Reference(SUfferer)
+* subject = Reference(PatSUfferer)
 
 
 //------------- coverage -------------
 Instance: CoverageKVG
 InstanceOf: ChOrfCoverage
 Title: "Coverage KVG"
-Description: "Example for Coverage"
-* contained[+] = Sanitas
+Description: "Example of Coverage"
+* contained[+] = OrgSanitas
 * identifier[+].type = CSCoverageIdentifierType#VeKa
 * identifier[=].value = "80756015090002647590"
 * status = #active
 * type = http://fhir.ch/ig/ch-core/CodeSystem/bfs-medstats-25-mainguarantor#1 "Krankenversicherung (obligat.)"
-* beneficiary = Reference(SUfferer)
-* payor = Reference(Sanitas)
+* beneficiary = Reference(PatSUfferer)
+* payor = Reference(OrgSanitas)
 
 
-Instance: Sanitas
+Instance: OrgSanitas
 InstanceOf: ChCoreOrganization
-Title: "Sanitas"
-Description: "Example for Organization"
+Title: "OrgSanitas"
+Description: "Example of Organization"
 Usage: #inline
-* name = "Sanitas"
+* name = "OrgSanitas"
 
 
 //------------- caveats -------------
 Instance: CaveatBloodCoagulation
 InstanceOf: ChRadOrderCaveatCondition
 Title: "Caveat Blood Coagulation"
-Description: "Example for Caveat Condition"
+Description: "Example of Caveat Condition"
 * extension[caveatType].valueCoding = SCT#64779008 "Blood coagulation disorder (disorder)"
 * extension[qualifierValue].valueCoding = SCT#52101004 "Present (qualifier value)"
 * category = ConditionCategory#problem-list-item "Problem List Item"
 * code = SCT#64779008 "Blood coagulation disorder (disorder)"
 * clinicalStatus = ClinicalStatus#active
-* subject = Reference(SUfferer)
+* subject = Reference(PatSUfferer)
 * evidence[+].detail = Reference(CaveatBloodCoagulationINR)
 * evidence[+].detail = Reference(CaveatBloodCoagulationPlatelets)
 
@@ -408,10 +494,10 @@ Description: "Example for Caveat Condition"
 Instance: CaveatBloodCoagulationINR
 InstanceOf: ChRadOrderINRObservation
 Title: "Caveat Blood Coagulation INR"
-Description: "Example for INR Observation"
+Description: "Example of INR Observation"
 * status = #final
 * code = LNC#34714-6 "INR in Blood by Coagulation assay"
-* subject = Reference(SUfferer)
+* subject = Reference(PatSUfferer)
 * effectiveDateTime = "2019-04-01T10:10:00.000+00:00"
 * valueQuantity = 2.3 '{INR}' "INR"
 
@@ -419,10 +505,10 @@ Description: "Example for INR Observation"
 Instance: CaveatBloodCoagulationPlatelets
 InstanceOf: ChRadOrderPlateletsObservation
 Title: "Caveat Blood Coagulation Platelets"
-Description: "Example for Platelets Observation"
+Description: "Example of Platelets Observation"
 * status = #final
 * code = LNC#26515-7 "Platelets [#/volume] in Blood"
-* subject = Reference(SUfferer)
+* subject = Reference(PatSUfferer)
 * effectiveDateTime = "2019-04-01T10:10:00.000+00:00"
 * valueQuantity = 150000 '10*9/uL' "10^9/L"
 
@@ -430,25 +516,25 @@ Description: "Example for Platelets Observation"
 Instance: CaveatBodyPiercing
 InstanceOf: ChRadOrderCaveatCondition
 Title: "Caveat Body Piercing"
-Description: "Example for Caveat Condition"
+Description: "Example of Caveat Condition"
 * extension[caveatType].valueCoding = SCT#879862001 "Body piercing (finding)"
 * category = ConditionCategory#problem-list-item "Problem List Item"
 * extension[qualifierValue].valueCoding = SCT#52101004 "Present (qualifier value)"
 * code = SCT#879862001 "Body piercing (finding)"
 * clinicalStatus = ClinicalStatus#active
-* subject = Reference(SUfferer)
+* subject = Reference(PatSUfferer)
 
 
 Instance: CaveatRenalInsufficiency
 InstanceOf: ChRadOrderCaveatCondition
 Title: "Caveat Renal Insufficiency"
-Description: "Example for Caveat Condition"
+Description: "Example of Caveat Condition"
 * extension[caveatType].valueCoding = SCT#723188008 "Renal insufficiency (disorder)"
 * category = ConditionCategory#problem-list-item "Problem List Item"
 * extension[qualifierValue].valueCoding = SCT#52101004 "Present (qualifier value)"
 * code = SCT#723188008 "Renal insufficiency (disorder)"
 * clinicalStatus = ClinicalStatus#active
-* subject = Reference(SUfferer)
+* subject = Reference(PatSUfferer)
 * evidence[+].detail = Reference(CaveatRenalInsufficiencyCreatinineClearance)
 * evidence[+].detail = Reference(CaveatRenalInsufficiencyCreatinine)
 
@@ -456,10 +542,10 @@ Description: "Example for Caveat Condition"
 Instance: CaveatRenalInsufficiencyCreatinine
 InstanceOf: ChRadOrderCreatinineObservation
 Title: "Caveat Renal Insufficiency Creatinine"
-Description: "Example for Creatinine Observation"
+Description: "Example of Creatinine Observation"
 * status = #final
 * code = LNC#77140-2 "Creatinine [Moles/volume] in Serum, Plasma or Blood"
-* subject = Reference(SUfferer)
+* subject = Reference(PatSUfferer)
 * effectiveDateTime = "2019-04-01T10:10:00.000+00:00"
 * valueQuantity = 90 'umol/L' "µmol/l"
 
@@ -467,10 +553,10 @@ Description: "Example for Creatinine Observation"
 Instance: CaveatRenalInsufficiencyCreatinineClearance
 InstanceOf: ChRadOrderCreatinineClearanceObservation
 Title: "Caveat Renal Insufficiency Creatinine Clearance"
-Description: "Example for CreatinineClearance Observation"
+Description: "Example of CreatinineClearance Observation"
 * status = #final
 * code = LNC#33558-8 "Creatinine renal clearance in Urine and Serum or Plasma collected for unspecified duration"
-* subject = Reference(SUfferer)
+* subject = Reference(PatSUfferer)
 * effectiveDateTime = "2019-04-01T10:10:00.000+00:00"
 * valueQuantity = 55 'mL/min' "ml/min"
 
@@ -478,31 +564,31 @@ Description: "Example for CreatinineClearance Observation"
 Instance: CaveatDrugPrescriptionMetformin
 InstanceOf: ChRadOrderCaveatCondition
 Title: "Caveat Drug Prescription Metformin"
-Description: "Example for Caveat Condition"
+Description: "Example of Caveat Condition"
 * extension[caveatType].valueCoding = SCT#1290126002 "Drug therapy with explicit context (situation)"
 * category = ConditionCategory#problem-list-item "Problem List Item"
 * extension[qualifierValue].valueCoding = SCT#52101004 "Present (qualifier value)"
 * code = SCT#372567009 "Metformin (substance)"
 * clinicalStatus = ClinicalStatus#active
-* subject = Reference(SUfferer)
+* subject = Reference(PatSUfferer)
 
 
 Instance: CaveatDeviceCardiacPacemaker
 InstanceOf: ChRadOrderCaveatCondition
 Title: "Caveat Device Cardiac Pacemaker"
-Description: "Example for Caveat Condition"
+Description: "Example of Caveat Condition"
 * extension[caveatType].valueCoding = SCT#397578001 "Device in situ (finding)"
 * category = ConditionCategory#problem-list-item "Problem List Item"
 * extension[qualifierValue].valueCoding = SCT#52101004 "Present (qualifier value)"
 * code = SCT#441509002 "Cardiac pacemaker in situ"
 * clinicalStatus = ClinicalStatus#active
-* subject = Reference(SUfferer)
+* subject = Reference(PatSUfferer)
 
 //-------------  Time and Location -------------
 Instance: AppointmentRadiography
 InstanceOf: ChOrfAppointment
 Title: "Appointment Radiography"
-Description: "Example for Appointment"
+Description: "Example of Appointment"
 // * identifier.system = "http://example.com/identifierdomain"
 // * identifier.value = "384209.38"
 * status = #proposed
@@ -516,12 +602,12 @@ Description: "Example for Appointment"
 Instance: LocationRadiography
 InstanceOf: ChOrfLocation
 Title: "Location Radiography"
-Description: "Example for Location"
-* name = "Radiologie"
+Description: "Example of Location"
+* name = "Radiologie Klinik Happy Hospital"
 * telecom[0].system = #phone
 * telecom[0].value = "+41 44 412 65 56"
 * address.line[0] = "Seestrasse 133"
-* address.line[1] = "Röntgen"
+* address.line[1] = "Haus C"
 * address.city = "Zürich"
 * address.postalCode = "8000"
 * address.country = "Schweiz"
@@ -541,7 +627,7 @@ InstanceOf: ChRadOrderImagingStudy
 Title: "DICOM conformant SOP Instance"
 Description: "Rx-Knie-S_Ufferer_05032024; Example of DICOM conformant SOP Instance (regarding Coding of Series-Modality)"
 * status = #available
-* subject = Reference(SUfferer)
+* subject = Reference(PatSUfferer)
 * series.instance.uid = "2.16.124.113543.1154777499.30246.19789.3503430045.1.1"
 * series.instance.sopClass = #1.2.840.10008.5.1.4.1.1.1
 * series.modality = #DX
@@ -552,7 +638,7 @@ Description: "Rx-Knie-S_Ufferer_05032024; Example of DICOM conformant SOP Instan
 /*Instance: DocumentReferenceDicomSopInstanceConformant
 InstanceOf: ChOrfDocumentReference
 Title: "Rx-Knie-S_Ufferer_05032024"
-Description: "Example for Previous Result"
+Description: "Example of Previous Result"
 * status = #current
 * content.attachment.contentType = MimeType#application/dicom
 * content.attachedFile = "VGhpcyBpcyBhbiBleGFtcGxl" // Encoded in base64
