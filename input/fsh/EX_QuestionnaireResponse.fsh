@@ -136,7 +136,7 @@ Description: "Example of a QuestionnaireResponse for a Imaging"
 * item[=].item[=].item[+].linkId = "receiver.organization.streetAddressLine"
 * item[=].item[=].item[=].text = "Strasse, Hausnummer, Postfach etc."
 * item[=].item[=].item[=].answer[+].valueString = "Seestrasse 133"
-//* item[=].item[=].item[=].answer[+].valueString = "Haus C"
+* item[=].item[=].item[=].answer[+].valueString = "Haus C"
 
 * item[=].item[=].item[+].linkId = "receiver.organization.postalCode"
 * item[=].item[=].item[=].text = "PLZ"
