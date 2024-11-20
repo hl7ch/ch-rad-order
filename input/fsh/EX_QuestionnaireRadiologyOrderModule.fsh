@@ -235,7 +235,7 @@ Usage: #example
 //------------- Instruction ------------------------
 
 * item[+].linkId = "instruction"
-//* item[=].text = "Instruction"
+* item[=].text = ""
 * item[=].type = #group
 
 * item[=].item.extension.url = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-subQuestionnaire"

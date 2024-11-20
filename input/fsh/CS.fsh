@@ -9,7 +9,7 @@ Description: "Definition for Requested Service Code System in the context of CH 
 * #RequestForPreviousReportAndImages "Bilder und Befundberichte früherer Untersuchung(en)"
 * #ImagingRequest "Bildgebende Diagnostik"
 * #RadIntervention "Interventionelle Radiologie"
-* #SecondOpinion "Zweitmeinung"
+* #SecondOppinion "Zweitmeinung"
 * #ImagingRequestWithIntervention "Bildgebende Diagnostik und Intervention"
 * #RemoteReporting "Fernbefundung"
 

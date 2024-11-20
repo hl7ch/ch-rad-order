@@ -191,7 +191,7 @@
     <resource>
       <QuestionnaireResponse>
         <id value="a9003486-ba20-457b-9b65-634b0f3cadd3"/>
-        <questionnaire value="http://fhir.ch/ig/ch-rad-order/StructureDefinition/QuestionnaireRadiologyOrder"/>
+        <questionnaire value="http://fhir.ch/ig/ch-rad-order/Questionnaire/QuestionnaireRadiologyOrder"/>
         <status value="completed"/>
         <item>
           <linkId value="order"/>

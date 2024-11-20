@@ -32,7 +32,7 @@ Akteure:
 
  Laut dem radiologischen Bericht scheint die Impressionsfraktur stabil zu sein. Deshalb und in Anbetracht des Alters des Patienten wurde auf einen chirurgischen Eingriff verzichtet. [Dr. O. Rderplacer](http://build.fhir.org/ig/hl7ch/ch-rad-order/Practitioner-PractORderplacer.html) ist sich jedoch nicht sicher, ob diese Entscheidung richtig war und schickt die Bilder und den Bericht für eine Zweitmeinung an [Prof. K. Nowit-All](http://build.fhir.org/ig/hl7ch/ch-rad-order/Practitioner-PractKNowit-All.html).
 
- Zugehöriger [Questionnaire Response](http://build.fhir.org/ig/hl7ch/ch-rad-order/QuestionnaireResponse-QuestionnaireResponseRadiologyOrderSecondOpinion.html)
+ Zugehöriger [Questionnaire Response](http://build.fhir.org/ig/hl7ch/ch-rad-order/QuestionnaireResponse-QuestionnaireResponseRadiologyOrderSecondOppinion.html)
 
 <i>Die oben beschriebene Zweitmeinung ist zu unterscheiden von der Echtzeit-Fernbefundung und Falldarstellung, wie sie von verschiedenen Teleradiologie-Lösungen angeboten wird. Letztere erfordern jedoch eine technische Infrastruktur die über das hinausgeht, was hier diskutiert wird. <i>
 

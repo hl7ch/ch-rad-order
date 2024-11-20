@@ -23,22 +23,22 @@ The patient [Mrs S. Ufferer](http://build.fhir.org/ig/hl7ch/ch-rad-order/Patient
 Associated [Questionnaire Response](http://build.fhir.org/ig/hl7ch/ch-rad-order/QuestionnaireResponse-QuestionnaireResponseRadiologyOrderQuestionnaireResponseRadiologyOrderImagIntervent.html)
 
 
-### Request for second Opinion
+### Request for second Oppinion
 Players:
 
 * Order placed by: [Dr. O. Rderplacer](http://build.fhir.org/ig/hl7ch/ch-rad-order/Practitioner-PractORderplacer.html), general practitioner in the [group practice “Happy Doctors”](http://build.fhir.org/ig/hl7ch/ch-rad-order/Organization-OrgHappyDoctors.html)
 * Recipient of the order: [Prof. K. Nowit-All](http://build.fhir.org/ig/hl7ch/ch-rad-order/Practitioner-PractKNowit-All.html), Chief Physician of the [Radiology Department “Happy Hospital”](http://build.fhir.org/ig/hl7ch/ch-rad-order/Organization-OrgRadHappyHospital.html)
 * Patient: [Mrs. S. Ufferer](http://build.fhir.org/ig/hl7ch/ch-rad-order/Patient-PatSUfferer.html), whose femoral neck fracture is being treated conservatively after a fall
   
- According to the radiology report, the impression fracture appears to be stable. Therefore, and in view of the patient's age, surgery was not performed. However, [Dr. O. Rderplacer](http://build.fhir.org/ig/hl7ch/ch-rad-order/Practitioner-PractORderplacer.html) is not sure whether this decision was correct and sends the images and the report to [Prof. K. Nowit-All](http://build.fhir.org/ig/hl7ch/ch-rad-order/Practitioner-PractKNowit-All.html) for a second opinion.
- Associated [Questionnaire Response](http://build.fhir.org/ig/hl7ch/ch-rad-order/QuestionnaireResponse-QuestionnaireResponseRadiologyOrderSecondOpinion.html)
+ According to the radiology report, the impression fracture appears to be stable. Therefore, and in view of the patient's age, surgery was not performed. However, [Dr. O. Rderplacer](http://build.fhir.org/ig/hl7ch/ch-rad-order/Practitioner-PractORderplacer.html) is not sure whether this decision was correct and sends the images and the report to [Prof. K. Nowit-All](http://build.fhir.org/ig/hl7ch/ch-rad-order/Practitioner-PractKNowit-All.html) for a second Oppinion.
+ Associated [Questionnaire Response](http://build.fhir.org/ig/hl7ch/ch-rad-order/QuestionnaireResponse-QuestionnaireResponseRadiologyOrderSecondOppinion.html)
 <i>
-The second opinion described above must be distinguished from the real-time remote diagnosis and case visualisation offered by various teleradiology solutions. However, the latter requires a technical infrastructure that goes beyond what is discussed here.
+The second Oppinion described above must be distinguished from the real-time remote diagnosis and case visualisation offered by various teleradiology solutions. However, the latter requires a technical infrastructure that goes beyond what is discussed here.
 External reporting
 
-Associated [Questionnaire Response](http://build.fhir.org/ig/hl7ch/ch-rad-order/QuestionnaireResponse-QuestionnaireResponseRadiologyOrderSecondOpinion.html)
+Associated [Questionnaire Response](http://build.fhir.org/ig/hl7ch/ch-rad-order/QuestionnaireResponse-QuestionnaireResponseRadiologyOrderSecondOppinion.html)
 
-<i>The second opinion described above must be distinguished from the real-time remote diagnosis and case presentation offered by various teleradiology solutions. However, the latter require a technical infrastructure that goes beyond what is discussed here. <i>
+<i>The second Oppinion described above must be distinguished from the real-time remote diagnosis and case presentation offered by various teleradiology solutions. However, the latter require a technical infrastructure that goes beyond what is discussed here. <i>
 
 
 ### Request for remote Reporting
@@ -53,7 +53,7 @@ Players:
 
 Associated [Questionnaire Response](http://build.fhir.org/ig/hl7ch/ch-rad-order/QuestionnaireResponse-QuestionnaireResponseRadiologyOrderRemoteReporting.html
 
-<i>The second opinion described above must be distinguished from the real-time remote diagnosis and case presentation offered by various teleradiology solutions. However, the latter require a technical infrastructure that goes beyond what is discussed here. <i>
+<i>The second Oppinion described above must be distinguished from the real-time remote diagnosis and case presentation offered by various teleradiology solutions. However, the latter require a technical infrastructure that goes beyond what is discussed here. <i>
 
 
 ### Request for Results from earlier 

@@ -1232,6 +1232,7 @@ Usage: #example
 * item[=].item.item.text = "Anmerkung"
 * item[=].item.item.type = #string
 * item[+].linkId = "instruction"
+//* item[=].text = ""
 * item[=].type = #group
 * item[=].item[0].linkId = "requestedService"
 * item[=].item[=].text = "Angeforderte Leistung"

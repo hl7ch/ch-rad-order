@@ -4,7 +4,7 @@ The CH RAD-Order Implementation Guide defines the content of a radiology order a
 
 * Referral for imaging
 * Referral for radiological intervention
-* Request for second opinion
+* Request for second Oppinion
 * Request for remote reporting
 * Request for previous imaging results
 

@@ -66,7 +66,7 @@ Description: "Example of Composition"
 * section[orderReferral].entry[ServiceRequest] = Reference(ServiceRequestRadiologyOrder)
 
 /*
-Instance: CompositionRadiologyOrderSecondOpinion
+Instance: CompositionRadiologyOrderSecondOppinion
 InstanceOf: ChRadOrderComposition
 Title: "Composition Radiology Order"
 Description: "Example of Composition"
@@ -88,7 +88,7 @@ Description: "Example of Composition"
 * section[orderReferral].title = "Order-Referral"
 * section[orderReferral].code = LNC#93037-0 "Portable medical order form"
 * section[orderReferral].entry[Questionnaire] = Reference(QuestionnaireRadiologyOrder)
-* section[orderReferral].entry[QuestionnaireResponse] = Reference(QuestionnaireResponseRadiologyOrderSecondOpinion)
+* section[orderReferral].entry[QuestionnaireResponse] = Reference(QuestionnaireResponseRadiologyOrderSecondOppinion)
 * section[orderReferral].entry[ServiceRequest] = Reference(ServiceRequestRadiologyOrder)
 */
 
@@ -111,8 +111,6 @@ Description: "Example of Bundle"
 //------------- Patient and Copy Receiver -------------
 * entry[+].fullUrl = "http://example.com/fhir/Patient/PatSUfferer"
 * entry[=].resource = PatSUfferer
-//* entry[+].fullUrl = "http://example.com/fhir/Patient/PatSUfferer"
-//* entry[=].resource = PatSUfferer
 //------------- Data Enterer -------------
 * entry[+].fullUrl = "http://example.com/fhir/PractitionerRole/RoleDAtaenterer"
 * entry[=].resource = RoleDAtaenterer
