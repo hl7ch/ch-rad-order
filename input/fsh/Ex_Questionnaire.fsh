@@ -44,7 +44,7 @@ Usage: #example
 * extension[+].url = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-assembledFrom"
 * extension[=].valueCanonical = "http://fhir.ch/ig/ch-orf/Questionnaire/ch-orf-module-consent|2.0.0-ci-build"
 * extension[+].url = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-assembledFrom"
-* extension[=].valueCanonical = "http://fhir.ch/ig/ch-rad-order/Questionnaire/ch-rad-order-module-instruction|2.0.0-ci-build"
+* extension[=].valueCanonical = "http://fhir.ch/ig/ch-rad-order/Questionnaire/ch-rad-order-module-medinfo|2.0.0-ci-build"
 * extension[+].url = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-assembledFrom"
 * extension[=].valueCanonical = "http://fhir.ch/ig/ch-rad-order/Questionnaire/ch-rad-order-module-diagnosis|2.0.0-ci-build"
 * extension[+].url = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-assembledFrom"
@@ -1231,7 +1231,7 @@ Usage: #example
 * item[=].item.item.linkId = "patient.consent.statement.note"
 * item[=].item.item.text = "Anmerkung"
 * item[=].item.item.type = #string
-* item[+].linkId = "instruction"
+* item[+].linkId = "medicalInformation"
 //* item[=].text = ""
 * item[=].type = #group
 * item[=].item[0].linkId = "requestedService"
@@ -1526,10 +1526,10 @@ Usage: #example
 * item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy-definitions#ImagingStudy.identifier"
 * item[=].item[=].item[=].text = "ACSN"
 * item[=].item[=].item[=].type = #string
-* item[=].item[+].linkId = "note"
-* item[=].item[=].text = "Bemerkungen"
-* item[=].item[=].type = #group
-* item[=].item[=].item.linkId = "note.text"
-* item[=].item[=].item.definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest-definitions#ServiceRequest.note.text"
-* item[=].item[=].item.text = "Kommentar"
-* item[=].item[=].item.type = #string
+* item[+].linkId = "note"
+* item[=].text = "Bemerkungen"
+* item[=].type = #group
+* item[=].item[+].linkId = "note.text"
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest-definitions#ServiceRequest.note.text"
+* item[=].item[=].text = "Kommentar"
+* item[=].item[=].type = #string

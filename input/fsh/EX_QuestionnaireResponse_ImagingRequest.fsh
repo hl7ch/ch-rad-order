@@ -135,7 +135,7 @@ Description: "Example of a QuestionnaireResponse for a Imaging"
 
 * item[=].item[=].item[+].linkId = "receiver.organization.streetAddressLine"
 * item[=].item[=].item[=].text = "Strasse, Hausnummer, Postfach etc."
-* item[=].item[=].item[=].answer[+].valueString = "Seestrasse 133"
+* item[=].item[=].item[=].answer[+].valueString = "Kantonsstrasse 133"
 //* item[=].item[=].item[=].answer[+].valueString = "Haus C"
 
 * item[=].item[=].item[+].linkId = "receiver.organization.postalCode"
@@ -430,7 +430,7 @@ Description: "Example of a QuestionnaireResponse for a Imaging"
 
 * item[=].item[=].item[=].item[+].linkId = "sender.author.organization.streetAddressLine"
 * item[=].item[=].item[=].item[=].text = "Strasse, Hausnummer, Postfach etc."
-* item[=].item[=].item[=].item[=].answer[+].valueString = "Kantonsstrasse 14"
+* item[=].item[=].item[=].item[=].answer[+].valueString = "Happystrasse 14"
 
 * item[=].item[=].item[=].item[+].linkId = "sender.author.organization.postalCode"
 * item[=].item[=].item[=].item[=].text = "PLZ"
@@ -506,7 +506,7 @@ Description: "Example of a QuestionnaireResponse for a Imaging"
 
 * item[=].item[=].item[=].item[+].linkId = "receiverCopy.practitionerRole.organization.streetAddressLine"
 * item[=].item[=].item[=].item[=].text = "Strasse, Hausnummer, Postfach etc."
-//* item[=].item[=].item[=].item[=].answer.valueString = "Seestrasse 133"
+//* item[=].item[=].item[=].item[=].answer.valueString = "Kantonsstrasse 133"
 
 * item[=].item[=].item[=].item[+].linkId = "receiverCopy.practitionerRole.organization.postalCode"
 * item[=].item[=].item[=].item[=].text = "PLZ"
@@ -564,7 +564,7 @@ Description: "Example of a QuestionnaireResponse for a Imaging"
 
 * item[=].item[=].item[+].linkId = "appointment.location.streetAddressLine"
 * item[=].item[=].item[=].text = "Strasse, Hausnummer, Postfach etc."
-* item[=].item[=].item[=].answer[0].valueString = "Seestrasse 133"
+* item[=].item[=].item[=].answer[0].valueString = "Kantonsstrasse 133"
 //* item[=].item[=].item[=].answer[1].valueString = "Haus C"
 
 * item[=].item[=].item[+].linkId = "appointment.location.postalCode"
@@ -605,7 +605,7 @@ Description: "Example of a QuestionnaireResponse for a Imaging"
 
 // ============ Kerninhaltes von Rad Order ==============================
 
-* item[+].linkId = "instruction"
+* item[+].linkId = "medicalInformation"
 //* item[=].text = ""
 //------------------------------------------------------------------------
 //1. Was wird gewünscht (nur 1 Wert)             
@@ -856,10 +856,10 @@ Description: "Example of a QuestionnaireResponse for a Imaging"
 // -----------------------------------------------------------------------------
 //Service Request Notes 
 
-* item[=].item[+].linkId = "note"
-* item[=].item[=].text = "Bemerkungen"
+* item[+].linkId = "note"
+* item[=].text = "Bemerkungen"
 
-* item[=].item[=].item[+].linkId = "note.text"
-* item[=].item[=].item[=].text = "Kommentar" 
-* item[=].item[=].item[=].answer[+].valueString = "Patientin ist sehr ängstlich"
+* item[=].item[+].linkId = "note.text"
+* item[=].item[=].text = "Kommentar" 
+* item[=].item[=].answer[+].valueString = "Patientin ist sehr ängstlich"
 

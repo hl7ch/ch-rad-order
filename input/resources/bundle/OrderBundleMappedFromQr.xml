@@ -398,7 +398,7 @@
               <linkId value="receiver.organization.streetAddressLine"/>
               <text value="Strasse, Hausnummer, Postfach etc."/>
               <answer>
-                <valueString value="Happystrasse 14"/>
+                <valueString value="Kantosstrasse 133"/>
               </answer>
               <answer>
                 <valueString value="Postfach 14"/>
@@ -777,7 +777,7 @@
                 <linkId value="sender.author.organization.streetAddressLine"/>
                 <text value="Strasse, Hausnummer, Postfach etc."/>
                 <answer>
-                  <valueString value="Happystrasse 133"/>
+                  <valueString value="Happystrasse 14"/>
                 </answer>
               </item>
               <item>
@@ -1884,7 +1884,7 @@
         <id value="345a83a7-0b20-4683-92f8-b798b4940f0c"/>
         <name value="Gemeinschaftspraxis Happydoctors"/>
         <address>
-          <line value="Happystrasse 133"/>
+          <line value="Happystrasse 14"/>
           <city value="Zürich"/>
           <postalCode value="8000"/>
           <country value="Schweiz"/>

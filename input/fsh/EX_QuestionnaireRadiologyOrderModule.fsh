@@ -234,12 +234,12 @@ Usage: #example
 
 //------------- Instruction ------------------------
 
-* item[+].linkId = "instruction"
+* item[+].linkId = "medicalInformation"
 * item[=].text = ""
 * item[=].type = #group
 
 * item[=].item.extension.url = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-subQuestionnaire"
-* item[=].item.extension.valueCanonical = "http://fhir.ch/ig/ch-rad-order/Questionnaire/ch-rad-order-module-instruction|2.0.0"
+* item[=].item.extension.valueCanonical = "http://fhir.ch/ig/ch-rad-order/Questionnaire/ch-rad-order-module-medinfo|2.0.0"
 * item[=].item.linkId = "instruction.1"
 * item[=].item.text = "Unable to resolve 'instruction' sub-questionnaire"
 * item[=].item.type = #display
@@ -284,7 +284,7 @@ Usage: #example
 =================================================*/
 
 /*Module Instruction*/
-Instance: ch-rad-order-module-instruction
+Instance: ch-rad-order-module-medinfo
 InstanceOf: Questionnaire
 Title: "Module Questionnaire Instruction"
 Description: "Subquestionnaire Instruction"
@@ -294,7 +294,7 @@ Description: "Subquestionnaire Instruction"
 */
 * extension[0].url = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-assemble-expectation"
 * extension[=].valueCode = #assemble-child
-* url = "http://fhir.ch/ig/ch-rad-order/Questionnaire/ch-rad-order-module-instruction"
+* url = "http://fhir.ch/ig/ch-rad-order/Questionnaire/ch-rad-order-module-medinfo"
 * name = "ModuleQuestionnaireRadiologyOrderInstruction"
 * title = "Module Questionnaire Radiologyorder Instruction"
 * status = #active

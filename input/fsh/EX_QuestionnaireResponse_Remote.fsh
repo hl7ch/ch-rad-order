@@ -135,7 +135,7 @@ Description: "Example of a QuestionnaireResponse for remote Reporting"
 
 * item[=].item[=].item[+].linkId = "receiver.organization.streetAddressLine"
 * item[=].item[=].item[=].text = "Strasse, Hausnummer, Postfach etc."
-* item[=].item[=].item[=].answer[+].valueString = "Seestrasse 133"
+* item[=].item[=].item[=].answer[+].valueString = "Kantonsstrasse 133"
 //* item[=].item[=].item[=].answer[+].valueString = "Haus C"
 
 * item[=].item[=].item[+].linkId = "receiver.organization.postalCode"
@@ -283,7 +283,7 @@ Description: "Example of a QuestionnaireResponse for remote Reporting"
 
 * item[=].item[=].item[+].linkId = "patient.contactperson.relationship"
 * item[=].item[=].item[=].text = "Beziehung"
-* item[=].item[=].item[=].answer.valueString = "Guter Freund"
+//* item[=].item[=].item[=].answer.valueString = "Guter Freund"
 * item[=].item[=].item[+].linkId = "patient.contactperson.familyName"
 * item[=].item[=].item[=].text = "Name"
 //* item[=].item[=].item[=].answer.valueString = "Freund"
@@ -359,7 +359,7 @@ Description: "Example of a QuestionnaireResponse for remote Reporting"
 
 * item[=].item[+].linkId = "requestedEncounter.class"
 * item[=].item[=].text = "Voraussichtlich: Ambulant / Stationär / Notfall"
-* item[=].item[=].answer.valueCoding = V3ActCode#AMB
+//* item[=].item[=].answer.valueCoding = V3ActCode#AMB
 
 * item[=].item[+].linkId = "requestedEncounter.desiredAccommodation"
 * item[=].item[=].text = "Zimmerkategorie"
@@ -564,7 +564,7 @@ Description: "Example of a QuestionnaireResponse for remote Reporting"
 
 * item[=].item[=].item[+].linkId = "appointment.location.streetAddressLine"
 * item[=].item[=].item[=].text = "Strasse, Hausnummer, Postfach etc."
-* item[=].item[=].item[=].answer[0].valueString = "Seestrasse 133"
+* item[=].item[=].item[=].answer[0].valueString = "Kantonsstrasse 133"
 //* item[=].item[=].item[=].answer[1].valueString = "Haus C"
 
 * item[=].item[=].item[+].linkId = "appointment.location.postalCode"
@@ -595,7 +595,7 @@ Description: "Example of a QuestionnaireResponse for remote Reporting"
 
 // ============ Kerninhaltes von Rad Order ==============================
 
-* item[+].linkId = "instruction"
+* item[+].linkId = "medicalInformation"
 //* item[=].text = ""
 //------------------------------------------------------------------------
 //1. Was wird gewünscht (nur 1 Wert)             
@@ -844,13 +844,13 @@ Description: "Example of a QuestionnaireResponse for remote Reporting"
 * item[=].item[=].item[=].answer[+].valueString = "2819497684894126"
 
 // -----------------------------------------------------------------------------
-/*
+
 //Service Request Notes 
 
-* item[=].item[+].linkId = "note"
-* item[=].item[=].text = "Bemerkungen"
+* item[+].linkId = "note"
+* item[=].text = "Bemerkungen"
 
-* item[=].item[=].item[+].linkId = "note.text"
-* item[=].item[=].item[=].text = "Kommentar" 
-//* item[=].item[=].item[=].answer[+].valueString = "Patientin ist sehr ängstlich"
-*/
+* item[=].item[+].linkId = "note.text"
+* item[=].item[=].text = "Kommentar" 
+* item[=].item[=]..answer[+].valueString = "Vielen Dank für die Befundung"
+

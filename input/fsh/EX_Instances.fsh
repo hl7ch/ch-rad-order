@@ -66,7 +66,7 @@ Description: "Example of Composition"
 * section[orderReferral].entry[ServiceRequest] = Reference(ServiceRequestRadiologyOrder)
 
 /*
-Instance: CompositionRadiologyOrderSecondOppinion
+Instance: CompositionRadiologyOrderSecondOpinion
 InstanceOf: ChRadOrderComposition
 Title: "Composition Radiology Order"
 Description: "Example of Composition"
@@ -88,7 +88,7 @@ Description: "Example of Composition"
 * section[orderReferral].title = "Order-Referral"
 * section[orderReferral].code = LNC#93037-0 "Portable medical order form"
 * section[orderReferral].entry[Questionnaire] = Reference(QuestionnaireRadiologyOrder)
-* section[orderReferral].entry[QuestionnaireResponse] = Reference(QuestionnaireResponseRadiologyOrderSecondOppinion)
+* section[orderReferral].entry[QuestionnaireResponse] = Reference(QuestionnaireResponseRadiologyOrderSecondOpinion)
 * section[orderReferral].entry[ServiceRequest] = Reference(ServiceRequestRadiologyOrder)
 */
 
@@ -297,7 +297,7 @@ Description: "Example of Practitioner"
 
 Instance: RoleORderplacerJunior
 InstanceOf: ChCorePractitionerRole
-Title: "Doris Ataenterer (Role)"
+Title: "Olga Rderplacer-Junior (Role)"
 Description: "Example of PractionerRole"
 * practitioner = Reference(PractORderplacerJunior)
 * organization = Reference(OrgSmallHospital)
@@ -323,7 +323,7 @@ Description: "Example of Practitioner"
 
 Instance: RoleKNowit-All
 InstanceOf: ChCorePractitionerRole
-Title: "Doris Ataenterer (Role)"
+Title: "Kurt NowIt-All (Role)"
 Description: "Example of PractionerRole"
 * practitioner = Reference(PractKNowit-All)
 * organization = Reference(OrgRadHappyHospital)
@@ -342,7 +342,7 @@ InstanceOf: ChCoreOrganization
 Title: "Gemeinschaftspraxis Happy Doctors"
 Description: "Example of Organization"
 * name = "Praxis Happy Doctors"
-* address.line[+] = "Kantonsstrasse 14"
+* address.line[+] = "Happystrasse 14"
 * address.city = "Zürich"
 * address.postalCode = "8000"
 * address.country = "Schweiz"
@@ -353,7 +353,7 @@ InstanceOf: ChCoreOrganization
 Title: "Radiologie Klinik Happy Hospital"
 Description: "Example of Organization"
 * name = "Radiologie Klinik Happy Hospital"
-* address.line[0] = "Seestrasse 133"
+* address.line[0] = "Kantonsstrasse 133"
 * address.line[1] = "Haus C"
 * address.city = "Zürich"
 * address.postalCode = "8000"
@@ -604,7 +604,7 @@ Description: "Example of Location"
 * name = "Radiologie Klinik Happy Hospital"
 * telecom[0].system = #phone
 * telecom[0].value = "+41 44 412 65 56"
-* address.line[0] = "Seestrasse 133"
+* address.line[0] = "Kantonsstrasse 133"
 * address.line[1] = "Haus C"
 * address.city = "Zürich"
 * address.postalCode = "8000"
