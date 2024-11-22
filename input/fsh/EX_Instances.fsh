@@ -54,6 +54,7 @@ Description: "Example of Composition"
 * extension[copyReceiver].url = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-copyreceiver"
 * extension[copyReceiver].valueReference = Reference(PatSUfferer)
 * status = #final
+//* type = SnomedCTSwissExtension#2161000195103 "Imaging order (record artifact)"
 * type = urn:oid:2.16.756.5.30.1.127.3.4#2161000195103 "Imaging order (record artifact)"
 * category = SCT#721963009 "Order (record artifact)"
 * subject = Reference(PatSUfferer)
@@ -170,8 +171,8 @@ Description: "Example of Bundle"
 * entry[+].fullUrl = "http://example.com/fhir/Condition/CaveatDeviceCardiacPacemaker"
 * entry[=].resource = CaveatDeviceCardiacPacemaker
 //
-* entry[+].fullUrl = "http://example.com/fhir/ImagingStudy/DicomSopInstanceConformant"
-* entry[=].resource = DicomSopInstanceConformant
+//* entry[+].fullUrl = "http://example.com/fhir/ImagingStudy/DicomSopInstanceConformant"
+//* entry[=].resource = DicomSopInstanceConformant
 
 //* entry[+].fullUrl = "http://example.com/fhir/DocumentReference/DocumentReferenceDicomSopInstanceConformant"
 //* entry[=].resource = DocumentReferenceDicomSopInstanceConformant

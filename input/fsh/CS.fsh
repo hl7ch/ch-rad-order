@@ -4,7 +4,7 @@ Id: ch-rad-order-requested-service
 Title: "Requested Service"
 Description: "Definition for Requested Service Code System in the context of CH RAD-Order."
 * ^caseSensitive = true
-
+* ^experimental = true
 * #RequestForPreviousReport "Befundbericht früherer Untersuchung(en)"
 * #RequestForPreviousReportAndImages "Bilder und Befundberichte früherer Untersuchung(en)"
 * #ImagingRequest "Bildgebende Diagnostik"
@@ -21,6 +21,7 @@ Id: ch-rad-order-order-detail-type
 Title: "Type of Order Detail"
 Description: "Definition for Type of Order Detail Code System in the context of CH RAD-Order."
 * ^caseSensitive = true
+* ^experimental = true
 * #imagingRegion "Imaging Region"
 * #laterality "Laterality"
 * #viewType "View Type"
@@ -114,4 +115,5 @@ Id: ch-rad-order-dicom-unknown
 Title: "Contains Code for UNKNOWN in dicom context"
 Description: "Definition for UNKNOWN in the context CH RAD-Order in order to handle non conformant Dicom metadata."
 * ^caseSensitive = true
+* ^experimental = true
 * #UNKNOWN // must be uppercase; no space allowed

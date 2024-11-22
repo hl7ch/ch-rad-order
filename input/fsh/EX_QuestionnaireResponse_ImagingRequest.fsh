@@ -112,7 +112,7 @@ Description: "Example of a QuestionnaireResponse for a Imaging"
 
 * item[=].item[=].item[+].linkId = "receiver.practitioner.gln"
 * item[=].item[=].item[=].text = "GLN"
-* item[=].item[=].item[=].answer.valueString = "7601000201041"
+* item[=].item[=].item[=].answer.valueString = "7601000087232"
 
 * item[=].item[=].item[+].linkId = "receiver.practitioner.zsr"
 * item[=].item[=].item[=].text = "ZSR"
