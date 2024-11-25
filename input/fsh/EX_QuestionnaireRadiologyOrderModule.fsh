@@ -667,13 +667,13 @@ mittels ImagingStudy Resource (DICOM WADO) oder die mitgegeben werden mit der Do
 * publisher = "HL7 Switzerland"
 
 * item[+].linkId = "attachedFile"  
-* item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-orf-documentreference-defintions#DocumentReference.content.attachedFile"
+* item[=].definition = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-documentreference#DocumentReference.content.attachment.data"
 * item[=].text = "Datei"
 * item[=].type = #attachment
 * item[=].repeats = true
 
 * item[=].item[+].linkId = "attachedFile.description"  
-* item[=].item[=].definition = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-documentreference-definitions#DocumentReference.description"
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-documentreference#DocumentReference.description"
 * item[=].item[=].text = "Beschreibung"
 * item[=].item[=].type = #string
 

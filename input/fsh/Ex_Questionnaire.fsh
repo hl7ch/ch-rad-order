@@ -1483,12 +1483,12 @@ Usage: #example
 * item[=].text = "Vorherige Untersuchungsresultate"
 * item[=].type = #group
 * item[=].item[0].linkId = "attachedFile"
-* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-orf-documentreference-defintions#DocumentReference.content.attachedFile"
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-documentreference#DocumentReference.content.attachment.data"
 * item[=].item[=].text = "Datei"
 * item[=].item[=].type = #attachment
 * item[=].item[=].repeats = true
 * item[=].item[=].item.linkId = "attachedFile.description"
-* item[=].item[=].item.definition = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-documentreference-definitions#DocumentReference.description"
+* item[=].item[=].item.definition = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-documentreference#DocumentReference.description"
 * item[=].item[=].item.text = "Beschreibung"
 * item[=].item[=].item.type = #string
 * item[=].item[+].linkId = "dicomObject"
