@@ -1,4 +1,3 @@
-
 ### Auftrag für bildgebende Diagnostik
 Akteure:
 

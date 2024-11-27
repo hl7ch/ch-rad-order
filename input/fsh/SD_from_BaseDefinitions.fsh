@@ -174,7 +174,7 @@ Description: "Definition for the ImagingStudy resource in the context of CH RAD-
 * . ^short = "CH RAD-Order ImagingStudy"
 
 * identifier MS
-* identifier ^slicing.discriminator.type = #pattern
+* identifier ^slicing.discriminator.type = #value
 * identifier ^slicing.discriminator.path = "$this"
 * identifier ^slicing.rules = #open
 * identifier contains studyInstanceUid 1..1 MS
