@@ -1,13 +1,16 @@
-Instance: QuestionnaireResponseRadiologyOrder
+Instance: QuestionnaireResponseRadiologyOrderSecondOpinion
 InstanceOf: ChOrfQuestionnaireResponse
-Title: "QuestionniaireResponse Radiology Order"
-Description: "Example for QuestionnaireResponse"
-* questionnaire = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/QuestionnaireRadiologyOrder"
+Title: "QuestionniaireResponse Radiology Order for second Opinion"
+Description: "Example of a QuestionnaireResponse for a second Opinion"
+* questionnaire = "http://fhir.ch/ig/ch-rad-order/Questionnaire/QuestionnaireRadiologyOrder"
 * status = #completed
 
 // ---------- Order (Auftrag) ----------
 * item[+].linkId = "order"
 * item[=].text = "Auftrag"
+* item[=].item[+].linkId = "order.authoredOn"
+* item[=].item[=].text = "Datum/Zeit der Auftragserteilung"
+* item[=].item[=].answer.valueDateTime = "2024-11-17T11:28:17+01:00"
 
 * item[=].item[+].linkId = "order.placerOrderIdentifier"
 * item[=].item[=].text = "Auftragsnummer des Auftraggebers"
@@ -25,9 +28,9 @@ Description: "Example for QuestionnaireResponse"
 * item[=].item[=].text = "Identifier Domain der Auftragsnummer des Auftragsempfängers"
 * item[=].item[=].answer.valueString = "urn:oid:2.999.7.8.9.10.11"
 
-* item[=].item[+].linkId = "order.previousDocumentIdentifier"
+* item[=].item[+].linkId = "order.precedentDocumentIdentifier"
 * item[=].item[=].text = "Identifier des Vorgängerdokuments"
-* item[=].item[=].answer.valueString = "1622f2fb-6ba3-4532-9aed-35b158def187"
+//* item[=].item[=].answer.valueString = "1622f2fb-6ba3-4532-9aed-35b158def187"
 
 // ---------- Urgent Notification Contact for this document ----------
 * item[=].item[+].linkId = "order.notificationContactDocument"
@@ -38,23 +41,23 @@ Description: "Example for QuestionnaireResponse"
 
 * item[=].item[=].item[=].item[+].linkId = "order.notificationContactDocument.practitioner.title"
 * item[=].item[=].item[=].item[=].text = "Titel"
-* item[=].item[=].item[=].item[=].answer.valueString = "Dr. med."
+//* item[=].item[=].item[=].item[=].answer.valueString = "Dr. med."
 
 * item[=].item[=].item[=].item[+].linkId = "order.notificationContactDocument.practitioner.familyName"
 * item[=].item[=].item[=].item[=].text = "Name"
-* item[=].item[=].item[=].item[=].answer.valueString = "Rderfiller"
+//* item[=].item[=].item[=].item[=].answer.valueString = "Rderfiller"
 
 * item[=].item[=].item[=].item[+].linkId = "order.notificationContactDocument.practitioner.givenName"
 * item[=].item[=].item[=].item[=].text = "Vorname"
-* item[=].item[=].item[=].item[=].answer.valueString = "Otto"
+//* item[=].item[=].item[=].item[=].answer.valueString = "Otto"
 
 * item[=].item[=].item[=].item[+].linkId = "order.notificationContactDocument.practitioner.phone"
 * item[=].item[=].item[=].item[=].text = "Telefon"
-* item[=].item[=].item[=].item[=].answer.valueString = "044 412 00 99"
+//* item[=].item[=].item[=].item[=].answer.valueString = "044 412 00 99"
 
 * item[=].item[=].item[=].item[+].linkId = "order.notificationContactDocument.practitioner.email"
 * item[=].item[=].item[=].item[=].text = "E-Mail"
-* item[=].item[=].item[=].item[=].answer.valueString = "otto.rderfiller@happyhosptial.ch"
+//* item[=].item[=].item[=].item[=].answer.valueString = "otto.rderfiller@happyhosptial.ch"
 
 // ---------- Urgent Notification Contact for the Response to this document ----------
 * item[=].item[+].linkId = "order.notificationContactDocumentResponse"
@@ -109,7 +112,7 @@ Description: "Example for QuestionnaireResponse"
 
 * item[=].item[=].item[+].linkId = "receiver.practitioner.gln"
 * item[=].item[=].item[=].text = "GLN"
-* item[=].item[=].item[=].answer.valueString = "7601000201041"
+* item[=].item[=].item[=].answer.valueString = "7601000087232"
 
 * item[=].item[=].item[+].linkId = "receiver.practitioner.zsr"
 * item[=].item[=].item[=].text = "ZSR"
@@ -128,12 +131,12 @@ Description: "Example for QuestionnaireResponse"
 
 * item[=].item[=].item[+].linkId = "receiver.organization.name"
 * item[=].item[=].item[=].text = "Name der Organisation"
-* item[=].item[=].item[=].answer.valueString = "Spital Happyhospital"
+* item[=].item[=].item[=].answer.valueString = "Radiologie Klinik Happyhospital"
 
 * item[=].item[=].item[+].linkId = "receiver.organization.streetAddressLine"
 * item[=].item[=].item[=].text = "Strasse, Hausnummer, Postfach etc."
-* item[=].item[=].item[=].answer[0].valueString = "Happystrasse 14"
-* item[=].item[=].item[=].answer[1].valueString = "Postfach 14"
+* item[=].item[=].item[=].answer[+].valueString = "Kantonsstrasse 133"
+//* item[=].item[=].item[=].answer[+].valueString = "Haus C"
 
 * item[=].item[=].item[+].linkId = "receiver.organization.postalCode"
 * item[=].item[=].item[=].text = "PLZ"
@@ -153,23 +156,62 @@ Description: "Example for QuestionnaireResponse"
 
 * item[=].item[+].linkId = "initiator.legalrelation"
 * item[=].item[=].text = "Juristische Beziehung zum Patienten"
-* item[=].item[=].answer.valueCoding = SCT#373068000 "Nicht definiert"
+//* item[=].item[=].answer.valueCoding = SCT#373068000 "Nicht definiert"
 
 * item[=].item[+].linkId = "initiator.personalrelation"
 * item[=].item[=].text = "Persönliche Beziehung zum Patienten?"
 // * item[=].item[=].answer.valueCoding = http://snomed.info/sct#65616008 "Sohn"
-* item[=].item[=].answer.valueCoding = http://snomed.info/sct#65616008
+
+* item[=].item[+].linkId = "initiator.practitionerRole"
+* item[=].item[=].text = "Gesundheitsfachperson oder -organisation"
+
+* item[=].item[=].item[+].linkId = "initiator.practitionerRole.practitioner"
+* item[=].item[=].item[=].text = "Gesundheitsfachperson"
+
+* item[=].item[=].item[=].item[+].linkId = "initiator.practitionerRole.practitioner.title"
+* item[=].item[=].item[=].item[=].text = "Titel"
+
+* item[=].item[=].item[=].item[+].linkId = "initiator.practitionerRole.practitioner.familyName"
+* item[=].item[=].item[=].item[=].text = "Name"
+
+* item[=].item[=].item[=].item[+].linkId = "initiator.practitionerRole.practitioner.givenName"
+* item[=].item[=].item[=].item[=].text = "Vorname"
+
+* item[=].item[=].item[=].item[+].linkId = "initiator.practitionerRole.practitioner.phone"
+* item[=].item[=].item[=].item[=].text = "Telefon"
+
+* item[=].item[=].item[=].item[+].linkId = "initiator.practitionerRole.practitioner.email"
+* item[=].item[=].item[=].item[=].text = "E-Mail"
+
+* item[=].item[=].item[+].linkId = "initiator.practitionerRole.organization"
+* item[=].item[=].item[=].text = "Gesundheitsorganisatiton"
+
+* item[=].item[=].item[=].item[+].linkId = "initiator.practitionerRole.organization.name"
+* item[=].item[=].item[=].item[=].text = "Name der Organisation"
+
+* item[=].item[=].item[=].item[+].linkId = "initiator.practitionerRole.organization.streetAddressLine"
+* item[=].item[=].item[=].item[=].text = "Strasse, Hausnummer, Postfach etc."
+
+* item[=].item[=].item[=].item[+].linkId = "initiator.practitionerRole.organization.postalCode"
+* item[=].item[=].item[=].item[=].text = "PLZ"
+
+* item[=].item[=].item[=].item[+].linkId = "initiator.practitionerRole.organization.city"
+* item[=].item[=].item[=].item[=].text = "Ort"
+
+* item[=].item[=].item[=].item[+].linkId = "initiator.practitionerRole.organization.country"
+* item[=].item[=].item[=].item[=].text = "Land"
+
 
 * item[=].item[+].linkId = "initiator.relatedPerson"
-* item[=].item[=].text = "Andere Person"
+//* item[=].item[=].text = "Andere Person"
 
 * item[=].item[=].item[+].linkId = "initiator.relatedPerson.familyName"
 * item[=].item[=].item[=].text = "Name"
-* item[=].item[=].item[=].answer.valueString = "Leidend"
+//* item[=].item[=].item[=].answer.valueString = "Leidend"
 
 * item[=].item[=].item[+].linkId = "initiator.relatedPerson.givenName"
 * item[=].item[=].item[=].text = "Vorname"
-* item[=].item[=].item[=].answer.valueString = "Fritz"
+//* item[=].item[=].item[=].answer.valueString = "Fritz"
 
 // ---------- Patient: The principle target of a particular Form Content is one patient ----------
 * item[+].linkId = "patient"
@@ -197,7 +239,7 @@ Description: "Example for QuestionnaireResponse"
 
 * item[=].item[+].linkId = "patient.birthDate"
 * item[=].item[=].text = "Geburtsdatum"
-* item[=].item[=].answer.valueDate = "1970-03-14"
+* item[=].item[=].answer.valueDate = "1945-03-14"
 
 * item[=].item[+].linkId = "patient.gender"
 * item[=].item[=].text = "Geschlecht"
@@ -218,7 +260,6 @@ Description: "Example for QuestionnaireResponse"
 * item[=].item[+].linkId = "patient.streetAddressLine"
 * item[=].item[=].text = "Strasse, Hausnummer, Postfach etc."
 * item[=].item[=].answer[+].valueString = "Musterweg 6a"
-//* item[=].item[=].answer[+].valueString = "6a"
 
 * item[=].item[+].linkId = "patient.postalCode"
 * item[=].item[=].text = "PLZ"
@@ -234,7 +275,6 @@ Description: "Example for QuestionnaireResponse"
 
 * item[=].item[+].linkId = "patient.languageOfCorrespondence"
 * item[=].item[=].text = "Korrespondenzsprache"
-//* item[=].item[=].answer.valueCoding =  urn:ietf:bcp:47#de-CH
 * item[=].item[=].answer.valueCoding =  urn:ietf:bcp:47#de-CH "German (Switzerland)"
 
 // ---------- Patient Contact Person: The principle target of a particular Form Content is one patient ----------
@@ -273,10 +313,45 @@ Description: "Example for QuestionnaireResponse"
 
 * item[=].item[=].item[=].item[+].linkId = "familydoctor.practitioner.familyName"
 * item[=].item[=].item[=].item[=].text = "Name"
-* item[=].item[=].item[=].item[=].answer.valueString = "Meier"
+* item[=].item[=].item[=].item[=].answer.valueString = "Rderplacer"
 
 * item[=].item[=].item[=].item[+].linkId = "familydoctor.practitioner.givenName"
-* item[=].item[=].item[=].item[=].answer.valueString = "Sabine"
+* item[=].item[=].item[=].item[=].text = "Vorname"
+* item[=].item[=].item[=].item[=].answer.valueString = "Ottilie"
+
+* item[=].item[=].item[=].item[+].linkId = "familydoctor.practitioner.gln"
+* item[=].item[=].item[=].item[=].text = "GLN"
+
+* item[=].item[=].item[=].item[+].linkId = "familydoctor.practitioner.zsr"
+* item[=].item[=].item[=].item[=].text = "ZSR"
+
+* item[=].item[=].item[=].item[+].linkId = "familydoctor.practitioner.phone"
+* item[=].item[=].item[=].item[=].text = "Telefon"
+
+* item[=].item[=].item[=].item[+].linkId = "familydoctor.practitioner.email"
+* item[=].item[=].item[=].item[=].text = "E-Mail"
+
+* item[=].item[=].item[+].linkId = "familydoctor.organization"
+* item[=].item[=].item[=].text = "Hausarzt Organisation"
+
+* item[=].item[=].item[=].item[0].linkId = "familydoctor.organization.name"
+* item[=].item[=].item[=].item[=].text = "Name der Organisation"
+
+* item[=].item[=].item[=].item[+].linkId = "familydoctor.organization.gln"
+* item[=].item[=].item[=].item[=].text = "GLN"
+
+* item[=].item[=].item[=].item[=].linkId = "familydoctor.organization.streetAddressLine"
+* item[=].item[=].item[=].item[=].text = "Strasse, Hausnummer, Postfach etc."
+
+
+* item[=].item[=].item[=].item[=].linkId = "familydoctor.organization.postalCode"
+* item[=].item[=].item[=].item[=].text = "PLZ"
+
+* item[=].item[=].item[=].item[=].linkId = "familydoctor.organization.city"
+* item[=].item[=].item[=].item[=].text = "Ort"
+
+* item[=].item[=].item[=].item[=].linkId = "familydoctor.organization.country"
+* item[=].item[=].item[=].item[=].text = "Land"
 
 // ---------- Encounter Class (Ambulant / Satinär / Notfall) & Zimmerkategorie ----------
 * item[+].linkId = "requestedEncounter"
@@ -284,12 +359,11 @@ Description: "Example for QuestionnaireResponse"
 
 * item[=].item[+].linkId = "requestedEncounter.class"
 * item[=].item[=].text = "Voraussichtlich: Ambulant / Stationär / Notfall"
-* item[=].item[=].answer.valueCoding = V3ActCode#EMER
-
+//* item[=].item[=].answer.valueCoding = V3ActCode#AMB
 
 * item[=].item[+].linkId = "requestedEncounter.desiredAccommodation"
 * item[=].item[=].text = "Zimmerkategorie"
-* item[=].item[=].answer.valueCoding = ChCoreCSEncounterType#2 "halbprivat"
+//* item[=].item[=].answer.valueCoding = ChCoreCSEncounterType#2 "halbprivat"
 
 // ---------- Coverage (Kostenträger) ----------
 
@@ -302,7 +376,7 @@ Description: "Example for QuestionnaireResponse"
 
 * item[=].item[=].item[+].linkId = "coverage.kvg.name"
 * item[=].item[=].item[=].text = "Name der Versicherung"
-* item[=].item[=].item[=].answer.valueString = "Sanitas"
+* item[=].item[=].item[=].answer.valueString = "OrgSanitas"
 
 * item[=].item[=].item[+].linkId = "coverage.kvg.insuranceCardNumber"
 * item[=].item[=].item[=].text = "Kennnummer der Versichertenkarte"
@@ -352,12 +426,11 @@ Description: "Example for QuestionnaireResponse"
 
 * item[=].item[=].item[=].item[+].linkId = "sender.author.organization.name"
 * item[=].item[=].item[=].item[=].text = "Name der Organisation"
-* item[=].item[=].item[=].item[=].answer.valueString = "Praxis Happydoctors"
+* item[=].item[=].item[=].item[=].answer.valueString = "Gemeinschaftspraxis Happydoctors"
 
 * item[=].item[=].item[=].item[+].linkId = "sender.author.organization.streetAddressLine"
 * item[=].item[=].item[=].item[=].text = "Strasse, Hausnummer, Postfach etc."
-* item[=].item[=].item[=].item[=].answer[+].valueString = "Happystrasse 133"
-//* item[=].item[=].item[=].item[=].answer[+].valueString = "Haus C"
+* item[=].item[=].item[=].item[=].answer[+].valueString = "Happystrasse 14"
 
 * item[=].item[=].item[=].item[+].linkId = "sender.author.organization.postalCode"
 * item[=].item[=].item[=].item[=].text = "PLZ"
@@ -380,11 +453,11 @@ Description: "Example for QuestionnaireResponse"
 
 * item[=].item[=].item[=].item[+].linkId = "sender.dataenterer.practitioner.familyName"
 * item[=].item[=].item[=].item[=].text = "Name"
-* item[=].item[=].item[=].item[=].answer.valueString = "Boss"
+* item[=].item[=].item[=].item[=].answer.valueString = "Ataenterer"
 
 * item[=].item[=].item[=].item[+].linkId = "sender.dataenterer.practitioner.givenName"
 * item[=].item[=].item[=].item[=].text = "Vorname"
-* item[=].item[=].item[=].item[=].answer.valueString = "Stabilo"
+* item[=].item[=].item[=].item[=].answer.valueString = "Doris"
 
 * item[=].item[=].item[=].item[+].linkId = "sender.dataenterer.practitioner.phone"
 * item[=].item[=].item[=].item[=].text = "Telefon"
@@ -392,7 +465,7 @@ Description: "Example for QuestionnaireResponse"
 
 * item[=].item[=].item[=].item[+].linkId = "sender.dataenterer.practitioner.email"
 * item[=].item[=].item[=].item[=].text = "E-Mail"
-* item[=].item[=].item[=].item[=].answer.valueString = "stabilo.boss@praxisseeblick.ch"
+* item[=].item[=].item[=].item[=].answer.valueString = "d.ataenterer@happydoctors.ch"
 
 // ---------- Copy Receiver ----------
 * item[+].linkId = "receiverCopy"
@@ -406,50 +479,50 @@ Description: "Example for QuestionnaireResponse"
 
 * item[=].item[=].item[=].item[+].linkId = "receiverCopy.practitionerRole.practitioner.title"
 * item[=].item[=].item[=].item[=].text = "Titel"
-* item[=].item[=].item[=].item[=].answer.valueString = "Dr. med."
+//* item[=].item[=].item[=].item[=].answer.valueString = "Dr. med."
 
 * item[=].item[=].item[=].item[+].linkId = "receiverCopy.practitionerRole.practitioner.familyName"
 * item[=].item[=].item[=].item[=].text = "Name"
-* item[=].item[=].item[=].item[=].answer.valueString = "Meier"
+//* item[=].item[=].item[=].item[=].answer.valueString = "Meier"
 
 * item[=].item[=].item[=].item[+].linkId = "receiverCopy.practitionerRole.practitioner.givenName"
 * item[=].item[=].item[=].item[=].text = "Vorname"
-* item[=].item[=].item[=].item[=].answer.valueString = "Sabine"
+//* item[=].item[=].item[=].item[=].answer.valueString = "Sabine"
 
 * item[=].item[=].item[=].item[+].linkId = "receiverCopy.practitionerRole.practitioner.phone"
 * item[=].item[=].item[=].item[=].text = "Telefon"
-* item[=].item[=].item[=].item[=].answer.valueString = "044 333 22 11"
+//* item[=].item[=].item[=].item[=].answer.valueString = "044 333 22 11"
 
 * item[=].item[=].item[=].item[+].linkId = "receiverCopy.practitionerRole.practitioner.email"
 * item[=].item[=].item[=].item[=].text = "E-Mail"
-* item[=].item[=].item[=].item[=].answer.valueString = "sabine.meier@praxisseeblick.ch"
+//* item[=].item[=].item[=].item[=].answer.valueString = "sabine.meier@praxisseeblick.ch"
 
 * item[=].item[=].item[+].linkId = "receiverCopy.practitionerRole.organization"
-* item[=].item[=].item[=].text = "Gesundheitsorganisatiton"
+//* item[=].item[=].item[=].text = "Gesundheitsorganisatiton"
 
 * item[=].item[=].item[=].item[+].linkId = "receiverCopy.practitionerRole.organization.name"
 * item[=].item[=].item[=].item[=].text = "Name der Organisation"
-* item[=].item[=].item[=].item[=].answer.valueString = "Praxis Seeblick"
+//* item[=].item[=].item[=].item[=].answer.valueString = "Praxis Seeblick"
 
 * item[=].item[=].item[=].item[+].linkId = "receiverCopy.practitionerRole.organization.streetAddressLine"
 * item[=].item[=].item[=].item[=].text = "Strasse, Hausnummer, Postfach etc."
-* item[=].item[=].item[=].item[=].answer.valueString = "Seestrasse 133"
+//* item[=].item[=].item[=].item[=].answer.valueString = "Seestrasse 133"
 
 * item[=].item[=].item[=].item[+].linkId = "receiverCopy.practitionerRole.organization.postalCode"
 * item[=].item[=].item[=].item[=].text = "PLZ"
-* item[=].item[=].item[=].item[=].answer.valueString = "8000"
+//* item[=].item[=].item[=].item[=].answer.valueString = "8000"
 
 * item[=].item[=].item[=].item[+].linkId = "receiverCopy.practitionerRole.organization.city"
 * item[=].item[=].item[=].item[=].text = "Ort"
-* item[=].item[=].item[=].item[=].answer.valueString = "Zürich"
+//* item[=].item[=].item[=].item[=].answer.valueString = "Zürich"
 
 * item[=].item[=].item[=].item[+].linkId = "receiverCopy.practitionerRole.organization.country"
 * item[=].item[=].item[=].item[=].text = "Land"
-* item[=].item[=].item[=].item[=].answer.valueString = "Schweiz"
+//* item[=].item[=].item[=].item[=].answer.valueString = "Schweiz"
 
 * item[=].item[+].linkId = "receiverCopy.patient"
 * item[=].item[=].text = "Patient selbst"
-* item[=].item[=].answer.valueBoolean = true
+* item[=].item[=].answer.valueBoolean = false
 
 // -------- Antecedent Episode of Care ------
 * item[+].linkId = "antecedentEpisodeOfCare"
@@ -457,258 +530,280 @@ Description: "Example for QuestionnaireResponse"
 
 * item[=].item[+].linkId = "antecedentEpisodeOfCare.start"
 * item[=].item[=].text = "Von"
-* item[=].item[=].answer.valueDateTime = "2023-05-22"
 
 * item[=].item[+].linkId = "antecedentEpisodeOfCare.end"
 * item[=].item[=].text = "Bis"
-* item[=].item[=].answer.valueDateTime = "2023-05-27"
 
-* item[=].item[+].linkId = "antecedentEpisodeOfCare.managingOrganization"
+* item[=].item[+].linkId = "antecedentEpisodeOfCare.organization"
 * item[=].item[=].text = "Spital /Heim"
 
-* item[=].item[=].item[0].linkId = "antecedentEpisodeOfCare.managingOrganization.name"
+* item[=].item[=].item[+].linkId = "antecedentEpisodeOfCare.organization.name"
 * item[=].item[=].item[=].text = "Name der Organisation"
-* item[=].item[=].item[=].answer.valueString = "Spital Hinterfultigen"
 
-// -------- Appointment ------
-* item[+].linkId = "appointment"
+* item[=].item[=].item[+].linkId = "antecedentEpisodeOfCare.organization.streetAddressLine"
+* item[=].item[=].item[=].text = "Strasse, Hausnummer, Postfach etc."
+
+* item[=].item[=].item[+].linkId = "antecedentEpisodeOfCare.organization.postalCode"
+* item[=].item[=].item[=].text = "PLZ"
+
+* item[=].item[=].item[+].linkId = "antecedentEpisodeOfCare.organization.city"
+* item[=].item[=].item[=].text = "Ort"
+
+* item[=].item[=].item[+].linkId = "antecedentEpisodeOfCare.organization.country"
+* item[=].item[=].item[=].text = "Land"
+
+/* -------- Appointment ------
+//* item[+].linkId = "appointment"
 * item[=].definition = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-servicerequest#extension:locationAndTime"
-* item[=].text = "Ort und Zeit der Durchführung der angeforderten Leistung"
+* item[=].text = "Ort und Zeit"
 * item[=].item[+].linkId = "appointment.location"
 * item[=].item[=].text = "Ort der Durchführung"
 * item[=].item[=].item[+].linkId = "appointment.location.name"
 * item[=].item[=].item[=].text = "Name"
-* item[=].item[=].item[=].answer.valueString = "Notfall Spital Happyhospital"
+* item[=].item[=].item[=].answer.valueString = "Röntgeninstitut Zweifel"
+
+* item[=].item[=].item[+].linkId = "appointment.location.streetAddressLine"
+* item[=].item[=].item[=].text = "Strasse, Hausnummer, Postfach etc."
+//* item[=].item[=].item[=].answer[0].valueString = "Kantonsstrasse 133"
+//* item[=].item[=].item[=].answer[1].valueString = "Haus C"
+
+* item[=].item[=].item[+].linkId = "appointment.location.postalCode"
+* item[=].item[=].item[=].text = "PLZ"
+//* item[=].item[=].item[=].answer.valueString = "8000"
+
+* item[=].item[=].item[+].linkId = "appointment.location.city"
+* item[=].item[=].item[=].text = "Ort"
+//* item[=].item[=].item[=].answer.valueString = "Zürich"
+
+* item[=].item[=].item[+].linkId = "appointment.location.country"
+* item[=].item[=].item[=].text = "Land"
+//* item[=].item[=].item[=].answer.valueString = "Schweiz"
+
 * item[=].item[+].linkId = "appointment.status"
 * item[=].item[=].answer[+].valueCoding = AppointmentStatus#pending
-
+*/
 // -------- Consent ------
 * item[+].linkId = "consent"
 * item[=].text = "Einverständniserklärung"
 
 * item[=].item[+].linkId = "patient.consent.statement"
 * item[=].item[=].text = "Ist der Patient über die Anmeldung informiert und explizit einverstanden?"
-* item[=].item[=].answer[+].valueCoding = ChOrfConsentStatus#Other "Other situation such as 'implicit agreement', 'agreed by legal guardian' etc."
+* item[=].item[=].answer[+].valueCoding = ChOrfConsentStatus#ExplicitAgreement
 * item[=].item[=].answer[=].item[+].linkId = "patient.consent.statement.note"
 * item[=].item[=].answer[=].item[=].text = "Anmerkung"
-* item[=].item[=].answer[=].item[=].answer.valueString = "Voraussichtlich einverstanden; Sohn wird die Situation beim nä. Besuch mit Pat. besprechen"
+//* item[=].item[=].answer[=].item[=].answer.valueString = "Voraussichtlich einverstanden; Sohn wird die Situation beim nä. Besuch mit Pat. besprechen"
 
-/* ============ Kerninhaltes der Rad-Order ==============================
-*/
+// ============ Kerninhaltes von Rad Order ==============================
 
-/*------------------------------------------------------------------------
-1. Was wird gewünscht (nur 1 Wert)             
-*/
-* item[+].linkId = "requestedService"
-* item[=].text = "Angeforderte Leistung"
+* item[+].linkId = "medicalInformation"
+//* item[=].text = ""
+//------------------------------------------------------------------------
+//1. Was wird gewünscht (nur 1 Wert)             
 
-* item[=].item[+].linkId = "requestedService.service"
-* item[=].item[=].text = "Leistung"    
-* item[=].item[=].answer.valueCoding = ChRadOrderRequestedService#ImagingRequest "Bildgebende Diagnostik"
+* item[=].item[+].linkId = "requestedService"
+* item[=].item[=].text = "Angeforderte Leistung"
 
-/*------------------------------------------------------------------------
-2. Fragestellung (mehrere Werte)
-*/
-* item[+].linkId = "reason"
-* item[=].text = "Klinische Fragestellung"
+* item[=].item[=].item[+].linkId = "requestedService.service"
+* item[=].item[=].item[=].text = "Leistung"    
+* item[=].item[=].item[=].answer.valueCoding = ChRadOrderRequestedService#SecondOpinion "Zweitmeinung"
 
-* item[=].item[+].linkId = "reason.question"
-* item[=].item[=].text = "Fragestellung"                
-* item[=].item[=].answer.valueString = "Diagnostic Question"
+//------------------------------------------------------------------------
+//2. Fragestellung (mehrere Werte)
 
-/*-----------------------------------------------------------------------
-3. Angabe der Untersuchung (nur 1 Wert):
-*/
-* item[+].linkId = "imagingService"
-* item[=].text = "Bildgebendes Verfahren"
+* item[=].item[+].linkId = "reason"
+* item[=].item[=].text = "Klinische Fragestellung"
 
-* item[=].item[+].linkId = "imagingService.type"
-* item[=].item[=].text = "Art"                 
-* item[=].item[=].answer.valueCoding = RDLX#RID10345 "projection radiography"
+* item[=].item[=].item[+].linkId = "reason.question"
+* item[=].item[=].item[=].text = "Fragestellung"                
+* item[=].item[=].item[=].answer.valueString = "Ist die Fraktur stabil? Verzicht auf Chir. Vorgehen?"
 
+//-----------------------------------------------------------------------
+//3. Angabe der Untersuchung (nur 1 Wert):
 
-/*------------------------------------------------------------------------ 
-4. Order Detail
-*/
-* item[+].linkId = "orderDetail"
-* item[=].text = "Weitere Angaben zur Bildgebung"
+* item[=].item[+].linkId = "imagingService"
+* item[=].item[=].text = "Bildgebendes Verfahren"
 
-* item[=].item[+].linkId = "orderDetail.imagingRegion"
-* item[=].item[=].text = "Region"
-* item[=].item[=].answer.valueCoding = RDLX#RID1243 "Thorax"
-
-* item[=].item[+].linkId = "orderDetail.imagingFocus"
-* item[=].item[=].text = "Fokus"
-* item[=].item[=].answer.valueCoding = RDLX#RID2468 "Chest wall"
-
-* item[=].item[+].linkId = "orderDetail.laterality"
-* item[=].item[=].text = "Seitenangabe"
-
-* item[=].item[+].linkId = "orderDetail.viewType"
-* item[=].item[=].text = "Ansicht"
-
-* item[=].item[+].linkId = "orderDetail.maneuverType"
-* item[=].item[=].text = "Manöver"
-
-* item[=].item[+].linkId = "orderDetail.guidanceForAction"
-* item[=].item[=].text = "Handlungsanleitung"
+* item[=].item[=].item[+].linkId = "imagingService.type"
+* item[=].item[=].item[=].text = "Art"                 
+* item[=].item[=].item[=].answer.valueCoding = RDLX#RID10321 "Computed Tomography"
 
 
-/*----------------------------------------------------------------------
-Gewünschter Radiologe: Noch offen, wie die Auswahlliste gemacht werden soll
-*/
-* item[+].linkId = "desiredRadiologist"
-* item[=].text = "Gewünschter Radiologe für die Befundung / für die Intervention"
+//------------------------------------------------------------------------ 
+//4. Order Detail
 
-* item[=].item[+].linkId = "desiredRadiologist.familyName"
-* item[=].item[=].text = "Name"
-* item[=].item[=].answer.valueString = "Rderfiller"
+* item[=].item[+].linkId = "orderDetail"
+* item[=].item[=].text = "Weitere Angaben zur Bildgebung"
 
-* item[=].item[+].linkId = "desiredRadiologist.givenName"
-* item[=].item[=].text = "Vorname"
-* item[=].item[=].answer.valueString = "Otto"
+* item[=].item[=].item[+].linkId = "orderDetail.imagingRegion"
+* item[=].item[=].item[=].text = "Region"
+* item[=].item[=].item[=].answer.valueCoding = RDLX#RID2638	"Lower extremity"
 
-/*----------------------------------------------------------------------
-Darstellung der Diagnosen und Befunde
-*/
-* item[+].linkId = "diagnosisList"
-* item[=].text = "Diagnosen und Befunde"
+* item[=].item[=].item[+].linkId = "orderDetail.imagingFocus"
+* item[=].item[=].item[=].text = "Fokus"
+* item[=].item[=].item[=].answer.valueCoding = RDLX#RID2639 "Hip"
 
-* item[=].item[+].linkId = "diagnosisList.primaryDiagnosis"  
-* item[=].item[=].text = "Hauptdiagnose"
-* item[=].item[=].answer[+].valueString = "Primary Diagnosis"
+* item[=].item[=].item[+].linkId = "orderDetail.laterality"
+* item[=].item[=].item[=].text = "Seitenangabe"
+* item[=].item[=].item[=].answer.valueCoding = RDLX#RID5824 "left"
 
-* item[=].item[+].linkId = "diagnosisList.secondaryDiagnosis"
-* item[=].item[=].text = "Nebendiagnose"
-* item[=].item[=].answer[+].valueString = "Secondary Diagnosis 1"
-* item[=].item[=].answer[+].valueString = "Secondary Diagnosis 2"
+* item[=].item[=].item[+].linkId = "orderDetail.viewType"
+* item[=].item[=].item[=].text = "Ansicht"
 
-* item[=].item[+].linkId = "diagnosisList.bodyHeight"
-* item[=].item[=].text = "Grösse (cm)"   
-* item[=].item[=].answer.valueQuantity = 176 'cm' "cm"
+* item[=].item[=].item[+].linkId = "orderDetail.maneuverType"
+* item[=].item[=].item[=].text = "Manöver"
 
-* item[=].item[+].linkId = "diagnosisList.bodyWeight"
-* item[=].item[=].text = "Gewicht (kg)"   
-* item[=].item[=].answer.valueQuantity = 99 'kg' "kg"
+* item[=].item[=].item[+].linkId = "orderDetail.guidanceForAction"
+* item[=].item[=].item[=].text = "Handlungsanleitung"
 
-/*----------------------------------------------------------------------
-Caveats   
- */
-* item[+].linkId = "caveat"
-* item[=].text = "Caveats"
-//* item[=].type = #group
 
+//----------------------------------------------------------------------
+//Gewünschter Radiologe: Noch offen, wie die Auswahlliste gemacht werden soll
+
+* item[=].item[+].linkId = "desiredRadiologist"
+* item[=].item[=].text = "Gewünschter Radiologe für die Befundung / für die Intervention"
+
+* item[=].item[=].item[+].linkId = "desiredRadiologist.familyName"
+* item[=].item[=].item[=].text = "Name"
+* item[=].item[=].item[=].answer.valueString = "Rderfiller"
+
+* item[=].item[=].item[+].linkId = "desiredRadiologist.givenName"
+* item[=].item[=].item[=].text = "Vorname"
+* item[=].item[=].item[=].answer.valueString = "Otto"
+
+//----------------------------------------------------------------------
+//Darstellung der Diagnosen und Befunde
+* item[+].linkId = "diagnosis"
+
+* item[=].item[+].linkId = "diagnosisList"
+* item[=].item[=].text = "Diagnosen und Befunde"
+
+* item[=].item[=].item[+].linkId = "diagnosisList.primaryDiagnosis"  
+* item[=].item[=].item[=].text = "Hauptdiagnose"
+* item[=].item[=].item[=].answer[+].valueString = "Verdacht auf Pneumonie"
+
+* item[=].item[=].item[+].linkId = "diagnosisList.secondaryDiagnosis"
+* item[=].item[=].item[=].text = "Nebendiagnose"
+* item[=].item[=].item[=].answer[+].valueString = "St. nach tiefer US Thrombose Li."
+* item[=].item[=].item[=].answer[+].valueString = "Nierenisuffizienz"
+* item[=].item[=].item[=].answer[+].valueString = "Adipositas"
+* item[=].item[=].item[=].answer[+].valueString = "Pacemaker bei AV Block 3. Grades"
+
+* item[=].item[=].item[+].linkId = "diagnosisList.bodyHeight"
+* item[=].item[=].item[=].text = "Grösse (cm)"   
+* item[=].item[=].item[=].answer.valueQuantity = 176 'cm' "cm"
+
+* item[=].item[=].item[+].linkId = "diagnosisList.bodyWeight"
+* item[=].item[=].item[=].text = "Gewicht (kg)"   
+* item[=].item[=].item[=].answer.valueQuantity = 99 'kg' "kg"
+
+//----------------------------------------------------------------------
+//Caveats   
+ 
+* item[+].linkId = "caveats"
+
+* item[=].item[+].linkId = "caveatList"
+* item[=].item[=].text = "Caveats"
 //=====
-* item[=].item[+].linkId = "caveatList.bloodCoagulation"
-* item[=].item[=].text = "Beinträchtigte Blutgerinnung" 
-* item[=].item[=].answer[+].valueCoding = SCT#52101004
+* item[=].item[=].item[+].linkId = "caveatList.bloodCoagulation"
+* item[=].item[=].item[=].text = "Beinträchtigte Blutgerinnung" 
+* item[=].item[=].item[=].answer[+].valueCoding = SCT#52101004 "Present"
 
-* item[=].item[=].answer[=].item[+].linkId = "caveatList.bloodCoagulation.INR" 
-* item[=].item[=].answer[=].item[=].text = "INR" 
-//* item[=].type = #group
+* item[=].item[=].item[=].answer[=].item[+].linkId = "caveatList.bloodCoagulation.INR" 
+* item[=].item[=].item[=].answer[=].item[=].text = "INR" 
 
-* item[=].item[=].answer[=].item[=].item[+].linkId = "caveatList.bloodCoagulation.INR.quantity"
-* item[=].item[=].answer[=].item[=].item[=].text = "Wert (INR)"  
-* item[=].item[=].answer[=].item[=].item[=].answer[+].valueQuantity = 2.7 ''
 
-* item[=].item[=].answer[=].item[=].item[=].answer[=].item[+].linkId = "caveatList.bloodCoagulation.INR.dateTime"
-* item[=].item[=].answer[=].item[=].item[=].answer[=].item[=].text = "Zeitpunkt der Bestimmung"
-* item[=].item[=].answer[=].item[=].item[=].answer[=].item[=].answer[+].valueDateTime = "2024-02-01T10:10:00.000+00:00" 
+* item[=].item[=].item[=].answer[=].item[=].item[+].linkId = "caveatList.bloodCoagulation.INR.quantity"
+* item[=].item[=].item[=].answer[=].item[=].item[=].text = "Wert (INR)"  
+* item[=].item[=].item[=].answer[=].item[=].item[=].answer[+].valueQuantity = 2.7 ''
 
-//-----
-* item[=].item[=].answer[=].item[+].linkId = "caveatList.bloodCoagulation.platelets"
-* item[=].item[=].answer[=].item[=].text = "Thrombozyten"
-//* item[=].type = #group
-
-* item[=].item[=].answer[=].item[=].item[+].linkId = "caveatList.bloodCoagulation.platelets.quantity"
-* item[=].item[=].answer[=].item[=].item[=].text = "Wert (10^9/L)"  
-* item[=].item[=].answer[=].item[=].item[=].answer[+].valueQuantity = 98 '10^9/L'
-
-* item[=].item[=].answer[=].item[=].item[=].answer[=].item[+].linkId = "caveatList.bloodCoagulation.INR.dateTime"
-* item[=].item[=].answer[=].item[=].item[=].answer[=].item[=].text = "Zeitpunkt der Bestimmung"
-* item[=].item[=].answer[=].item[=].item[=].answer[=].item[=].answer[+].valueDateTime = "2024-02-01T10:10:00.000+00:00" 
-
-//======
-* item[=].item[+].linkId = "caveatList.renalInsufficiency"
-* item[=].item[=].text = "Niereninsuffizienz"  
-* item[=].item[=].answer[+].valueCoding = SCT#52101004
-
-* item[=].item[=].answer[=].item[+].linkId = "caveatList.renalInsufficiency.creatinineClearance"
-* item[=].item[=].answer[=].item[=].text = "Creatinin-Clearance" 
-//* item[=].type = #group
-
-* item[=].item[=].answer[=].item[=].item[+].linkId = "caveatList.renalInsufficiency.creatinineClearance.quantity" 
-* item[=].item[=].answer[=].item[=].item[=].text = "Wert (mL/min)"  
-* item[=].item[=].answer[=].item[=].item[=].answer[+].valueQuantity = 55 'mL/min'
-
-* item[=].item[=].answer[=].item[=].item[=].answer[=].item[+].linkId = "caveatList.renalInsufficiency.creatinineClearance.dateTime"   
-* item[=].item[=].answer[=].item[=].item[=].answer[=].item[=].text = "Zeitpunkt der Bestimmung"
-* item[=].item[=].answer[=].item[=].item[=].answer[=].item[=].answer[+].valueDateTime = "2024-02-01T10:10:00.000+00:00" 
+* item[=].item[=].item[=].answer[=].item[=].item[+].linkId = "caveatList.bloodCoagulation.INR.dateTime"
+* item[=].item[=].item[=].answer[=].item[=].item[=].text = "Zeitpunkt der Bestimmung"
+* item[=].item[=].item[=].answer[=].item[=].item[=].answer[+].valueDateTime = "2024-02-01T10:10:00.000+00:00" 
 
 //-----
-* item[=].item[=].answer[=].item[+].linkId = "caveatList.renalInsufficiency.creatinine"
-* item[=].item[=].answer[=].item[=].text = "Creatinin"
-//* item[=].type = #group
+* item[=].item[=].item[=].answer[=].item[+].linkId = "caveatList.bloodCoagulation.platelets"
+* item[=].item[=].item[=].answer[=].item[=].text = "Thrombozyten"
 
-* item[=].item[=].answer[=].item[=].item[+].linkId = "caveatList.renalInsufficiency.creatinine.quantity"   
-* item[=].item[=].answer[=].item[=].item[=].text = "Wert (µmol/L)" 
-* item[=].item[=].answer[=].item[=].item[=].answer[+].valueQuantity = 90 'umol/L'
 
-* item[=].item[=].answer[=].item[=].item[=].answer[=].item[+].linkId = "caveatList.renalInsufficiency.creatinine.dateTime"
-* item[=].item[=].answer[=].item[=].item[=].answer[=].item[=].text = "Zeitpunkt der Bestimmung"
-* item[=].item[=].answer[=].item[=].item[=].answer[=].item[=].answer[+].valueDateTime = "2024-02-01T10:10:00.000+00:00" 
+* item[=].item[=].item[=].answer[=].item[=].item[+].linkId = "caveatList.bloodCoagulation.platelets.quantity"
+* item[=].item[=].item[=].answer[=].item[=].item[=].text = "Wert (10^9/L)"  
+* item[=].item[=].item[=].answer[=].item[=].item[=].answer[+].valueQuantity = 200 '10^9/L'
+
+* item[=].item[=].item[=].answer[=].item[=].item[+].linkId = "caveatList.bloodCoagulation.platelets.dateTime"
+* item[=].item[=].item[=].answer[=].item[=].item[=].text = "Zeitpunkt der Bestimmung"
+* item[=].item[=].item[=].answer[=].item[=].item[=].answer[+].valueDateTime = "2024-02-01T10:10:00.000+00:00" 
 
 //======
-* item[=].item[+].linkId = "caveatList.claustrophobia"  
-* item[=].item[=].text = "Klaustrophobie"   
-* item[=].item[=].answer.valueCoding = SCT#373068000
+* item[=].item[=].item[+].linkId = "caveatList.renalInsufficiency"
+* item[=].item[=].item[=].text = "Niereninsuffizienz"  
+* item[=].item[=].item[=].answer[+].valueCoding = SCT#52101004
 
-* item[=].item[+].linkId = "caveatList.bodyPiercing"    
-* item[=].item[=].text = "Körperpiercing"   
-* item[=].item[=].answer.valueCoding = SCT#373068000
+* item[=].item[=].item[=].answer[=].item[+].linkId = "caveatList.renalInsufficiency.creatinineClearance"
+* item[=].item[=].item[=].answer[=].item[=].text = "Creatinin-Clearance" 
+
+* item[=].item[=].item[=].answer[=].item[=].item[+].linkId = "caveatList.renalInsufficiency.creatinineClearance.quantity" 
+* item[=].item[=].item[=].answer[=].item[=].item[=].text = "Wert (mL/min)"  
+* item[=].item[=].item[=].answer[=].item[=].item[=].answer[+].valueQuantity = 55 'mL/min'
+
+* item[=].item[=].item[=].answer[=].item[=].item[+].linkId = "caveatList.renalInsufficiency.creatinineClearance.dateTime"   
+* item[=].item[=].item[=].answer[=].item[=].item[=].text = "Zeitpunkt der Bestimmung"
+* item[=].item[=].item[=].answer[=].item[=].item[=].answer[+].valueDateTime = "2024-02-01T10:10:00.000+00:00" 
+
+//-----
+* item[=].item[=].item[=].answer[=].item[+].linkId = "caveatList.renalInsufficiency.creatinine"
+* item[=].item[=].item[=].answer[=].item[=].text = "Creatinin"
+
+* item[=].item[=].item[=].answer[=].item[=].item[+].linkId = "caveatList.renalInsufficiency.creatinine.quantity"   
+* item[=].item[=].item[=].answer[=].item[=].item[=].text = "Wert (µmol/L)" 
+* item[=].item[=].item[=].answer[=].item[=].item[=].answer[+].valueQuantity = 90 'umol/L'
+
+* item[=].item[=].item[=].answer[=].item[=].item[+].linkId = "caveatList.renalInsufficiency.creatinine.dateTime"
+* item[=].item[=].item[=].answer[=].item[=].item[=].text = "Zeitpunkt der Bestimmung"
+* item[=].item[=].item[=].answer[=].item[=].item[=].answer[+].valueDateTime = "2024-02-01T10:10:00.000+00:00" 
+
+//======
+* item[=].item[=].item[+].linkId = "caveatList.claustrophobia"  
+* item[=].item[=].item[=].text = "Klaustrophobie"   
+* item[=].item[=].item[=].answer.valueCoding = SCT#373068000
+
+* item[=].item[=].item[+].linkId = "caveatList.bodyPiercing"    
+* item[=].item[=].item[=].text = "Körperpiercing"   
+* item[=].item[=].item[=].answer.valueCoding = SCT#373068000
 //======
 
-* item[=].item[+].linkId = "caveatList.device"
-* item[=].item[=].text = "Device (Herzschrittmacher, Herzklappenersatz, Insulinpumpe etc.)" 
-* item[=].item[=].answer[+].valueCoding = SCT#441509002 "Herzschrittmacher"
+* item[=].item[=].item[+].linkId = "caveatList.device"
+* item[=].item[=].item[=].text = "Device (Herzschrittmacher, Herzklappenersatz, Insulinpumpe etc.)" 
+* item[=].item[=].item[=].answer[+].valueCoding = SCT#441509002 "Cardiac pacemaker in situ"
 
-/* item[=].item[=].answer[=].item[+].linkId = "caveatList.device.specifictype"
-* item[=].item[=].answer[=].item[+].text = "Device (Herzschrittmacher, Herzklappenersatz, Insulinpumpe etc.)"  
-* item[=].item[=].answer[=].item[+].valueCoding = SCT#441509002 "Herzschrittmacher"
-*/
-//* item[=].item[=].answer[=].item[+].linkId ="caveatList.device.choice"  
-//* item[=].item[=].item[=].answer.valueCoding = SCT#52101004
-
-* item[=].item[+].linkId = "caveatList.hyperthyroidism"
-* item[=].item[=].text = "Hyperthyreose"  
-* item[=].item[=].answer.valueCoding = SCT#373068000
-
-* item[=].item[+].linkId = "caveatList.diabetes"
-* item[=].item[=].text = "Diabetes mellitus"   
-* item[=].item[=].answer.valueCoding = SCT#373068000
-
-* item[=].item[+].linkId = "caveatList.gravida" 
-* item[=].item[=].text = "Schwangerschaft"   
-* item[=].item[=].answer.valueCoding = SCT#373068000
-
-* item[=].item[+].linkId = "caveatList.contrastMediaAllergy"
-* item[=].item[=].text = "Kontrastmittelallergie"  
-* item[=].item[=].answer.valueCoding = SCT#373068000
-
-* item[=].item[+].linkId = "caveatList.drugPrescription" 
-* item[=].item[=].text = "Relevante Medikamente"   
-
-* item[=].item[=].item[+].linkId = "caveatList.drugPrescription.metformin"
-* item[=].item[=].item[=].text = "Metformin"       
+* item[=].item[=].item[+].linkId = "caveatList.hyperthyroidism"
+* item[=].item[=].item[=].text = "Hyperthyreose"  
 * item[=].item[=].item[=].answer.valueCoding = SCT#373068000
 
-* item[=].item[=].item[+].linkId = "caveatList.drugPrescription.betaBlocker" 
-* item[=].item[=].item[=].text = "Betablocker"         
+* item[=].item[=].item[+].linkId = "caveatList.diabetes"
+* item[=].item[=].item[=].text = "Diabetes mellitus"   
 * item[=].item[=].item[=].answer.valueCoding = SCT#373068000
 
-/* ---------------------------------------------------------------------------
-Previous Results:
-*/
+* item[=].item[=].item[+].linkId = "caveatList.gravida" 
+* item[=].item[=].item[=].text = "Schwangerschaft"   
+* item[=].item[=].item[=].answer.valueCoding = SCT#373068000
+
+* item[=].item[=].item[+].linkId = "caveatList.contrastMediaAllergy"
+* item[=].item[=].item[=].text = "Kontrastmittelallergie"  
+* item[=].item[=].item[=].answer.valueCoding = SCT#373068000
+
+* item[=].item[=].item[+].linkId = "caveatList.drugPrescription" 
+* item[=].item[=].item[=].text = "Relevante Medikamente"   
+
+* item[=].item[=].item[=].item[+].linkId = "caveatList.drugPrescription.metformin"
+* item[=].item[=].item[=].item[=].text = "Metformin"       
+* item[=].item[=].item[=].item[=].answer.valueCoding = SCT#373068000
+
+* item[=].item[=].item[=].item[+].linkId = "caveatList.drugPrescription.betaBlocker" 
+* item[=].item[=].item[=].item[=].text = "Betablocker"         
+* item[=].item[=].item[=].item[=].answer.valueCoding = SCT#373068000
+
+// ---------------------------------------------------------------------------
+//Previous Results:
 
 * item[+].linkId = "previousResults"
 * item[=].text = "Vorherige Untersuchungsresultate"
@@ -720,42 +815,42 @@ Previous Results:
 
 * item[=].item[=].answer[=].item[+].linkId = "attachedFile.description"  
 * item[=].item[=].answer[=].item[=].text = "Beschreibung"
-* item[=].item[=].answer[=].item[=].answer[+].valueString = "Befund Notfall-Rx nach Sturz"
+* item[=].item[=].answer[=].item[=].answer[+].valueString = "Befund Thorax-Rx 2022"
 
 * item[=].item[+].linkId = "dicomObject"
 * item[=].item[=].text = "DICOM Objekt"
 
 * item[=].item[=].item[+].linkId = "dicomObject.sopInstanceUid"  
 * item[=].item[=].item[=].text = "DICOM SOP Instance UID"
-* item[=].item[=].item[=].answer[+].valueString = "2.16.124.113543.1154777499.30246.19789.3503430045.1.1"
+* item[=].item[=].item[=].answer[+].valueString = "2.16.124.113543.1154777499.30246.19789.3503430088.1.1"
 
 * item[=].item[=].item[+].linkId = "dicomObject.sopClass"  
 * item[=].item[=].item[=].text = "DICOM SOP Class"
-* item[=].item[=].item[=].answer[+].valueCoding = #1.2.840.10008.5.1.4.1.1.1
+* item[=].item[=].item[=].answer[+].valueCoding = #1.2.840.10008.5.1.4.1.1.2
 
 * item[=].item[=].item[+].linkId = "dicomObject.modality"  
 * item[=].item[=].item[=].text = "DICOM Series Modality"
-* item[=].item[=].item[=].answer[+].valueCoding = #DX
+* item[=].item[=].item[=].answer[+].valueCoding = #CT
 
 * item[=].item[=].item[+].linkId = "dicomObject.SeriesInstanceUid"  
 * item[=].item[=].item[=].text = "DICOM Series Instance UID"
-* item[=].item[=].item[=].answer[+].valueString = "2.16.124.113543.1154777499.30246.19789.3503430045.1"
+* item[=].item[=].item[=].answer[+].valueString = "2.16.124.113543.1154777499.30246.19789.3503430088.1"
 
 * item[=].item[=].item[+].linkId = "dicomObject.studyInstanceUid"  
 * item[=].item[=].item[=].text = "DICOM Study Instance UID"
-* item[=].item[=].item[=].answer[+].valueString = "2.16.124.113543.1154777499.30246.19789.3503430045"
+* item[=].item[=].item[=].answer[+].valueString = "2.16.124.113543.1154777499.30246.19789.3503430088"
 
 * item[=].item[=].item[+].linkId = "dicomObject.acsn"  
 * item[=].item[=].item[=].text = "ACSN"
 * item[=].item[=].item[=].answer[+].valueString = "2819497684894126"
 
-/* -----------------------------------------------------------------------------
-Service Request Notes 
-*/
+// -----------------------------------------------------------------------------
+//Service Request Notes 
+
 * item[+].linkId = "note"
 * item[=].text = "Bemerkungen"
 
 * item[=].item[+].linkId = "note.text"
 * item[=].item[=].text = "Kommentar" 
-* item[=].item[=].answer[+].valueString = "Patientin ist sehr ängstlich"
+* item[=].item[=].answer[+].valueString = "Vielen Dank für die Beurteilung"
 

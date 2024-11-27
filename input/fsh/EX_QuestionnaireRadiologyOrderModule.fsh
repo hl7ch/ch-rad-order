@@ -1,7 +1,7 @@
-Instance: QuestionnaireRadiologyOrder-modular
+/* Instance: QuestionnaireRadiologyOrder-modular
 InstanceOf: ChOrfQuestionnaire
 Title: "Questionnaire RadiologyOrder (Modular version)"
-Description: "Example for Questionnaire"
+Description: "Example of Questionnaire"
 Usage: #example
 * meta.profile[+] = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-questionnaire"
 * meta.profile[+] = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire"
@@ -31,24 +31,24 @@ Usage: #example
 * item[=].item.text = "Unable to resolve 'order' sub-questionnaire"
 * item[=].item.type = #display
 
-/* ----------- not depicted in questionnaire; fix values are defined in composition resource
+// ----------- not depicted in questionnaire; fix values are defined in composition resource
 
-* item[=].item[+].linkId = "order.title"
-* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-composition#Composition.title"
-* item[=].item[=].text = "Titel"
-* item[=].item[=].type = #string
-* item[=].item[=].required = true
-* item[=].item[=].readOnly = true
-* item[=].item[=].initial.valueString = "Radiologieauftrag"
+// * item[=].item[+].linkId = "order.title"
+// * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-composition#Composition.title"
+// * item[=].item[=].text = "Titel"
+// * item[=].item[=].type = #string
+// * item[=].item[=].required = true
+// * item[=].item[=].readOnly = true
+// * item[=].item[=].initial.valueString = "Radiologieauftrag"
 
-* item[=].item[+].linkId = "order.type"
-* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-composition#Composition.type"
-* item[=].item[=].text = "Typ"
-* item[=].item[=].type = #choice
-* item[=].item[=].required = true
-* item[=].item[=].readOnly = true
-* item[=].item[=].answerValueSet = DocumentEntryTypeCode
-* item[=].item[=].initial.valueCoding = DocumentEntryTypeCode#2161000195103 // Bildgebungsauftrag
+// * item[=].item[+].linkId = "order.type"
+// * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-composition#Composition.type"
+// * item[=].item[=].text = "Typ"
+// * item[=].item[=].type = #choice
+// * item[=].item[=].required = true
+// * item[=].item[=].readOnly = true
+// * item[=].item[=].answerValueSet = DocumentEntryTypeCode
+// * item[=].item[=].initial.valueCoding = DocumentEntryTypeCode#2161000195103 // Bildgebungsauftrag
 
 * item[=].item[+].linkId = "order.category"
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-composition#Composition.category"
@@ -58,7 +58,6 @@ Usage: #example
 * item[=].item[=].readOnly = true
 * item[=].item[=].answerValueSet = DocumentEntryClassCode
 * item[=].item[=].initial.valueCoding = DocumentEntryClassCode#721963009 // Untersuchungsauftrag
------------*/
 
 // ---------- Receiver: Person/organization who receives the document ----------
 * item[+].linkId = "receiver"
@@ -163,7 +162,7 @@ Usage: #example
 * item[=].item.type = #display
 
 
-/*------ Antecedent Episode of Care ------------------------------ */
+// ------ Antecedent Episode of Care ------------------------------
 
 * item[+].linkId = "antecedentEpisodeOfCare"
 * item[=].definition = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-composition#Composition.extension:antecedentEpisodeOfCare"
@@ -201,10 +200,10 @@ Usage: #example
 * item[=].item[=].item[=].text = "Unable to resolve 'address' sub-questionnaire"
 * item[=].item[=].item[=].type = #display
 
-/*------ Appointment ------------------------------ */
+// ------ Appointment ------------------------------
 * item[+].linkId = "appointment"
 * item[=].definition = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-servicerequest#extension:locationAndTime"
-* item[=].text = "Ort und Zeit der Durchführung der angeforderten Leistung"
+* item[=].text = "Ort und Zeit"
 * item[=].type = #group
 * item[=].repeats = true
 
@@ -214,7 +213,7 @@ Usage: #example
 * item[=].item.text = "Unable to resolve 'appointment' sub-questionnaire"
 * item[=].item.type = #display
 
-/*------ Consent ------------------------------ */
+// ------ Consent ------------------------------
 * item[+].linkId = "consent"
 * item[=].definition = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-composition#Composition.extension:patientConsent"
 * item[=].text = "Einverständniserklärung"
@@ -227,28 +226,26 @@ Usage: #example
 * item[=].item.type = #display
 
 
-/* ============ Kerninhalte der Rad-Order ==============================
-CH RAD-Order UNTERSTUETZT LOINC/RSNA PLAYBOOK WIE FOLGT: ANSELLE DER ITEMS [4] - [7] WIRD IN
-servicerequest.code DER PLABOOK CODE ANGEGBEN. VOM QUESTIONNAIRE WIRD DAS NICHT UNTERSTÜTZT, DA NUR RELEVANT, WENN
-ZWISCHEN SENDER UND EMPFÄNGER VEREINBART.
-*/
+// ============ Kerninhalte der Rad-Order ==============================
+//CH RAD-Order UNTERSTUETZT LOINC/RSNA PLAYBOOK WIE FOLGT: ANSELLE DER ITEMS [4] - [7] WIRD IN
+//servicerequest.code DER PLABOOK CODE ANGEGBEN. VOM QUESTIONNAIRE WIRD DAS NICHT UNTERSTÜTZT, DA NUR RELEVANT, WENN
+//ZWISCHEN SENDER UND EMPFÄNGER VEREINBART.
 
-/*------------------------------------------------------------------------
-Instruction
-*/
-* item[+].linkId = "instruction"
-//* item[=].text = "Instruction"
+
+//------------- Instruction ------------------------
+
+* item[+].linkId = "medicalInformation"
+* item[=].text = ""
 * item[=].type = #group
 
 * item[=].item.extension.url = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-subQuestionnaire"
-* item[=].item.extension.valueCanonical = "http://fhir.ch/ig/ch-rad-order/Questionnaire/ch-rad-order-module-instruction|2.0.0"
+* item[=].item.extension.valueCanonical = "http://fhir.ch/ig/ch-rad-order/Questionnaire/ch-rad-order-module-medinfo|2.0.0"
 * item[=].item.linkId = "instruction.1"
 * item[=].item.text = "Unable to resolve 'instruction' sub-questionnaire"
 * item[=].item.type = #display
 
-/*------------------------------------------------------------------------
-Diagnosis and Findings
-*/
+//------------- Diagnosis and Findings ---------
+
 * item[+].linkId = "diagnosis"
 //* item[=].text = "Diagnosis"
 * item[=].type = #group
@@ -259,9 +256,8 @@ Diagnosis and Findings
 * item[=].item.text = "Unable to resolve 'diagnosis' sub-questionnaire"
 * item[=].item.type = #display
 
-/*------------------------------------------------------------------------
-Caveats
-*/
+//------------- Caveats -------------------
+
 * item[+].linkId = "caveats"
 //* item[=].text = "Caveats"
 * item[=].type = #group
@@ -272,9 +268,8 @@ Caveats
 * item[=].item.text = "Unable to resolve 'caveats' sub-questionnaire"
 * item[=].item.type = #display
 
-/*------------------------------------------------------------------------
-Previous Results
-*/
+/*------------- Previous Results ---------------
+
 * item[+].linkId = "previousResults"
 * item[=].text = "Vorherige Untersuchungsresultate"
 * item[=].type = #group
@@ -286,10 +281,10 @@ Previous Results
 * item[=].item.type = #display
 
 
-/*=================================================*/
+=================================================*/
 
 /*Module Instruction*/
-Instance: ch-rad-order-module-instruction
+Instance: ch-rad-order-module-medinfo
 InstanceOf: Questionnaire
 Title: "Module Questionnaire Instruction"
 Description: "Subquestionnaire Instruction"
@@ -299,7 +294,7 @@ Description: "Subquestionnaire Instruction"
 */
 * extension[0].url = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-assemble-expectation"
 * extension[=].valueCode = #assemble-child
-* url = "http://fhir.ch/ig/ch-rad-order/Questionnaire/ch-rad-order-module-instruction"
+* url = "http://fhir.ch/ig/ch-rad-order/Questionnaire/ch-rad-order-module-medinfo"
 * name = "ModuleQuestionnaireRadiologyOrderInstruction"
 * title = "Module Questionnaire Radiologyorder Instruction"
 * status = #active
@@ -672,13 +667,13 @@ mittels ImagingStudy Resource (DICOM WADO) oder die mitgegeben werden mit der Do
 * publisher = "HL7 Switzerland"
 
 * item[+].linkId = "attachedFile"  
-* item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-orf-documentreference-defintions#DocumentReference.content.attachedFile"
+* item[=].definition = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-documentreference#DocumentReference.content.attachment.data"
 * item[=].text = "Datei"
 * item[=].type = #attachment
 * item[=].repeats = true
 
 * item[=].item[+].linkId = "attachedFile.description"  
-* item[=].item[=].definition = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-documentreference-definitions#DocumentReference.description"
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-documentreference#DocumentReference.description"
 * item[=].item[=].text = "Beschreibung"
 * item[=].item[=].type = #string
 

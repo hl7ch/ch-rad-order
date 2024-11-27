@@ -22,7 +22,7 @@ POST {{host}}/Questionnaire HTTP/1.1
 Accept: application/json+fhir
 Content-Type: application/json+fhir
 
-< ./output/Questionnaire-ch-rad-order-module-instruction.json
+< ./output/Questionnaire-ch-rad-order-module-medinfo.json
 
 ###
 POST {{host}}/Questionnaire HTTP/1.1

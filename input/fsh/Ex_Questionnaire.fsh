@@ -10,6 +10,8 @@ Alias: $ch-rad-order-requested-service = http://fhir.ch/ig/ch-rad-order/CodeSyst
 
 Instance: QuestionnaireRadiologyOrder
 InstanceOf: Questionnaire
+Title: "Questionnaire"
+Description: "Questionnarie with all modules assembled"
 Usage: #example
 * meta.profile[0] = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-questionnaire"
 * meta.profile[+] = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire"
@@ -42,7 +44,7 @@ Usage: #example
 * extension[+].url = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-assembledFrom"
 * extension[=].valueCanonical = "http://fhir.ch/ig/ch-orf/Questionnaire/ch-orf-module-consent|2.0.0-ci-build"
 * extension[+].url = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-assembledFrom"
-* extension[=].valueCanonical = "http://fhir.ch/ig/ch-rad-order/Questionnaire/ch-rad-order-module-instruction|2.0.0-ci-build"
+* extension[=].valueCanonical = "http://fhir.ch/ig/ch-rad-order/Questionnaire/ch-rad-order-module-medinfo|2.0.0-ci-build"
 * extension[+].url = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-assembledFrom"
 * extension[=].valueCanonical = "http://fhir.ch/ig/ch-rad-order/Questionnaire/ch-rad-order-module-diagnosis|2.0.0-ci-build"
 * extension[+].url = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-assembledFrom"
@@ -68,7 +70,7 @@ Usage: #example
 * item[=].required = true
 * item[=].item[0].linkId = "order.authoredOn"
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-orf/StructureDefinition-ch-orf-servicerequest#ServiceRequest.authoredOn"
-* item[=].item[=].text = "Daum/Zeit der Auftragserteilung"
+* item[=].item[=].text = "Datum/Zeit der Auftragserteilung"
 * item[=].item[=].type = #dateTime
 * item[=].item[+].linkId = "order.placerOrderIdentifier"
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-servicerequest#ServiceRequest.identifier:placerOrderIdentifier.value"
@@ -516,7 +518,7 @@ Usage: #example
 * item[=].item[=].definition = "http://fhir.ch/ig/ch-core/StructureDefinition/ch-core-patient#Patient.communication:languageOfCorrespondence"
 * item[=].item[=].text = "Korrespondenzsprache"
 * item[=].item[=].type = #choice
-* item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-epr-term/ValueSet/DocumentEntry.languageCode"
+* item[=].item[=].answerValueSet = "http://fhir.ch/ig/ch-term/ValueSet/DocumentEntry.languageCode"
 * item[=].item[+].extension.url = "http://hl7.org/fhir/StructureDefinition/variable"
 * item[=].item[=].extension.valueExpression.name = "contact"
 * item[=].item[=].extension.valueExpression.language = #text/fhirpath
@@ -1143,7 +1145,7 @@ Usage: #example
 * item[=].item[=].item[=].type = #string
 * item[+].linkId = "appointment"
 * item[=].definition = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-servicerequest#extension:locationAndTime"
-* item[=].text = "Ort und Zeit der Durchführung der angeforderten Leistung"
+* item[=].text = "Ort und Zeit"
 * item[=].type = #group
 * item[=].repeats = true
 * item[=].item[0].extension.url = "http://hl7.org/fhir/StructureDefinition/variable"
@@ -1229,7 +1231,8 @@ Usage: #example
 * item[=].item.item.linkId = "patient.consent.statement.note"
 * item[=].item.item.text = "Anmerkung"
 * item[=].item.item.type = #string
-* item[+].linkId = "instruction"
+* item[+].linkId = "medicalInformation"
+//* item[=].text = ""
 * item[=].type = #group
 * item[=].item[0].linkId = "requestedService"
 * item[=].item[=].text = "Angeforderte Leistung"
@@ -1480,12 +1483,12 @@ Usage: #example
 * item[=].text = "Vorherige Untersuchungsresultate"
 * item[=].type = #group
 * item[=].item[0].linkId = "attachedFile"
-* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-orf-documentreference-defintions#DocumentReference.content.attachedFile"
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-documentreference#DocumentReference.content.attachment.data"
 * item[=].item[=].text = "Datei"
 * item[=].item[=].type = #attachment
 * item[=].item[=].repeats = true
 * item[=].item[=].item.linkId = "attachedFile.description"
-* item[=].item[=].item.definition = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-documentreference-definitions#DocumentReference.description"
+* item[=].item[=].item.definition = "http://fhir.ch/ig/ch-orf/StructureDefinition/ch-orf-documentreference#DocumentReference.description"
 * item[=].item[=].item.text = "Beschreibung"
 * item[=].item[=].item.type = #string
 * item[=].item[+].linkId = "dicomObject"
@@ -1523,10 +1526,10 @@ Usage: #example
 * item[=].item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-imagingstudy-definitions#ImagingStudy.identifier"
 * item[=].item[=].item[=].text = "ACSN"
 * item[=].item[=].item[=].type = #string
-* item[=].item[+].linkId = "note"
-* item[=].item[=].text = "Bemerkungen"
-* item[=].item[=].type = #group
-* item[=].item[=].item.linkId = "note.text"
-* item[=].item[=].item.definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest-definitions#ServiceRequest.note.text"
-* item[=].item[=].item.text = "Kommentar"
-* item[=].item[=].item.type = #string
+* item[+].linkId = "note"
+* item[=].text = "Bemerkungen"
+* item[=].type = #group
+* item[=].item[+].linkId = "note.text"
+* item[=].item[=].definition = "http://fhir.ch/ig/ch-rad-order/StructureDefinition/ch-rad-order-servicerequest-definitions#ServiceRequest.note.text"
+* item[=].item[=].text = "Kommentar"
+* item[=].item[=].type = #string 
