@@ -23,7 +23,7 @@ This Implementation Guide uses FHIR defined resources. For details on HL7 FHIR R
 
 Because the Implementation Guide relies heavily on the FHIR Resources Questionnaire and QuestionnaireResponse, forms are addressed here as Questionnaires.
   
-This Implementation Guide is derived from the [CH Order & Referral by Form (CH ORF) Implementation Guide (CH ORF)](http://build.fhir.org/ig/hl7ch/ch-orf/index.html) which relies on HL7 Structured Data Capture Implementation Guide, see [SDC](http://build.fhir.org/ig/HL7/sdc/) and uses the Swiss Core Profiles, see [CH Core](http://build.fhir.org/ig/hl7ch/ch-core/index.html).
+This Implementation Guide is derived from the [CH Order & Referral by Form (CH ORF) Implementation Guide (CH ORF)](https://fhir.ch/ig/ch-orf/3.0.0/index.html) which relies on HL7 Structured Data Capture Implementation Guide, see [SDC](https://hl7.org/fhir/uv/sdc/STU3/) and uses the Swiss Core Profiles, see [CH Core](https://fhir.ch/ig/ch-core/5.0.0/index.html).
 
 There has been a discussion whether population of the resources such as Patient Resource, ServiceRequest Resource 
 etc. with the content of the QuestionnaireResponse Resource should be done by the order placer application or rather 
@@ -37,7 +37,7 @@ Applications claiming for conformance with the ORF Implementation Guide shall:
 * Be able to process all codes related to the generic elements in a Questionnaire.
 
 Actors, transactions and safety considerations are covered in the corresponding sections of 
-[CH ORF](http://build.fhir.org/ig/hl7ch/ch-orf/index.html).
+[CH ORF](https://fhir.ch/ig/ch-orf/3.0.0/index.html).
 
 ### Terminology
 

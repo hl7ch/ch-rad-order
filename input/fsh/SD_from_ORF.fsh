@@ -104,6 +104,7 @@ Extension: ChRadOrderOrderDetailType
 Id: ch-rad-order-order-detail-type
 Title: "CH RAD-Order Order Detail Type"
 Description: "Extension to define the Type of Order Detail in context of CH RAD-Order."
+Context: ServiceRequest.orderDetail
 * value[x] 1..1
 * value[x] only Coding
 * value[x] ^short = "Type of Order Detail"
@@ -114,6 +115,7 @@ Extension: ChRadOrderCaveatType
 Id: ch-rad-order-caveat-type
 Title: "CH RAD-Order Caveat Type"
 Description: "Extension to define the type of caveat in the context CH RAD-Order."
+Context: Condition
 * value[x] 1..1
 * value[x] only Coding
 * value[x] ^short = "Type of Caveat"
@@ -123,6 +125,7 @@ Extension: ChRadOrderQualifierValue
 Id: ch-rad-order-qualifier-value
 Title: "CH RAD-Order Qualifier Value"
 Description: "Extension to define the value of the qualifier in the context of CH RAD-Order."
+Context: Condition
 * value[x] 1..1
 * value[x] only Coding
 * value[x] ^short = "Value of Qualifier"

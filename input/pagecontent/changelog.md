@@ -1,9 +1,6 @@
 All significant changes to this FHIR implementation guide will be documented on this page.   
 
-### STU 3 (2024)
-#### Changed / Updated 
-* [Issue #72](https://github.com/hl7ch/ch-rad-order/issues/72): Update Usecases German; added QR for each Usecase
-* [Issue #73](https://github.com/hl7ch/ch-rad-order/issues/73): Update Usecases English; added QR for each Usecase
+### STU 2 (2024-12-17)
 
 #### Open Issues
 During the ballot, the following comments came in, which will be taken into account in the further development of CH RAD-Order:
@@ -13,12 +10,15 @@ During the ballot, the following comments came in, which will be taken into acco
 See also open issues on [GitHub](https://github.com/hl7ch/ch-rad-order/issues).
 
 #### Changed / Updated 
-* [#63](https://github.com/hl7ch/ch-rad-order/issues/63): Update Coverage.type according to changes in parent profile CH ORF (see [CH ORF #177](https://github.com/hl7ch/ch-orf/issues/177))
+* [Issue #72](https://github.com/hl7ch/ch-rad-order/issues/72): Update use cases German; added QR for each use case
+* [Issue #73](https://github.com/hl7ch/ch-rad-order/issues/73): Update use cases English; added QR for each use case
+* [Issue #63](https://github.com/hl7ch/ch-rad-order/issues/63): Update Coverage.type according to changes in parent profile CH ORF (see [CH ORF Issue #177](https://github.com/hl7ch/ch-orf/issues/177))
 
 #### Fixed
-* [#71](https://github.com/hl7ch/ch-rad-order/issues/74): Fix typo in example 
-* [#74](https://github.com/hl7ch/ch-rad-order/issues/74): Fixing the title and description of the qualifier value extension
-* [#79](https://github.com/hl7ch/ch-rad-order/issues/79): Replace deprecated discriminator (`pattern` -> `value`) 
+* [Issue #71](https://github.com/hl7ch/ch-rad-order/issues/74): Fix typo in example 
+* [Issue #74](https://github.com/hl7ch/ch-rad-order/issues/74): Fixing the title and description of the qualifier value extension
+* [Issue #79](https://github.com/hl7ch/ch-rad-order/issues/79): Replace deprecated discriminator (`pattern` -> `value`) 
+* [Issue #67](https://github.com/hl7ch/ch-rad-order/issues/67): Fix history page
 
 ### STU 2 Ballot (2024-05-17)
 #### Open Issues

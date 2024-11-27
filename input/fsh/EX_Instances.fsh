@@ -267,7 +267,7 @@ InstanceOf: ChCorePractitioner
 Title: "Ottilie Rderplacer"
 Description: "Example of Practitioner"
 * identifier.system = "urn:oid:2.51.1.3"
-* identifier.value = "7601000034321"
+* identifier.value = "7601002331470"
 * name.use = #official
 * name.family = "Rderplacer"
 * name.given = "Ottilie"
@@ -284,7 +284,7 @@ InstanceOf: ChCorePractitioner
 Title: "Olga Rderplacer-Junior"
 Description: "Example of Practitioner"
 * identifier.system = "urn:oid:2.51.1.3"
-* identifier.value = "7601000034321"
+* identifier.value = "7601002331470"
 * name.use = #official
 * name.family = "Rderplacer-Junior"
 * name.given = "Olga"
@@ -309,7 +309,7 @@ InstanceOf: ChCorePractitioner
 Title: "Kurt Nowit-All"
 Description: "Example of Practitioner"
 * identifier.system = "urn:oid:2.51.1.3"
-* identifier.value = "7601000034321"
+* identifier.value = "7601002331470"
 * name.use = #official
 * name.family = "Nowit-All"
 * name.given = "Kurt"
@@ -385,7 +385,7 @@ InstanceOf: ChCorePractitioner
 Title: "Otto Rderfiller"
 Description: "Example of Practitioner"
 * identifier.system = "urn:oid:2.51.1.3"
-* identifier.value = "7601000066878"
+* identifier.value = "7601000618627"
 * name.use = #official
 * name.family = "Rderfiller"
 * name.given = "Otto"
