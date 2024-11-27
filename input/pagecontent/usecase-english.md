@@ -31,12 +31,12 @@ Players:
 
  According to the radiological report, the impression fracture appears to be stable. Therefore, and in view of the patient's age, surgery was not performed. However, [Dr O. Rderplacer](Practitioner-PractORderplacer.html) is not sure whether this decision was correct and sends the images and report to [Prof K. Nowit-All](Practitioner-PractKNowit-All.html) for a second opinion.
 
- Related [Questionnaire Response](QuestionnaireResponse-QuestionnaireResponseRadiologyOrderSecondOpinion.html)
+ Associated [Questionnaire Response](QuestionnaireResponse-QuestionnaireResponseRadiologyOrderSecondOpinion.html)
 
  <i>The second opinion described above must be distinguished from the real-time remote diagnosis and case presentation offered by various teleradiology solutions. However, the latter require a technical infrastructure that goes beyond what is discussed here. <i>
 
 
- ### Order for external reporting
+### Order for external reporting
 Players:
 
 * Order placed by assistant physician: [Med.pract. O. Rderplacer-Junior](Practitioner-PractORderplacerJunior.html) at [Small Hospital](Organization-OrgSmallHospital.html).
@@ -59,4 +59,4 @@ Players:
 
 [Med.pract. O. Rderplacer-Junior](Practitioner-PractORderplacerJunior.html) asks the patient [Mrs S. Ufferer](Patient-PatSUfferer.html) whether she has ever had a chest X-ray. She says that she was x-rayed a year ago in the [radiology department ‘Happy Hospital’](Organization-OrgRadHappyHospital.html). [Med.pract. O. Rderplacer-Junior](Practitioner-PractORderplacerJunior.html) writes a request for the results of this examination and sends it to [Dr O. Rderfiller](Practitioner-PractORderfiller.html), radiologist at the [Radiology Department ‘Happy Hospital’](Organization-OrgRadHappyHospital.html). She also asks for a copy of the report to be sent to the patient.
 
-Related [Questionnaire Response](QuestionnaireResponse-QuestionnaireResponseRadiologyOrderRequestPrevious.html)
+Associated [Questionnaire Response](QuestionnaireResponse-QuestionnaireResponseRadiologyOrderRequestPrevious.html)
