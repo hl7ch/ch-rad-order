@@ -1,4 +1,4 @@
-### CH RAD-Order
+### CH RAD-Order 
 The CH RAD-Order Implementation Guide (IG) defines the content of a radiology order. CH RAD-Order ist intended for use in directional communication as well as for the use in the SWISS EPR.
 #### Implementation Guide
 * [CI-Build](http://build.fhir.org/ig/hl7ch/ch-rad-order)
