@@ -4,7 +4,7 @@ All significant changes to this FHIR implementation guide will be documented on 
 Updated dependencies to the latest Swiss Implementation Guide versions; applied corresponding IG updates and technical fixes required by the updated HL7 IG Publisher.
 * CH Core: 5.0.0 -> 6.0.0
 * CH ORF: 3.0.0 -> 3.0.2
-* Add required element `ValueSet.experimental` (set to `true`as stated in [#22](https://github.com/hl7ch/ch-rad-order/issues/22))
+* Add required element `ValueSet.experimental` (set to `true` as stated in [#22](https://github.com/hl7ch/ch-rad-order/issues/22))
 * [#82](https://github.com/hl7ch/ch-rad-order/issues/82): Add [expansion-parameter](https://build.fhir.org/codesystem-guide-parameter-code.html#:~:text=expansion%2Dparameter,as%20SNOMED%20CT) for the usage of SNOMED CT Swiss Extension
 * Add [pin-canonicals](http://build.fhir.org/ig/FHIR/fhir-tools-ig/branches/master/CodeSystem-ig-parameters.html#:~:text=for%20further%20information-,pin%2Dcanonicals,-Pin%20Canonical%20Versions) parameter to define the handling of unversioned canonical references
 
