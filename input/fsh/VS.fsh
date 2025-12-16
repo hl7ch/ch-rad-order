@@ -3,6 +3,7 @@ ValueSet: ChRadOrderRequestedService
 Id: ch-rad-order-requested-service
 Title: "Requested Service"
 Description: "Definition for Requested Service Value Set in the context of CH RAD-Order."
+* ^experimental = true
 * include codes from system ChRadOrderRequestedService
 
 
@@ -11,6 +12,7 @@ ValueSet: ChRadOrderOrderDetailType
 Id: ch-rad-order-order-detail-type
 Title: "Type of Order Detail"
 Description: "Definition for Type of Order Detail Value Set in the context of CH RAD-Order."
+* ^experimental = true
 * include codes from system ChRadOrderOrderDetailType
 
 
@@ -19,6 +21,7 @@ ValueSet: ChRadOrderCaveatType
 Id: ch-rad-order-caveat-type
 Title: "Type of Caveat"
 Description: "Definition for Type of Caveat Value Set in the context of CH RAD-Order."
+* ^experimental = true
 * SCT#64779008   "Blood coagulation disorder (disorder)"
 * SCT#723188008  "Renal insufficiency (disorder)"
 * SCT#19887002   "Claustrophobia (finding)"
@@ -35,6 +38,7 @@ ValueSet: ChRadOrderQualifierValue
 Id: ch-rad-order-caveat-qualifier-value
 Title: "Qualifier Value"
 Description: "Qualifier values in the context of CH RAD-Order."
+* ^experimental = true
 * SCT#2667000 "Absent (qualifier value)"
 * SCT#52101004 "Present (qualifier value)"
 * SCT#373068000 "Undetermined (qualifier value)"
@@ -46,6 +50,7 @@ ValueSet: ChRadOrderCaveatCondition
 Id: ch-rad-order-caveat-condition
 Title: "Caveat Condition"
 Description: "Definition for Caveat Condition Value Set in the context of CH RAD-Order."
+* ^experimental = true
 * SCT#64779008 "Blood coagulation disorder (disorder)"
 * SCT#723188008 "Renal insufficiency (disorder)"
 * SCT#19887002 "Claustrophobia (finding)"
@@ -66,6 +71,7 @@ ValueSet: ChRadOrderCaveatDevice
 Id: ch-rad-order-caveat-device
 Title: "Caveat Device"
 Description: "Definition for Caveat Device Value Set in the context of CH RAD-Order."
+* ^experimental = true
 * include codes from system SCT where concept is-a #397578001 "Device in situ (finding)"
 * SCT#2667000 "Absent (qualifier value)"
 * SCT#373068000 "Undetermined (qualifier value)"
@@ -77,6 +83,7 @@ ValueSet: ChRadOrderReasonForExam
 Id: ch-rad-order-reason-for-exam
 Title: "Reason for Exam"
 Description: "Definition for Reason for Exam Value Set in the context of CH RAD-Order."
+* ^experimental = true
 * RDLX#RID28808 "CALCIUM SCORE"
 * RDLX#RID4843 "Fistula"
 * RDLX#RID35772 "PELVIMETRY"
@@ -188,6 +195,7 @@ ValueSet: ChRadOrderImagingFocus
 Id: ch-rad-order-imaging-focus
 Title: "Imaging Focus"
 Description: "Definition for Imaging Focus Value Set in the context of CH RAD-Order."
+* ^experimental = true
 * RDLX#RID10003 "Oropharynx"
 * RDLX#RID10021 "Hypopharynx"
 * RDLX#RID1008 "Vein"
@@ -592,6 +600,7 @@ ValueSet: ChRadOrderImagingRegion
 Id: ch-rad-order-imaging-region
 Title: "Imaging Region"
 Description: "Definition for Imaging Region Value Set in the context of CH RAD-Order."
+* ^experimental = true
 * RDLX#RID56 "Abdomen"
 * RDLX#RID28749 "breast"
 * RDLX#RID1243 "Thorax"
@@ -614,6 +623,7 @@ ValueSet: ChRadOrderLaterality
 Id: ch-rad-order-laterality
 Title: "Laterality"
 Description: "Definition for Laterality Value Set in the context of CH RAD-Order."
+* ^experimental = true
 * RDLX#RID5771 "Bilateral"
 * RDLX#RID5824 "LEFT"
 * RDLX#RID5825 "RIGHT"
@@ -626,6 +636,7 @@ ValueSet: ChRadOrderManeuverType
 Id: ch-rad-order-maneuver-type
 Title: "Maneuver Type"
 Description: "Definition for Maneuver Type Value Set in the context of CH RAD-Order."
+* ^experimental = true
 * RDLX#RID50075 "Extension maneuver"
 * RDLX#RID50069 "Flexion maneuver"
 * RDLX#RID10475 "Stress maneuver"
@@ -650,6 +661,7 @@ ValueSet: ChRadOrderGuidanceForAction
 Id: ch-rad-order-guidance-for-action
 Title: "Guidance for Action"
 Description: "Definition for Guidance for Action Value Set in the context of CH RAD-Order."
+* ^experimental = true
 * RDLX#RID10379 "Venography"
 * RDLX#RID10380 "myelography"
 * RDLX#RID10397 "Ablation"
@@ -732,6 +744,7 @@ ValueSet: ChRadOrderModalityType
 Id: ch-rad-order-modality-type
 Title: "Modality Type"
 Description: "Definition for Modality Type Value Set in the context of CH RAD-Order."
+* ^experimental = true
 * RDLX#RID10321 "computed tomography"
 * RDLX#RID10312 "Magnetic resonance imaging"
 * RDLX#RID10326 "Ultrasound"
@@ -751,6 +764,7 @@ ValueSet: ChRadOrderViewType
 Id: ch-rad-order-view-type
 Title: "View Type"
 Description: "Definition for View Type Value Set in the context of CH RAD-Order."
+* ^experimental = true
 * RDLX#RID10424 "Right lateral decubitus position"
 * RDLX#RID10425 "Left lateral decubitus position"
 * RDLX#RID10439 "Lateral decubitus position"
@@ -872,5 +886,6 @@ ValueSet: ChRadOrderAcquisitionModality
 Id: ch-rad-order-acquisition-modality
 Title: "Modality that created the series"
 Description: "Valuset for the Type of equipment, or function or technique of that equipment, that created the data"
+* ^experimental = true
 * include codes from system AcquisitionModality
 * include codes from system ChRadOrderDicomUnknown

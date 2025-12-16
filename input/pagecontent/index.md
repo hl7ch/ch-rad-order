@@ -12,7 +12,7 @@ CH RAD-Order is intended for use in directional communication as well as for the
   
 <div markdown="1" class="stu-note">
 
-[Significant changes, open and closed issues.](changelog.html)
+[Changelog](changelog.html) with significant changes, open and closed issues.
 
 </div>
 
